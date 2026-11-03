@@ -1,6 +1,6 @@
 # Verificación de la entrega
 
-Fecha: 3 de noviembre de 2026. Versión 1.2.0.
+Fecha: 3 de noviembre de 2026. Versión 1.3.0.
 
 ## Comprobaciones ejecutadas
 
@@ -14,6 +14,7 @@ Fecha: 3 de noviembre de 2026. Versión 1.2.0.
 - Escena isométrica: SVG válido, IDs únicos y ausencia de scripts.
 - Movimiento: revisión de sintaxis y ciclo de vida simulado para pausa por visibilidad, preferencia de movimiento reducido, contadores y retirada de listeners.
 - Rediseño editorial: comparación con la versión 1.1 de controles, formularios y navegación; módulos de lógica y contenido conservados. Se actualizaron dos textos esperados por las pruebas de interfaz.
+- Rediseño de vidrio: se conservan controles y manejadores. Seis imágenes WebP inspeccionadas visualmente y verificadas; dimensiones declaradas, carga diferida en el programa y rutas locales comprobadas. Estilos de vidrio, fondo alternativo y esquinas redondeadas revisados estáticamente.
 
 ## Límites de la comprobación
 

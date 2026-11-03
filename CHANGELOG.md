@@ -1,5 +1,14 @@
 # Registro de cambios
 
+## 1.3.0 — Aula de cristal
+
+- Paneles de vidrio translúcido, fondos suaves, reflejos y esquinas redondeadas en tarjetas y controles.
+- Seis imágenes creadas para las etapas del programa e integradas en inicio, semanas, mapa y aula.
+- Temas de estudio numerados, portadas visuales y navegación de aprendizaje conservada.
+- Mantiene Times New Roman, textos breves, temas claro y oscuro y las animaciones configurables.
+- Compatibilidad con movimiento reducido y alternativa de fondo opaco cuando el navegador no ofrece desenfoque.
+- Todas las funciones existentes y el formato del progreso, las notas y los respaldos permanecen compatibles.
+
 ## 1.2.0 — Diseño editorial
 
 - Times New Roman como tipografía principal en la interfaz, controles y gráficos.

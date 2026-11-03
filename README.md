@@ -2,7 +2,9 @@
 
 Plataforma personal para estudiar ciberseguridad desde cero. Contiene las **52 semanas y 364 sesiones** del programa, con una página de inicio, ruta, aula, notas, seguimiento, temporizador y respaldos locales.
 
-La versión 1.2 utiliza Times New Roman, fondos de papel y tinta, líneas finas y colores discretos. Incluye temas claro y oscuro, una escena isométrica, formas fluidas, partículas y tipografía cinética de menor protagonismo. El movimiento puede desactivarse y respeta la preferencia del sistema. Se conservan todas las funciones de la versión anterior.
+La versión 1.3 combina Times New Roman con paneles de vidrio translúcido, fondos suaves, reflejos y esquinas redondeadas. Incluye temas claro y oscuro, una escena isométrica, formas fluidas, partículas y tipografía cinética. El movimiento puede desactivarse y respeta la preferencia del sistema. Se conservan todas las funciones de la versión anterior.
+
+Seis imágenes generadas para este proyecto identifican las etapas del programa en el inicio, las semanas, el mapa y el aula. Son ilustraciones conceptuales: las tareas, los temas y las explicaciones se mantienen como texto accesible. Las imágenes se sirven desde el repositorio; la página no llama a una API de IA. Consulta [la descripción y los prompts](assets/images/README.md).
 
 El inicio y la sección Progreso muestran actividad de estudio a 7/30 días, sesiones superadas, resultados de pruebas, un calendario de actividad y el mapa de etapas. Utilizan registros reales; cuando no hay actividad explican qué falta registrar. La distribución del programa representa la cantidad de sesiones de cada etapa, no una medición de habilidades.
 
@@ -43,6 +45,8 @@ También puedes abrir [GUIA_GITHUB.html](GUIA_GITHUB.html), que explica cómo su
 | `index.html` | Entrada de la aplicación. Debe quedar en la raíz publicada |
 | `assets/css/styles.css` y `app.css` | Diseño, estados y adaptación móvil |
 | `assets/css/editorial.css` | Tema editorial minimalista, cargado después de los estilos base |
+| `assets/css/glass.css` | Acabado de vidrio, esquinas redondeadas y portadas; cargado al final |
+| `assets/images/stage-01.webp` a `stage-06.webp` | Imágenes de las seis etapas del programa |
 | `assets/illustrations/lab.svg` | Ilustración isométrica del laboratorio |
 | `assets/js/app.js` | Conexión de pantallas y acciones |
 | `assets/js/router.js` | Navegación entre secciones |

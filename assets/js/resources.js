@@ -1,4 +1,4 @@
-import { validateBank } from './assessments.js';
+import { validateBank } from './assessments.js?v=1.6.0';
 
 export function safeUrl(value) {
   try { const u = new URL(value); return u.protocol === 'https:' ? u.href : null; } catch { return null; }

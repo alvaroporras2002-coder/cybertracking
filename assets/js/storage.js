@@ -54,6 +54,20 @@ function validateDraft(draft) {
   for (const selected of Object.values(draft.answers)) if (!Array.isArray(selected) || selected.some(v => typeof v !== 'string')) throw new Error('Las respuestas del borrador no son válidas.');
 }
 
+const validTimestamp = value => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}T/.test(value) && Number.isFinite(Date.parse(value));
+function validateFormDrafts(drafts) {
+  if (!drafts || typeof drafts !== 'object' || Array.isArray(drafts) || Object.keys(drafts).length > 3000) throw new Error('Los borradores de formularios no son válidos.');
+  let characters = 0;
+  for (const [key, draft] of Object.entries(drafts)) {
+    if (!/^[a-zA-Z0-9][a-zA-Z0-9:_./-]{0,199}$/.test(key) || !draft || typeof draft !== 'object' || Array.isArray(draft) || !validTimestamp(draft.updatedAt) || !draft.values || typeof draft.values !== 'object' || Array.isArray(draft.values) || Object.keys(draft.values).length > 16) throw new Error('Un borrador de formulario no es válido.');
+    for (const [field, text] of Object.entries(draft.values)) {
+      if (!/^[a-zA-Z][a-zA-Z0-9_-]{0,79}$/.test(field) || typeof text !== 'string' || text.length > 20000) throw new Error('Un campo del borrador no es válido.');
+      characters += text.length;
+    }
+  }
+  if (characters > 4_000_000) throw new Error('Los borradores de formularios superan el límite de almacenamiento.');
+}
+
 export function validateState(value) {
   if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error('El respaldo no contiene un estado válido.');
   rejectUnsafeKeys(value);
@@ -66,6 +80,8 @@ export function validateState(value) {
   if (!value.profile || !Number.isFinite(value.profile.weeklyMinutes) || value.profile.weeklyMinutes < 0 || value.profile.weeklyMinutes > 10080) throw new Error('Meta semanal no válida.');
   if (typeof value.profile.name !== 'string' || value.profile.name.length > 200) throw new Error('Nombre no válido.');
   if (!value.preferences || !['dark', 'light'].includes(value.preferences.theme) || typeof value.preferences.motion !== 'boolean') throw new Error('Preferencias no válidas.');
+  if (value.formDrafts !== undefined) validateFormDrafts(value.formDrafts);
+  if (value.lastActivity !== undefined && (!value.lastActivity || !/^w(?:0[1-9]|[1-4]\d|5[0-2])d[1-7]$/.test(value.lastActivity.dayId) || !['learn', 'resources', 'practice', 'quiz', 'notes'].includes(value.lastActivity.tab) || !validTimestamp(value.lastActivity.visitedAt))) throw new Error('La última actividad no es válida.');
   if (!Array.isArray(value.studySessions) || value.studySessions.length > 100000) throw new Error('Sesiones de tiempo no válidas.');
   for (const session of value.studySessions) {
     if (!session || typeof session.id !== 'string' || !Number.isFinite(session.durationMs) || session.durationMs < 0 || session.durationMs > 7 * 86400000) throw new Error('Hay un registro de tiempo no válido.');
@@ -74,6 +90,7 @@ export function validateState(value) {
   for (const [id, day] of Object.entries(value.days)) {
     if (!/^w(?:0[1-9]|[1-4]\d|5[0-2])d[1-7]$/.test(id) || !day || typeof day !== 'object') throw new Error('El respaldo contiene una sesión desconocida.');
     if (typeof day.notes !== 'string' || day.notes.length > 2_000_000) throw new Error('Una nota supera el límite o es inválida.');
+    if (day.notesEditedAt !== undefined && !validTimestamp(day.notesEditedAt)) throw new Error('La fecha de edición de una nota no es válida.');
     if (!day.resources || typeof day.resources !== 'object' || Array.isArray(day.resources) || !Object.values(day.resources).every(v => typeof v === 'boolean')) throw new Error('Lista de recursos no válida.');
     if (!Array.isArray(day.attempts) || !Array.isArray(day.doubts) || !Array.isArray(day.evidence)) throw new Error('Datos de estudio incompletos.');
     if (typeof day.challengePassed !== 'boolean') throw new Error('Estado de práctica no válido.');

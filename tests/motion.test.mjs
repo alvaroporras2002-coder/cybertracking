@@ -144,3 +144,27 @@ test('browsers without the Web Animations API do not leave orphaned ripple eleme
     assert.deepEqual(event.calls, { prevented: 0, stopped: 0 });
   } finally { f.cleanup(); }
 });
+
+test('routine refresh finishes counters and rebinds effects without replaying nested entrances', () => {
+  const f = browserFixture();
+  try {
+    const root = new f.Element('main');
+    const card = new f.Element('article'), heading = new f.Element('div'), standalone = new f.Element('section');
+    heading.parentElement = { closest: () => card };
+    const counter = new f.Element('span'); counter.dataset.count = '42';
+    root.querySelectorAll = selector => selector === '[data-count]' ? [counter] : [card, heading, standalone];
+    f.motion.refresh(root);
+    assert.equal(f.animations.filter(animation => animation.element === card).length, 1);
+    assert.equal(f.animations.filter(animation => animation.element === heading).length, 0, 'a heading inside an animated card must not receive a second entrance');
+    assert.equal(f.animations.filter(animation => animation.element === standalone).length, 1);
+    const entrances = [...f.animations];
+    f.motion.refresh(root, { animate: false });
+    assert.equal(f.animations.length, entrances.length, 'saving or refreshing data must not replay page entrances');
+    assert.ok(entrances.every(animation => animation.cancelled));
+    assert.equal(counter.textContent, '42', 'routine updates expose their final value immediately');
+    assert.equal(root.listenerCount('pointermove'), 1, 'tilt is still rebound for the new DOM');
+    assert.equal(root.listenerCount('pointerleave'), 1);
+    f.media.dispatch('change');
+    assert.equal(f.animations.length, entrances.length, 'media preference changes are not route changes');
+  } finally { f.cleanup(); }
+});

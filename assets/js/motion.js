@@ -105,13 +105,13 @@ export function initMotion({ enabled = true } = {}) {
       ctx.lineWidth = .65; ctx.stroke();
     }
   }
-  function count(element) {
+  function count(element, animate = true) {
     const value = Number(element.dataset.count); if (!Number.isFinite(value)) return;
     const decimals = Math.max(0, Math.min(2, Number(element.dataset.countDecimals) || 0));
     const prefix = element.dataset.countPrefix || '', suffix = element.dataset.countSuffix || '';
     const format = n => `${prefix}${n.toLocaleString('es', { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}${suffix}`;
     const final = format(value);
-    if (!active() || value === 0) { element.textContent = final; return; }
+    if (!animate || !active() || value === 0) { element.textContent = final; return; }
     const record = { frame: 0, final }, start = performance.now();
     const tick = time => {
       if (!element.isConnected || !active()) { element.textContent = final; counters.delete(element); return; }
@@ -137,12 +137,18 @@ export function initMotion({ enabled = true } = {}) {
     root.addEventListener('pointermove', move, { passive: true }); root.addEventListener('pointerleave', reset);
     pointerCleanup = () => { reset(); root.removeEventListener('pointermove', move); root.removeEventListener('pointerleave', reset); };
   }
-  function refresh(root = document.getElementById('main-content')) {
+  function refresh(root = document.getElementById('main-content'), { animate = true } = {}) {
     finishCounters(); stopEntrances(); currentRoot = root; if (!root) return;
-    root.querySelectorAll('[data-count]').forEach(count);
-    if (active()) {
-      const cards = root.querySelectorAll('.command-hero, .welcome-strip, .chart-card, .card, .route-banner, .section-heading');
-      [...cards].slice(0, 24).forEach((element, index) => {
+    root.querySelectorAll('[data-count]').forEach(element => count(element, animate));
+    if (animate && active()) {
+      // A card and its heading share one entrance. Animating both would move
+      // the same content twice and make routine updates feel like navigation.
+      const selector = '.command-hero, .welcome-strip, .chart-card, .card, .route-banner, .section-heading, .course-complete, .resume-card';
+      const cards = [...root.querySelectorAll(selector)].filter(element => {
+        const parent = element.parentElement?.closest(selector);
+        return !parent || !root.contains(parent);
+      });
+      cards.slice(0, 24).forEach((element, index) => {
         if (typeof element.animate !== 'function') return;
         const animation = element.animate([{ opacity: 0, transform: 'translateY(15px)' }, { opacity: 1, transform: 'translateY(0)' }],
           { duration: 480, delay: Math.min(index * 30, 280), easing: 'cubic-bezier(.22,.8,.25,1)', fill: 'backwards' });
@@ -160,14 +166,14 @@ export function initMotion({ enabled = true } = {}) {
     else { ctx?.clearRect(0, 0, width, height); finishCounters(); stopEntrances(); stopInteractions(); pointerCleanup?.(); pointerCleanup = null; }
   }
   const visibility = () => { sync(); if (!document.hidden) attachTilt(currentRoot); };
-  const mediaChange = () => { sync(); if (active()) refresh(currentRoot); };
+  const mediaChange = () => { sync(); if (active()) refresh(currentRoot, { animate: false }); };
   const onResize = () => { resize(); sync(); attachTilt(currentRoot); };
   resize(); sync();
   window.addEventListener('resize', onResize, { passive: true }); document.addEventListener('visibilitychange', visibility);
   document.addEventListener('pointerdown', press, { passive: true }); document.addEventListener('click', click, { passive: true });
   const removeMedia = listenMedia(media, mediaChange), removePointer = listenMedia(pointer, mediaChange);
   return {
-    update(value) { const next = Boolean(value); if (destroyed || next === desired) return; desired = next; sync(); if (active()) refresh(currentRoot); },
+    update(value) { const next = Boolean(value); if (destroyed || next === desired) return; desired = next; sync(); if (active()) refresh(currentRoot, { animate: false }); },
     refresh,
     destroy() {
       destroyed = true; cancel(frame); finishCounters(); stopEntrances(); stopInteractions(); pointerCleanup?.();

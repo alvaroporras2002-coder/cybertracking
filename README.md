@@ -2,11 +2,11 @@
 
 Plataforma personal para estudiar ciberseguridad desde cero. Contiene las **52 semanas y 364 sesiones** del programa, con una página de inicio, ruta, aula, notas, seguimiento, temporizador y respaldos locales.
 
-La versión 1.5 utiliza tipografía adaptable del sistema y una apariencia clara de vidrio translúcido. Corrige el guardado al cambiar de sesión y conserva los reproductores mientras se marcan recursos o se usa el temporizador. El inicio y las tarjetas semanales son más compactos; las animaciones respetan el movimiento reducido del sistema.
+La versión 1.6 conserva la apariencia clara de vidrio translúcido, las esquinas redondeadas y la tipografía adaptable. Añade borradores para los formularios, búsqueda sin tildes, filtros del cuaderno y accesos distintos para retomar una actividad o avanzar. Las entradas animadas se reservan para la navegación; los guardados muestran una confirmación puntual.
 
 Cincuenta y dos portadas generadas para este proyecto identifican cada semana con una escena diferente. El inicio y el aula muestran la portada de la semana correspondiente; el mapa general conserva sus seis imágenes de etapa. Son ilustraciones conceptuales: las tareas, los temas y las explicaciones se mantienen como texto accesible. Las imágenes se sirven desde el repositorio; la página no llama a una API de IA. Consulta [las portadas y sus prompts](assets/images/weeks/README.md) y [las imágenes de etapa](assets/images/README.md).
 
-El inicio y la sección Progreso muestran actividad de estudio a 7/30 días, sesiones superadas, resultados de pruebas, un calendario de actividad y el mapa de etapas. Utilizan registros reales; cuando no hay actividad explican qué falta registrar. La distribución del programa representa la cantidad de sesiones de cada etapa, no una medición de habilidades.
+El inicio resume el recorrido y la sección Progreso muestra actividad a 7/30 días, sesiones superadas, resultados de pruebas, un calendario de actividad y el avance por etapas. Los gráficos utilizan registros reales y ofrecen tablas de datos; cuando no hay actividad explican qué falta registrar. La distribución del programa representa la cantidad de sesiones de cada etapa, no una medición de habilidades.
 
 Repositorio: [alvaroporras2002-coder/cybertracking](https://github.com/alvaroporras2002-coder/cybertracking). Sitio: [CYBERTRACK](https://alvaroporras2002-coder.github.io/cybertracking/).
 
@@ -51,6 +51,8 @@ También puedes abrir [GUIA_GITHUB.html](GUIA_GITHUB.html), que explica cómo su
 | `assets/js/app.js` | Conexión de pantallas y acciones |
 | `assets/js/router.js` | Navegación entre secciones |
 | `assets/js/draft-notes.js` | Borradores por sesión, cola de guardado y recuperación de errores |
+| `assets/js/form-drafts.js` | Borradores locales de formularios y reintento del guardado |
+| `assets/js/learner-tools.js` | Búsqueda, filtros del cuaderno y selección de la actividad |
 | `assets/js/resources.js` | Carga de contenido y reproducción permitida |
 | `assets/js/motion.js` | Efectos decorativos y movimiento reducido |
 | `assets/js/analytics.js` | Agregaciones y gráficos de actividad, resultados y progreso |
@@ -99,7 +101,9 @@ Co-authored-by: Codex <noreply@openai.com>
 
 ## Uso y avance
 
-- El inicio retoma la primera sesión que todavía no está superada.
+- El inicio distingue la siguiente sesión pendiente de la última actividad visitada. Al superar las 364 sesiones, ofrece accesos para repasar y consultar evidencias.
+- Buscar `evaluacion` también encuentra `evaluación`. Las semanas con coincidencias se despliegan para mostrar las sesiones.
+- El cuaderno permite consultar favoritos, dudas abiertas y evidencias; el orden reciente utiliza la fecha de edición de las notas.
 - Marca los recursos obligatorios cuando los hayas estudiado; los opcionales no bloquean.
 - Completa el reto práctico y supera la evaluación para avanzar.
 - Un intento fallido se conserva y permite repasar sus explicaciones.
@@ -108,6 +112,8 @@ Co-authored-by: Codex <noreply@openai.com>
 - Los videos se insertan solo cuando el proveedor lo permite. Si falla el reproductor, abre el recurso original.
 - El temporizador se pausa al ocultar la pestaña. El formulario de estudio externo permite registrar entre 1 y 720 minutos reales por entrada, asociados a una sesión.
 - Las notas pendientes se guardan antes de navegar. Si falla el almacenamiento, el borrador sigue disponible en la página para reintentar; cerrar el navegador por la fuerza puede perder un borrador que no se haya persistido.
+- Perfil, objetivo de certificación, dudas, evidencias de texto, tiempo manual y enlaces alternativos conservan borradores locales. Guardar un borrador no envía el formulario ni cuenta tiempo de estudio: debes confirmar la acción correspondiente.
+- Los gráficos desplazables se pueden recorrer con el teclado y ofrecen una vista en tabla. Cambiar de pantalla mueve el foco al título; un guardado rutinario conserva el foco de trabajo.
 
 ## Tus datos y las actualizaciones
 

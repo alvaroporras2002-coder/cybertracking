@@ -112,3 +112,21 @@ test('summaries do not mutate imported state or curriculum objects', () => {
   assert.deepEqual(state, copy);
   assert.deepEqual(days, dayCopy);
 });
+
+test('scrollable charts have named keyboard regions and equivalent data tables', () => {
+  const unsafeTitle = 'DNS <img src=x onerror=alert(1)>';
+  const state = { studySessions: [log('morning', 0, 12), log('afternoon', 0, 23)], days: { w01d1: { attempts: [attempt('score', 85, at(-1))] } } };
+  const html = renderAnalytics(state, [{ ...day, title: unsafeTitle }], { now });
+  for (const id of ['activity-scroll-help', 'scores-scroll-help']) {
+    assert.match(html, new RegExp(`id="${id}"`));
+    assert.match(html, new RegExp(`class="chart-scroll" role="region" tabindex="0" aria-label="[^"]+" aria-describedby="${id}"`));
+  }
+  assert.equal((html.match(/<summary>Ver datos en tabla<\/summary>/g) || []).length, 2);
+  const activity = html.slice(html.indexOf('<section class="chart-card activity-chart">'), html.indexOf('</section>'));
+  assert.match(activity, /<th scope="row">2026-03-10<\/th><td>35<\/td><td>2<\/td><td>0<\/td>/);
+  assert.match(activity, /<th scope="row">2026-03-09<\/th><td>0<\/td><td>0<\/td><td>1<\/td>/);
+  assert.match(html, /<th scope="row">1<\/th><td>DNS &lt;img src=x onerror=alert\(1\)&gt;<\/td>/);
+  assert.match(html, /<td>85%<\/td><td>Aprobada<\/td>/);
+  assert.ok(!html.includes('<img'));
+  assert.match(activity, /Tiempo registrado<\/div>/, 'manual and timed logs share the same honest label');
+});

@@ -1,4 +1,4 @@
-import { getState, mutateState } from './storage.js';
+import { getState, mutateState } from './storage.js?v=1.6.0';
 const tabId = globalThis.crypto?.randomUUID?.() || `tab-${Math.random().toString(36).slice(2)}`;
 let interval;
 let tickCount = 0;
@@ -41,7 +41,7 @@ export async function logTimer() {
     state.timer = { running: false, startedAt: null, elapsedMs: 0, dayId: null, ownerId: null };
   });
 }
-export async function logManualStudy(dayId, minutes, note = '') {
+export async function logManualStudy(dayId, minutes, note = '', { onMutate } = {}) {
   const amount = Number(minutes);
   if (!/^w(?:0[1-9]|[1-4]\d|5[0-2])d[1-7]$/.test(dayId)) throw new Error('Elige una sesión válida.');
   if (!Number.isInteger(amount) || amount < 1 || amount > 720) throw new Error('Registra entre 1 y 720 minutos completos.');
@@ -49,6 +49,9 @@ export async function logManualStudy(dayId, minutes, note = '') {
   if (description.length > 1000) throw new Error('La descripción admite hasta 1000 caracteres.');
   await mutateState(state => {
     state.studySessions.push({ id: crypto.randomUUID(), dayId, durationMs: amount * 60000, endedAt: timestamp(), source: 'manual', note: description });
+    // Clear the submitted form draft in this same transaction. A failed save
+    // must never leave a logged entry that looks safe to submit a second time.
+    if (onMutate) onMutate(state);
   });
 }
 export function initTimer(onTick = () => {}) {

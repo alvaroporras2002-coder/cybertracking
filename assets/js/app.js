@@ -1,19 +1,21 @@
-import { loadState, getState, mutateState, subscribe, ensureDay, createDefaultState, replaceState, getStorageInfo } from './storage.js';
-import { getDayCompletion } from './progress.js';
-import { createAttempt, scoreAttempt, evaluateChallenge } from './assessments.js';
-import { getTimerMs, startTimer, pauseTimer, logTimer, logManualStudy, initTimer } from './timer.js?v=1.5.0';
-import { exportBackup, parseBackup, mergeStates, previewImport, evidenceFromFile } from './backup.js';
-import { loadCurriculum, safeUrl, embedUrl } from './resources.js?v=1.5.0';
-import { readRoute, navigate, initRouter } from './router.js?v=1.5.0';
-import { initMotion } from './motion.js?v=1.5.0';
-import { createNoteDrafts } from './draft-notes.js';
-import { renderAnalytics, summarizeLearning } from './analytics.js';
+import { loadState, getState, mutateState, subscribe, ensureDay, createDefaultState, replaceState, getStorageInfo } from './storage.js?v=1.6.0';
+import { getDayCompletion } from './progress.js?v=1.6.0';
+import { createAttempt, scoreAttempt, evaluateChallenge } from './assessments.js?v=1.6.0';
+import { getTimerMs, startTimer, pauseTimer, logTimer, logManualStudy, initTimer } from './timer.js?v=1.6.0';
+import { exportBackup, parseBackup, mergeStates, previewImport, evidenceFromFile } from './backup.js?v=1.6.0';
+import { loadCurriculum, safeUrl, embedUrl } from './resources.js?v=1.6.0';
+import { readRoute, navigate, initRouter } from './router.js?v=1.6.0';
+import { initMotion } from './motion.js?v=1.6.0';
+import { createNoteDrafts } from './draft-notes.js?v=1.6.0';
+import { createFormDrafts } from './form-drafts.js?v=1.6.0';
+import { searchWeeks, highlightText, matchesSearch, selectNotebookDays, recentNoteDays, selectLearnerNavigation } from './learner-tools.js?v=1.6.0';
+import { renderAnalytics, summarizeLearning } from './analytics.js?v=1.6.0';
 
 const $ = (s, root = document) => root.querySelector(s);
 const E = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
-let curriculum, days, banks, motion, notes, imported = null, searchTimer, loadBank = async () => {};
-let pathFilter = '', stageFilter = '', pageNumber = 1, noteFilter = '';
-let chartRange = 7;
+let curriculum, days, banks, motion, notes, formDrafts, imported = null, searchTimer, loadBank = async () => {};
+let pathFilter = '', stageFilter = '', pageNumber = 1, noteFilter = '', notebookFilter = 'all', notebookSort = 'recent';
+let chartRange = 7, renderedHash = null;
 const pageSize = 8;
 const labels = { home: 'Inicio', path: 'Ruta de estudio', day: 'Aula', notes: 'Cuaderno', progress: 'Progreso', settings: 'Ajustes' };
 
@@ -83,9 +85,65 @@ function dayBadge(d) {
   return unlocked(d) ? '<span class="badge accent">Disponible</span>' : '<span class="badge">Vista previa</span>';
 }
 
-async function commit(fn, rerender = true) {
-  try { if(rerender) await flushNotes(); await mutateState(fn); applyPreferences(); if(rerender) render(); return true; }
-  catch(err) { toast(`No se guardó: ${err.message}`, true); return false; }
+const formFields = {
+  onboarding:['name'], 'settings-form':['name','weeklyMinutes'], 'cert-form':['version','notes'],
+  'manual-time-form':['dayId','minutes','note'], 'doubt-form':['text'],
+  'evidence-link-form':['title','content'], 'replacement-form':['url','reason']
+};
+function draftKind(form) { return formFields[form?.id]?form.id:form?.classList?.contains?.('replacement-form')?'replacement-form':null; }
+function formKey(form) {
+  const kind=draftKind(form);if(!kind)return null;
+  return kind==='replacement-form'?`${kind}:${form.dataset.day}:${form.dataset.rid}`:['doubt-form','evidence-link-form'].includes(kind)?`${kind}:${form.dataset.day}`:kind;
+}
+function formDraftStatus(key,status) {
+  document.querySelectorAll('[data-form-draft-status]').forEach(el=>{if(el.dataset.formDraftStatus!==key)return;el.classList.toggle('error',status==='error');el.dataset.status=status;el.innerHTML=status==='error'?`No se guardó el borrador. ${button('Reintentar','form-drafts-retry','','ghost')}`:['saving','pending'].includes(status)?'Guardando borrador…':status==='saved'?'Borrador guardado en este navegador':'';});
+}
+function decorateFormDrafts(markup) {
+  return markup.replace(/<form\b([^>]*)>([\s\S]*?)<\/form>/g,(full,attributes,body)=>{
+    const id=attributes.match(/\bid="([^"]+)"/)?.[1],replacement=/\bclass="[^"]*replacement-form/.test(attributes);
+    const kind=formFields[id]?id:replacement?'replacement-form':null;if(!kind)return full;
+    const day=attributes.match(/\bdata-day="([^"]+)"/)?.[1],rid=attributes.match(/\bdata-rid="([^"]+)"/)?.[1];
+    const key=kind==='replacement-form'?`${kind}:${day}:${rid}`:['doubt-form','evidence-link-form'].includes(kind)?`${kind}:${day}`:kind;
+    const record=formDrafts?.get(key),error=formDrafts?.error(key);
+    return `<form${attributes} data-form-draft-key="${E(key)}">${body}<div class="form-draft-status ${error?'error':''}" data-form-draft-status="${E(key)}" role="status">${error?`No se guardó el borrador. ${button('Reintentar','form-drafts-retry','','ghost')}`:record?'Borrador guardado en este navegador':''}</div></form>`;
+  });
+}
+function restoreFormDrafts(root=$('#main-content')) {
+  root?.querySelectorAll('form').forEach(form=>{
+    const key=formKey(form),record=key&&formDrafts?.get(key);if(!record)return;
+    for(const name of formFields[draftKind(form)]){const field=form.elements?.namedItem?.(name)||form.querySelector(`[name="${name}"]`);if(field&&Object.hasOwn(record.values,name))field.value=record.values[name];}
+    const details=form.closest('details');if(details)details.open=true;
+  });
+}
+function captureFormInput(el) {
+  const form=el.form||el.closest?.('form'),kind=draftKind(form);if(form?.dataset?.submitting==='true'||!kind||!formFields[kind].includes(el.name))return;
+  const data=new FormData(form),values=Object.fromEntries(formFields[kind].map(name=>[name,String(data.get(name)??'')]));
+  formDrafts.set(formKey(form),values);
+}
+function captureFocus() {
+  const active=document.activeElement,main=$('#main-content');if(!active||!main?.contains?.(active))return null;
+  const form=active.form||active.closest?.('form');
+  return {id:active.id,name:active.name,key:formKey(form),formId:form?.id,ordinal:form?[...(form.querySelectorAll?.('input,textarea,select,button')||[])].indexOf(active):-1,action:active.dataset?.action,day:active.dataset?.id,range:active.dataset?.range,doubt:active.dataset?.doubt,doubtDay:active.dataset?.day,start:active.selectionStart,end:active.selectionEnd};
+}
+function restoreFocus(saved) {
+  if(!saved)return;let target=saved.id?document.getElementById?.(saved.id)||$(`#${saved.id}`):null;
+  if(!target&&(saved.key||saved.formId))$('#main-content')?.querySelectorAll('form').forEach(form=>{if(saved.key?formKey(form)===saved.key:form.id===saved.formId){const named=saved.name?form.elements?.namedItem?.(saved.name):null;target=typeof named?.focus==='function'?named:(form.querySelectorAll?.('input,textarea,select,button')||[])[saved.ordinal];}});
+  if(!target&&saved.doubt)$('#main-content')?.querySelectorAll('[data-doubt]').forEach(el=>{if(el.dataset.doubt===saved.doubt&&el.dataset.day===saved.doubtDay)target=el;});
+  if(!target&&saved.action)$('#main-content')?.querySelectorAll('[data-action]').forEach(el=>{if(el.dataset.action===saved.action&&el.dataset.id===saved.day&&el.dataset.range===saved.range)target=el;});
+  if(!target&&['quiz-form','challenge-form'].includes(saved.formId))target=$('#main-content')?.querySelector('.notice, .attempt-result, .card');
+  if(target){if(['quiz-form','challenge-form'].includes(saved.formId))target.setAttribute('tabindex','-1');target.focus({preventScroll:true});if(typeof saved.start==='number')try{target.setSelectionRange(saved.start,saved.end);}catch{}}
+}
+function focusRouteTitle() { const target=$('#main-content')?.querySelector('h2')||$('#page-title')||$('#main-content');target?.setAttribute('tabindex','-1');target?.focus({preventScroll:true}); }
+async function flushDrafts() { await flushNotes();if(formDrafts)await formDrafts.flush(); }
+function neutralFocus() { const active=document.activeElement;return !active||active===document.body||active.tagName==='BODY'; }
+async function commit(fn, rerender = true, {form,focusFallback=null,focusHash=location.hash} = {}) {
+  const viewHash=location.hash,key=form&&formKey(form);
+  try {
+    if(rerender||key)await flushDrafts();
+    await mutateState(s=>{fn(s);if(key&&s.formDrafts)delete s.formDrafts[key];});
+    if(key)formDrafts.forget(key);
+    applyPreferences();if(rerender&&location.hash===viewHash&&renderedHash===viewHash){const focus=captureFocus()||(neutralFocus()&&location.hash===focusHash?focusFallback:null);render({animate:false});restoreFocus(focus);}return true;
+  } catch(err) { toast(`No se guardó: ${err.message}`, true);return false; }
 }
 function applyPreferences() {
   document.documentElement.dataset.theme = 'light';
@@ -121,14 +179,16 @@ function homeStatsMarkup() {
 function renderHome() {
   const day=currentDay(), completed=completedDays(), week=curriculum.weeks.find(w=>w.number===day.week), state=snapshot(), goal=state.profile?.weeklyMinutes||720;
   const weekDone=week.days.filter(d=>completion(d).completed).length;
-  const recent=days.filter(d=>ds(d.id).notes).reverse().slice(0,2);
+  const recent=recentNoteDays(days,state,2),navigation=selectLearnerNavigation(days,state,d=>completion(d).completed);
+  const resume=navigation.resumeDay;
   const doubts=days.flatMap(d=>(ds(d.id).doubts||[]).filter(q=>!q.resolved));
   const c=completion(day), learning=summarizeLearning(days,state,id=>banks.has(id));
   const checks=[['Recursos obligatorios',c.resourcesReady,'resources'],['Reto aplicado',c.challengeReady,'practice'],['Prueba de comprensión',c.quizPassed,'quiz']];
   return `<div class="workspace-greeting"><h2>${state.profile?.name?`Hola, ${E(state.profile.name)}.`:'Mi estudio'}</h2><a href="#progress" class="text-link">Ver métricas ↗</a></div>
   ${!state.profile?.onboarded?`<section class="welcome-strip"><strong>Personaliza tu perfil</strong><form id="onboarding" class="inline-form"><label class="sr-only" for="welcome-name">Nombre</label><input id="welcome-name" name="name" autocomplete="given-name" maxlength="60" placeholder="Tu nombre (opcional)">${button('Guardar','onboard','type="submit"')}</form></section>`:''}
-  <div class="overview-layout"><section class="hero command-hero"><div class="hero-copy"><span class="kicker">Semana ${String(day.week).padStart(2,'0')} · Día ${day.day}</span><h2><span class="kinetic-word">${E(day.title)}</span></h2><p>${E(day.topics.slice(0,2).join(' · '))}</p><div class="hero-actions">${button('Continuar estudiando <span aria-hidden="true">↗</span>','goto',`data-hash="day/${day.id}/${ds(day.id).lastTab||'learn'}"`)}<a class="btn ghost" href="#path">Ver programa</a></div></div><div class="hero-art hero-isometric"><div class="hero-orb" aria-hidden="true"></div>${weekImage(day.week,'hero-stage-cover',{priority:true,decorative:false})}</div></section>
-  <article class="card focus-card"><div class="section-heading"><span class="eyebrow">Esta semana</span>${dayBadge(day)}</div><div class="focus-number">${String(day.week).padStart(2,'0')}<span>SEMANA<br>DÍA ${day.day} DE 7</span></div><h3>${E(week.title)}</h3><div class="week-dots">${week.days.map(d=>`<a href="#day/${d.id}/learn" class="day-dot ${completion(d).completed?'done':d.id===day.id?'active':''}" aria-label="Día ${d.day}: ${E(d.title)}">${completion(d).completed?'✓':d.day}</a>`).join('')}</div><div class="mini-checks">${checks.map(([l,yes,tab])=>`<a class="check-row" href="#day/${day.id}/${tab}"><span class="status-dot ${yes?'done':''}">${yes?'✓':'○'}</span><span>${l}</span><span>↗</span></a>`).join('')}</div><div class="section-heading"><span class="muted">Sesiones superadas</span><strong>${weekDone}/7</strong></div>${bar(weekDone,7)}</article></div>
+  ${resume?`<section class="resume-card"><div><span class="eyebrow">Última actividad</span><strong>${E(resume.title)}</strong><span class="muted">Semana ${resume.week} · Día ${resume.day}</span></div><a class="btn secondary" href="#day/${resume.id}/${navigation.resumeTab}">Retomar última actividad ↗</a></section>`:''}
+  ${navigation.complete?`<div class="overview-layout course-complete"><section class="hero command-hero"><div class="hero-copy"><span class="kicker">${navigation.completed} / ${navigation.total} sesiones</span><h2>Recorrido completado</h2><p>Consulta tus resultados, repasa los temas y conserva tus evidencias.</p><div class="hero-actions"><a class="btn primary" href="#path">Repasar el programa ↗</a><a class="btn secondary" href="#notes/evidence">Revisar mis evidencias</a></div></div><div class="hero-art hero-isometric">${weekImage(52,'hero-stage-cover',{priority:true})}</div></section><article class="card focus-card"><h3>Tu siguiente paso</h3><p>Revisa tus dudas y usa tus prácticas para preparar entrevistas y certificaciones.</p><div class="mini-checks"><a href="#notes/open-doubts">Resolver dudas abiertas ↗</a><a href="#progress">Ver resultados ↗</a></div></article></div>`:`<div class="overview-layout"><section class="hero command-hero"><div class="hero-copy"><span class="kicker">Siguiente sesión pendiente · Semana ${String(day.week).padStart(2,'0')} · Día ${day.day}</span><h2><span class="kinetic-word">${E(day.title)}</span></h2><p>${E(day.topics.slice(0,2).join(' · '))}</p><div class="hero-actions">${button('Abrir siguiente sesión <span aria-hidden="true">↗</span>','goto',`data-hash="day/${day.id}/${ds(day.id).lastTab||'learn'}"`)}<a class="btn ghost" href="#path">Ver programa</a></div></div><div class="hero-art hero-isometric"><div class="hero-orb" aria-hidden="true"></div>${weekImage(day.week,'hero-stage-cover',{priority:true,decorative:false})}</div></section>
+  <article class="card focus-card"><div class="section-heading"><span class="eyebrow">Esta semana</span>${dayBadge(day)}</div><div class="focus-number">${String(day.week).padStart(2,'0')}<span>SEMANA<br>DÍA ${day.day} DE 7</span></div><h3>${E(week.title)}</h3><div class="week-dots">${week.days.map(d=>`<a href="#day/${d.id}/learn" class="day-dot ${completion(d).completed?'done':d.id===day.id?'active':''}" aria-label="Día ${d.day}: ${E(d.title)}">${completion(d).completed?'✓':d.day}</a>`).join('')}</div><div class="mini-checks">${checks.map(([l,yes,tab])=>`<a class="check-row" href="#day/${day.id}/${tab}"><span class="status-dot ${yes?'done':''}">${yes?'✓':'○'}</span><span>${l}</span><span>↗</span></a>`).join('')}</div><div class="section-heading"><span class="muted">Sesiones superadas</span><strong>${weekDone}/7</strong></div>${bar(weekDone,7)}</article></div>`}
   <div class="stats-grid" id="home-stats">${homeStatsMarkup()}</div>
   <details class="home-secondary"><summary>Ver etapas, concentración y notas</summary>${stageMap()}
   <div class="dashboard-columns"><article class="card focus-timer-card"><div class="chart-heading"><h3>Temporizador</h3></div>${timerPanel(day.id)}</article>
@@ -136,12 +196,10 @@ function renderHome() {
   </details><div class="content-footnote">Evaluaciones disponibles: ${banks.size} de ${days.length} sesiones. <a href="#settings">Consultar cobertura ↗</a></div>`;
 }
 
-function matchingWeeks() {
-  return curriculum.weeks.filter(w=>(!stageFilter||w.stage===stageFilter)&&(!pathFilter||`${w.title} ${w.stage} ${w.days.map(d=>`${d.title} ${d.topics.join(' ')} ${d.resources.map(r=>r.title).join(' ')}`).join(' ')}`.toLocaleLowerCase().includes(pathFilter.toLocaleLowerCase())));
-}
+function matchingWeeks() { return searchWeeks(curriculum.weeks,{query:pathFilter,stage:stageFilter}); }
 function renderPathResults() {
   const matches=matchingWeeks(),count=Math.max(1,Math.ceil(matches.length/pageSize));pageNumber=Math.min(pageNumber,count);
-  return `<p class="result-count" role="status">${matches.length} semanas</p><div class="week-grid">${matches.slice((pageNumber-1)*pageSize,pageNumber*pageSize).map(w=>{const n=w.days.filter(d=>completion(d).completed).length,ready=w.days.every(d=>banks.has(d.id));return `<article class="card week-card">${weekImage(w.number,'stage-cover')}<div class="section-heading"><span class="eyebrow">SEMANA ${String(w.number).padStart(2,'0')}</span><span class="badge ${ready?'accent':''}">${ready?'Evaluación lista':'Solo contenido'}</span></div><span class="muted">${E(w.stage)}</span><h3 class="week-title">${E(w.title)}</h3>${bar(n,7)}<details class="week-days" ${w.number===currentDay().week?'open':''}><summary>Ver 7 sesiones · ${n}/7 superadas</summary><div class="route-days">${w.days.map(d=>`<a class="route-day ${d.id===currentDay().id?'current':''}" href="#day/${d.id}/learn"><span class="day-dot ${completion(d).completed?'done':''}">${completion(d).completed?'✓':d.day}</span><span>${E(d.title)}</span><span aria-label="${unlocked(d)?'Disponible':'Vista previa'}">${unlocked(d)?'↗':'◌'}</span></a>`).join('')}</div></details></article>`;}).join('')||'<div class="empty-state">No encontramos ese tema. Prueba otra palabra.</div>'}</div><div class="pagination">${button('← Anterior','page',`data-n="${pageNumber-1}" ${pageNumber===1?'disabled':''}`,'secondary')}<span>Página ${pageNumber} de ${count}</span>${button('Siguiente →','page',`data-n="${pageNumber+1}" ${pageNumber===count?'disabled':''}`,'secondary')}</div>`;
+  return `<p class="result-count" role="status">${matches.length} semanas</p><div class="week-grid">${matches.slice((pageNumber-1)*pageSize,pageNumber*pageSize).map(({week:w,matchingDayIds,contextMatch})=>{const n=w.days.filter(d=>completion(d).completed).length,ready=w.days.every(d=>banks.has(d.id));return `<article class="card week-card">${weekImage(w.number,'stage-cover')}<div class="section-heading"><span class="eyebrow">SEMANA ${String(w.number).padStart(2,'0')}</span><span class="badge ${ready?'accent':''}">${ready?'Evaluación lista':'Solo contenido'}</span></div><span class="muted">${highlightText(w.stage,pathFilter)}</span><h3 class="week-title">${highlightText(w.title,pathFilter)}</h3>${bar(n,7)}<details class="week-days" ${pathFilter.trim()||w.number===currentDay().week?'open':''}><summary>Ver 7 sesiones · ${n}/7 superadas</summary><div class="route-days">${w.days.map(d=>{const matched=!!pathFilter.trim()&&(contextMatch||matchingDayIds.includes(d.id)),context=pathFilter.trim()?[...d.topics,...d.resources.map(r=>r.title)].find(text=>matchesSearch(text,pathFilter)):'';return `<a class="route-day ${d.id===currentDay().id?'current':''} ${matched?'search-match':''}" href="#day/${d.id}/learn"><span class="day-dot ${completion(d).completed?'done':''}">${completion(d).completed?'✓':d.day}</span><span>${highlightText(d.title,pathFilter)}${context?`<small class="search-match-context">${highlightText(context,pathFilter)}</small>`:''}</span><span aria-label="${unlocked(d)?'Disponible':'Vista previa'}">${unlocked(d)?'↗':'◌'}</span></a>`;}).join('')}</div></details></article>`;}).join('')||'<div class="empty-state">No encontramos ese tema. Prueba otra palabra.</div>'}</div><div class="pagination">${button('← Anterior','page',`data-n="${pageNumber-1}" ${pageNumber===1?'disabled':''}`,'secondary')}<span>Página ${pageNumber} de ${count}</span>${button('Siguiente →','page',`data-n="${pageNumber+1}" ${pageNumber===count?'disabled':''}`,'secondary')}</div>`;
 }
 function renderPath() {
   const stages=[...new Set(curriculum.weeks.map(w=>w.stage))];
@@ -210,12 +268,11 @@ function renderDay(id,tab) {
 }
 
 function renderNotesList() {
-  const matches=days.filter(d=>{const st=ds(d.id);return(st.notes||(st.doubts||[]).length||(st.evidence||[]).length)&&(!noteFilter||`${d.title} ${st.notes||''} ${(st.doubts||[]).map(q=>q.text).join(' ')}`.toLowerCase().includes(noteFilter.toLowerCase()));});
-  return `<div class="notes-list">${matches.map(d=>{const st=ds(d.id);return `<article class="card"><div class="section-heading"><span class="eyebrow">SEMANA ${d.week} · DÍA ${d.day}</span>${st.favorite?'<span>★</span>':''}</div><h3><a href="#day/${d.id}/notes">${E(d.title)}</a></h3><p class="note-text">${E((st.notes||'Sin nota escrita').slice(0,350))}</p><div class="hero-pills"><span class="chip">${(st.doubts||[]).filter(q=>!q.resolved).length} dudas abiertas</span><span class="chip">${(st.evidence||[]).length} evidencias</span></div></article>`;}).join('')||'<div class="empty-state notes-empty"><h3>Tu cuaderno está listo.</h3><p>Abre una sesión para añadir notas, dudas o evidencias.</p><a href="#day/w01d1/notes" class="btn primary">Escribir mi primera nota</a></div>'}</div>`;
+  const matches=selectNotebookDays(days,snapshot(),{query:noteFilter,filter:notebookFilter,sort:notebookSort});
+  return `<p class="result-count" role="status">${matches.length} sesiones en el cuaderno</p><div class="notes-list">${matches.map(d=>{const st=ds(d.id),edited=st.notesEditedAt||st.updatedAt;return `<article class="card"><div class="section-heading"><span class="eyebrow">SEMANA ${d.week} · DÍA ${d.day}</span>${st.favorite?'<span aria-label="En favoritos">★</span>':''}</div><h3><a href="#day/${d.id}/notes">${highlightText(d.title,noteFilter)}</a></h3><p class="note-text">${highlightText((st.notes||'Sin nota escrita').slice(0,350),noteFilter)}</p>${edited&&st.notes?`<p class="muted">Nota editada: <time datetime="${E(edited)}">${E(new Date(edited).toLocaleString())}</time></p>`:''}<div class="hero-pills"><span class="chip">${(st.doubts||[]).filter(q=>!q.resolved).length} dudas abiertas</span><span class="chip">${(st.evidence||[]).length} evidencias</span></div>${noteFilter?`<div class="notebook-matches">${(st.doubts||[]).filter(q=>matchesSearch(q.text,noteFilter)).map(q=>`<p>${highlightText(q.text,noteFilter)}</p>`).join('')}${(st.evidence||[]).filter(v=>matchesSearch(`${v.title||''} ${v.name||''} ${v.content||''}`,noteFilter)).map(v=>`<p>${highlightText(`${v.title||v.name||'Evidencia'} · ${v.content||''}`.slice(0,300),noteFilter)}</p>`).join('')}</div>`:''}</article>`;}).join('')||`<div class="empty-state notes-empty"><h3>${noteFilter||notebookFilter!=='all'?'Sin resultados para este filtro.':'Tu cuaderno está listo.'}</h3><p>${noteFilter||notebookFilter!=='all'?'Prueba otra búsqueda o selecciona Todas.':'Abre una sesión para añadir notas, dudas o evidencias.'}</p><a href="#day/w01d1/notes" class="btn primary">Abrir cuaderno de una sesión</a></div>`}</div>`;
 }
-
 function renderNotes() {
-  return `<div class="section-heading"><div><h2>Notas, dudas y evidencias</h2></div>${button('Exportar notas','notes-export','','secondary')}</div><label class="field">Buscar en tu bitácora<input id="notes-search" type="search" value="${E(noteFilter)}" placeholder="Un tema, una pregunta o un hallazgo…"></label><div id="notes-results">${renderNotesList()}</div>`;
+  return `<div class="section-heading"><div><h2>Notas, dudas y evidencias</h2></div>${button('Exportar notas','notes-export','','secondary')}</div><div class="notebook-filters"><label class="field">Buscar en tu bitácora<input id="notes-search" type="search" value="${E(noteFilter)}" placeholder="Notas, dudas, enlaces o evidencias…"></label><label class="field">Mostrar<select id="notes-filter">${[['all','Todas'],['favorites','Favoritos'],['open-doubts','Dudas abiertas'],['evidence','Con evidencias']].map(([value,label])=>`<option value="${value}" ${notebookFilter===value?'selected':''}>${label}</option>`).join('')}</select></label><label class="field">Ordenar<select id="notes-sort">${[['recent','Edición más reciente'],['oldest','Edición más antigua'],['course','Orden del programa']].map(([value,label])=>`<option value="${value}" ${notebookSort===value?'selected':''}>${label}</option>`).join('')}</select></label></div><div id="notes-results">${renderNotesList()}</div>`;
 }
 
 function progressStatsMarkup() {
@@ -249,12 +306,13 @@ function renderSettings() {
 
 function render({animate=true}={}) {
   if(!days) return;
-  const route=readRoute();
+  const route=readRoute();renderedHash=location.hash;
   $('#page-title').textContent=labels[route.page]||labels.home;
   const subtitle=$('#header-subtitle');if(subtitle) subtitle.textContent='Ciberseguridad';
   document.querySelectorAll('[data-nav]').forEach(a=>{const active=a.getAttribute('href')===`#${route.page==='day'?'path':route.page}`;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
-  $('#main-content').innerHTML=route.page==='path'?renderPath():route.page==='day'?renderDay(route.id,route.tab):route.page==='notes'?renderNotes():route.page==='progress'?renderProgress():route.page==='settings'?renderSettings():renderHome();
-  if(animate){$('#main-content').classList.add('page-enter');motion?.refresh?.($('#main-content'));}else $('#main-content').classList.remove('page-enter');
+  $('#main-content').innerHTML=decorateFormDrafts(route.page==='path'?renderPath():route.page==='day'?renderDay(route.id,route.tab):route.page==='notes'?renderNotes():route.page==='progress'?renderProgress():route.page==='settings'?renderSettings():renderHome());
+  restoreFormDrafts();
+  $('#main-content').classList.toggle('page-enter',animate);motion?.refresh?.($('#main-content'),{animate});
   updateTimer();
   if(route.page==='settings') getStorageInfo().then(info=>{const target=$('#storage-info');if(target)target.textContent=`Adjuntos locales: ${(info.evidenceBytes/1048576).toFixed(1)} MiB. Máximo 10 MiB por archivo y 100 MiB totales${info.quota?`. Cuota estimada del navegador: ${Math.round(info.quota/1048576)} MiB`:'. La cuota depende del navegador'}.`;}).catch(()=>{});
 }
@@ -276,12 +334,12 @@ async function handleAction(e) {
   if(action==='onboard') return;
   e.preventDefault();
   try {
-    if(action==='chart-range'){chartRange=Number(btn.dataset.range)===30?30:7;const charts=$('#analytics-charts');if(charts)charts.innerHTML=renderAnalytics(snapshot(),days,chartOptions(false));}
-    if(action==='goto') {await flushNotes();navigate(btn.dataset.hash);}
+    if(action==='chart-range'){const focus=captureFocus();chartRange=Number(btn.dataset.range)===30?30:7;const charts=$('#analytics-charts');if(charts)charts.innerHTML=renderAnalytics(snapshot(),days,chartOptions(false));restoreFocus(focus);}
+    if(action==='goto') {await flushDrafts();navigate(btn.dataset.hash);}
     if(action==='search'){navigate('path');setTimeout(()=>$('#path-search')?.focus(),30);}
     if(action==='page'){pageNumber=Number(btn.dataset.n);updateResults('path');$('#path-results')?.scrollIntoView({block:'start'});}
-    if(action==='notes-retry'){await flushNotes();toast('Borradores guardados.');}
-    if(action==='retry-route'){const route=readRoute();if(route.page==='day'&&['practice','quiz'].includes(route.tab)){const main=$('#main-content');main.setAttribute('aria-busy','true');try{await loadBank(route.id);render();await commit(s=>{ensureDay(s,route.id).lastTab=route.tab;},false);}finally{main.removeAttribute('aria-busy');}}}
+    if(action==='notes-retry'||action==='form-drafts-retry'){await flushDrafts();toast('Borradores guardados.');}
+    if(action==='retry-route'){const route=readRoute();if(route.page==='day'&&['practice','quiz'].includes(route.tab)){const main=$('#main-content');main.setAttribute('aria-busy','true');try{await loadBank(route.id);render();focusRouteTitle();await rememberActivity(route);}finally{main.removeAttribute('aria-busy');}}}
     if(action==='notes-download-draft'){const text=notes.value(id);download(text,`cybertrack-borrador-${id}.txt`,'text/plain');toast('Borrador descargado. El guardado en el navegador sigue pendiente.');}
     if(action==='favorite')await commit(s=>{const d=ensureDay(s,id);d.favorite=!d.favorite;});
     if(action==='embed') {const url=embedUrl(btn.dataset.url);if(!url)return;const slot=$(`#video-slot-${btn.dataset.resource}`);slot.innerHTML=`<iframe title="Reproductor del recurso de estudio" src="${E(url)}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe><p class="muted">Si el proveedor bloquea la reproducción, utiliza Abrir fuente. Reproducir no marca el recurso como estudiado.</p>`;}
@@ -291,9 +349,9 @@ async function handleAction(e) {
     }
     if(action==='timer-toggle'){if(snapshot().timer?.running)await pauseTimer();else await startTimer(id||currentDay().id);updateTimer();}
     if(action==='timer-log'){await pauseTimer();if(getTimerMs(snapshot())<1000){toast('Registra al menos un segundo de estudio.');return;}await logTimer();toast('Tiempo de estudio registrado.');updateTimer();refreshStudyMetrics();}
-    if(action==='notes-export'){await flushNotes();const text=days.filter(d=>ds(d.id).notes||(ds(d.id).doubts||[]).length||(ds(d.id).evidence||[]).length).map(d=>`SEMANA ${d.week} / DÍA ${d.day} · ${d.title}\n\n${ds(d.id).notes}\n\nDudas:\n${(ds(d.id).doubts||[]).map(q=>`[${q.resolved?'x':' '}] ${q.text}`).join('\n')}`).join('\n\n────────────\n\n');download(text,'cybertrack-notas.txt','text/plain');}
+    if(action==='notes-export'){await flushDrafts();const text=days.filter(d=>ds(d.id).notes||(ds(d.id).doubts||[]).length||(ds(d.id).evidence||[]).length).map(d=>`SEMANA ${d.week} / DÍA ${d.day} · ${d.title}\n\n${ds(d.id).notes}\n\nDudas:\n${(ds(d.id).doubts||[]).map(q=>`[${q.resolved?'x':' '}] ${q.text}`).join('\n')}`).join('\n\n────────────\n\n');download(text,'cybertrack-notas.txt','text/plain');}
     if(action==='backup'||action==='backup-light') {
-      await flushNotes();const full=structuredClone(snapshot());
+      await flushDrafts();const full=structuredClone(snapshot());
       if(action==='backup-light')for(const d of Object.values(full.days))d.evidence=(d.evidence||[]).filter(x=>!x.dataUrl&&!x.dataURL);
       full.lastBackupAt=new Date().toISOString();const data=exportBackup(full);download(data,`cybertrack-respaldo-${action==='backup-light'?'sin-adjuntos-':''}${new Date().toISOString().slice(0,10)}.json`);await commit(s=>{s.lastBackupAt=full.lastBackupAt;});toast(action==='backup-light'?'Respaldo ligero exportado: no incluye archivos.':'Respaldo completo exportado, incluidos los adjuntos.');
     }
@@ -301,10 +359,10 @@ async function handleAction(e) {
     if(action==='import-merge'||action==='import-replace') {
       if(!imported)return;
       if(action==='import-replace'&&!confirm('Se reemplazarán los datos locales. Antes se descargará un respaldo completo. ¿Continuar?'))return;
-      download(exportBackup(snapshot()),'cybertrack-antes-de-importar.json');
-      const next=action==='import-merge'?mergeStates(snapshot(),imported):imported;await replaceState(next);imported=null;applyPreferences();render();toast('Respaldo importado. Tu recorrido se ha restaurado.');
+      await flushDrafts();download(exportBackup(snapshot()),'cybertrack-antes-de-importar.json');
+      const next=action==='import-merge'?mergeStates(snapshot(),imported):imported;await replaceState(next);resetDraftManagers();imported=null;applyPreferences();render({animate:false});toast('Respaldo importado. Tu recorrido se ha restaurado.');
     }
-    if(action==='reset'){if(!confirm('¿Exportaste tu respaldo? Esta acción eliminará todo el progreso de este navegador.'))return;const input=prompt('Escribe REINICIAR para confirmar.');if(input!=='REINICIAR')return;await replaceState(createDefaultState());applyPreferences();navigate('home');render();toast('Recorrido reiniciado.');}
+    if(action==='reset'){if(!confirm('¿Exportaste tu respaldo? Esta acción eliminará todo el progreso de este navegador.'))return;const input=prompt('Escribe REINICIAR para confirmar.');if(input!=='REINICIAR')return;await flushDrafts();await replaceState(createDefaultState());resetDraftManagers();applyPreferences();navigate('home');render({animate:false});toast('Recorrido reiniciado.');}
     if(action==='evidence-delete'){if(!confirm('¿Eliminar esta evidencia local?'))return;await commit(s=>{const d=ensureDay(s,btn.dataset.day);d.evidence=d.evidence.filter(x=>x.id!==id);});}
     if(action==='evidence-download'){const v=(ds(btn.dataset.day).evidence||[]).find(x=>x.id===id);const data=v?.dataUrl||v?.dataURL;if(!data?.startsWith('data:'))return;const response=await fetch(data);download(await response.blob(),v.name||'evidencia');}
   } catch(err){toast(err.message,true);}
@@ -312,27 +370,30 @@ async function handleAction(e) {
 
 async function handleSubmit(e) {
   const form=e.target;if(!['onboarding','settings-form','challenge-form','quiz-form','doubt-form','evidence-link-form','cert-form','manual-time-form'].includes(form.id)&&!form.classList?.contains?.('replacement-form'))return;
-  e.preventDefault();const data=new FormData(form),id=form.dataset.day;
+  e.preventDefault();if(form.dataset.submitting==='true')return;const data=new FormData(form),id=form.dataset.day,submittedFocus=captureFocus(),submittedHash=location.hash;
+  const submitOptions={form,focusFallback:submittedFocus,focusHash:submittedHash};
+  form.dataset.submitting='true';const locked=[...(form.querySelectorAll?.('input,textarea,select,button')||[])].map(field=>({field,disabled:field.disabled}));locked.forEach(({field})=>{field.disabled=true;});
   try {
-    if(form.id==='manual-time-form'){const dayId=String(data.get('dayId'));if(!days.some(day=>day.id===dayId))throw new Error('Elige una sesión del programa.');await logManualStudy(dayId,Number(data.get('minutes')),String(data.get('note')||''));form.reset?.();updateTimer();refreshStudyMetrics();toast('Estudio externo registrado.');}
-    if(form.id==='onboarding')await commit(s=>{s.profile.name=String(data.get('name')||'').trim();s.profile.onboarded=true;});
-    if(form.id==='settings-form'){const saved=await commit(s=>{s.profile.name=String(data.get('name')||'').trim();s.profile.weeklyMinutes=Math.max(30,Math.min(6000,Number(data.get('weeklyMinutes'))||720));s.preferences.theme='light';s.preferences.motion=true;});if(saved)toast('Preferencias guardadas.');}
-    if(form.id==='cert-form'){const saved=await commit(s=>{s.certification={version:String(data.get('version')||''),notes:String(data.get('notes')||''),reviewedAt:new Date().toISOString()};});if(saved)toast('Objetivo guardado.');}
-    if(form.classList?.contains?.('replacement-form')){const url=safeUrl(data.get('url'));if(!url)throw new Error('Usa una URL HTTPS válida.');const saved=await commit(s=>{const d=ensureDay(s,id);d.resourceOverrides||={};d.resourceOverrides[form.dataset.rid]={url,reason:String(data.get('reason')),changedAt:new Date().toISOString()};},false);if(saved){const card=form.closest('.resource-card'),actions=card?.querySelector('[data-resource-actions]'),frame=card?.querySelector('iframe');if(actions)actions.innerHTML=resourceActions(url,card.dataset.resourceIndex);if(frame){const next=embedUrl(url);if(next&&frame.src!==next)frame.src=next;else if(!next)frame.remove();}toast('Recurso alternativo registrado.');}}
-    if(form.id==='doubt-form')await commit(s=>ensureDay(s,id).doubts.push({id:crypto.randomUUID(),text:String(data.get('text')).trim(),resolved:false,createdAt:new Date().toISOString()}));
-    if(form.id==='evidence-link-form')await commit(s=>ensureDay(s,id).evidence.push({id:crypto.randomUUID(),title:String(data.get('title')),content:String(data.get('content')),createdAt:new Date().toISOString(),type:'text'}));
+    if(form.id==='manual-time-form'){await flushDrafts();const dayId=String(data.get('dayId'));if(!days.some(day=>day.id===dayId))throw new Error('Elige una sesión del programa.');await logManualStudy(dayId,Number(data.get('minutes')),String(data.get('note')||''),{onMutate:s=>{if(s.formDrafts)delete s.formDrafts[formKey(form)];}});formDrafts.forget(formKey(form));form.reset?.();formDraftStatus(formKey(form),'');updateTimer();refreshStudyMetrics();toast('Estudio externo registrado.');}
+    if(form.id==='onboarding')await commit(s=>{s.profile.name=String(data.get('name')||'').trim();s.profile.onboarded=true;},true,submitOptions);
+    if(form.id==='settings-form'){const saved=await commit(s=>{s.profile.name=String(data.get('name')||'').trim();s.profile.weeklyMinutes=Math.max(30,Math.min(6000,Number(data.get('weeklyMinutes'))||720));s.preferences.theme='light';s.preferences.motion=true;},true,submitOptions);if(saved)toast('Preferencias guardadas.');}
+    if(form.id==='cert-form'){const saved=await commit(s=>{s.certification={version:String(data.get('version')||''),notes:String(data.get('notes')||''),reviewedAt:new Date().toISOString()};},true,submitOptions);if(saved)toast('Objetivo guardado.');}
+    if(form.classList?.contains?.('replacement-form')){const url=safeUrl(data.get('url'));if(!url)throw new Error('Usa una URL HTTPS válida.');const saved=await commit(s=>{const d=ensureDay(s,id);d.resourceOverrides||={};d.resourceOverrides[form.dataset.rid]={url,reason:String(data.get('reason')),changedAt:new Date().toISOString()};},false,submitOptions);if(saved){const card=form.closest('.resource-card'),actions=card?.querySelector('[data-resource-actions]'),frame=card?.querySelector('iframe');if(actions)actions.innerHTML=resourceActions(url,card.dataset.resourceIndex);if(frame){const next=embedUrl(url);if(next&&frame.src!==next)frame.src=next;else if(!next)frame.remove();}formDraftStatus(formKey(form),'');toast('Recurso alternativo registrado.');}}
+    if(form.id==='doubt-form')await commit(s=>ensureDay(s,id).doubts.push({id:crypto.randomUUID(),text:String(data.get('text')).trim(),resolved:false,createdAt:new Date().toISOString()}),true,submitOptions);
+    if(form.id==='evidence-link-form')await commit(s=>ensureDay(s,id).evidence.push({id:crypto.randomUUID(),title:String(data.get('title')),content:String(data.get('content')),createdAt:new Date().toISOString(),type:'text'}),true,submitOptions);
     if(form.id==='challenge-form') {
       const day=days.find(d=>d.id===id);if(!unlocked(day))throw new Error('Completa antes las sesiones anteriores.');const selections=data.getAll('challenge').map(String);if(!selections.length)throw new Error('Selecciona una respuesta.');const result=evaluateChallenge(banks.get(id).challenge,selections);const ok=typeof result==='boolean'?result:result.passed??result.correct;
-      const saved=await commit(s=>{const d=ensureDay(s,id);d.challengePassed=d.challengePassed||!!ok;d.challengeFeedback=`${ok?'Solución correcta.':'Revisa el escenario.'} ${banks.get(id).challenge.explanation}`;});if(saved)toast(ok?'Reto superado. Puedes preparar tu prueba.':'Prueba otra interpretación del escenario.',!ok);
+      const saved=await commit(s=>{const d=ensureDay(s,id);d.challengePassed=d.challengePassed||!!ok;d.challengeFeedback=`${ok?'Solución correcta.':'Revisa el escenario.'} ${banks.get(id).challenge.explanation}`;},true,submitOptions);if(saved)toast(ok?'Reto superado. Puedes preparar tu prueba.':'Prueba otra interpretación del escenario.',!ok);
     }
     if(form.id==='quiz-form') {
       const day=days.find(d=>d.id===id),c=completion(day);if(!unlocked(day)||!c.resourcesReady||!c.challengeReady)throw new Error('Faltan requisitos para entregar esta prueba.');const draft=ds(id).draft;if(!draft)return;
       const answers=Object.fromEntries(questionsOf(draft,banks.get(id)).map(q=>[q.id,data.getAll(q.id).map(String)]));
       if(Object.values(answers).some(a=>!a.length))throw new Error('Responde todas las preguntas antes de entregar.');
       const result=scoreAttempt(draft,answers);const finished={...draft,answers,result,score:result.percentage??result.score,passed:result.passed,submittedAt:new Date().toISOString()};
-      const saved=await commit(s=>{const d=ensureDay(s,id);if(!d.attempts.some(a=>a.id===finished.id))d.attempts.push(finished);d.draft=null;});if(saved)toast(result.passed?'Prueba superada. Tu siguiente sesión está lista.':'Intento guardado. Revisa las explicaciones y vuelve a practicar.',!result.passed);
+      const saved=await commit(s=>{const d=ensureDay(s,id);if(!d.attempts.some(a=>a.id===finished.id))d.attempts.push(finished);d.draft=null;},true,submitOptions);if(saved)toast(result.passed?'Prueba superada. Tu siguiente sesión está lista.':'Intento guardado. Revisa las explicaciones y vuelve a practicar.',!result.passed);
     }
   }catch(err){toast(err.message,true);}
+  finally{delete form.dataset.submitting;locked.forEach(({field,disabled})=>{field.disabled=disabled;});if(submittedHash===location.hash&&renderedHash===submittedHash&&neutralFocus())restoreFocus(submittedFocus);}
 }
 
 function handleInput(e) {
@@ -342,11 +403,15 @@ function handleInput(e) {
     clearTimeout(searchTimer);const kind=el.id==='path-search'?'path':'notes';searchTimer=setTimeout(()=>{if(readRoute().page===kind)updateResults(kind);},150);
   }
   if(el.id==='day-notes')notes.set(el.dataset.day,el.value);
+  captureFormInput(el);
 }
 
 async function handleChange(e) {
   const el=e.target;
   try {
+    captureFormInput(el);
+    if(el.id==='notes-filter'){notebookFilter=['all','favorites','open-doubts','evidence'].includes(el.value)?el.value:'all';updateResults('notes');}
+    if(el.id==='notes-sort'){notebookSort=['recent','oldest','course'].includes(el.value)?el.value:'recent';updateResults('notes');}
     if(el.id==='stage-filter'){stageFilter=el.value;pageNumber=1;updateResults('path');}
     if(el.dataset.resourceCheck){const day=days.find(d=>d.id===el.dataset.day);if(!unlocked(day)){el.checked=!!ds(day.id).resources?.[el.dataset.resourceCheck];return;}const saved=await commit(s=>{ensureDay(s,day.id).resources[el.dataset.resourceCheck]=el.checked;},false);if(!saved)el.checked=!!ds(day.id).resources?.[el.dataset.resourceCheck];updateSessionStatus(day);}
     if(el.dataset.doubt)await commit(s=>{const q=ensureDay(s,el.dataset.day).doubts.find(q=>q.id===el.dataset.doubt);if(q)q.resolved=el.checked;});
@@ -360,17 +425,27 @@ async function handleChange(e) {
   } catch(err){toast(err.message,true);if(el.type==='file')el.value='';}
 }
 
+function resetDraftManagers() {
+  notes=createNoteDrafts({read:id=>ds(id).notes||'',write:async(id,text)=>{await mutateState(s=>{const d=ensureDay(s,id);if(d.notes!==text){d.notes=text;d.notesEditedAt=new Date().toISOString();}});applyPreferences();},onStatus:noteStatus});
+  formDrafts=createFormDrafts({read:key=>snapshot().formDrafts?.[key]||null,write:async(key,record)=>{await mutateState(s=>{s.formDrafts||={};s.formDrafts[key]=record;});},onStatus:formDraftStatus});
+}
+async function rememberActivity(route) {
+  if(route.page!=='day'||!days.some(day=>day.id===route.id))return;
+  const tab=['learn','resources','practice','quiz','notes'].includes(route.tab)?route.tab:'learn';
+  await commit(s=>{ensureDay(s,route.id).lastTab=tab;s.lastActivity={dayId:route.id,tab,visitedAt:new Date().toISOString()};},false);
+}
+
 async function boot() {
   try {
     const data=await loadCurriculum();curriculum=data.curriculum;days=curriculum.weeks.flatMap(w=>w.days.map(d=>({...d,stage:w.stage})));banks=data.banks;loadBank=data.loadBank||loadBank;
 
-    await loadState();notes=createNoteDrafts({read:id=>ds(id).notes||'',write:async(id,text)=>{await mutateState(s=>{ensureDay(s,id).notes=text;});applyPreferences();},onStatus:noteStatus});motion=initMotion({enabled:true});applyPreferences();
+    await loadState();resetDraftManagers();motion=initMotion({enabled:true});applyPreferences();
     document.addEventListener('click',e=>{if(e.target.closest('.skip-link')){e.preventDefault();$('#main-content').focus();return;}return handleAction(e);});document.addEventListener('submit',handleSubmit);document.addEventListener('input',handleInput);document.addEventListener('change',handleChange);
     subscribe(()=>{applyPreferences();updateTimer();});
-    initTimer(updateTimer);await initRouter(async({isCurrent=()=>true}={})=>{clearTimeout(searchTimer);const route=readRoute();if(route.page==='day'&&['practice','quiz'].includes(route.tab)&&days.some(d=>d.id===route.id)){const main=$('#main-content');main.setAttribute('aria-busy','true');try{await loadBank(route.id);}finally{main.removeAttribute('aria-busy');}}if(!isCurrent())return;render();if(route.page==='day'&&days.some(d=>d.id===route.id))await commit(s=>{ensureDay(s,route.id).lastTab=route.tab;},false);window.scrollTo({top:0,behavior:'instant'});},{beforeChange:flushNotes,onError:error=>{const main=$('#main-content'),route=readRoute();if(main?.innerHTML.includes('loading-screen')&&route.page==='day'&&['practice','quiz'].includes(route.tab)){main.innerHTML=`<section class="empty-state"><h2>No pudimos cargar esta evaluación</h2><p>${E(error.message)}</p><div class="button-row">${button('Reintentar evaluación','retry-route')}<a class="btn secondary" href="#day/${E(route.id)}/resources">Abrir recursos</a></div></section>`;$('#page-title').textContent='Aula';}toast(`No se pudo cambiar de pantalla: ${error.message}. Tus datos y borradores se conservan.`,true)}});
-    document.addEventListener('visibilitychange',()=>{if(document.hidden)flushNotes().catch(error=>toast(error.message,true));});
-    window.addEventListener('pagehide',()=>flushNotes().catch(()=>{}));
-    window.addEventListener('beforeunload',event=>{if(notes.pending()){event.preventDefault();event.returnValue='';}});
+    initTimer(updateTimer);await initRouter(async({isCurrent=()=>true}={})=>{clearTimeout(searchTimer);const route=readRoute();if(route.page==='day'&&['practice','quiz'].includes(route.tab)&&days.some(d=>d.id===route.id)){const main=$('#main-content');main.setAttribute('aria-busy','true');try{await loadBank(route.id);}finally{main.removeAttribute('aria-busy');}}if(!isCurrent())return;if(route.page==='notes'&&['all','favorites','open-doubts','evidence'].includes(route.id))notebookFilter=route.id;render();focusRouteTitle();await rememberActivity(route);window.scrollTo({top:0,behavior:'instant'});},{beforeChange:flushDrafts,onError:error=>{const main=$('#main-content'),route=readRoute();if(main?.innerHTML.includes('loading-screen')&&route.page==='day'&&['practice','quiz'].includes(route.tab)){main.innerHTML=`<section class="empty-state"><h2>No pudimos cargar esta evaluación</h2><p>${E(error.message)}</p><div class="button-row">${button('Reintentar evaluación','retry-route')}<a class="btn secondary" href="#day/${E(route.id)}/resources">Abrir recursos</a></div></section>`;$('#page-title').textContent='Aula';}toast(`No se pudo cambiar de pantalla: ${error.message}. Tus datos y borradores se conservan.`,true)}});
+    document.addEventListener('visibilitychange',()=>{if(document.hidden)flushDrafts().catch(error=>toast(error.message,true));});
+    window.addEventListener('pagehide',()=>flushDrafts().catch(()=>{}));
+    window.addEventListener('beforeunload',event=>{if(notes.pending()||formDrafts.pending()){event.preventDefault();event.returnValue='';}});
   } catch(err) {
     $('#main-content').innerHTML=`<section class="empty-state"><h2>No pudimos abrir tu laboratorio.</h2><p>${E(err.message)}</p><p>Comprueba que subiste index.html y las carpetas assets y data en la misma raíz. En tu computadora usa un servidor local; abrir el HTML con doble clic no carga los JSON.</p><a class="btn primary" href="./GUIA_GITHUB.html">Ver guía de instalación</a><p>No se han reiniciado tus datos.</p></section>`;
   }

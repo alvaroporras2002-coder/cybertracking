@@ -1,4 +1,4 @@
-import { validateState } from './storage.js';
+import { validateState } from './storage.js?v=1.6.0';
 const MAX_BACKUP_BYTES = 150 * 1024 * 1024;
 export function exportBackup(state) {
   const checked = validateState(state);
@@ -19,6 +19,7 @@ export function parseBackup(text) {
   return state;
 }
 function unionById(a = [], b = []) { const map = new Map(a.map(item => [item.id, structuredClone(item)])); for (const item of b) if (!map.has(item.id)) map.set(item.id, structuredClone(item)); return [...map.values()]; }
+function newer(a, b, field) { return !a || (b && Date.parse(b[field]) > Date.parse(a[field])) ? b : a; }
 export function mergeStates(current, incoming) {
   const target = validateState(current); const source = validateState(incoming);
   for (const [id, day] of Object.entries(source.days)) {
@@ -27,7 +28,11 @@ export function mergeStates(current, incoming) {
     const resources = { ...existing.resources };
     for (const [key, value] of Object.entries(day.resources)) resources[key] = Boolean(value || resources[key]);
     existing.resources = resources;
-    if (day.notes && day.notes !== existing.notes) existing.notes = existing.notes ? `${existing.notes}\n\n—— Nota recuperada de respaldo ——\n${day.notes}` : day.notes;
+    if (day.notes && day.notes !== existing.notes) {
+      const hadNotes = Boolean(existing.notes);
+      existing.notes = hadNotes ? `${existing.notes}\n\n—— Nota recuperada de respaldo ——\n${day.notes}` : day.notes;
+      if (day.notesEditedAt && (!hadNotes || !existing.notesEditedAt || Date.parse(day.notesEditedAt) > Date.parse(existing.notesEditedAt))) existing.notesEditedAt = day.notesEditedAt;
+    } else if (day.notes && day.notesEditedAt && (!existing.notesEditedAt || Date.parse(day.notesEditedAt) > Date.parse(existing.notesEditedAt))) existing.notesEditedAt = day.notesEditedAt;
     existing.doubts = unionById(existing.doubts, day.doubts);
     existing.evidence = unionById(existing.evidence, day.evidence);
     existing.attempts = unionById(existing.attempts, day.attempts);
@@ -37,6 +42,13 @@ export function mergeStates(current, incoming) {
   }
   target.studySessions = unionById(target.studySessions, source.studySessions);
   target.achievements = [...new Set([...(target.achievements || []), ...(source.achievements || [])])];
+  // Merging a backup intentionally recovers missing drafts; matching forms use
+  // their edit time, rather than the backup's export time, to choose a value.
+  if (source.formDrafts) {
+    target.formDrafts ||= {};
+    for (const [key, draft] of Object.entries(source.formDrafts)) target.formDrafts[key] = structuredClone(newer(target.formDrafts[key], draft, 'updatedAt'));
+  }
+  if (source.lastActivity) target.lastActivity = structuredClone(newer(target.lastActivity, source.lastActivity, 'visitedAt'));
   target.updatedAt = new Date().toISOString();
   return validateState(target);
 }

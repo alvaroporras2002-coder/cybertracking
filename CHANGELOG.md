@@ -1,5 +1,16 @@
 # Registro de cambios
 
+## 1.6.0 — Continuidad y navegación
+
+- Borradores locales para los formularios de perfil, certificación, dudas, evidencias, tiempo manual y fuentes alternativas. Los envíos correctos eliminan su borrador en la misma operación de guardado.
+- Búsqueda sin distinción de tildes y coincidencias visibles dentro de las semanas desplegadas.
+- Cuaderno con filtros de favoritos, dudas abiertas y evidencias; orden por fecha de edición y búsqueda en las evidencias.
+- Accesos separados a la siguiente sesión pendiente y a la última actividad, más un estado de recorrido completado.
+- Animaciones de entrada al navegar, sin repetirlas en los guardados rutinarios ni duplicarlas en tarjetas anidadas.
+- Gráficos con regiones accesibles por teclado, indicación de desplazamiento móvil y tablas de datos.
+- Foco en el título al cambiar de pantalla, conservado durante las acciones de guardado.
+- Mantiene el esquema de respaldos, los IDs y el contenido de las 52 semanas y 364 sesiones.
+
 ## 1.5.0 — Correcciones del flujo de estudio
 
 - Borradores de notas independientes por sesión, guardado antes de navegar y recuperación tras un fallo de persistencia.
@@ -58,6 +69,6 @@
 - Estado local, notas, evidencias, temporizador y respaldo portable.
 - Guía de publicación en GitHub Pages y validación del contenido.
 
-La publicación remota no forma parte de esta entrega. Las semanas 5 a 52 mantienen sus evaluaciones pendientes; consulta `CONTENT_STATUS.md`.
+La primera entrega solo incluía evaluaciones de las semanas 1 a 4. Desde la versión 1.5, las 52 semanas disponen de evaluaciones formativas; consulta `CONTENT_STATUS.md`.
 
 Las pruebas ejecutadas y sus resultados se informan en la entrega del proyecto. Esta lista describe el alcance de la versión; no sustituye los resultados reales de validación.

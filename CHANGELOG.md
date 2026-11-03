@@ -1,5 +1,15 @@
 # Registro de cambios
 
+## 1.1.0 — Espacio de aprendizaje y métricas
+
+- Nueva interfaz para escritorio y móvil, con navegación azul tinta, superficies claras y temas claro y oscuro completos.
+- Inicio con sesión actual, mapa de seis etapas y distribución real del programa.
+- Gráficos de tiempo de estudio a 7/30 días, sesiones superadas, actividad, resultados y progreso por etapa. Los estados vacíos no muestran datos simulados.
+- Nueva escena isométrica animada, formas fluidas, partículas, entradas de secciones, contadores y tipografía cinética.
+- Movimiento configurable, respeto por movimiento reducido y pausa de efectos al ocultar la página.
+- Conserva el almacenamiento existente, los IDs, las notas, las evidencias y los requisitos de avance. Las evaluaciones siguen disponibles en las semanas 1 a 4.
+- Pruebas adicionales para métricas, fechas locales y compatibilidad con respaldos anteriores.
+
 ## 1.0.0 — Primera entrega
 
 - Estructura de aplicación estática para computadora y móvil.

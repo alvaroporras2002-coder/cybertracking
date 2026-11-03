@@ -14,7 +14,7 @@ export function createDefaultState() {
   return {
     schemaVersion: SCHEMA_VERSION, curriculumVersion: '1.0.0', revision: 0,
     profile: { name: '', weeklyMinutes: 720 },
-    preferences: { theme: 'dark', motion: true },
+    preferences: { theme: 'light', motion: true },
     days: {}, studySessions: [], achievements: [],
     timer: { running: false, startedAt: null, elapsedMs: 0, dayId: null, ownerId: null },
     createdAt: now(), updatedAt: now(), lastBackupAt: null

@@ -1,15 +1,18 @@
 # Verificación de la entrega
 
-Fecha: 3 de noviembre de 2026. Versión 1.0.0.
+Fecha: 3 de noviembre de 2026. Versión 1.1.0.
 
 ## Comprobaciones ejecutadas
 
-- `node --test tests/*.test.mjs`: **13 pruebas correctas, 0 fallos**.
+- `node --test tests/*.test.mjs`: **23 pruebas correctas, 0 fallos**.
 - `python3 tools/validate-content.py`: **52 semanas, 364 sesiones, 272 preguntas y 28 retos**; estructura y referencias internas correctas.
 - Correspondencia de los IDs con el HTML de origen: correcta.
 - Sintaxis de los módulos JavaScript y rutas de archivos del HTML: correctas.
 - Integración en Node VM: 19 vistas/rutas, borrador de prueba, intento superado, siguiente sesión, notas escapadas y aviso visible de fallo de guardado.
 - Respaldo lógico: exportación/importación de notas, intentos y bytes de adjuntos; rechazo de respaldos malformados o de versión futura sin modificar el estado original.
+- Métricas: ventanas de 7/30 días, medianoche local, fechas inválidas o futuras, duplicados, ausencia de actividad, intentos y compatibilidad con respaldos sin fecha de intento. Diez pruebas también comprobadas con `TZ=America/Los_Angeles`.
+- Escena isométrica: SVG válido, IDs únicos y ausencia de scripts.
+- Movimiento: revisión de sintaxis y ciclo de vida simulado para pausa por visibilidad, preferencia de movimiento reducido, contadores y retirada de listeners.
 
 ## Límites de la comprobación
 

@@ -2,7 +2,11 @@
 
 Plataforma personal para estudiar ciberseguridad desde cero. Contiene las **52 semanas y 364 sesiones** del programa, con una página de inicio, ruta, aula, notas, seguimiento, temporizador y respaldos locales.
 
-La interfaz combina ilustración isométrica, formas fluidas, partículas y acentos de tipografía animada. El movimiento es decorativo y puede reducirse; la lectura, las preguntas y los controles permanecen estables.
+La versión 1.1 combina un espacio de trabajo claro, navegación azul tinta y acentos índigo, cian y coral. Incluye temas claro y oscuro, una nueva escena isométrica animada, formas fluidas, partículas y tipografía cinética. El movimiento puede desactivarse y respeta la preferencia del sistema.
+
+El inicio y la sección Progreso muestran actividad de estudio a 7/30 días, sesiones superadas, resultados de pruebas, un calendario de actividad y el mapa de etapas. Utilizan registros reales; cuando no hay actividad explican qué falta registrar. La distribución del programa representa la cantidad de sesiones de cada etapa, no una medición de habilidades.
+
+Repositorio: [alvaroporras2002-coder/cybertracking](https://github.com/alvaroporras2002-coder/cybertracking). Sitio: [CYBERTRACK](https://alvaroporras2002-coder.github.io/cybertracking/).
 
 ## Alcance de esta entrega
 
@@ -14,7 +18,7 @@ La interfaz combina ilustración isométrica, formas fluidas, partículas y acen
 | Progreso | Secuencial, sin fecha de inicio obligatoria |
 | Datos | Guardados en este navegador y dispositivo |
 | Servicios | Sin backend, cuentas, sincronización ni IA integrada |
-| Publicación | Archivos preparados para GitHub Pages; este paquete no se ha publicado por sí solo |
+| Publicación | Aplicación estática para GitHub Pages; la actualización se prepara en `feature/cybertrack-app` |
 
 Estudiar un recurso es una declaración personal. Los ejercicios dentro de la web comprueban su tarea concreta; no acreditan dominio de toda una herramienta ni garantizan aprobar una certificación.
 
@@ -43,6 +47,7 @@ También puedes abrir [GUIA_GITHUB.html](GUIA_GITHUB.html), que explica cómo su
 | `assets/js/router.js` | Navegación entre secciones |
 | `assets/js/resources.js` | Carga de contenido y reproducción permitida |
 | `assets/js/motion.js` | Efectos decorativos y movimiento reducido |
+| `assets/js/analytics.js` | Agregaciones y gráficos de actividad, resultados y progreso |
 | `assets/js/storage.js` | Estado local y persistencia |
 | `assets/js/progress.js` | Requisitos de avance y progreso |
 | `assets/js/assessments.js` | Intentos, preguntas y puntuación |
@@ -60,6 +65,10 @@ También puedes abrir [GUIA_GITHUB.html](GUIA_GITHUB.html), que explica cómo su
 Las pantallas son secciones de una aplicación; no necesitas crear un repositorio por sección. Sus enlaces utilizan rutas con `#`, por ejemplo `#home`, `#path`, `#notes`, `#progress` y `#settings`. La navegación del aula utiliza el ID estable de cada sesión.
 
 ## Subir a GitHub
+
+En este repositorio los archivos están en la raíz de `feature/cybertrack-app`. Para actualizar el sitio, conserva la rama y carpeta que figuran en **Settings → Pages**. No es necesario cambiar la fuente de publicación para aplicar este rediseño. La propuesta de integración con `main` se mantiene en la PR existente.
+
+Para instalar una copia en otro repositorio:
 
 1. Crea un repositorio para el proyecto, por ejemplo `cybertrack`. El nombre es una elección, no un repositorio creado por esta entrega.
 2. En su raíz, usa **Add file → Upload files**. Sube el contenido de la carpeta del proyecto conservando `assets`, `data`, `tools` y `tests` como carpetas.

@@ -1,0 +1,2066 @@
+{
+  "week": 1,
+  "version": "1.0.0",
+  "days": [
+    {
+      "dayId": "w01d1",
+      "questions": [
+        {
+          "id": "w01d1-q01",
+          "prompt": "Al escribir un nombre, ¿qué elemento es una entrada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El monitor que muestra el nombre"
+            },
+            {
+              "id": "b",
+              "text": "El archivo guardado en el disco"
+            },
+            {
+              "id": "c",
+              "text": "El teclado que recibe las pulsaciones"
+            },
+            {
+              "id": "d",
+              "text": "La impresora que produce una copia"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La entrada introduce datos; el teclado convierte acciones en señales para el sistema.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d1-q02",
+          "prompt": "¿Qué ejemplo corresponde a software?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un módulo de RAM"
+            },
+            {
+              "id": "b",
+              "text": "Un cable de red"
+            },
+            {
+              "id": "c",
+              "text": "El procesador"
+            },
+            {
+              "id": "d",
+              "text": "Un editor de texto instalado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El editor es un programa; los demás ejemplos son componentes físicos.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d1-q03",
+          "prompt": "¿Qué tarea describe procesamiento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Transformar los datos de una suma en un resultado"
+            },
+            {
+              "id": "b",
+              "text": "Pulsar una tecla"
+            },
+            {
+              "id": "c",
+              "text": "Ver el resultado en pantalla"
+            },
+            {
+              "id": "d",
+              "text": "Guardar una copia ya calculada"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Procesar es realizar operaciones sobre datos; entrada, salida y almacenamiento cumplen funciones distintas.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d1-q04",
+          "prompt": "¿Qué componente se considera salida cuando presenta una imagen?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El ratón"
+            },
+            {
+              "id": "b",
+              "text": "El monitor"
+            },
+            {
+              "id": "c",
+              "text": "El micrófono"
+            },
+            {
+              "id": "d",
+              "text": "El escáner"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El monitor presenta información al usuario; los otros dispositivos capturan datos.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d1-q05",
+          "prompt": "¿Cuál relación entre hardware y software es correcta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El hardware existe solo si hay internet"
+            },
+            {
+              "id": "b",
+              "text": "El software es cualquier pieza que se puede tocar"
+            },
+            {
+              "id": "c",
+              "text": "El software indica operaciones que ejecuta el hardware"
+            },
+            {
+              "id": "d",
+              "text": "Un programa sustituye físicamente al procesador"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los programas contienen instrucciones que se ejecutan en componentes físicos.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d1-q06",
+          "prompt": "Una computadora puede trabajar con documentos locales sin internet porque…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todos los documentos están necesariamente en nube"
+            },
+            {
+              "id": "b",
+              "text": "La RAM crea internet temporalmente"
+            },
+            {
+              "id": "c",
+              "text": "Un monitor contiene todos los programas"
+            },
+            {
+              "id": "d",
+              "text": "Procesamiento y almacenamiento local no requieren siempre una red"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Internet es una conexión a otros sistemas, no un requisito universal de cómputo local.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d1-q07",
+          "prompt": "¿Qué secuencia representa un flujo básico de información?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Entrada → procesamiento → salida"
+            },
+            {
+              "id": "b",
+              "text": "Salida → entrada → apagar siempre"
+            },
+            {
+              "id": "c",
+              "text": "Almacenamiento → impresión sin datos"
+            },
+            {
+              "id": "d",
+              "text": "Monitor → cable → inexistencia de software"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El modelo básico empieza con datos, los transforma y presenta un resultado; almacenar puede intervenir además.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d1-q08",
+          "prompt": "Un micrófono se utiliza principalmente para…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mostrar texto"
+            },
+            {
+              "id": "b",
+              "text": "Introducir audio al sistema"
+            },
+            {
+              "id": "c",
+              "text": "Conservar archivos durante años"
+            },
+            {
+              "id": "d",
+              "text": "Ejecutar instrucciones"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El micrófono convierte sonido en una entrada; no es almacenamiento ni procesador.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        }
+      ],
+      "challenge": {
+        "id": "w01d1-challenge",
+        "prompt": "En una app escribes 2+3 y aparece 5. Selecciona la clasificación correcta.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Teclado: almacenamiento; cálculo: salida; pantalla: entrada"
+          },
+          {
+            "id": "b",
+            "text": "Teclado: salida; cálculo: almacenamiento; pantalla: procesamiento"
+          },
+          {
+            "id": "c",
+            "text": "Teclado: entrada; cálculo: procesamiento; pantalla: salida"
+          },
+          {
+            "id": "d",
+            "text": "Todos son almacenamiento porque el resultado puede guardarse"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La clasificación sigue la función realizada: capturar datos, operar sobre ellos y presentar el resultado.",
+        "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+      }
+    },
+    {
+      "dayId": "w01d2",
+      "questions": [
+        {
+          "id": "w01d2-q01",
+          "prompt": "¿Qué componente ejecuta instrucciones de los programas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La carcasa"
+            },
+            {
+              "id": "b",
+              "text": "El monitor"
+            },
+            {
+              "id": "c",
+              "text": "El cable HDMI"
+            },
+            {
+              "id": "d",
+              "text": "La CPU"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La CPU realiza operaciones e instrucciones; otros componentes colaboran con funciones diferentes.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d2-q02",
+          "prompt": "¿Para qué se usa principalmente la RAM?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mantener datos y programas que están en uso"
+            },
+            {
+              "id": "b",
+              "text": "Conservar una copia permanente de todos los documentos"
+            },
+            {
+              "id": "c",
+              "text": "Conectar el equipo al Wi-Fi por sí sola"
+            },
+            {
+              "id": "d",
+              "text": "Mostrar gráficos al usuario"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La RAM es memoria de trabajo y normalmente pierde su contenido al apagar el equipo.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d2-q03",
+          "prompt": "¿Qué dispositivo conserva archivos normalmente después de apagar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La RAM convencional"
+            },
+            {
+              "id": "b",
+              "text": "Un SSD"
+            },
+            {
+              "id": "c",
+              "text": "Un registro temporal de la CPU"
+            },
+            {
+              "id": "d",
+              "text": "Una imagen aún no guardada"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El SSD es almacenamiento persistente; la memoria volátil requiere guardar su contenido para conservarlo.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d2-q04",
+          "prompt": "¿Qué función cumple la placa base?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sustituir todos los programas"
+            },
+            {
+              "id": "b",
+              "text": "Imprimir documentos"
+            },
+            {
+              "id": "c",
+              "text": "Conectar y permitir comunicación entre componentes"
+            },
+            {
+              "id": "d",
+              "text": "Garantizar acceso a internet"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La placa base aporta conexiones y circuitos para integrar CPU, memoria y otros componentes.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d2-q05",
+          "prompt": "Un equipo usa varios programas y agota su memoria de trabajo. ¿Qué recurso conviene revisar primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El tamaño del monitor"
+            },
+            {
+              "id": "b",
+              "text": "El color del teclado"
+            },
+            {
+              "id": "c",
+              "text": "El nombre del equipo"
+            },
+            {
+              "id": "d",
+              "text": "La RAM y su consumo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La descripción señala presión de memoria; debe comprobarse el consumo antes de decidir una ampliación.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d2-q06",
+          "prompt": "¿Qué componente ayuda a intercambiar datos por una red?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La tarjeta o interfaz de red"
+            },
+            {
+              "id": "b",
+              "text": "El disipador de CPU"
+            },
+            {
+              "id": "c",
+              "text": "El teclado numérico"
+            },
+            {
+              "id": "d",
+              "text": "El soporte del monitor"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La interfaz de red transmite y recibe datos; su presencia no garantiza por sí sola una conexión funcional.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d2-q07",
+          "prompt": "¿Qué diferencia describe CPU frente a SSD?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ambos solo muestran imágenes"
+            },
+            {
+              "id": "b",
+              "text": "La CPU procesa instrucciones y el SSD conserva datos"
+            },
+            {
+              "id": "c",
+              "text": "El SSD ejecuta todas las instrucciones y la CPU solo guarda archivos"
+            },
+            {
+              "id": "d",
+              "text": "La CPU conserva todos los archivos al apagar"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Procesamiento y almacenamiento son funciones diferentes aunque ambas afecten al rendimiento.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d2-q08",
+          "prompt": "¿Qué comprobación produce una ficha técnica útil?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Registrar solo el fondo de pantalla"
+            },
+            {
+              "id": "b",
+              "text": "Registrar únicamente la marca del ratón"
+            },
+            {
+              "id": "c",
+              "text": "Registrar CPU, RAM, almacenamiento y sistema operativo"
+            },
+            {
+              "id": "d",
+              "text": "Suponer recursos a partir del precio"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una ficha útil reúne componentes relevantes y versión del sistema, no inferencias comerciales.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        }
+      ],
+      "challenge": {
+        "id": "w01d2-challenge",
+        "prompt": "Equipo A: RAM al 96%, disco con 200 GB libres y varias aplicaciones abiertas. ¿Qué conclusión es razonable?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El disco está lleno por definición"
+          },
+          {
+            "id": "b",
+            "text": "La CPU está averiada con certeza"
+          },
+          {
+            "id": "c",
+            "text": "Se necesita un monitor nuevo"
+          },
+          {
+            "id": "d",
+            "text": "Hay presión de memoria que conviene investigar antes de cambiar componentes"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La memoria muy ocupada es un indicio; se deben revisar procesos y actividad, no diagnosticar averías sin evidencia.",
+        "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+      }
+    },
+    {
+      "dayId": "w01d3",
+      "questions": [
+        {
+          "id": "w01d3-q01",
+          "prompt": "¿Cuántos bits contiene un byte?",
+          "options": [
+            {
+              "id": "a",
+              "text": "8"
+            },
+            {
+              "id": "b",
+              "text": "2"
+            },
+            {
+              "id": "c",
+              "text": "10"
+            },
+            {
+              "id": "d",
+              "text": "100"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un byte se define como ocho bits.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d3-q02",
+          "prompt": "Usando unidades decimales, ¿cuántos MB corresponden a 2 GB?",
+          "options": [
+            {
+              "id": "a",
+              "text": "200 MB"
+            },
+            {
+              "id": "b",
+              "text": "2000 MB"
+            },
+            {
+              "id": "c",
+              "text": "20 MB"
+            },
+            {
+              "id": "d",
+              "text": "2048 MB"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "En unidades decimales 1 GB equivale a 1000 MB; GiB y MiB emplean potencias de dos.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d3-q03",
+          "prompt": "¿Cuál unidad expresa habitualmente velocidad de una conexión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "GB de capacidad"
+            },
+            {
+              "id": "b",
+              "text": "Pulgadas"
+            },
+            {
+              "id": "c",
+              "text": "Mbps"
+            },
+            {
+              "id": "d",
+              "text": "Archivos por carpeta"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Mbps expresa millones de bits por segundo; una capacidad no es una tasa de transferencia.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d3-q04",
+          "prompt": "Una transferencia ideal de 80 Mbps equivale aproximadamente a…",
+          "options": [
+            {
+              "id": "a",
+              "text": "80 MB por segundo siempre"
+            },
+            {
+              "id": "b",
+              "text": "640 MB por segundo"
+            },
+            {
+              "id": "c",
+              "text": "10 GB por segundo"
+            },
+            {
+              "id": "d",
+              "text": "10 MB por segundo antes de sobrecargas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Se divide entre ocho para pasar de bits a bytes; el rendimiento real puede ser menor por sobrecargas.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d3-q05",
+          "prompt": "¿Cuál afirmación compara capacidad y velocidad correctamente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un disco puede tener mucha capacidad y aun así transferir datos lentamente"
+            },
+            {
+              "id": "b",
+              "text": "Mayor capacidad garantiza menor latencia"
+            },
+            {
+              "id": "c",
+              "text": "Ambas significan exactamente lo mismo"
+            },
+            {
+              "id": "d",
+              "text": "La capacidad indica cuántas instrucciones ejecuta la CPU"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Capacidad mide cuánto cabe; velocidad describe cuánto se transfiere o procesa por tiempo.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d3-q06",
+          "prompt": "Usando MB decimales y sin sobrecargas, ¿cuánto tarda transferir 100 MB a 10 MB/s?",
+          "options": [
+            {
+              "id": "a",
+              "text": "1 segundo"
+            },
+            {
+              "id": "b",
+              "text": "10 segundos"
+            },
+            {
+              "id": "c",
+              "text": "1000 segundos"
+            },
+            {
+              "id": "d",
+              "text": "800 segundos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Tiempo es tamaño dividido entre tasa: 100/10 = 10 segundos.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d3-q07",
+          "prompt": "¿Qué debes comprobar al comparar 16 GB de RAM con 1 TB de disco?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que 1 TB siempre sustituye la RAM"
+            },
+            {
+              "id": "b",
+              "text": "Que ambos indican velocidad de red"
+            },
+            {
+              "id": "c",
+              "text": "Que son recursos con funciones diferentes"
+            },
+            {
+              "id": "d",
+              "text": "Que la cifra mayor significa mejor CPU"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "RAM y almacenamiento no son intercambiables aunque ambos se expresen en capacidad.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d3-q08",
+          "prompt": "¿Qué interpretación de 512 GB es la más prudente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantiza 512 GB siempre disponibles para el usuario"
+            },
+            {
+              "id": "b",
+              "text": "Significa 512 gigabits por segundo"
+            },
+            {
+              "id": "c",
+              "text": "Indica que se pueden abrir 512 programas"
+            },
+            {
+              "id": "d",
+              "text": "Describe capacidad nominal, no espacio libre ni velocidad garantizada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El sistema y los archivos ocupan espacio, y capacidad por sí sola no especifica rendimiento.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        }
+      ],
+      "challenge": {
+        "id": "w01d3-challenge",
+        "prompt": "Dispones de 6 GB libres. Quieres copiar cuatro archivos de 2 GB cada uno, sin comprimir. ¿Qué sucede?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Los 8 GB requeridos superan los 6 GB disponibles"
+          },
+          {
+            "id": "b",
+            "text": "Caben porque cuatro archivos son menos que seis"
+          },
+          {
+            "id": "c",
+            "text": "Caben porque la RAM reemplaza el disco"
+          },
+          {
+            "id": "d",
+            "text": "Solo necesitan 2 GB por tener igual tamaño"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La capacidad necesaria es la suma: 4×2=8 GB; hacen falta al menos 2 GB adicionales más margen operativo.",
+        "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+      }
+    },
+    {
+      "dayId": "w01d4",
+      "questions": [
+        {
+          "id": "w01d4-q01",
+          "prompt": "¿Qué función es propia del sistema operativo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sustituir físicamente la CPU"
+            },
+            {
+              "id": "b",
+              "text": "Administrar recursos y permitir que funcionen aplicaciones"
+            },
+            {
+              "id": "c",
+              "text": "Asegurar que toda página web sea confiable"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar la necesidad de almacenamiento"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El sistema coordina recursos, procesos, archivos y acceso al hardware.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d4-q02",
+          "prompt": "¿Qué es el kernel?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un documento de texto del usuario"
+            },
+            {
+              "id": "b",
+              "text": "Cualquier página web"
+            },
+            {
+              "id": "c",
+              "text": "El núcleo que gestiona funciones fundamentales del sistema"
+            },
+            {
+              "id": "d",
+              "text": "La contraseña del Wi-Fi"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El kernel es la parte central del sistema operativo; no debe confundirse con una aplicación común.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d4-q03",
+          "prompt": "¿Cuál es un ejemplo de aplicación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La placa base"
+            },
+            {
+              "id": "b",
+              "text": "Un SSD"
+            },
+            {
+              "id": "c",
+              "text": "Un cable USB"
+            },
+            {
+              "id": "d",
+              "text": "Un navegador web"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un navegador es software que el usuario utiliza para una tarea concreta.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d4-q04",
+          "prompt": "¿Para qué sirve un controlador o driver?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Permitir al sistema comunicarse con un dispositivo"
+            },
+            {
+              "id": "b",
+              "text": "Aumentar siempre la RAM física"
+            },
+            {
+              "id": "c",
+              "text": "Guardar una copia de cada archivo automáticamente"
+            },
+            {
+              "id": "d",
+              "text": "Garantizar que un programa no tenga errores"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un driver adapta la comunicación entre sistema y dispositivo; no sustituye la pieza física.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d4-q05",
+          "prompt": "¿Qué describe mejor un servicio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cualquier archivo de imagen"
+            },
+            {
+              "id": "b",
+              "text": "Un componente de software que realiza funciones, a menudo en segundo plano"
+            },
+            {
+              "id": "c",
+              "text": "Un monitor conectado"
+            },
+            {
+              "id": "d",
+              "text": "Una carpeta vacía"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los servicios apoyan tareas como impresión o red y pueden operar sin una ventana visible.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d4-q06",
+          "prompt": "¿Qué cambia al abrir una segunda instancia de una aplicación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Siempre se instala otro sistema operativo"
+            },
+            {
+              "id": "b",
+              "text": "Se duplica físicamente el procesador"
+            },
+            {
+              "id": "c",
+              "text": "Puede aparecer otro proceso aunque el programa instalado sea el mismo"
+            },
+            {
+              "id": "d",
+              "text": "El disco deja de ser persistente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un programa instalado puede originar varios procesos; el detalle depende de la aplicación.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d4-q07",
+          "prompt": "¿Cuál relación es correcta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cada aplicación necesita su propia placa base"
+            },
+            {
+              "id": "b",
+              "text": "Un driver es un tipo de teclado"
+            },
+            {
+              "id": "c",
+              "text": "Los archivos solo existen mientras hay internet"
+            },
+            {
+              "id": "d",
+              "text": "El sistema operativo proporciona servicios que usan las aplicaciones"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las aplicaciones se apoyan en funciones y recursos administrados por el sistema.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d4-q08",
+          "prompt": "Si una impresora está conectada pero el sistema no la reconoce, ¿qué conviene investigar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conexión, compatibilidad y controlador"
+            },
+            {
+              "id": "b",
+              "text": "La tipografía de todos los documentos"
+            },
+            {
+              "id": "c",
+              "text": "El color del fondo de pantalla"
+            },
+            {
+              "id": "d",
+              "text": "La capacidad del micrófono"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La detección del dispositivo puede depender de conexión, configuración, soporte y driver.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        }
+      ],
+      "challenge": {
+        "id": "w01d4-challenge",
+        "prompt": "Un navegador se cierra, pero el escritorio y otras apps siguen funcionando. ¿Qué afirmación encaja mejor?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Todo el hardware dejó de existir"
+          },
+          {
+            "id": "b",
+            "text": "Falló una aplicación; el sistema operativo puede seguir operativo"
+          },
+          {
+            "id": "c",
+            "text": "El SSD perdió necesariamente todos los archivos"
+          },
+          {
+            "id": "d",
+            "text": "El kernel se ha reemplazado por el navegador"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La caída de una aplicación no implica la caída del sistema completo ni pérdida total de datos.",
+        "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+      }
+    },
+    {
+      "dayId": "w01d5",
+      "questions": [
+        {
+          "id": "w01d5-q01",
+          "prompt": "¿Qué muestra el Administrador de tareas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todas las contraseñas de todas las cuentas"
+            },
+            {
+              "id": "b",
+              "text": "La causa definitiva de cualquier avería"
+            },
+            {
+              "id": "c",
+              "text": "Procesos y consumo de recursos del equipo"
+            },
+            {
+              "id": "d",
+              "text": "El contenido completo de internet"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La herramienta permite observar procesos y métricas, pero las causas requieren contexto.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d5-q02",
+          "prompt": "Un pico breve de CPU al abrir una app significa necesariamente que…",
+          "options": [
+            {
+              "id": "a",
+              "text": "La CPU debe cambiarse inmediatamente"
+            },
+            {
+              "id": "b",
+              "text": "Todos los archivos están dañados"
+            },
+            {
+              "id": "c",
+              "text": "El monitor es incompatible"
+            },
+            {
+              "id": "d",
+              "text": "No permite concluir avería por sí solo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La carga temporal puede ser normal; importan duración, impacto y relación con la tarea.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d5-q03",
+          "prompt": "¿Qué comparación ayuda a investigar consumo anormal?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Medir antes y durante una tarea equivalente"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar cinco opciones y no registrar resultados"
+            },
+            {
+              "id": "c",
+              "text": "Comparar solo colores de ventanas"
+            },
+            {
+              "id": "d",
+              "text": "Suponer que el proceso mayor es malicioso"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una línea base y una carga controlada permiten interpretar diferencias.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d5-q04",
+          "prompt": "¿Qué debes hacer antes de finalizar un proceso desconocido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eliminarlo siempre sin revisar"
+            },
+            {
+              "id": "b",
+              "text": "Investigar su función y posible impacto"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar todas las cuentas a administrador"
+            },
+            {
+              "id": "d",
+              "text": "Desconectar el monitor"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Finalizar procesos puede cerrar trabajo o afectar servicios; conviene identificar su función.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d5-q05",
+          "prompt": "¿Qué dato demuestra mejor que una aplicación consume memoria?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Su icono ocupa mucho espacio visual"
+            },
+            {
+              "id": "b",
+              "text": "Su nombre es largo"
+            },
+            {
+              "id": "c",
+              "text": "Su uso observado de memoria durante la prueba"
+            },
+            {
+              "id": "d",
+              "text": "La ventana tiene muchos colores"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El uso de memoria se mide; apariencia y nombre no son evidencia del consumo.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d5-q06",
+          "prompt": "Si al cerrar una app baja el uso de RAM, la observación…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Prueba que todo el disco estaba dañado"
+            },
+            {
+              "id": "b",
+              "text": "Prueba infección por malware"
+            },
+            {
+              "id": "c",
+              "text": "Demuestra que internet se ha acelerado"
+            },
+            {
+              "id": "d",
+              "text": "Apoya que esa app utilizaba parte de la memoria"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La relación observada informa sobre uso de recursos, no sobre causas no medidas.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d5-q07",
+          "prompt": "¿Qué registro es más útil en una investigación de rendimiento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hora, tarea, métrica y cambios observados"
+            },
+            {
+              "id": "b",
+              "text": "Solo una conclusión sin datos"
+            },
+            {
+              "id": "c",
+              "text": "Una lista de contraseñas"
+            },
+            {
+              "id": "d",
+              "text": "Una captura sin explicar qué se estaba haciendo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El contexto permite comparar observaciones y repetir la prueba.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d5-q08",
+          "prompt": "¿Qué es una hipótesis verificable sobre lentitud?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El equipo es malo porque no me gusta"
+            },
+            {
+              "id": "b",
+              "text": "La app X consume memoria de forma sostenida durante la tarea Y"
+            },
+            {
+              "id": "c",
+              "text": "Todo proceso desconocido es un virus"
+            },
+            {
+              "id": "d",
+              "text": "El fondo azul causa cualquier problema"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La primera afirmación puede comprobarse con una tarea y mediciones definidas.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        }
+      ],
+      "challenge": {
+        "id": "w01d5-challenge",
+        "prompt": "Antes: RAM 45%. Al abrir tres apps: RAM 88%. Al cerrarlas: 48%. ¿Qué conclusión está respaldada?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La CPU es incapaz de ejecutar instrucciones"
+          },
+          {
+            "id": "b",
+            "text": "El disco está completamente lleno"
+          },
+          {
+            "id": "c",
+            "text": "Las apps se relacionan con el aumento medido de uso de RAM"
+          },
+          {
+            "id": "d",
+            "text": "Las apps robaron necesariamente datos"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La secuencia respalda una relación con memoria; no demuestra avería, fuga ni exfiltración.",
+        "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+      }
+    },
+    {
+      "dayId": "w01d6",
+      "questions": [
+        {
+          "id": "w01d6-q01",
+          "prompt": "¿Qué debe contener una ficha de laboratorio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Contraseñas y números de tarjeta"
+            },
+            {
+              "id": "b",
+              "text": "Solo una foto del teclado"
+            },
+            {
+              "id": "c",
+              "text": "Suposiciones sobre componentes no observados"
+            },
+            {
+              "id": "d",
+              "text": "Sistema, CPU, RAM, almacenamiento y limitaciones relevantes"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los recursos y restricciones permiten planificar prácticas sin exponer secretos.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d6-q02",
+          "prompt": "¿Qué dato conviene omitir al compartir públicamente el inventario?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Número de serie e identificadores privados"
+            },
+            {
+              "id": "b",
+              "text": "Cantidad aproximada de RAM"
+            },
+            {
+              "id": "c",
+              "text": "Familia del sistema operativo"
+            },
+            {
+              "id": "d",
+              "text": "Tipo general de almacenamiento"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los identificadores privados normalmente no son necesarios para explicar capacidad de estudio.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d6-q03",
+          "prompt": "¿Cómo registrar espacio de almacenamiento de forma útil?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usar solo la diagonal del monitor"
+            },
+            {
+              "id": "b",
+              "text": "Separar capacidad total de espacio libre"
+            },
+            {
+              "id": "c",
+              "text": "Anotar RAM como si fuera disco libre"
+            },
+            {
+              "id": "d",
+              "text": "Suponer que toda capacidad nominal está disponible"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Ambas magnitudes ayudan a decidir si cabe un laboratorio o respaldo.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d6-q04",
+          "prompt": "¿Qué hace reproducible una observación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Escribir solo funciona"
+            },
+            {
+              "id": "b",
+              "text": "Ocultar todos los pasos relevantes"
+            },
+            {
+              "id": "c",
+              "text": "Indicar herramienta, procedimiento y contexto"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar de condiciones sin anotarlo"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La reproducibilidad requiere saber cómo se obtuvo el resultado.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d6-q05",
+          "prompt": "Si desconoces un componente del equipo, lo correcto es…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Inventar el modelo más caro"
+            },
+            {
+              "id": "b",
+              "text": "Eliminarlo del inventario sin avisar"
+            },
+            {
+              "id": "c",
+              "text": "Afirmar que no existe"
+            },
+            {
+              "id": "d",
+              "text": "Registrarlo como pendiente y buscar una fuente fiable"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Reconocer lo desconocido evita decisiones basadas en información falsa.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d6-q06",
+          "prompt": "¿Qué evidencia apoya mejor la versión del sistema?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La información que muestra la herramienta del sistema"
+            },
+            {
+              "id": "b",
+              "text": "El aspecto del fondo de pantalla"
+            },
+            {
+              "id": "c",
+              "text": "La opinión sobre el equipo de otra persona"
+            },
+            {
+              "id": "d",
+              "text": "La marca del cable de corriente"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La herramienta del sistema proporciona versión; la apariencia puede personalizarse.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d6-q07",
+          "prompt": "¿Qué comparación sirve para decidir un laboratorio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Número de pegatinas frente a marca del teclado"
+            },
+            {
+              "id": "b",
+              "text": "Recursos disponibles frente a requisitos de la práctica"
+            },
+            {
+              "id": "c",
+              "text": "Color del equipo frente a color de la web"
+            },
+            {
+              "id": "d",
+              "text": "Cantidad de pestañas del manual"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La viabilidad depende de capacidades y requisitos, no de decoración.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d6-q08",
+          "prompt": "¿Cómo expresar una limitación de forma precisa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mi equipo no sirve para nada"
+            },
+            {
+              "id": "b",
+              "text": "Toda computadora pequeña es insegura"
+            },
+            {
+              "id": "c",
+              "text": "Solo quedan 12 GB libres; conviene evitar una imagen de 20 GB"
+            },
+            {
+              "id": "d",
+              "text": "Sin dos monitores no se puede aprender"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una limitación medible permite elegir alternativas de práctica.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        }
+      ],
+      "challenge": {
+        "id": "w01d6-challenge",
+        "prompt": "Ficha A dice 8 GB RAM y 40 GB libres; ficha B dice equipo rápido. ¿Cuál permite planificar mejor?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La B, porque evita números"
+          },
+          {
+            "id": "b",
+            "text": "Ambas demuestran igual cantidad de RAM"
+          },
+          {
+            "id": "c",
+            "text": "Ninguna puede indicar espacio libre"
+          },
+          {
+            "id": "d",
+            "text": "La ficha A, porque aporta recursos comprobables"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "Datos concretos permiten comparar requisitos; adjetivos vagos no bastan.",
+        "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+      }
+    },
+    {
+      "dayId": "w01d7",
+      "questions": [
+        {
+          "id": "w01d7-q01",
+          "prompt": "Una persona habla a un micrófono y recibe texto en pantalla. ¿Qué es entrada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El audio captado por el micrófono"
+            },
+            {
+              "id": "b",
+              "text": "El texto mostrado"
+            },
+            {
+              "id": "c",
+              "text": "La copia impresa del texto"
+            },
+            {
+              "id": "d",
+              "text": "La notificación visual final"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La entrada son los datos capturados, antes de procesarlos y mostrarlos.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d7-q02",
+          "prompt": "Un documento no guardado desaparece tras un apagado. ¿Qué diferencia ayuda a explicarlo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Monitor grande frente a pequeño"
+            },
+            {
+              "id": "b",
+              "text": "RAM de trabajo frente a almacenamiento persistente"
+            },
+            {
+              "id": "c",
+              "text": "Teclado USB frente a inalámbrico"
+            },
+            {
+              "id": "d",
+              "text": "Wi-Fi frente a Ethernet únicamente"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El trabajo en memoria puede perderse si no se guarda de forma persistente.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d7-q03",
+          "prompt": "Un SSD de 1 TB deja de tener espacio. ¿Qué debes comprobar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La longitud del nombre del usuario"
+            },
+            {
+              "id": "b",
+              "text": "La tasa de refresco del monitor"
+            },
+            {
+              "id": "c",
+              "text": "Uso y espacio libre, no solo capacidad nominal"
+            },
+            {
+              "id": "d",
+              "text": "El número de puertos de audio"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La capacidad total no indica qué parte está ocupada.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d7-q04",
+          "prompt": "¿Qué combinación reúne hardware y software respectivamente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Navegador y CPU"
+            },
+            {
+              "id": "b",
+              "text": "Archivo y aplicación"
+            },
+            {
+              "id": "c",
+              "text": "RAM y SSD"
+            },
+            {
+              "id": "d",
+              "text": "CPU y navegador"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "CPU es un componente físico; navegador es un programa.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d7-q05",
+          "prompt": "¿Quién coordina archivos, procesos y dispositivos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El sistema operativo"
+            },
+            {
+              "id": "b",
+              "text": "Un cable HDMI"
+            },
+            {
+              "id": "c",
+              "text": "Un documento de notas"
+            },
+            {
+              "id": "d",
+              "text": "Una carpeta temporal por sí sola"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El sistema operativo administra los recursos y servicios generales.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d7-q06",
+          "prompt": "En unidades decimales, 3 GB contienen…",
+          "options": [
+            {
+              "id": "a",
+              "text": "300 MB"
+            },
+            {
+              "id": "b",
+              "text": "3000 MB"
+            },
+            {
+              "id": "c",
+              "text": "30 MB"
+            },
+            {
+              "id": "d",
+              "text": "3072 MB"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La conversión decimal usa 1000; la binaria se expresa con otras unidades.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d7-q07",
+          "prompt": "Una app nueva eleva CPU durante dos segundos y luego baja. ¿Qué falta para afirmar problema?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un fondo de pantalla nuevo"
+            },
+            {
+              "id": "b",
+              "text": "Un nombre de equipo más corto"
+            },
+            {
+              "id": "c",
+              "text": "Evidencia de persistencia e impacto fuera de lo esperado"
+            },
+            {
+              "id": "d",
+              "text": "Una carpeta con mayúsculas"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un pico transitorio puede ser parte normal de abrir la aplicación.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d7-q08",
+          "prompt": "¿Qué acción es salida en una videollamada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hablar al micrófono"
+            },
+            {
+              "id": "b",
+              "text": "Escribir un mensaje"
+            },
+            {
+              "id": "c",
+              "text": "Mover el ratón"
+            },
+            {
+              "id": "d",
+              "text": "Escuchar al interlocutor por altavoces"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El altavoz presenta audio recibido; las otras acciones introducen datos.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d7-q09",
+          "prompt": "¿Por qué no debe calificarse todo proceso desconocido de malicioso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Desconocer su nombre no prueba un comportamiento dañino"
+            },
+            {
+              "id": "b",
+              "text": "Porque todos los procesos son siempre seguros"
+            },
+            {
+              "id": "c",
+              "text": "Porque el uso de CPU prueba legitimidad"
+            },
+            {
+              "id": "d",
+              "text": "Porque los procesos nunca acceden a archivos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La conclusión necesita contexto y evidencia, no familiaridad con el nombre.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d7-q10",
+          "prompt": "¿Qué equipo conserva archivos sin corriente normalmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La RAM convencional por sí sola"
+            },
+            {
+              "id": "b",
+              "text": "Un dispositivo de almacenamiento como SSD"
+            },
+            {
+              "id": "c",
+              "text": "Una ventana no guardada"
+            },
+            {
+              "id": "d",
+              "text": "Un cuadro de diálogo abierto"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El almacenamiento está pensado para persistir; no sustituye el respaldo ante averías.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d7-q11",
+          "prompt": "¿Para qué sirve una interfaz de red?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aumentar la memoria de la CPU"
+            },
+            {
+              "id": "b",
+              "text": "Convertir todo archivo en copia de respaldo"
+            },
+            {
+              "id": "c",
+              "text": "Intercambiar datos con otros dispositivos mediante una red"
+            },
+            {
+              "id": "d",
+              "text": "Sustituir el sistema operativo"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La interfaz habilita comunicación; configuración y red también deben funcionar.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d7-q12",
+          "prompt": "¿Qué evidencia corresponde a una prueba controlada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una captura sin fecha ni contexto"
+            },
+            {
+              "id": "b",
+              "text": "Un diagnóstico por el precio del equipo"
+            },
+            {
+              "id": "c",
+              "text": "Cinco cambios simultáneos sin registro"
+            },
+            {
+              "id": "d",
+              "text": "Misma tarea, métricas antes y después y cambios registrados"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una prueba controlada ayuda a relacionar cambios y resultados.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d7-q13",
+          "prompt": "¿Una aplicación web y una local son ambas software?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí; cambia dónde se ejecutan sus componentes y cómo se accede"
+            },
+            {
+              "id": "b",
+              "text": "No; una web es un componente físico"
+            },
+            {
+              "id": "c",
+              "text": "No; solo lo instalado puede contener instrucciones"
+            },
+            {
+              "id": "d",
+              "text": "Sí, por eso siempre funcionan sin conexión"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Ambas involucran programas, aunque sus dependencias de red difieran.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d7-q14",
+          "prompt": "¿Qué indica una tasa de 16 MB/s durante una copia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Capacidad máxima del disco"
+            },
+            {
+              "id": "b",
+              "text": "Cantidad aproximada transferida por segundo"
+            },
+            {
+              "id": "c",
+              "text": "Cantidad de RAM física"
+            },
+            {
+              "id": "d",
+              "text": "Número total de archivos en el equipo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una tasa relaciona una cantidad con tiempo; no mide capacidad.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d7-q15",
+          "prompt": "En un inventario compartido, ¿qué dato aporta valor sin necesitar secretos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Contraseña del administrador"
+            },
+            {
+              "id": "b",
+              "text": "Token de una cuenta"
+            },
+            {
+              "id": "c",
+              "text": "RAM instalada y espacio libre aproximado"
+            },
+            {
+              "id": "d",
+              "text": "Código de recuperación de MFA"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La capacidad de práctica puede describirse sin credenciales.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d7-q16",
+          "prompt": "Si una tarea tarda mucho, ¿cuál es una primera acción razonable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambiar todos los componentes de inmediato"
+            },
+            {
+              "id": "b",
+              "text": "Borrar programas al azar"
+            },
+            {
+              "id": "c",
+              "text": "Afirmar infección sin comprobar"
+            },
+            {
+              "id": "d",
+              "text": "Definir el síntoma y observar recursos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Observar y delimitar ayuda a formular hipótesis verificables.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d7-q17",
+          "prompt": "¿Cuál afirmación distingue programa y proceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un programa instalado puede originar procesos al ejecutarse"
+            },
+            {
+              "id": "b",
+              "text": "Cada proceso es una pieza de hardware"
+            },
+            {
+              "id": "c",
+              "text": "Los programas solo existen en la RAM sin instalar"
+            },
+            {
+              "id": "d",
+              "text": "Un proceso siempre es un sistema operativo completo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El proceso representa ejecución; la relación con programas no siempre es uno a uno.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d7-q18",
+          "prompt": "¿Qué frase expresa una conclusión limitada correctamente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Por un pico aislado la CPU está averiada"
+            },
+            {
+              "id": "b",
+              "text": "Durante esta tarea observé mayor uso de memoria"
+            },
+            {
+              "id": "c",
+              "text": "Como hay tráfico todo dato fue robado"
+            },
+            {
+              "id": "d",
+              "text": "Al cerrar una ventana el disco perdió su contenido"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La afirmación se limita a lo medido y no inventa causas.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d7-q19",
+          "prompt": "¿Cuánto tarda idealmente copiar 60 MB a 15 MB/s?",
+          "options": [
+            {
+              "id": "a",
+              "text": "15 segundos"
+            },
+            {
+              "id": "b",
+              "text": "60 segundos"
+            },
+            {
+              "id": "c",
+              "text": "4 segundos"
+            },
+            {
+              "id": "d",
+              "text": "900 segundos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Tiempo = tamaño/tasa: 60/15=4; sobrecargas pueden alargar la transferencia real.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        },
+        {
+          "id": "w01d7-q20",
+          "prompt": "¿Qué criterio debe usarse para seleccionar una práctica virtual?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Elegir siempre la imagen más grande"
+            },
+            {
+              "id": "b",
+              "text": "Usar el color de la portada del curso"
+            },
+            {
+              "id": "c",
+              "text": "Suponer que todos los equipos tienen recursos ilimitados"
+            },
+            {
+              "id": "d",
+              "text": "Comparar requisitos y recursos libres reales"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El entorno debe ser viable para el dispositivo; puede requerir alternativa alojada.",
+          "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+        }
+      ],
+      "challenge": {
+        "id": "w01d7-challenge",
+        "prompt": "Escenario: editor abierto con texto sin guardar, RAM 85%, SSD con espacio. ¿Qué acción protege mejor ese trabajo antes de reiniciar?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Guardar el documento y comprobar la copia antes de reiniciar"
+          },
+          {
+            "id": "b",
+            "text": "Cerrar el monitor porque eso guarda todo"
+          },
+          {
+            "id": "c",
+            "text": "Confiar en que la RAM conserva cualquier documento al apagar"
+          },
+          {
+            "id": "d",
+            "text": "Eliminar el editor sin guardar"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La escritura persistente y su comprobación protegen frente a la pérdida de memoria de trabajo al reiniciar.",
+        "reference": "https://www.youtube.com/watch?v=y2kg3MOk1sY"
+      }
+    }
+  ]
+}

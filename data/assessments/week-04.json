@@ -1,0 +1,2066 @@
+{
+  "week": 4,
+  "version": "1.0.0",
+  "days": [
+    {
+      "dayId": "w04d1",
+      "questions": [
+        {
+          "id": "w04d1-q01",
+          "prompt": "Quieres ver qué aplicación consume CPU ahora. ¿Qué herramienta eliges primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Configuración de idioma"
+            },
+            {
+              "id": "b",
+              "text": "Papelera de reciclaje"
+            },
+            {
+              "id": "c",
+              "text": "Administrador de tareas"
+            },
+            {
+              "id": "d",
+              "text": "Visor de imágenes"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El Administrador de tareas permite observar procesos y consumo actual.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d1-q02",
+          "prompt": "Necesitas consultar características del sistema. ¿Qué herramienta resulta apropiada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Editor de imágenes"
+            },
+            {
+              "id": "b",
+              "text": "Mezclador de volumen"
+            },
+            {
+              "id": "c",
+              "text": "Lista de documentos recientes"
+            },
+            {
+              "id": "d",
+              "text": "Información del sistema o información del dispositivo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La información del sistema muestra datos relevantes de hardware y sistema operativo.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d1-q03",
+          "prompt": "Quieres revisar errores registrados de una aplicación. ¿Qué herramienta puede aportar evidencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Visor de eventos"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar fondo de pantalla"
+            },
+            {
+              "id": "c",
+              "text": "Configuración de pantalla nocturna"
+            },
+            {
+              "id": "d",
+              "text": "Panel de emojis"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El Visor de eventos reúne registros que pueden ayudar a relacionar errores con tiempos y componentes.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d1-q04",
+          "prompt": "Un dispositivo aparece con un problema de controlador. ¿Dónde consultarías su estado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Biblioteca de música"
+            },
+            {
+              "id": "b",
+              "text": "Administrador de dispositivos"
+            },
+            {
+              "id": "c",
+              "text": "Calendario"
+            },
+            {
+              "id": "d",
+              "text": "Panel de fuentes tipográficas"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El Administrador de dispositivos muestra dispositivos y parte de su estado de funcionamiento.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d1-q05",
+          "prompt": "¿Qué ofrece el Monitor de recursos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una copia de respaldo automática de todos los datos"
+            },
+            {
+              "id": "b",
+              "text": "Una lista de contraseñas de usuarios"
+            },
+            {
+              "id": "c",
+              "text": "Más detalle de uso de recursos por procesos y actividad"
+            },
+            {
+              "id": "d",
+              "text": "Un certificado de que no hay malware"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Permite explorar actividad de CPU, memoria, disco y red con mayor detalle.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d1-q06",
+          "prompt": "Antes de cambiar una opción administrativa conviene…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aplicar todos los ajustes a la vez"
+            },
+            {
+              "id": "b",
+              "text": "Borrar registros para que no molesten"
+            },
+            {
+              "id": "c",
+              "text": "Suponer que no afecta a otros programas"
+            },
+            {
+              "id": "d",
+              "text": "Entender su efecto y cómo revertirla"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una intervención controlada requiere contexto y capacidad de recuperación.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d1-q07",
+          "prompt": "¿Por qué registrar la hora de un síntoma?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Permite correlacionarlo con registros y actividad"
+            },
+            {
+              "id": "b",
+              "text": "Aumenta la velocidad del procesador"
+            },
+            {
+              "id": "c",
+              "text": "Actualiza todos los controladores"
+            },
+            {
+              "id": "d",
+              "text": "Evita la necesidad de describir el síntoma"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La hora ayuda a acotar la evidencia relevante, aunque no prueba por sí sola la causa.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d1-q08",
+          "prompt": "¿Qué es una herramienta administrativa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cualquier aplicación que tenga icono azul"
+            },
+            {
+              "id": "b",
+              "text": "Una utilidad para observar o gestionar aspectos del sistema"
+            },
+            {
+              "id": "c",
+              "text": "Un archivo que siempre debe borrarse"
+            },
+            {
+              "id": "d",
+              "text": "Un componente físico de la pantalla"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las herramientas administrativas ayudan a gestionar recursos, configuración y diagnóstico.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        }
+      ],
+      "challenge": {
+        "id": "w04d1-challenge",
+        "prompt": "Quieres investigar un fallo de aplicación a las 14:20. ¿Qué conjunto de herramientas y datos es apropiado?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo cambiar el fondo de pantalla"
+          },
+          {
+            "id": "b",
+            "text": "Eliminar registros y luego buscar el error"
+          },
+          {
+            "id": "c",
+            "text": "Síntoma y hora, Visor de eventos y observación de procesos según el problema"
+          },
+          {
+            "id": "d",
+            "text": "Desactivar todos los servicios antes de observar"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "El diagnóstico requiere preservar el contexto y utilizar fuentes relacionadas con el síntoma.",
+        "reference": "https://support.microsoft.com/en-us/windows/"
+      }
+    },
+    {
+      "dayId": "w04d2",
+      "questions": [
+        {
+          "id": "w04d2-q01",
+          "prompt": "Un equipo está lento y la CPU muestra uso alto. ¿Qué debes mirar además?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el fondo de pantalla"
+            },
+            {
+              "id": "b",
+              "text": "La marca del ratón"
+            },
+            {
+              "id": "c",
+              "text": "El número de iconos sin relación"
+            },
+            {
+              "id": "d",
+              "text": "Qué proceso usa CPU y qué tarea realiza"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El uso alto necesita atribución y contexto antes de concluir una causa.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d2-q02",
+          "prompt": "La RAM está casi ocupada. Esto sugiere revisar…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aplicaciones, presión de memoria y actividad asociada"
+            },
+            {
+              "id": "b",
+              "text": "Únicamente el brillo"
+            },
+            {
+              "id": "c",
+              "text": "El cable de sonido"
+            },
+            {
+              "id": "d",
+              "text": "La resolución de un archivo PDF"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La memoria debe analizarse junto con carga y comportamiento; no implica automáticamente malware.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d2-q03",
+          "prompt": "Un disco muestra mucha actividad pero poco espacio libre. ¿Qué son esos datos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dos nombres para exactamente la misma medida"
+            },
+            {
+              "id": "b",
+              "text": "Dos indicadores diferentes: actividad y capacidad"
+            },
+            {
+              "id": "c",
+              "text": "Prueba de que la CPU está rota"
+            },
+            {
+              "id": "d",
+              "text": "Confirmación de que todos los datos se perdieron"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La tasa de actividad y el espacio disponible describen aspectos distintos del almacenamiento.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d2-q04",
+          "prompt": "¿Qué es una línea base de rendimiento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un límite universal idéntico para todos los equipos"
+            },
+            {
+              "id": "b",
+              "text": "Una garantía de ausencia de fallos"
+            },
+            {
+              "id": "c",
+              "text": "Una referencia de comportamiento habitual para comparar"
+            },
+            {
+              "id": "d",
+              "text": "Una aplicación que elimina procesos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Comparar con el funcionamiento normal ayuda a interpretar cambios.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d2-q05",
+          "prompt": "Un proceso consume más recursos mientras exporta un archivo. ¿Qué comprobación ayuda?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eliminarlo inmediatamente sin contexto"
+            },
+            {
+              "id": "b",
+              "text": "Desactivar todos los servicios"
+            },
+            {
+              "id": "c",
+              "text": "Declarar que el disco está vacío"
+            },
+            {
+              "id": "d",
+              "text": "Observar si el consumo baja al terminar la tarea"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Relacionar consumo y tarea permite comprobar una explicación legítima.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d2-q06",
+          "prompt": "¿Qué resultado demuestra mejor que mejoró una lentitud?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Repetir la misma tarea y comparar medidas relevantes"
+            },
+            {
+              "id": "b",
+              "text": "Que cambió el color del icono"
+            },
+            {
+              "id": "c",
+              "text": "Que cerraste la ventana del diagnóstico"
+            },
+            {
+              "id": "d",
+              "text": "Que ya no recuerdas el síntoma"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La validación requiere repetir condiciones comparables.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d2-q07",
+          "prompt": "Un proceso desconocido tiene un nombre familiar. ¿Eso basta para confiar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí, todos los nombres son únicos e imposibles de imitar"
+            },
+            {
+              "id": "b",
+              "text": "No, conviene revisar contexto y procedencia"
+            },
+            {
+              "id": "c",
+              "text": "Sí, si consume poca memoria"
+            },
+            {
+              "id": "d",
+              "text": "No, hay que borrar el sistema siempre"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El nombre no demuestra identidad; una revisión debe reunir más evidencia.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d2-q08",
+          "prompt": "¿Qué error de diagnóstico debes evitar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Registrar síntomas y tiempos"
+            },
+            {
+              "id": "b",
+              "text": "Revisar procesos antes de actuar"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar varias cosas simultáneamente sin medir"
+            },
+            {
+              "id": "d",
+              "text": "Comparar antes y después"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los cambios simultáneos dificultan saber qué produjo el resultado y cómo revertirlo.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        }
+      ],
+      "challenge": {
+        "id": "w04d2-challenge",
+        "prompt": "Un equipo está lento solo mientras un proceso exporta un video. ¿Qué prueba apoya una explicación legítima?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Declarar malware por uso alto de CPU"
+          },
+          {
+            "id": "b",
+            "text": "Borrar el programa sin guardar trabajo"
+          },
+          {
+            "id": "c",
+            "text": "Medir únicamente el brillo del monitor"
+          },
+          {
+            "id": "d",
+            "text": "Comparar consumo y duración de la misma tarea y comprobar si baja al terminar"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La comparación relaciona carga y tarea sin asumir que un porcentaje alto es malicioso.",
+        "reference": "https://support.microsoft.com/en-us/windows/"
+      }
+    },
+    {
+      "dayId": "w04d3",
+      "questions": [
+        {
+          "id": "w04d3-q01",
+          "prompt": "¿Qué significa que una aplicación se inicie automáticamente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que puede ejecutarse al iniciar sesión o el sistema según su configuración"
+            },
+            {
+              "id": "b",
+              "text": "Que nunca utiliza recursos"
+            },
+            {
+              "id": "c",
+              "text": "Que es necesariamente malware"
+            },
+            {
+              "id": "d",
+              "text": "Que no puede desinstalarse"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El inicio automático describe cuándo arranca, no su legitimidad ni su consumo.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d3-q02",
+          "prompt": "Deshabilitar un elemento de inicio…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Elimina físicamente el programa"
+            },
+            {
+              "id": "b",
+              "text": "Puede cambiar funciones disponibles al comenzar la sesión"
+            },
+            {
+              "id": "c",
+              "text": "Borra siempre los archivos personales"
+            },
+            {
+              "id": "d",
+              "text": "Actualiza automáticamente Windows"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Cambiar inicio afecta el arranque de ese componente, no equivale a retirarlo completamente.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d3-q03",
+          "prompt": "Un servicio no inicia porque otro requerido está detenido. ¿Qué revisarías?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La imagen de fondo"
+            },
+            {
+              "id": "b",
+              "text": "El número de carpetas en Descargas"
+            },
+            {
+              "id": "c",
+              "text": "Sus dependencias y el estado del componente requerido"
+            },
+            {
+              "id": "d",
+              "text": "El brillo del monitor"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las dependencias pueden explicar fallos de inicio del servicio.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d3-q04",
+          "prompt": "Un servicio tiene tipo de inicio manual. ¿Qué implica en términos generales?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que está necesariamente dañado"
+            },
+            {
+              "id": "b",
+              "text": "Que debe borrarse"
+            },
+            {
+              "id": "c",
+              "text": "Que ninguna aplicación puede necesitarlo"
+            },
+            {
+              "id": "d",
+              "text": "Que no está configurado simplemente para arrancar siempre de forma automática"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El tipo de inicio describe una configuración; no basta para determinar salud o necesidad.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d3-q05",
+          "prompt": "Antes de detener un servicio, ¿qué pregunta es esencial?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Qué funciones dependen de él y cómo se recuperan"
+            },
+            {
+              "id": "b",
+              "text": "Qué color tiene su nombre"
+            },
+            {
+              "id": "c",
+              "text": "Si ocupa una fila impar"
+            },
+            {
+              "id": "d",
+              "text": "Si el escritorio tiene muchos iconos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El impacto operativo y la recuperación deben entenderse antes de intervenir.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d3-q06",
+          "prompt": "¿Por qué un servicio puede ejecutarse sin una ventana visible?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque no tiene proceso"
+            },
+            {
+              "id": "b",
+              "text": "Porque ofrece una función de fondo"
+            },
+            {
+              "id": "c",
+              "text": "Porque no utiliza software"
+            },
+            {
+              "id": "d",
+              "text": "Porque siempre pertenece a un atacante"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Muchas funciones del sistema operan en segundo plano sin interfaz directa.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d3-q07",
+          "prompt": "Reducir elementos de inicio puede ayudar a diagnosticar un arranque lento si…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Se deshabilita todo sin distinguir funciones"
+            },
+            {
+              "id": "b",
+              "text": "Se borran registros antes de comparar"
+            },
+            {
+              "id": "c",
+              "text": "Se hace de forma selectiva, documentada y reversible"
+            },
+            {
+              "id": "d",
+              "text": "Se cambian también muchas configuraciones a la vez"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los cambios controlados permiten comprobar efecto y conservar funciones necesarias.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d3-q08",
+          "prompt": "¿Qué conviene documentar tras cambiar un inicio automático?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el nombre del usuario"
+            },
+            {
+              "id": "b",
+              "text": "La posición del cursor"
+            },
+            {
+              "id": "c",
+              "text": "Una descripción sin fecha ni contexto"
+            },
+            {
+              "id": "d",
+              "text": "Estado anterior, motivo, cambio y resultado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La documentación permite reproducir y revertir la modificación.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        }
+      ],
+      "challenge": {
+        "id": "w04d3-challenge",
+        "prompt": "Tras deshabilitar un servicio falla una función. ¿Qué harías primero?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Revisar el cambio, sus dependencias y una reversión controlada"
+          },
+          {
+            "id": "b",
+            "text": "Deshabilitar el resto para que todos coincidan"
+          },
+          {
+            "id": "c",
+            "text": "Borrar registros de la función"
+          },
+          {
+            "id": "d",
+            "text": "Eliminar al usuario que reportó el fallo"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "El cambio previo y sus dependencias orientan una prueba reversible y documentada.",
+        "reference": "https://support.microsoft.com/en-us/windows/"
+      }
+    },
+    {
+      "dayId": "w04d4",
+      "questions": [
+        {
+          "id": "w04d4-q01",
+          "prompt": "El Visor de eventos muestra un error a la hora del fallo. ¿Qué conclusión inicial corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Demuestra por sí solo la causa exacta"
+            },
+            {
+              "id": "b",
+              "text": "Es una pista que debe relacionarse con el síntoma y otras evidencias"
+            },
+            {
+              "id": "c",
+              "text": "Indica que todos los procesos fallaron"
+            },
+            {
+              "id": "d",
+              "text": "Obliga a borrar el registro"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La proximidad temporal ayuda, pero no prueba causalidad sin contexto.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d4-q02",
+          "prompt": "¿Qué campos ayudan a identificar un evento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Color del escritorio y volumen"
+            },
+            {
+              "id": "b",
+              "text": "Tamaño del ratón y brillo"
+            },
+            {
+              "id": "c",
+              "text": "Hora, origen, identificador y detalles relevantes"
+            },
+            {
+              "id": "d",
+              "text": "Número de iconos y fondo"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Estos campos permiten localizar y entender mejor el registro.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d4-q03",
+          "prompt": "Un dispositivo dejó de funcionar tras actualizar su controlador. ¿Qué herramienta aporta su estado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Explorador de fotos"
+            },
+            {
+              "id": "b",
+              "text": "Configuración de zona horaria"
+            },
+            {
+              "id": "c",
+              "text": "Papelera"
+            },
+            {
+              "id": "d",
+              "text": "Administrador de dispositivos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El estado del dispositivo y su controlador son relevantes para la hipótesis.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d4-q04",
+          "prompt": "Quieres distinguir qué proceso realiza lecturas de disco. ¿Qué recurso puede ayudar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Monitor de recursos"
+            },
+            {
+              "id": "b",
+              "text": "Panel de idiomas"
+            },
+            {
+              "id": "c",
+              "text": "Configuración de accesibilidad de texto"
+            },
+            {
+              "id": "d",
+              "text": "Calendario"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El Monitor de recursos facilita relacionar procesos con actividad de disco.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d4-q05",
+          "prompt": "Un registro tiene muchos avisos históricos sin síntoma actual. ¿Qué debes hacer?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eliminar inmediatamente todo el sistema"
+            },
+            {
+              "id": "b",
+              "text": "Acotar tiempo y relevancia en lugar de asumir una avería general"
+            },
+            {
+              "id": "c",
+              "text": "Tratar todo aviso como un incidente confirmado"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar permisos de todos los usuarios"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los registros deben contextualizarse según la pregunta de diagnóstico.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d4-q06",
+          "prompt": "¿Por qué no conviene borrar registros al iniciar un diagnóstico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque ocupan siempre toda la RAM"
+            },
+            {
+              "id": "b",
+              "text": "Porque borrarlos mejora todas las aplicaciones"
+            },
+            {
+              "id": "c",
+              "text": "Puedes perder evidencia necesaria para comparar y correlacionar"
+            },
+            {
+              "id": "d",
+              "text": "Porque todo registro es público"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Preservar información relevante permite investigar el estado previo.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d4-q07",
+          "prompt": "Dos eventos usan zonas horarias diferentes. Antes de ordenarlos conviene…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ordenarlos solo por el texto del mensaje"
+            },
+            {
+              "id": "b",
+              "text": "Ignorar todas las fechas"
+            },
+            {
+              "id": "c",
+              "text": "Suponer que ocurrieron simultáneamente"
+            },
+            {
+              "id": "d",
+              "text": "Normalizar las marcas de tiempo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Sin una base temporal común la cronología puede resultar incorrecta.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d4-q08",
+          "prompt": "Al exportar un registro para pedir ayuda debes…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conservar datos útiles y revisar información sensible"
+            },
+            {
+              "id": "b",
+              "text": "Publicar cualquier dato personal sin revisión"
+            },
+            {
+              "id": "c",
+              "text": "Modificar los mensajes para simplificarlos"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar el origen y la hora siempre"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La evidencia debe ser útil y respetar privacidad e integridad.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        }
+      ],
+      "challenge": {
+        "id": "w04d4-challenge",
+        "prompt": "Dos registros describen el caso, uno en UTC y otro en hora local. ¿Cómo construyes la cronología?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ordenar por el tamaño del mensaje"
+          },
+          {
+            "id": "b",
+            "text": "Normalizar sus tiempos y conservar fuente y zona original"
+          },
+          {
+            "id": "c",
+            "text": "Descartar uno porque tiene otra zona"
+          },
+          {
+            "id": "d",
+            "text": "Asumir simultaneidad sin convertir"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "Normalizar tiempo permite correlacionar sin perder la procedencia de las marcas originales.",
+        "reference": "https://support.microsoft.com/en-us/windows/"
+      }
+    },
+    {
+      "dayId": "w04d5",
+      "questions": [
+        {
+          "id": "w04d5-q01",
+          "prompt": "¿Cuál es un primer paso útil ante un fallo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aplicar la solución más destructiva"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar todas las configuraciones"
+            },
+            {
+              "id": "c",
+              "text": "Definir el síntoma y cuándo ocurre"
+            },
+            {
+              "id": "d",
+              "text": "Borrar las notas del usuario"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una descripción concreta guía hipótesis y pruebas.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d5-q02",
+          "prompt": "Una hipótesis de diagnóstico debe ser…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una certeza declarada sin observación"
+            },
+            {
+              "id": "b",
+              "text": "La primera explicación popular"
+            },
+            {
+              "id": "c",
+              "text": "Una lista de cambios sin propósito"
+            },
+            {
+              "id": "d",
+              "text": "Comprobable mediante evidencia o una prueba controlada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una hipótesis útil puede ponerse a prueba y descartarse.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d5-q03",
+          "prompt": "¿Qué significa probar una sola variable cuando sea posible?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aislar mejor la relación entre cambio y resultado"
+            },
+            {
+              "id": "b",
+              "text": "Garantizar que nunca habrá otras causas"
+            },
+            {
+              "id": "c",
+              "text": "Evitar guardar cualquier medida"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar muchas opciones a la vez"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El control de variables mejora la interpretación, aunque sistemas reales puedan tener complejidad adicional.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d5-q04",
+          "prompt": "La prueba no apoya tu hipótesis. ¿Qué debes hacer?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ocultar el resultado"
+            },
+            {
+              "id": "b",
+              "text": "Registrarlo y revisar o descartar la hipótesis"
+            },
+            {
+              "id": "c",
+              "text": "Repetir cambios sin medir"
+            },
+            {
+              "id": "d",
+              "text": "Presentar la hipótesis como confirmada"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La evidencia negativa también mejora el diagnóstico.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d5-q05",
+          "prompt": "Un cambio parece resolver el síntoma. ¿Qué falta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Borrar el registro del cambio"
+            },
+            {
+              "id": "b",
+              "text": "Declarar que nunca volverá a ocurrir"
+            },
+            {
+              "id": "c",
+              "text": "Validar la tarea original y revisar efectos secundarios"
+            },
+            {
+              "id": "d",
+              "text": "Aplicar más cambios sin necesidad"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La solución necesita comprobación funcional y de impacto.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d5-q06",
+          "prompt": "¿Qué debe incluir una documentación de diagnóstico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la frase arreglado"
+            },
+            {
+              "id": "b",
+              "text": "Solo el nombre de la herramienta"
+            },
+            {
+              "id": "c",
+              "text": "Una captura sin contexto"
+            },
+            {
+              "id": "d",
+              "text": "Síntoma, hipótesis, pruebas, resultados y validación"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La trazabilidad permite evaluar la conclusión y repetir el procedimiento.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d5-q07",
+          "prompt": "¿Cuándo conviene escalar un problema?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cuando supera tu alcance o requiere permisos o conocimientos adicionales"
+            },
+            {
+              "id": "b",
+              "text": "Solo después de borrar los datos"
+            },
+            {
+              "id": "c",
+              "text": "Nunca, aunque falten evidencias"
+            },
+            {
+              "id": "d",
+              "text": "Cuando una ventana tenga un color distinto"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Escalar protege la operación cuando el alcance propio es insuficiente.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d5-q08",
+          "prompt": "¿Qué evita una prueba reversible?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Toda necesidad de documentación"
+            },
+            {
+              "id": "b",
+              "text": "Cambios permanentes innecesarios al comprobar una hipótesis"
+            },
+            {
+              "id": "c",
+              "text": "Cualquier riesgo posible en todos los casos"
+            },
+            {
+              "id": "d",
+              "text": "El uso de una línea base"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La reversibilidad reduce impacto, pero no sustituye planificación y autorización.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        }
+      ],
+      "challenge": {
+        "id": "w04d5-challenge",
+        "prompt": "Elige el procedimiento más sólido para comprobar una hipótesis de lentitud.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Cambiar varias opciones y concluir sin medir"
+          },
+          {
+            "id": "b",
+            "text": "Reinstalar antes de describir el síntoma"
+          },
+          {
+            "id": "c",
+            "text": "Registrar línea base, probar un cambio reversible, repetir tarea y comparar"
+          },
+          {
+            "id": "d",
+            "text": "Eliminar evidencia para simplificar el caso"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "Una prueba controlada y su validación permiten interpretar el efecto del cambio.",
+        "reference": "https://support.microsoft.com/en-us/windows/"
+      }
+    },
+    {
+      "dayId": "w04d6",
+      "questions": [
+        {
+          "id": "w04d6-q01",
+          "prompt": "Un usuario dice el equipo va lento. ¿Qué pregunta concreta ayuda?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cuál es su color favorito"
+            },
+            {
+              "id": "b",
+              "text": "Cuántos iconos prefiere"
+            },
+            {
+              "id": "c",
+              "text": "Qué aplicación quiere borrar sin revisar"
+            },
+            {
+              "id": "d",
+              "text": "Qué tarea tarda, desde cuándo y bajo qué condiciones"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Es necesario convertir un síntoma general en comportamiento observable.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d6-q02",
+          "prompt": "El disco tiene poco espacio libre. Antes de eliminar datos debes…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Identificar contenido prescindible y conservar lo necesario"
+            },
+            {
+              "id": "b",
+              "text": "Borrar carpetas del sistema al azar"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar el perfil completo"
+            },
+            {
+              "id": "d",
+              "text": "Vaciar todos los respaldos sin comprobar"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Liberar espacio requiere distinguir datos y componentes importantes.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d6-q03",
+          "prompt": "Hay un proceso usando recursos, pero no sabes su función. ¿Qué sigue?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Finalizarlo por su consumo sin más"
+            },
+            {
+              "id": "b",
+              "text": "Investigar identidad, tarea y contexto antes de detenerlo"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar cualquier archivo con el mismo nombre"
+            },
+            {
+              "id": "d",
+              "text": "Deshabilitar todos los servicios"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Actuar sobre un proceso desconocido puede afectar tareas legítimas.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d6-q04",
+          "prompt": "El problema empezó después de un cambio documentado. Eso permite…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Afirmar automáticamente que es la única causa"
+            },
+            {
+              "id": "b",
+              "text": "Ignorar todos los demás datos"
+            },
+            {
+              "id": "c",
+              "text": "Formular una hipótesis sobre ese cambio y comprobarla"
+            },
+            {
+              "id": "d",
+              "text": "Declarar una infección confirmada"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una secuencia temporal orienta, pero necesita validación.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d6-q05",
+          "prompt": "El equipo está lento únicamente durante una tarea intensiva. ¿Qué conviene comparar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el nombre del usuario"
+            },
+            {
+              "id": "b",
+              "text": "El tamaño de un archivo no relacionado"
+            },
+            {
+              "id": "c",
+              "text": "El fondo del escritorio"
+            },
+            {
+              "id": "d",
+              "text": "Recursos y duración con esa tarea y sin ella"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La comparación contextual ayuda a distinguir demanda esperada de un problema adicional.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d6-q06",
+          "prompt": "Después de liberar espacio, la tarea sigue lenta. ¿Qué concluyes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La intervención no validó una solución completa y hay que investigar más"
+            },
+            {
+              "id": "b",
+              "text": "El problema terminó porque borraste archivos"
+            },
+            {
+              "id": "c",
+              "text": "Todas las demás hipótesis son imposibles"
+            },
+            {
+              "id": "d",
+              "text": "El usuario está necesariamente equivocado"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La validación del síntoma original determina si el cambio resolvió el problema.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d6-q07",
+          "prompt": "¿Cuál es una evidencia útil en un caso de lentitud?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo una captura de la pantalla de bloqueo"
+            },
+            {
+              "id": "b",
+              "text": "Medidas comparables y procesos relevantes con hora"
+            },
+            {
+              "id": "c",
+              "text": "Una lista de opiniones sin datos"
+            },
+            {
+              "id": "d",
+              "text": "La frase siempre ocurre sin ejemplos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La evidencia concreta permite comprobar hipótesis y cambios.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d6-q08",
+          "prompt": "Una posible solución requiere privilegios que no tienes. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Buscar cómo saltar permisos"
+            },
+            {
+              "id": "b",
+              "text": "Usar credenciales de otra persona sin autorización"
+            },
+            {
+              "id": "c",
+              "text": "Documentar y escalar por el canal autorizado"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar el control de acceso"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El alcance y los permisos forman parte del procedimiento seguro de soporte.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        }
+      ],
+      "challenge": {
+        "id": "w04d6-challenge",
+        "prompt": "Liberaste espacio y el síntoma continúa. ¿Qué decisión está justificada?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Cerrar el caso porque hubo una intervención"
+          },
+          {
+            "id": "b",
+            "text": "Ocultar el resultado y repetir lo mismo sin medir"
+          },
+          {
+            "id": "c",
+            "text": "Eliminar todos los respaldos restantes"
+          },
+          {
+            "id": "d",
+            "text": "Registrar que no resolvió la tarea y revisar otras hipótesis con evidencia"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "El resultado de la tarea original determina si la solución fue suficiente.",
+        "reference": "https://support.microsoft.com/en-us/windows/"
+      }
+    },
+    {
+      "dayId": "w04d7",
+      "questions": [
+        {
+          "id": "w04d7-q01",
+          "prompt": "La CPU está al 90% durante una exportación y baja al finalizar. ¿Qué interpretación es más sustentada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El consumo puede estar asociado a una carga legítima"
+            },
+            {
+              "id": "b",
+              "text": "Se confirmó malware por el porcentaje"
+            },
+            {
+              "id": "c",
+              "text": "El disco fue sustituido"
+            },
+            {
+              "id": "d",
+              "text": "Todos los servicios deben detenerse"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El patrón vinculado a una tarea puede ser esperado y no demuestra actividad maliciosa.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d7-q02",
+          "prompt": "Una aplicación falla a las 10:15 y hay un registro relevante a esa hora. ¿Qué haces después?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Declarar que cualquier evento es la causa"
+            },
+            {
+              "id": "b",
+              "text": "Revisar detalles y correlacionar con el síntoma"
+            },
+            {
+              "id": "c",
+              "text": "Borrar todos los registros"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar contraseñas sin relación"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El registro aporta una pista que debe contextualizarse.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d7-q03",
+          "prompt": "Una función depende de un servicio que fue deshabilitado. ¿Qué explica el fallo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El fondo de pantalla consume el archivo"
+            },
+            {
+              "id": "b",
+              "text": "El monitor perdió sus permisos"
+            },
+            {
+              "id": "c",
+              "text": "El cambio pudo interrumpir una dependencia necesaria"
+            },
+            {
+              "id": "d",
+              "text": "El navegador actualizó toda la red"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los servicios pueden sostener funciones de otras aplicaciones.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d7-q04",
+          "prompt": "Hay un dispositivo con error tras cambiar un controlador. ¿Qué evidencia buscas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el número de carpetas"
+            },
+            {
+              "id": "b",
+              "text": "La lista de música"
+            },
+            {
+              "id": "c",
+              "text": "El brillo configurado"
+            },
+            {
+              "id": "d",
+              "text": "Versión y estado del controlador y momento del cambio"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La hipótesis debe apoyarse en datos del componente modificado.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d7-q05",
+          "prompt": "Una prueba reversible no cambia el síntoma. ¿Cuál es una conclusión adecuada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Esa prueba no respalda la hipótesis en esas condiciones"
+            },
+            {
+              "id": "b",
+              "text": "La hipótesis quedó confirmada"
+            },
+            {
+              "id": "c",
+              "text": "Debes ocultar la prueba"
+            },
+            {
+              "id": "d",
+              "text": "Ya no hacen falta más datos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una prueba puede descartar o limitar una explicación.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d7-q06",
+          "prompt": "El Administrador de tareas muestra mucha memoria usada. ¿Qué faltaría para diagnosticar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El nombre del fondo"
+            },
+            {
+              "id": "b",
+              "text": "Contexto de carga, procesos y comportamiento observado"
+            },
+            {
+              "id": "c",
+              "text": "La posición del equipo en el escritorio"
+            },
+            {
+              "id": "d",
+              "text": "El tamaño de un icono"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una cifra aislada no describe por sí sola una falla.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d7-q07",
+          "prompt": "Una herramienta de limpieza propone eliminar archivos que no reconoces. ¿Qué priorizas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aceptar todo para terminar antes"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar respaldos primero"
+            },
+            {
+              "id": "c",
+              "text": "Revisar alcance y recuperación antes de aceptar"
+            },
+            {
+              "id": "d",
+              "text": "Conceder siempre administración permanente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El ahorro de espacio no justifica eliminar información sin comprender su función.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d7-q08",
+          "prompt": "Una actualización coincide con el inicio del problema. ¿Qué afirmación es correcta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La actualización es culpable con certeza"
+            },
+            {
+              "id": "b",
+              "text": "Toda otra evidencia debe ignorarse"
+            },
+            {
+              "id": "c",
+              "text": "Se confirmó daño físico"
+            },
+            {
+              "id": "d",
+              "text": "La coincidencia motiva una hipótesis, no prueba causalidad"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Correlación temporal y causalidad deben distinguirse.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d7-q09",
+          "prompt": "¿Qué comparación es más válida para comprobar una mejora?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La misma tarea bajo condiciones similares antes y después"
+            },
+            {
+              "id": "b",
+              "text": "Dos tareas sin relación"
+            },
+            {
+              "id": "c",
+              "text": "Una medición antes y una opinión después"
+            },
+            {
+              "id": "d",
+              "text": "El color del escritorio antes y después"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La comparabilidad permite interpretar si cambió el desempeño relevante.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d7-q10",
+          "prompt": "Un proceso tiene nombre conocido pero origen inesperado. ¿Qué debes hacer?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Confiar porque el texto parece familiar"
+            },
+            {
+              "id": "b",
+              "text": "Investigar antes de confiar solo en el nombre"
+            },
+            {
+              "id": "c",
+              "text": "Borrarlo sin preservar evidencia"
+            },
+            {
+              "id": "d",
+              "text": "Concluir que nunca consume recursos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La identidad requiere contexto adicional al nombre mostrado.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d7-q11",
+          "prompt": "El arranque es lento y hay muchos elementos de inicio. ¿Qué procedimiento es adecuado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Desactivar todo a la vez"
+            },
+            {
+              "id": "b",
+              "text": "Borrar la cuenta del usuario"
+            },
+            {
+              "id": "c",
+              "text": "Revisar y probar cambios selectivos con registro"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar los registros de arranque"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El método selectivo conserva funciones y mejora atribución del resultado.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d7-q12",
+          "prompt": "Un equipo falla solo con un periférico específico. ¿Qué hipótesis es comprobable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Afirmar que todo el sistema está roto"
+            },
+            {
+              "id": "b",
+              "text": "Culpar al correo del usuario"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar contraseñas de todas las cuentas"
+            },
+            {
+              "id": "d",
+              "text": "Relacionar dispositivo, controlador y condiciones de uso"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La hipótesis se conecta con la condición observada.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d7-q13",
+          "prompt": "Al preparar un caso para otro técnico, ¿qué información es esencial?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Síntoma, tiempos, pruebas y resultados"
+            },
+            {
+              "id": "b",
+              "text": "Solo el mensaje necesito ayuda"
+            },
+            {
+              "id": "c",
+              "text": "Una lista de herramientas sin resultados"
+            },
+            {
+              "id": "d",
+              "text": "Un archivo sin explicación"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El receptor necesita contexto y evidencia para continuar.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d7-q14",
+          "prompt": "Un aviso antiguo del Visor de eventos no coincide con el síntoma actual. ¿Qué valor tiene?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Prueba automáticamente una intrusión actual"
+            },
+            {
+              "id": "b",
+              "text": "Puede ser irrelevante para este caso y requiere contexto"
+            },
+            {
+              "id": "c",
+              "text": "Debe causar un reinicio inmediato siempre"
+            },
+            {
+              "id": "d",
+              "text": "Confirma que la memoria está dañada"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los registros históricos no deben interpretarse fuera de la pregunta investigada.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d7-q15",
+          "prompt": "¿Qué efecto tiene finalizar un proceso que mantiene trabajo sin guardar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Siempre guarda todo automáticamente"
+            },
+            {
+              "id": "b",
+              "text": "Desinstala físicamente la memoria"
+            },
+            {
+              "id": "c",
+              "text": "Puede causar pérdida de ese trabajo"
+            },
+            {
+              "id": "d",
+              "text": "Solo modifica la hora del sistema"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Terminar procesos puede interrumpir operaciones; hay que valorar impacto.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d7-q16",
+          "prompt": "El diagnóstico necesita una acción fuera de tus permisos. ¿Qué opción protege mejor el trabajo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usar la cuenta de otra persona sin permiso"
+            },
+            {
+              "id": "b",
+              "text": "Desactivar el mecanismo de permisos"
+            },
+            {
+              "id": "c",
+              "text": "Borrar la configuración desconocida"
+            },
+            {
+              "id": "d",
+              "text": "Escalar con evidencia y una propuesta de prueba"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La autorización y el alcance deben respetarse también durante soporte.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d7-q17",
+          "prompt": "Dos registros parecen invertidos porque uno está en UTC. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Convertirlos a una base temporal común"
+            },
+            {
+              "id": "b",
+              "text": "Ordenarlos por tamaño de archivo"
+            },
+            {
+              "id": "c",
+              "text": "Ignorar su zona horaria"
+            },
+            {
+              "id": "d",
+              "text": "Asumir que uno fue falsificado"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las diferencias de zona pueden alterar la cronología aparente.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d7-q18",
+          "prompt": "Un servicio manual aparece detenido sin fallos observados. ¿Qué puedes afirmar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todo servicio detenido es una avería"
+            },
+            {
+              "id": "b",
+              "text": "Su estado requiere contexto; no basta para declararlo averiado"
+            },
+            {
+              "id": "c",
+              "text": "Nunca debe existir un servicio manual"
+            },
+            {
+              "id": "d",
+              "text": "Hay que activarlo todo siempre"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El tipo de inicio y la necesidad de una función importan para interpretar el estado.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d7-q19",
+          "prompt": "Tras una corrección, la tarea funciona pero otra función falla. ¿Qué significa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La solución siempre está completa"
+            },
+            {
+              "id": "b",
+              "text": "El segundo fallo debe ocultarse"
+            },
+            {
+              "id": "c",
+              "text": "Hay un efecto secundario que debe revisarse antes de cerrar"
+            },
+            {
+              "id": "d",
+              "text": "Ya no hace falta recuperar cambios"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Validar incluye funciones relevantes que pueden verse afectadas.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w04d7-q20",
+          "prompt": "¿Qué conclusión final muestra mejor un método de diagnóstico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Probé muchas cosas y ahora parece bien"
+            },
+            {
+              "id": "b",
+              "text": "El equipo tenía errores porque sí"
+            },
+            {
+              "id": "c",
+              "text": "El primer programa que vi era el culpable"
+            },
+            {
+              "id": "d",
+              "text": "La prueba A descartó X, la prueba B apoyó Y y la repetición validó la corrección"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La conclusión enlaza hipótesis, evidencia y validación sin exagerar certeza.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        }
+      ],
+      "challenge": {
+        "id": "w04d7-challenge",
+        "prompt": "Debes entregar un caso de soporte a otro técnico. ¿Qué documento es suficiente para continuar?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Síntoma, alcance, tiempos, medidas, hipótesis probadas, resultados y siguiente paso autorizado"
+          },
+          {
+            "id": "b",
+            "text": "Una captura aislada de un icono"
+          },
+          {
+            "id": "c",
+            "text": "La frase ya revisé todo sin pruebas"
+          },
+          {
+            "id": "d",
+            "text": "Una lista de cambios sin orden ni resultado"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "Una entrega útil permite continuar sin repetir ni asumir pruebas que no se hicieron.",
+        "reference": "https://support.microsoft.com/en-us/windows/"
+      }
+    }
+  ]
+}

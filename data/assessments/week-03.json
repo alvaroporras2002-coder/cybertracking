@@ -1,0 +1,2066 @@
+{
+  "week": 3,
+  "version": "1.0.0",
+  "days": [
+    {
+      "dayId": "w03d1",
+      "questions": [
+        {
+          "id": "w03d1-q01",
+          "prompt": "¿Qué función corresponde al sistema operativo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Redactar todos los documentos del usuario"
+            },
+            {
+              "id": "b",
+              "text": "Administrar recursos y ofrecer servicios a las aplicaciones"
+            },
+            {
+              "id": "c",
+              "text": "Sustituir físicamente la memoria RAM"
+            },
+            {
+              "id": "d",
+              "text": "Garantizar que cualquier aplicación sea segura"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El sistema operativo coordina memoria, procesos, archivos y dispositivos; una aplicación realiza una tarea concreta.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d1-q02",
+          "prompt": "Una aplicación solicita guardar un archivo. ¿Qué componente coordina normalmente el acceso al sistema de archivos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La pantalla"
+            },
+            {
+              "id": "b",
+              "text": "El cable de alimentación"
+            },
+            {
+              "id": "c",
+              "text": "El sistema operativo"
+            },
+            {
+              "id": "d",
+              "text": "El documento que se guarda"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las aplicaciones usan servicios del sistema para trabajar con almacenamiento y permisos.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d1-q03",
+          "prompt": "¿Qué describe mejor el kernel?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un navegador incluido en todos los equipos"
+            },
+            {
+              "id": "b",
+              "text": "Una carpeta de documentos personales"
+            },
+            {
+              "id": "c",
+              "text": "Una marca de procesador"
+            },
+            {
+              "id": "d",
+              "text": "La parte central del sistema que gestiona funciones esenciales y recursos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El kernel es el núcleo del sistema operativo, aunque un sistema completo incorpora más componentes.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d1-q04",
+          "prompt": "Ubuntu y Fedora son ejemplos de…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Distribuciones de Linux"
+            },
+            {
+              "id": "b",
+              "text": "Ediciones de Windows"
+            },
+            {
+              "id": "c",
+              "text": "Tipos de memoria RAM"
+            },
+            {
+              "id": "d",
+              "text": "Aplicaciones de macOS"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una distribución integra Linux y un conjunto de herramientas y políticas de distribución.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d1-q05",
+          "prompt": "Un servidor proporciona archivos a otras computadoras. ¿Qué define principalmente su papel de servidor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que tenga necesariamente una pantalla grande"
+            },
+            {
+              "id": "b",
+              "text": "El servicio que ofrece a los clientes"
+            },
+            {
+              "id": "c",
+              "text": "Que solo pueda ejecutar Linux"
+            },
+            {
+              "id": "d",
+              "text": "Que nunca necesite actualizaciones"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Servidor describe un papel o servicio; no exige una marca ni un único sistema operativo.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d1-q06",
+          "prompt": "¿Qué afirmación sobre Windows, Linux y macOS es correcta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todos ejecutan cualquier aplicación sin cambios"
+            },
+            {
+              "id": "b",
+              "text": "Todos usan idénticos permisos y comandos"
+            },
+            {
+              "id": "c",
+              "text": "Son familias de sistemas con compatibilidades y herramientas diferentes"
+            },
+            {
+              "id": "d",
+              "text": "Solo uno permite conectarse a internet"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Compartir funciones generales no implica compatibilidad directa de programas o herramientas.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d1-q07",
+          "prompt": "Una aplicación tiene versión exclusiva para Windows. Antes de usarla en Linux conviene…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Renombrar el instalador a .linux"
+            },
+            {
+              "id": "b",
+              "text": "Suponer que un procesador igual garantiza ejecución"
+            },
+            {
+              "id": "c",
+              "text": "Copiarla a cualquier carpeta del sistema"
+            },
+            {
+              "id": "d",
+              "text": "Revisar compatibilidad y alternativas soportadas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La compatibilidad depende de plataforma, dependencias y soporte, no solo del nombre del archivo.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d1-q08",
+          "prompt": "¿Qué diferencia hay entre una interfaz gráfica y el sistema operativo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La interfaz es una forma de interactuar con el sistema"
+            },
+            {
+              "id": "b",
+              "text": "Toda interfaz gráfica es un sistema operativo distinto"
+            },
+            {
+              "id": "c",
+              "text": "El sistema operativo solo existe cuando hay escritorio"
+            },
+            {
+              "id": "d",
+              "text": "Cerrar una ventana desinstala el sistema"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un sistema puede ofrecer interfaz gráfica, terminal u otras formas de uso sin dejar de ser el mismo sistema.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        }
+      ],
+      "challenge": {
+        "id": "w03d1-challenge",
+        "prompt": "Necesitas mantener una aplicación exclusiva para Windows al evaluar Linux. ¿Qué plan está sustentado?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Renombrar el instalador y migrar todos los equipos"
+          },
+          {
+            "id": "b",
+            "text": "Revisar soporte, requisitos y alternativas; probar el flujo antes de migrar"
+          },
+          {
+            "id": "c",
+            "text": "Elegir solo por el color del escritorio"
+          },
+          {
+            "id": "d",
+            "text": "Asumir compatibilidad porque ambos usan procesador"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La decisión debe comprobar la función necesaria y el soporte; el aspecto visual no establece compatibilidad.",
+        "reference": "https://support.microsoft.com/en-us/windows/"
+      }
+    },
+    {
+      "dayId": "w03d2",
+      "questions": [
+        {
+          "id": "w03d2-q01",
+          "prompt": "Al abrir un editor, aparece una instancia en ejecución. Esa instancia es un…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Controlador físico"
+            },
+            {
+              "id": "b",
+              "text": "Archivo de respaldo"
+            },
+            {
+              "id": "c",
+              "text": "Proceso"
+            },
+            {
+              "id": "d",
+              "text": "Conector de red"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un proceso representa un programa en ejecución y dispone de recursos y contexto.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d2-q02",
+          "prompt": "Una aplicación puede crear varios procesos porque…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cada proceso exige instalar un sistema operativo"
+            },
+            {
+              "id": "b",
+              "text": "Un proceso solo puede durar un segundo"
+            },
+            {
+              "id": "c",
+              "text": "Todos los programas deben tener exactamente cinco procesos"
+            },
+            {
+              "id": "d",
+              "text": "Puede separar tareas en distintas instancias de ejecución"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La relación entre aplicación y proceso no tiene por qué ser uno a uno.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d2-q03",
+          "prompt": "¿Qué caracteriza a un servicio del sistema?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Proporciona una función que puede operar en segundo plano"
+            },
+            {
+              "id": "b",
+              "text": "Siempre debe mostrar una ventana al usuario"
+            },
+            {
+              "id": "c",
+              "text": "Solo se ejecuta desde un archivo de texto"
+            },
+            {
+              "id": "d",
+              "text": "Es cualquier cable conectado al equipo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los servicios suelen ofrecer funciones de fondo y tener mecanismos propios de inicio y administración.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d2-q04",
+          "prompt": "Cerrar la ventana principal de una aplicación…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Elimina automáticamente sus archivos"
+            },
+            {
+              "id": "b",
+              "text": "No garantiza que todos sus procesos hayan terminado"
+            },
+            {
+              "id": "c",
+              "text": "Apaga cualquier servicio de Windows"
+            },
+            {
+              "id": "d",
+              "text": "Borra la cuenta del usuario"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Algunas aplicaciones conservan procesos de fondo; es necesario comprobarlo.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d2-q05",
+          "prompt": "¿Qué herramienta permite observar procesos y su consumo en Windows?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Explorador de papelera"
+            },
+            {
+              "id": "b",
+              "text": "Visor de imágenes"
+            },
+            {
+              "id": "c",
+              "text": "Administrador de tareas"
+            },
+            {
+              "id": "d",
+              "text": "Configuración de fondo de pantalla"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El Administrador de tareas ofrece información de procesos y recursos utilizados.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d2-q06",
+          "prompt": "Un controlador sirve principalmente para…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Almacenar las contraseñas de todos los usuarios"
+            },
+            {
+              "id": "b",
+              "text": "Crear documentos de texto"
+            },
+            {
+              "id": "c",
+              "text": "Aumentar físicamente el tamaño del disco"
+            },
+            {
+              "id": "d",
+              "text": "Permitir que el sistema se comunique con un dispositivo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un controlador es software relacionado con el funcionamiento de un dispositivo.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d2-q07",
+          "prompt": "Un proceso tiene consumo alto durante una exportación de video. La conclusión inicial más razonable es…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Relacionarlo con la tarea y observar si se mantiene"
+            },
+            {
+              "id": "b",
+              "text": "Declararlo malware solo por consumir CPU"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar todos los archivos del programa"
+            },
+            {
+              "id": "d",
+              "text": "Desactivar el sistema de actualizaciones"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El consumo requiere contexto; una tarea exigente puede usar recursos legítimamente.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d2-q08",
+          "prompt": "Detener un servicio sin entender su función puede…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mejorar siempre la seguridad"
+            },
+            {
+              "id": "b",
+              "text": "Interrumpir aplicaciones o funciones que dependen de él"
+            },
+            {
+              "id": "c",
+              "text": "Liberar permanentemente toda la memoria"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar el modelo físico del procesador"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los servicios tienen dependencias y efectos operativos; un cambio necesita justificación y reversión.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        }
+      ],
+      "challenge": {
+        "id": "w03d2-challenge",
+        "prompt": "Tras cerrar un editor queda un proceso de sincronización. ¿Qué acción distingue observación de conclusión?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Declarar malware porque no hay ventana"
+          },
+          {
+            "id": "b",
+            "text": "Borrar todos los archivos del editor"
+          },
+          {
+            "id": "c",
+            "text": "Identificar el proceso y su función y comprobar si el comportamiento es esperado"
+          },
+          {
+            "id": "d",
+            "text": "Desactivar todos los servicios del sistema"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "Un componente de fondo puede ser legítimo; hay que investigar antes de actuar.",
+        "reference": "https://support.microsoft.com/en-us/windows/"
+      }
+    },
+    {
+      "dayId": "w03d3",
+      "questions": [
+        {
+          "id": "w03d3-q01",
+          "prompt": "¿Cuál es la fuente preferible para descargar una aplicación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un anuncio que imita el nombre del producto"
+            },
+            {
+              "id": "b",
+              "text": "Cualquier archivo reenviado por un desconocido"
+            },
+            {
+              "id": "c",
+              "text": "El primer enlace sin comprobar su destino"
+            },
+            {
+              "id": "d",
+              "text": "El sitio oficial del desarrollador o una tienda legítima"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La procedencia verificable reduce el riesgo de instaladores alterados, aunque no elimina todos los riesgos.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d3-q02",
+          "prompt": "Un instalador pide permisos de administrador. ¿Qué debes comprobar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Si la tarea y el origen justifican esa elevación"
+            },
+            {
+              "id": "b",
+              "text": "Solo si el botón es de color verde"
+            },
+            {
+              "id": "c",
+              "text": "Si otras personas lo ejecutaron sin preguntar"
+            },
+            {
+              "id": "d",
+              "text": "Que todos los programas deban ser administradores"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La elevación aumenta capacidades del instalador y debe ser necesaria y justificada.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d3-q03",
+          "prompt": "¿Qué dato ayuda a verificar que estás descargando la edición correcta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El color del logotipo"
+            },
+            {
+              "id": "b",
+              "text": "Plataforma y arquitectura admitidas"
+            },
+            {
+              "id": "c",
+              "text": "El número de anuncios en la página"
+            },
+            {
+              "id": "d",
+              "text": "El tamaño de la ventana del navegador"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los requisitos del proveedor indican compatibilidad con sistema y arquitectura.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d3-q04",
+          "prompt": "Una página ofrece una versión de pago desbloqueada por un tercero. ¿Qué acción es más adecuada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Desactivar el antivirus para instalarla"
+            },
+            {
+              "id": "b",
+              "text": "Suponer que gratis significa segura"
+            },
+            {
+              "id": "c",
+              "text": "Buscar una alternativa legítima o la distribución oficial"
+            },
+            {
+              "id": "d",
+              "text": "Usar permisos máximos por si falla"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un instalador modificado de procedencia no confiable añade riesgos y no es necesario para estudiar.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d3-q05",
+          "prompt": "¿Qué indica HTTPS en la página de descarga?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el archivo nunca puede contener malware"
+            },
+            {
+              "id": "b",
+              "text": "Que el sitio es el fabricante auténtico"
+            },
+            {
+              "id": "c",
+              "text": "Que todos los permisos solicitados son necesarios"
+            },
+            {
+              "id": "d",
+              "text": "Que la conexión con ese sitio está protegida según TLS"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "HTTPS protege el transporte, pero no valida por sí mismo la honestidad del sitio o programa.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d3-q06",
+          "prompt": "Antes de instalar un programa desconocido conviene…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Leer requisitos, editor y cambios solicitados"
+            },
+            {
+              "id": "b",
+              "text": "Borrar el historial de respaldo"
+            },
+            {
+              "id": "c",
+              "text": "Cerrar permanentemente la protección del equipo"
+            },
+            {
+              "id": "d",
+              "text": "Aceptar cualquier complemento por defecto"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una revisión previa permite identificar incompatibilidad y opciones no deseadas.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d3-q07",
+          "prompt": "Un instalador incluye ofertas adicionales no relacionadas. Lo recomendable es…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aceptar todo para obtener más velocidad"
+            },
+            {
+              "id": "b",
+              "text": "Revisar y rechazar componentes innecesarios"
+            },
+            {
+              "id": "c",
+              "text": "Conceder acceso a todas las cuentas"
+            },
+            {
+              "id": "d",
+              "text": "Asumir que todos los componentes son obligatorios"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las opciones de instalación deben responder a una necesidad, no aceptarse automáticamente.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d3-q08",
+          "prompt": "¿Qué significa comprobar la procedencia de un instalador?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Confiar únicamente en su nombre"
+            },
+            {
+              "id": "b",
+              "text": "Mirar si aparece en una captura compartida"
+            },
+            {
+              "id": "c",
+              "text": "Relacionar el archivo y su editor con una fuente legítima verificable"
+            },
+            {
+              "id": "d",
+              "text": "Elegir el archivo más grande"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El nombre o tamaño no demuestra origen; hay que comprobar canal, editor y contexto.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        }
+      ],
+      "challenge": {
+        "id": "w03d3-challenge",
+        "prompt": "Ves un anuncio de una aplicación, un dominio imitador y la web oficial. ¿Qué procedimiento eliges?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Descargar el primer anuncio y desactivar protección"
+          },
+          {
+            "id": "b",
+            "text": "Elegir el archivo con el nombre más convincente"
+          },
+          {
+            "id": "c",
+            "text": "Conceder permisos máximos a todos los instaladores"
+          },
+          {
+            "id": "d",
+            "text": "Acceder al canal oficial, comprobar versión y requisitos y revisar permisos"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "Procedencia, requisitos y permisos son comprobaciones distintas y necesarias.",
+        "reference": "https://support.microsoft.com/en-us/windows/"
+      }
+    },
+    {
+      "dayId": "w03d4",
+      "questions": [
+        {
+          "id": "w03d4-q01",
+          "prompt": "¿Cuál es la diferencia entre actualizar Windows y actualizar una aplicación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Pueden ser componentes distintos con mecanismos de mantenimiento diferentes"
+            },
+            {
+              "id": "b",
+              "text": "Actualizar una aplicación siempre actualiza todo Windows"
+            },
+            {
+              "id": "c",
+              "text": "Windows nunca actualiza componentes propios"
+            },
+            {
+              "id": "d",
+              "text": "Ambas tareas borran necesariamente los documentos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Mantener el sistema no garantiza que todas las aplicaciones de terceros queden actualizadas.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d4-q02",
+          "prompt": "Una versión ya no recibe soporte de seguridad. Esto implica…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que deja de funcionar inmediatamente en todos los equipos"
+            },
+            {
+              "id": "b",
+              "text": "Mayor exposición a fallos que podrían quedar sin corregir"
+            },
+            {
+              "id": "c",
+              "text": "Que sus archivos desaparecen"
+            },
+            {
+              "id": "d",
+              "text": "Que cualquier problema futuro está resuelto"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El fin de soporte cambia el mantenimiento disponible y requiere planificar actualización o sustitución.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d4-q03",
+          "prompt": "¿Qué información conviene registrar al revisar actualizaciones?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el color del escritorio"
+            },
+            {
+              "id": "b",
+              "text": "Únicamente el nombre del usuario"
+            },
+            {
+              "id": "c",
+              "text": "Componente, versión, soporte y acción pendiente"
+            },
+            {
+              "id": "d",
+              "text": "El número de carpetas personales"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un inventario facilita seguimiento y comprobación de cambios.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d4-q04",
+          "prompt": "Un controlador nuevo presenta un fallo. La respuesta razonable es…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Descargar diez controladores aleatorios"
+            },
+            {
+              "id": "b",
+              "text": "Desactivar permanentemente todas las actualizaciones"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar carpetas del sistema manualmente"
+            },
+            {
+              "id": "d",
+              "text": "Consultar soporte y opciones de reversión verificadas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El cambio debe diagnosticarse y revertirse de forma controlada si corresponde.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d4-q05",
+          "prompt": "¿Por qué probar o planificar una actualización importante?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Puede modificar compatibilidad y requerir recuperación"
+            },
+            {
+              "id": "b",
+              "text": "Porque toda actualización elimina malware automáticamente"
+            },
+            {
+              "id": "c",
+              "text": "Porque evita la necesidad de cualquier respaldo"
+            },
+            {
+              "id": "d",
+              "text": "Porque garantiza que no habrá reinicio"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las actualizaciones pueden afectar operación; prepararlas reduce interrupciones inesperadas.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d4-q06",
+          "prompt": "El equipo pide reiniciar para completar una actualización. ¿Qué conviene hacer?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Desconectarlo a la fuerza sin revisar"
+            },
+            {
+              "id": "b",
+              "text": "Guardar el trabajo y coordinar un reinicio apropiado"
+            },
+            {
+              "id": "c",
+              "text": "Ignorar el mensaje para siempre"
+            },
+            {
+              "id": "d",
+              "text": "Borrar archivos de actualización a mano"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Completar cambios pendientes puede necesitar reinicio, conservando antes el trabajo y evitando interrupciones.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d4-q07",
+          "prompt": "¿Qué demuestra que una actualización se aplicó?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Haber pulsado una vez el enlace de descarga"
+            },
+            {
+              "id": "b",
+              "text": "Que apareció una publicidad del producto"
+            },
+            {
+              "id": "c",
+              "text": "Comprobar el estado o versión resultante"
+            },
+            {
+              "id": "d",
+              "text": "Cerrar la ventana de configuración"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La validación se basa en el estado final, no solo en haber iniciado una acción.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d4-q08",
+          "prompt": "¿Qué criterio es útil para priorizar una actualización?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Orden alfabético del nombre"
+            },
+            {
+              "id": "b",
+              "text": "Tamaño del icono"
+            },
+            {
+              "id": "c",
+              "text": "Que el nombre termine en una letra concreta"
+            },
+            {
+              "id": "d",
+              "text": "Riesgo, exposición y soporte del componente"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La prioridad debe responder al contexto y al riesgo, considerando impacto operativo.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        }
+      ],
+      "challenge": {
+        "id": "w03d4-challenge",
+        "prompt": "Windows se actualiza, pero una aplicación importante está sin soporte. ¿Cuál es el plan completo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Inventariar componentes, revisar soporte y planificar una alternativa o actualización validada"
+          },
+          {
+            "id": "b",
+            "text": "Concluir que Windows ya mantiene todas las aplicaciones"
+          },
+          {
+            "id": "c",
+            "text": "Borrar documentos para resolver el soporte"
+          },
+          {
+            "id": "d",
+            "text": "Ignorar el problema mientras el programa abra"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "El mantenimiento del sistema y de aplicaciones son ámbitos relacionados pero no idénticos.",
+        "reference": "https://support.microsoft.com/en-us/windows/"
+      }
+    },
+    {
+      "dayId": "w03d5",
+      "questions": [
+        {
+          "id": "w03d5-q01",
+          "prompt": "Antes de desinstalar una aplicación conviene revisar…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo su posición en el menú Inicio"
+            },
+            {
+              "id": "b",
+              "text": "Si contiene datos o configuraciones que necesitas conservar"
+            },
+            {
+              "id": "c",
+              "text": "El número de colores de su icono"
+            },
+            {
+              "id": "d",
+              "text": "Si todos los demás programas están desinstalados"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Quitar software puede afectar datos o preferencias; identifica cómo conservar lo necesario.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d5-q02",
+          "prompt": "¿Cuál es el método apropiado para eliminar una aplicación instalada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Borrar archivos de cualquier carpeta de Windows"
+            },
+            {
+              "id": "b",
+              "text": "Renombrar todos sus procesos"
+            },
+            {
+              "id": "c",
+              "text": "Usar su mecanismo de desinstalación o la configuración del sistema"
+            },
+            {
+              "id": "d",
+              "text": "Quitar el acceso directo y asumir que desapareció"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los accesos directos no son toda la instalación; el desinstalador gestiona componentes registrados.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d5-q03",
+          "prompt": "Después de instalar una aplicación de prueba, ¿qué validación es útil?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Medir únicamente el brillo de pantalla"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar automáticamente los respaldos"
+            },
+            {
+              "id": "c",
+              "text": "Conceder permisos a todos los usuarios"
+            },
+            {
+              "id": "d",
+              "text": "Abrirla y comprobar su función y versión"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una instalación exitosa debe comprobarse en su funcionamiento y versión previstos.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d5-q04",
+          "prompt": "Una instalación propone elegir componentes. ¿Qué debes hacer?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Seleccionar los necesarios para la tarea"
+            },
+            {
+              "id": "b",
+              "text": "Instalar siempre todos sin leer"
+            },
+            {
+              "id": "c",
+              "text": "Rechazar cualquier componente aunque sea obligatorio"
+            },
+            {
+              "id": "d",
+              "text": "Decidir solo por el nombre más corto"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La selección debe corresponder a requisitos y opciones documentadas.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d5-q05",
+          "prompt": "¿Qué registro ayuda a reproducir una instalación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una captura del escritorio vacío"
+            },
+            {
+              "id": "b",
+              "text": "Versión, origen, opciones y comprobaciones realizadas"
+            },
+            {
+              "id": "c",
+              "text": "Una lista de canciones reproducidas"
+            },
+            {
+              "id": "d",
+              "text": "El nombre de una carpeta sin contexto"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La documentación debe permitir entender qué cambió y cómo se validó.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d5-q06",
+          "prompt": "Un programa sigue mostrando un icono tras desinstalarlo. ¿Qué conclusión puedes sacar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el sistema fue necesariamente comprometido"
+            },
+            {
+              "id": "b",
+              "text": "Que todos sus servicios siguen activos"
+            },
+            {
+              "id": "c",
+              "text": "Es necesario comprobar si es un acceso directo residual u otra instalación"
+            },
+            {
+              "id": "d",
+              "text": "Que la desinstalación nunca puede funcionar"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un icono aislado no prueba la existencia completa del programa.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d5-q07",
+          "prompt": "¿Por qué mantener el instalador original o sus datos de versión cuando corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantiza que la aplicación nunca se actualizará"
+            },
+            {
+              "id": "b",
+              "text": "Sustituye todos los respaldos de datos"
+            },
+            {
+              "id": "c",
+              "text": "Evita cualquier fallo del hardware"
+            },
+            {
+              "id": "d",
+              "text": "Puede ayudar a reproducir o recuperar una configuración legítima"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La recuperación necesita información verificable; conservar datos de instalación no reemplaza respaldos.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d5-q08",
+          "prompt": "Un desinstalador requiere cerrar una aplicación abierta. Lo apropiado es…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Guardar el trabajo y seguir el procedimiento indicado"
+            },
+            {
+              "id": "b",
+              "text": "Terminar procesos desconocidos de forma masiva"
+            },
+            {
+              "id": "c",
+              "text": "Apagar el equipo a la fuerza"
+            },
+            {
+              "id": "d",
+              "text": "Borrar la cuenta del usuario"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Cerrar de manera controlada reduce la pérdida de trabajo y permite quitar archivos en uso.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        }
+      ],
+      "challenge": {
+        "id": "w03d5-challenge",
+        "prompt": "Debes instalar una herramienta de prueba y después retirarla conservando datos. ¿Qué secuencia es adecuada?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Borrar carpetas del sistema, instalar todo y quitar solo el icono"
+          },
+          {
+            "id": "b",
+            "text": "Revisar origen y requisitos, instalar opciones necesarias, validar, respaldar datos y desinstalar por el mecanismo previsto"
+          },
+          {
+            "id": "c",
+            "text": "Instalar sin comprobar y considerar que cerrar la ventana la elimina"
+          },
+          {
+            "id": "d",
+            "text": "Desinstalar primero cualquier aplicación no relacionada"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La secuencia documenta cambios, valida funcionamiento y utiliza un mecanismo de retirada apropiado.",
+        "reference": "https://support.microsoft.com/en-us/windows/"
+      }
+    },
+    {
+      "dayId": "w03d6",
+      "questions": [
+        {
+          "id": "w03d6-q01",
+          "prompt": "Un programa requiere más RAM de la disponible. ¿Qué problema sugiere?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Fallo demostrado de DNS"
+            },
+            {
+              "id": "b",
+              "text": "Que el nombre del archivo es demasiado largo"
+            },
+            {
+              "id": "c",
+              "text": "Incompatibilidad con los requisitos de recursos"
+            },
+            {
+              "id": "d",
+              "text": "Que todos los usuarios deben ser administradores"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los requisitos de memoria deben compararse con los recursos reales del equipo.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d6-q02",
+          "prompt": "Un instalador admite solo una arquitectura concreta. Antes de ejecutarlo debes…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambiar su extensión"
+            },
+            {
+              "id": "b",
+              "text": "Aumentar el volumen del audio"
+            },
+            {
+              "id": "c",
+              "text": "Copiarlo a la papelera"
+            },
+            {
+              "id": "d",
+              "text": "Comparar esa arquitectura con la del sistema compatible"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La compatibilidad de arquitectura no se consigue renombrando archivos.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d6-q03",
+          "prompt": "Una aplicación informa que falta un componente requerido. Lo adecuado es…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Consultar la dependencia en la documentación oficial"
+            },
+            {
+              "id": "b",
+              "text": "Descargar una biblioteca de cualquier foro"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar archivos del sistema para hacer espacio sin revisar"
+            },
+            {
+              "id": "d",
+              "text": "Desactivar permanentemente el firewall"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las dependencias deben obtenerse por canales legítimos y en versiones compatibles.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d6-q04",
+          "prompt": "Un programa funciona en un equipo y falla en otro. El primer paso útil es…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Concluir que todos los equipos son idénticos"
+            },
+            {
+              "id": "b",
+              "text": "Comparar versiones, recursos y configuración relevantes"
+            },
+            {
+              "id": "c",
+              "text": "Reinstalar ambos sistemas sin investigar"
+            },
+            {
+              "id": "d",
+              "text": "Copiar todos los archivos de sistema entre equipos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las diferencias permiten formular hipótesis comprobables sin cambios destructivos.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d6-q05",
+          "prompt": "La versión nueva no admite un sistema antiguo. ¿Qué opción es razonable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Falsificar el nombre del sistema sin revisar"
+            },
+            {
+              "id": "b",
+              "text": "Asumir que funcionará por tener espacio libre"
+            },
+            {
+              "id": "c",
+              "text": "Evaluar una actualización soportada o una alternativa compatible"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar la comprobación de seguridad del instalador"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La plataforma soportada es parte de los requisitos; saltarse controles no resuelve compatibilidad real.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d6-q06",
+          "prompt": "Hay espacio libre suficiente pero la instalación falla. ¿Qué indica esto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que la instalación necesariamente terminó bien"
+            },
+            {
+              "id": "b",
+              "text": "Que la CPU ya no importa"
+            },
+            {
+              "id": "c",
+              "text": "Que las dependencias siempre están presentes"
+            },
+            {
+              "id": "d",
+              "text": "El espacio es solo uno de varios requisitos posibles"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Debes revisar mensaje de error, permisos, arquitectura y otros requisitos.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d6-q07",
+          "prompt": "¿Qué evidencia ayuda más a diagnosticar un fallo de instalación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mensaje exacto, versión, momento y comprobaciones realizadas"
+            },
+            {
+              "id": "b",
+              "text": "Una descripción que dice solo no funciona"
+            },
+            {
+              "id": "c",
+              "text": "Una foto de la carcasa sin contexto"
+            },
+            {
+              "id": "d",
+              "text": "Una lista de programas no relacionados"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los datos concretos permiten reproducir y acotar el problema.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d6-q08",
+          "prompt": "Tras corregir una dependencia, ¿qué debes hacer?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Declarar éxito sin abrir el programa"
+            },
+            {
+              "id": "b",
+              "text": "Repetir la prueba y comprobar el resultado"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar el registro del error original"
+            },
+            {
+              "id": "d",
+              "text": "Modificar a la vez varias opciones desconocidas"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La solución se valida reproduciendo la tarea y confirmando el comportamiento esperado.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        }
+      ],
+      "challenge": {
+        "id": "w03d6-challenge",
+        "prompt": "Una instalación falla y el mensaje indica una dependencia ausente. ¿Qué respuesta es verificable?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Descargar bibliotecas aleatorias hasta que funcione"
+          },
+          {
+            "id": "b",
+            "text": "Renombrar el instalador y declarar éxito"
+          },
+          {
+            "id": "c",
+            "text": "Consultar la dependencia oficial compatible, instalarla si corresponde y repetir la prueba"
+          },
+          {
+            "id": "d",
+            "text": "Cambiar el escritorio sin revisar el mensaje"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La acción se relaciona con el error y se valida repitiendo la tarea.",
+        "reference": "https://support.microsoft.com/en-us/windows/"
+      }
+    },
+    {
+      "dayId": "w03d7",
+      "questions": [
+        {
+          "id": "w03d7-q01",
+          "prompt": "Una empresa usa una aplicación exclusiva de Windows y considera migrar a Linux. ¿Qué debe revisar primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el fondo de pantalla preferido"
+            },
+            {
+              "id": "b",
+              "text": "Que ambos sistemas usen teclado"
+            },
+            {
+              "id": "c",
+              "text": "El precio de un ratón nuevo"
+            },
+            {
+              "id": "d",
+              "text": "Compatibilidad, alternativas y requisitos del proceso de trabajo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una migración debe conservar las funciones necesarias con soporte y pruebas.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d7-q02",
+          "prompt": "Un editor se cierra pero queda un proceso de actualización. ¿Qué interpretación es apropiada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La aplicación puede tener componentes de fondo; hay que identificar ese proceso"
+            },
+            {
+              "id": "b",
+              "text": "Todo proceso sin ventana es malware"
+            },
+            {
+              "id": "c",
+              "text": "El archivo del editor se borró"
+            },
+            {
+              "id": "d",
+              "text": "El sistema operativo dejó de ejecutarse"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las funciones de fondo son posibles; el contexto determina si el comportamiento es esperado.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d7-q03",
+          "prompt": "Dos páginas tienen un botón Descargar; una es el proveedor y otra imita el dominio. ¿Qué eliges?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La que tiene el botón más grande"
+            },
+            {
+              "id": "b",
+              "text": "El canal legítimo después de comprobar el destino y producto"
+            },
+            {
+              "id": "c",
+              "text": "La que pide desactivar protección"
+            },
+            {
+              "id": "d",
+              "text": "La que promete todas las versiones desbloqueadas"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El origen y la identidad del proveedor son más importantes que la apariencia del botón.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d7-q04",
+          "prompt": "Un equipo recibe actualizaciones de Windows, pero su navegador está sin soporte. ¿Está todo mantenido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí, Windows actualiza cualquier programa de cualquier origen"
+            },
+            {
+              "id": "b",
+              "text": "Sí, mientras el navegador abra"
+            },
+            {
+              "id": "c",
+              "text": "No, hay que revisar también los componentes de terceros"
+            },
+            {
+              "id": "d",
+              "text": "No, es necesario borrar todos los documentos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La revisión de mantenimiento abarca sistema, aplicaciones y controladores según corresponda.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d7-q05",
+          "prompt": "Una desinstalación terminó y dejó un acceso directo roto. La siguiente acción razonable es…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Reinstalar el sistema completo"
+            },
+            {
+              "id": "b",
+              "text": "Deshabilitar todas las cuentas"
+            },
+            {
+              "id": "c",
+              "text": "Declarar un incidente grave sin más evidencia"
+            },
+            {
+              "id": "d",
+              "text": "Comprobar el estado de la aplicación y quitar el acceso residual si corresponde"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un resto visual debe verificarse antes de extraer conclusiones amplias.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d7-q06",
+          "prompt": "Una instalación pide reiniciar y hay documentos sin guardar. ¿Qué priorizas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Guardar el trabajo y planificar el reinicio indicado"
+            },
+            {
+              "id": "b",
+              "text": "Forzar el apagado inmediatamente"
+            },
+            {
+              "id": "c",
+              "text": "Ignorar para siempre cualquier actualización"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar el instalador mientras se ejecuta"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La continuidad del trabajo y un cierre controlado evitan pérdida de datos.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d7-q07",
+          "prompt": "El mismo mensaje aparece solo en una versión antigua de la aplicación. ¿Qué hipótesis probarías?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un fallo seguro de la pantalla"
+            },
+            {
+              "id": "b",
+              "text": "Un problema específico de versión o soporte"
+            },
+            {
+              "id": "c",
+              "text": "Que toda la red está comprometida"
+            },
+            {
+              "id": "d",
+              "text": "Que el teclado tiene permisos insuficientes"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La diferencia de versiones es evidencia útil para una hipótesis limitada.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d7-q08",
+          "prompt": "Un programa pide 8 GB de RAM y un sistema compatible; el equipo tiene 4 GB. ¿Qué harías?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambiar el nombre del instalador"
+            },
+            {
+              "id": "b",
+              "text": "Suponer que el espacio del disco compensa toda la RAM"
+            },
+            {
+              "id": "c",
+              "text": "Buscar una alternativa adecuada o ampliar recursos con criterio"
+            },
+            {
+              "id": "d",
+              "text": "Conceder administrador a todos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La RAM y el almacenamiento son recursos diferentes; permisos no corrigen una falta de memoria.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d7-q09",
+          "prompt": "Se descarga un instalador desde HTTPS, pero su editor es desconocido. ¿Qué concluyes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todo archivo HTTPS es oficial"
+            },
+            {
+              "id": "b",
+              "text": "El editor ya fue comprobado por el candado"
+            },
+            {
+              "id": "c",
+              "text": "La aplicación no requiere más comprobaciones"
+            },
+            {
+              "id": "d",
+              "text": "La conexión cifrada no basta para confiar en el archivo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "TLS protege transporte y no sustituye revisión de identidad y procedencia.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d7-q10",
+          "prompt": "¿Qué evidencia confirma mejor una desinstalación prevista?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Revisar el estado de instalación y funciones relacionadas"
+            },
+            {
+              "id": "b",
+              "text": "Ver desaparecer una ventana"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar el nombre del acceso directo"
+            },
+            {
+              "id": "d",
+              "text": "Cerrar el navegador de descarga"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La validación debe relacionarse con los componentes que se pretendían retirar.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d7-q11",
+          "prompt": "Un servicio legítimo depende de otro detenido. ¿Qué puede ocurrir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que aumente siempre la seguridad sin efectos"
+            },
+            {
+              "id": "b",
+              "text": "Que falle la función dependiente"
+            },
+            {
+              "id": "c",
+              "text": "Que se borre la RAM física"
+            },
+            {
+              "id": "d",
+              "text": "Que cambie automáticamente el fabricante"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las dependencias relacionan el estado de un servicio con otras funciones.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d7-q12",
+          "prompt": "Una nueva versión falla tras actualizarse. ¿Cuál es un registro útil?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo que ayer funcionaba"
+            },
+            {
+              "id": "b",
+              "text": "La hora aproximada sin más contexto"
+            },
+            {
+              "id": "c",
+              "text": "Versión previa y nueva, síntomas y prueba de reversión"
+            },
+            {
+              "id": "d",
+              "text": "Una captura del icono"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Registrar el cambio permite comparar comportamiento y considerar recuperación.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d7-q13",
+          "prompt": "¿Qué opción diferencia correctamente aplicación y sistema?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La aplicación sustituye siempre al kernel"
+            },
+            {
+              "id": "b",
+              "text": "El sistema es solo un documento"
+            },
+            {
+              "id": "c",
+              "text": "Ambos son piezas de hardware"
+            },
+            {
+              "id": "d",
+              "text": "El sistema administra recursos que la aplicación utiliza"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las aplicaciones dependen de servicios del sistema para operar.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d7-q14",
+          "prompt": "Un técnico elimina carpetas de un programa para desinstalarlo. ¿Qué riesgo tiene?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dejar componentes o configuraciones sin retirar correctamente"
+            },
+            {
+              "id": "b",
+              "text": "Convertir el disco en memoria RAM"
+            },
+            {
+              "id": "c",
+              "text": "Actualizar automáticamente todos los controladores"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar la licencia del sistema"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Borrar archivos no equivale a ejecutar el mecanismo de desinstalación.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d7-q15",
+          "prompt": "Una aplicación exige permisos elevados para una tarea ordinaria inesperada. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aceptar porque el icono es conocido"
+            },
+            {
+              "id": "b",
+              "text": "Investigar el motivo antes de concederlos"
+            },
+            {
+              "id": "c",
+              "text": "Dar administración permanente a todos"
+            },
+            {
+              "id": "d",
+              "text": "Desactivar la confirmación del sistema sin revisar"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los permisos deben corresponder a una necesidad comprensible y una procedencia confiable.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d7-q16",
+          "prompt": "El sistema soporta una aplicación, pero falta un componente documentado. ¿Qué tipo de requisito falta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un cambio de fondo de pantalla"
+            },
+            {
+              "id": "b",
+              "text": "Una ruta a internet por definición"
+            },
+            {
+              "id": "c",
+              "text": "Una dependencia de software"
+            },
+            {
+              "id": "d",
+              "text": "Un dispositivo de entrada obligatorio en todo caso"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las dependencias son componentes que el programa necesita para funcionar.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d7-q17",
+          "prompt": "¿Qué documento sería más útil para otra persona que repetirá tu instalación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Captura del navegador cerrado"
+            },
+            {
+              "id": "b",
+              "text": "Lista de archivos no relacionados"
+            },
+            {
+              "id": "c",
+              "text": "Texto que diga instalar como siempre"
+            },
+            {
+              "id": "d",
+              "text": "Guía con origen, versión, opciones y comprobación final"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La reproducibilidad exige pasos y contexto verificables.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d7-q18",
+          "prompt": "Un servidor puede carecer de escritorio gráfico porque…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Su función puede administrarse mediante otros mecanismos"
+            },
+            {
+              "id": "b",
+              "text": "Sin escritorio no tiene sistema operativo"
+            },
+            {
+              "id": "c",
+              "text": "No utiliza procesos"
+            },
+            {
+              "id": "d",
+              "text": "No necesita seguridad"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La interfaz gráfica no es requisito para que un sistema ofrezca servicios.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d7-q19",
+          "prompt": "¿Qué acción conserva mejor la capacidad de recuperación antes de un cambio importante?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Borrar versiones anteriores sin revisar"
+            },
+            {
+              "id": "b",
+              "text": "Comprobar respaldo y procedimiento de reversión apropiado"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar notas de configuración"
+            },
+            {
+              "id": "d",
+              "text": "Aplicar muchos cambios simultáneos sin registro"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La recuperación necesita datos y pasos previstos, no solo confianza en el cambio.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w03d7-q20",
+          "prompt": "Al terminar un diagnóstico de compatibilidad, ¿qué debe incluir la conclusión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una suposición presentada como certeza"
+            },
+            {
+              "id": "b",
+              "text": "Solo una lista de programas"
+            },
+            {
+              "id": "c",
+              "text": "Causa sustentada, acción y prueba del resultado"
+            },
+            {
+              "id": "d",
+              "text": "El nombre del técnico sin evidencias"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una conclusión útil conecta evidencia, intervención y validación.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        }
+      ],
+      "challenge": {
+        "id": "w03d7-challenge",
+        "prompt": "Una aplicación dejó de funcionar tras actualizarse. ¿Qué informe permite continuar el diagnóstico?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo la frase no sirve"
+          },
+          {
+            "id": "b",
+            "text": "Una foto del icono sin contexto"
+          },
+          {
+            "id": "c",
+            "text": "Una lista de aplicaciones no relacionadas"
+          },
+          {
+            "id": "d",
+            "text": "Versiones anterior y nueva, error, requisitos, pruebas y opciones de reversión documentadas"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "El caso debe preservar contexto del cambio y resultados comprobables, no asumir una causa sin investigar.",
+        "reference": "https://support.microsoft.com/en-us/windows/"
+      }
+    }
+  ]
+}

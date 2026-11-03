@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es" data-theme="light" data-motion="on">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#eaf1f8">
+  <meta name="description" content="Tu espacio de aprendizaje en ciberseguridad. Una ruta de 52 semanas, prácticas y progreso personal, a tu ritmo.">
+  <title>CYBERTRACK · Estudio</title>
+  <link rel="icon" type="image/svg+xml" href="assets/illustrations/brand.svg?v=1.4.0">
+  <link rel="stylesheet" href="assets/css/styles.css?v=1.4.0">
+  <link rel="stylesheet" href="assets/css/app.css?v=1.4.0">
+  <link rel="stylesheet" href="assets/css/editorial.css?v=1.4.0">
+  <link rel="stylesheet" href="assets/css/glass.css?v=1.4.0">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div class="glass-ambience" aria-hidden="true"><span class="glass-orb one"></span><span class="glass-orb two"></span><span class="glass-orb three"></span></div>
+  <canvas id="particles" aria-hidden="true"></canvas>
+  <aside class="sidebar" aria-label="Navegación principal">
+    <a class="brand" href="#home" aria-label="CYBERTRACK, inicio">
+      <img class="brand-mark" src="assets/illustrations/brand.svg?v=1.4.0" width="36" height="36" alt="">
+      <span>CYBERTRACK</span>
+    </a>
+    <nav class="nav-list">
+      <a href="#home" data-nav="home" class="nav-link active"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/></svg><span>Inicio</span><span class="nav-dot"></span></a>
+      <a href="#path" data-nav="path" class="nav-link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v4H6zM6 16h12v4H6zM12 8v8M3 6h3M18 18h3"/><circle cx="3" cy="6" r="1"/><circle cx="21" cy="18" r="1"/></svg><span>Mi ruta</span></a>
+      <a href="#notes" data-nav="notes" class="nav-link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H5a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9l-6-6H8ZM14 3v6h6M8 13h8M8 17h5"/></svg><span>Mi cuaderno</span></a>
+      <a href="#progress" data-nav="progress" class="nav-link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/><path d="m15 6 3 3 4-5"/></svg><span>Progreso</span></a>
+      <a href="#settings" data-nav="settings" class="nav-link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3"/><circle cx="15" cy="17" r="3"/></svg><span>Ajustes</span></a>
+    </nav>
+  </aside>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="mobile-brand" href="#home" aria-label="CYBERTRACK, inicio"><img src="assets/illustrations/brand.svg?v=1.4.0" width="36" height="36" alt=""><span>CYBERTRACK</span></a>
+      <div class="page-heading"><span id="header-subtitle" class="sr-only"></span><h1 id="page-title">Inicio</h1></div>
+    </header>
+    <main id="main-content" tabindex="-1"><div class="loading-screen" role="status"><span class="loading-mark" aria-hidden="true"></span><p>Cargando…</p></div></main>
+  </div>
+  <nav class="mobile-nav" aria-label="Navegación móvil">
+    <a href="#home" data-nav="home" class="active"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10h-6v-6H9v6H3Z"/></svg><span>Inicio</span></a>
+    <a href="#path" data-nav="path"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v4H6zM6 16h12v4H6zM12 8v8"/></svg><span>Mi ruta</span></a>
+    <a href="#notes" data-nav="notes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h10l5 5v13H5ZM14 3v6h6M9 13h7M9 17h5"/></svg><span>Cuaderno</span></a>
+    <a href="#progress" data-nav="progress"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V11M11 20V4M18 20v-7M2 20h20"/></svg><span>Progreso</span></a>
+    <a href="#settings" data-nav="settings"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3"/><circle cx="15" cy="17" r="3"/></svg><span>Ajustes</span></a>
+  </nav>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <script type="module" src="assets/js/app.js?v=1.4.0"></script>
+</body>
+</html>

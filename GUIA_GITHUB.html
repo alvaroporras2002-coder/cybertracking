@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cómo organizar y publicar CYBERTRACK en GitHub</title>
+<style>
+:root{color-scheme:dark;--bg:#071820;--panel:#10272f;--ink:#e9f4f1;--muted:#acc3c6;--line:#29444d;--mint:#70e0c7;--purple:#b6a1ed}*{box-sizing:border-box}body{margin:0;background:var(--bg);font:16px/1.7 system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink)}main{max-width:1000px;margin:auto;padding:48px 24px 80px}a{color:var(--mint);text-underline-offset:4px}h1{font-size:clamp(29px,5vw,48px);line-height:1.15;max-width:760px;margin:10px 0 22px}h2{font-size:25px;line-height:1.3;margin:0 0 16px}h3{font-size:19px}p{margin:12px 0}.eyebrow{color:var(--mint);font-size:13px;text-transform:uppercase;letter-spacing:.12em;font-weight:700}.lead{font-size:19px;color:var(--muted);max-width:820px}.card{background:var(--panel);padding:28px;border:1px solid var(--line);border-radius:18px;margin-top:24px}nav{display:flex;flex-wrap:wrap;gap:10px;margin:28px 0}nav a,.button{display:inline-block;padding:10px 16px;border:1px solid var(--line);border-radius:10px;text-decoration:none;background:var(--panel)}.pill{color:var(--purple);font-size:14px}.step{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:30px;border-radius:50%;background:#1c504d;color:var(--mint);font-size:15px;margin-right:9px}table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;border-bottom:1px solid var(--line);padding:12px 8px;vertical-align:top}th{color:var(--mint)}code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;background:#061b23;padding:2px 5px;border-radius:4px;overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#061b23;padding:18px;border-radius:10px;border:1px solid var(--line)}pre code{padding:0}.note{border-left:3px solid var(--purple);padding:10px 16px;margin:18px 0;background:#152b35}.muted{color:var(--muted)}li{margin:9px 0}section{scroll-margin-top:20px}.checks li::marker{color:var(--mint)}footer{color:var(--muted);font-size:13px;margin-top:36px}a:focus-visible{outline:3px solid var(--purple);outline-offset:4px}@media(max-width:580px){main{padding:28px 14px 60px}.card{padding:20px}table{font-size:12px}td,th{padding:9px 5px}}@media print{body{background:white;color:#152b35}.card{background:white;border-color:#aaa;break-inside:avoid}a{color:#13554c}.muted,.lead,footer{color:#364d55}nav{display:none}code,pre{background:#f2f6f5;color:#152b35}th{color:#13554c}main{padding:0}.eyebrow{color:#13554c}.note{background:#f2f6f5}}
+</style>
+</head>
+<body><main>
+<header>
+<p class="eyebrow">CYBERTRACK · Guía de montaje</p>
+<h1>Todos los archivos juntos, un solo sitio web</h1>
+<p class="lead">La aplicación ya tiene sus secciones conectadas. Para publicarla, conserva las carpetas y coloca <code>index.html</code> en la raíz del repositorio. No necesitas un repositorio por pantalla ni contratar un servidor.</p>
+<p class="pill">Código estático · sin backend · sin IA · progreso local por dispositivo</p>
+<nav aria-label="Secciones de la guía"><a href="#archivos">1. Ordenar</a><a href="#local">2. Probar</a><a href="#subir">3. Subir</a><a href="#pages">4. Publicar</a><a href="#datos">5. Respaldar</a><a href="#problemas">Resolver problemas</a></nav>
+</header>
+
+<section class="card" id="alcance"><h2>Qué está incluido</h2>
+<p>El temario contiene <strong>52 semanas y 364 sesiones</strong>. Las <strong>semanas 1 a 4</strong> forman el primer bloque con bancos de evaluación y retos desarrollados; las semanas posteriores se pueden consultar y mantienen sus evaluaciones pendientes. El estado exacto se describe en <a href="CONTENT_STATUS.md">CONTENT_STATUS.md</a>.</p>
+<p>La experiencia incluye inicio, ruta, aula, notas, progreso y ajustes. Los videos pueden verse dentro de la página cuando el proveedor permite insertarlos; si no, se conserva el enlace original. La estética combina arte isométrico y efectos fluidos discretos, sin mover el texto de estudio.</p>
+<p class="note">Esta guía explica cómo publicar. No se ha creado un repositorio ni se ha desplegado el proyecto automáticamente.</p>
+</section>
+
+<section class="card" id="archivos"><h2><span class="step">1</span>Coloca los archivos en su lugar</h2>
+<p>Crea en tu computadora una carpeta llamada <code>cybertrack</code>. Guarda en ella los archivos entregados manteniendo las rutas siguientes. Si recibes archivos individuales, crea sus carpetas antes de guardarlos; no cambies sus nombres.</p>
+<table><thead><tr><th>Ubicación</th><th>Qué contiene</th><th>Para qué sirve</th></tr></thead><tbody>
+<tr><td>Raíz</td><td><code>index.html</code></td><td>Entrada de la aplicación</td></tr>
+<tr><td><code>assets/css/</code></td><td><code>styles.css</code></td><td>Diseño y adaptación móvil</td></tr>
+<tr><td><code>assets/illustrations/</code></td><td><code>lab.svg</code></td><td>Arte isométrico</td></tr>
+<tr><td><code>assets/js/</code></td><td>Archivos JavaScript entregados</td><td>Pantallas, progreso, datos y evaluaciones</td></tr>
+<tr><td><code>data/</code></td><td><code>curriculum.json</code>, <code>content-status.json</code></td><td>Temario y estado de desarrollo</td></tr>
+<tr><td><code>data/assessments/</code></td><td><code>week-01.json</code> a <code>week-04.json</code></td><td>Preguntas y retos del primer bloque</td></tr>
+<tr><td><code>tools/</code> y <code>tests/</code></td><td>Validador y pruebas</td><td>Comprobar el proyecto al actualizar</td></tr>
+<tr><td>Raíz</td><td>README, guía, estado y registro de cambios</td><td>Instrucciones y alcance</td></tr>
+</tbody></table>
+<p>Conserva también los archivos de configuración suministrados. No crees una segunda carpeta <code>cybertrack</code> dentro de la raíz publicada si vas a usar la configuración de esta guía.</p>
+<h3>Las secciones no son archivos que tengas que ensamblar a mano</h3>
+<table><thead><tr><th>Sección</th><th>Función</th></tr></thead><tbody>
+<tr><td>Inicio</td><td>Continuar con la sesión actual y ver pendientes</td></tr>
+<tr><td>Ruta</td><td>Explorar semanas y días</td></tr>
+<tr><td>Aula</td><td>Estudiar recursos, practicar y evaluar</td></tr>
+<tr><td>Notas</td><td>Guardar apuntes y dudas</td></tr>
+<tr><td>Progreso</td><td>Consultar actividad y resultados</td></tr>
+<tr><td>Ajustes</td><td>Preferencias, movimiento y respaldos</td></tr>
+</tbody></table>
+</section>
+
+<section class="card" id="local"><h2><span class="step">2</span>Prueba la carpeta antes de subir</h2>
+<p>La página carga datos y módulos. Por eso, abrir <code>index.html</code> con doble clic no es una prueba fiable. Si tienes Python, abre una terminal dentro de la carpeta y ejecuta:</p>
+<pre><code>python -m http.server 8000</code></pre>
+<p>Si tu equipo utiliza <code>python3</code>, cambia solo esa palabra. Visita <a href="http://localhost:8000">http://localhost:8000</a>. Este paso no publica la página ni necesita que instales dependencias del proyecto.</p>
+<p>Antes de continuar, comprueba que abren Inicio, Ruta y una sesión; que el diseño funciona en ventana estrecha; y que una nota se conserva al recargar.</p>
+</section>
+
+<section class="card" id="subir"><h2><span class="step">3</span>Sube el contenido al repositorio</h2>
+<ol><li>En GitHub, crea un repositorio nuevo, por ejemplo <code>cybertrack</code>, o elige uno vacío para este proyecto.</li><li>En la página del repositorio, selecciona <strong>Add file → Upload files</strong>.</li><li>Arrastra los archivos de la raíz y las carpetas completas <code>assets</code>, <code>data</code>, <code>tools</code> y <code>tests</code>. Conserva su estructura.</li><li>En la vista previa, confirma que <code>index.html</code> está directamente en la raíz y que existe <code>assets/css/styles.css</code>.</li><li>Guarda los cambios. Si GitHub solicita una propuesta de cambios, complétala y fusiónala según las reglas del repositorio.</li></ol>
+<p>Si el selector de tu navegador no conserva una carpeta, entra en la ruta correcta del repositorio para subir sus archivos, o utiliza GitHub Desktop. No soluciones el problema colocando todos los archivos en la raíz: se romperían las rutas.</p>
+<p>Para una primera carga puedes utilizar este mensaje y descripción de commit:</p>
+<pre><code>Añadir la plataforma CYBERTRACK
+
+Co-authored-by: Codex &lt;noreply@openai.com&gt;</code></pre>
+<p class="muted">No subas respaldos personales, evidencias privadas ni contraseñas. La visibilidad y las funciones de publicación disponibles dependen de tu plan y del repositorio.</p>
+</section>
+
+<section class="card" id="pages"><h2><span class="step">4</span>Activa GitHub Pages</h2>
+<p>Con los archivos ya guardados en <code>main</code>, abre <strong>Settings → Pages</strong>. En la configuración de publicación elige <strong>Deploy from a branch</strong>, selecciona <strong>main</strong> y <strong>/(root)</strong>, y guarda.</p>
+<p>Utiliza la dirección que GitHub muestre al terminar. En un repositorio de proyecto tendrá una estructura parecida a <code>https://USUARIO.github.io/REPOSITORIO/</code>; no copies esos marcadores como si fueran tu dirección real.</p>
+<p>Las rutas del proyecto son relativas para funcionar bajo la carpeta del repositorio. No las cambies por <code>/assets/...</code> o <code>/data/...</code> sin adaptar la aplicación.</p>
+<p>Si no aparece el sitio, revisa el resultado de la publicación en las ejecuciones del repositorio. Una carga de archivos completada no significa que la publicación ya haya terminado.</p>
+<p class="note">La página publicada está pensada para acceso web. Tus datos de estudio siguen en tu navegador; el alojamiento no agrega sincronización ni una cuenta privada.</p>
+</section>
+
+<section class="card" id="datos"><h2><span class="step">5</span>Protege tus registros y actualiza</h2>
+<ul class="checks"><li>Usa <strong>Exportar respaldo completo</strong> antes de cambiar de equipo, URL o versión.</li><li>Comprueba qué incluye la exportación: el respaldo completo contempla evidencias binarias; una exportación ligera puede excluirlas.</li><li>Guarda el respaldo fuera de la carpeta que subes a GitHub.</li><li>Computadora y teléfono mantienen estados diferentes. Para trasladar datos, exporta e importa; no se sincronizan automáticamente.</li><li>No borres almacenamiento para resolver errores. Conserva primero una copia y revisa el mensaje.</li><li>Para actualizar el código, conserva rutas e IDs del contenido. Verifica la nueva versión antes de reemplazar archivos.</li></ul>
+<p>La aplicación es una herramienta personal. Marcar un video confirma tu declaración; no demuestra que lo viste. Los retos comprueban tareas limitadas dentro de la web y no equivalen a una certificación.</p>
+</section>
+
+<section class="card" id="problemas"><h2>Comprobaciones rápidas</h2>
+<table><thead><tr><th>Problema</th><th>Qué revisar</th></tr></thead><tbody>
+<tr><td>No carga al abrir el archivo</td><td>Usa el servidor HTTP local o la dirección de Pages</td></tr>
+<tr><td>No tiene colores o diseño</td><td>Ruta y mayúsculas de <code>assets/css/styles.css</code></td></tr>
+<tr><td>Faltan semanas o temario</td><td><code>data/curriculum.json</code> y sus rutas</td></tr>
+<tr><td>GitHub muestra otro documento</td><td><code>index.html</code> debe estar en la raíz de la fuente publicada</td></tr>
+<tr><td>Un video no se inserta</td><td>Usa Abrir recurso original; la plataforma puede bloquear el embed</td></tr>
+<tr><td>No hay prueba en una semana futura</td><td>Consulta el estado del contenido; las semanas 5 a 52 siguen pendientes</td></tr>
+<tr><td>No encuentro mi progreso en otro navegador</td><td>El estado es local al navegador y origen; importa tu respaldo</td></tr>
+</tbody></table>
+<h3>Pruebas para una actualización</h3>
+<pre><code>node --test tests/*.test.mjs
+python tools/validate-content.py</code></pre>
+<p>No declares una actualización lista hasta revisar sus resultados y comprobar el flujo real de estudio y respaldo.</p>
+</section>
+
+<section class="card"><h2>Documentación de referencia</h2>
+<ul><li><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site">GitHub: crear un sitio Pages</a></li><li><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">GitHub: configurar la fuente de publicación</a></li><li><a href="https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository">GitHub: subir archivos al repositorio</a></li></ul>
+<p><a class="button" href="index.html">Abrir CYBERTRACK</a> <a class="button" href="README.md">Leer README</a></p>
+</section>
+<footer>Guía preparada el 3 de noviembre de 2026. Los nombres de botones pueden cambiar según el idioma o las políticas del repositorio. La dirección válida y el estado de publicación son los que muestre GitHub.</footer>
+</main></body></html>

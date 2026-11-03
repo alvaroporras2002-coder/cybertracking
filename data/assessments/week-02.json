@@ -1,0 +1,2066 @@
+{
+  "week": 2,
+  "version": "1.0.0",
+  "days": [
+    {
+      "dayId": "w02d1",
+      "questions": [
+        {
+          "id": "w02d1-q01",
+          "prompt": "¿Qué informa normalmente la extensión .txt?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una garantía de que el contenido es seguro"
+            },
+            {
+              "id": "b",
+              "text": "La cantidad exacta de bytes"
+            },
+            {
+              "id": "c",
+              "text": "Un tipo de archivo de texto"
+            },
+            {
+              "id": "d",
+              "text": "La contraseña del documento"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La extensión orienta sobre formato, pero no garantiza seguridad ni autenticidad.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d1-q02",
+          "prompt": "¿Qué riesgo tiene ocultar extensiones?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cifra automáticamente todos los archivos"
+            },
+            {
+              "id": "b",
+              "text": "Impide siempre las copias"
+            },
+            {
+              "id": "c",
+              "text": "Convierte los archivos en carpetas"
+            },
+            {
+              "id": "d",
+              "text": "Puede dificultar reconocer el tipo real declarado de un archivo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Ver extensiones ayuda a detectar nombres engañosos y elegir cómo abrirlos.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d1-q03",
+          "prompt": "Un archivo informe.pdf.exe debe tratarse principalmente como…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un ejecutable declarado por su extensión final"
+            },
+            {
+              "id": "b",
+              "text": "Un PDF seguro por incluir .pdf"
+            },
+            {
+              "id": "c",
+              "text": "Una carpeta porque tiene dos puntos"
+            },
+            {
+              "id": "d",
+              "text": "Un respaldo automático"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La extensión final .exe indica ejecutable en Windows; el nombre previo puede ser engañoso.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d1-q04",
+          "prompt": "¿Qué diferencia hay entre archivo y carpeta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La carpeta es siempre una imagen"
+            },
+            {
+              "id": "b",
+              "text": "El archivo contiene datos y la carpeta organiza elementos"
+            },
+            {
+              "id": "c",
+              "text": "Un archivo no tiene nombre"
+            },
+            {
+              "id": "d",
+              "text": "Toda carpeta está en internet"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Son funciones de organización y contenido distintas.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d1-q05",
+          "prompt": "¿Qué hace comprimir un conjunto de archivos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantizar ausencia de malware"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar toda aplicación en texto"
+            },
+            {
+              "id": "c",
+              "text": "Empaquetarlo y posiblemente reducir su tamaño"
+            },
+            {
+              "id": "d",
+              "text": "Crear un respaldo independiente por definición"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Compresión no equivale a seguridad ni copia independiente.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d1-q06",
+          "prompt": "¿Qué debes hacer con un ejecutable desconocido recibido por correo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Abrirlo siempre como administrador"
+            },
+            {
+              "id": "b",
+              "text": "Cambiarle el nombre y ejecutarlo"
+            },
+            {
+              "id": "c",
+              "text": "Desactivar protección antes de abrir"
+            },
+            {
+              "id": "d",
+              "text": "No ejecutarlo para averiguar qué es; verificar su procedencia por medios seguros"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "No se debe ejecutar contenido desconocido como método de identificación.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d1-q07",
+          "prompt": "¿Cambiar foto.jpg a foto.txt convierte su contenido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No; renombrar no transforma automáticamente el formato"
+            },
+            {
+              "id": "b",
+              "text": "Sí, siempre convierte la imagen a texto"
+            },
+            {
+              "id": "c",
+              "text": "Sí, elimina cualquier dato privado"
+            },
+            {
+              "id": "d",
+              "text": "No, por eso no se pueden renombrar archivos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El nombre y los bytes del formato son cosas diferentes.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d1-q08",
+          "prompt": "¿Qué conjunto contiene extensiones de archivos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "CPU, RAM y SSD"
+            },
+            {
+              "id": "b",
+              "text": ".txt, .png y .zip"
+            },
+            {
+              "id": "c",
+              "text": "Copiar, mover y abrir"
+            },
+            {
+              "id": "d",
+              "text": "Entrada, proceso y salida"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las extensiones son sufijos convencionales usados para identificar formatos.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        }
+      ],
+      "challenge": {
+        "id": "w02d1-challenge",
+        "prompt": "Ves contrato.pdf.exe con extensiones visibles. ¿Cuál es la decisión segura para esta práctica?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Abrirlo por contener la palabra contrato"
+          },
+          {
+            "id": "b",
+            "text": "Ocultar las extensiones antes de decidir"
+          },
+          {
+            "id": "c",
+            "text": "Identificarlo como ejecutable y no abrirlo para comprobar su supuesto PDF"
+          },
+          {
+            "id": "d",
+            "text": "Cambiar .exe por .pdf y confiar en él"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La apariencia del nombre no valida el contenido; renombrar tampoco elimina un riesgo.",
+        "reference": "https://support.microsoft.com/en-us/windows/"
+      }
+    },
+    {
+      "dayId": "w02d2",
+      "questions": [
+        {
+          "id": "w02d2-q01",
+          "prompt": "¿Qué es una ruta absoluta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una ubicación que siempre cambia al copiar un archivo"
+            },
+            {
+              "id": "b",
+              "text": "El contenido del archivo"
+            },
+            {
+              "id": "c",
+              "text": "Un nombre que nunca contiene carpetas"
+            },
+            {
+              "id": "d",
+              "text": "Una ubicación completa desde la raíz o unidad"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La ruta absoluta especifica ubicación sin depender del directorio actual.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d2-q02",
+          "prompt": "¿Qué es una ruta relativa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una ubicación interpretada desde un directorio de referencia"
+            },
+            {
+              "id": "b",
+              "text": "Una ubicación universal independiente del contexto"
+            },
+            {
+              "id": "c",
+              "text": "La contraseña para abrir una carpeta"
+            },
+            {
+              "id": "d",
+              "text": "El espacio libre del disco"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La interpretación depende del punto de partida.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d2-q03",
+          "prompt": "Desde la carpeta estudio, ¿qué representa notas/resumen.txt?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un disco físico llamado notas"
+            },
+            {
+              "id": "b",
+              "text": "Un archivo dentro de la subcarpeta notas"
+            },
+            {
+              "id": "c",
+              "text": "Un servicio de red por definición"
+            },
+            {
+              "id": "d",
+              "text": "Un archivo necesariamente situado en la raíz"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Es una ruta relativa que desciende a una subcarpeta.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d2-q04",
+          "prompt": "¿Qué indica el directorio actual en una terminal?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La carpeta más grande del equipo"
+            },
+            {
+              "id": "b",
+              "text": "La versión del sistema operativo"
+            },
+            {
+              "id": "c",
+              "text": "El punto de referencia para muchas rutas relativas"
+            },
+            {
+              "id": "d",
+              "text": "El proceso con más memoria"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Muchos comandos resuelven rutas relativas a partir del directorio actual.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d2-q05",
+          "prompt": "¿Por qué una estructura de carpetas coherente ayuda a estudiar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantiza que nunca habrá pérdida de datos"
+            },
+            {
+              "id": "b",
+              "text": "Sustituye la necesidad de guardar archivos"
+            },
+            {
+              "id": "c",
+              "text": "Impide que existan duplicados automáticamente"
+            },
+            {
+              "id": "d",
+              "text": "Permite localizar y relacionar apuntes, prácticas y evidencias"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Organizar facilita encontrar; no reemplaza respaldo ni validación.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d2-q06",
+          "prompt": "¿Qué significa normalmente .. en una ruta relativa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El directorio padre"
+            },
+            {
+              "id": "b",
+              "text": "El inicio de internet"
+            },
+            {
+              "id": "c",
+              "text": "El tamaño del archivo"
+            },
+            {
+              "id": "d",
+              "text": "Un comando para formatear el disco"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Dos puntos representan subir un nivel en muchos sistemas de rutas.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d2-q07",
+          "prompt": "Si compartes una ruta de tu equipo con otra persona, ¿qué debes considerar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Toda ruta local funciona en cualquier computadora"
+            },
+            {
+              "id": "b",
+              "text": "Su equipo puede no tener esa misma estructura o unidad"
+            },
+            {
+              "id": "c",
+              "text": "Las rutas contienen siempre el archivo incrustado"
+            },
+            {
+              "id": "d",
+              "text": "La ruta demuestra que el respaldo existe"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una ubicación no transporta el archivo ni garantiza su existencia en otro entorno.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d2-q08",
+          "prompt": "¿Qué evidencia comprueba una ruta de archivo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el nombre parezca profesional"
+            },
+            {
+              "id": "b",
+              "text": "Que la carpeta tenga un icono bonito"
+            },
+            {
+              "id": "c",
+              "text": "Poder localizar el elemento esperado en esa ubicación"
+            },
+            {
+              "id": "d",
+              "text": "Que otra ruta exista en un equipo distinto"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La comprobación debe encontrar el archivo correcto y verificar su contenido o identidad.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        }
+      ],
+      "challenge": {
+        "id": "w02d2-challenge",
+        "prompt": "Estás en estudio y existen estudio/notas/a.txt y estudio/labs/a.txt. ¿Qué ruta relativa abre las notas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "labs/a.txt"
+          },
+          {
+            "id": "b",
+            "text": "a.txt sin más datos"
+          },
+          {
+            "id": "c",
+            "text": "estudio/estudio/a.txt"
+          },
+          {
+            "id": "d",
+            "text": "notas/a.txt"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La subcarpeta distingue archivos con igual nombre; el contexto actual es estudio.",
+        "reference": "https://support.microsoft.com/en-us/windows/"
+      }
+    },
+    {
+      "dayId": "w02d3",
+      "questions": [
+        {
+          "id": "w02d3-q01",
+          "prompt": "¿Qué diferencia básica hay entre copiar y mover?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Copiar conserva el original y crea otra copia; mover cambia la ubicación prevista"
+            },
+            {
+              "id": "b",
+              "text": "Copiar borra siempre el original"
+            },
+            {
+              "id": "c",
+              "text": "Mover garantiza respaldo externo"
+            },
+            {
+              "id": "d",
+              "text": "Son idénticos en todos los casos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las operaciones tienen intenciones distintas y deben comprobarse tras completarse.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d3-q02",
+          "prompt": "Antes de sobrescribir un archivo con el mismo nombre conviene…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Asumir que el más nuevo siempre contiene todo"
+            },
+            {
+              "id": "b",
+              "text": "Comparar ubicación, contenido o versiones y conservar lo necesario"
+            },
+            {
+              "id": "c",
+              "text": "Borrar ambos para evitar confusión"
+            },
+            {
+              "id": "d",
+              "text": "Ocultar extensiones"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una sobrescritura puede perder información; hay que comprobar qué se sustituye.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d3-q03",
+          "prompt": "¿Qué confirma mejor que una copia terminó correctamente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ver solo que apareció una carpeta"
+            },
+            {
+              "id": "b",
+              "text": "Cerrar la ventana antes de terminar"
+            },
+            {
+              "id": "c",
+              "text": "Abrir la copia y comprobar contenido y tamaño según el caso"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar el nombre del origen"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Verificar el resultado es más fiable que asumir éxito por una acción iniciada.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d3-q04",
+          "prompt": "¿Qué efecto tiene renombrar normalmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Duplicar siempre el archivo"
+            },
+            {
+              "id": "b",
+              "text": "Moverlo automáticamente a otra nube"
+            },
+            {
+              "id": "c",
+              "text": "Comprimir todos sus datos"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar el nombre del elemento sin crear por sí solo una copia"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Renombrar modifica la identificación o ruta, no implica respaldo.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d3-q05",
+          "prompt": "Eliminar archivos de prueba debe hacerse…",
+          "options": [
+            {
+              "id": "a",
+              "text": "En una carpeta controlada y verificando qué se seleccionó"
+            },
+            {
+              "id": "b",
+              "text": "En cualquier directorio del sistema para practicar"
+            },
+            {
+              "id": "c",
+              "text": "Sin respaldo aunque el contenido sea importante"
+            },
+            {
+              "id": "d",
+              "text": "Con privilegios máximos por costumbre"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La práctica debe limitar su alcance y evitar datos o componentes necesarios.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d3-q06",
+          "prompt": "¿Qué problema puede crear tener varias copias sin identificar versiones?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aumentar siempre la velocidad del procesador"
+            },
+            {
+              "id": "b",
+              "text": "Editar la incorrecta y perder trazabilidad"
+            },
+            {
+              "id": "c",
+              "text": "Garantizar restauración completa"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar automáticamente todos los errores"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La duplicación sin organización puede generar conflictos sobre cuál es la versión correcta.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d3-q07",
+          "prompt": "¿Qué acción reduce riesgo al practicar operaciones de archivos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Practicar con los únicos documentos importantes"
+            },
+            {
+              "id": "b",
+              "text": "Ocultar todos los mensajes del sistema"
+            },
+            {
+              "id": "c",
+              "text": "Utilizar copias sintéticas y mantener un original separado"
+            },
+            {
+              "id": "d",
+              "text": "Usar carpetas del sistema como destino"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Datos de prueba y un original protegido permiten corregir errores con menor impacto.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d3-q08",
+          "prompt": "¿Qué debes registrar si moviste un archivo y ya no lo encuentras?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el color de su icono"
+            },
+            {
+              "id": "b",
+              "text": "La velocidad de internet aunque fue un movimiento local"
+            },
+            {
+              "id": "c",
+              "text": "La marca del monitor"
+            },
+            {
+              "id": "d",
+              "text": "Ruta inicial, destino previsto y nombre"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La ubicación y la identidad ayudan a reconstruir la operación.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        }
+      ],
+      "challenge": {
+        "id": "w02d3-challenge",
+        "prompt": "Necesitas practicar borrar y restaurar un informe, pero solo existe el original. ¿Cuál es el primer paso?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Crear una copia de trabajo y comprobar que el original queda separado"
+          },
+          {
+            "id": "b",
+            "text": "Borrar el único informe y esperar"
+          },
+          {
+            "id": "c",
+            "text": "Renombrar el original como copia sin duplicarlo"
+          },
+          {
+            "id": "d",
+            "text": "Cerrar la aplicación para generar un respaldo imaginario"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La práctica debe preservar la única copia importante antes de ensayar acciones destructivas.",
+        "reference": "https://support.microsoft.com/en-us/windows/"
+      }
+    },
+    {
+      "dayId": "w02d4",
+      "questions": [
+        {
+          "id": "w02d4-q01",
+          "prompt": "¿Qué significa almacenamiento local?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Datos que solo existen en una web"
+            },
+            {
+              "id": "b",
+              "text": "Datos almacenados en un dispositivo del equipo o conectado a él"
+            },
+            {
+              "id": "c",
+              "text": "Toda información que no tiene nombre"
+            },
+            {
+              "id": "d",
+              "text": "Una copia temporal obligatoriamente"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Local describe ubicación, no garantiza respaldo ni permanencia frente a fallos.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d4-q02",
+          "prompt": "¿Qué describe mejor la nube?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una RAM especial dentro de cualquier monitor"
+            },
+            {
+              "id": "b",
+              "text": "Un respaldo infalible sin configuración"
+            },
+            {
+              "id": "c",
+              "text": "Servicios y almacenamiento en sistemas remotos accesibles por red"
+            },
+            {
+              "id": "d",
+              "text": "Un tipo de cable"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los servicios remotos pueden sincronizar o guardar datos, pero sus condiciones y riesgos importan.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d4-q03",
+          "prompt": "¿Por qué sincronizar no equivale siempre a respaldar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque la sincronización nunca copia datos"
+            },
+            {
+              "id": "b",
+              "text": "Porque todo respaldo requiere impresión"
+            },
+            {
+              "id": "c",
+              "text": "Porque en nube no existen versiones"
+            },
+            {
+              "id": "d",
+              "text": "Un borrado o cambio puede propagarse a todas las copias sincronizadas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un respaldo debe permitir recuperación; la sincronización puede propagar errores.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d4-q04",
+          "prompt": "¿Qué debes comprobar en un icono que indica archivo solo en línea?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Si el contenido está descargado y disponible sin conexión"
+            },
+            {
+              "id": "b",
+              "text": "Si el nombre es suficientemente corto"
+            },
+            {
+              "id": "c",
+              "text": "Si la CPU tiene más núcleos"
+            },
+            {
+              "id": "d",
+              "text": "Si el monitor está conectado por HDMI"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Ver un nombre no demuestra que los bytes estén disponibles localmente.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d4-q05",
+          "prompt": "¿Qué beneficio aporta una copia en otro dispositivo independiente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Elimina todos los riesgos de robo"
+            },
+            {
+              "id": "b",
+              "text": "Reduce exposición a ciertos fallos del dispositivo principal"
+            },
+            {
+              "id": "c",
+              "text": "Garantiza actualización automática"
+            },
+            {
+              "id": "d",
+              "text": "Evita cualquier error humano"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La independencia puede ayudar ante fallos comunes, aunque aún requiere protección y actualización.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d4-q06",
+          "prompt": "¿Qué situación deja dos copias expuestas al mismo fallo físico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una está desconectada en otro dispositivo"
+            },
+            {
+              "id": "b",
+              "text": "Una copia está verificada fuera del equipo"
+            },
+            {
+              "id": "c",
+              "text": "Ambas están en el mismo disco"
+            },
+            {
+              "id": "d",
+              "text": "Existen versiones restaurables en otro entorno"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Carpetas distintas en un mismo disco comparten su posible avería.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d4-q07",
+          "prompt": "Si necesitas estudiar sin internet, debes…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Asumir que cualquier enlace se guarda completo"
+            },
+            {
+              "id": "b",
+              "text": "Borrar los archivos descargados"
+            },
+            {
+              "id": "c",
+              "text": "Confiar solo en iconos de nube"
+            },
+            {
+              "id": "d",
+              "text": "Comprobar antes qué recursos y archivos están disponibles localmente"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La disponibilidad sin conexión debe probarse; no todos los recursos pueden descargarse legal o técnicamente.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d4-q08",
+          "prompt": "¿Qué pregunta ayuda a evaluar una estrategia de almacenamiento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "¿Dónde están los datos y cómo los recuperaría si falla ese lugar?"
+            },
+            {
+              "id": "b",
+              "text": "¿Qué color tiene la carpeta?"
+            },
+            {
+              "id": "c",
+              "text": "¿Cuántas palabras tiene el nombre del proveedor?"
+            },
+            {
+              "id": "d",
+              "text": "¿El icono parece moderno?"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Ubicación y recuperación conectan la estrategia con riesgos concretos.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        }
+      ],
+      "challenge": {
+        "id": "w02d4-challenge",
+        "prompt": "Borras un archivo de una carpeta sincronizada y desaparece también del móvil. ¿Qué explica lo ocurrido?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La nube garantiza una copia independiente inaccesible"
+          },
+          {
+            "id": "b",
+            "text": "El borrado se propagó mediante la sincronización"
+          },
+          {
+            "id": "c",
+            "text": "El móvil convirtió el archivo en RAM"
+          },
+          {
+            "id": "d",
+            "text": "El archivo nunca existió"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La sincronización mantiene estados entre ubicaciones; recuperación depende de papelera, versiones o un respaldo separado.",
+        "reference": "https://support.microsoft.com/en-us/windows/"
+      }
+    },
+    {
+      "dayId": "w02d5",
+      "questions": [
+        {
+          "id": "w02d5-q01",
+          "prompt": "¿Qué demuestra que un respaldo es útil?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el archivo de respaldo tenga un nombre largo"
+            },
+            {
+              "id": "b",
+              "text": "Que nadie haya intentado abrirlo"
+            },
+            {
+              "id": "c",
+              "text": "Poder restaurar los datos necesarios y comprobarlos"
+            },
+            {
+              "id": "d",
+              "text": "Que ocupe cualquier espacio"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La recuperación comprobada valida utilidad mejor que la mera existencia aparente.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d5-q02",
+          "prompt": "¿Qué permite conservar versiones anteriores?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Impedir todos los cambios futuros"
+            },
+            {
+              "id": "b",
+              "text": "Hacer innecesaria la verificación"
+            },
+            {
+              "id": "c",
+              "text": "Convertir el disco en memoria volátil"
+            },
+            {
+              "id": "d",
+              "text": "Recuperar un estado previo a un cambio incorrecto"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las versiones permiten retroceder, según política y retención disponible.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d5-q03",
+          "prompt": "¿Cómo elegir frecuencia de respaldo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Según cuánto trabajo se puede tolerar perder y la tasa de cambios"
+            },
+            {
+              "id": "b",
+              "text": "Siempre una vez en la vida del equipo"
+            },
+            {
+              "id": "c",
+              "text": "Según el fondo de pantalla"
+            },
+            {
+              "id": "d",
+              "text": "Solo cuando el archivo ya se perdió"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La frecuencia relaciona cambios con la pérdida aceptable y recursos disponibles.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d5-q04",
+          "prompt": "¿Qué debe ocurrir antes de confiar en una restauración?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Borrar inmediatamente el origen y todas las copias"
+            },
+            {
+              "id": "b",
+              "text": "Verificar que el contenido recuperado es el esperado"
+            },
+            {
+              "id": "c",
+              "text": "Renombrar cualquier archivo vacío"
+            },
+            {
+              "id": "d",
+              "text": "Ignorar mensajes de error"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un archivo recuperado puede ser incompleto o una versión equivocada; hay que comprobarlo.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d5-q05",
+          "prompt": "¿Por qué un respaldo reciente puede no resolver un error antiguo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque lo reciente siempre es peor"
+            },
+            {
+              "id": "b",
+              "text": "Porque los respaldos nunca incluyen archivos"
+            },
+            {
+              "id": "c",
+              "text": "Puede contener ya el estado incorrecto si no hay versiones previas"
+            },
+            {
+              "id": "d",
+              "text": "Porque la RAM bloquea copias anteriores"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Importa cuándo ocurrió el error y qué versiones se conservaron.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d5-q06",
+          "prompt": "¿Qué información conviene registrar sobre un respaldo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el color del dispositivo"
+            },
+            {
+              "id": "b",
+              "text": "La contraseña en texto claro junto al enlace público"
+            },
+            {
+              "id": "c",
+              "text": "Una afirmación de éxito sin verificación"
+            },
+            {
+              "id": "d",
+              "text": "Qué incluye, cuándo se creó, dónde está y cómo restaurarlo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El registro debe facilitar recuperación sin exponer credenciales.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d5-q07",
+          "prompt": "¿Qué riesgo tiene guardar la única clave de un respaldo cifrado dentro de ese mismo respaldo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No poder acceder a la clave necesaria para abrirlo"
+            },
+            {
+              "id": "b",
+              "text": "Que se descifre automáticamente sin clave"
+            },
+            {
+              "id": "c",
+              "text": "Que se convierta en papelera"
+            },
+            {
+              "id": "d",
+              "text": "Que aumente siempre la velocidad"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La recuperación debe contemplar acceso seguro e independiente a las claves necesarias.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d5-q08",
+          "prompt": "¿Qué criterio distingue respaldo completo de uno parcial?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La extensión del nombre únicamente"
+            },
+            {
+              "id": "b",
+              "text": "Qué datos y elementos de recuperación están incluidos"
+            },
+            {
+              "id": "c",
+              "text": "Que ambos tengan el mismo icono"
+            },
+            {
+              "id": "d",
+              "text": "El tipo de monitor usado al crearlo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El alcance debe conocerse; una copia parcial puede omitir archivos o configuraciones necesarias.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        }
+      ],
+      "challenge": {
+        "id": "w02d5-challenge",
+        "prompt": "Guardaste resumen versión 1 y luego sobrescribiste con texto incorrecto. ¿Qué necesitas para volver al contenido anterior?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo cambiar el nombre de la versión dañada"
+          },
+          {
+            "id": "b",
+            "text": "Una carpeta vacía llamada respaldo"
+          },
+          {
+            "id": "c",
+            "text": "Una versión anterior o respaldo que contenga ese estado"
+          },
+          {
+            "id": "d",
+            "text": "Cerrar la pantalla para que reaparezca"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "Restaurar un estado requiere que sus datos se hayan conservado en alguna copia o sistema de versiones.",
+        "reference": "https://support.microsoft.com/en-us/windows/"
+      }
+    },
+    {
+      "dayId": "w02d6",
+      "questions": [
+        {
+          "id": "w02d6-q01",
+          "prompt": "¿Cuál es una práctica segura de recuperación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sobrescribir datos importantes sin verificar"
+            },
+            {
+              "id": "b",
+              "text": "Borrar la única copia antes de probar"
+            },
+            {
+              "id": "c",
+              "text": "Ejecutar cualquier archivo desconocido del respaldo"
+            },
+            {
+              "id": "d",
+              "text": "Restaurar archivos sintéticos a una carpeta separada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un destino separado limita daños y permite comparar antes de reemplazar.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d6-q02",
+          "prompt": "¿Qué comparación valida mejor un archivo de texto restaurado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Contenido esperado, versión y ubicación"
+            },
+            {
+              "id": "b",
+              "text": "Solo que el icono sea igual"
+            },
+            {
+              "id": "c",
+              "text": "Solo que la carpeta exista"
+            },
+            {
+              "id": "d",
+              "text": "Que el equipo siga encendido"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El archivo debe contener la información correcta, no solo estar presente.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d6-q03",
+          "prompt": "Si falta un archivo en la restauración, debes…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Afirmar éxito porque los demás aparecieron"
+            },
+            {
+              "id": "b",
+              "text": "Revisar alcance del respaldo, versión y registro antes de concluir"
+            },
+            {
+              "id": "c",
+              "text": "Borrar el respaldo sin investigar"
+            },
+            {
+              "id": "d",
+              "text": "Inventar el contenido faltante"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una restauración parcial necesita análisis y un estado honesto.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d6-q04",
+          "prompt": "¿Qué debes registrar durante la prueba?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo un sí sin contexto"
+            },
+            {
+              "id": "b",
+              "text": "Credenciales en un informe público"
+            },
+            {
+              "id": "c",
+              "text": "Pasos, tiempo, errores y resultados"
+            },
+            {
+              "id": "d",
+              "text": "Una captura de datos personales innecesarios"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los registros permiten evaluar y repetir el procedimiento.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d6-q05",
+          "prompt": "¿Restaurar una versión diferente de la esperada es éxito completo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí, cualquier archivo con igual nombre basta"
+            },
+            {
+              "id": "b",
+              "text": "Sí, siempre que ocupe más espacio"
+            },
+            {
+              "id": "c",
+              "text": "No existe diferencia entre versiones"
+            },
+            {
+              "id": "d",
+              "text": "No; el alcance y la versión deben cumplir la necesidad"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La recuperación debe responder al objetivo, que puede exigir una fecha o contenido específico.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d6-q06",
+          "prompt": "¿Qué conviene hacer tras detectar que la copia está dañada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conservar evidencia, probar otra versión válida y revisar la causa"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar todas las versiones restantes"
+            },
+            {
+              "id": "c",
+              "text": "Confirmar recuperación sin abrir nada"
+            },
+            {
+              "id": "d",
+              "text": "Reiniciar hasta que cambie el contenido"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las alternativas y su validación importan; no deben destruirse las opciones de recuperación.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d6-q07",
+          "prompt": "¿Qué describe una buena instrucción de restauración?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo pulsa algo hasta que funcione"
+            },
+            {
+              "id": "b",
+              "text": "Pasos claros, origen, destino, comprobación y límites"
+            },
+            {
+              "id": "c",
+              "text": "Una lista de nombres sin ubicaciones"
+            },
+            {
+              "id": "d",
+              "text": "Una contraseña publicada"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una guía útil permite que otra persona recupere y valide con seguridad.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d6-q08",
+          "prompt": "¿Qué dato ayuda a medir la pérdida de trabajo en una prueba?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La marca del teclado"
+            },
+            {
+              "id": "b",
+              "text": "El color de la pantalla de inicio"
+            },
+            {
+              "id": "c",
+              "text": "Diferencia entre el contenido requerido y el último estado recuperable"
+            },
+            {
+              "id": "d",
+              "text": "La cantidad de iconos del escritorio"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El estado más reciente recuperable determina qué cambios posteriores podrían perderse.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        }
+      ],
+      "challenge": {
+        "id": "w02d6-challenge",
+        "prompt": "Restauraste tres de cuatro documentos del respaldo. El cuarto no estaba incluido. ¿Cómo debe registrarse el resultado?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Éxito total porque no hubo error al copiar"
+          },
+          {
+            "id": "b",
+            "text": "Éxito total si se renombra otro documento"
+          },
+          {
+            "id": "c",
+            "text": "Fracaso del monitor"
+          },
+          {
+            "id": "d",
+            "text": "Recuperación parcial; falta un documento por alcance incompleto"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La precisión del registro evita confundir ejecución técnica con cumplimiento de la necesidad.",
+        "reference": "https://support.microsoft.com/en-us/windows/"
+      }
+    },
+    {
+      "dayId": "w02d7",
+      "questions": [
+        {
+          "id": "w02d7-q01",
+          "prompt": "¿Qué dato diferencia dos archivos con igual nombre en carpetas distintas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Su ruta completa"
+            },
+            {
+              "id": "b",
+              "text": "Solo el número de letras del nombre"
+            },
+            {
+              "id": "c",
+              "text": "La marca de la CPU"
+            },
+            {
+              "id": "d",
+              "text": "El color del teclado"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La ubicación forma parte de la identidad práctica del archivo.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d7-q02",
+          "prompt": "¿Por qué informe.txt.exe requiere precaución?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todos los archivos con dos puntos son carpetas"
+            },
+            {
+              "id": "b",
+              "text": "La extensión final declara un ejecutable aunque el nombre sugiera texto"
+            },
+            {
+              "id": "c",
+              "text": "Cambiarle el nombre garantiza seguridad"
+            },
+            {
+              "id": "d",
+              "text": "El texto informe verifica su origen"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El nombre puede engañar; debe verificarse procedencia sin ejecutarlo.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d7-q03",
+          "prompt": "¿Qué operación conserva el archivo original mientras crea otro ejemplar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mover por definición"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar"
+            },
+            {
+              "id": "c",
+              "text": "Copiar"
+            },
+            {
+              "id": "d",
+              "text": "Renombrar"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Copiar crea otra instancia; el resultado debe comprobarse.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d7-q04",
+          "prompt": "Una carpeta llamada respaldo está en el mismo disco que el original. ¿Qué riesgo comparten?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No comparten ningún fallo posible"
+            },
+            {
+              "id": "b",
+              "text": "La copia evita cualquier error humano"
+            },
+            {
+              "id": "c",
+              "text": "La carpeta obliga a guardar versiones"
+            },
+            {
+              "id": "d",
+              "text": "La avería de ese disco puede afectar a ambos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Dos ubicaciones lógicas pueden compartir un único dispositivo físico.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d7-q05",
+          "prompt": "¿Qué es necesario para interpretar ../notas.txt?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conocer el directorio de referencia"
+            },
+            {
+              "id": "b",
+              "text": "Conocer la contraseña del Wi-Fi"
+            },
+            {
+              "id": "c",
+              "text": "Tener un monitor de más resolución"
+            },
+            {
+              "id": "d",
+              "text": "Saber el precio del archivo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las rutas relativas dependen del contexto actual.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d7-q06",
+          "prompt": "Al cambiar imagen.png a imagen.txt, ¿qué cambió necesariamente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El formato interno completo"
+            },
+            {
+              "id": "b",
+              "text": "El nombre, no una conversión automática de contenido"
+            },
+            {
+              "id": "c",
+              "text": "La seguridad de todos los datos"
+            },
+            {
+              "id": "d",
+              "text": "La calidad de la fotografía"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Renombrar no implica reescribir datos al formato nuevo.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d7-q07",
+          "prompt": "¿Qué prueba diferencia copia aparente de respaldo recuperable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ver que existe un acceso directo"
+            },
+            {
+              "id": "b",
+              "text": "Contar los colores del icono"
+            },
+            {
+              "id": "c",
+              "text": "Restaurar y comprobar contenido necesario"
+            },
+            {
+              "id": "d",
+              "text": "Cerrar la ventana sin comprobar"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una referencia o un icono no confirma disponibilidad ni integridad de los datos.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d7-q08",
+          "prompt": "Una app indica sincronización completa. ¿Qué no puedes concluir solo por eso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que algún proceso de sincronización se ejecutó"
+            },
+            {
+              "id": "b",
+              "text": "Que la aplicación informa su estado"
+            },
+            {
+              "id": "c",
+              "text": "Que debes revisar sus condiciones de recuperación"
+            },
+            {
+              "id": "d",
+              "text": "Que existe una versión independiente recuperable frente a cualquier borrado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El estado de sincronización no describe por sí solo toda la estrategia de respaldo.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d7-q09",
+          "prompt": "¿Dónde conviene probar una restauración inicial?",
+          "options": [
+            {
+              "id": "a",
+              "text": "En una carpeta de prueba separada"
+            },
+            {
+              "id": "b",
+              "text": "Encima de los únicos archivos importantes sin comprobar"
+            },
+            {
+              "id": "c",
+              "text": "En un directorio del sistema al azar"
+            },
+            {
+              "id": "d",
+              "text": "En la papelera sin verificar"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La separación facilita comparar y reduce sobreescrituras accidentales.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d7-q10",
+          "prompt": "¿Qué acción corresponde a validar versiones?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Suponer que mayor tamaño siempre es correcto"
+            },
+            {
+              "id": "b",
+              "text": "Comparar el contenido y fecha requeridos con lo restaurado"
+            },
+            {
+              "id": "c",
+              "text": "Renombrar el archivo viejo como nuevo"
+            },
+            {
+              "id": "d",
+              "text": "Borrar el historial de cambios"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La versión se valida contra la necesidad, no por apariencia.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d7-q11",
+          "prompt": "¿Qué debes saber de una exportación que dice sin adjuntos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Incluye siempre todos los archivos por magia"
+            },
+            {
+              "id": "b",
+              "text": "Es necesariamente maliciosa"
+            },
+            {
+              "id": "c",
+              "text": "No contiene los archivos binarios omitidos aunque preserve sus nombres"
+            },
+            {
+              "id": "d",
+              "text": "No puede contener notas de texto"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una exportación ligera puede preservar metadatos sin conservar los bytes de las evidencias.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d7-q12",
+          "prompt": "Si los archivos solo están en línea, al desconectar internet…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Siempre estarán guardados completos en cada dispositivo"
+            },
+            {
+              "id": "b",
+              "text": "Se convierten en carpetas"
+            },
+            {
+              "id": "c",
+              "text": "La RAM se hace persistente"
+            },
+            {
+              "id": "d",
+              "text": "Pueden no estar disponibles hasta descargarlos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La disponibilidad depende de caché, descarga y condiciones del servicio.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d7-q13",
+          "prompt": "¿Qué ruta es inequívoca dentro de un equipo con la unidad indicada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una ruta absoluta a la carpeta y archivo"
+            },
+            {
+              "id": "b",
+              "text": "Un nombre de archivo sin contexto"
+            },
+            {
+              "id": "c",
+              "text": "Una instrucción como por ahí"
+            },
+            {
+              "id": "d",
+              "text": "El color del documento"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La ruta absoluta reduce ambigüedad dentro del entorno al que pertenece.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d7-q14",
+          "prompt": "¿Cómo reducir riesgo al ensayar borrados?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usar la única copia de documentos reales"
+            },
+            {
+              "id": "b",
+              "text": "Usar copias sintéticas y conservar un original separado"
+            },
+            {
+              "id": "c",
+              "text": "Desactivar toda protección"
+            },
+            {
+              "id": "d",
+              "text": "Confiar en que no cometerás errores"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La práctica debe permitir fallar y recuperar sin dañar datos importantes.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d7-q15",
+          "prompt": "¿Qué conclusión permite restaurar un archivo vacío con el nombre correcto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La recuperación fue completa por tener igual nombre"
+            },
+            {
+              "id": "b",
+              "text": "Todos los respaldos son inútiles"
+            },
+            {
+              "id": "c",
+              "text": "El nombre existe, pero no se recuperó necesariamente el contenido requerido"
+            },
+            {
+              "id": "d",
+              "text": "La CPU perdió sus instrucciones"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Hay que verificar datos y versión, no solo la presencia del nombre.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d7-q16",
+          "prompt": "¿Por qué conviene documentar fecha y alcance de la copia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para hacer el archivo inmune a cualquier fallo"
+            },
+            {
+              "id": "b",
+              "text": "Para reemplazar la necesidad de comprobarlo"
+            },
+            {
+              "id": "c",
+              "text": "Para duplicar automáticamente la memoria"
+            },
+            {
+              "id": "d",
+              "text": "Para saber qué estado y qué elementos se pueden recuperar"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El registro ayuda a decidir si la copia responde al incidente concreto.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d7-q17",
+          "prompt": "¿Qué elección protege mejor frente a sobrescritura accidental?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Versiones previas restaurables y pruebas periódicas"
+            },
+            {
+              "id": "b",
+              "text": "Un nombre más elegante para el mismo único archivo"
+            },
+            {
+              "id": "c",
+              "text": "Ocultar extensiones"
+            },
+            {
+              "id": "d",
+              "text": "Aumentar el brillo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La protección necesita estados recuperables, no cambios cosméticos.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d7-q18",
+          "prompt": "¿Qué significa terminar una transferencia sin revisar su destino?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que todos los datos están garantizados para siempre"
+            },
+            {
+              "id": "b",
+              "text": "La operación pudo ejecutarse, pero falta comprobar el resultado esperado"
+            },
+            {
+              "id": "c",
+              "text": "Que hay una copia externa por definición"
+            },
+            {
+              "id": "d",
+              "text": "Que se conservan todas las versiones históricas"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Verificación y persistencia futura son aspectos distintos del inicio o fin de una copia.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d7-q19",
+          "prompt": "¿Qué documento ayuda más a recuperar una carpeta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una promesa sin detalles"
+            },
+            {
+              "id": "b",
+              "text": "Una captura del fondo de pantalla"
+            },
+            {
+              "id": "c",
+              "text": "Guía con origen, destino, pasos y comprobaciones"
+            },
+            {
+              "id": "d",
+              "text": "Una lista de componentes de audio"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los pasos y criterios permiten ejecutar la restauración de forma reproducible.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        },
+        {
+          "id": "w02d7-q20",
+          "prompt": "¿Qué debe suceder si un respaldo no contiene un archivo requerido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Crear un archivo vacío y llamarlo éxito"
+            },
+            {
+              "id": "b",
+              "text": "Borrar el requisito de la lista sin explicarlo"
+            },
+            {
+              "id": "c",
+              "text": "Suponer que el archivo no era importante"
+            },
+            {
+              "id": "d",
+              "text": "Registrar recuperación parcial y buscar otra fuente válida"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El resultado debe reflejar el objetivo no cumplido, no ocultar el alcance incompleto.",
+          "reference": "https://support.microsoft.com/en-us/windows/"
+        }
+      ],
+      "challenge": {
+        "id": "w02d7-challenge",
+        "prompt": "Caso: original sobrescrito, carpeta sincronizada con el mismo contenido incorrecto y una copia de ayer verificada. ¿Qué opción ofrece recuperación del estado anterior?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Restaurar la copia verificada de ayer a un destino separado y comprobar su contenido"
+          },
+          {
+            "id": "b",
+            "text": "Renombrar el archivo incorrecto para que vuelva atrás"
+          },
+          {
+            "id": "c",
+            "text": "Volver a sincronizar esperando una versión que no existe"
+          },
+          {
+            "id": "d",
+            "text": "Borrar la copia de ayer para liberar espacio"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La copia previa verificada conserva un estado anterior; restaurar aparte evita destruir opciones antes de validar.",
+        "reference": "https://support.microsoft.com/en-us/windows/"
+      }
+    }
+  ]
+}

@@ -1,0 +1,2094 @@
+{
+  "week": 6,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w06d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w06d1-q01",
+          "prompt": "Windows Terminal abre una pestaña CMD y otra PowerShell. ¿Qué interpreta los comandos de cada pestaña?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El shell correspondiente de cada pestaña."
+            },
+            {
+              "id": "b",
+              "text": "Windows Terminal aplica siempre sintaxis CMD."
+            },
+            {
+              "id": "c",
+              "text": "El explorador interpreta las dos pestañas."
+            },
+            {
+              "id": "d",
+              "text": "El nombre de la carpeta decide la sintaxis."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La terminal aloja la interacción; CMD y PowerShell interpretan sus propios lenguajes.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/scripting/powershell-commands"
+        },
+        {
+          "id": "w06d1-q02",
+          "prompt": "En Get-ChildItem -Path C:\\Lab, ¿qué representa C:\\Lab?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El valor del parámetro Path."
+            },
+            {
+              "id": "b",
+              "text": "El nombre del cmdlet."
+            },
+            {
+              "id": "c",
+              "text": "Un operador de elevación."
+            },
+            {
+              "id": "d",
+              "text": "Un alias de administrador."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El cmdlet recibe argumentos mediante parámetros; Path indica la ubicación que consultará.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/scripting/powershell-commands"
+        },
+        {
+          "id": "w06d1-q03",
+          "prompt": "¿Qué indica el par Verbo-Sustantivo Get-Process?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una orden de finalizar todos los procesos."
+            },
+            {
+              "id": "b",
+              "text": "Una ruta relativa de archivos."
+            },
+            {
+              "id": "c",
+              "text": "Un mandato exclusivo de CMD."
+            },
+            {
+              "id": "d",
+              "text": "Una acción de consulta sobre procesos."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los cmdlets de PowerShell usan verbos y sustantivos para describir operaciones.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/scripting/powershell-commands"
+        },
+        {
+          "id": "w06d1-q04",
+          "prompt": "¿Por qué dir puede comportarse distinto en CMD y PowerShell?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dir siempre devuelve el mismo tipo de objeto en todos los shells."
+            },
+            {
+              "id": "b",
+              "text": "En PowerShell puede ser un alias de Get-ChildItem."
+            },
+            {
+              "id": "c",
+              "text": "CMD convierte dir en Get-Process."
+            },
+            {
+              "id": "d",
+              "text": "Ambos shells comparten todos sus parámetros."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un mismo texto puede designar un comando interno o un alias según el shell.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/scripting/powershell-commands"
+        },
+        {
+          "id": "w06d1-q05",
+          "prompt": "Un ejemplo usa Get-Process. CMD dice que no lo reconoce. ¿Qué comprobar primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que todos los procesos estén detenidos."
+            },
+            {
+              "id": "b",
+              "text": "Que el ejemplo se ejecute en PowerShell."
+            },
+            {
+              "id": "c",
+              "text": "Que el disco tenga formato Linux."
+            },
+            {
+              "id": "d",
+              "text": "Que el archivo se llame Get-Process.txt."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un cmdlet de PowerShell no es un comando interno de CMD.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/scripting/powershell-commands"
+        },
+        {
+          "id": "w06d1-q06",
+          "prompt": "¿Qué conserva una ruta con espacios como un solo argumento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un signo menos delante de cada palabra."
+            },
+            {
+              "id": "b",
+              "text": "Comillas alrededor de la ruta."
+            },
+            {
+              "id": "c",
+              "text": "Una coma entre todas las palabras."
+            },
+            {
+              "id": "d",
+              "text": "Quitar la extensión del archivo."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las comillas agrupan el texto; sin ellas los espacios pueden separar argumentos.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/scripting/powershell-commands"
+        },
+        {
+          "id": "w06d1-q07",
+          "prompt": "¿Qué papel cumple el símbolo | entre cmdlets?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Elevar automáticamente ambos cmdlets."
+            },
+            {
+              "id": "b",
+              "text": "Ejecutar siempre el segundo antes del primero."
+            },
+            {
+              "id": "c",
+              "text": "Conectar la salida de uno con la entrada del siguiente."
+            },
+            {
+              "id": "d",
+              "text": "Convertir cualquier comando en una contraseña."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La canalización compone operaciones pasando resultados al siguiente comando.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/scripting/powershell-commands"
+        },
+        {
+          "id": "w06d1-q08",
+          "prompt": "¿Qué dato conviene anotar al comparar CMD y PowerShell?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el color de la pestaña abierta."
+            },
+            {
+              "id": "b",
+              "text": "Únicamente la marca del monitor."
+            },
+            {
+              "id": "c",
+              "text": "La contraseña de inicio de sesión."
+            },
+            {
+              "id": "d",
+              "text": "Shell usado, comando exacto y resultado observado."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El contexto y la sintaxis explican resultados que una captura sin comando no permite reproducir.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/scripting/powershell-commands"
+        }
+      ],
+      "challenge": {
+        "id": "w06d1-challenge",
+        "prompt": "En CMD, Get-ChildItem falla; en una pestaña PowerShell funciona. Se quiere documentar la diferencia. ¿Qué explicación usar?",
+        "options": [
+          {
+            "id": "a",
+            "text": "CMD necesita borrar su historial para reconocer cmdlets."
+          },
+          {
+            "id": "b",
+            "text": "PowerShell traduce siempre todo comando de CMD sin diferencias."
+          },
+          {
+            "id": "c",
+            "text": "La terminal aloja shells distintos y el cmdlet pertenece a PowerShell."
+          },
+          {
+            "id": "d",
+            "text": "La pestaña de CMD no tiene conexión a internet."
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La herramienta que interpreta el texto determina la sintaxis y los comandos disponibles.",
+        "reference": "https://learn.microsoft.com/en-us/powershell/scripting/powershell-commands"
+      }
+    },
+    {
+      "dayId": "w06d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w06d2-q01",
+          "prompt": "¿Cómo buscar cmdlets relacionados con procesos sin saber el verbo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Get-Help -Noun Process"
+            },
+            {
+              "id": "b",
+              "text": "Get-Process -Command"
+            },
+            {
+              "id": "c",
+              "text": "Get-Command -Noun Process"
+            },
+            {
+              "id": "d",
+              "text": "Set-Command Process"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Get-Command descubre comandos disponibles y permite buscar por su sustantivo.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/02-help-system"
+        },
+        {
+          "id": "w06d2-q02",
+          "prompt": "¿Qué muestra Get-Help Get-ChildItem -Examples?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El contenido de todas las carpetas."
+            },
+            {
+              "id": "b",
+              "text": "Un listado de usuarios conectados."
+            },
+            {
+              "id": "c",
+              "text": "La ejecución automática de cada ejemplo."
+            },
+            {
+              "id": "d",
+              "text": "Ejemplos de uso del comando."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Get-Help consulta documentación; Examples selecciona sus ejemplos sin ejecutarlos.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/02-help-system"
+        },
+        {
+          "id": "w06d2-q03",
+          "prompt": "¿Qué consulta ayuda sobre un parámetro concreto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Get-Command Path -Run"
+            },
+            {
+              "id": "b",
+              "text": "Get-ChildItem -HelpPath"
+            },
+            {
+              "id": "c",
+              "text": "Get-Help Get-ChildItem -Parameter Path"
+            },
+            {
+              "id": "d",
+              "text": "Set-Help Path"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Parameter permite estudiar la función y condiciones del parámetro indicado.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/02-help-system"
+        },
+        {
+          "id": "w06d2-q04",
+          "prompt": "Get-Command encuentra un cmdlet pero falta ayuda detallada local. ¿Qué alternativa es razonable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Suponer que el cmdlet está roto."
+            },
+            {
+              "id": "b",
+              "text": "Consultar Get-Help con -Online o la documentación oficial."
+            },
+            {
+              "id": "c",
+              "text": "Ejecutar todos sus parámetros para adivinarlos."
+            },
+            {
+              "id": "d",
+              "text": "Eliminar el módulo que contiene el comando."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Descubrir un comando y disponer de su documentación local son cuestiones diferentes.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/02-help-system"
+        },
+        {
+          "id": "w06d2-q05",
+          "prompt": "En una sintaxis de ayuda, ¿qué sugiere un parámetro entre corchetes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que está prohibido usarlo."
+            },
+            {
+              "id": "b",
+              "text": "Que exige contraseña siempre."
+            },
+            {
+              "id": "c",
+              "text": "Que es opcional en ese conjunto de parámetros."
+            },
+            {
+              "id": "d",
+              "text": "Que su nombre debe llevar corchetes al ejecutarlo."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La notación de sintaxis describe parámetros y argumentos; los corchetes no se copian literalmente.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/02-help-system"
+        },
+        {
+          "id": "w06d2-q06",
+          "prompt": "Quieres descubrir comandos de consulta de servicios. ¿Qué filtro encaja?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Get-Help -Run Service"
+            },
+            {
+              "id": "b",
+              "text": "Get-Command -Verb Stop -Noun Process"
+            },
+            {
+              "id": "c",
+              "text": "Get-Command -Verb Get -Noun '*Service*'"
+            },
+            {
+              "id": "d",
+              "text": "Get-Service -Delete"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Verbo y sustantivo ayudan a encontrar la operación deseada sin ejecutar cambios.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/02-help-system"
+        },
+        {
+          "id": "w06d2-q07",
+          "prompt": "¿Qué diferencia hay entre Get-Command y Get-Help?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ambos instalan automáticamente módulos."
+            },
+            {
+              "id": "b",
+              "text": "Uno descubre comandos; el otro explica su uso."
+            },
+            {
+              "id": "c",
+              "text": "El primero modifica procesos; el segundo los detiene."
+            },
+            {
+              "id": "d",
+              "text": "Solo cambian el formato del mismo archivo."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Get-Command inspecciona comandos; Get-Help consulta los temas de ayuda correspondientes.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/02-help-system"
+        },
+        {
+          "id": "w06d2-q08",
+          "prompt": "Antes de copiar un ejemplo que elimina archivos, ¿qué debes identificar en la ayuda?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la longitud del nombre del cmdlet."
+            },
+            {
+              "id": "b",
+              "text": "El número de capturas del artículo."
+            },
+            {
+              "id": "c",
+              "text": "Alcance, parámetros y efectos del comando."
+            },
+            {
+              "id": "d",
+              "text": "La fecha del último archivo personal."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La ayuda debe usarse para comprender qué objetos afecta una operación antes de adaptarla.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/02-help-system"
+        }
+      ],
+      "challenge": {
+        "id": "w06d2-challenge",
+        "prompt": "Buscas consultar servicios, pero solo recuerdas el tema. ¿Qué secuencia demuestra descubrimiento mediante ayuda?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Get-Command -Noun '*Service*' y Get-Help del cmdlet elegido -Examples."
+          },
+          {
+            "id": "b",
+            "text": "Copiar Stop-Service sin leerlo y ejecutarlo sobre todos los servicios."
+          },
+          {
+            "id": "c",
+            "text": "Renombrar un archivo a Get-Service para crear el comando."
+          },
+          {
+            "id": "d",
+            "text": "Ejecutar cada resultado de búsqueda sin revisar parámetros."
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "Primero se localiza la operación; después se estudia su uso y sus efectos.",
+        "reference": "https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/02-help-system"
+      }
+    },
+    {
+      "dayId": "w06d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w06d3-q01",
+          "prompt": "¿Qué cmdlet muestra la ubicación actual en PowerShell?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Get-Location"
+            },
+            {
+              "id": "b",
+              "text": "Get-Content"
+            },
+            {
+              "id": "c",
+              "text": "New-Item"
+            },
+            {
+              "id": "d",
+              "text": "Get-Process"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Get-Location consulta la ubicación; no enumera procesos ni lee archivos.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_filesystem_provider"
+        },
+        {
+          "id": "w06d3-q02",
+          "prompt": "Estás en C:\\Lab. ¿Qué hace Set-Location .\\Notas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Crea un archivo Notas.txt."
+            },
+            {
+              "id": "b",
+              "text": "Copia C:\\Lab a Documentos."
+            },
+            {
+              "id": "c",
+              "text": "Abre cualquier carpeta llamada Notas del disco."
+            },
+            {
+              "id": "d",
+              "text": "Cambia a C:\\Lab\\Notas si existe."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El punto representa la ubicación actual y la ruta relativa se resuelve desde ella.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_filesystem_provider"
+        },
+        {
+          "id": "w06d3-q03",
+          "prompt": "Desde C:\\Lab\\Notas, ¿adónde lleva Set-Location ..?",
+          "options": [
+            {
+              "id": "a",
+              "text": "C:\\Lab\\Notas\\..txt"
+            },
+            {
+              "id": "b",
+              "text": "La raíz de cualquier unidad."
+            },
+            {
+              "id": "c",
+              "text": "La carpeta personal obligatoriamente."
+            },
+            {
+              "id": "d",
+              "text": "C:\\Lab"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Dos puntos representan el directorio padre en una ruta del sistema de archivos.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_filesystem_provider"
+        },
+        {
+          "id": "w06d3-q04",
+          "prompt": "¿Qué crea una carpeta Prueba en la ubicación actual?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Get-ChildItem -Directory Prueba"
+            },
+            {
+              "id": "b",
+              "text": "New-Item -ItemType Directory -Path .\\Prueba"
+            },
+            {
+              "id": "c",
+              "text": "Get-Content .\\Prueba"
+            },
+            {
+              "id": "d",
+              "text": "Set-Location -Create Prueba"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "New-Item crea el elemento; ItemType Directory especifica que será un directorio.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_filesystem_provider"
+        },
+        {
+          "id": "w06d3-q05",
+          "prompt": "¿Cómo listar también los elementos dentro de subcarpetas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Get-Location -Recurse"
+            },
+            {
+              "id": "b",
+              "text": "Set-Location .\\Lab -AllFiles"
+            },
+            {
+              "id": "c",
+              "text": "Get-ChildItem -Path .\\Lab -Recurse"
+            },
+            {
+              "id": "d",
+              "text": "Get-Content .\\Lab -Directory"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Recurse amplía la enumeración a la jerarquía bajo la ruta seleccionada.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_filesystem_provider"
+        },
+        {
+          "id": "w06d3-q06",
+          "prompt": "¿Qué ruta no depende de la ubicación actual?",
+          "options": [
+            {
+              "id": "a",
+              "text": "C:\\Lab\\Informe.txt"
+            },
+            {
+              "id": "b",
+              "text": ".\\Informe.txt"
+            },
+            {
+              "id": "c",
+              "text": "..\\Informe.txt"
+            },
+            {
+              "id": "d",
+              "text": "Informe.txt"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La ruta con unidad y raíz especifica una ubicación absoluta.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_filesystem_provider"
+        },
+        {
+          "id": "w06d3-q07",
+          "prompt": "Set-Location C:\\NoExiste falla. ¿Qué conclusión corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "PowerShell creó la carpeta automáticamente."
+            },
+            {
+              "id": "b",
+              "text": "El disco entero ha quedado vacío."
+            },
+            {
+              "id": "c",
+              "text": "No se pudo cambiar a esa ruta; comprueba existencia y acceso."
+            },
+            {
+              "id": "d",
+              "text": "El shell cambió a Linux."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Set-Location navega a ubicaciones existentes; la creación se realiza con otra operación.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_filesystem_provider"
+        },
+        {
+          "id": "w06d3-q08",
+          "prompt": "¿Cómo confirmar el árbol creado sin modificarlo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Repetir New-Item sobre todos los nombres."
+            },
+            {
+              "id": "b",
+              "text": "Cambiar permisos de la raíz del disco."
+            },
+            {
+              "id": "c",
+              "text": "Enumerarlo con Get-ChildItem y la ruta prevista."
+            },
+            {
+              "id": "d",
+              "text": "Mover la carpeta a Windows."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una consulta de la jerarquía comprueba ubicación y estructura sin crear nuevos elementos.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_filesystem_provider"
+        }
+      ],
+      "challenge": {
+        "id": "w06d3-challenge",
+        "prompt": "Desde C:\\Lab debes crear Evidencias y dentro Notas, conservando el trabajo allí. ¿Qué secuencia es coherente?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Crear Evidencias, entrar en ella, crear Notas y confirmar Get-Location."
+          },
+          {
+            "id": "b",
+            "text": "Entrar en Notas antes de crear cualquiera de las carpetas."
+          },
+          {
+            "id": "c",
+            "text": "Usar Get-Content para crear ambas carpetas vacías."
+          },
+          {
+            "id": "d",
+            "text": "Crear dos archivos llamados Evidencias.txt y Notas.txt."
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La creación, navegación y comprobación deben corresponder al árbol previsto.",
+        "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_filesystem_provider"
+      }
+    },
+    {
+      "dayId": "w06d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w06d4-q01",
+          "prompt": "¿Qué devuelve normalmente Get-Content .\\notas.txt para un archivo de texto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Su contenido en líneas."
+            },
+            {
+              "id": "b",
+              "text": "Solo los permisos NTFS."
+            },
+            {
+              "id": "c",
+              "text": "Un objeto de proceso por palabra."
+            },
+            {
+              "id": "d",
+              "text": "La lista de subcarpetas."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Get-Content lee el contenido del elemento; no es un listado de metadatos de directorio.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_character_encoding"
+        },
+        {
+          "id": "w06d4-q02",
+          "prompt": "¿Qué cambia al usar Get-Content .\\notas.txt -Raw?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Se convierte el texto en archivo ejecutable."
+            },
+            {
+              "id": "b",
+              "text": "Se elimina el archivo tras leerlo."
+            },
+            {
+              "id": "c",
+              "text": "Se obtiene el texto como una sola cadena."
+            },
+            {
+              "id": "d",
+              "text": "Se ordenan alfabéticamente las líneas."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Raw preserva el contenido como una cadena en lugar de emitir cada línea por separado.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_character_encoding"
+        },
+        {
+          "id": "w06d4-q03",
+          "prompt": "¿Qué hace 'inicio' > .\\salida.txt si el archivo ya existe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sustituye su contenido con la nueva salida."
+            },
+            {
+              "id": "b",
+              "text": "Añade el texto siempre al final."
+            },
+            {
+              "id": "c",
+              "text": "Crea una carpeta llamada salida.txt."
+            },
+            {
+              "id": "d",
+              "text": "Impide escribir aunque haya permiso."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La redirección > sobrescribe; >> se usa para añadir salida.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_character_encoding"
+        },
+        {
+          "id": "w06d4-q04",
+          "prompt": "¿Cómo añadir otra línea a salida.txt mediante redirección?",
+          "options": [
+            {
+              "id": "a",
+              "text": "'fin' > .\\salida.txt"
+            },
+            {
+              "id": "b",
+              "text": "'fin' >> .\\salida.txt"
+            },
+            {
+              "id": "c",
+              "text": "Get-Location .\\salida.txt"
+            },
+            {
+              "id": "d",
+              "text": "'fin' < .\\salida.txt"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El operador >> agrega salida sin reemplazar todo el contenido previo.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_character_encoding"
+        },
+        {
+          "id": "w06d4-q05",
+          "prompt": "Un texto con á aparece como caracteres extraños al abrirlo. ¿Qué se debe revisar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Los permisos de ejecución del monitor."
+            },
+            {
+              "id": "b",
+              "text": "La dirección IP del documento."
+            },
+            {
+              "id": "c",
+              "text": "La codificación usada al escribir y al leer."
+            },
+            {
+              "id": "d",
+              "text": "El grupo propietario de cada palabra."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una interpretación con codificación distinta puede alterar la representación de caracteres.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_character_encoding"
+        },
+        {
+          "id": "w06d4-q06",
+          "prompt": "¿Qué opción hace explícita una salida UTF-8?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Get-Process -Encoding utf8"
+            },
+            {
+              "id": "b",
+              "text": "Set-Location -Encoding utf8"
+            },
+            {
+              "id": "c",
+              "text": "Get-Command -Encoding utf8"
+            },
+            {
+              "id": "d",
+              "text": "Out-File -FilePath .\\texto.txt -Encoding utf8"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Out-File admite elegir codificación; no debe dependerse de valores predeterminados entre versiones.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_character_encoding"
+        },
+        {
+          "id": "w06d4-q07",
+          "prompt": "¿Cómo comprobar que la salida se guardó donde se esperaba?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cerrar la terminal y asumir que se guardó."
+            },
+            {
+              "id": "b",
+              "text": "Contar solo las carpetas del escritorio."
+            },
+            {
+              "id": "c",
+              "text": "Leer la ruta de destino y contrastar su contenido."
+            },
+            {
+              "id": "d",
+              "text": "Cambiar la extensión sin abrirlo."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La existencia y lectura del destino comprueban la salida, dentro de los límites del ejercicio.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_character_encoding"
+        },
+        {
+          "id": "w06d4-q08",
+          "prompt": "¿Por qué registrar la versión al estudiar redirección y codificación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Los valores predeterminados pueden variar entre versiones de PowerShell."
+            },
+            {
+              "id": "b",
+              "text": "La versión decide la contraseña del archivo."
+            },
+            {
+              "id": "c",
+              "text": "Todas las versiones bloquean UTF-8."
+            },
+            {
+              "id": "d",
+              "text": "Un archivo solo puede leerse con su versión creadora."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "PowerShell y Windows PowerShell tienen diferencias de codificación; especificarla evita ambigüedades.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_character_encoding"
+        }
+      ],
+      "challenge": {
+        "id": "w06d4-challenge",
+        "prompt": "Un ejercicio guarda «línea uno», luego debe agregar «línea dos». La segunda orden usa > y solo queda la segunda línea. ¿Qué explica el resultado?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Las comillas impidieron guardar la primera línea."
+          },
+          {
+            "id": "b",
+            "text": "PowerShell no permite archivos con dos líneas."
+          },
+          {
+            "id": "c",
+            "text": "> reemplazó el contenido; para añadir debía usarse >>."
+          },
+          {
+            "id": "d",
+            "text": "La ruta relativa siempre selecciona dos archivos distintos."
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "El operador de redirección determina si se sobrescribe o se agrega contenido.",
+        "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_character_encoding"
+      }
+    },
+    {
+      "dayId": "w06d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w06d5-q01",
+          "prompt": "¿Qué suele pasar por una canalización entre cmdlets de PowerShell?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo imágenes de la tabla mostrada."
+            },
+            {
+              "id": "b",
+              "text": "Objetos con propiedades."
+            },
+            {
+              "id": "c",
+              "text": "Siempre texto sin estructura."
+            },
+            {
+              "id": "d",
+              "text": "Únicamente nombres de archivos."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La canalización de cmdlets permite filtrar propiedades de objetos, no solo texto visible.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/where-object"
+        },
+        {
+          "id": "w06d5-q02",
+          "prompt": "En Where-Object { $_.Id -eq 1200 }, ¿qué representa $_?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La carpeta raíz del disco."
+            },
+            {
+              "id": "b",
+              "text": "Una variable que contiene todos los usuarios."
+            },
+            {
+              "id": "c",
+              "text": "El objeto actual que recibe el filtro."
+            },
+            {
+              "id": "d",
+              "text": "El proceso que siempre tiene PID 1200."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El bloque evalúa cada objeto recibido y conserva los que cumplen la condición.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/where-object"
+        },
+        {
+          "id": "w06d5-q03",
+          "prompt": "¿Qué operación filtra procesos con más de 100 segundos de CPU acumulada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Get-Process | Select-Object CPU -gt 100"
+            },
+            {
+              "id": "b",
+              "text": "Get-Content | Where-Object ProcessName"
+            },
+            {
+              "id": "c",
+              "text": "Get-Process -Stop 100"
+            },
+            {
+              "id": "d",
+              "text": "Get-Process | Where-Object { $_.CPU -gt 100 }"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Where-Object conserva objetos según la comparación; CPU es tiempo acumulado, no porcentaje instantáneo.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/where-object"
+        },
+        {
+          "id": "w06d5-q04",
+          "prompt": "¿Qué hace Select-Object ProcessName,Id después de Get-Process?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Finaliza los demás procesos."
+            },
+            {
+              "id": "b",
+              "text": "Cambia el PID de cada proceso."
+            },
+            {
+              "id": "c",
+              "text": "Filtra por consumo de memoria."
+            },
+            {
+              "id": "d",
+              "text": "Elige esas propiedades para la salida."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Seleccionar propiedades controla columnas; filtrar objetos es otra operación.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/where-object"
+        },
+        {
+          "id": "w06d5-q05",
+          "prompt": "Hay dos procesos con el mismo nombre. ¿Qué propiedad ayuda a distinguir sus instancias actuales?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo ProcessName otra vez."
+            },
+            {
+              "id": "b",
+              "text": "Id, el identificador del proceso."
+            },
+            {
+              "id": "c",
+              "text": "El color de la fila."
+            },
+            {
+              "id": "d",
+              "text": "La extensión del nombre del equipo."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un nombre puede repetirse; el PID distingue procesos en ese momento del sistema.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/where-object"
+        },
+        {
+          "id": "w06d5-q06",
+          "prompt": "¿Qué hace -eq en una condición de PowerShell?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Asigna una variable."
+            },
+            {
+              "id": "b",
+              "text": "Divide dos valores."
+            },
+            {
+              "id": "c",
+              "text": "Compara igualdad."
+            },
+            {
+              "id": "d",
+              "text": "Eleva los permisos."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los operadores de comparación como -eq devuelven una condición que el filtro evalúa.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/where-object"
+        },
+        {
+          "id": "w06d5-q07",
+          "prompt": "Se esperaba un proceso pero el filtro no devuelve filas. ¿Qué conviene comprobar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que PowerShell deba ejecutarse siempre como SYSTEM."
+            },
+            {
+              "id": "b",
+              "text": "Que un resultado vacío signifique disco dañado."
+            },
+            {
+              "id": "c",
+              "text": "Nombre de propiedad, condición y procesos existentes."
+            },
+            {
+              "id": "d",
+              "text": "Que todos los procesos se hayan eliminado."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un resultado vacío puede ser correcto o indicar una condición equivocada; se revisa la entrada y el filtro.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/where-object"
+        },
+        {
+          "id": "w06d5-q08",
+          "prompt": "¿Por qué evitar Format-Table antes de seguir filtrando propiedades del proceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Format-Table aumenta los permisos de lectura."
+            },
+            {
+              "id": "b",
+              "text": "Format-Table detiene los procesos que no caben."
+            },
+            {
+              "id": "c",
+              "text": "La tabla elimina automáticamente procesos duplicados."
+            },
+            {
+              "id": "d",
+              "text": "La canalización recibiría objetos de formato en lugar de los procesos originales."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El formato se reserva para presentar al final; primero se seleccionan y transforman los datos.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/where-object"
+        }
+      ],
+      "challenge": {
+        "id": "w06d5-challenge",
+        "prompt": "Un informe necesita procesos con CPU acumulada mayor de 20 y columnas ProcessName,Id. ¿Qué orden de operaciones conserva los datos útiles?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Get-Process, Format-Table y luego filtrar propiedades originales."
+          },
+          {
+            "id": "b",
+            "text": "Get-Process, filtrar con Where-Object y seleccionar con Select-Object."
+          },
+          {
+            "id": "c",
+            "text": "Get-Location, Stop-Process y convertir a tabla."
+          },
+          {
+            "id": "d",
+            "text": "Select-Object antes de consultar cualquier objeto y finalizar los procesos."
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "El filtro elige objetos; la selección elige propiedades; el formato pertenece a la presentación final.",
+        "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/where-object"
+      }
+    },
+    {
+      "dayId": "w06d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w06d6-q01",
+          "prompt": "¿Qué hace $procesos = Get-Process?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Actualiza la variable cada segundo por sí sola."
+            },
+            {
+              "id": "b",
+              "text": "Finaliza cada proceso consultado."
+            },
+            {
+              "id": "c",
+              "text": "Guarda la salida consultada en una variable."
+            },
+            {
+              "id": "d",
+              "text": "Crea un archivo llamado procesos."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La variable almacena el resultado de esa ejecución; no es una suscripción automática a cambios.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/export-csv"
+        },
+        {
+          "id": "w06d6-q02",
+          "prompt": "¿Qué secuencia exporta solo nombre y PID?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Get-Process | Format-Table | Export-Csv .\\inventario.csv"
+            },
+            {
+              "id": "b",
+              "text": "Get-Location | Export-Csv .\\inventario.csv"
+            },
+            {
+              "id": "c",
+              "text": "Get-Process | Stop-Process | Export-Csv .\\inventario.csv"
+            },
+            {
+              "id": "d",
+              "text": "Get-Process | Select-Object ProcessName,Id | Export-Csv .\\inventario.csv -NoTypeInformation"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Seleccionar propiedades antes de exportar produce columnas útiles del objeto sin convertirlo en formato visual.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/export-csv"
+        },
+        {
+          "id": "w06d6-q03",
+          "prompt": "¿Qué comando vuelve a cargar un CSV como objetos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Get-Location .\\inventario.csv"
+            },
+            {
+              "id": "b",
+              "text": "Import-Csv .\\inventario.csv"
+            },
+            {
+              "id": "c",
+              "text": "Set-Process .\\inventario.csv"
+            },
+            {
+              "id": "d",
+              "text": "Get-Help .\\inventario.csv -Run"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Import-Csv interpreta las cabeceras como propiedades de los registros importados.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/export-csv"
+        },
+        {
+          "id": "w06d6-q04",
+          "prompt": "¿Qué riesgo tiene exportar todas las propiedades disponibles sin revisar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Incluir más información del equipo de la necesaria."
+            },
+            {
+              "id": "b",
+              "text": "El CSV se vuelve siempre imposible de abrir."
+            },
+            {
+              "id": "c",
+              "text": "Todos los procesos reciben privilegios de administrador."
+            },
+            {
+              "id": "d",
+              "text": "El CSV queda cifrado automáticamente."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un inventario debe seleccionar campos acordes con su finalidad y evitar datos sensibles innecesarios.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/export-csv"
+        },
+        {
+          "id": "w06d6-q05",
+          "prompt": "Se exporta a .\\inventario.csv desde C:\\Lab. ¿Cuál es el destino?",
+          "options": [
+            {
+              "id": "a",
+              "text": "C:\\Lab\\inventario.csv"
+            },
+            {
+              "id": "b",
+              "text": "C:\\Windows\\inventario.csv siempre."
+            },
+            {
+              "id": "c",
+              "text": "La carpeta del ejecutable de cada proceso."
+            },
+            {
+              "id": "d",
+              "text": "Una ruta remota elegida automáticamente."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El destino relativo se resuelve desde la ubicación actual del shell.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/export-csv"
+        },
+        {
+          "id": "w06d6-q06",
+          "prompt": "Tras guardar el inventario se cierra un proceso. ¿Qué representa el CSV existente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El estado del equipo actualizado permanentemente."
+            },
+            {
+              "id": "b",
+              "text": "El historial completo de todos los procesos del día."
+            },
+            {
+              "id": "c",
+              "text": "La consulta realizada antes del cierre."
+            },
+            {
+              "id": "d",
+              "text": "Una lista de procesos garantizados para mañana."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un archivo exportado es una captura de datos de esa ejecución, no un monitor en tiempo real.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/export-csv"
+        },
+        {
+          "id": "w06d6-q07",
+          "prompt": "¿Cómo verificar las columnas sin confiar solo en que el archivo existe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Importar el CSV y revisar sus propiedades y unas filas."
+            },
+            {
+              "id": "b",
+              "text": "Cambiar csv por txt y declarar correcto el contenido."
+            },
+            {
+              "id": "c",
+              "text": "Eliminar la variable de procesos antes de mirarlo."
+            },
+            {
+              "id": "d",
+              "text": "Contar los iconos de la carpeta de destino."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La lectura permite detectar columnas equivocadas o una exportación de objetos de formato.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/export-csv"
+        },
+        {
+          "id": "w06d6-q08",
+          "prompt": "¿Qué dato contextual mejora un miniinventario compartido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La contraseña de administración para reproducirlo."
+            },
+            {
+              "id": "b",
+              "text": "Momento de captura y campos elegidos, sin credenciales."
+            },
+            {
+              "id": "c",
+              "text": "El contenido de todas las ventanas de usuario."
+            },
+            {
+              "id": "d",
+              "text": "Claves de acceso de los procesos exportados."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El contexto permite interpretar el alcance temporal y los campos sin revelar secretos.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/export-csv"
+        }
+      ],
+      "challenge": {
+        "id": "w06d6-challenge",
+        "prompt": "El CSV tiene columnas de formato en vez de nombres y PID. El script puso Format-Table antes de Export-Csv. ¿Qué cambio resuelve la causa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Sustituir ese formato por Select-Object ProcessName,Id antes de exportar."
+          },
+          {
+            "id": "b",
+            "text": "Cambiar solamente el nombre a inventario-final.csv."
+          },
+          {
+            "id": "c",
+            "text": "Elevar la terminal y conservar la canalización idéntica."
+          },
+          {
+            "id": "d",
+            "text": "Añadir más espacios a la tabla de pantalla."
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "Export-Csv serializa los objetos recibidos; debe recibir los datos y sus propiedades, no instrucciones de formato.",
+        "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/export-csv"
+      }
+    },
+    {
+      "dayId": "w06d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w06d7-q01",
+          "prompt": "Windows Terminal abre una pestaña CMD y otra PowerShell. ¿Qué interpreta los comandos de cada pestaña?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El shell correspondiente de cada pestaña."
+            },
+            {
+              "id": "b",
+              "text": "Windows Terminal aplica siempre sintaxis CMD."
+            },
+            {
+              "id": "c",
+              "text": "El explorador interpreta las dos pestañas."
+            },
+            {
+              "id": "d",
+              "text": "El nombre de la carpeta decide la sintaxis."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La terminal aloja la interacción; CMD y PowerShell interpretan sus propios lenguajes.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/scripting/powershell-commands",
+          "reviewOf": "w06d1-q01"
+        },
+        {
+          "id": "w06d7-q02",
+          "prompt": "¿Cómo buscar cmdlets relacionados con procesos sin saber el verbo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Get-Help -Noun Process"
+            },
+            {
+              "id": "b",
+              "text": "Get-Process -Command"
+            },
+            {
+              "id": "c",
+              "text": "Get-Command -Noun Process"
+            },
+            {
+              "id": "d",
+              "text": "Set-Command Process"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Get-Command descubre comandos disponibles y permite buscar por su sustantivo.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/02-help-system",
+          "reviewOf": "w06d2-q01"
+        },
+        {
+          "id": "w06d7-q03",
+          "prompt": "¿Qué cmdlet muestra la ubicación actual en PowerShell?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Get-Location"
+            },
+            {
+              "id": "b",
+              "text": "Get-Content"
+            },
+            {
+              "id": "c",
+              "text": "New-Item"
+            },
+            {
+              "id": "d",
+              "text": "Get-Process"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Get-Location consulta la ubicación; no enumera procesos ni lee archivos.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_filesystem_provider",
+          "reviewOf": "w06d3-q01"
+        },
+        {
+          "id": "w06d7-q04",
+          "prompt": "¿Qué devuelve normalmente Get-Content .\\notas.txt para un archivo de texto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Su contenido en líneas."
+            },
+            {
+              "id": "b",
+              "text": "Solo los permisos NTFS."
+            },
+            {
+              "id": "c",
+              "text": "Un objeto de proceso por palabra."
+            },
+            {
+              "id": "d",
+              "text": "La lista de subcarpetas."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Get-Content lee el contenido del elemento; no es un listado de metadatos de directorio.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_character_encoding",
+          "reviewOf": "w06d4-q01"
+        },
+        {
+          "id": "w06d7-q05",
+          "prompt": "¿Qué suele pasar por una canalización entre cmdlets de PowerShell?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo imágenes de la tabla mostrada."
+            },
+            {
+              "id": "b",
+              "text": "Objetos con propiedades."
+            },
+            {
+              "id": "c",
+              "text": "Siempre texto sin estructura."
+            },
+            {
+              "id": "d",
+              "text": "Únicamente nombres de archivos."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La canalización de cmdlets permite filtrar propiedades de objetos, no solo texto visible.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/where-object",
+          "reviewOf": "w06d5-q01"
+        },
+        {
+          "id": "w06d7-q06",
+          "prompt": "¿Qué hace $procesos = Get-Process?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Actualiza la variable cada segundo por sí sola."
+            },
+            {
+              "id": "b",
+              "text": "Finaliza cada proceso consultado."
+            },
+            {
+              "id": "c",
+              "text": "Guarda la salida consultada en una variable."
+            },
+            {
+              "id": "d",
+              "text": "Crea un archivo llamado procesos."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La variable almacena el resultado de esa ejecución; no es una suscripción automática a cambios.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/export-csv",
+          "reviewOf": "w06d6-q01"
+        },
+        {
+          "id": "w06d7-q07",
+          "prompt": "En Get-ChildItem -Path C:\\Lab, ¿qué representa C:\\Lab?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El valor del parámetro Path."
+            },
+            {
+              "id": "b",
+              "text": "El nombre del cmdlet."
+            },
+            {
+              "id": "c",
+              "text": "Un operador de elevación."
+            },
+            {
+              "id": "d",
+              "text": "Un alias de administrador."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El cmdlet recibe argumentos mediante parámetros; Path indica la ubicación que consultará.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/scripting/powershell-commands",
+          "reviewOf": "w06d1-q02"
+        },
+        {
+          "id": "w06d7-q08",
+          "prompt": "¿Qué muestra Get-Help Get-ChildItem -Examples?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El contenido de todas las carpetas."
+            },
+            {
+              "id": "b",
+              "text": "Un listado de usuarios conectados."
+            },
+            {
+              "id": "c",
+              "text": "La ejecución automática de cada ejemplo."
+            },
+            {
+              "id": "d",
+              "text": "Ejemplos de uso del comando."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Get-Help consulta documentación; Examples selecciona sus ejemplos sin ejecutarlos.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/02-help-system",
+          "reviewOf": "w06d2-q02"
+        },
+        {
+          "id": "w06d7-q09",
+          "prompt": "Estás en C:\\Lab. ¿Qué hace Set-Location .\\Notas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Crea un archivo Notas.txt."
+            },
+            {
+              "id": "b",
+              "text": "Copia C:\\Lab a Documentos."
+            },
+            {
+              "id": "c",
+              "text": "Abre cualquier carpeta llamada Notas del disco."
+            },
+            {
+              "id": "d",
+              "text": "Cambia a C:\\Lab\\Notas si existe."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El punto representa la ubicación actual y la ruta relativa se resuelve desde ella.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_filesystem_provider",
+          "reviewOf": "w06d3-q02"
+        },
+        {
+          "id": "w06d7-q10",
+          "prompt": "¿Qué cambia al usar Get-Content .\\notas.txt -Raw?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Se convierte el texto en archivo ejecutable."
+            },
+            {
+              "id": "b",
+              "text": "Se elimina el archivo tras leerlo."
+            },
+            {
+              "id": "c",
+              "text": "Se obtiene el texto como una sola cadena."
+            },
+            {
+              "id": "d",
+              "text": "Se ordenan alfabéticamente las líneas."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Raw preserva el contenido como una cadena en lugar de emitir cada línea por separado.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_character_encoding",
+          "reviewOf": "w06d4-q02"
+        },
+        {
+          "id": "w06d7-q11",
+          "prompt": "En Where-Object { $_.Id -eq 1200 }, ¿qué representa $_?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La carpeta raíz del disco."
+            },
+            {
+              "id": "b",
+              "text": "Una variable que contiene todos los usuarios."
+            },
+            {
+              "id": "c",
+              "text": "El objeto actual que recibe el filtro."
+            },
+            {
+              "id": "d",
+              "text": "El proceso que siempre tiene PID 1200."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El bloque evalúa cada objeto recibido y conserva los que cumplen la condición.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/where-object",
+          "reviewOf": "w06d5-q02"
+        },
+        {
+          "id": "w06d7-q12",
+          "prompt": "¿Qué secuencia exporta solo nombre y PID?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Get-Process | Format-Table | Export-Csv .\\inventario.csv"
+            },
+            {
+              "id": "b",
+              "text": "Get-Location | Export-Csv .\\inventario.csv"
+            },
+            {
+              "id": "c",
+              "text": "Get-Process | Stop-Process | Export-Csv .\\inventario.csv"
+            },
+            {
+              "id": "d",
+              "text": "Get-Process | Select-Object ProcessName,Id | Export-Csv .\\inventario.csv -NoTypeInformation"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Seleccionar propiedades antes de exportar produce columnas útiles del objeto sin convertirlo en formato visual.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/export-csv",
+          "reviewOf": "w06d6-q02"
+        },
+        {
+          "id": "w06d7-q13",
+          "prompt": "¿Qué indica el par Verbo-Sustantivo Get-Process?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una orden de finalizar todos los procesos."
+            },
+            {
+              "id": "b",
+              "text": "Una ruta relativa de archivos."
+            },
+            {
+              "id": "c",
+              "text": "Un mandato exclusivo de CMD."
+            },
+            {
+              "id": "d",
+              "text": "Una acción de consulta sobre procesos."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los cmdlets de PowerShell usan verbos y sustantivos para describir operaciones.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/scripting/powershell-commands",
+          "reviewOf": "w06d1-q03"
+        },
+        {
+          "id": "w06d7-q14",
+          "prompt": "¿Qué consulta ayuda sobre un parámetro concreto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Get-Command Path -Run"
+            },
+            {
+              "id": "b",
+              "text": "Get-ChildItem -HelpPath"
+            },
+            {
+              "id": "c",
+              "text": "Get-Help Get-ChildItem -Parameter Path"
+            },
+            {
+              "id": "d",
+              "text": "Set-Help Path"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Parameter permite estudiar la función y condiciones del parámetro indicado.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/02-help-system",
+          "reviewOf": "w06d2-q03"
+        },
+        {
+          "id": "w06d7-q15",
+          "prompt": "Desde C:\\Lab\\Notas, ¿adónde lleva Set-Location ..?",
+          "options": [
+            {
+              "id": "a",
+              "text": "C:\\Lab\\Notas\\..txt"
+            },
+            {
+              "id": "b",
+              "text": "La raíz de cualquier unidad."
+            },
+            {
+              "id": "c",
+              "text": "La carpeta personal obligatoriamente."
+            },
+            {
+              "id": "d",
+              "text": "C:\\Lab"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Dos puntos representan el directorio padre en una ruta del sistema de archivos.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_filesystem_provider",
+          "reviewOf": "w06d3-q03"
+        },
+        {
+          "id": "w06d7-q16",
+          "prompt": "¿Qué hace 'inicio' > .\\salida.txt si el archivo ya existe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sustituye su contenido con la nueva salida."
+            },
+            {
+              "id": "b",
+              "text": "Añade el texto siempre al final."
+            },
+            {
+              "id": "c",
+              "text": "Crea una carpeta llamada salida.txt."
+            },
+            {
+              "id": "d",
+              "text": "Impide escribir aunque haya permiso."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La redirección > sobrescribe; >> se usa para añadir salida.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_character_encoding",
+          "reviewOf": "w06d4-q03"
+        },
+        {
+          "id": "w06d7-q17",
+          "prompt": "¿Qué operación filtra procesos con más de 100 segundos de CPU acumulada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Get-Process | Select-Object CPU -gt 100"
+            },
+            {
+              "id": "b",
+              "text": "Get-Content | Where-Object ProcessName"
+            },
+            {
+              "id": "c",
+              "text": "Get-Process -Stop 100"
+            },
+            {
+              "id": "d",
+              "text": "Get-Process | Where-Object { $_.CPU -gt 100 }"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Where-Object conserva objetos según la comparación; CPU es tiempo acumulado, no porcentaje instantáneo.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/where-object",
+          "reviewOf": "w06d5-q03"
+        },
+        {
+          "id": "w06d7-q18",
+          "prompt": "¿Qué comando vuelve a cargar un CSV como objetos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Get-Location .\\inventario.csv"
+            },
+            {
+              "id": "b",
+              "text": "Import-Csv .\\inventario.csv"
+            },
+            {
+              "id": "c",
+              "text": "Set-Process .\\inventario.csv"
+            },
+            {
+              "id": "d",
+              "text": "Get-Help .\\inventario.csv -Run"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Import-Csv interpreta las cabeceras como propiedades de los registros importados.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/export-csv",
+          "reviewOf": "w06d6-q03"
+        },
+        {
+          "id": "w06d7-q19",
+          "prompt": "¿Por qué dir puede comportarse distinto en CMD y PowerShell?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dir siempre devuelve el mismo tipo de objeto en todos los shells."
+            },
+            {
+              "id": "b",
+              "text": "En PowerShell puede ser un alias de Get-ChildItem."
+            },
+            {
+              "id": "c",
+              "text": "CMD convierte dir en Get-Process."
+            },
+            {
+              "id": "d",
+              "text": "Ambos shells comparten todos sus parámetros."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un mismo texto puede designar un comando interno o un alias según el shell.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/scripting/powershell-commands",
+          "reviewOf": "w06d1-q04"
+        },
+        {
+          "id": "w06d7-q20",
+          "prompt": "¿Cómo añadir otra línea a salida.txt mediante redirección?",
+          "options": [
+            {
+              "id": "a",
+              "text": "'fin' > .\\salida.txt"
+            },
+            {
+              "id": "b",
+              "text": "'fin' >> .\\salida.txt"
+            },
+            {
+              "id": "c",
+              "text": "Get-Location .\\salida.txt"
+            },
+            {
+              "id": "d",
+              "text": "'fin' < .\\salida.txt"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El operador >> agrega salida sin reemplazar todo el contenido previo.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_character_encoding",
+          "reviewOf": "w06d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w06d7-challenge",
+        "prompt": "Otra persona repetirá un miniinventario y comparará resultados. ¿Qué entrega permite hacerlo sin prometer valores idénticos?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo una captura de pantalla sin sintaxis ni fecha."
+          },
+          {
+            "id": "b",
+            "text": "Comandos, versión, ruta y columnas, con fecha y explicación de que los procesos cambian."
+          },
+          {
+            "id": "c",
+            "text": "El mismo CSV como prueba de que todos los equipos tienen iguales procesos."
+          },
+          {
+            "id": "d",
+            "text": "Credenciales administrativas incluidas en las notas."
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "Una consulta reproducible conserva el método; el estado temporal del equipo puede variar.",
+        "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/export-csv"
+      }
+    }
+  ]
+}

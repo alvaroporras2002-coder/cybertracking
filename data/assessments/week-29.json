@@ -1,0 +1,2094 @@
+{
+  "week": 29,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w29d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w29d1-q01",
+          "prompt": "¿Qué fuente permite comprobar qué proceso hijo lanzó winword.exe en un endpoint Windows auditado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Registro de concesiones DHCP únicamente"
+            },
+            {
+              "id": "b",
+              "text": "Contadores de tráfico agregados"
+            },
+            {
+              "id": "c",
+              "text": "Inventario semanal de usuarios"
+            },
+            {
+              "id": "d",
+              "text": "Evento 4688 con relación de procesos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La creación de procesos aporta contexto padre/hijo; las otras fuentes no describen esa ejecución.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4688"
+        },
+        {
+          "id": "w29d1-q02",
+          "prompt": "Para investigar un rechazo de inicio de sesión Windows, ¿qué evento es la primera fuente pertinente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "4624"
+            },
+            {
+              "id": "b",
+              "text": "4688"
+            },
+            {
+              "id": "c",
+              "text": "4625"
+            },
+            {
+              "id": "d",
+              "text": "Un contador de CPU"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "4625 registra intentos fallidos; 4624 corresponde a inicios de sesión exitosos.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4625"
+        },
+        {
+          "id": "w29d1-q03",
+          "prompt": "Un usuario denuncia que una API le devolvió HTTP 403. ¿Qué fuente explica mejor la autorización aplicada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Registro del firewall que solo muestra aceptación TCP"
+            },
+            {
+              "id": "b",
+              "text": "Registro de autenticación del sistema sin decisiones de la API"
+            },
+            {
+              "id": "c",
+              "text": "Registros del resolvedor DNS para el dominio de la API"
+            },
+            {
+              "id": "d",
+              "text": "Registro de acceso y autorización de la aplicación"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El servidor conoce la ruta, la identidad y la decisión de autorización; 403 no se explica con salud física.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        },
+        {
+          "id": "w29d1-q04",
+          "prompt": "¿Qué puede mostrar un flujo de red que normalmente no ofrece el contenido de una petición HTTPS?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Texto de formularios HTTPS sin descifrado"
+            },
+            {
+              "id": "b",
+              "text": "Contraseñas introducidas dentro del canal cifrado"
+            },
+            {
+              "id": "c",
+              "text": "Origen, destino, puertos y volumen"
+            },
+            {
+              "id": "d",
+              "text": "Permisos efectivos de archivos solo a partir de volumen"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los metadatos de flujo permiten estudiar comunicaciones sin revelar por sí solos el contenido cifrado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        },
+        {
+          "id": "w29d1-q05",
+          "prompt": "¿Dónde buscarías qué nombre consultó un equipo antes de contactar una IP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Registro de conexiones del firewall sin nombres resueltos"
+            },
+            {
+              "id": "b",
+              "text": "Tabla de rutas del cliente sin historial de consultas"
+            },
+            {
+              "id": "c",
+              "text": "Registros del resolvedor DNS usado por ese equipo"
+            },
+            {
+              "id": "d",
+              "text": "Registro DHCP que solo conserva concesiones de IP"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "DNS puede vincular cliente y nombre consultado; exige confirmar qué resolvedor recibió la petición.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        },
+        {
+          "id": "w29d1-q06",
+          "prompt": "Una alerta contiene IP pública compartida por cien empleados. ¿Qué fuente ayuda a identificar el cliente interno?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La geolocalización de la IP pública sin registros de traducción"
+            },
+            {
+              "id": "b",
+              "text": "Traducciones NAT y marcas de tiempo del cortafuegos"
+            },
+            {
+              "id": "c",
+              "text": "La asignación DHCP actual ignorando la fecha del evento"
+            },
+            {
+              "id": "d",
+              "text": "El nombre de un usuario sin vínculo con tupla y tiempo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El registro NAT vincula tupla y tiempo externos con una conexión interna; la IP pública sola no identifica al empleado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        },
+        {
+          "id": "w29d1-q07",
+          "prompt": "¿Qué diferencia hay entre un evento del endpoint y una alerta EDR?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todo evento implica un incidente confirmado"
+            },
+            {
+              "id": "b",
+              "text": "El evento siempre contiene una decisión humana"
+            },
+            {
+              "id": "c",
+              "text": "La alerta reemplaza toda evidencia subyacente"
+            },
+            {
+              "id": "d",
+              "text": "La alerta interpreta uno o varios eventos mediante lógica de detección"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una alerta es una señal analítica y necesita validación; su origen no convierte automáticamente la actividad en maliciosa.",
+          "reference": "https://learn.microsoft.com/en-us/defender-endpoint/respond-machine-alerts"
+        },
+        {
+          "id": "w29d1-q08",
+          "prompt": "El servicio de auditoría estaba deshabilitado. No hay eventos de acceso. ¿Qué conclusión está justificada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No hubo accesos durante ese período"
+            },
+            {
+              "id": "b",
+              "text": "Todos los accesos fueron autorizados"
+            },
+            {
+              "id": "c",
+              "text": "La aplicación estuvo apagada necesariamente"
+            },
+            {
+              "id": "d",
+              "text": "La visibilidad es insuficiente para descartar accesos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una ausencia puede deberse a fallas de recolección o configuración y no demuestra ausencia de actividad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        }
+      ],
+      "challenge": {
+        "id": "w29d1-challenge",
+        "prompt": "Un equipo generó conexiones cifradas a una IP nueva. Necesitas saber qué ejecutable las originó. ¿Qué petición haces?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo el total diario de bytes del enlace"
+          },
+          {
+            "id": "b",
+            "text": "Únicamente el registro DNS del dominio corporativo"
+          },
+          {
+            "id": "c",
+            "text": "La lista global de usuarios sin host"
+          },
+          {
+            "id": "d",
+            "text": "Telemetría EDR del equipo con tiempo, proceso y conexión"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "El endpoint puede aportar relación proceso-red; una IP nueva por sí sola no determina malicia.",
+        "reference": "https://learn.microsoft.com/en-us/defender-endpoint/respond-machine-alerts"
+      }
+    },
+    {
+      "dayId": "w29d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w29d2-q01",
+          "prompt": "Un log dice 2026-11-03T10:30:00+02:00. ¿Cuál es su hora UTC?",
+          "options": [
+            {
+              "id": "a",
+              "text": "10:30:00Z"
+            },
+            {
+              "id": "b",
+              "text": "08:30:00Z"
+            },
+            {
+              "id": "c",
+              "text": "12:30:00Z"
+            },
+            {
+              "id": "d",
+              "text": "09:30:00Z"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El desplazamiento +02:00 se resta al convertir a UTC; conserva también el valor original.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        },
+        {
+          "id": "w29d2-q02",
+          "prompt": "Dos eventos muestran 09:00, uno sin zona. ¿Qué necesitas antes de ordenarlos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El tamaño del disco del colector"
+            },
+            {
+              "id": "b",
+              "text": "Orden alfabético de hosts"
+            },
+            {
+              "id": "c",
+              "text": "Zona configurada y posible desviación de reloj de cada origen"
+            },
+            {
+              "id": "d",
+              "text": "Una contraseña común de administración"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La comparación cronológica necesita interpretar zona y precisión de los relojes, no solo cadenas visualmente iguales.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        },
+        {
+          "id": "w29d2-q03",
+          "prompt": "¿Qué representa el tiempo de ingesta frente al tiempo del evento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dos nombres obligatorios para el mismo instante"
+            },
+            {
+              "id": "b",
+              "text": "Cuándo llegó al colector frente a cuándo ocurrió según el origen"
+            },
+            {
+              "id": "c",
+              "text": "El tiempo de ingesta siempre precede al suceso"
+            },
+            {
+              "id": "d",
+              "text": "La ingesta demuestra el huso del usuario"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las colas y cortes pueden retrasar ingesta; no conviene sustituir silenciosamente el tiempo de ocurrencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        },
+        {
+          "id": "w29d2-q04",
+          "prompt": "Un sistema usa src_ip y otro clientAddress para el mismo dato. ¿Qué hace la normalización?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Fusiona todas las IP de una subred"
+            },
+            {
+              "id": "b",
+              "text": "Los mapea a un campo común documentando su significado"
+            },
+            {
+              "id": "c",
+              "text": "Convierte ambos en nombres de usuario"
+            },
+            {
+              "id": "d",
+              "text": "Borra la fuente original para ahorrar espacio"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un esquema común facilita correlación si preserva semántica, procedencia y acceso al registro original.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        },
+        {
+          "id": "w29d2-q05",
+          "prompt": "Tras reconectar un agente aparecen dos copias del mismo evento. ¿Qué conviene verificar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Si dos copias prueban dos ataques"
+            },
+            {
+              "id": "b",
+              "text": "Si todos los registros deben borrarse"
+            },
+            {
+              "id": "c",
+              "text": "Identificador del origen y política de deduplicación"
+            },
+            {
+              "id": "d",
+              "text": "Si el índice debe renombrarse por usuario"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La retransmisión puede duplicar eventos; deduplicar exige una clave adecuada para no eliminar sucesos reales distintos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        },
+        {
+          "id": "w29d2-q06",
+          "prompt": "¿Qué problema produce interpretar 03/04/2026 sin especificar formato?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Confundir 3 de abril con 4 de marzo"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar automáticamente la IP origen"
+            },
+            {
+              "id": "c",
+              "text": "Revelar el secreto de una API"
+            },
+            {
+              "id": "d",
+              "text": "Modificar el nivel de severidad"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los formatos locales ambiguos alteran búsquedas y cronologías; el parser debe declarar el formato.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        },
+        {
+          "id": "w29d2-q07",
+          "prompt": "El colector recibe todo como texto, incluido status=403. ¿Qué validación mejora los conteos por estado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Contar caracteres de cada línea únicamente"
+            },
+            {
+              "id": "b",
+              "text": "Comprobar extracción y tipo del campo status con ejemplos conocidos"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar todos los valores numéricos"
+            },
+            {
+              "id": "d",
+              "text": "Convertir todas las respuestas en status=200"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una prueba de extracción detecta campos ausentes o mal parseados antes de usar el dato en reglas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        },
+        {
+          "id": "w29d2-q08",
+          "prompt": "¿Qué control reduce el impacto de que un atacante borre logs locales?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Permitir que cada usuario edite el índice central"
+            },
+            {
+              "id": "b",
+              "text": "Guardar la única copia junto al proceso investigado"
+            },
+            {
+              "id": "c",
+              "text": "Enviar copias a un colector protegido con acceso restringido"
+            },
+            {
+              "id": "d",
+              "text": "Reemplazar logs con un contador diario"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La separación y protección del almacenamiento central mejoran conservación; no garantizan que el origen registre todo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        }
+      ],
+      "challenge": {
+        "id": "w29d2-challenge",
+        "prompt": "El agente reenvía 300 eventos tras un corte y el panel los sitúa todos al reconectar. ¿Qué corriges primero?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Asignarles el tiempo del primer analista"
+          },
+          {
+            "id": "b",
+            "text": "Separar tiempo de evento de ingesta y validar el parser"
+          },
+          {
+            "id": "c",
+            "text": "Borrar los eventos retrasados"
+          },
+          {
+            "id": "d",
+            "text": "Tratar cada llegada como incidente nuevo"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La ingesta tardía no cambia cuándo ocurrió el suceso; el parser determina la cronología consultada.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+      }
+    },
+    {
+      "dayId": "w29d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w29d3-q01",
+          "prompt": "Una regla dispara con más de 10 fallos por usuario en 5 minutos. Hay exactamente 10. ¿Dispara según esa condición?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No; el comparador exige al menos 11"
+            },
+            {
+              "id": "b",
+              "text": "Sí; más de 10 incluye 10"
+            },
+            {
+              "id": "c",
+              "text": "Sí; cualquier fallo activa ese umbral"
+            },
+            {
+              "id": "d",
+              "text": "Depende solo del nombre del usuario"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los límites inclusivos y exclusivos deben probarse explícitamente para evitar errores de interpretación.",
+          "reference": "https://help.splunk.com/en/splunk-cloud-platform/alert-and-respond/alerting-manual/10.0.2503/manage-alert-trigger-conditions-and-throttling/throttle-alerts"
+        },
+        {
+          "id": "w29d3-q02",
+          "prompt": "¿Qué contexto ayuda a distinguir 200 fallos de un escáner autorizado de los de una cuenta interactiva?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La severidad asignada por defecto sin validar autorización"
+            },
+            {
+              "id": "b",
+              "text": "Propietario, ventana y alcance autorizados de la actividad"
+            },
+            {
+              "id": "c",
+              "text": "El conteo total de fallos sin distinguir entidades"
+            },
+            {
+              "id": "d",
+              "text": "La reputación pública de la IP sin comprobar la tarea interna"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La actividad aprobada puede generar señales; su autorización debe verificarse contra alcance y tiempo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w29d3-q03",
+          "prompt": "Una regla solo agrupa por usuario. ¿Qué patrón podría perder?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Muchos usuarios atacados desde una misma IP con pocos fallos por usuario"
+            },
+            {
+              "id": "b",
+              "text": "Un usuario con cien fallos en un minuto"
+            },
+            {
+              "id": "c",
+              "text": "Una cuenta que supera el umbral definido"
+            },
+            {
+              "id": "d",
+              "text": "Un host cuyo nombre figura en cada evento"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La distribución del ataque por cuentas puede eludir un umbral individual; conviene otra vista por origen.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        },
+        {
+          "id": "w29d3-q04",
+          "prompt": "¿Qué es un falso positivo en una alerta de acceso malicioso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Actividad legítima que activa la regla de acceso malicioso"
+            },
+            {
+              "id": "b",
+              "text": "Ataque real que no produce alerta"
+            },
+            {
+              "id": "c",
+              "text": "Log inexistente por auditoría apagada"
+            },
+            {
+              "id": "d",
+              "text": "Prueba confirmada de robo de contraseña"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La clasificación depende de la condición detectada y de la investigación, no de que la notificación exista.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w29d3-q05",
+          "prompt": "La regla funciona en pruebas, pero su fuente dejó de enviar datos. ¿Qué control falta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Duplicar solo el texto del aviso"
+            },
+            {
+              "id": "b",
+              "text": "Supervisión de salud y volumen de la fuente"
+            },
+            {
+              "id": "c",
+              "text": "Subir el umbral a un millón"
+            },
+            {
+              "id": "d",
+              "text": "Ocultar los errores del colector"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La lógica de detección depende de datos presentes; una prueba de ausencia o latencia detecta pérdida de visibilidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        },
+        {
+          "id": "w29d3-q06",
+          "prompt": "¿Por qué aplicar supresión por host y firma durante diez minutos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eliminar los eventos de origen en vez de limitar avisos"
+            },
+            {
+              "id": "b",
+              "text": "Confirmar que todo evento repetido es legítimo"
+            },
+            {
+              "id": "c",
+              "text": "Reducir avisos repetidos sin cambiar la condición original"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar el umbral original automáticamente en cada repetición"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La supresión limita notificaciones repetidas; debe evaluarse qué actividad adicional podría quedar sin aviso.",
+          "reference": "https://help.splunk.com/en/splunk-cloud-platform/alert-and-respond/alerting-manual/10.0.2503/manage-alert-trigger-conditions-and-throttling/throttle-alerts"
+        },
+        {
+          "id": "w29d3-q07",
+          "prompt": "¿Cómo evaluar una nueva regla con datos educativos etiquetados?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Contar solo el número total de correos enviados"
+            },
+            {
+              "id": "b",
+              "text": "Aceptar cualquier resultado si la consulta no falla"
+            },
+            {
+              "id": "c",
+              "text": "Suponer que cero alertas significa precisión perfecta"
+            },
+            {
+              "id": "d",
+              "text": "Medir ataques detectados y actividad legítima alertada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las etiquetas permiten comparar detecciones y errores; cero alertas también puede significar falta de sensibilidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w29d3-q08",
+          "prompt": "¿Qué debería incluir una alerta accionable además del nombre de la regla?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Entidad, intervalo, evidencia y pasos iniciales de validación"
+            },
+            {
+              "id": "b",
+              "text": "Solo una puntuación sin procedencia"
+            },
+            {
+              "id": "c",
+              "text": "Una afirmación automática de atribución"
+            },
+            {
+              "id": "d",
+              "text": "El historial completo de todas las contraseñas"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El contexto facilita triaje y reproducción sin exponer secretos ni convertir una sospecha en certeza.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        }
+      ],
+      "challenge": {
+        "id": "w29d3-challenge",
+        "prompt": "Una alerta de diez fallos detecta un lote autorizado cada noche. ¿Qué mejora conserva utilidad?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Excluir permanentemente toda cuenta de servicio"
+          },
+          {
+            "id": "b",
+            "text": "Incorporar contexto autorizado acotado y probar ataques fuera de él"
+          },
+          {
+            "id": "c",
+            "text": "Desactivar todos los eventos fallidos"
+          },
+          {
+            "id": "d",
+            "text": "Subir el umbral sin medir resultados"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "El ajuste debe limitar falsos positivos sin crear una exclusión amplia y debe validarse con casos relevantes.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    },
+    {
+      "dayId": "w29d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w29d4-q01",
+          "prompt": "¿Qué función corresponde principalmente a un SIEM?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Centralizar y correlacionar eventos de varias fuentes"
+            },
+            {
+              "id": "b",
+              "text": "Bloquear automáticamente toda ejecución maliciosa en cada endpoint"
+            },
+            {
+              "id": "c",
+              "text": "Clasificar contenido sensible en todos los canales sin políticas"
+            },
+            {
+              "id": "d",
+              "text": "Conservar siempre memoria volátil de cada servidor sin agentes"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El SIEM organiza eventos y reglas; la cobertura depende de fuentes, configuración y análisis.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        },
+        {
+          "id": "w29d4-q02",
+          "prompt": "¿Qué aporta un EDR frente a un registro de flujo de red?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantía de leer todo HTTPS sin claves"
+            },
+            {
+              "id": "b",
+              "text": "Árbol de procesos y acciones de respuesta en el endpoint"
+            },
+            {
+              "id": "c",
+              "text": "El contrato legal de cada proveedor"
+            },
+            {
+              "id": "d",
+              "text": "Inventario exacto de todas las rutas BGP"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El contexto de ejecución y las capacidades del agente complementan los metadatos de red.",
+          "reference": "https://learn.microsoft.com/en-us/defender-endpoint/respond-machine-alerts"
+        },
+        {
+          "id": "w29d4-q03",
+          "prompt": "¿Qué control encaja con detectar envío de documentos etiquetados como confidenciales a un correo externo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Monitor de integridad que solo compara hashes locales"
+            },
+            {
+              "id": "b",
+              "text": "Sensor de flujo sin clasificación del contenido"
+            },
+            {
+              "id": "c",
+              "text": "Filtro de correo que solo comprueba tamaño de adjuntos"
+            },
+            {
+              "id": "d",
+              "text": "DLP con política sobre datos y canal"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "DLP aplica reglas para identificar y gestionar transferencia de información sensible en canales cubiertos.",
+          "reference": "https://learn.microsoft.com/en-us/purview/dlp-learn-about-dlp"
+        },
+        {
+          "id": "w29d4-q04",
+          "prompt": "¿Qué detecta un monitor de integridad de archivos con línea base fiable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Motivo humano del cambio con certeza"
+            },
+            {
+              "id": "b",
+              "text": "Si toda modificación fue un ataque"
+            },
+            {
+              "id": "c",
+              "text": "Cambio en el contenido de un archivo supervisado"
+            },
+            {
+              "id": "d",
+              "text": "Quién leyó cualquier documento remoto"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La comparación de hashes o atributos detecta cambios; autorización y causa necesitan contexto adicional.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w29d4-q05",
+          "prompt": "Un antivirus detecta una firma conocida y un SIEM no alerta. ¿Qué explicación debes investigar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El antivirus prueba que el SIEM está roto siempre"
+            },
+            {
+              "id": "b",
+              "text": "El SIEM solo admite eventos DNS"
+            },
+            {
+              "id": "c",
+              "text": "Ambas herramientas tienen idéntica cobertura por definición"
+            },
+            {
+              "id": "d",
+              "text": "Si esa detección llega al SIEM y existe regla habilitada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Herramientas distintas requieren integración y reglas; ausencia de alerta puede deberse a la canalización.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        },
+        {
+          "id": "w29d4-q06",
+          "prompt": "¿Por qué probar el aislamiento EDR en un laboratorio antes de automatizarlo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque nunca cambia conectividad real"
+            },
+            {
+              "id": "b",
+              "text": "Porque elimina los archivos maliciosos por definición"
+            },
+            {
+              "id": "c",
+              "text": "Porque sustituye la aprobación del responsable"
+            },
+            {
+              "id": "d",
+              "text": "Puede interrumpir servicios y acceso de gestión"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una acción de contención modifica operación; deben entenderse efectos, excepciones y recuperación.",
+          "reference": "https://learn.microsoft.com/en-us/defender-endpoint/respond-machine-alerts"
+        },
+        {
+          "id": "w29d4-q07",
+          "prompt": "Una política DLP en modo auditoría genera coincidencias. ¿Qué puedes concluir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todos los envíos fueron bloqueados"
+            },
+            {
+              "id": "b",
+              "text": "Cada coincidencia demuestra filtración intencional"
+            },
+            {
+              "id": "c",
+              "text": "La política detecta coincidencias, pero ese modo no implica bloqueo"
+            },
+            {
+              "id": "d",
+              "text": "El archivo fue cifrado automáticamente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La acción configurada importa; detección, advertencia y bloqueo son comportamientos diferentes.",
+          "reference": "https://learn.microsoft.com/en-us/purview/dlp-learn-about-dlp"
+        },
+        {
+          "id": "w29d4-q08",
+          "prompt": "¿Dónde conviene investigar un cambio aprobado en /etc/ssh/sshd_config detectado por integridad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el hash nuevo, sin autorización ni registro de ejecución"
+            },
+            {
+              "id": "b",
+              "text": "Ticket de cambio, actor y registros del host"
+            },
+            {
+              "id": "c",
+              "text": "Solo la lista de vulnerabilidades sin relación con ese cambio"
+            },
+            {
+              "id": "d",
+              "text": "Solo el nombre del administrador, sin evidencia temporal"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La alerta de cambio se interpreta contrastando autorización, ejecución y configuración resultante.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w29d4-challenge",
+        "prompt": "Una alerta DLP y un cambio de archivo aparecen juntos. ¿Qué reparto de herramientas es correcto?",
+        "options": [
+          {
+            "id": "a",
+            "text": "DLP identifica siempre al atacante e integridad bloquea correo"
+          },
+          {
+            "id": "b",
+            "text": "SIEM descifra cualquier canal sin configuración"
+          },
+          {
+            "id": "c",
+            "text": "DLP revisa transferencia sensible e integridad revisa modificación respecto a base"
+          },
+          {
+            "id": "d",
+            "text": "EDR sustituye toda clasificación de datos"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "Cada herramienta responde una pregunta diferente y la correlación requiere contexto común.",
+        "reference": "https://learn.microsoft.com/en-us/purview/dlp-learn-about-dlp"
+      }
+    },
+    {
+      "dayId": "w29d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w29d5-q01",
+          "prompt": "¿Qué añade stats count by user a una búsqueda Splunk de fallos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El porcentaje de CPU por proceso"
+            },
+            {
+              "id": "b",
+              "text": "Solo el evento cronológicamente más reciente"
+            },
+            {
+              "id": "c",
+              "text": "Un conteo separado por cada valor de user"
+            },
+            {
+              "id": "d",
+              "text": "Un bloqueo automático de usuarios"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La agregación agrupa resultados por user; no ejecuta respuestas ni conserva todos los eventos originales.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/spl-search-reference/9.1/search-commands/stats"
+        },
+        {
+          "id": "w29d5-q02",
+          "prompt": "Con tres eventos de ana y dos de luis, ¿cuántas filas devuelve stats count by user si solo existen esos usuarios?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cinco filas"
+            },
+            {
+              "id": "b",
+              "text": "Dos filas"
+            },
+            {
+              "id": "c",
+              "text": "Una fila"
+            },
+            {
+              "id": "d",
+              "text": "Cero filas"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El resultado tiene una fila por grupo, con conteos 3 y 2 respectivamente.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/spl-search-reference/9.1/search-commands/stats"
+        },
+        {
+          "id": "w29d5-q03",
+          "prompt": "En una búsqueda educativa, ¿qué expresa earliest=-15m latest=now?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Los quince primeros eventos del índice"
+            },
+            {
+              "id": "b",
+              "text": "El intervalo relativo de los últimos quince minutos"
+            },
+            {
+              "id": "c",
+              "text": "Quince minutos desde el arranque del servidor"
+            },
+            {
+              "id": "d",
+              "text": "Una retención de quince meses"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los modificadores acotan tiempo; el resultado también depende del resto de filtros y de los datos disponibles.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/search-manual/10.2/specify-time-ranges/specify-time-modifiers-in-your-search"
+        },
+        {
+          "id": "w29d5-q04",
+          "prompt": "¿Qué hace diferente contar eventos frente a contar usuarios distintos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ambas métricas son iguales aunque una identidad repita acciones"
+            },
+            {
+              "id": "b",
+              "text": "Contar usuarios distintos equivale siempre a sumar bytes"
+            },
+            {
+              "id": "c",
+              "text": "Cada evento corresponde obligatoriamente a una persona diferente"
+            },
+            {
+              "id": "d",
+              "text": "Un usuario puede producir muchos eventos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El volumen de actividad y el número de identidades son métricas diferentes; debe elegirse según la pregunta.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/spl-search-reference/9.1/search-commands/stats"
+        },
+        {
+          "id": "w29d5-q05",
+          "prompt": "Una consulta para host=pc07 da cero resultados ayer. ¿Qué prueba de control conviene?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Buscar eventos conocidos del host en un intervalo más amplio y revisar fuente"
+            },
+            {
+              "id": "b",
+              "text": "Declarar el host limpio sin más"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar pc07 por una IP aleatoria"
+            },
+            {
+              "id": "d",
+              "text": "Borrar la condición temporal en la regla de producción"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una consulta de control ayuda a separar falta de actividad, rango erróneo y problemas de recolección.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        },
+        {
+          "id": "w29d5-q06",
+          "prompt": "¿Qué secuencia permite ver solo fuentes con más de 20 eventos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Agregar conteos por fuente y filtrar count > 20"
+            },
+            {
+              "id": "b",
+              "text": "Filtrar eventos por un campo count aún no calculado"
+            },
+            {
+              "id": "c",
+              "text": "Ordenar eventos por fuente y tomar los primeros veinte"
+            },
+            {
+              "id": "d",
+              "text": "Contar solo el total global sin agrupar por fuente"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El umbral se aplica sobre el resultado agregado; antes del conteo ese campo puede no existir.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/spl-search-reference/9.1/search-commands/stats"
+        },
+        {
+          "id": "w29d5-q07",
+          "prompt": "¿Por qué guardar consulta y rango absoluto al documentar un resultado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una búsqueda relativa cambiará si se repite mañana"
+            },
+            {
+              "id": "b",
+              "text": "El rango absoluto elimina cualquier evento duplicado"
+            },
+            {
+              "id": "c",
+              "text": "La consulta guardada certifica malicia"
+            },
+            {
+              "id": "d",
+              "text": "La zona deja de influir automáticamente"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Para reproducir un hallazgo hay que fijar datos, filtros y tiempo, además de registrar límites.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/search-manual/10.2/specify-time-ranges/specify-time-modifiers-in-your-search"
+        },
+        {
+          "id": "w29d5-q08",
+          "prompt": "Un panel cuenta 40 fallos y otro 37 en el mismo minuto. ¿Qué revisas primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Filtros, zona temporal, extracción y duplicados"
+            },
+            {
+              "id": "b",
+              "text": "Cuál de los paneles muestra la cifra más alta para aceptarla"
+            },
+            {
+              "id": "c",
+              "text": "Si duplicar la búsqueda hace coincidir automáticamente los totales"
+            },
+            {
+              "id": "d",
+              "text": "Si conviene promediar ambos resultados sin comparar definiciones"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las discrepancias suelen depender de definición de datos y consulta; comparar condiciones evita conclusiones prematuras.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        }
+      ],
+      "challenge": {
+        "id": "w29d5-challenge",
+        "prompt": "Debes contar cuentas afectadas, pero un usuario produce cien fallos y otro dos. ¿Qué resultado responde la pregunta?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ciento dos cuentas afectadas"
+          },
+          {
+            "id": "b",
+            "text": "Una cuenta porque hay dos grupos"
+          },
+          {
+            "id": "c",
+            "text": "Cero cuentas hasta que haya un bloqueo"
+          },
+          {
+            "id": "d",
+            "text": "Dos usuarios distintos, acompañado del conteo de eventos"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La unidad de análisis es la identidad; contar eventos confunde repetición con alcance.",
+        "reference": "https://help.splunk.com/en/splunk-enterprise/spl-search-reference/9.1/search-commands/stats"
+      }
+    },
+    {
+      "dayId": "w29d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w29d6-q01",
+          "prompt": "La VPN registra acceso de ana a las 08:10Z y el host un proceso a las 08:12Z. ¿Qué falta para vincularlos mejor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el nombre visible de la cuenta coincida sin más contexto"
+            },
+            {
+              "id": "b",
+              "text": "La IP actual del portátil, ignorando la asignación de ese momento"
+            },
+            {
+              "id": "c",
+              "text": "Identificadores de sesión, equipo y contexto de autenticación"
+            },
+            {
+              "id": "d",
+              "text": "El orden de recepción de alertas sin tiempo de origen"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Coincidencia temporal no basta; las claves de correlación y el origen de cada dato refuerzan la relación.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4624"
+        },
+        {
+          "id": "w29d6-q02",
+          "prompt": "Un proxy muestra una descarga y EDR una ejecución del mismo hash. ¿Qué apoya esa combinación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La identidad del autor del malware con certeza"
+            },
+            {
+              "id": "b",
+              "text": "Una secuencia de descarga y ejecución en el equipo correlacionado"
+            },
+            {
+              "id": "c",
+              "text": "Que el contenido se exfiltró necesariamente"
+            },
+            {
+              "id": "d",
+              "text": "Que todos los usuarios ejecutaron ese archivo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las dos fuentes apoyan un comportamiento concreto; atribución y consecuencias exigen evidencia adicional.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w29d6-q03",
+          "prompt": "DNS muestra consulta a un dominio, pero no hay conexión posterior. ¿Cuál es el hecho observado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El cliente consultó ese nombre al resolvedor registrado"
+            },
+            {
+              "id": "b",
+              "text": "El usuario vio necesariamente la página"
+            },
+            {
+              "id": "c",
+              "text": "El servidor recibió una contraseña"
+            },
+            {
+              "id": "d",
+              "text": "El archivo del sitio fue ejecutado"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Resolución de nombres no demuestra navegación, conexión exitosa ni ejecución.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        },
+        {
+          "id": "w29d6-q04",
+          "prompt": "Un firewall permite tráfico a las 10:03Z y una aplicación devuelve 401. ¿Qué distinción importa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Allow del firewall demuestra acceso a datos"
+            },
+            {
+              "id": "b",
+              "text": "401 implica que el firewall bloqueó la sesión"
+            },
+            {
+              "id": "c",
+              "text": "Ambos registros son incompatibles necesariamente"
+            },
+            {
+              "id": "d",
+              "text": "Acceso de red permitido no implica autenticación exitosa en la aplicación"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los controles actúan en capas diferentes; conectividad y autorización deben analizarse por separado.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity-platform/authentication-vs-authorization"
+        },
+        {
+          "id": "w29d6-q05",
+          "prompt": "En un informe, ¿qué frase separa hecho de hipótesis?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un bot robó la cuenta porque hubo 12 fallos"
+            },
+            {
+              "id": "b",
+              "text": "Se observaron 12 fallos; se investiga si fueron intentos automatizados"
+            },
+            {
+              "id": "c",
+              "text": "El usuario es culpable por la frecuencia"
+            },
+            {
+              "id": "d",
+              "text": "Doce fallos garantizan contraseña débil"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El conteo es observable; intención, automatización y compromiso requieren validación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w29d6-q06",
+          "prompt": "Dos fuentes discrepan cuatro minutos en sus relojes. ¿Cómo construir la cronología?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambiar los originales hasta que coincidan"
+            },
+            {
+              "id": "b",
+              "text": "Ordenar todos los eventos por severidad"
+            },
+            {
+              "id": "c",
+              "text": "Registrar desfase estimado y conservar tiempos originales y normalizados"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar la fuente de menor volumen"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La trazabilidad temporal exige explicar transformaciones e incertidumbre, evitando alterar la evidencia original.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w29d6-q07",
+          "prompt": "El EDR se desinstaló durante el período investigado. ¿Cómo afecta al alcance?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Prueba que no hubo ejecución de procesos"
+            },
+            {
+              "id": "b",
+              "text": "Prueba que el ataque terminó al desinstalarse"
+            },
+            {
+              "id": "c",
+              "text": "Hace suficientes los logs de un equipo distinto"
+            },
+            {
+              "id": "d",
+              "text": "Limita conclusiones sobre actividad de ese endpoint en ese intervalo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las lagunas de cobertura deben figurar en el análisis y orientar fuentes alternativas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w29d6-q08",
+          "prompt": "¿Qué acción aumenta confianza en una correlación IP-usuario de un portátil?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usar la concesión DHCP actual para cualquier fecha"
+            },
+            {
+              "id": "b",
+              "text": "Cruzar concesión DHCP, tiempo y autenticación del mismo equipo"
+            },
+            {
+              "id": "c",
+              "text": "Asumir que una IP pertenece siempre a una persona"
+            },
+            {
+              "id": "d",
+              "text": "Buscar solo la geolocalización de la IP privada"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las asignaciones cambian; una correlación fiable necesita correspondencia temporal y contexto de identidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        }
+      ],
+      "challenge": {
+        "id": "w29d6-challenge",
+        "prompt": "Hay descarga a las 14:00Z, proceso con hash coincidente a las 14:01Z y vacío de telemetría a las 14:02Z. ¿Qué reportas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Exfiltración confirmada a las 14:02Z"
+          },
+          {
+            "id": "b",
+            "text": "Equipo limpio porque no hay eventos posteriores"
+          },
+          {
+            "id": "c",
+            "text": "Descarga y ejecución correlacionadas, con impacto posterior aún desconocido"
+          },
+          {
+            "id": "d",
+            "text": "Atribución al país de la IP de descarga"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "Los hechos apoyan ejecución; la pérdida de visibilidad limita la evaluación posterior.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    },
+    {
+      "dayId": "w29d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w29d7-q01",
+          "prompt": "¿Qué fuente permite comprobar qué proceso hijo lanzó winword.exe en un endpoint Windows auditado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Registro de concesiones DHCP únicamente"
+            },
+            {
+              "id": "b",
+              "text": "Contadores de tráfico agregados"
+            },
+            {
+              "id": "c",
+              "text": "Inventario semanal de usuarios"
+            },
+            {
+              "id": "d",
+              "text": "Evento 4688 con relación de procesos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La creación de procesos aporta contexto padre/hijo; las otras fuentes no describen esa ejecución.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4688",
+          "reviewOf": "w29d1-q01"
+        },
+        {
+          "id": "w29d7-q02",
+          "prompt": "Un log dice 2026-11-03T10:30:00+02:00. ¿Cuál es su hora UTC?",
+          "options": [
+            {
+              "id": "a",
+              "text": "10:30:00Z"
+            },
+            {
+              "id": "b",
+              "text": "08:30:00Z"
+            },
+            {
+              "id": "c",
+              "text": "12:30:00Z"
+            },
+            {
+              "id": "d",
+              "text": "09:30:00Z"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El desplazamiento +02:00 se resta al convertir a UTC; conserva también el valor original.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final",
+          "reviewOf": "w29d2-q01"
+        },
+        {
+          "id": "w29d7-q03",
+          "prompt": "Una regla dispara con más de 10 fallos por usuario en 5 minutos. Hay exactamente 10. ¿Dispara según esa condición?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No; el comparador exige al menos 11"
+            },
+            {
+              "id": "b",
+              "text": "Sí; más de 10 incluye 10"
+            },
+            {
+              "id": "c",
+              "text": "Sí; cualquier fallo activa ese umbral"
+            },
+            {
+              "id": "d",
+              "text": "Depende solo del nombre del usuario"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los límites inclusivos y exclusivos deben probarse explícitamente para evitar errores de interpretación.",
+          "reference": "https://help.splunk.com/en/splunk-cloud-platform/alert-and-respond/alerting-manual/10.0.2503/manage-alert-trigger-conditions-and-throttling/throttle-alerts",
+          "reviewOf": "w29d3-q01"
+        },
+        {
+          "id": "w29d7-q04",
+          "prompt": "¿Qué función corresponde principalmente a un SIEM?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Centralizar y correlacionar eventos de varias fuentes"
+            },
+            {
+              "id": "b",
+              "text": "Bloquear automáticamente toda ejecución maliciosa en cada endpoint"
+            },
+            {
+              "id": "c",
+              "text": "Clasificar contenido sensible en todos los canales sin políticas"
+            },
+            {
+              "id": "d",
+              "text": "Conservar siempre memoria volátil de cada servidor sin agentes"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El SIEM organiza eventos y reglas; la cobertura depende de fuentes, configuración y análisis.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final",
+          "reviewOf": "w29d4-q01"
+        },
+        {
+          "id": "w29d7-q05",
+          "prompt": "¿Qué añade stats count by user a una búsqueda Splunk de fallos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El porcentaje de CPU por proceso"
+            },
+            {
+              "id": "b",
+              "text": "Solo el evento cronológicamente más reciente"
+            },
+            {
+              "id": "c",
+              "text": "Un conteo separado por cada valor de user"
+            },
+            {
+              "id": "d",
+              "text": "Un bloqueo automático de usuarios"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La agregación agrupa resultados por user; no ejecuta respuestas ni conserva todos los eventos originales.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/spl-search-reference/9.1/search-commands/stats",
+          "reviewOf": "w29d5-q01"
+        },
+        {
+          "id": "w29d7-q06",
+          "prompt": "La VPN registra acceso de ana a las 08:10Z y el host un proceso a las 08:12Z. ¿Qué falta para vincularlos mejor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el nombre visible de la cuenta coincida sin más contexto"
+            },
+            {
+              "id": "b",
+              "text": "La IP actual del portátil, ignorando la asignación de ese momento"
+            },
+            {
+              "id": "c",
+              "text": "Identificadores de sesión, equipo y contexto de autenticación"
+            },
+            {
+              "id": "d",
+              "text": "El orden de recepción de alertas sin tiempo de origen"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Coincidencia temporal no basta; las claves de correlación y el origen de cada dato refuerzan la relación.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4624",
+          "reviewOf": "w29d6-q01"
+        },
+        {
+          "id": "w29d7-q07",
+          "prompt": "Para investigar un rechazo de inicio de sesión Windows, ¿qué evento es la primera fuente pertinente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "4624"
+            },
+            {
+              "id": "b",
+              "text": "4688"
+            },
+            {
+              "id": "c",
+              "text": "4625"
+            },
+            {
+              "id": "d",
+              "text": "Un contador de CPU"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "4625 registra intentos fallidos; 4624 corresponde a inicios de sesión exitosos.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4625",
+          "reviewOf": "w29d1-q02"
+        },
+        {
+          "id": "w29d7-q08",
+          "prompt": "Dos eventos muestran 09:00, uno sin zona. ¿Qué necesitas antes de ordenarlos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El tamaño del disco del colector"
+            },
+            {
+              "id": "b",
+              "text": "Orden alfabético de hosts"
+            },
+            {
+              "id": "c",
+              "text": "Zona configurada y posible desviación de reloj de cada origen"
+            },
+            {
+              "id": "d",
+              "text": "Una contraseña común de administración"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La comparación cronológica necesita interpretar zona y precisión de los relojes, no solo cadenas visualmente iguales.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final",
+          "reviewOf": "w29d2-q02"
+        },
+        {
+          "id": "w29d7-q09",
+          "prompt": "¿Qué contexto ayuda a distinguir 200 fallos de un escáner autorizado de los de una cuenta interactiva?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La severidad asignada por defecto sin validar autorización"
+            },
+            {
+              "id": "b",
+              "text": "Propietario, ventana y alcance autorizados de la actividad"
+            },
+            {
+              "id": "c",
+              "text": "El conteo total de fallos sin distinguir entidades"
+            },
+            {
+              "id": "d",
+              "text": "La reputación pública de la IP sin comprobar la tarea interna"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La actividad aprobada puede generar señales; su autorización debe verificarse contra alcance y tiempo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w29d3-q02"
+        },
+        {
+          "id": "w29d7-q10",
+          "prompt": "¿Qué aporta un EDR frente a un registro de flujo de red?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantía de leer todo HTTPS sin claves"
+            },
+            {
+              "id": "b",
+              "text": "Árbol de procesos y acciones de respuesta en el endpoint"
+            },
+            {
+              "id": "c",
+              "text": "El contrato legal de cada proveedor"
+            },
+            {
+              "id": "d",
+              "text": "Inventario exacto de todas las rutas BGP"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El contexto de ejecución y las capacidades del agente complementan los metadatos de red.",
+          "reference": "https://learn.microsoft.com/en-us/defender-endpoint/respond-machine-alerts",
+          "reviewOf": "w29d4-q02"
+        },
+        {
+          "id": "w29d7-q11",
+          "prompt": "Con tres eventos de ana y dos de luis, ¿cuántas filas devuelve stats count by user si solo existen esos usuarios?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cinco filas"
+            },
+            {
+              "id": "b",
+              "text": "Dos filas"
+            },
+            {
+              "id": "c",
+              "text": "Una fila"
+            },
+            {
+              "id": "d",
+              "text": "Cero filas"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El resultado tiene una fila por grupo, con conteos 3 y 2 respectivamente.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/spl-search-reference/9.1/search-commands/stats",
+          "reviewOf": "w29d5-q02"
+        },
+        {
+          "id": "w29d7-q12",
+          "prompt": "Un proxy muestra una descarga y EDR una ejecución del mismo hash. ¿Qué apoya esa combinación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La identidad del autor del malware con certeza"
+            },
+            {
+              "id": "b",
+              "text": "Una secuencia de descarga y ejecución en el equipo correlacionado"
+            },
+            {
+              "id": "c",
+              "text": "Que el contenido se exfiltró necesariamente"
+            },
+            {
+              "id": "d",
+              "text": "Que todos los usuarios ejecutaron ese archivo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las dos fuentes apoyan un comportamiento concreto; atribución y consecuencias exigen evidencia adicional.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w29d6-q02"
+        },
+        {
+          "id": "w29d7-q13",
+          "prompt": "Un usuario denuncia que una API le devolvió HTTP 403. ¿Qué fuente explica mejor la autorización aplicada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Registro del firewall que solo muestra aceptación TCP"
+            },
+            {
+              "id": "b",
+              "text": "Registro de autenticación del sistema sin decisiones de la API"
+            },
+            {
+              "id": "c",
+              "text": "Registros del resolvedor DNS para el dominio de la API"
+            },
+            {
+              "id": "d",
+              "text": "Registro de acceso y autorización de la aplicación"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El servidor conoce la ruta, la identidad y la decisión de autorización; 403 no se explica con salud física.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final",
+          "reviewOf": "w29d1-q03"
+        },
+        {
+          "id": "w29d7-q14",
+          "prompt": "¿Qué representa el tiempo de ingesta frente al tiempo del evento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dos nombres obligatorios para el mismo instante"
+            },
+            {
+              "id": "b",
+              "text": "Cuándo llegó al colector frente a cuándo ocurrió según el origen"
+            },
+            {
+              "id": "c",
+              "text": "El tiempo de ingesta siempre precede al suceso"
+            },
+            {
+              "id": "d",
+              "text": "La ingesta demuestra el huso del usuario"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las colas y cortes pueden retrasar ingesta; no conviene sustituir silenciosamente el tiempo de ocurrencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final",
+          "reviewOf": "w29d2-q03"
+        },
+        {
+          "id": "w29d7-q15",
+          "prompt": "Una regla solo agrupa por usuario. ¿Qué patrón podría perder?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Muchos usuarios atacados desde una misma IP con pocos fallos por usuario"
+            },
+            {
+              "id": "b",
+              "text": "Un usuario con cien fallos en un minuto"
+            },
+            {
+              "id": "c",
+              "text": "Una cuenta que supera el umbral definido"
+            },
+            {
+              "id": "d",
+              "text": "Un host cuyo nombre figura en cada evento"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La distribución del ataque por cuentas puede eludir un umbral individual; conviene otra vista por origen.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final",
+          "reviewOf": "w29d3-q03"
+        },
+        {
+          "id": "w29d7-q16",
+          "prompt": "¿Qué control encaja con detectar envío de documentos etiquetados como confidenciales a un correo externo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Monitor de integridad que solo compara hashes locales"
+            },
+            {
+              "id": "b",
+              "text": "Sensor de flujo sin clasificación del contenido"
+            },
+            {
+              "id": "c",
+              "text": "Filtro de correo que solo comprueba tamaño de adjuntos"
+            },
+            {
+              "id": "d",
+              "text": "DLP con política sobre datos y canal"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "DLP aplica reglas para identificar y gestionar transferencia de información sensible en canales cubiertos.",
+          "reference": "https://learn.microsoft.com/en-us/purview/dlp-learn-about-dlp",
+          "reviewOf": "w29d4-q03"
+        },
+        {
+          "id": "w29d7-q17",
+          "prompt": "En una búsqueda educativa, ¿qué expresa earliest=-15m latest=now?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Los quince primeros eventos del índice"
+            },
+            {
+              "id": "b",
+              "text": "El intervalo relativo de los últimos quince minutos"
+            },
+            {
+              "id": "c",
+              "text": "Quince minutos desde el arranque del servidor"
+            },
+            {
+              "id": "d",
+              "text": "Una retención de quince meses"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los modificadores acotan tiempo; el resultado también depende del resto de filtros y de los datos disponibles.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/search-manual/10.2/specify-time-ranges/specify-time-modifiers-in-your-search",
+          "reviewOf": "w29d5-q03"
+        },
+        {
+          "id": "w29d7-q18",
+          "prompt": "DNS muestra consulta a un dominio, pero no hay conexión posterior. ¿Cuál es el hecho observado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El cliente consultó ese nombre al resolvedor registrado"
+            },
+            {
+              "id": "b",
+              "text": "El usuario vio necesariamente la página"
+            },
+            {
+              "id": "c",
+              "text": "El servidor recibió una contraseña"
+            },
+            {
+              "id": "d",
+              "text": "El archivo del sitio fue ejecutado"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Resolución de nombres no demuestra navegación, conexión exitosa ni ejecución.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final",
+          "reviewOf": "w29d6-q03"
+        },
+        {
+          "id": "w29d7-q19",
+          "prompt": "¿Qué puede mostrar un flujo de red que normalmente no ofrece el contenido de una petición HTTPS?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Texto de formularios HTTPS sin descifrado"
+            },
+            {
+              "id": "b",
+              "text": "Contraseñas introducidas dentro del canal cifrado"
+            },
+            {
+              "id": "c",
+              "text": "Origen, destino, puertos y volumen"
+            },
+            {
+              "id": "d",
+              "text": "Permisos efectivos de archivos solo a partir de volumen"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los metadatos de flujo permiten estudiar comunicaciones sin revelar por sí solos el contenido cifrado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final",
+          "reviewOf": "w29d1-q04"
+        },
+        {
+          "id": "w29d7-q20",
+          "prompt": "¿Qué detecta un monitor de integridad de archivos con línea base fiable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Motivo humano del cambio con certeza"
+            },
+            {
+              "id": "b",
+              "text": "Si toda modificación fue un ataque"
+            },
+            {
+              "id": "c",
+              "text": "Cambio en el contenido de un archivo supervisado"
+            },
+            {
+              "id": "d",
+              "text": "Quién leyó cualquier documento remoto"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La comparación de hashes o atributos detecta cambios; autorización y causa necesitan contexto adicional.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w29d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w29d7-challenge",
+        "prompt": "Un responsable exige cerrar un caso porque el SIEM no encuentra actividad del servidor. El último evento tiene una semana. ¿Qué decisión sustentas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Verificar salud de recolección y otras fuentes antes de descartar actividad"
+          },
+          {
+            "id": "b",
+            "text": "Cerrar porque cero resultados equivale a cero actividad"
+          },
+          {
+            "id": "c",
+            "text": "Dar por comprometido todo el centro de datos"
+          },
+          {
+            "id": "d",
+            "text": "Cambiar el rango a futuro para justificar el cierre"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La ausencia de datos recientes es una limitación de visibilidad que debe resolverse o declararse.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+      }
+    }
+  ]
+}

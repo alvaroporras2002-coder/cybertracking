@@ -2,7 +2,7 @@
 
 Plataforma personal para estudiar ciberseguridad desde cero. Contiene las **52 semanas y 364 sesiones** del programa, con una página de inicio, ruta, aula, notas, seguimiento, temporizador y respaldos locales.
 
-La versión 1.4 utiliza tipografía adaptable del sistema, un nuevo logotipo y una apariencia clara de vidrio translúcido con esquinas redondeadas. Las animaciones, partículas y respuestas al pulsar están activas desde el inicio y respetan el movimiento reducido del sistema. Se retiraron los selectores de tema y movimiento y el bloque inferior de perfil de la barra lateral.
+La versión 1.5 utiliza tipografía adaptable del sistema y una apariencia clara de vidrio translúcido. Corrige el guardado al cambiar de sesión y conserva los reproductores mientras se marcan recursos o se usa el temporizador. El inicio y las tarjetas semanales son más compactos; las animaciones respetan el movimiento reducido del sistema.
 
 Cincuenta y dos portadas generadas para este proyecto identifican cada semana con una escena diferente. El inicio y el aula muestran la portada de la semana correspondiente; el mapa general conserva sus seis imágenes de etapa. Son ilustraciones conceptuales: las tareas, los temas y las explicaciones se mantienen como texto accesible. Las imágenes se sirven desde el repositorio; la página no llama a una API de IA. Consulta [las portadas y sus prompts](assets/images/weeks/README.md) y [las imágenes de etapa](assets/images/README.md).
 
@@ -15,8 +15,8 @@ Repositorio: [alvaroporras2002-coder/cybertracking](https://github.com/alvaropor
 | Parte | Alcance |
 | --- | --- |
 | Temario | 52 semanas y 364 sesiones disponibles para consultar |
-| Evaluaciones desarrolladas | Semanas 1 a 4: bancos específicos y retos prácticos |
-| Semanas 5 a 52 | Contenido y recursos disponibles; evaluaciones todavía pendientes |
+| Evaluaciones formativas | 52 semanas: bancos diarios, revisiones semanales y retos de interpretación |
+| Repaso | Los bloques nuevos reutilizan preguntas de los seis días de forma explícita y trazable |
 | Progreso | Secuencial, sin fecha de inicio obligatoria |
 | Datos | Guardados en este navegador y dispositivo |
 | Servicios | Sin backend, cuentas, sincronización ni IA integrada |
@@ -43,15 +43,14 @@ También puedes abrir [GUIA_GITHUB.html](GUIA_GITHUB.html), que explica cómo su
 | Ruta | Función |
 | --- | --- |
 | `index.html` | Entrada de la aplicación. Debe quedar en la raíz publicada |
-| `assets/css/styles.css` y `app.css` | Diseño, estados y adaptación móvil |
-| `assets/css/editorial.css` | Tema editorial minimalista, cargado después de los estilos base |
-| `assets/css/glass.css` | Acabado de vidrio, esquinas redondeadas y portadas; cargado al final |
+| `assets/css/styles.css` | Estilos unificados: vidrio, componentes, estados y adaptación móvil |
 | `assets/images/stage-01.webp` a `stage-06.webp` | Imágenes de las seis etapas del programa |
 | `assets/images/weeks/week-01.webp` a `week-52.webp` | Portadas distintas de las 52 semanas |
 | `assets/illustrations/brand.svg` | Logotipo usado en la navegación y el icono del sitio |
 | `assets/illustrations/lab.svg` | Ilustración isométrica del laboratorio |
 | `assets/js/app.js` | Conexión de pantallas y acciones |
 | `assets/js/router.js` | Navegación entre secciones |
+| `assets/js/draft-notes.js` | Borradores por sesión, cola de guardado y recuperación de errores |
 | `assets/js/resources.js` | Carga de contenido y reproducción permitida |
 | `assets/js/motion.js` | Efectos decorativos y movimiento reducido |
 | `assets/js/analytics.js` | Agregaciones y gráficos de actividad, resultados y progreso |
@@ -61,9 +60,11 @@ También puedes abrir [GUIA_GITHUB.html](GUIA_GITHUB.html), que explica cómo su
 | `assets/js/timer.js` | Sesiones de tiempo de estudio |
 | `assets/js/backup.js` | Respaldo, validación e importación |
 | `data/curriculum.json` | Temario y recursos de las 364 sesiones |
-| `data/assessments/week-01.json` a `week-04.json` | Bancos y retos del primer bloque |
+| `data/assessments/week-01.json` a `week-52.json` | Fuentes de los bancos formativos de cada semana |
+| `data/assessments/index.json` | Índice ligero para cargar cada banco cuando se necesita |
 | `data/content-status.json` | Estado de desarrollo del contenido |
 | `tools/validate-content.py` | Comprobaciones del contenido |
+| `tools/build-assessments.py` | Reconstrucción del índice a partir de los 52 bancos |
 | `tests/` | Pruebas de la lógica |
 | `CONTENT_STATUS.md` | Cobertura y trabajo pendiente |
 | `CHANGELOG.md` | Registro de versiones |
@@ -102,9 +103,11 @@ Co-authored-by: Codex <noreply@openai.com>
 - Marca los recursos obligatorios cuando los hayas estudiado; los opcionales no bloquean.
 - Completa el reto práctico y supera la evaluación para avanzar.
 - Un intento fallido se conserva y permite repasar sus explicaciones.
-- Las semanas sin evaluación desarrollada pueden consultarse, pero no deben aparecer como aprobadas automáticamente.
+- Las prácticas y pruebas se cargan al abrirlas. Si la conexión falla, se puede reintentar y la sesión conserva sus requisitos.
 - No estudiar un día no borra ni adelanta el recorrido.
 - Los videos se insertan solo cuando el proveedor lo permite. Si falla el reproductor, abre el recurso original.
+- El temporizador se pausa al ocultar la pestaña. El formulario de estudio externo permite registrar entre 1 y 720 minutos reales por entrada, asociados a una sesión.
+- Las notas pendientes se guardan antes de navegar. Si falla el almacenamiento, el borrador sigue disponible en la página para reintentar; cerrar el navegador por la fuerza puede perder un borrador que no se haya persistido.
 
 ## Tus datos y las actualizaciones
 
@@ -141,6 +144,6 @@ Comprueba además: móvil sin desplazamiento horizontal; navegación por teclado
 | Funciona en raíz pero no en repositorio | Evita rutas que empiecen en `/assets` o `/data`; conserva las rutas relativas |
 | No aparece el progreso del celular | Los dispositivos no sincronizan; importa un respaldo si deseas trasladar datos |
 | Un video no se reproduce | Abre el original; la inserción depende del proveedor |
-| Una semana no permite evaluación | Consulta `CONTENT_STATUS.md`; las evaluaciones pendientes no son un fallo de guardado |
+| Una evaluación no carga | Comprueba conexión, `data/assessments/index.json` y el archivo de esa semana; vuelve a intentarlo |
 
 Consulta [CONTENT_STATUS.md](CONTENT_STATUS.md) para la cobertura exacta y [CHANGELOG.md](CHANGELOG.md) para los cambios.

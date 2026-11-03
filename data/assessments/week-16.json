@@ -1,0 +1,2094 @@
+{
+  "week": 16,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w16d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w16d1-q01",
+          "prompt": "Un portátil de laboratorio no abre una aplicación remota. ¿Qué estrategia inicial evita cambios innecesarios?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambiar simultáneamente DNS, IP, firewall y aplicación"
+            },
+            {
+              "id": "b",
+              "text": "Reinstalar todo antes de registrar el síntoma"
+            },
+            {
+              "id": "c",
+              "text": "Concluir que es malware por no cargar una página"
+            },
+            {
+              "id": "d",
+              "text": "Comprobar por etapas enlace, configuración IP, ruta, nombres y servicio"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El diagnóstico por capas reduce conjeturas y conserva evidencias.",
+          "reference": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/troubleshoot-tcp-ip-communication-guidance"
+        },
+        {
+          "id": "w16d1-q02",
+          "prompt": "El indicador físico de enlace está activo. ¿Qué demuestra por sí solo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una condición de enlace, no el funcionamiento de todas las capas superiores"
+            },
+            {
+              "id": "b",
+              "text": "Que DNS responde correctamente"
+            },
+            {
+              "id": "c",
+              "text": "Que toda aplicación remota acepta credenciales"
+            },
+            {
+              "id": "d",
+              "text": "Que el servidor tiene espacio disponible"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Cada prueba demuestra un aspecto concreto de la comunicación.",
+          "reference": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/troubleshoot-tcp-ip-communication-guidance"
+        },
+        {
+          "id": "w16d1-q03",
+          "prompt": "El equipo hace ping al gateway, pero un sitio no abre. ¿Qué sigue siendo posible?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un problema de DNS, de una ruta posterior o del servicio"
+            },
+            {
+              "id": "b",
+              "text": "Que todas las capas hasta la aplicación estén garantizadas"
+            },
+            {
+              "id": "c",
+              "text": "Que el certificado sea válido por esa prueba"
+            },
+            {
+              "id": "d",
+              "text": "Que el usuario ya tenga acceso autorizado a la aplicación"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El alcance del gateway no demuestra el resultado de una aplicación remota.",
+          "reference": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/troubleshoot-tcp-ip-communication-guidance"
+        },
+        {
+          "id": "w16d1-q04",
+          "prompt": "Un ping no recibe respuesta. ¿Qué conclusión prudente corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Comprobar otras evidencias porque ICMP puede estar filtrado"
+            },
+            {
+              "id": "b",
+              "text": "Afirmar que el servidor está apagado sin más pruebas"
+            },
+            {
+              "id": "c",
+              "text": "Dar por correcta la resolución de nombres en cualquier caso"
+            },
+            {
+              "id": "d",
+              "text": "Concluir que TCP no puede funcionar hacia ese equipo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La falta de respuesta ICMP admite más de una explicación.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/networking/dns/troubleshoot/troubleshoot-dns-client"
+        },
+        {
+          "id": "w16d1-q05",
+          "prompt": "Una web responde con 403. ¿En qué nivel debes continuar principalmente la investigación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "En un supuesto cable siempre desconectado"
+            },
+            {
+              "id": "b",
+              "text": "En la imposibilidad absoluta de llegar al servidor"
+            },
+            {
+              "id": "c",
+              "text": "En la ausencia de cualquier respuesta HTTP"
+            },
+            {
+              "id": "d",
+              "text": "En la autorización y el comportamiento de la aplicación"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La respuesta permite acotar el problema más allá del mero enlace.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status"
+        },
+        {
+          "id": "w16d1-q06",
+          "prompt": "¿Qué información conviene obtener antes de aplicar una solución?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la solución que funcionó en un equipo distinto"
+            },
+            {
+              "id": "b",
+              "text": "Una lista de contraseñas de todos los usuarios"
+            },
+            {
+              "id": "c",
+              "text": "La confirmación de una causa antes de observar"
+            },
+            {
+              "id": "d",
+              "text": "Síntoma preciso, alcance, hora, cambios recientes y configuración relevante"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El contexto distingue un problema aislado de una incidencia compartida.",
+          "reference": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/troubleshoot-tcp-ip-communication-guidance"
+        },
+        {
+          "id": "w16d1-q07",
+          "prompt": "Dos usuarios fallan y otros diez funcionan con el mismo servicio. ¿Qué comparación es útil?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambiar todos los servidores sin comparar clientes"
+            },
+            {
+              "id": "b",
+              "text": "Configuración y condiciones de los equipos afectados frente a los sanos"
+            },
+            {
+              "id": "c",
+              "text": "Afirmar que la red completa está caída"
+            },
+            {
+              "id": "d",
+              "text": "Ignorar las diferencias porque todos son usuarios"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Comparar casos similares ayuda a localizar la variable que explica el alcance.",
+          "reference": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/troubleshoot-tcp-ip-communication-guidance"
+        },
+        {
+          "id": "w16d1-q08",
+          "prompt": "¿Qué debe incluir el cierre de una incidencia resuelta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Evidencia de la causa, cambio aplicado, prueba posterior y límites de la conclusión"
+            },
+            {
+              "id": "b",
+              "text": "Solo la frase ya funciona"
+            },
+            {
+              "id": "c",
+              "text": "La eliminación de registros de la incidencia"
+            },
+            {
+              "id": "d",
+              "text": "La sustitución de toda la configuración sin historial"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Resolver y validar son acciones distintas que deben quedar documentadas.",
+          "reference": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/troubleshoot-tcp-ip-communication-guidance"
+        }
+      ],
+      "challenge": {
+        "id": "w16d1-challenge",
+        "prompt": "Caso: un cliente tiene enlace y llega al gateway, pero la aplicación no abre. ¿Qué procedimiento sigue una secuencia de diagnóstico útil?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Reinstalar inmediatamente todos los componentes"
+          },
+          {
+            "id": "b",
+            "text": "Probar resolución, ruta posterior y servicio, conservando resultados antes de cambiar opciones"
+          },
+          {
+            "id": "c",
+            "text": "Afirmar que el gateway garantiza toda la aplicación"
+          },
+          {
+            "id": "d",
+            "text": "Desactivar controles sin registrar el estado anterior"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "El diagnóstico avanza con pruebas que acotan capas y posibles causas.",
+        "reference": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/troubleshoot-tcp-ip-communication-guidance"
+      }
+    },
+    {
+      "dayId": "w16d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w16d2-q01",
+          "prompt": "En Ethernet normal, un host 192.168.50.25/24 tiene gateway 192.168.60.1 sin rutas especiales. ¿Qué revisarías?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el gateway configurado no pertenece a su subred local"
+            },
+            {
+              "id": "b",
+              "text": "Que el puerto HTTPS no es 443"
+            },
+            {
+              "id": "c",
+              "text": "Que todo gateway debe terminar en .254"
+            },
+            {
+              "id": "d",
+              "text": "Que la dirección MAC debe coincidir con la IP"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El siguiente salto debe ser alcanzable conforme al diseño y a las rutas.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+        },
+        {
+          "id": "w16d2-q02",
+          "prompt": "Un host 192.168.20.10/24 necesita llegar a 192.168.21.10. ¿Qué indica la máscara sobre ese destino?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Siempre es vecino directo porque ambos empiezan por 192.168"
+            },
+            {
+              "id": "b",
+              "text": "Es la misma dirección de host con otro puerto"
+            },
+            {
+              "id": "c",
+              "text": "Es una dirección de bucle local"
+            },
+            {
+              "id": "d",
+              "text": "Está fuera de su subred y requiere una ruta apropiada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La máscara y el prefijo, no solo los primeros números parecidos, determinan pertenencia.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+        },
+        {
+          "id": "w16d2-q03",
+          "prompt": "Un equipo muestra una dirección 169.254.x.x inesperada en vez de su configuración DHCP habitual. ¿Qué investigas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que cualquier dirección 169.254 demuestra un ataque"
+            },
+            {
+              "id": "b",
+              "text": "Si consiguió una concesión válida y si alcanza la infraestructura esperada"
+            },
+            {
+              "id": "c",
+              "text": "Que DNS asignó obligatoriamente esa dirección pública"
+            },
+            {
+              "id": "d",
+              "text": "Que es una sesión VPN autenticada"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una dirección local de enlace inesperada orienta hacia la configuración y el proceso DHCP.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/networking/dns/troubleshoot/troubleshoot-dns-client"
+        },
+        {
+          "id": "w16d2-q04",
+          "prompt": "La IP estática recién asignada coincide con la de otro host. ¿Qué tipo de problema sospechas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una clave TLS caducada por definición"
+            },
+            {
+              "id": "b",
+              "text": "Una resolución DNS inversa siempre correcta"
+            },
+            {
+              "id": "c",
+              "text": "Un aumento automático de capacidad del enlace"
+            },
+            {
+              "id": "d",
+              "text": "Un conflicto de direcciones que requiere corregir la asignación"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las direcciones deben asignarse de forma consistente y sin conflictos.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+        },
+        {
+          "id": "w16d2-q05",
+          "prompt": "¿Qué configuración permite al equipo decidir si un destino pertenece a su red directamente conectada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el nombre del usuario autenticado"
+            },
+            {
+              "id": "b",
+              "text": "Dirección IP y prefijo o máscara de la interfaz"
+            },
+            {
+              "id": "c",
+              "text": "Solo el puerto de destino de la aplicación"
+            },
+            {
+              "id": "d",
+              "text": "La lista de cookies del navegador"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El prefijo identifica el alcance de la red conectada.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+        },
+        {
+          "id": "w16d2-q06",
+          "prompt": "En 192.168.1.70/26, ¿cuál es la dirección de red de esa subred IPv4?",
+          "options": [
+            {
+              "id": "a",
+              "text": "192.168.1.0"
+            },
+            {
+              "id": "b",
+              "text": "192.168.1.64"
+            },
+            {
+              "id": "c",
+              "text": "192.168.1.70"
+            },
+            {
+              "id": "d",
+              "text": "192.168.1.128"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un /26 divide el último octeto en bloques de 64; 70 pertenece al bloque que comienza en 64.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+        },
+        {
+          "id": "w16d2-q07",
+          "prompt": "El tráfico local funciona, pero destinos de otras redes no. ¿Qué dato de configuración merece revisión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la extensión del archivo que se descarga"
+            },
+            {
+              "id": "b",
+              "text": "Una supuesta contraseña guardada en la máscara"
+            },
+            {
+              "id": "c",
+              "text": "Gateway y tabla de rutas para los destinos remotos"
+            },
+            {
+              "id": "d",
+              "text": "El código de respuesta HTTP de un servidor que no se alcanzó"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La comunicación remota depende de seleccionar un siguiente salto adecuado.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+        },
+        {
+          "id": "w16d2-q08",
+          "prompt": "Cambias una máscara errónea y la conexión funciona. ¿Qué validación completa mejor el caso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Borrar las pruebas anteriores porque ya no importan"
+            },
+            {
+              "id": "b",
+              "text": "Comprobar destinos previstos, registrar configuración final y confirmar que no se alteró otro acceso"
+            },
+            {
+              "id": "c",
+              "text": "Afirmar que ninguna otra aplicación podrá fallar"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar todas las rutas restantes"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La corrección debe demostrar el resultado esperado y documentar su alcance.",
+          "reference": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/troubleshoot-tcp-ip-communication-guidance"
+        }
+      ],
+      "challenge": {
+        "id": "w16d2-challenge",
+        "prompt": "Caso: un cliente 10.20.30.40/24 tiene gateway 10.20.31.1 en Ethernet sin rutas especiales. ¿Qué hallazgo debes validar?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que ambos pertenecen a la misma subred por empezar con 10"
+          },
+          {
+            "id": "b",
+            "text": "Que todo gateway puede alcanzarse sin enlace ni ruta"
+          },
+          {
+            "id": "c",
+            "text": "Que el número del puerto de aplicación corrige la máscara"
+          },
+          {
+            "id": "d",
+            "text": "El siguiente salto configurado no está en la subred local esperada"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La coherencia entre dirección, prefijo y siguiente salto es esencial para la conectividad remota.",
+        "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+      }
+    },
+    {
+      "dayId": "w16d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w16d3-q01",
+          "prompt": "Una aplicación alcanza una IP de laboratorio, pero falla al usar su nombre. ¿Qué hipótesis priorizas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un enlace físico necesariamente desconectado"
+            },
+            {
+              "id": "b",
+              "text": "Un problema de resolución o del nombre usado, que debe comprobarse"
+            },
+            {
+              "id": "c",
+              "text": "Una garantía de que el servidor HTTP está sano"
+            },
+            {
+              "id": "d",
+              "text": "La necesidad de quitar toda autenticación"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El contraste entre IP y nombre orienta la investigación, sin probar por sí solo toda la causa.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/networking/dns/troubleshoot/troubleshoot-dns-client"
+        },
+        {
+          "id": "w16d3-q02",
+          "prompt": "¿Qué permite consultar nslookup nombre servidorDNS en una práctica controlada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El contenido descifrado de la sesión web posterior"
+            },
+            {
+              "id": "b",
+              "text": "La política completa de todos los firewalls intermedios"
+            },
+            {
+              "id": "c",
+              "text": "La respuesta del servidor DNS especificado para ese nombre"
+            },
+            {
+              "id": "d",
+              "text": "La contraseña con la que el nombre se registró"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Elegir explícitamente el servidor permite comparar rutas de resolución.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/networking/dns/troubleshoot/troubleshoot-dns-client"
+        },
+        {
+          "id": "w16d3-q03",
+          "prompt": "¿Qué distingue NXDOMAIN de un tiempo de espera de consulta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ambos prueban siempre que el servidor está apagado"
+            },
+            {
+              "id": "b",
+              "text": "NXDOMAIN significa que una sesión TCP web se autenticó"
+            },
+            {
+              "id": "c",
+              "text": "Un tiempo de espera confirma que el nombre no existe"
+            },
+            {
+              "id": "d",
+              "text": "NXDOMAIN es una respuesta de inexistencia del nombre; el tiempo de espera no aporta esa respuesta"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El tipo de resultado acota el diagnóstico entre contenido DNS y falta de respuesta.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/networking/dns/troubleshoot/troubleshoot-dns-client"
+        },
+        {
+          "id": "w16d3-q04",
+          "prompt": "Un servidor DNS responde a otros clientes, pero no al equipo afectado. ¿Qué comprobarías?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la respuesta de otro cliente, suponiendo idéntica configuración"
+            },
+            {
+              "id": "b",
+              "text": "Configuración del cliente y acceso hacia ese resolver"
+            },
+            {
+              "id": "c",
+              "text": "Que el dominio debe ser necesariamente inexistente"
+            },
+            {
+              "id": "d",
+              "text": "La reinstalación de todos los servidores de correo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El alcance del síntoma ayuda a enfocar el origen o camino afectado.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/networking/dns/troubleshoot/troubleshoot-dns-client"
+        },
+        {
+          "id": "w16d3-q05",
+          "prompt": "¿Por qué debes registrar qué servidor respondió una consulta DNS?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Clientes distintos pueden usar resolutores con datos o políticas diferentes"
+            },
+            {
+              "id": "b",
+              "text": "Todos los servidores devuelven siempre respuestas idénticas"
+            },
+            {
+              "id": "c",
+              "text": "La dirección del resolver demuestra quién es el usuario"
+            },
+            {
+              "id": "d",
+              "text": "El registro DNS contiene obligatoriamente el puerto del servidor web"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La procedencia de la respuesta importa para interpretar diferencias.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/networking/dns/troubleshoot/troubleshoot-dns-client"
+        },
+        {
+          "id": "w16d3-q06",
+          "prompt": "Una aplicación conserva una respuesta antigua tras un cambio DNS. ¿Qué elemento debes considerar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cachés y tiempo de vida, junto con la respuesta actual del resolver"
+            },
+            {
+              "id": "b",
+              "text": "Solo el estado TCP del navegador, sin revisar la resolución usada"
+            },
+            {
+              "id": "c",
+              "text": "La sustitución obligatoria de todo TCP por UDP"
+            },
+            {
+              "id": "d",
+              "text": "Que reiniciar cualquier equipo confirma la causa"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El diagnóstico compara información almacenada y respuestas actuales antes de cambiar configuraciones.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/networking/dns/troubleshoot/troubleshoot-dns-client"
+        },
+        {
+          "id": "w16d3-q07",
+          "prompt": "Una consulta DNS por UDP falla y otra por TCP funciona desde el mismo laboratorio. ¿Qué examinarías?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una regla que prohíbe que DNS use TCP en cualquier caso"
+            },
+            {
+              "id": "b",
+              "text": "Que ambos resultados son técnicamente imposibles"
+            },
+            {
+              "id": "c",
+              "text": "Diferencias de ruta o filtrado por transporte y puerto"
+            },
+            {
+              "id": "d",
+              "text": "Solo el nombre consultado, ignorando la diferencia de transporte"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "DNS puede usar ambos transportes y sus caminos efectivos pueden diferir.",
+          "reference": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml"
+        },
+        {
+          "id": "w16d3-q08",
+          "prompt": "¿Qué evidencia evita diagnosticar DNS únicamente por intuición?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo que el usuario diga que Internet está lento"
+            },
+            {
+              "id": "b",
+              "text": "La dirección IP de cualquier equipo no relacionado"
+            },
+            {
+              "id": "c",
+              "text": "Nombre consultado, tipo de registro, resolver, hora y respuesta o error"
+            },
+            {
+              "id": "d",
+              "text": "Una captura sin la consulta correspondiente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La información concreta permite reproducir y comparar la resolución.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/networking/dns/troubleshoot/troubleshoot-dns-client"
+        }
+      ],
+      "challenge": {
+        "id": "w16d3-challenge",
+        "prompt": "Caso: el nombre falla con el resolver A y funciona con el resolver B autorizado. ¿Qué informe evita un diagnóstico excesivo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Afirmar que cualquier respuesta de B demuestra una infección en A"
+          },
+          {
+            "id": "b",
+            "text": "Cambiar todos los equipos sin conservar las consultas"
+          },
+          {
+            "id": "c",
+            "text": "Concluir que TCP no funciona en ningún destino"
+          },
+          {
+            "id": "d",
+            "text": "Documentar ambas consultas y revisar diferencias de datos, políticas o alcance antes de atribuir la causa"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "El contraste aporta evidencia concreta, pero todavía requiere localizar qué diferencia produce el resultado.",
+        "reference": "https://learn.microsoft.com/en-us/windows-server/networking/dns/troubleshoot/troubleshoot-dns-client"
+      }
+    },
+    {
+      "dayId": "w16d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w16d4-q01",
+          "prompt": "Un host responde a ping, pero TCP/8443 no conecta. ¿Qué debe comprobarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Servicio en escucha, puerto, enlace de interfaz y controles de acceso"
+            },
+            {
+              "id": "b",
+              "text": "Que ping pruebe necesariamente el éxito de TLS"
+            },
+            {
+              "id": "c",
+              "text": "Que el nombre DNS ya no importa en ninguna aplicación"
+            },
+            {
+              "id": "d",
+              "text": "Que el host esté obligatoriamente apagado"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La conectividad ICMP y la disponibilidad de un servicio TCP son comprobaciones distintas.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/nettcpip/test-netconnection"
+        },
+        {
+          "id": "w16d4-q02",
+          "prompt": "¿Qué valida principalmente Test-NetConnection servidor -Port 443 cuando informa TcpTestSucceeded?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que todas las páginas de la aplicación funcionan"
+            },
+            {
+              "id": "b",
+              "text": "Que pudo establecer esa conexión TCP desde ese punto de prueba"
+            },
+            {
+              "id": "c",
+              "text": "Que las credenciales del usuario fueron aceptadas"
+            },
+            {
+              "id": "d",
+              "text": "Que el contenido del sitio es legítimo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La prueba de transporte no ejecuta todas las acciones de la aplicación.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/nettcpip/test-netconnection"
+        },
+        {
+          "id": "w16d4-q03",
+          "prompt": "El proceso escucha solo en 127.0.0.1:8080 y la prueba remota falla. ¿Qué ajuste debe revisarse según el diseño autorizado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El valor de la cookie del navegador remoto como única causa"
+            },
+            {
+              "id": "b",
+              "text": "La dirección a la que el servicio está enlazado"
+            },
+            {
+              "id": "c",
+              "text": "La longitud del archivo de captura"
+            },
+            {
+              "id": "d",
+              "text": "La contraseña de una impresora no relacionada"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un servicio enlazado al bucle local no se publica en otras interfaces.",
+          "reference": "https://man7.org/linux/man-pages/man8/ss.8.html"
+        },
+        {
+          "id": "w16d4-q04",
+          "prompt": "La conexión TCP se establece, pero HTTP devuelve 401. ¿Qué investigación corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El mecanismo de autenticación y las credenciales autorizadas"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar el cable porque no hubo comunicación"
+            },
+            {
+              "id": "c",
+              "text": "Abrir todos los puertos del servidor"
+            },
+            {
+              "id": "d",
+              "text": "Concluir que el servidor DNS nunca respondió"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La aplicación ya emitió una respuesta; el siguiente paso depende de su significado.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status"
+        },
+        {
+          "id": "w16d4-q05",
+          "prompt": "¿Qué prueba diferencia mejor un firewall del servidor de un proceso detenido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Observar únicamente que la página no carga"
+            },
+            {
+              "id": "b",
+              "text": "Contrastar registros del firewall y la escucha local con pruebas autorizadas"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar DNS y declarar resuelto el proceso"
+            },
+            {
+              "id": "d",
+              "text": "Desactivar todos los controles de forma permanente"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Combinar evidencias de servicio y filtrado reduce diagnósticos por descarte indiscriminado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w16d4-q06",
+          "prompt": "Una aplicación devuelve 503 después de completar TCP y TLS. ¿Qué capa requiere atención principal?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un supuesto fallo seguro del cable del cliente"
+            },
+            {
+              "id": "b",
+              "text": "La disponibilidad y dependencias del servicio de aplicación"
+            },
+            {
+              "id": "c",
+              "text": "La asignación automática de una nueva MAC al servidor"
+            },
+            {
+              "id": "d",
+              "text": "La inexistencia necesaria de una ruta IP"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las capas inferiores funcionaron lo suficiente para recibir la respuesta de aplicación.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status"
+        },
+        {
+          "id": "w16d4-q07",
+          "prompt": "Un usuario obtiene acceso y otro recibe un rechazo con la misma URL. ¿Qué variable merece comparación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo que ambos alcancen la misma IP, suponiendo permisos idénticos"
+            },
+            {
+              "id": "b",
+              "text": "La prohibición de usar TCP entre usuarios distintos"
+            },
+            {
+              "id": "c",
+              "text": "El cambio aleatorio de puerto sin revisar credenciales"
+            },
+            {
+              "id": "d",
+              "text": "Identidad, permisos y estado de sesión, además del contexto de conexión"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una diferencia de autorización puede explicar resultados distintos en un servicio accesible.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Cookies"
+        },
+        {
+          "id": "w16d4-q08",
+          "prompt": "Tras iniciar un proceso que estaba detenido, ¿qué validación completa el diagnóstico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dar por buenas todas las operaciones por ver el PID"
+            },
+            {
+              "id": "b",
+              "text": "Confirmar la escucha y probar la operación prevista desde el cliente autorizado"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar el registro del error original"
+            },
+            {
+              "id": "d",
+              "text": "Suponer que cualquier cliente de cualquier zona debe poder entrar"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La existencia del proceso no sustituye la comprobación del servicio desde el punto de uso.",
+          "reference": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/troubleshoot-tcp-ip-communication-guidance"
+        }
+      ],
+      "challenge": {
+        "id": "w16d4-challenge",
+        "prompt": "Caso: el cliente alcanza el servidor por IP; TCP/8080 falla; el servidor no muestra ningún proceso escuchando ese puerto. ¿Qué causa está más apoyada?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Un fallo seguro del certificado TLS del navegador"
+          },
+          {
+            "id": "b",
+            "text": "Ausencia de la escucha esperada, que debe confirmarse con la configuración del servicio"
+          },
+          {
+            "id": "c",
+            "text": "Una consulta DNS inexistente como única explicación"
+          },
+          {
+            "id": "d",
+            "text": "Un supuesto fallo exclusivo de DNS aunque se use una IP conocida"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La observación local del servicio explica un fallo de transporte sin inventar un error de autenticación.",
+        "reference": "https://learn.microsoft.com/en-us/powershell/module/nettcpip/test-netconnection"
+      }
+    },
+    {
+      "dayId": "w16d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w16d5-q01",
+          "prompt": "¿Qué datos necesitas para seleccionar una conversación concreta de una captura?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Direcciones, puertos, protocolo e intervalo relevante"
+            },
+            {
+              "id": "b",
+              "text": "Únicamente el tamaño de paquete, ignorando los extremos"
+            },
+            {
+              "id": "c",
+              "text": "Solo el número total de paquetes del archivo"
+            },
+            {
+              "id": "d",
+              "text": "La conclusión del informe anterior"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Acotar la conversación ayuda a no mezclar flujos distintos.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChStatConversations.html"
+        },
+        {
+          "id": "w16d5-q02",
+          "prompt": "Quieres ver IPv4 originado por 192.0.2.15. ¿Qué filtro de visualización corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "ip.dst == 192.0.2.15 como equivalente de origen"
+            },
+            {
+              "id": "b",
+              "text": "ip.src == 192.0.2.15"
+            },
+            {
+              "id": "c",
+              "text": "tcp.port == 192.0.2.15"
+            },
+            {
+              "id": "d",
+              "text": "host == tcp"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Origen y destino son campos distintos del paquete.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkBuildDisplayFilterSection.html"
+        },
+        {
+          "id": "w16d5-q03",
+          "prompt": "En una captura, DNS responde primero, después hay SYN y SYN-ACK y luego datos TLS. ¿Qué secuencia puedes describir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que la persona autenticó correctamente su cuenta bancaria"
+            },
+            {
+              "id": "b",
+              "text": "Resolución observada, establecimiento TCP observado e intercambio protegido observado"
+            },
+            {
+              "id": "c",
+              "text": "Que todo dato transferido era necesariamente benigno"
+            },
+            {
+              "id": "d",
+              "text": "Que TLS se ejecutó antes de que existieran los paquetes registrados"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La secuencia documenta hechos visibles sin inventar contenido o acciones humanas.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security"
+        },
+        {
+          "id": "w16d5-q04",
+          "prompt": "La ventana capturada dura dos segundos y no contiene el cierre TCP. ¿Qué debes aclarar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La conexión es necesariamente un túnel malicioso"
+            },
+            {
+              "id": "b",
+              "text": "El servidor no puede cerrar conexiones TCP"
+            },
+            {
+              "id": "c",
+              "text": "El cierre puede haber quedado fuera del intervalo"
+            },
+            {
+              "id": "d",
+              "text": "Todos los paquetes anteriores deben descartarse"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El alcance temporal limita las conclusiones sobre el ciclo completo.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkTimeFormatsSection.html"
+        },
+        {
+          "id": "w16d5-q05",
+          "prompt": "¿Qué diferencia entre filtro y ausencia real de un paquete importa en un caso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un filtro de visualización captura tráfico nuevo del pasado"
+            },
+            {
+              "id": "b",
+              "text": "Un filtro puede ocultar un paquete que sí está en el archivo"
+            },
+            {
+              "id": "c",
+              "text": "Quitar un filtro cambia los paquetes originales del emisor"
+            },
+            {
+              "id": "d",
+              "text": "Todo paquete que no se ve fue necesariamente borrado"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Comprobar filtros evita atribuir a la red una limitación de la vista.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkBuildDisplayFilterSection.html"
+        },
+        {
+          "id": "w16d5-q06",
+          "prompt": "Dos registros tienen el mismo reloj mostrado, pero distintas zonas horarias. ¿Qué corrección necesitas antes de correlacionarlos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eliminar uno de los registros sin revisar"
+            },
+            {
+              "id": "b",
+              "text": "Tratar las horas como idénticas por su apariencia"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar las IP para que coincidan"
+            },
+            {
+              "id": "d",
+              "text": "Alinear o explicar las referencias temporales"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La presentación de la hora no siempre representa el mismo instante.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkTimeFormatsSection.html"
+        },
+        {
+          "id": "w16d5-q07",
+          "prompt": "Una columna muestra bytes y otra fuente informa bits por segundo. ¿Qué debes hacer al compararlas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Considerar unidades e intervalo de medida antes de calcular"
+            },
+            {
+              "id": "b",
+              "text": "Sumar los números sin convertir unidades"
+            },
+            {
+              "id": "c",
+              "text": "Interpretar ambos valores como cantidad de usuarios"
+            },
+            {
+              "id": "d",
+              "text": "Concluir que el valor mayor representa un ataque"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las comparaciones necesitan magnitudes y ventanas temporales compatibles.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChStatConversations.html"
+        },
+        {
+          "id": "w16d5-q08",
+          "prompt": "¿Qué resultado hace más sólido un caso de captura?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Paquetes y filtros reproducibles vinculados a una hipótesis contrastada"
+            },
+            {
+              "id": "b",
+              "text": "Solo una gráfica agregada sin paquetes, filtros ni referencia temporal"
+            },
+            {
+              "id": "c",
+              "text": "Un diagnóstico categórico sin límites"
+            },
+            {
+              "id": "d",
+              "text": "La omisión de paquetes que ofrecen otra explicación"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un buen análisis permite comprobar tanto observaciones como razonamiento.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkTimeFormatsSection.html"
+        }
+      ],
+      "challenge": {
+        "id": "w16d5-challenge",
+        "prompt": "Caso: una captura omite el establecimiento TCP porque empezó tarde. ¿Cómo lo reflejas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Indicar que esa fase no fue observada y limitar las conclusiones sobre ella"
+          },
+          {
+            "id": "b",
+            "text": "Presentar un establecimiento inventado como si estuviera capturado"
+          },
+          {
+            "id": "c",
+            "text": "Dar por inválido todo flujo posterior"
+          },
+          {
+            "id": "d",
+            "text": "Afirmar que el usuario nunca se conectó"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "El informe debe diferenciar ausencia de evidencia en la ventana y ausencia real del hecho.",
+        "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkTimeFormatsSection.html"
+      }
+    },
+    {
+      "dayId": "w16d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w16d6-q01",
+          "prompt": "Tras fallar un ejercicio de subredes, ¿qué refuerzo demuestra aprendizaje mejor que repetir la misma respuesta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Memorizar únicamente el número que era correcto"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar el nombre de la interfaz sin razonar"
+            },
+            {
+              "id": "c",
+              "text": "Resolver un prefijo nuevo y explicar cómo obtiene red, rango y siguiente salto"
+            },
+            {
+              "id": "d",
+              "text": "Repetir el intento mirando la solución completa"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Variar los datos comprueba que se entiende el procedimiento, no solo la respuesta.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+        },
+        {
+          "id": "w16d6-q02",
+          "prompt": "Un caso parece de DNS. ¿Qué comparación permite poner a prueba esa hipótesis?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambiar todos los controles y esperar que funcione"
+            },
+            {
+              "id": "b",
+              "text": "Contrastar resolución explícita y acceso al servicio por una dirección autorizada conocida"
+            },
+            {
+              "id": "c",
+              "text": "Mirar solo el nombre del navegador"
+            },
+            {
+              "id": "d",
+              "text": "Declarar resuelto DNS porque el enlace físico está activo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las pruebas deben discriminar entre las causas que se están considerando.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/networking/dns/troubleshoot/troubleshoot-dns-client"
+        },
+        {
+          "id": "w16d6-q03",
+          "prompt": "El alumno cree que un puerto habitual confirma un servicio seguro. ¿Qué ejercicio corrige esa confusión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Comparar puerto, proceso, configuración y validación del protocolo en un laboratorio"
+            },
+            {
+              "id": "b",
+              "text": "Memorizar más números sin analizar el proceso"
+            },
+            {
+              "id": "c",
+              "text": "Usar solo el tamaño del paquete como identidad"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar el registro del proceso para simplificar el caso"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un puerto orienta el análisis, pero no certifica legitimidad ni cifrado.",
+          "reference": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml"
+        },
+        {
+          "id": "w16d6-q04",
+          "prompt": "¿Qué práctica comprueba mejor que entiendes las reglas de segmentación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Probar solo el flujo que sabes que funciona"
+            },
+            {
+              "id": "b",
+              "text": "Permitir todo para que desaparezcan los errores"
+            },
+            {
+              "id": "c",
+              "text": "Ensayar un flujo permitido y otro rechazado, con reglas y resultados documentados"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar la dirección del cliente después de cada prueba sin anotarlo"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La validación incluye el límite que pretende imponer el control.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w16d6-q05",
+          "prompt": "Un resultado HTTP confunde al alumno con un fallo de cable. ¿Qué debería explicar al repasar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que todos los errores visibles son físicos"
+            },
+            {
+              "id": "b",
+              "text": "Que 404 y falta de enlace significan siempre lo mismo"
+            },
+            {
+              "id": "c",
+              "text": "Qué capa respondió y qué hipótesis de capas inferiores quedan menos apoyadas"
+            },
+            {
+              "id": "d",
+              "text": "Que un navegador no utiliza protocolos de aplicación"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Relacionar el síntoma con su capa mejora la selección de la siguiente prueba.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status"
+        },
+        {
+          "id": "w16d6-q06",
+          "prompt": "¿Qué registro de errores personales resulta útil para reforzar redes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo una puntuación sin el tema que falló"
+            },
+            {
+              "id": "b",
+              "text": "Una lista de respuestas para copiar en el próximo intento"
+            },
+            {
+              "id": "c",
+              "text": "El número de veces que abrió la pantalla"
+            },
+            {
+              "id": "d",
+              "text": "Concepto confundido, evidencia, explicación correcta y nueva prueba"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El refuerzo efectivo conserva la causa del error y una forma de comprobar su corrección.",
+          "reference": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/troubleshoot-tcp-ip-communication-guidance"
+        },
+        {
+          "id": "w16d6-q07",
+          "prompt": "Una solución funcionó una vez, pero no puedes explicar por qué. ¿Cuál es el siguiente paso razonable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Repetir una prueba controlada y relacionar el cambio con evidencias"
+            },
+            {
+              "id": "b",
+              "text": "Aplicarla a todas las redes sin permiso"
+            },
+            {
+              "id": "c",
+              "text": "Ocultar que la causa sigue siendo una hipótesis"
+            },
+            {
+              "id": "d",
+              "text": "Declarar que el problema nunca podrá reaparecer"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un resultado aislado no basta para establecer una explicación general.",
+          "reference": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/troubleshoot-tcp-ip-communication-guidance"
+        },
+        {
+          "id": "w16d6-q08",
+          "prompt": "¿Qué habilidad integra mejor el cierre de la etapa de redes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Explicar causa probable, evidencia, cambio y validación con sus límites"
+            },
+            {
+              "id": "b",
+              "text": "Recitar comandos sin interpretar sus resultados"
+            },
+            {
+              "id": "c",
+              "text": "Aplicar siempre el mismo arreglo a todo síntoma"
+            },
+            {
+              "id": "d",
+              "text": "Elegir TCP o UDP solo según su popularidad"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La competencia consiste en razonar sobre resultados y validar acciones autorizadas.",
+          "reference": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/troubleshoot-tcp-ip-communication-guidance"
+        }
+      ],
+      "challenge": {
+        "id": "w16d6-challenge",
+        "prompt": "Caso: fallas en máscaras, DNS y reglas de firewall. ¿Qué plan de refuerzo es más comprobable?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Tres repeticiones de las mismas respuestas sin explicación"
+          },
+          {
+            "id": "b",
+            "text": "Abrir todos los puertos para que las pruebas pasen"
+          },
+          {
+            "id": "c",
+            "text": "Un ejercicio nuevo de cada tema con razonamiento, resultado y criterios de validación"
+          },
+          {
+            "id": "d",
+            "text": "Estudiar solo el tema que ya dominas"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "Los ejercicios nuevos ayudan a comprobar transferencia del conocimiento y no mera memorización.",
+        "reference": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/troubleshoot-tcp-ip-communication-guidance"
+      }
+    },
+    {
+      "dayId": "w16d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w16d7-q01",
+          "prompt": "Un portátil de laboratorio no abre una aplicación remota. ¿Qué estrategia inicial evita cambios innecesarios?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambiar simultáneamente DNS, IP, firewall y aplicación"
+            },
+            {
+              "id": "b",
+              "text": "Reinstalar todo antes de registrar el síntoma"
+            },
+            {
+              "id": "c",
+              "text": "Concluir que es malware por no cargar una página"
+            },
+            {
+              "id": "d",
+              "text": "Comprobar por etapas enlace, configuración IP, ruta, nombres y servicio"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El diagnóstico por capas reduce conjeturas y conserva evidencias.",
+          "reference": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/troubleshoot-tcp-ip-communication-guidance",
+          "reviewOf": "w16d1-q01"
+        },
+        {
+          "id": "w16d7-q02",
+          "prompt": "En Ethernet normal, un host 192.168.50.25/24 tiene gateway 192.168.60.1 sin rutas especiales. ¿Qué revisarías?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el gateway configurado no pertenece a su subred local"
+            },
+            {
+              "id": "b",
+              "text": "Que el puerto HTTPS no es 443"
+            },
+            {
+              "id": "c",
+              "text": "Que todo gateway debe terminar en .254"
+            },
+            {
+              "id": "d",
+              "text": "Que la dirección MAC debe coincidir con la IP"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El siguiente salto debe ser alcanzable conforme al diseño y a las rutas.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html",
+          "reviewOf": "w16d2-q01"
+        },
+        {
+          "id": "w16d7-q03",
+          "prompt": "Una aplicación alcanza una IP de laboratorio, pero falla al usar su nombre. ¿Qué hipótesis priorizas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un enlace físico necesariamente desconectado"
+            },
+            {
+              "id": "b",
+              "text": "Un problema de resolución o del nombre usado, que debe comprobarse"
+            },
+            {
+              "id": "c",
+              "text": "Una garantía de que el servidor HTTP está sano"
+            },
+            {
+              "id": "d",
+              "text": "La necesidad de quitar toda autenticación"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El contraste entre IP y nombre orienta la investigación, sin probar por sí solo toda la causa.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/networking/dns/troubleshoot/troubleshoot-dns-client",
+          "reviewOf": "w16d3-q01"
+        },
+        {
+          "id": "w16d7-q04",
+          "prompt": "Un host responde a ping, pero TCP/8443 no conecta. ¿Qué debe comprobarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Servicio en escucha, puerto, enlace de interfaz y controles de acceso"
+            },
+            {
+              "id": "b",
+              "text": "Que ping pruebe necesariamente el éxito de TLS"
+            },
+            {
+              "id": "c",
+              "text": "Que el nombre DNS ya no importa en ninguna aplicación"
+            },
+            {
+              "id": "d",
+              "text": "Que el host esté obligatoriamente apagado"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La conectividad ICMP y la disponibilidad de un servicio TCP son comprobaciones distintas.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/nettcpip/test-netconnection",
+          "reviewOf": "w16d4-q01"
+        },
+        {
+          "id": "w16d7-q05",
+          "prompt": "¿Qué datos necesitas para seleccionar una conversación concreta de una captura?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Direcciones, puertos, protocolo e intervalo relevante"
+            },
+            {
+              "id": "b",
+              "text": "Únicamente el tamaño de paquete, ignorando los extremos"
+            },
+            {
+              "id": "c",
+              "text": "Solo el número total de paquetes del archivo"
+            },
+            {
+              "id": "d",
+              "text": "La conclusión del informe anterior"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Acotar la conversación ayuda a no mezclar flujos distintos.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChStatConversations.html",
+          "reviewOf": "w16d5-q01"
+        },
+        {
+          "id": "w16d7-q06",
+          "prompt": "Tras fallar un ejercicio de subredes, ¿qué refuerzo demuestra aprendizaje mejor que repetir la misma respuesta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Memorizar únicamente el número que era correcto"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar el nombre de la interfaz sin razonar"
+            },
+            {
+              "id": "c",
+              "text": "Resolver un prefijo nuevo y explicar cómo obtiene red, rango y siguiente salto"
+            },
+            {
+              "id": "d",
+              "text": "Repetir el intento mirando la solución completa"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Variar los datos comprueba que se entiende el procedimiento, no solo la respuesta.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html",
+          "reviewOf": "w16d6-q01"
+        },
+        {
+          "id": "w16d7-q07",
+          "prompt": "El indicador físico de enlace está activo. ¿Qué demuestra por sí solo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una condición de enlace, no el funcionamiento de todas las capas superiores"
+            },
+            {
+              "id": "b",
+              "text": "Que DNS responde correctamente"
+            },
+            {
+              "id": "c",
+              "text": "Que toda aplicación remota acepta credenciales"
+            },
+            {
+              "id": "d",
+              "text": "Que el servidor tiene espacio disponible"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Cada prueba demuestra un aspecto concreto de la comunicación.",
+          "reference": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/troubleshoot-tcp-ip-communication-guidance",
+          "reviewOf": "w16d1-q02"
+        },
+        {
+          "id": "w16d7-q08",
+          "prompt": "Un host 192.168.20.10/24 necesita llegar a 192.168.21.10. ¿Qué indica la máscara sobre ese destino?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Siempre es vecino directo porque ambos empiezan por 192.168"
+            },
+            {
+              "id": "b",
+              "text": "Es la misma dirección de host con otro puerto"
+            },
+            {
+              "id": "c",
+              "text": "Es una dirección de bucle local"
+            },
+            {
+              "id": "d",
+              "text": "Está fuera de su subred y requiere una ruta apropiada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La máscara y el prefijo, no solo los primeros números parecidos, determinan pertenencia.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html",
+          "reviewOf": "w16d2-q02"
+        },
+        {
+          "id": "w16d7-q09",
+          "prompt": "¿Qué permite consultar nslookup nombre servidorDNS en una práctica controlada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El contenido descifrado de la sesión web posterior"
+            },
+            {
+              "id": "b",
+              "text": "La política completa de todos los firewalls intermedios"
+            },
+            {
+              "id": "c",
+              "text": "La respuesta del servidor DNS especificado para ese nombre"
+            },
+            {
+              "id": "d",
+              "text": "La contraseña con la que el nombre se registró"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Elegir explícitamente el servidor permite comparar rutas de resolución.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/networking/dns/troubleshoot/troubleshoot-dns-client",
+          "reviewOf": "w16d3-q02"
+        },
+        {
+          "id": "w16d7-q10",
+          "prompt": "¿Qué valida principalmente Test-NetConnection servidor -Port 443 cuando informa TcpTestSucceeded?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que todas las páginas de la aplicación funcionan"
+            },
+            {
+              "id": "b",
+              "text": "Que pudo establecer esa conexión TCP desde ese punto de prueba"
+            },
+            {
+              "id": "c",
+              "text": "Que las credenciales del usuario fueron aceptadas"
+            },
+            {
+              "id": "d",
+              "text": "Que el contenido del sitio es legítimo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La prueba de transporte no ejecuta todas las acciones de la aplicación.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/nettcpip/test-netconnection",
+          "reviewOf": "w16d4-q02"
+        },
+        {
+          "id": "w16d7-q11",
+          "prompt": "Quieres ver IPv4 originado por 192.0.2.15. ¿Qué filtro de visualización corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "ip.dst == 192.0.2.15 como equivalente de origen"
+            },
+            {
+              "id": "b",
+              "text": "ip.src == 192.0.2.15"
+            },
+            {
+              "id": "c",
+              "text": "tcp.port == 192.0.2.15"
+            },
+            {
+              "id": "d",
+              "text": "host == tcp"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Origen y destino son campos distintos del paquete.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkBuildDisplayFilterSection.html",
+          "reviewOf": "w16d5-q02"
+        },
+        {
+          "id": "w16d7-q12",
+          "prompt": "Un caso parece de DNS. ¿Qué comparación permite poner a prueba esa hipótesis?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambiar todos los controles y esperar que funcione"
+            },
+            {
+              "id": "b",
+              "text": "Contrastar resolución explícita y acceso al servicio por una dirección autorizada conocida"
+            },
+            {
+              "id": "c",
+              "text": "Mirar solo el nombre del navegador"
+            },
+            {
+              "id": "d",
+              "text": "Declarar resuelto DNS porque el enlace físico está activo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las pruebas deben discriminar entre las causas que se están considerando.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/networking/dns/troubleshoot/troubleshoot-dns-client",
+          "reviewOf": "w16d6-q02"
+        },
+        {
+          "id": "w16d7-q13",
+          "prompt": "El equipo hace ping al gateway, pero un sitio no abre. ¿Qué sigue siendo posible?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un problema de DNS, de una ruta posterior o del servicio"
+            },
+            {
+              "id": "b",
+              "text": "Que todas las capas hasta la aplicación estén garantizadas"
+            },
+            {
+              "id": "c",
+              "text": "Que el certificado sea válido por esa prueba"
+            },
+            {
+              "id": "d",
+              "text": "Que el usuario ya tenga acceso autorizado a la aplicación"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El alcance del gateway no demuestra el resultado de una aplicación remota.",
+          "reference": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/troubleshoot-tcp-ip-communication-guidance",
+          "reviewOf": "w16d1-q03"
+        },
+        {
+          "id": "w16d7-q14",
+          "prompt": "Un equipo muestra una dirección 169.254.x.x inesperada en vez de su configuración DHCP habitual. ¿Qué investigas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que cualquier dirección 169.254 demuestra un ataque"
+            },
+            {
+              "id": "b",
+              "text": "Si consiguió una concesión válida y si alcanza la infraestructura esperada"
+            },
+            {
+              "id": "c",
+              "text": "Que DNS asignó obligatoriamente esa dirección pública"
+            },
+            {
+              "id": "d",
+              "text": "Que es una sesión VPN autenticada"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una dirección local de enlace inesperada orienta hacia la configuración y el proceso DHCP.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/networking/dns/troubleshoot/troubleshoot-dns-client",
+          "reviewOf": "w16d2-q03"
+        },
+        {
+          "id": "w16d7-q15",
+          "prompt": "¿Qué distingue NXDOMAIN de un tiempo de espera de consulta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ambos prueban siempre que el servidor está apagado"
+            },
+            {
+              "id": "b",
+              "text": "NXDOMAIN significa que una sesión TCP web se autenticó"
+            },
+            {
+              "id": "c",
+              "text": "Un tiempo de espera confirma que el nombre no existe"
+            },
+            {
+              "id": "d",
+              "text": "NXDOMAIN es una respuesta de inexistencia del nombre; el tiempo de espera no aporta esa respuesta"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El tipo de resultado acota el diagnóstico entre contenido DNS y falta de respuesta.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/networking/dns/troubleshoot/troubleshoot-dns-client",
+          "reviewOf": "w16d3-q03"
+        },
+        {
+          "id": "w16d7-q16",
+          "prompt": "El proceso escucha solo en 127.0.0.1:8080 y la prueba remota falla. ¿Qué ajuste debe revisarse según el diseño autorizado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El valor de la cookie del navegador remoto como única causa"
+            },
+            {
+              "id": "b",
+              "text": "La dirección a la que el servicio está enlazado"
+            },
+            {
+              "id": "c",
+              "text": "La longitud del archivo de captura"
+            },
+            {
+              "id": "d",
+              "text": "La contraseña de una impresora no relacionada"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un servicio enlazado al bucle local no se publica en otras interfaces.",
+          "reference": "https://man7.org/linux/man-pages/man8/ss.8.html",
+          "reviewOf": "w16d4-q03"
+        },
+        {
+          "id": "w16d7-q17",
+          "prompt": "En una captura, DNS responde primero, después hay SYN y SYN-ACK y luego datos TLS. ¿Qué secuencia puedes describir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que la persona autenticó correctamente su cuenta bancaria"
+            },
+            {
+              "id": "b",
+              "text": "Resolución observada, establecimiento TCP observado e intercambio protegido observado"
+            },
+            {
+              "id": "c",
+              "text": "Que todo dato transferido era necesariamente benigno"
+            },
+            {
+              "id": "d",
+              "text": "Que TLS se ejecutó antes de que existieran los paquetes registrados"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La secuencia documenta hechos visibles sin inventar contenido o acciones humanas.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security",
+          "reviewOf": "w16d5-q03"
+        },
+        {
+          "id": "w16d7-q18",
+          "prompt": "El alumno cree que un puerto habitual confirma un servicio seguro. ¿Qué ejercicio corrige esa confusión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Comparar puerto, proceso, configuración y validación del protocolo en un laboratorio"
+            },
+            {
+              "id": "b",
+              "text": "Memorizar más números sin analizar el proceso"
+            },
+            {
+              "id": "c",
+              "text": "Usar solo el tamaño del paquete como identidad"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar el registro del proceso para simplificar el caso"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un puerto orienta el análisis, pero no certifica legitimidad ni cifrado.",
+          "reference": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml",
+          "reviewOf": "w16d6-q03"
+        },
+        {
+          "id": "w16d7-q19",
+          "prompt": "Un ping no recibe respuesta. ¿Qué conclusión prudente corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Comprobar otras evidencias porque ICMP puede estar filtrado"
+            },
+            {
+              "id": "b",
+              "text": "Afirmar que el servidor está apagado sin más pruebas"
+            },
+            {
+              "id": "c",
+              "text": "Dar por correcta la resolución de nombres en cualquier caso"
+            },
+            {
+              "id": "d",
+              "text": "Concluir que TCP no puede funcionar hacia ese equipo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La falta de respuesta ICMP admite más de una explicación.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/networking/dns/troubleshoot/troubleshoot-dns-client",
+          "reviewOf": "w16d1-q04"
+        },
+        {
+          "id": "w16d7-q20",
+          "prompt": "La conexión TCP se establece, pero HTTP devuelve 401. ¿Qué investigación corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El mecanismo de autenticación y las credenciales autorizadas"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar el cable porque no hubo comunicación"
+            },
+            {
+              "id": "c",
+              "text": "Abrir todos los puertos del servidor"
+            },
+            {
+              "id": "d",
+              "text": "Concluir que el servidor DNS nunca respondió"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La aplicación ya emitió una respuesta; el siguiente paso depende de su significado.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status",
+          "reviewOf": "w16d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w16d7-challenge",
+        "prompt": "Caso final: A tiene gateway fuera de subred; B resuelve mal el nombre; C obtiene HTTP/403. ¿Qué plan separa correctamente los problemas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Validar IP/rutas en A, comparar respuestas DNS en B y revisar autorización de aplicación en C"
+          },
+          {
+            "id": "b",
+            "text": "Cambiar el cable de los tres sin revisar más"
+          },
+          {
+            "id": "c",
+            "text": "Afirmar que los tres tienen la misma caída física"
+          },
+          {
+            "id": "d",
+            "text": "Resolver todos los casos desactivando permanentemente el firewall"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "Los síntomas apuntan a capas distintas y requieren evidencias y validaciones específicas.",
+        "reference": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/troubleshoot-tcp-ip-communication-guidance"
+      }
+    }
+  ]
+}

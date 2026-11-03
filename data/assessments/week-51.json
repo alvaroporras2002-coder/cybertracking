@@ -1,0 +1,2094 @@
+{
+  "week": 51,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w51d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w51d1-q01",
+          "prompt": "Un proyecto incluye logs de tu empleador sin permiso. ¿Qué puedes publicar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Los logs porque ya no trabajas allí"
+            },
+            {
+              "id": "b",
+              "text": "Una versión autorizada o recreación propia"
+            },
+            {
+              "id": "c",
+              "text": "Los logs quitando solo tu nombre"
+            },
+            {
+              "id": "d",
+              "text": "Cualquier captura pequeña"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La posesión de datos no implica permiso de divulgación.",
+          "reference": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository"
+        },
+        {
+          "id": "w51d1-q02",
+          "prompt": "¿Qué dato suele requerir eliminar antes de compartir un laboratorio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "ID ficticio del caso"
+            },
+            {
+              "id": "b",
+              "text": "Versión pública de herramienta"
+            },
+            {
+              "id": "c",
+              "text": "Fecha del informe"
+            },
+            {
+              "id": "d",
+              "text": "Token de acceso activo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los secretos pueden permitir acceso aunque el resto sea educativo.",
+          "reference": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository"
+        },
+        {
+          "id": "w51d1-q03",
+          "prompt": "¿Anonimizar nombres garantiza anonimato completo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí, basta siempre"
+            },
+            {
+              "id": "b",
+              "text": "No, otros campos pueden reidentificar"
+            },
+            {
+              "id": "c",
+              "text": "Solo si el archivo es PDF"
+            },
+            {
+              "id": "d",
+              "text": "Solo si se reduce tamaño"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Rutas, correos, IP y metadatos pueden revelar identidad.",
+          "reference": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository"
+        },
+        {
+          "id": "w51d1-q04",
+          "prompt": "¿Qué proyecto demuestra habilidad sin divulgar material restringido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Captura de examen real"
+            },
+            {
+              "id": "b",
+              "text": "Dataset privado sin permiso"
+            },
+            {
+              "id": "c",
+              "text": "Caso propio con datos sintéticos y método verificable"
+            },
+            {
+              "id": "d",
+              "text": "Solución ajena renombrada"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La evidencia compartible debe respetar derechos y confidencialidad.",
+          "reference": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository"
+        },
+        {
+          "id": "w51d1-q05",
+          "prompt": "Una captura muestra clave de API en una esquina. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Revocar la clave expuesta y corregir publicación"
+            },
+            {
+              "id": "b",
+              "text": "Solo difuminar el título"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar nombre del archivo"
+            },
+            {
+              "id": "d",
+              "text": "Confiar en baja resolución"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Ocultar visualmente no invalida un secreto ya expuesto.",
+          "reference": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository"
+        },
+        {
+          "id": "w51d1-q06",
+          "prompt": "¿Qué compruebas de una licencia de dataset público?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Condiciones de uso y redistribución"
+            },
+            {
+              "id": "b",
+              "text": "Solo que se descarga gratis"
+            },
+            {
+              "id": "c",
+              "text": "Solo cantidad de estrellas"
+            },
+            {
+              "id": "d",
+              "text": "Solo extensión del archivo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Accesibilidad pública y permiso de reutilización son distintos.",
+          "reference": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository"
+        },
+        {
+          "id": "w51d1-q07",
+          "prompt": "¿Por qué revisar metadatos de documentos antes de publicar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Siempre contienen malware"
+            },
+            {
+              "id": "b",
+              "text": "Pueden contener autor o rutas privadas"
+            },
+            {
+              "id": "c",
+              "text": "Cambian todos los hashes ajenos"
+            },
+            {
+              "id": "d",
+              "text": "Eliminan necesidad de licencia"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La información oculta también puede divulgar datos sensibles.",
+          "reference": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository"
+        },
+        {
+          "id": "w51d1-q08",
+          "prompt": "¿Qué conserva honestidad al seleccionar tres proyectos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aclarar trabajo propio, colaboración y entorno"
+            },
+            {
+              "id": "b",
+              "text": "Presentar todo como empleo"
+            },
+            {
+              "id": "c",
+              "text": "Ocultar ayuda recibida"
+            },
+            {
+              "id": "d",
+              "text": "Inflar alcance de la práctica"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La descripción debe reflejar contribución y contexto reales.",
+          "reference": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository"
+        }
+      ],
+      "challenge": {
+        "id": "w51d1-challenge",
+        "prompt": "Quieres publicar un caso de curso cuyo permiso de redistribución no está claro. ¿Qué haces?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Confirmar permiso o crear caso propio equivalente"
+          },
+          {
+            "id": "b",
+            "text": "Subirlo quitando logo"
+          },
+          {
+            "id": "c",
+            "text": "Publicarlo como privado y compartirlo"
+          },
+          {
+            "id": "d",
+            "text": "Cambiar nombres y asumir permiso"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La transformación no elimina automáticamente restricciones del material.",
+        "reference": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository"
+      }
+    },
+    {
+      "dayId": "w51d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w51d2-q01",
+          "prompt": "Un informe de phishing público sustituye dominio real por ejemplo. ¿Qué debes indicar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el dominio sintético es amenaza real"
+            },
+            {
+              "id": "b",
+              "text": "Que todo contenido es original"
+            },
+            {
+              "id": "c",
+              "text": "Qué fue anonimizado y cómo afecta reproducción"
+            },
+            {
+              "id": "d",
+              "text": "Que ya no existen límites"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las transformaciones deben quedar visibles al lector.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc7489.html"
+        },
+        {
+          "id": "w51d2-q02",
+          "prompt": "¿Qué indicador de correo necesita contexto en portafolio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dominio, ubicación y motivo de relevancia"
+            },
+            {
+              "id": "b",
+              "text": "Solo una lista sin explicación"
+            },
+            {
+              "id": "c",
+              "text": "Solo logotipo"
+            },
+            {
+              "id": "d",
+              "text": "Solo palabra urgente"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El lector debe entender por qué el dato apoya el veredicto.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc7489.html"
+        },
+        {
+          "id": "w51d2-q03",
+          "prompt": "¿Qué evidencia respalda suplantación mejor que el nombre visible?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tipografía del mensaje"
+            },
+            {
+              "id": "b",
+              "text": "Color del botón"
+            },
+            {
+              "id": "c",
+              "text": "Cabeceras y dominios relevantes"
+            },
+            {
+              "id": "d",
+              "text": "Idioma del asunto"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La identidad presentada debe contrastarse con campos técnicos y contexto.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc7489.html"
+        },
+        {
+          "id": "w51d2-q04",
+          "prompt": "Si DMARC pasa, ¿qué evita un informe honesto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Registrar el resultado"
+            },
+            {
+              "id": "b",
+              "text": "Analizar enlaces"
+            },
+            {
+              "id": "c",
+              "text": "Explicar autenticación"
+            },
+            {
+              "id": "d",
+              "text": "Afirmar que el correo es seguro por ese solo dato"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La autenticación no garantiza benignidad del contenido.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc7489.html"
+        },
+        {
+          "id": "w51d2-q05",
+          "prompt": "¿Cómo publicar una URL sospechosa de forma prudente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Enlace activo destacado"
+            },
+            {
+              "id": "b",
+              "text": "Representación neutralizada y contexto"
+            },
+            {
+              "id": "c",
+              "text": "Botón de visita directa"
+            },
+            {
+              "id": "d",
+              "text": "QR ejecutable"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La representación debe evitar interacción accidental.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc7489.html"
+        },
+        {
+          "id": "w51d2-q06",
+          "prompt": "¿Qué distingue veredicto y sustento en un proyecto de correo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dos títulos equivalentes"
+            },
+            {
+              "id": "b",
+              "text": "Dos nombres de archivo"
+            },
+            {
+              "id": "c",
+              "text": "Solo color de severidad"
+            },
+            {
+              "id": "d",
+              "text": "Conclusión e indicadores que la justifican"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El lector debe poder evaluar la inferencia a partir de datos.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc7489.html"
+        },
+        {
+          "id": "w51d2-q07",
+          "prompt": "¿Qué limita afirmar compromiso tras entrega del correo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El mensaje tiene asunto"
+            },
+            {
+              "id": "b",
+              "text": "El remitente es externo"
+            },
+            {
+              "id": "c",
+              "text": "Falta evidencia de interacción y efecto"
+            },
+            {
+              "id": "d",
+              "text": "El correo tiene enlace"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La entrega no demuestra ejecución ni robo de credenciales.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc7489.html"
+        },
+        {
+          "id": "w51d2-q08",
+          "prompt": "¿Qué paso reproducible puede incluirse sin compartir adjunto restringido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El adjunto real protegido"
+            },
+            {
+              "id": "b",
+              "text": "Descripción de extracción y datos sintéticos equivalentes"
+            },
+            {
+              "id": "c",
+              "text": "Credenciales del buzón"
+            },
+            {
+              "id": "d",
+              "text": "Preguntas del examen"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Puede demostrarse método sin divulgar contenido no autorizado.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc7489.html"
+        }
+      ],
+      "challenge": {
+        "id": "w51d2-challenge",
+        "prompt": "Tu informe phishing dice cuenta comprometida porque el correo llegó. ¿Qué corriges?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Mantenerlo por enlace sospechoso"
+          },
+          {
+            "id": "b",
+            "text": "Añadir actor conocido"
+          },
+          {
+            "id": "c",
+            "text": "Entrega confirmada; compromiso requiere evidencia posterior"
+          },
+          {
+            "id": "d",
+            "text": "Ocultar el mensaje"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "El veredicto debe distinguir exposición e impacto demostrado.",
+        "reference": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository"
+      }
+    },
+    {
+      "dayId": "w51d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w51d3-q01",
+          "prompt": "Tu proyecto SIEM muestra count=200. ¿Qué explicación falta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo nombre del alumno"
+            },
+            {
+              "id": "b",
+              "text": "Solo color de gráfica"
+            },
+            {
+              "id": "c",
+              "text": "Qué eventos, ventana y agrupación"
+            },
+            {
+              "id": "d",
+              "text": "Solo cantidad de paneles"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un número sin contexto no comunica el hallazgo.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats"
+        },
+        {
+          "id": "w51d3-q02",
+          "prompt": "¿Qué debe acompañar una consulta de portafolio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Credenciales del SIEM real"
+            },
+            {
+              "id": "b",
+              "text": "Token de administración"
+            },
+            {
+              "id": "c",
+              "text": "Logs confidenciales completos"
+            },
+            {
+              "id": "d",
+              "text": "Dataset permitido y esquema esperado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El lector necesita comprender entradas sin acceso indebido.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats"
+        },
+        {
+          "id": "w51d3-q03",
+          "prompt": "¿Qué cambio facilita reproducir una búsqueda con datos sintéticos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Copiar usuarios reales"
+            },
+            {
+              "id": "b",
+              "text": "Publicar contraseña"
+            },
+            {
+              "id": "c",
+              "text": "Mapear campos y conservar lógica documentada"
+            },
+            {
+              "id": "d",
+              "text": "Quitar todas las fechas"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La lógica puede preservarse con sustituciones explicadas.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats"
+        },
+        {
+          "id": "w51d3-q04",
+          "prompt": "¿Por qué incluir una búsqueda que descartó una hipótesis?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Rellena páginas"
+            },
+            {
+              "id": "b",
+              "text": "Demuestra ausencia absoluta"
+            },
+            {
+              "id": "c",
+              "text": "Sustituye resultado principal"
+            },
+            {
+              "id": "d",
+              "text": "Muestra criterio y límites de investigación"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El razonamiento incluye contrastes, no solo hallazgos favorables.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats"
+        },
+        {
+          "id": "w51d3-q05",
+          "prompt": "Una cronología mezcla horas locales sin zona. ¿Qué corriges?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo orden visual"
+            },
+            {
+              "id": "b",
+              "text": "Solo títulos"
+            },
+            {
+              "id": "c",
+              "text": "Tiempos normalizados y originales con zona"
+            },
+            {
+              "id": "d",
+              "text": "Solo colores"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La comparación temporal necesita instantes interpretables.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats"
+        },
+        {
+          "id": "w51d3-q06",
+          "prompt": "¿Una captura de dashboard basta para reproducir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí, siempre"
+            },
+            {
+              "id": "b",
+              "text": "Solo si es grande"
+            },
+            {
+              "id": "c",
+              "text": "Solo si tiene leyenda"
+            },
+            {
+              "id": "d",
+              "text": "No, faltan consulta, datos y rango"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La imagen muestra resultado, no todas las condiciones que lo generaron.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats"
+        },
+        {
+          "id": "w51d3-q07",
+          "prompt": "¿Qué muestra una validación útil de consulta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Resultados contrastados con eventos identificados"
+            },
+            {
+              "id": "b",
+              "text": "Solo que no dio error"
+            },
+            {
+              "id": "c",
+              "text": "Solo que fue rápida"
+            },
+            {
+              "id": "d",
+              "text": "Solo que produce gráfico"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Ejecutar sin error no garantiza responder correctamente la pregunta.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats"
+        },
+        {
+          "id": "w51d3-q08",
+          "prompt": "¿Qué frase distingue un laboratorio SIEM de servicio profesional?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Monitoreo de producción no realizado"
+            },
+            {
+              "id": "b",
+              "text": "Incidente real de cliente ficticio"
+            },
+            {
+              "id": "c",
+              "text": "Investigación en dataset educativo"
+            },
+            {
+              "id": "d",
+              "text": "Experiencia laboral sin contrato"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El contexto formativo debe declararse sin exagerar responsabilidades.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats"
+        }
+      ],
+      "challenge": {
+        "id": "w51d3-challenge",
+        "prompt": "Un lector ve un gráfico SIEM pero no puede reproducirlo. ¿Qué añades?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo captura más grande"
+          },
+          {
+            "id": "b",
+            "text": "Solo título técnico"
+          },
+          {
+            "id": "c",
+            "text": "Consulta, rango, campos y dataset compartible"
+          },
+          {
+            "id": "d",
+            "text": "Credenciales reales"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La reproducibilidad requiere condiciones y entradas legítimamente accesibles.",
+        "reference": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository"
+      }
+    },
+    {
+      "dayId": "w51d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w51d4-q01",
+          "prompt": "Un proyecto de respuesta debe relacionar acción con ¿qué?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Riesgo, evidencia y efecto esperado"
+            },
+            {
+              "id": "b",
+              "text": "Solo marca de herramienta"
+            },
+            {
+              "id": "c",
+              "text": "Solo número de alertas"
+            },
+            {
+              "id": "d",
+              "text": "Solo horario del alumno"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La recomendación debe derivarse del caso analizado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w51d4-q02",
+          "prompt": "¿Qué diferencia contención propuesta y realizada en portafolio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Extensión del informe"
+            },
+            {
+              "id": "b",
+              "text": "Color de tabla"
+            },
+            {
+              "id": "c",
+              "text": "Nombre del proyecto"
+            },
+            {
+              "id": "d",
+              "text": "Estado y evidencia de ejecución"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una simulación no demuestra cambios en un sistema real.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w51d4-q03",
+          "prompt": "¿Qué resume mejor el alcance de un caso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Activos y cuentas observados, con límites"
+            },
+            {
+              "id": "b",
+              "text": "Toda la red por precaución"
+            },
+            {
+              "id": "c",
+              "text": "Solo nombre del malware"
+            },
+            {
+              "id": "d",
+              "text": "Solo país de una IP"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El alcance debe sustentarse en cobertura y hallazgos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w51d4-q04",
+          "prompt": "¿Qué necesita la sección de recuperación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo reiniciar el host"
+            },
+            {
+              "id": "b",
+              "text": "Solo cerrar el caso"
+            },
+            {
+              "id": "c",
+              "text": "Criterios de validación y monitoreo"
+            },
+            {
+              "id": "d",
+              "text": "Solo borrar alerta"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La recuperación requiere comprobar operación y reducción del riesgo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w51d4-q05",
+          "prompt": "¿Qué cambia entre informe técnico y resumen ejecutivo del mismo proyecto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La evidencia real"
+            },
+            {
+              "id": "b",
+              "text": "Detalle y enfoque, manteniendo hechos"
+            },
+            {
+              "id": "c",
+              "text": "La cronología conocida"
+            },
+            {
+              "id": "d",
+              "text": "El número de hosts inventado"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La audiencia cambia la presentación, no los hechos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w51d4-q06",
+          "prompt": "¿Qué lección aprendida resulta verificable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Estar más atentos"
+            },
+            {
+              "id": "b",
+              "text": "Investigar mejor"
+            },
+            {
+              "id": "c",
+              "text": "Añadir telemetría y probar evento esperado"
+            },
+            {
+              "id": "d",
+              "text": "Usar más seguridad"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una mejora necesita acción y criterio de comprobación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w51d4-q07",
+          "prompt": "¿Cómo mostrar limitaciones sin devaluar el trabajo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ocultarlas"
+            },
+            {
+              "id": "b",
+              "text": "Aumentar certeza"
+            },
+            {
+              "id": "c",
+              "text": "Evitar toda conclusión"
+            },
+            {
+              "id": "d",
+              "text": "Precisar fuentes faltantes y efecto sobre conclusiones"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Reconocer límites demuestra juicio analítico y permite revisión.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w51d4-q08",
+          "prompt": "¿Qué necesita una recomendación para ser ejecutable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo frase fortalecer controles"
+            },
+            {
+              "id": "b",
+              "text": "Solo enlace genérico"
+            },
+            {
+              "id": "c",
+              "text": "Responsable, alcance y criterio de éxito"
+            },
+            {
+              "id": "d",
+              "text": "Solo severidad"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La acción debe indicar qué cambiar y cómo validar resultado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        }
+      ],
+      "challenge": {
+        "id": "w51d4-challenge",
+        "prompt": "Un caso de respuesta simula aislamiento sin sistema real. ¿Cómo lo presentas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Aislamiento ejecutado en producción"
+          },
+          {
+            "id": "b",
+            "text": "Cliente protegido"
+          },
+          {
+            "id": "c",
+            "text": "Acción propuesta en ejercicio con validación pendiente"
+          },
+          {
+            "id": "d",
+            "text": "Malware erradicado de toda la red"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La presentación debe respetar lo que se realizó y comprobó.",
+        "reference": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository"
+      }
+    },
+    {
+      "dayId": "w51d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w51d5-q01",
+          "prompt": "¿Para qué sirve README en un repositorio de portafolio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Guardar contraseñas"
+            },
+            {
+              "id": "b",
+              "text": "Reemplazar todos los archivos"
+            },
+            {
+              "id": "c",
+              "text": "Garantizar licencia automáticamente"
+            },
+            {
+              "id": "d",
+              "text": "Explicar propósito, uso y contexto"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Suele ser la entrada del lector al proyecto.",
+          "reference": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes"
+        },
+        {
+          "id": "w51d5-q02",
+          "prompt": "¿Qué registra un commit?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todo el disco personal"
+            },
+            {
+              "id": "b",
+              "text": "Una instantánea de cambios y su metadato"
+            },
+            {
+              "id": "c",
+              "text": "Una sesión de red"
+            },
+            {
+              "id": "d",
+              "text": "Un respaldo remoto automático"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El historial conserva versiones registradas del repositorio.",
+          "reference": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes"
+        },
+        {
+          "id": "w51d5-q03",
+          "prompt": "¿Borrar un secreto del último archivo elimina su historial?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No, puede seguir en commits anteriores"
+            },
+            {
+              "id": "b",
+              "text": "Sí, inmediatamente"
+            },
+            {
+              "id": "c",
+              "text": "Solo si cambia nombre"
+            },
+            {
+              "id": "d",
+              "text": "Solo si el README lo omite"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Git conserva versiones previas; el secreto expuesto debe revocarse.",
+          "reference": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes"
+        },
+        {
+          "id": "w51d5-q04",
+          "prompt": "¿Qué expresa una licencia de repositorio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Veredicto de seguridad"
+            },
+            {
+              "id": "b",
+              "text": "Permisos y condiciones de reutilización"
+            },
+            {
+              "id": "c",
+              "text": "Garantía de empleo"
+            },
+            {
+              "id": "d",
+              "text": "Autoría de cada dato externo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La licencia no permite relicenciar contenido ajeno sin derechos.",
+          "reference": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes"
+        },
+        {
+          "id": "w51d5-q05",
+          "prompt": "¿Qué archivo ayuda a evitar añadir salidas privadas futuras?",
+          "options": [
+            {
+              "id": "a",
+              "text": ".gitignore"
+            },
+            {
+              "id": "b",
+              "text": "README.png"
+            },
+            {
+              "id": "c",
+              "text": "LICENSE.exe"
+            },
+            {
+              "id": "d",
+              "text": "index.pcap"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Ignore evita seguimiento nuevo, pero no elimina material ya versionado.",
+          "reference": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes"
+        },
+        {
+          "id": "w51d5-q06",
+          "prompt": "¿Qué hace git status en flujo básico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Publica el repositorio"
+            },
+            {
+              "id": "b",
+              "text": "Borra el historial"
+            },
+            {
+              "id": "c",
+              "text": "Revoca credenciales"
+            },
+            {
+              "id": "d",
+              "text": "Muestra estado de cambios"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Consultar estado permite revisar qué está modificado o preparado.",
+          "reference": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes"
+        },
+        {
+          "id": "w51d5-q07",
+          "prompt": "¿Qué conviene revisar antes de commit público?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo número de estrellas"
+            },
+            {
+              "id": "b",
+              "text": "Solo avatar"
+            },
+            {
+              "id": "c",
+              "text": "Solo título de rama"
+            },
+            {
+              "id": "d",
+              "text": "Diff y archivos preparados"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La revisión detecta datos, secretos y cambios accidentales.",
+          "reference": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes"
+        },
+        {
+          "id": "w51d5-q08",
+          "prompt": "¿Qué hace útil un mensaje de commit?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo actualización"
+            },
+            {
+              "id": "b",
+              "text": "Describe cambio concreto y motivo"
+            },
+            {
+              "id": "c",
+              "text": "Solo final"
+            },
+            {
+              "id": "d",
+              "text": "Solo emojis"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El historial debe ayudar a entender evolución del proyecto.",
+          "reference": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes"
+        }
+      ],
+      "challenge": {
+        "id": "w51d5-challenge",
+        "prompt": "Publicaste token y lo borraste en siguiente commit. ¿Qué prioridad corresponde?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Revocar token y atender exposición e historial"
+          },
+          {
+            "id": "b",
+            "text": "Considerarlo seguro por no verse ahora"
+          },
+          {
+            "id": "c",
+            "text": "Renombrar README"
+          },
+          {
+            "id": "d",
+            "text": "Cambiar descripción"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "Las versiones y copias previas pueden conservar el secreto.",
+        "reference": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository"
+      }
+    },
+    {
+      "dayId": "w51d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w51d6-q01",
+          "prompt": "Solo hiciste laboratorios de SIEM. ¿Qué formulación es fiel?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Analicé registros educativos y documenté consultas"
+            },
+            {
+              "id": "b",
+              "text": "Trabajé como analista SOC de cliente"
+            },
+            {
+              "id": "c",
+              "text": "Dirigí incidentes de producción"
+            },
+            {
+              "id": "d",
+              "text": "Administré SIEM empresarial real"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las prácticas deben identificarse como formación o proyectos.",
+          "reference": "https://cloudfront.careeronestop.org/JobSearch/Resumes/ResumeGuide/work-experience.aspx"
+        },
+        {
+          "id": "w51d6-q02",
+          "prompt": "¿Qué evidencia respalda afirmar habilidad en Wireshark?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Proyecto con filtros y hallazgos explicados"
+            },
+            {
+              "id": "b",
+              "text": "Solo tenerlo instalado"
+            },
+            {
+              "id": "c",
+              "text": "Solo haber visto un video"
+            },
+            {
+              "id": "d",
+              "text": "Solo logo en CV"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La habilidad debe relacionarse con una acción demostrable.",
+          "reference": "https://cloudfront.careeronestop.org/JobSearch/Resumes/ResumeGuide/work-experience.aspx"
+        },
+        {
+          "id": "w51d6-q03",
+          "prompt": "¿Qué significa adaptar el CV a una vacante?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Inventar requisitos que faltan"
+            },
+            {
+              "id": "b",
+              "text": "Copiar todas sus palabras"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar fechas de empleo"
+            },
+            {
+              "id": "d",
+              "text": "Priorizar experiencias reales relevantes"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El ajuste comunica mejor el encaje sin falsear trayectoria.",
+          "reference": "https://cloudfront.careeronestop.org/JobSearch/Resumes/ResumeGuide/work-experience.aspx"
+        },
+        {
+          "id": "w51d6-q04",
+          "prompt": "¿Qué métrica de proyecto puede incluirse honestamente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cantidad de eventos analizados en dataset identificado"
+            },
+            {
+              "id": "b",
+              "text": "Ataques evitados sin medida"
+            },
+            {
+              "id": "c",
+              "text": "Clientes protegidos ficticios"
+            },
+            {
+              "id": "d",
+              "text": "Ahorro económico inventado"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las cifras necesitan fuente y contexto verificables.",
+          "reference": "https://cloudfront.careeronestop.org/JobSearch/Resumes/ResumeGuide/work-experience.aspx"
+        },
+        {
+          "id": "w51d6-q05",
+          "prompt": "¿Qué evita atribuirte el trabajo de un equipo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Describir tu contribución concreta"
+            },
+            {
+              "id": "b",
+              "text": "Usar siempre nosotros sin detalle"
+            },
+            {
+              "id": "c",
+              "text": "Omitir colaboradores"
+            },
+            {
+              "id": "d",
+              "text": "Declarar autoría total"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La descripción debe diferenciar responsabilidad propia y resultado colectivo.",
+          "reference": "https://cloudfront.careeronestop.org/JobSearch/Resumes/ResumeGuide/work-experience.aspx"
+        },
+        {
+          "id": "w51d6-q06",
+          "prompt": "Una certificación está en preparación. ¿Cómo la presentas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Certificado desde hoy"
+            },
+            {
+              "id": "b",
+              "text": "En preparación, sin afirmar obtención"
+            },
+            {
+              "id": "c",
+              "text": "Aprobada por calendario"
+            },
+            {
+              "id": "d",
+              "text": "Experto acreditado"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La formación futura no equivale a credencial obtenida.",
+          "reference": "https://cloudfront.careeronestop.org/JobSearch/Resumes/ResumeGuide/work-experience.aspx"
+        },
+        {
+          "id": "w51d6-q07",
+          "prompt": "¿Qué enlace de CV facilita evaluar una habilidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Proyecto pertinente y accesible autorizado"
+            },
+            {
+              "id": "b",
+              "text": "Repositorio privado sin acceso"
+            },
+            {
+              "id": "c",
+              "text": "Dataset restringido"
+            },
+            {
+              "id": "d",
+              "text": "Captura de examen"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El revisor necesita material que pueda consultar legítimamente.",
+          "reference": "https://cloudfront.careeronestop.org/JobSearch/Resumes/ResumeGuide/work-experience.aspx"
+        },
+        {
+          "id": "w51d6-q08",
+          "prompt": "¿Qué debes poder defender de cada habilidad listada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo nombre comercial"
+            },
+            {
+              "id": "b",
+              "text": "Solo popularidad"
+            },
+            {
+              "id": "c",
+              "text": "Solo precio"
+            },
+            {
+              "id": "d",
+              "text": "Ejemplo, método y límite de uso"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La entrevista puede comprobar qué sabes hacer realmente.",
+          "reference": "https://cloudfront.careeronestop.org/JobSearch/Resumes/ResumeGuide/work-experience.aspx"
+        }
+      ],
+      "challenge": {
+        "id": "w51d6-challenge",
+        "prompt": "Una vacante pide SIEM y tú solo practicaste con datos educativos. ¿Qué CV es honesto?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Inventar empleo SOC"
+          },
+          {
+            "id": "b",
+            "text": "Afirmar experiencia de producción"
+          },
+          {
+            "id": "c",
+            "text": "Declarar certificación aún no obtenida"
+          },
+          {
+            "id": "d",
+            "text": "Describir proyecto, consultas y límites como formación"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La relevancia se demuestra sin alterar el contexto real.",
+        "reference": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository"
+      }
+    },
+    {
+      "dayId": "w51d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w51d7-q01",
+          "prompt": "Un proyecto incluye logs de tu empleador sin permiso. ¿Qué puedes publicar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Los logs porque ya no trabajas allí"
+            },
+            {
+              "id": "b",
+              "text": "Una versión autorizada o recreación propia"
+            },
+            {
+              "id": "c",
+              "text": "Los logs quitando solo tu nombre"
+            },
+            {
+              "id": "d",
+              "text": "Cualquier captura pequeña"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La posesión de datos no implica permiso de divulgación.",
+          "reference": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository",
+          "reviewOf": "w51d1-q01"
+        },
+        {
+          "id": "w51d7-q02",
+          "prompt": "Un informe de phishing público sustituye dominio real por ejemplo. ¿Qué debes indicar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el dominio sintético es amenaza real"
+            },
+            {
+              "id": "b",
+              "text": "Que todo contenido es original"
+            },
+            {
+              "id": "c",
+              "text": "Qué fue anonimizado y cómo afecta reproducción"
+            },
+            {
+              "id": "d",
+              "text": "Que ya no existen límites"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las transformaciones deben quedar visibles al lector.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc7489.html",
+          "reviewOf": "w51d2-q01"
+        },
+        {
+          "id": "w51d7-q03",
+          "prompt": "Tu proyecto SIEM muestra count=200. ¿Qué explicación falta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo nombre del alumno"
+            },
+            {
+              "id": "b",
+              "text": "Solo color de gráfica"
+            },
+            {
+              "id": "c",
+              "text": "Qué eventos, ventana y agrupación"
+            },
+            {
+              "id": "d",
+              "text": "Solo cantidad de paneles"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un número sin contexto no comunica el hallazgo.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats",
+          "reviewOf": "w51d3-q01"
+        },
+        {
+          "id": "w51d7-q04",
+          "prompt": "Un proyecto de respuesta debe relacionar acción con ¿qué?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Riesgo, evidencia y efecto esperado"
+            },
+            {
+              "id": "b",
+              "text": "Solo marca de herramienta"
+            },
+            {
+              "id": "c",
+              "text": "Solo número de alertas"
+            },
+            {
+              "id": "d",
+              "text": "Solo horario del alumno"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La recomendación debe derivarse del caso analizado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w51d4-q01"
+        },
+        {
+          "id": "w51d7-q05",
+          "prompt": "¿Para qué sirve README en un repositorio de portafolio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Guardar contraseñas"
+            },
+            {
+              "id": "b",
+              "text": "Reemplazar todos los archivos"
+            },
+            {
+              "id": "c",
+              "text": "Garantizar licencia automáticamente"
+            },
+            {
+              "id": "d",
+              "text": "Explicar propósito, uso y contexto"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Suele ser la entrada del lector al proyecto.",
+          "reference": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes",
+          "reviewOf": "w51d5-q01"
+        },
+        {
+          "id": "w51d7-q06",
+          "prompt": "Solo hiciste laboratorios de SIEM. ¿Qué formulación es fiel?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Analicé registros educativos y documenté consultas"
+            },
+            {
+              "id": "b",
+              "text": "Trabajé como analista SOC de cliente"
+            },
+            {
+              "id": "c",
+              "text": "Dirigí incidentes de producción"
+            },
+            {
+              "id": "d",
+              "text": "Administré SIEM empresarial real"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las prácticas deben identificarse como formación o proyectos.",
+          "reference": "https://cloudfront.careeronestop.org/JobSearch/Resumes/ResumeGuide/work-experience.aspx",
+          "reviewOf": "w51d6-q01"
+        },
+        {
+          "id": "w51d7-q07",
+          "prompt": "¿Qué dato suele requerir eliminar antes de compartir un laboratorio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "ID ficticio del caso"
+            },
+            {
+              "id": "b",
+              "text": "Versión pública de herramienta"
+            },
+            {
+              "id": "c",
+              "text": "Fecha del informe"
+            },
+            {
+              "id": "d",
+              "text": "Token de acceso activo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los secretos pueden permitir acceso aunque el resto sea educativo.",
+          "reference": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository",
+          "reviewOf": "w51d1-q02"
+        },
+        {
+          "id": "w51d7-q08",
+          "prompt": "¿Qué indicador de correo necesita contexto en portafolio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dominio, ubicación y motivo de relevancia"
+            },
+            {
+              "id": "b",
+              "text": "Solo una lista sin explicación"
+            },
+            {
+              "id": "c",
+              "text": "Solo logotipo"
+            },
+            {
+              "id": "d",
+              "text": "Solo palabra urgente"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El lector debe entender por qué el dato apoya el veredicto.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc7489.html",
+          "reviewOf": "w51d2-q02"
+        },
+        {
+          "id": "w51d7-q09",
+          "prompt": "¿Qué debe acompañar una consulta de portafolio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Credenciales del SIEM real"
+            },
+            {
+              "id": "b",
+              "text": "Token de administración"
+            },
+            {
+              "id": "c",
+              "text": "Logs confidenciales completos"
+            },
+            {
+              "id": "d",
+              "text": "Dataset permitido y esquema esperado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El lector necesita comprender entradas sin acceso indebido.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats",
+          "reviewOf": "w51d3-q02"
+        },
+        {
+          "id": "w51d7-q10",
+          "prompt": "¿Qué diferencia contención propuesta y realizada en portafolio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Extensión del informe"
+            },
+            {
+              "id": "b",
+              "text": "Color de tabla"
+            },
+            {
+              "id": "c",
+              "text": "Nombre del proyecto"
+            },
+            {
+              "id": "d",
+              "text": "Estado y evidencia de ejecución"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una simulación no demuestra cambios en un sistema real.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w51d4-q02"
+        },
+        {
+          "id": "w51d7-q11",
+          "prompt": "¿Qué registra un commit?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todo el disco personal"
+            },
+            {
+              "id": "b",
+              "text": "Una instantánea de cambios y su metadato"
+            },
+            {
+              "id": "c",
+              "text": "Una sesión de red"
+            },
+            {
+              "id": "d",
+              "text": "Un respaldo remoto automático"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El historial conserva versiones registradas del repositorio.",
+          "reference": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes",
+          "reviewOf": "w51d5-q02"
+        },
+        {
+          "id": "w51d7-q12",
+          "prompt": "¿Qué evidencia respalda afirmar habilidad en Wireshark?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Proyecto con filtros y hallazgos explicados"
+            },
+            {
+              "id": "b",
+              "text": "Solo tenerlo instalado"
+            },
+            {
+              "id": "c",
+              "text": "Solo haber visto un video"
+            },
+            {
+              "id": "d",
+              "text": "Solo logo en CV"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La habilidad debe relacionarse con una acción demostrable.",
+          "reference": "https://cloudfront.careeronestop.org/JobSearch/Resumes/ResumeGuide/work-experience.aspx",
+          "reviewOf": "w51d6-q02"
+        },
+        {
+          "id": "w51d7-q13",
+          "prompt": "¿Anonimizar nombres garantiza anonimato completo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí, basta siempre"
+            },
+            {
+              "id": "b",
+              "text": "No, otros campos pueden reidentificar"
+            },
+            {
+              "id": "c",
+              "text": "Solo si el archivo es PDF"
+            },
+            {
+              "id": "d",
+              "text": "Solo si se reduce tamaño"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Rutas, correos, IP y metadatos pueden revelar identidad.",
+          "reference": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository",
+          "reviewOf": "w51d1-q03"
+        },
+        {
+          "id": "w51d7-q14",
+          "prompt": "¿Qué evidencia respalda suplantación mejor que el nombre visible?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tipografía del mensaje"
+            },
+            {
+              "id": "b",
+              "text": "Color del botón"
+            },
+            {
+              "id": "c",
+              "text": "Cabeceras y dominios relevantes"
+            },
+            {
+              "id": "d",
+              "text": "Idioma del asunto"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La identidad presentada debe contrastarse con campos técnicos y contexto.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc7489.html",
+          "reviewOf": "w51d2-q03"
+        },
+        {
+          "id": "w51d7-q15",
+          "prompt": "¿Qué cambio facilita reproducir una búsqueda con datos sintéticos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Copiar usuarios reales"
+            },
+            {
+              "id": "b",
+              "text": "Publicar contraseña"
+            },
+            {
+              "id": "c",
+              "text": "Mapear campos y conservar lógica documentada"
+            },
+            {
+              "id": "d",
+              "text": "Quitar todas las fechas"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La lógica puede preservarse con sustituciones explicadas.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats",
+          "reviewOf": "w51d3-q03"
+        },
+        {
+          "id": "w51d7-q16",
+          "prompt": "¿Qué resume mejor el alcance de un caso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Activos y cuentas observados, con límites"
+            },
+            {
+              "id": "b",
+              "text": "Toda la red por precaución"
+            },
+            {
+              "id": "c",
+              "text": "Solo nombre del malware"
+            },
+            {
+              "id": "d",
+              "text": "Solo país de una IP"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El alcance debe sustentarse en cobertura y hallazgos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w51d4-q03"
+        },
+        {
+          "id": "w51d7-q17",
+          "prompt": "¿Borrar un secreto del último archivo elimina su historial?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No, puede seguir en commits anteriores"
+            },
+            {
+              "id": "b",
+              "text": "Sí, inmediatamente"
+            },
+            {
+              "id": "c",
+              "text": "Solo si cambia nombre"
+            },
+            {
+              "id": "d",
+              "text": "Solo si el README lo omite"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Git conserva versiones previas; el secreto expuesto debe revocarse.",
+          "reference": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes",
+          "reviewOf": "w51d5-q03"
+        },
+        {
+          "id": "w51d7-q18",
+          "prompt": "¿Qué significa adaptar el CV a una vacante?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Inventar requisitos que faltan"
+            },
+            {
+              "id": "b",
+              "text": "Copiar todas sus palabras"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar fechas de empleo"
+            },
+            {
+              "id": "d",
+              "text": "Priorizar experiencias reales relevantes"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El ajuste comunica mejor el encaje sin falsear trayectoria.",
+          "reference": "https://cloudfront.careeronestop.org/JobSearch/Resumes/ResumeGuide/work-experience.aspx",
+          "reviewOf": "w51d6-q03"
+        },
+        {
+          "id": "w51d7-q19",
+          "prompt": "¿Qué proyecto demuestra habilidad sin divulgar material restringido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Captura de examen real"
+            },
+            {
+              "id": "b",
+              "text": "Dataset privado sin permiso"
+            },
+            {
+              "id": "c",
+              "text": "Caso propio con datos sintéticos y método verificable"
+            },
+            {
+              "id": "d",
+              "text": "Solución ajena renombrada"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La evidencia compartible debe respetar derechos y confidencialidad.",
+          "reference": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository",
+          "reviewOf": "w51d1-q04"
+        },
+        {
+          "id": "w51d7-q20",
+          "prompt": "¿Qué necesita la sección de recuperación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo reiniciar el host"
+            },
+            {
+              "id": "b",
+              "text": "Solo cerrar el caso"
+            },
+            {
+              "id": "c",
+              "text": "Criterios de validación y monitoreo"
+            },
+            {
+              "id": "d",
+              "text": "Solo borrar alerta"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La recuperación requiere comprobar operación y reducción del riesgo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w51d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w51d7-challenge",
+        "prompt": "Un revisor no comprende qué aportaste en un proyecto grupal. ¿Qué mejoras?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Responsabilidad propia, decisiones y evidencia enlazada"
+          },
+          {
+            "id": "b",
+            "text": "Solo portada"
+          },
+          {
+            "id": "c",
+            "text": "Solo herramientas"
+          },
+          {
+            "id": "d",
+            "text": "Solo total del equipo"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "El portafolio debe permitir evaluar tu contribución verificable.",
+        "reference": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository"
+      }
+    }
+  ]
+}

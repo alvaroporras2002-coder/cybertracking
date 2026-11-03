@@ -1,0 +1,2094 @@
+{
+  "week": 40,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w40d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w40d1-q01",
+          "prompt": "Un proxy registra una conexión a una IP incluida en un informe de hace dos años. ¿Qué conclusión inicial respeta el alcance de la evidencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El equipo ejecutó necesariamente el malware descrito en el informe."
+            },
+            {
+              "id": "b",
+              "text": "La antigüedad demuestra que la conexión actual es legítima."
+            },
+            {
+              "id": "c",
+              "text": "La IP permite identificar al operador actual de la campaña."
+            },
+            {
+              "id": "d",
+              "text": "Existe una coincidencia que requiere comprobar fecha, servicio y contexto del equipo."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La coincidencia de un valor es una observación. Su relación con una amenaza depende de vigencia y contexto; no demuestra ejecución ni atribución.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+        },
+        {
+          "id": "w40d1-q02",
+          "prompt": "Un indicador STIX tiene valid_from anterior a valid_until. ¿Para qué sirve valid_until?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Indica cuándo se eliminó el último registro que contiene el valor."
+            },
+            {
+              "id": "b",
+              "text": "Certifica que el recurso quedó limpio después de esa fecha."
+            },
+            {
+              "id": "c",
+              "text": "Marca cuándo deja de considerarse válido como indicador de los comportamientos representados."
+            },
+            {
+              "id": "d",
+              "text": "Marca la caducidad del certificado TLS del servidor observado."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La validez del indicador expresa su utilidad temporal para el comportamiento representado. No describe por sí sola el estado posterior del recurso.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+        },
+        {
+          "id": "w40d1-q03",
+          "prompt": "Una IP de alojamiento compartido sirve una tienda legítima y un sitio de phishing. ¿Qué mejora la precisión de una detección?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Atribuir todos los dominios de esa IP al autor del phishing."
+            },
+            {
+              "id": "b",
+              "text": "Bloquear el rango completo porque un dominio fue malicioso."
+            },
+            {
+              "id": "c",
+              "text": "Correlacionar la IP con dominio, URL, momento y proceso que originó la conexión."
+            },
+            {
+              "id": "d",
+              "text": "Considerar legítimo cualquier tráfico por existir una tienda en la IP."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La infraestructura compartida puede producir coincidencias ajenas al phishing. Los observables adicionales permiten delimitar la actividad que se investiga.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+        },
+        {
+          "id": "w40d1-q04",
+          "prompt": "Se cambia un byte de un ejecutable y su SHA-256 ya no coincide con el publicado. ¿Qué limitación del indicador demuestra?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El algoritmo deja de distinguir archivos cuando cambia su nombre."
+            },
+            {
+              "id": "b",
+              "text": "El hash identifica el contenido exacto y puede perder cobertura ante variantes modificadas."
+            },
+            {
+              "id": "c",
+              "text": "Toda variante con hash distinto utiliza técnicas ATT&CK diferentes."
+            },
+            {
+              "id": "d",
+              "text": "Un hash que ya no coincide prueba que el archivo modificado es benigno."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un hash es útil para coincidencias exactas de contenido. Una modificación puede cambiarlo sin eliminar el comportamiento de interés.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+        },
+        {
+          "id": "w40d1-q05",
+          "prompt": "¿Cuál de estos elementos describe un comportamiento y no únicamente un observable de infraestructura o archivo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un proceso crea una tarea que vuelve a ejecutar su carga al iniciar Windows."
+            },
+            {
+              "id": "b",
+              "text": "El SHA-256 del ejecutable descargado."
+            },
+            {
+              "id": "c",
+              "text": "La dirección IP de destino del proxy."
+            },
+            {
+              "id": "d",
+              "text": "El nombre de dominio presente en una consulta DNS."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Crear una tarea para ejecutar código al inicio describe una acción y un propósito que pueden analizarse mediante técnicas, además de indicadores concretos.",
+          "reference": "https://attack.mitre.org/techniques/T1053/005/"
+        },
+        {
+          "id": "w40d1-q06",
+          "prompt": "Un feed no incluye fecha de última observación de un dominio. ¿Cómo debe tratarse esa ausencia al priorizar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Asignar la fecha de importación como última actividad maliciosa confirmada."
+            },
+            {
+              "id": "b",
+              "text": "Registrar la limitación y buscar evidencia reciente antes de decidir su uso operativo."
+            },
+            {
+              "id": "c",
+              "text": "Suponer vigencia permanente porque el dominio sigue resolviendo."
+            },
+            {
+              "id": "d",
+              "text": "Descartar cualquier otra evidencia del dominio por faltar ese campo."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Importación, publicación y observación corresponden a hechos distintos. Completar un campo desconocido con otra fecha introduce una certeza falsa.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+        },
+        {
+          "id": "w40d1-q07",
+          "prompt": "Una búsqueda histórica encuentra un hash asociado a malware dentro de un archivo de cuarentena. ¿Qué dato adicional determina mejor si hubo ejecución?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El número de informes externos que repiten el mismo hash."
+            },
+            {
+              "id": "b",
+              "text": "La longitud del nombre del archivo de cuarentena."
+            },
+            {
+              "id": "c",
+              "text": "La fecha en que el analista abrió el portal de reputación."
+            },
+            {
+              "id": "d",
+              "text": "Telemetría de creación de procesos y actividad del archivo en el host durante el intervalo pertinente."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La presencia de un archivo y su ejecución son afirmaciones diferentes. El contexto local debe respaldar el comportamiento que se concluye.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+        },
+        {
+          "id": "w40d1-q08",
+          "prompt": "¿Qué criterio es más útil al revisar la caducidad de una lista de bloqueo de IP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Reevaluar observaciones recientes, reasignaciones y efectos sobre servicios compartidos."
+            },
+            {
+              "id": "b",
+              "text": "Mantener toda IP indefinidamente porque una vez fue reportada."
+            },
+            {
+              "id": "c",
+              "text": "Dar a todas las IP el mismo plazo, independiente del caso."
+            },
+            {
+              "id": "d",
+              "text": "Renovar la vigencia cada vez que otro feed copia la lista."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La decisión operativa debe reflejar evidencia temporal y posibles cambios de infraestructura. Una republicación no equivale a una observación nueva.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+        }
+      ],
+      "challenge": {
+        "id": "w40d1-challenge",
+        "prompt": "Caso: un informe de hace 18 meses asocia una IP con malware. Hoy un servidor de nóminas se conecta a esa IP, que aloja cientos de dominios. El proxy guarda el nombre solicitado y EDR conserva el proceso origen. ¿Qué acción aporta la mejor decisión sobre este hallazgo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Correlacionar dominio, proceso y hora con evidencia vigente, valorar impacto y decidir el control apropiado."
+          },
+          {
+            "id": "b",
+            "text": "Aislar todos los equipos que hayan usado el rango completo de la IP desde el informe."
+          },
+          {
+            "id": "c",
+            "text": "Cerrar la alerta porque el alojamiento compartido excluye actividad maliciosa."
+          },
+          {
+            "id": "d",
+            "text": "Atribuir la nómina comprometida al actor del informe y publicar el hallazgo sin revisar los registros."
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La IP compartida y la antigüedad reducen la precisión de una acción basada solo en el valor. La evidencia local permite comprobar qué servicio se usó y si el comportamiento respalda la sospecha.",
+        "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+      }
+    },
+    {
+      "dayId": "w40d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w40d2-q01",
+          "prompt": "Dos blogs marcan un dominio como malicioso, pero ambos citan el mismo informe original. ¿Cuántas corroboraciones independientes aportan por sí solos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dos corroboraciones independientes porque las URLs son distintas."
+            },
+            {
+              "id": "b",
+              "text": "Tres corroboraciones porque también cuenta el informe original."
+            },
+            {
+              "id": "c",
+              "text": "Ninguna evidencia utilizable por estar publicada en un blog."
+            },
+            {
+              "id": "d",
+              "text": "Una cadena de evidencia original, aunque existan dos republicaciones."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La independencia depende del origen de la observación, no del número de páginas que la reproducen. Debe conservarse la procedencia para evaluar confianza.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+        },
+        {
+          "id": "w40d2-q02",
+          "prompt": "¿Qué comparación permite evaluar mejor dos fuentes que discrepan sobre una IP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Elegir siempre el valor numérico de reputación más alto."
+            },
+            {
+              "id": "b",
+              "text": "Preferir la fuente cuyo informe tiene más indicadores."
+            },
+            {
+              "id": "c",
+              "text": "Comparar intervalos de observación, método, alcance y evidencia que respalda cada afirmación."
+            },
+            {
+              "id": "d",
+              "text": "Promediar las fechas de publicación para decidir cuándo ocurrió el hecho."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un desacuerdo puede deberse a periodos, sensores o criterios diferentes. Entenderlos permite comprobar si las afirmaciones realmente se contradicen.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+        },
+        {
+          "id": "w40d2-q03",
+          "prompt": "Una fuente tiene buena trayectoria, pero su afirmación actual solo se apoya en una captura incompleta. ¿Cómo debe expresarse la evaluación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Separar la reputación de la fuente de la confianza específica en esta afirmación."
+            },
+            {
+              "id": "b",
+              "text": "Asignar certeza a cualquier afirmación de esa fuente."
+            },
+            {
+              "id": "c",
+              "text": "Declarar que la fuente completa es falsa por un dato incompleto."
+            },
+            {
+              "id": "d",
+              "text": "Sustituir la evidencia faltante por la popularidad del proveedor."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La confianza debe corresponder a los datos concretos. Una fuente conocida puede aportar una afirmación limitada que todavía requiere verificación.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+        },
+        {
+          "id": "w40d2-q04",
+          "prompt": "Un feed ve sobre todo ataques contra servicios de correo. ¿Qué limitación debe anotarse al usarlo para describir amenazas a servidores industriales?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Los indicadores de correo nunca pueden ser relevantes para una empresa industrial."
+            },
+            {
+              "id": "b",
+              "text": "Su cobertura y población observada pueden no representar el entorno industrial."
+            },
+            {
+              "id": "c",
+              "text": "La ausencia de alertas prueba que los servidores industriales están protegidos."
+            },
+            {
+              "id": "d",
+              "text": "El volumen del feed elimina cualquier sesgo de sus sensores."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La cobertura condiciona qué amenazas puede observar una fuente. La falta de observaciones fuera de ese alcance no demuestra ausencia de actividad.",
+          "reference": "https://attack.mitre.org/resources/faq/"
+        },
+        {
+          "id": "w40d2-q05",
+          "prompt": "Un informe se actualizó hoy, pero el indicador conserva last_seen de enero. ¿Qué fecha representa la última actividad indicada por esos datos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hoy, porque cualquier cambio del informe renueva todas sus observaciones."
+            },
+            {
+              "id": "b",
+              "text": "Enero, mientras no se aporte una observación posterior del indicador."
+            },
+            {
+              "id": "c",
+              "text": "La fecha de descarga del informe por el analista."
+            },
+            {
+              "id": "d",
+              "text": "La fecha de alta del dominio, aunque no figure en el informe."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La modificación del documento no es una nueva observación de cada indicador. Mantener separadas estas fechas evita presentar actividad antigua como reciente.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+        },
+        {
+          "id": "w40d2-q06",
+          "prompt": "En un objeto STIX aparece confidence: 85. ¿Qué interpreta correctamente ese campo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una probabilidad universal del 85 % de que cualquier conexión sea maliciosa."
+            },
+            {
+              "id": "b",
+              "text": "Ochenta y cinco detecciones independientes de antivirus."
+            },
+            {
+              "id": "c",
+              "text": "La confianza del creador en la corrección de sus datos, dentro de una escala de 0 a 100."
+            },
+            {
+              "id": "d",
+              "text": "La puntuación de impacto económico de la campaña."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "STIX define confidence como confianza del creador. El valor no sustituye la explicación de la evidencia ni representa automáticamente riesgo o tasa de infección.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+        },
+        {
+          "id": "w40d2-q07",
+          "prompt": "Para contrastar una afirmación de mando y control, ¿qué segunda fuente aporta una corroboración más independiente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un agregador que importa exactamente la misma lista del primer informe."
+            },
+            {
+              "id": "b",
+              "text": "Telemetría propia que muestra intercambios coherentes con la actividad durante el periodo indicado."
+            },
+            {
+              "id": "c",
+              "text": "Una traducción del informe sin observaciones nuevas."
+            },
+            {
+              "id": "d",
+              "text": "Una captura de la publicación original compartida en otra red."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una observación obtenida por un canal distinto puede corroborar la afirmación. Repetir el mismo origen solo aumenta su difusión.",
+          "reference": "https://attack.mitre.org/techniques/T1071/001/"
+        },
+        {
+          "id": "w40d2-q08",
+          "prompt": "Al guardar una afirmación extraída de un informe, ¿qué registro permite auditar mejor por qué se aceptó?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Referencia original, fecha de consulta, evidencia citada, alcance y razonamiento de confianza."
+            },
+            {
+              "id": "b",
+              "text": "Solo el nombre comercial del proveedor y una etiqueta de amenaza."
+            },
+            {
+              "id": "c",
+              "text": "Solo la puntuación final, para evitar criterios contradictorios."
+            },
+            {
+              "id": "d",
+              "text": "La URL del buscador que mostró primero el resultado."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una referencia junto con el alcance y la evaluación conserva la cadena entre datos y conclusión, y permite revisar la decisión cuando cambie la evidencia.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+        }
+      ],
+      "challenge": {
+        "id": "w40d2-challenge",
+        "prompt": "Caso: el feed A declara malicioso un dominio observado en marzo; B lo marca sin detecciones en octubre y C repite la lista de A con fecha de publicación de noviembre. ¿Cómo debe resolverse la discrepancia en el informe?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Contar A y C como dos sensores independientes y declarar que el dominio sigue activo en noviembre."
+          },
+          {
+            "id": "b",
+            "text": "Separar observaciones y publicaciones, reconocer que C deriva de A y contrastar el periodo del incidente con evidencia adicional."
+          },
+          {
+            "id": "c",
+            "text": "Tomar B como prueba de que la observación de marzo nunca ocurrió."
+          },
+          {
+            "id": "d",
+            "text": "Promediar las tres puntuaciones sin conservar métodos ni fechas y bloquear según el promedio."
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "Las fuentes pueden describir tiempos y coberturas diferentes. La republicación no renueva una observación y un resultado negativo posterior no invalida automáticamente una actividad histórica.",
+        "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+      }
+    },
+    {
+      "dayId": "w40d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w40d3-q01",
+          "prompt": "En ATT&CK, ¿qué diferencia distingue una táctica de una técnica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La táctica identifica una IP y la técnica identifica un dominio."
+            },
+            {
+              "id": "b",
+              "text": "La táctica expresa el objetivo del adversario y la técnica describe una forma de lograrlo."
+            },
+            {
+              "id": "c",
+              "text": "La táctica siempre corresponde a un actor y la técnica a una vulnerabilidad."
+            },
+            {
+              "id": "d",
+              "text": "La técnica expresa únicamente el impacto financiero y la táctica el nombre del malware."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las tácticas representan el propósito de una acción. Las técnicas organizan comportamientos que pueden servir a esos objetivos.",
+          "reference": "https://attack.mitre.org/tactics/enterprise/"
+        },
+        {
+          "id": "w40d3-q02",
+          "prompt": "Una intrusión usa PowerShell para ejecutar un script. ¿Cuál es el mapeo más específico respaldado por ese comportamiento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "T1053.005, Scheduled Task/Job: Scheduled Task."
+            },
+            {
+              "id": "b",
+              "text": "T1059.001, Command and Scripting Interpreter: PowerShell."
+            },
+            {
+              "id": "c",
+              "text": "T1003.001, OS Credential Dumping: LSASS Memory."
+            },
+            {
+              "id": "d",
+              "text": "T1087, Account Discovery."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "T1059.001 describe el abuso de PowerShell para ejecutar comandos y scripts. La herramienta no demuestra por sí sola las otras acciones propuestas.",
+          "reference": "https://attack.mitre.org/techniques/T1059/001/"
+        },
+        {
+          "id": "w40d3-q03",
+          "prompt": "Se observa el volcado de la memoria de LSASS con el fin de obtener credenciales. ¿Qué sub­técnica encaja?",
+          "options": [
+            {
+              "id": "a",
+              "text": "T1071.001, Application Layer Protocol: Web Protocols."
+            },
+            {
+              "id": "b",
+              "text": "T1059.001, Command and Scripting Interpreter: PowerShell."
+            },
+            {
+              "id": "c",
+              "text": "T1003.001, OS Credential Dumping: LSASS Memory."
+            },
+            {
+              "id": "d",
+              "text": "T1053.005, Scheduled Task/Job: Scheduled Task."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El objeto y propósito del volcado respaldan LSASS Memory. El mapeo describe el comportamiento y no exige identificar una familia de malware.",
+          "reference": "https://attack.mitre.org/techniques/T1003/001/"
+        },
+        {
+          "id": "w40d3-q04",
+          "prompt": "Un atacante crea una tarea de Windows que ejecuta su carga tras reinicios. ¿Qué relación entre técnica y objetivo es defendible?",
+          "options": [
+            {
+              "id": "a",
+              "text": "T1053.005 siempre prueba robo de credenciales, aunque no se observe acceso a ellas."
+            },
+            {
+              "id": "b",
+              "text": "T1053.005 puede apoyar persistencia en este caso, por la ejecución programada tras reiniciar."
+            },
+            {
+              "id": "c",
+              "text": "Cada técnica solo puede aparecer bajo una única táctica."
+            },
+            {
+              "id": "d",
+              "text": "Una tarea programada identifica por sí sola al grupo que la creó."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Scheduled Task puede servir a varios objetivos. En este caso, mantener la ejecución tras reinicios sustenta la interpretación de persistencia.",
+          "reference": "https://attack.mitre.org/techniques/T1053/005/"
+        },
+        {
+          "id": "w40d3-q05",
+          "prompt": "Durante una intrusión, un comando enumera cuentas válidas del dominio. ¿Qué técnica corresponde mejor a la acción observada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "T1003.001, LSASS Memory, porque listar nombres siempre extrae contraseñas."
+            },
+            {
+              "id": "b",
+              "text": "T1071.001, Web Protocols, porque toda consulta de dominio usa HTTP."
+            },
+            {
+              "id": "c",
+              "text": "T1087, Account Discovery."
+            },
+            {
+              "id": "d",
+              "text": "T1053.005, Scheduled Task, porque la enumeración debe ejecutarse de forma periódica."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Obtener una lista de cuentas es descubrimiento de cuentas. No implica por sí solo extraer secretos, usar HTTP ni programar una tarea.",
+          "reference": "https://attack.mitre.org/techniques/T1087/"
+        },
+        {
+          "id": "w40d3-q06",
+          "prompt": "Un informe dice que el adversario ejecutó un script concreto con parámetros y ruta específicos. ¿Qué representa ese detalle respecto a ATT&CK?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una nueva táctica que debe crearse por cada ruta de archivo."
+            },
+            {
+              "id": "b",
+              "text": "Una prueba suficiente de que todos los usuarios del script son el mismo actor."
+            },
+            {
+              "id": "c",
+              "text": "Un indicador de que la técnica deja de ser válida al cambiar el parámetro."
+            },
+            {
+              "id": "d",
+              "text": "Un procedimiento observado que concreta cómo se aplicó una técnica."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los procedimientos describen implementaciones concretas de técnicas. Sus detalles pueden variar entre incidentes sin crear una táctica distinta.",
+          "reference": "https://attack.mitre.org/resources/faq/"
+        },
+        {
+          "id": "w40d3-q07",
+          "prompt": "Solo se observa una conexión HTTPS saliente; no hay contenido ni contexto del proceso. ¿Puede asignarse mando y control por T1071.001 con certeza?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí; HTTPS es exclusivo de comunicaciones de mando y control."
+            },
+            {
+              "id": "b",
+              "text": "Sí; cualquier conexión saliente demuestra exfiltración y mando y control a la vez."
+            },
+            {
+              "id": "c",
+              "text": "No; T1071.001 solo admite HTTP sin cifrado."
+            },
+            {
+              "id": "d",
+              "text": "No; hacen falta datos que vinculen el protocolo web con la comunicación de control."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Web Protocols describe el uso adversario de protocolos web para mando y control. El protocolo aislado también aparece en actividad legítima.",
+          "reference": "https://attack.mitre.org/techniques/T1071/001/"
+        },
+        {
+          "id": "w40d3-q08",
+          "prompt": "Un mapa ATT&CK colorea una técnica porque existe una regla en el SIEM. ¿Qué debe comprobarse antes de afirmar cobertura efectiva?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que la celda tenga el mismo color en todas las plataformas."
+            },
+            {
+              "id": "b",
+              "text": "Que la telemetría necesaria llega y que la regla detecta procedimientos relevantes mediante validación."
+            },
+            {
+              "id": "c",
+              "text": "Que la regla incluya el nombre de un actor conocido."
+            },
+            {
+              "id": "d",
+              "text": "Que el número total de técnicas coloreadas supere al de otra organización."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una etiqueta no demuestra que una regla observe ni detecte las implementaciones reales. La cobertura depende de datos, alcance y validación.",
+          "reference": "https://attack.mitre.org/resources/faq/"
+        }
+      ],
+      "challenge": {
+        "id": "w40d3-challenge",
+        "prompt": "Caso: en una intrusión se ejecuta PowerShell, se vuelca memoria de LSASS y se crea una tarea que ejecuta la carga tras reiniciar. ¿Qué mapeo inicial respeta las acciones observadas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "T1059.001 para PowerShell, T1003.001 para el volcado de LSASS y T1053.005 para la tarea, con evidencias separadas."
+          },
+          {
+            "id": "b",
+            "text": "T1059.001 para las tres acciones porque la primera herramienta fue PowerShell."
+          },
+          {
+            "id": "c",
+            "text": "T1071.001 para las tres acciones porque todas podrían comunicarse por la red."
+          },
+          {
+            "id": "d",
+            "text": "Asignar las técnicas usadas por un grupo famoso y declarar que ese grupo ejecutó la intrusión."
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "Cada comportamiento debe mapearse con su propia evidencia. La tarea puede apoyar persistencia; ni la combinación ni las herramientas identifican por sí solas a un actor.",
+        "reference": "https://attack.mitre.org/techniques/T1053/005/"
+      }
+    },
+    {
+      "dayId": "w40d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w40d4-q01",
+          "prompt": "¿Qué fila permite reproducir un enriquecimiento de dominio de forma más útil?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dominio y color de reputación sin fecha ni proveedor."
+            },
+            {
+              "id": "b",
+              "text": "Dominio consultado, consulta, proveedor, hora UTC, resultado y periodo al que se refiere."
+            },
+            {
+              "id": "c",
+              "text": "Dominio y última conclusión del analista sin datos de consulta."
+            },
+            {
+              "id": "d",
+              "text": "Captura recortada que oculta el valor consultado para ahorrar espacio."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La reproducción requiere saber qué se consultó, dónde, cuándo y con qué respuesta. El periodo del dato puede diferir de la hora de consulta.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+        },
+        {
+          "id": "w40d4-q02",
+          "prompt": "El DNS actual de un dominio apunta a una IP distinta de la registrada durante el incidente. ¿Qué fuente resuelve mejor la relación histórica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Observaciones DNS históricas con marcas temporales próximas al incidente."
+            },
+            {
+              "id": "b",
+              "text": "Solo una nueva consulta DNS actual repetida varias veces."
+            },
+            {
+              "id": "c",
+              "text": "La ubicación geográfica actual de la IP antigua."
+            },
+            {
+              "id": "d",
+              "text": "La fecha de modificación del documento que contiene el dominio."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La resolución puede cambiar. Para vincular infraestructura con un evento pasado se necesita una observación del periodo pertinente, no trasladar el estado actual al pasado.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+        },
+        {
+          "id": "w40d4-q03",
+          "prompt": "Una consulta de reputación responde «sin detecciones». ¿Qué conclusión permite?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El dominio es seguro para cualquier usuario y periodo."
+            },
+            {
+              "id": "b",
+              "text": "La organización no necesita consultar su propia telemetría."
+            },
+            {
+              "id": "c",
+              "text": "Ese servicio no mostró detecciones para la consulta y momento documentados."
+            },
+            {
+              "id": "d",
+              "text": "Se ha demostrado que nunca se utilizó en una campaña."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un resultado negativo está limitado por datos, cobertura y momento del servicio. No equivale a una certificación de inocuidad.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+        },
+        {
+          "id": "w40d4-q04",
+          "prompt": "Un dominio se creó hace tres días. ¿Cómo debe incorporarse este dato a la investigación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Como confirmación de phishing sin examinar contenido ni tráfico."
+            },
+            {
+              "id": "b",
+              "text": "Como prueba de que el operador es quien figura en cualquier informe del registrador."
+            },
+            {
+              "id": "c",
+              "text": "Como motivo para ignorar dominios más antiguos en el mismo incidente."
+            },
+            {
+              "id": "d",
+              "text": "Como una característica temporal que puede ganar relevancia al combinarse con otras evidencias."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La antigüedad puede contextualizar un hallazgo, pero no establece por sí sola intención, identidad ni actividad maliciosa.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+        },
+        {
+          "id": "w40d4-q05",
+          "prompt": "Dos dominios usan un mismo certificado TLS. ¿Qué relación puede registrarse sin exceder la evidencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Comparten el certificado observado, con fuente y fechas; el control común sigue siendo una hipótesis."
+            },
+            {
+              "id": "b",
+              "text": "Pertenecen necesariamente a una misma persona física."
+            },
+            {
+              "id": "c",
+              "text": "Ambos ejecutaron el mismo malware porque el cifrado es idéntico."
+            },
+            {
+              "id": "d",
+              "text": "Toda dirección del emisor del certificado forma parte de la campaña."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un artefacto compartido es una relación técnica observable. Servicios compartidos o reutilización pueden producirla sin demostrar identidad del operador.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+        },
+        {
+          "id": "w40d4-q06",
+          "prompt": "Un portal externo permite subir archivos para enriquecerlos y el ejemplar incluye datos de clientes. ¿Qué paso corresponde antes de subirlo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Comprobar autorización y condiciones de tratamiento, y usar una alternativa aprobada si la muestra no puede compartirse."
+            },
+            {
+              "id": "b",
+              "text": "Subirlo porque el análisis de seguridad elimina cualquier restricción de privacidad."
+            },
+            {
+              "id": "c",
+              "text": "Renombrar el archivo, ya que eso elimina los datos que contiene."
+            },
+            {
+              "id": "d",
+              "text": "Marcar la subida como TLP:RED y asumir que cualquier portal aplicará la restricción."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una etiqueta no reemplaza autorización ni controles del receptor. El enriquecimiento debe respetar los límites de manejo de la información.",
+          "reference": "https://www.first.org/tlp/"
+        },
+        {
+          "id": "w40d4-q07",
+          "prompt": "Una tabla mezcla «visto el 10 de mayo» con «consultado el 20 de junio». ¿Cómo evitar que el lector confunda ambos tiempos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Reemplazar todas las fechas por la de consulta más reciente."
+            },
+            {
+              "id": "b",
+              "text": "Mantener campos distintos para fecha de observación y fecha de consulta, con zona horaria."
+            },
+            {
+              "id": "c",
+              "text": "Eliminar las fechas de observación para simplificar la tabla."
+            },
+            {
+              "id": "d",
+              "text": "Promediar ambas fechas y presentarlas como inicio de campaña."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El momento de adquisición de una respuesta no cambia el momento del hecho descrito. Distinguirlos permite reconstruir la secuencia con precisión.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+        },
+        {
+          "id": "w40d4-q08",
+          "prompt": "Un servicio identifica el país de alojamiento de una IP. ¿Qué inferencia debe evitarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que la geolocalización necesita fuente y fecha de consulta."
+            },
+            {
+              "id": "b",
+              "text": "Que la ubicación del alojamiento identifica automáticamente la nacionalidad del adversario."
+            },
+            {
+              "id": "c",
+              "text": "Que la ubicación describe un aspecto de la infraestructura."
+            },
+            {
+              "id": "d",
+              "text": "Que puede compararse con otros datos del mismo intervalo."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Infraestructura y operador son entidades diferentes. Los datos de alojamiento no resuelven por sí solos quién dirige una actividad.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+        }
+      ],
+      "challenge": {
+        "id": "w40d4-challenge",
+        "prompt": "Caso: un incidente ocurrió el 5 de abril. El DNS actual de un dominio apunta a una IP limpia; una fuente de DNS histórico lo vincula a otra IP del 3 al 7 de abril. El analista solo guardó una captura sin proveedor ni hora. ¿Qué completa mejor el enriquecimiento?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Sustituir la relación histórica por la actual para que todo el grafo use datos de hoy."
+          },
+          {
+            "id": "b",
+            "text": "Registrar la consulta y respuesta histórica con fuente, momento de adquisición e intervalo observado, y mantener aparte el DNS actual."
+          },
+          {
+            "id": "c",
+            "text": "Presentar la captura como prueba de control común de ambas IP sin buscar metadatos."
+          },
+          {
+            "id": "d",
+            "text": "Asignar al dominio la reputación actual de cualquiera de las dos IP y omitir las fechas."
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "El caso requiere reconstruir la relación durante el incidente. La procedencia y los tiempos permiten reproducirla y evitan mezclar el estado presente con el histórico.",
+        "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+      }
+    },
+    {
+      "dayId": "w40d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w40d5-q01",
+          "prompt": "¿Qué relación describe correctamente STIX y TAXII?",
+          "options": [
+            {
+              "id": "a",
+              "text": "STIX transporta paquetes y TAXII calcula automáticamente la atribución."
+            },
+            {
+              "id": "b",
+              "text": "TAXII es una etiqueta de confidencialidad que sustituye a TLP."
+            },
+            {
+              "id": "c",
+              "text": "STIX garantiza la veracidad de todo objeto recibido por TAXII."
+            },
+            {
+              "id": "d",
+              "text": "STIX representa información de amenazas y TAXII ofrece un protocolo para comunicarla."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La representación de información y su intercambio cumplen funciones distintas. Ninguna de ellas certifica que el contenido recibido sea verdadero.",
+          "reference": "https://docs.oasis-open.org/cti/taxii/v2.1/os/taxii-v2.1-os.html"
+        },
+        {
+          "id": "w40d5-q02",
+          "prompt": "Recibes un informe marcado TLP:AMBER+STRICT. ¿Cuál es el límite de difusión previsto por FIRST?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Publicarlo en un repositorio abierto si se quita el logotipo del emisor."
+            },
+            {
+              "id": "b",
+              "text": "Compartirlo con cualquier cliente por tratarse de una variante de AMBER."
+            },
+            {
+              "id": "c",
+              "text": "Compartirlo únicamente dentro de la organización según la necesidad de conocer."
+            },
+            {
+              "id": "d",
+              "text": "Distribuirlo a toda la comunidad de ciberseguridad por canales privados."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "AMBER+STRICT restringe el alcance a la organización. La variante AMBER sin STRICT contempla también clientes con necesidad de conocer.",
+          "reference": "https://www.first.org/tlp/"
+        },
+        {
+          "id": "w40d5-q03",
+          "prompt": "Un informe TLP:GREEN sería útil para una comunidad profesional. ¿Qué canal respeta su límite de distribución?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una página pública indexable porque el tema es de ciberseguridad."
+            },
+            {
+              "id": "b",
+              "text": "Un canal restringido a los miembros pertinentes de esa comunidad."
+            },
+            {
+              "id": "c",
+              "text": "Un repositorio público con un aviso que pida discreción."
+            },
+            {
+              "id": "d",
+              "text": "Cualquier red social si el mensaje no menciona nombres de víctimas."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "GREEN permite compartir dentro de la comunidad, pero no mediante canales de acceso público. Quitar nombres no modifica automáticamente la restricción.",
+          "reference": "https://www.first.org/tlp/"
+        },
+        {
+          "id": "w40d5-q04",
+          "prompt": "La misma IP aparece en dos objetos de inteligencia con fechas y fuentes distintas. ¿Qué debe preservarse al deduplicar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Únicamente la puntuación más alta para que no haya discrepancias."
+            },
+            {
+              "id": "b",
+              "text": "La procedencia y los intervalos de cada afirmación aunque se agrupe el observable."
+            },
+            {
+              "id": "c",
+              "text": "La fecha más reciente asignada también a todas las observaciones antiguas."
+            },
+            {
+              "id": "d",
+              "text": "Solo el primer autor, eliminando evidencia posterior por repetida."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Agrupar valores evita duplicados operativos, pero no debe borrar quién afirmó qué ni cuándo. Esos datos permiten evaluar cambios y discrepancias.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+        },
+        {
+          "id": "w40d5-q05",
+          "prompt": "Se confirma que una entrada distribuida era un falso positivo. ¿Qué gestión permite corregir su uso posterior?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Registrar la corrección, actualizar su estado y propagarla a los consumidores afectados."
+            },
+            {
+              "id": "b",
+              "text": "Borrar únicamente la nota del analista y conservar el bloqueo sin cambios."
+            },
+            {
+              "id": "c",
+              "text": "Crear otra entrada maliciosa con el mismo valor para aumentar su visibilidad."
+            },
+            {
+              "id": "d",
+              "text": "Cambiar la fecha de creación para ocultar cuánto tiempo estuvo publicada."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La gestión de inteligencia incluye el ciclo de vida de las afirmaciones. Una corrección debe poder llegar a quienes toman decisiones a partir de ellas.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+        },
+        {
+          "id": "w40d5-q06",
+          "prompt": "Un objeto incluye nombres y correos de víctimas que no necesita un equipo receptor. ¿Qué preparación favorece un intercambio apropiado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambiar TLP:AMBER a TLP:CLEAR para facilitar el intercambio."
+            },
+            {
+              "id": "b",
+              "text": "Eliminar la marca de manejo y asumir que el receptor conoce las reglas."
+            },
+            {
+              "id": "c",
+              "text": "Enviar el original completo porque cualquier dato personal mejora la detección."
+            },
+            {
+              "id": "d",
+              "text": "Crear una versión minimizada que conserve el contexto técnico necesario y respete las restricciones de origen."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Compartir exige respetar el alcance permitido y reducir información ajena al propósito. La minimización no autoriza por sí misma ampliar destinatarios.",
+          "reference": "https://www.first.org/tlp/"
+        },
+        {
+          "id": "w40d5-q07",
+          "prompt": "Antes de importar automáticamente un feed a una regla de bloqueo, ¿qué comprobación es necesaria?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Validar formato, procedencia, vigencia y política local de acción sobre los indicadores."
+            },
+            {
+              "id": "b",
+              "text": "Suponer que el transporte TAXII implica aprobación para bloquear."
+            },
+            {
+              "id": "c",
+              "text": "Convertir toda etiqueta de confianza en una orden de aislamiento."
+            },
+            {
+              "id": "d",
+              "text": "Eliminar fechas y marcas para que el SIEM acepte más entradas."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El intercambio automatizado no sustituye la evaluación. La acción depende de la calidad y alcance del dato y de la política de la organización.",
+          "reference": "https://docs.oasis-open.org/cti/taxii/v2.1/os/taxii-v2.1-os.html"
+        },
+        {
+          "id": "w40d5-q08",
+          "prompt": "¿Qué distinción evita confundir una etiqueta de manejo TLP con una evaluación analítica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "TLP:RED significa confianza alta y TLP:CLEAR confianza baja."
+            },
+            {
+              "id": "b",
+              "text": "TLP limita la difusión; la confianza y la severidad deben evaluarse por separado."
+            },
+            {
+              "id": "c",
+              "text": "TLP:GREEN indica que el indicador ya no requiere validación."
+            },
+            {
+              "id": "d",
+              "text": "TLP:AMBER asigna automáticamente una severidad media al incidente."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "TLP expresa límites de distribución de información. Sus colores no califican la verdad del dato, el daño ni la urgencia de respuesta.",
+          "reference": "https://www.first.org/tlp/"
+        }
+      ],
+      "challenge": {
+        "id": "w40d5-challenge",
+        "prompt": "Caso: un socio entrega inteligencia TLP:AMBER+STRICT con correos de víctimas. Quieres compartir las técnicas útiles con una comunidad externa. ¿Qué paso permite respetar el límite recibido?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Eliminar los correos y publicar el resto, porque cualquier anonimización permite ampliar automáticamente el público."
+          },
+          {
+            "id": "b",
+            "text": "Cambiar la etiqueta a TLP:GREEN por decisión del receptor y enviarlo al foro."
+          },
+          {
+            "id": "c",
+            "text": "Publicarlo en un enlace difícil de adivinar, ya que no aparecerá en las búsquedas comunes."
+          },
+          {
+            "id": "d",
+            "text": "Solicitar al originador autorización o una versión aprobada para ese público y preparar contenido minimizado dentro de lo autorizado."
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "AMBER+STRICT restringe el intercambio a la organización. La utilidad del contenido o quitar datos personales no concede por sí solo permiso para difundirlo fuera de ese alcance.",
+        "reference": "https://www.first.org/tlp/"
+      }
+    },
+    {
+      "dayId": "w40d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w40d6-q01",
+          "prompt": "Un host consultó un dominio incluido en una campaña y después creó una tarea sospechosa. ¿Cuál es la conclusión más ajustada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hay observaciones correlacionadas que justifican investigar una posible relación con la campaña."
+            },
+            {
+              "id": "b",
+              "text": "El nombre de la campaña identifica con certeza al operador del host."
+            },
+            {
+              "id": "c",
+              "text": "La consulta DNS demuestra que la tarea descargó y ejecutó la carga."
+            },
+            {
+              "id": "d",
+              "text": "Dos eventos próximos en el tiempo prueban una cadena causal completa."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La secuencia es una pista analítica, pero faltan enlaces que expliquen causalidad y pertenencia. Debe distinguirse lo observado de la hipótesis.",
+          "reference": "https://attack.mitre.org/techniques/T1053/005/"
+        },
+        {
+          "id": "w40d6-q02",
+          "prompt": "¿Qué afirmación de un informe es una hipótesis y debe presentarse como tal?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La infraestructura podría estar controlada por el mismo operador debido a varias coincidencias técnicas."
+            },
+            {
+              "id": "b",
+              "text": "El registro del proxy contiene una petición a las 09:12 UTC."
+            },
+            {
+              "id": "c",
+              "text": "La muestra analizada tiene el SHA-256 consignado en el anexo."
+            },
+            {
+              "id": "d",
+              "text": "La fuente consultada respondió con la dirección anotada a las 10:00 UTC."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El control común es una interpretación que necesita sustento y límites. Las otras afirmaciones describen resultados verificables de las evidencias indicadas.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+        },
+        {
+          "id": "w40d6-q03",
+          "prompt": "Una investigación propone que dos dominios forman una sola operación. ¿Qué hallazgo debilita específicamente esa hipótesis?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un segundo analista copia el grafo sin añadir datos."
+            },
+            {
+              "id": "b",
+              "text": "Se aumenta el grosor de la arista entre ambos dominios."
+            },
+            {
+              "id": "c",
+              "text": "Ambos dominios siguen apareciendo en la misma captura del informe."
+            },
+            {
+              "id": "d",
+              "text": "El artefacto que los vinculaba pertenece a un proveedor compartido utilizado por numerosos clientes sin relación."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una explicación alternativa plausible para el vínculo reduce su poder de atribución. El análisis debe valorar esa evidencia, no solo las coincidencias favorables.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+        },
+        {
+          "id": "w40d6-q04",
+          "prompt": "No aparecen conexiones al dominio investigado en los registros disponibles. ¿Qué dato debe acompañar esa conclusión negativa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La afirmación de que ninguna máquina de la empresa estuvo comprometida."
+            },
+            {
+              "id": "b",
+              "text": "Cobertura de sensores, retención, intervalo y consulta utilizados en la búsqueda."
+            },
+            {
+              "id": "c",
+              "text": "Una fecha de consulta sin indicar qué datos estaban disponibles."
+            },
+            {
+              "id": "d",
+              "text": "El número total de indicadores del informe externo."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una ausencia solo describe lo que una búsqueda pudo observar. Sus límites permiten valorar si el resultado reduce la hipótesis o deja puntos sin visibilidad.",
+          "reference": "https://attack.mitre.org/resources/faq/"
+        },
+        {
+          "id": "w40d6-q05",
+          "prompt": "¿Qué arista de un grafo de inteligencia conserva mejor el significado del vínculo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "«Mismo atacante», deducido de una coincidencia de alojamiento sin más datos."
+            },
+            {
+              "id": "b",
+              "text": "«Infraestructura maliciosa permanente», asignado por una observación pasada."
+            },
+            {
+              "id": "c",
+              "text": "«Relacionado», sin tipo, fecha ni documento que lo respalde."
+            },
+            {
+              "id": "d",
+              "text": "«El dominio resolvió a esta IP», acompañado por fuente y periodo de observación."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un vínculo tipado y fechado expresa exactamente qué relación se observó. Evita convertir una conexión técnica limitada en atribución amplia.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+        },
+        {
+          "id": "w40d6-q06",
+          "prompt": "La evidencia favorece una relación entre incidentes, pero faltan registros de un día clave. ¿Cómo debe redactarse la conclusión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Omitir el hueco porque no cambia los indicadores ya encontrados."
+            },
+            {
+              "id": "b",
+              "text": "Usar certeza absoluta y trasladar la limitación a una nota sin relación con la conclusión."
+            },
+            {
+              "id": "c",
+              "text": "Descartar todos los hallazgos porque una fuente no cubre el día completo."
+            },
+            {
+              "id": "d",
+              "text": "Explicar la relación probable, su sustento, la confianza asignada y el hueco de evidencia."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una conclusión graduada permite actuar sin ocultar incertidumbre. La limitación debe quedar conectada con la afirmación que puede afectar.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+        },
+        {
+          "id": "w40d6-q07",
+          "prompt": "¿Qué recomendación es más útil tras descubrir un posible canal de mando y control por HTTP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Declarar que cualquier petición HTTP de la organización pertenece al mismo canal."
+            },
+            {
+              "id": "b",
+              "text": "Bloquear permanentemente todas las IP del proveedor aunque no haya vínculos adicionales."
+            },
+            {
+              "id": "c",
+              "text": "Esperar a identificar la nacionalidad del operador antes de examinar los equipos."
+            },
+            {
+              "id": "d",
+              "text": "Buscar el patrón en un intervalo y conjunto de hosts definidos, correlacionar procesos y fijar qué evidencia motivará la escalada."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una recomendación verificable une la hipótesis con datos y un criterio de decisión. El comportamiento de control debe diferenciarse del uso web legítimo.",
+          "reference": "https://attack.mitre.org/techniques/T1071/001/"
+        },
+        {
+          "id": "w40d6-q08",
+          "prompt": "Un nuevo registro demuestra que el dominio era de un servicio legítimo durante el incidente. ¿Cómo debe cambiar el informe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conservar la conclusión inicial porque el informe ya tiene una versión publicada."
+            },
+            {
+              "id": "b",
+              "text": "Eliminar el registro nuevo para mantener la coherencia del grafo."
+            },
+            {
+              "id": "c",
+              "text": "Revisar la hipótesis y las acciones dependientes, documentando qué conclusión cambia y por qué."
+            },
+            {
+              "id": "d",
+              "text": "Aumentar la confianza inicial porque ahora hay una fuente adicional."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La evidencia nueva puede contradecir una interpretación anterior. La revisión debe mantener trazabilidad y corregir decisiones que dependían de esa interpretación.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html"
+        }
+      ],
+      "challenge": {
+        "id": "w40d6-challenge",
+        "prompt": "Caso: dos incidentes comparten una IP de CDN y un certificado de un proveedor común. Uno usa PowerShell y el otro no tiene telemetría de procesos. El borrador concluye «mismo actor confirmado». ¿Qué revisión es la más defendible?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Describir las coincidencias, evaluar infraestructura compartida como alternativa y mantener el actor común como hipótesis sin confirmar."
+          },
+          {
+            "id": "b",
+            "text": "Mantener la confirmación porque dos artefactos compartidos equivalen a dos identificadores personales."
+          },
+          {
+            "id": "c",
+            "text": "Asignar T1059.001 al segundo incidente para que los mapas ATT&CK coincidan."
+          },
+          {
+            "id": "d",
+            "text": "Declarar actores distintos con certeza porque falta PowerShell en un conjunto de registros incompleto."
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "Los proveedores comunes pueden explicar las coincidencias. La falta de telemetría tampoco demuestra ausencia del comportamiento; ambos límites impiden una atribución concluyente.",
+        "reference": "https://attack.mitre.org/resources/faq/"
+      }
+    },
+    {
+      "dayId": "w40d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w40d7-q01",
+          "prompt": "Un proxy registra una conexión a una IP incluida en un informe de hace dos años. ¿Qué conclusión inicial respeta el alcance de la evidencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El equipo ejecutó necesariamente el malware descrito en el informe."
+            },
+            {
+              "id": "b",
+              "text": "La antigüedad demuestra que la conexión actual es legítima."
+            },
+            {
+              "id": "c",
+              "text": "La IP permite identificar al operador actual de la campaña."
+            },
+            {
+              "id": "d",
+              "text": "Existe una coincidencia que requiere comprobar fecha, servicio y contexto del equipo."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La coincidencia de un valor es una observación. Su relación con una amenaza depende de vigencia y contexto; no demuestra ejecución ni atribución.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html",
+          "reviewOf": "w40d1-q01"
+        },
+        {
+          "id": "w40d7-q02",
+          "prompt": "Dos blogs marcan un dominio como malicioso, pero ambos citan el mismo informe original. ¿Cuántas corroboraciones independientes aportan por sí solos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dos corroboraciones independientes porque las URLs son distintas."
+            },
+            {
+              "id": "b",
+              "text": "Tres corroboraciones porque también cuenta el informe original."
+            },
+            {
+              "id": "c",
+              "text": "Ninguna evidencia utilizable por estar publicada en un blog."
+            },
+            {
+              "id": "d",
+              "text": "Una cadena de evidencia original, aunque existan dos republicaciones."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La independencia depende del origen de la observación, no del número de páginas que la reproducen. Debe conservarse la procedencia para evaluar confianza.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html",
+          "reviewOf": "w40d2-q01"
+        },
+        {
+          "id": "w40d7-q03",
+          "prompt": "En ATT&CK, ¿qué diferencia distingue una táctica de una técnica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La táctica identifica una IP y la técnica identifica un dominio."
+            },
+            {
+              "id": "b",
+              "text": "La táctica expresa el objetivo del adversario y la técnica describe una forma de lograrlo."
+            },
+            {
+              "id": "c",
+              "text": "La táctica siempre corresponde a un actor y la técnica a una vulnerabilidad."
+            },
+            {
+              "id": "d",
+              "text": "La técnica expresa únicamente el impacto financiero y la táctica el nombre del malware."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las tácticas representan el propósito de una acción. Las técnicas organizan comportamientos que pueden servir a esos objetivos.",
+          "reference": "https://attack.mitre.org/tactics/enterprise/",
+          "reviewOf": "w40d3-q01"
+        },
+        {
+          "id": "w40d7-q04",
+          "prompt": "¿Qué fila permite reproducir un enriquecimiento de dominio de forma más útil?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dominio y color de reputación sin fecha ni proveedor."
+            },
+            {
+              "id": "b",
+              "text": "Dominio consultado, consulta, proveedor, hora UTC, resultado y periodo al que se refiere."
+            },
+            {
+              "id": "c",
+              "text": "Dominio y última conclusión del analista sin datos de consulta."
+            },
+            {
+              "id": "d",
+              "text": "Captura recortada que oculta el valor consultado para ahorrar espacio."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La reproducción requiere saber qué se consultó, dónde, cuándo y con qué respuesta. El periodo del dato puede diferir de la hora de consulta.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html",
+          "reviewOf": "w40d4-q01"
+        },
+        {
+          "id": "w40d7-q05",
+          "prompt": "¿Qué relación describe correctamente STIX y TAXII?",
+          "options": [
+            {
+              "id": "a",
+              "text": "STIX transporta paquetes y TAXII calcula automáticamente la atribución."
+            },
+            {
+              "id": "b",
+              "text": "TAXII es una etiqueta de confidencialidad que sustituye a TLP."
+            },
+            {
+              "id": "c",
+              "text": "STIX garantiza la veracidad de todo objeto recibido por TAXII."
+            },
+            {
+              "id": "d",
+              "text": "STIX representa información de amenazas y TAXII ofrece un protocolo para comunicarla."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La representación de información y su intercambio cumplen funciones distintas. Ninguna de ellas certifica que el contenido recibido sea verdadero.",
+          "reference": "https://docs.oasis-open.org/cti/taxii/v2.1/os/taxii-v2.1-os.html",
+          "reviewOf": "w40d5-q01"
+        },
+        {
+          "id": "w40d7-q06",
+          "prompt": "Un host consultó un dominio incluido en una campaña y después creó una tarea sospechosa. ¿Cuál es la conclusión más ajustada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hay observaciones correlacionadas que justifican investigar una posible relación con la campaña."
+            },
+            {
+              "id": "b",
+              "text": "El nombre de la campaña identifica con certeza al operador del host."
+            },
+            {
+              "id": "c",
+              "text": "La consulta DNS demuestra que la tarea descargó y ejecutó la carga."
+            },
+            {
+              "id": "d",
+              "text": "Dos eventos próximos en el tiempo prueban una cadena causal completa."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La secuencia es una pista analítica, pero faltan enlaces que expliquen causalidad y pertenencia. Debe distinguirse lo observado de la hipótesis.",
+          "reference": "https://attack.mitre.org/techniques/T1053/005/",
+          "reviewOf": "w40d6-q01"
+        },
+        {
+          "id": "w40d7-q07",
+          "prompt": "Un indicador STIX tiene valid_from anterior a valid_until. ¿Para qué sirve valid_until?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Indica cuándo se eliminó el último registro que contiene el valor."
+            },
+            {
+              "id": "b",
+              "text": "Certifica que el recurso quedó limpio después de esa fecha."
+            },
+            {
+              "id": "c",
+              "text": "Marca cuándo deja de considerarse válido como indicador de los comportamientos representados."
+            },
+            {
+              "id": "d",
+              "text": "Marca la caducidad del certificado TLS del servidor observado."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La validez del indicador expresa su utilidad temporal para el comportamiento representado. No describe por sí sola el estado posterior del recurso.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html",
+          "reviewOf": "w40d1-q02"
+        },
+        {
+          "id": "w40d7-q08",
+          "prompt": "¿Qué comparación permite evaluar mejor dos fuentes que discrepan sobre una IP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Elegir siempre el valor numérico de reputación más alto."
+            },
+            {
+              "id": "b",
+              "text": "Preferir la fuente cuyo informe tiene más indicadores."
+            },
+            {
+              "id": "c",
+              "text": "Comparar intervalos de observación, método, alcance y evidencia que respalda cada afirmación."
+            },
+            {
+              "id": "d",
+              "text": "Promediar las fechas de publicación para decidir cuándo ocurrió el hecho."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un desacuerdo puede deberse a periodos, sensores o criterios diferentes. Entenderlos permite comprobar si las afirmaciones realmente se contradicen.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html",
+          "reviewOf": "w40d2-q02"
+        },
+        {
+          "id": "w40d7-q09",
+          "prompt": "Una intrusión usa PowerShell para ejecutar un script. ¿Cuál es el mapeo más específico respaldado por ese comportamiento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "T1053.005, Scheduled Task/Job: Scheduled Task."
+            },
+            {
+              "id": "b",
+              "text": "T1059.001, Command and Scripting Interpreter: PowerShell."
+            },
+            {
+              "id": "c",
+              "text": "T1003.001, OS Credential Dumping: LSASS Memory."
+            },
+            {
+              "id": "d",
+              "text": "T1087, Account Discovery."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "T1059.001 describe el abuso de PowerShell para ejecutar comandos y scripts. La herramienta no demuestra por sí sola las otras acciones propuestas.",
+          "reference": "https://attack.mitre.org/techniques/T1059/001/",
+          "reviewOf": "w40d3-q02"
+        },
+        {
+          "id": "w40d7-q10",
+          "prompt": "El DNS actual de un dominio apunta a una IP distinta de la registrada durante el incidente. ¿Qué fuente resuelve mejor la relación histórica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Observaciones DNS históricas con marcas temporales próximas al incidente."
+            },
+            {
+              "id": "b",
+              "text": "Solo una nueva consulta DNS actual repetida varias veces."
+            },
+            {
+              "id": "c",
+              "text": "La ubicación geográfica actual de la IP antigua."
+            },
+            {
+              "id": "d",
+              "text": "La fecha de modificación del documento que contiene el dominio."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La resolución puede cambiar. Para vincular infraestructura con un evento pasado se necesita una observación del periodo pertinente, no trasladar el estado actual al pasado.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html",
+          "reviewOf": "w40d4-q02"
+        },
+        {
+          "id": "w40d7-q11",
+          "prompt": "Recibes un informe marcado TLP:AMBER+STRICT. ¿Cuál es el límite de difusión previsto por FIRST?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Publicarlo en un repositorio abierto si se quita el logotipo del emisor."
+            },
+            {
+              "id": "b",
+              "text": "Compartirlo con cualquier cliente por tratarse de una variante de AMBER."
+            },
+            {
+              "id": "c",
+              "text": "Compartirlo únicamente dentro de la organización según la necesidad de conocer."
+            },
+            {
+              "id": "d",
+              "text": "Distribuirlo a toda la comunidad de ciberseguridad por canales privados."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "AMBER+STRICT restringe el alcance a la organización. La variante AMBER sin STRICT contempla también clientes con necesidad de conocer.",
+          "reference": "https://www.first.org/tlp/",
+          "reviewOf": "w40d5-q02"
+        },
+        {
+          "id": "w40d7-q12",
+          "prompt": "¿Qué afirmación de un informe es una hipótesis y debe presentarse como tal?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La infraestructura podría estar controlada por el mismo operador debido a varias coincidencias técnicas."
+            },
+            {
+              "id": "b",
+              "text": "El registro del proxy contiene una petición a las 09:12 UTC."
+            },
+            {
+              "id": "c",
+              "text": "La muestra analizada tiene el SHA-256 consignado en el anexo."
+            },
+            {
+              "id": "d",
+              "text": "La fuente consultada respondió con la dirección anotada a las 10:00 UTC."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El control común es una interpretación que necesita sustento y límites. Las otras afirmaciones describen resultados verificables de las evidencias indicadas.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html",
+          "reviewOf": "w40d6-q02"
+        },
+        {
+          "id": "w40d7-q13",
+          "prompt": "Una IP de alojamiento compartido sirve una tienda legítima y un sitio de phishing. ¿Qué mejora la precisión de una detección?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Atribuir todos los dominios de esa IP al autor del phishing."
+            },
+            {
+              "id": "b",
+              "text": "Bloquear el rango completo porque un dominio fue malicioso."
+            },
+            {
+              "id": "c",
+              "text": "Correlacionar la IP con dominio, URL, momento y proceso que originó la conexión."
+            },
+            {
+              "id": "d",
+              "text": "Considerar legítimo cualquier tráfico por existir una tienda en la IP."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La infraestructura compartida puede producir coincidencias ajenas al phishing. Los observables adicionales permiten delimitar la actividad que se investiga.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html",
+          "reviewOf": "w40d1-q03"
+        },
+        {
+          "id": "w40d7-q14",
+          "prompt": "Una fuente tiene buena trayectoria, pero su afirmación actual solo se apoya en una captura incompleta. ¿Cómo debe expresarse la evaluación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Separar la reputación de la fuente de la confianza específica en esta afirmación."
+            },
+            {
+              "id": "b",
+              "text": "Asignar certeza a cualquier afirmación de esa fuente."
+            },
+            {
+              "id": "c",
+              "text": "Declarar que la fuente completa es falsa por un dato incompleto."
+            },
+            {
+              "id": "d",
+              "text": "Sustituir la evidencia faltante por la popularidad del proveedor."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La confianza debe corresponder a los datos concretos. Una fuente conocida puede aportar una afirmación limitada que todavía requiere verificación.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html",
+          "reviewOf": "w40d2-q03"
+        },
+        {
+          "id": "w40d7-q15",
+          "prompt": "Se observa el volcado de la memoria de LSASS con el fin de obtener credenciales. ¿Qué sub­técnica encaja?",
+          "options": [
+            {
+              "id": "a",
+              "text": "T1071.001, Application Layer Protocol: Web Protocols."
+            },
+            {
+              "id": "b",
+              "text": "T1059.001, Command and Scripting Interpreter: PowerShell."
+            },
+            {
+              "id": "c",
+              "text": "T1003.001, OS Credential Dumping: LSASS Memory."
+            },
+            {
+              "id": "d",
+              "text": "T1053.005, Scheduled Task/Job: Scheduled Task."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El objeto y propósito del volcado respaldan LSASS Memory. El mapeo describe el comportamiento y no exige identificar una familia de malware.",
+          "reference": "https://attack.mitre.org/techniques/T1003/001/",
+          "reviewOf": "w40d3-q03"
+        },
+        {
+          "id": "w40d7-q16",
+          "prompt": "Una consulta de reputación responde «sin detecciones». ¿Qué conclusión permite?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El dominio es seguro para cualquier usuario y periodo."
+            },
+            {
+              "id": "b",
+              "text": "La organización no necesita consultar su propia telemetría."
+            },
+            {
+              "id": "c",
+              "text": "Ese servicio no mostró detecciones para la consulta y momento documentados."
+            },
+            {
+              "id": "d",
+              "text": "Se ha demostrado que nunca se utilizó en una campaña."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un resultado negativo está limitado por datos, cobertura y momento del servicio. No equivale a una certificación de inocuidad.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html",
+          "reviewOf": "w40d4-q03"
+        },
+        {
+          "id": "w40d7-q17",
+          "prompt": "Un informe TLP:GREEN sería útil para una comunidad profesional. ¿Qué canal respeta su límite de distribución?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una página pública indexable porque el tema es de ciberseguridad."
+            },
+            {
+              "id": "b",
+              "text": "Un canal restringido a los miembros pertinentes de esa comunidad."
+            },
+            {
+              "id": "c",
+              "text": "Un repositorio público con un aviso que pida discreción."
+            },
+            {
+              "id": "d",
+              "text": "Cualquier red social si el mensaje no menciona nombres de víctimas."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "GREEN permite compartir dentro de la comunidad, pero no mediante canales de acceso público. Quitar nombres no modifica automáticamente la restricción.",
+          "reference": "https://www.first.org/tlp/",
+          "reviewOf": "w40d5-q03"
+        },
+        {
+          "id": "w40d7-q18",
+          "prompt": "Una investigación propone que dos dominios forman una sola operación. ¿Qué hallazgo debilita específicamente esa hipótesis?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un segundo analista copia el grafo sin añadir datos."
+            },
+            {
+              "id": "b",
+              "text": "Se aumenta el grosor de la arista entre ambos dominios."
+            },
+            {
+              "id": "c",
+              "text": "Ambos dominios siguen apareciendo en la misma captura del informe."
+            },
+            {
+              "id": "d",
+              "text": "El artefacto que los vinculaba pertenece a un proveedor compartido utilizado por numerosos clientes sin relación."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una explicación alternativa plausible para el vínculo reduce su poder de atribución. El análisis debe valorar esa evidencia, no solo las coincidencias favorables.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html",
+          "reviewOf": "w40d6-q03"
+        },
+        {
+          "id": "w40d7-q19",
+          "prompt": "Se cambia un byte de un ejecutable y su SHA-256 ya no coincide con el publicado. ¿Qué limitación del indicador demuestra?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El algoritmo deja de distinguir archivos cuando cambia su nombre."
+            },
+            {
+              "id": "b",
+              "text": "El hash identifica el contenido exacto y puede perder cobertura ante variantes modificadas."
+            },
+            {
+              "id": "c",
+              "text": "Toda variante con hash distinto utiliza técnicas ATT&CK diferentes."
+            },
+            {
+              "id": "d",
+              "text": "Un hash que ya no coincide prueba que el archivo modificado es benigno."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un hash es útil para coincidencias exactas de contenido. Una modificación puede cambiarlo sin eliminar el comportamiento de interés.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html",
+          "reviewOf": "w40d1-q04"
+        },
+        {
+          "id": "w40d7-q20",
+          "prompt": "Un dominio se creó hace tres días. ¿Cómo debe incorporarse este dato a la investigación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Como confirmación de phishing sin examinar contenido ni tráfico."
+            },
+            {
+              "id": "b",
+              "text": "Como prueba de que el operador es quien figura en cualquier informe del registrador."
+            },
+            {
+              "id": "c",
+              "text": "Como motivo para ignorar dominios más antiguos en el mismo incidente."
+            },
+            {
+              "id": "d",
+              "text": "Como una característica temporal que puede ganar relevancia al combinarse con otras evidencias."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La antigüedad puede contextualizar un hallazgo, pero no establece por sí sola intención, identidad ni actividad maliciosa.",
+          "reference": "https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html",
+          "reviewOf": "w40d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w40d7-challenge",
+        "prompt": "Caso final: debes entregar un informe de inteligencia tras hallar una tarea sospechosa y tráfico web periódico. El dominio tuvo reputación maliciosa el mes pasado, faltan logs de dos equipos y la fuente limita la difusión. ¿Qué entrega permite actuar y revisar la conclusión?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Un informe con observaciones fechadas, hipótesis de control remoto, evidencia y confianza, huecos de cobertura, destinatarios permitidos y búsquedas concretas para validar."
+          },
+          {
+            "id": "b",
+            "text": "Un listado de IOC sin tiempos que ordene bloquear todas las direcciones relacionadas de forma permanente."
+          },
+          {
+            "id": "c",
+            "text": "Una atribución definitiva basada en el parecido con el nombre de una campaña y sin mencionar equipos sin registros."
+          },
+          {
+            "id": "d",
+            "text": "Un mapa ATT&CK completamente coloreado y un enlace público al material original como prueba suficiente de cobertura."
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La entrega debe conectar observaciones con una interpretación graduada y acciones verificables, respetando las restricciones. Ni tráfico periódico ni reputación histórica bastan para demostrar por sí solos mando y control o atribución.",
+        "reference": "https://attack.mitre.org/techniques/T1071/001/"
+      }
+    }
+  ]
+}

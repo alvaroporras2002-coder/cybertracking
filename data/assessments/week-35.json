@@ -1,0 +1,2094 @@
+{
+  "week": 35,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w35d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w35d1-q01",
+          "prompt": "Un servidor web sufre borrado de datos por una credencial válida robada. ¿Qué control reduce permisos aprovechables por esa cuenta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aumentar solo la retención de logs"
+            },
+            {
+              "id": "b",
+              "text": "Mínimo privilegio"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar únicamente el puerto HTTPS"
+            },
+            {
+              "id": "d",
+              "text": "Duplicar registros DNS públicos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La credencial válida no debe conceder más acciones de las necesarias; el monitoreo complementa la restricción.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/best-practices"
+        },
+        {
+          "id": "w35d1-q02",
+          "prompt": "Debes identificar el PRIMER paso para analizar una alerta sin evidencia de daño activo. ¿Qué opción responde mejor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Reinstalar inmediatamente todos los sistemas"
+            },
+            {
+              "id": "b",
+              "text": "Validar alerta, contexto y fuentes pertinentes"
+            },
+            {
+              "id": "c",
+              "text": "Publicar atribución del atacante"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar la cuenta sin verificar su función"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La validación inicial evita acciones desproporcionadas y orienta alcance; la urgencia puede modificar prioridades.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w35d1-q03",
+          "prompt": "Un certificado TLS está firmado por una autoridad confiable, pero su nombre no corresponde al sitio. ¿Qué procede?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aceptar porque la firma basta para cualquier dominio"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar DNS sin revisar el certificado"
+            },
+            {
+              "id": "c",
+              "text": "Rechazar la conexión según validación de identidad"
+            },
+            {
+              "id": "d",
+              "text": "Desactivar comprobación de nombres"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La confianza en la cadena no sustituye comprobar que el certificado corresponde al extremo solicitado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/52/r2/final"
+        },
+        {
+          "id": "w35d1-q04",
+          "prompt": "Un token permite leer archivos, pero no iniciar sesión en la interfaz como usuario. ¿Qué distinción debes considerar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cifrado simétrico frente a hash"
+            },
+            {
+              "id": "b",
+              "text": "Autorización mediante token frente a autenticación de usuario"
+            },
+            {
+              "id": "c",
+              "text": "Retención frente a deduplicación"
+            },
+            {
+              "id": "d",
+              "text": "Segmentación frente a respaldo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los protocolos y tokens tienen propósitos distintos; acceso a una API no equivale a cualquier sesión interactiva.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity-platform/authentication-vs-authorization"
+        },
+        {
+          "id": "w35d1-q05",
+          "prompt": "Un archivo cambia de hash tras editar una letra. ¿Qué conclusión es válida?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La clave privada fue robada necesariamente"
+            },
+            {
+              "id": "b",
+              "text": "Los bytes difieren respecto al archivo de referencia"
+            },
+            {
+              "id": "c",
+              "text": "El editor es malicioso por definición"
+            },
+            {
+              "id": "d",
+              "text": "El archivo está cifrado con otra clave"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El hash detecta diferencia, pero no determina intención ni mecanismo de modificación.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash"
+        },
+        {
+          "id": "w35d1-q06",
+          "prompt": "Una pregunta pide reducir pérdida de datos tras fallo. ¿Qué requisito debes distinguir del tiempo de recuperación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "RTO exclusivamente"
+            },
+            {
+              "id": "b",
+              "text": "Duración del contrato"
+            },
+            {
+              "id": "c",
+              "text": "Umbral de bloqueo de cuenta"
+            },
+            {
+              "id": "d",
+              "text": "RPO"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "RPO se refiere a pérdida tolerable de datos; RTO al tiempo para recuperar servicio.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w35d1-q07",
+          "prompt": "Una cuenta intenta una contraseña común contra 80 usuarios. ¿Qué interpretación encaja?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo fuerza bruta concentrada en una cuenta"
+            },
+            {
+              "id": "b",
+              "text": "ARP spoofing"
+            },
+            {
+              "id": "c",
+              "text": "Password spraying"
+            },
+            {
+              "id": "d",
+              "text": "Explotación de SQL por parámetros"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El patrón distribuye pocos candidatos entre muchas identidades.",
+          "reference": "https://attack.mitre.org/techniques/T1078/"
+        },
+        {
+          "id": "w35d1-q08",
+          "prompt": "Una práctica da 88 %, pero no evalúa recuperación. ¿Qué conclusión de estudio es adecuada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La nota equivale automáticamente a aprobación oficial"
+            },
+            {
+              "id": "b",
+              "text": "Falta evidencia sobre recuperación pese al promedio"
+            },
+            {
+              "id": "c",
+              "text": "La recuperación queda cubierta por la puntuación total"
+            },
+            {
+              "id": "d",
+              "text": "No conviene revisar dominios tras superar 85 %"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un promedio local no acredita competencias no evaluadas ni convierte una meta en escala oficial.",
+          "reference": "https://www.comptia.org/en-us/certifications/security/"
+        }
+      ],
+      "challenge": {
+        "id": "w35d1-challenge",
+        "prompt": "En el primer simulacro eliges reinstalar ante un fallo aislado de contraseña. ¿Qué razonamiento corrige el orden?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Validar la señal y el contexto antes de una acción de alto impacto si no hay daño activo observado"
+          },
+          {
+            "id": "b",
+            "text": "Reinstalar siempre evita análisis"
+          },
+          {
+            "id": "c",
+            "text": "Todo fallo demuestra compromiso"
+          },
+          {
+            "id": "d",
+            "text": "La primera opción de una lista es la prioridad"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La respuesta debe ajustarse a evidencia y urgencia, respetando la palabra y restricciones del escenario.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    },
+    {
+      "dayId": "w35d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w35d2-q01",
+          "prompt": "Confundes cifrado y firma. ¿Qué ejemplo corrige la diferencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Firmar oculta siempre el contenido"
+            },
+            {
+              "id": "b",
+              "text": "Cifrar con cualquier clave pública prueba autoría del emisor"
+            },
+            {
+              "id": "c",
+              "text": "Cifrar protege lectura; firmar permite verificar origen e integridad bajo sus supuestos"
+            },
+            {
+              "id": "d",
+              "text": "Un hash sin clave identifica al autor"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las funciones criptográficas responden a objetivos diferentes y dependen de gestión de claves.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
+        },
+        {
+          "id": "w35d2-q02",
+          "prompt": "Una respuesta errónea equipara copia y alta disponibilidad. ¿Qué ejemplo distingue ambas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dos nodos garantizan conservar todas las versiones borradas"
+            },
+            {
+              "id": "b",
+              "text": "Una copia desconectada mantiene siempre el servicio sin interrupción"
+            },
+            {
+              "id": "c",
+              "text": "RAID reemplaza cualquier objetivo de recuperación"
+            },
+            {
+              "id": "d",
+              "text": "Dos nodos mantienen servicio, pero una copia histórica permite recuperar un borrado replicado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Disponibilidad y recuperación histórica requieren capacidades distintas y pueden complementarse.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w35d2-q03",
+          "prompt": "¿Qué caso diferencia un falso negativo de un falso positivo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Actividad legítima que la regla alerta"
+            },
+            {
+              "id": "b",
+              "text": "Ataque real que la regla no alerta"
+            },
+            {
+              "id": "c",
+              "text": "Alerta duplicada de actividad legítima"
+            },
+            {
+              "id": "d",
+              "text": "Una consulta correcta sobre datos de prueba sin amenazas"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La omisión de un ataque es falso negativo; alertar actividad benigna es falso positivo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w35d2-q04",
+          "prompt": "Una credencial fue validada, pero el usuario no puede editar. ¿Qué explicación es compatible?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Autenticación exitosa con autorización de solo lectura"
+            },
+            {
+              "id": "b",
+              "text": "Fallo obligatorio de autenticación"
+            },
+            {
+              "id": "c",
+              "text": "Ausencia de identidad necesariamente"
+            },
+            {
+              "id": "d",
+              "text": "Cifrado del enlace incompatible con permisos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Identidad y permisos son controles diferentes; puede existir acceso limitado válido.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity-platform/authentication-vs-authorization"
+        },
+        {
+          "id": "w35d2-q05",
+          "prompt": "¿Qué escenario distingue amenaza de vulnerabilidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una política define responsables"
+            },
+            {
+              "id": "b",
+              "text": "Un seguro cubre costes"
+            },
+            {
+              "id": "c",
+              "text": "Un atacante explota un servicio sin parche"
+            },
+            {
+              "id": "d",
+              "text": "Una copia se restaura dentro del objetivo"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El actor o evento amenazante aprovecha una debilidad; no son términos intercambiables.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w35d2-q06",
+          "prompt": "¿Qué ejemplo distingue detección de prevención?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todo aviso detiene la ejecución antes de ocurrir"
+            },
+            {
+              "id": "b",
+              "text": "Un log borra automáticamente el proceso registrado"
+            },
+            {
+              "id": "c",
+              "text": "Una alerta registra ejecución que un control preventivo no bloqueó"
+            },
+            {
+              "id": "d",
+              "text": "Detección significa que el usuario ya fue atribuido"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Observar un evento no demuestra bloqueo; debe verificarse qué acción efectuó cada control.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        },
+        {
+          "id": "w35d2-q07",
+          "prompt": "Confundes aceptación y mitigación. ¿Qué acción demuestra mitigación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aplicar un control que reduce el escenario de riesgo"
+            },
+            {
+              "id": "b",
+              "text": "Firmar que se tolera la exposición sin cambiar controles"
+            },
+            {
+              "id": "c",
+              "text": "Comprar un informe sin implementarlo"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar solo la etiqueta de alto a bajo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La mitigación modifica probabilidad o impacto; la aceptación documenta tolerancia del remanente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w35d2-q08",
+          "prompt": "¿Cómo corregir una respuesta memorizada sin repetir solo su letra?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Repetir el mismo enunciado hasta reconocer su orden"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar todo distractor sin justificarlo"
+            },
+            {
+              "id": "c",
+              "text": "Explicar el principio y aplicarlo a un escenario con restricciones distintas"
+            },
+            {
+              "id": "d",
+              "text": "Suponer que la opción más larga es correcta"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La transferencia se comprueba con situaciones nuevas y razones verificables, no reconocimiento superficial.",
+          "reference": "https://www.comptia.org/en-us/certifications/security/"
+        }
+      ],
+      "challenge": {
+        "id": "w35d2-challenge",
+        "prompt": "Fallaste tres preguntas porque confundiste hash, cifrado y firma. ¿Qué refuerzo es útil?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Memorizar tres letras correctas del banco"
+          },
+          {
+            "id": "b",
+            "text": "Afirmar que los tres mecanismos hacen lo mismo"
+          },
+          {
+            "id": "c",
+            "text": "Usar un archivo sintético para comparar cambios, confidencialidad y verificación de firma"
+          },
+          {
+            "id": "d",
+            "text": "Sustituir toda criptografía por contraseña larga"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "El ejercicio muestra objetivos y límites de cada mecanismo con resultados observables.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
+      }
+    },
+    {
+      "dayId": "w35d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w35d3-q01",
+          "prompt": "Reglas de firewall: 1 permitir TCP/443 desde cualquiera a web; 2 denegar todo. ¿Qué ocurre con TCP/22 hacia web bajo primera coincidencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Se permite porque comparte IP con HTTPS"
+            },
+            {
+              "id": "b",
+              "text": "Se convierte a TCP/443"
+            },
+            {
+              "id": "c",
+              "text": "Se deniega por la segunda regla"
+            },
+            {
+              "id": "d",
+              "text": "Se permite por cualquier regla de TCP"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El puerto 22 no coincide con permiso de 443; alcanza la denegación definida.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w35d3-q02",
+          "prompt": "Permisos de carpeta: grupo Lectores=lectura; usuario ana pertenece solo a Lectores. ¿Qué acción está autorizada según esos datos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Modificar el archivo"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar permisos"
+            },
+            {
+              "id": "c",
+              "text": "Borrar toda la carpeta"
+            },
+            {
+              "id": "d",
+              "text": "Leer el archivo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "No se deben inferir privilegios no concedidos; la evaluación real también contempla otros controles aplicables.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w35d3-q03",
+          "prompt": "Logs educativos: ana fail, ana fail, luis success. ¿Qué devuelve contar fallos por usuario?",
+          "options": [
+            {
+              "id": "a",
+              "text": "ana=2 y luis=1 como fallo"
+            },
+            {
+              "id": "b",
+              "text": "ana=2"
+            },
+            {
+              "id": "c",
+              "text": "ana=1 y luis=1"
+            },
+            {
+              "id": "d",
+              "text": "Total de usuarios=3"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El filtro de fallos excluye el éxito antes de agrupar por identidad.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/spl-search-reference/9.1/search-commands/stats"
+        },
+        {
+          "id": "w35d3-q04",
+          "prompt": "¿Qué fila cumple [int]$_.Days -ge 30 después de validar el campo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Days='29'"
+            },
+            {
+              "id": "b",
+              "text": "Days='0'"
+            },
+            {
+              "id": "c",
+              "text": "Days='-1'"
+            },
+            {
+              "id": "d",
+              "text": "Days='30'"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La conversión permite comparación numérica y -ge incluye el límite 30.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/where-object"
+        },
+        {
+          "id": "w35d3-q05",
+          "prompt": "Hora original 12:15:00-03:00. ¿Qué valor UTC corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "09:15:00Z"
+            },
+            {
+              "id": "b",
+              "text": "15:15:00Z"
+            },
+            {
+              "id": "c",
+              "text": "12:15:00Z"
+            },
+            {
+              "id": "d",
+              "text": "03:15:00Z"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Para convertir desde UTC-3 se suman tres horas al tiempo local indicado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        },
+        {
+          "id": "w35d3-q06",
+          "prompt": "Una regla de alerta usa count > 5. ¿Qué caso de frontera debe generar alerta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cinco eventos coincidentes"
+            },
+            {
+              "id": "b",
+              "text": "Cuatro eventos coincidentes"
+            },
+            {
+              "id": "c",
+              "text": "Seis eventos coincidentes"
+            },
+            {
+              "id": "d",
+              "text": "Cero eventos coincidentes"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El comparador estricto excluye cinco; los casos de frontera prueban la interpretación.",
+          "reference": "https://help.splunk.com/en/splunk-cloud-platform/alert-and-respond/alerting-manual/10.0.2503/manage-alert-trigger-conditions-and-throttling/throttle-alerts"
+        },
+        {
+          "id": "w35d3-q07",
+          "prompt": "¿Qué dato adicional necesita una regla que detecta cambios fuera de ventana?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el número de caracteres del cambio"
+            },
+            {
+              "id": "b",
+              "text": "Ventana autorizada con zona temporal y activo afectado"
+            },
+            {
+              "id": "c",
+              "text": "El hash de un archivo de otro host"
+            },
+            {
+              "id": "d",
+              "text": "La lista de todos los puertos públicos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La comparación temporal requiere contexto aplicable y relojes interpretables.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w35d3-q08",
+          "prompt": "Un script contiene try { Import-Csv ... } catch { 'Sin hallazgos' }. ¿Qué defecto lógico hay?",
+          "options": [
+            {
+              "id": "a",
+              "text": "catch siempre significa que el CSV está validado"
+            },
+            {
+              "id": "b",
+              "text": "El error de importación se presenta como resultado limpio"
+            },
+            {
+              "id": "c",
+              "text": "try concede permisos de administrador"
+            },
+            {
+              "id": "d",
+              "text": "Import-Csv modifica cuentas automáticamente"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El estado de fallo debe separarse de resultados de auditoría válidos y registrarse como tal.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_try_catch_finally"
+        }
+      ],
+      "challenge": {
+        "id": "w35d3-challenge",
+        "prompt": "Reglas en orden: permitir web:443 desde 10.1.0.0/16; denegar resto. El cliente 10.2.3.4 intenta web:443. ¿Qué resultado espera la prueba?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Permitido porque 443 siempre está abierto"
+          },
+          {
+            "id": "b",
+            "text": "Permitido porque ambas IP empiezan por 10"
+          },
+          {
+            "id": "c",
+            "text": "Redirigido automáticamente a 10.1.0.1"
+          },
+          {
+            "id": "d",
+            "text": "Denegado porque el origen no pertenece a la subred permitida"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La regla exige coincidencia de origen y servicio; compartir prefijo privado amplio no basta.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+      }
+    },
+    {
+      "dayId": "w35d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w35d4-q01",
+          "prompt": "En una segunda práctica aparece tráfico permitido por firewall pero HTTP 403. ¿Qué respuesta integra ambas capas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El firewall bloqueó necesariamente la conexión"
+            },
+            {
+              "id": "b",
+              "text": "HTTP 403 demuestra contraseña correcta siempre"
+            },
+            {
+              "id": "c",
+              "text": "La red permite conexión y la aplicación niega la acción"
+            },
+            {
+              "id": "d",
+              "text": "Los registros no pueden corresponder a una sesión"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Conectividad y autorización se deciden en capas distintas y deben correlacionarse con contexto.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity-platform/authentication-vs-authorization"
+        },
+        {
+          "id": "w35d4-q02",
+          "prompt": "Un usuario inicia sesión con contraseña y pregunta secreta. ¿Qué limitación tiene llamarlo MFA?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Son dos factores porque hay dos pantallas"
+            },
+            {
+              "id": "b",
+              "text": "La pregunta secreta es siempre posesión"
+            },
+            {
+              "id": "c",
+              "text": "La contraseña cuenta como biometría"
+            },
+            {
+              "id": "d",
+              "text": "Ambas pruebas son conocimiento"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "MFA exige categorías diferentes, no solo dos secretos de la misma categoría.",
+          "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html"
+        },
+        {
+          "id": "w35d4-q03",
+          "prompt": "Un portátil compartió IP con otro la semana pasada. ¿Qué evidencia necesitas para atribuir actividad de entonces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Asignación DHCP/NAT histórica y autenticación de ese intervalo"
+            },
+            {
+              "id": "b",
+              "text": "La dirección actual exclusivamente"
+            },
+            {
+              "id": "c",
+              "text": "La geolocalización de la IP privada"
+            },
+            {
+              "id": "d",
+              "text": "El nombre actual del usuario conectado a otro host"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La identidad de red cambia; la correlación debe corresponder al momento investigado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        },
+        {
+          "id": "w35d4-q04",
+          "prompt": "Un respaldo se completa, pero nunca se restaura. ¿Qué capacidad sigue sin demostrar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Recuperación utilizable dentro de requisitos"
+            },
+            {
+              "id": "b",
+              "text": "Existencia de algún archivo de salida"
+            },
+            {
+              "id": "c",
+              "text": "Que el trabajo llegó a su final configurado"
+            },
+            {
+              "id": "d",
+              "text": "Disponibilidad del software de copia en ese momento"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El éxito de copia no prueba que datos y servicio puedan recuperarse.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w35d4-q05",
+          "prompt": "Un proveedor asegura cumplir, pero el informe corresponde a otro producto. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aceptar por compartir marca"
+            },
+            {
+              "id": "b",
+              "text": "Extender el informe a todos los productos por inferencia"
+            },
+            {
+              "id": "c",
+              "text": "Solicitar evidencia aplicable al servicio y su alcance"
+            },
+            {
+              "id": "d",
+              "text": "Ignorar el alcance si está firmado"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las conclusiones deben ajustarse a sistemas y períodos realmente evaluados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        },
+        {
+          "id": "w35d4-q06",
+          "prompt": "Una alerta identifica un hash conocido en un archivo nunca ejecutado. ¿Qué afirmación es exacta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El proceso ya se ejecutó necesariamente"
+            },
+            {
+              "id": "b",
+              "text": "Hubo exfiltración confirmada"
+            },
+            {
+              "id": "c",
+              "text": "Se observó el archivo; la ejecución necesita evidencia adicional"
+            },
+            {
+              "id": "d",
+              "text": "Todo el dominio está comprometido"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Presencia, ejecución e impacto son afirmaciones diferentes y requieren evidencia correspondiente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w35d4-q07",
+          "prompt": "¿Qué medida reduce daño si una cuenta de servicio es robada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Uso compartido de la misma cuenta en todos los servicios"
+            },
+            {
+              "id": "b",
+              "text": "Privilegios y alcance limitados con supervisión pertinente"
+            },
+            {
+              "id": "c",
+              "text": "Exclusión permanente de auditoría"
+            },
+            {
+              "id": "d",
+              "text": "Derechos globales para evitar errores de permisos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Reducir permisos limita acciones posibles; se complementa con protección y detección.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/best-practices"
+        },
+        {
+          "id": "w35d4-q08",
+          "prompt": "¿Cómo interpretar una mejora de 70 % a 92 % usando exactamente el mismo banco?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Prueba equivalencia con puntuación oficial"
+            },
+            {
+              "id": "b",
+              "text": "Demuestra todos los dominios incluso ausentes"
+            },
+            {
+              "id": "c",
+              "text": "Garantiza autonomía sin práctica"
+            },
+            {
+              "id": "d",
+              "text": "Puede reflejar memoria; hace falta transferencia a preguntas y tareas nuevas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Repetición del banco puede inflar la medida de aprendizaje aplicado; las pruebas nuevas reducen ese sesgo.",
+          "reference": "https://www.comptia.org/en-us/certifications/security/"
+        }
+      ],
+      "challenge": {
+        "id": "w35d4-challenge",
+        "prompt": "El segundo simulacro mejora mucho, pero usa escenarios idénticos en distinto orden. ¿Cómo compruebas transferencia?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Resolver casos nuevos con requisitos distintos y justificar decisiones"
+          },
+          {
+            "id": "b",
+            "text": "Repetir otra vez las mismas opciones hasta reconocerlas"
+          },
+          {
+            "id": "c",
+            "text": "Tomar la puntuación como equivalencia oficial sin validación"
+          },
+          {
+            "id": "d",
+            "text": "Eliminar de la comparación las áreas con errores persistentes"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "El orden no cambia necesariamente la tarea; nuevas restricciones muestran comprensión aplicada.",
+        "reference": "https://www.comptia.org/en-us/certifications/security/"
+      }
+    },
+    {
+      "dayId": "w35d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w35d5-q01",
+          "prompt": "El área débil es IAM. Un usuario cambió de puesto y conserva acceso antiguo. ¿Qué tarea practica la corrección?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Revisar permisos efectivos y retirar los no justificados con autorización"
+            },
+            {
+              "id": "b",
+              "text": "Añadir el nuevo grupo sin revisar anteriores"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar solo su nombre visible"
+            },
+            {
+              "id": "d",
+              "text": "Reiniciar su navegador sin cambiar acceso"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El cambio de función exige revisar acumulación y necesidad de privilegios.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w35d5-q02",
+          "prompt": "¿Qué diferencia práctica hay entre grupo y permiso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El grupo reúne miembros; el permiso autoriza una acción sobre un recurso"
+            },
+            {
+              "id": "b",
+              "text": "Todo grupo siempre concede administrador global"
+            },
+            {
+              "id": "c",
+              "text": "Un permiso solo organiza nombres sin efecto"
+            },
+            {
+              "id": "d",
+              "text": "Son idénticos en todos los sistemas"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los grupos facilitan asignaciones, pero el acceso depende de derechos otorgados y pertenencias.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview"
+        },
+        {
+          "id": "w35d5-q03",
+          "prompt": "Una aplicación valida firma pero no expiración del token. ¿Qué riesgo queda?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aceptar tokens fuera de su período de validez"
+            },
+            {
+              "id": "b",
+              "text": "La firma se vuelve automáticamente inválida"
+            },
+            {
+              "id": "c",
+              "text": "El token pasa a ser una copia de seguridad"
+            },
+            {
+              "id": "d",
+              "text": "Desaparece la necesidad de audiencia"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Cada condición de validación tiene propósito; la firma no cubre por sí sola vigencia aceptada.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc"
+        },
+        {
+          "id": "w35d5-q04",
+          "prompt": "¿Qué ejercicio demuestra auditoría IAM sin cambios destructivos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Deshabilitar todas las cuentas sin propietario aparente"
+            },
+            {
+              "id": "b",
+              "text": "Clasificar CSV sintético con motivos y conciliar entradas y salidas"
+            },
+            {
+              "id": "c",
+              "text": "Publicar credenciales para facilitar revisión"
+            },
+            {
+              "id": "d",
+              "text": "Asignar administrador a cuentas inactivas"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una práctica de lectura con datos controlados permite comprobar reglas y límites antes de remediar.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/import-csv"
+        },
+        {
+          "id": "w35d5-q05",
+          "prompt": "Una revisión detecta acceso heredado por grupo anidado. ¿Qué evidencia hace falta conservar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el nombre visible del usuario"
+            },
+            {
+              "id": "b",
+              "text": "Ruta de pertenencia y permisos que explican el acceso efectivo"
+            },
+            {
+              "id": "c",
+              "text": "Un total global de grupos sin relaciones"
+            },
+            {
+              "id": "d",
+              "text": "Solo la fecha de creación del CSV"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La explicación debe mostrar cómo se concede el acceso para que pueda revisarse o corregirse.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview"
+        },
+        {
+          "id": "w35d5-q06",
+          "prompt": "Un servicio falla al rotar una credencial. ¿Qué capacidad de IAM faltó preparar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Inventario de dependencias y procedimiento de rotación validado"
+            },
+            {
+              "id": "b",
+              "text": "Más privilegios globales para todos"
+            },
+            {
+              "id": "c",
+              "text": "Desactivar permanentemente la rotación"
+            },
+            {
+              "id": "d",
+              "text": "Compartir la credencial en correo abierto"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La gestión del ciclo de vida debe considerar consumidores, transición y verificación operativa.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w35d5-q07",
+          "prompt": "¿Qué registro permite justificar una excepción temporal de acceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el texto acceso especial"
+            },
+            {
+              "id": "b",
+              "text": "La contraseña de quien lo pidió"
+            },
+            {
+              "id": "c",
+              "text": "Aprobador, motivo, alcance, caducidad y seguimiento"
+            },
+            {
+              "id": "d",
+              "text": "Una nota sin entidad ni fecha"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La excepción debe ser limitada y trazable para evitar privilegios permanentes por omisión.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w35d5-q08",
+          "prompt": "¿Qué dato no debe inventar un clasificador cuando Owner está vacío?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El estado pendiente de revisión"
+            },
+            {
+              "id": "b",
+              "text": "El propietario de la cuenta"
+            },
+            {
+              "id": "c",
+              "text": "El motivo dato ausente"
+            },
+            {
+              "id": "d",
+              "text": "El identificador de la fila existente"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El script puede describir la carencia y preservarla, pero no atribuir responsabilidad sin fuente.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/import-csv"
+        }
+      ],
+      "challenge": {
+        "id": "w35d5-challenge",
+        "prompt": "Un CSV IAM tiene 50 filas, dos Owner vacíos y una fecha inválida. ¿Qué valida mejor el refuerzo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Exportar 47 aprobadas sin explicar las demás"
+          },
+          {
+            "id": "b",
+            "text": "Asignar dueños aleatorios a las dos vacías"
+          },
+          {
+            "id": "c",
+            "text": "Cambiar toda fecha inválida por cero días"
+          },
+          {
+            "id": "d",
+            "text": "Conservar las 50 identidades, distinguir motivos y registrar la fila no evaluable"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La auditoría debe conciliar población y estados sin fabricar campos ni perder trazabilidad.",
+        "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/import-csv"
+      }
+    },
+    {
+      "dayId": "w35d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w35d6-q01",
+          "prompt": "En una tercera práctica, una copia cifrada está junto a su clave accesible por la misma cuenta comprometida. ¿Qué conclusión corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El cifrado garantiza confidencialidad en ese escenario"
+            },
+            {
+              "id": "b",
+              "text": "El hash del archivo impide usar la clave"
+            },
+            {
+              "id": "c",
+              "text": "El aislamiento y protección de claves son insuficientes frente a ese acceso"
+            },
+            {
+              "id": "d",
+              "text": "La clave pública de TLS protege ese almacenamiento automáticamente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La seguridad depende de quién puede obtener datos y material de claves, no solo del algoritmo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
+        },
+        {
+          "id": "w35d6-q02",
+          "prompt": "Un ataque aparece en la red pero no en el SIEM porque su fuente nunca se integró. ¿Qué falla?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el formato del resumen ejecutivo"
+            },
+            {
+              "id": "b",
+              "text": "El algoritmo SHA-256"
+            },
+            {
+              "id": "c",
+              "text": "El modelo de licencias del navegador"
+            },
+            {
+              "id": "d",
+              "text": "Cobertura de recolección y detección"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La detección requiere datos pertinentes; una regla no puede evaluar eventos que no recibe.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        },
+        {
+          "id": "w35d6-q03",
+          "prompt": "Un equipo restaurado cumple funcionamiento, pero conserva la vulnerabilidad explotada. ¿Qué debe resolverse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo cambiar el título del caso"
+            },
+            {
+              "id": "b",
+              "text": "Tratamiento de la vía de entrada y riesgo antes de operar según criterios"
+            },
+            {
+              "id": "c",
+              "text": "Concluir que restaurar equivale a parchear"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar los logs para reiniciar el monitoreo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Recuperación funcional no demuestra cierre de causa ni ausencia de reinfección.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w35d6-q04",
+          "prompt": "Un informe identifica una IP compartida con una campaña. ¿Qué inferencia sería excesiva?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Registrar la coincidencia con fecha"
+            },
+            {
+              "id": "b",
+              "text": "Atribuir automáticamente al mismo actor por esa coincidencia"
+            },
+            {
+              "id": "c",
+              "text": "Buscar otras evidencias relacionadas"
+            },
+            {
+              "id": "d",
+              "text": "Considerar alojamiento compartido como explicación"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Infraestructura compartida y reutilización limitan atribución; hace falta evidencia adicional.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/150/final"
+        },
+        {
+          "id": "w35d6-q05",
+          "prompt": "Para limitar un servicio a dos subredes autorizadas, ¿qué regla es más ajustada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Permitir cualquier origen a cualquier puerto"
+            },
+            {
+              "id": "b",
+              "text": "Permitir las subredes a todos los destinos sin necesidad"
+            },
+            {
+              "id": "c",
+              "text": "Bloquear solo una IP externa conocida"
+            },
+            {
+              "id": "d",
+              "text": "Permitir origen de esas subredes y puerto necesario, con denegación del resto según política"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El permiso debe expresar necesidad mínima de origen, destino, servicio y contexto.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w35d6-q06",
+          "prompt": "Una empresa acepta un riesgo durante treinta días con control compensatorio. ¿Qué debe pasar al vencer?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Revisar tratamiento y renovar con autoridad o corregir según decisión"
+            },
+            {
+              "id": "b",
+              "text": "Convertirlo automáticamente en aceptado perpetuo"
+            },
+            {
+              "id": "c",
+              "text": "Borrar el riesgo sin comprobar nada"
+            },
+            {
+              "id": "d",
+              "text": "Declarar que el control compensatorio elimina toda exposición"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La excepción temporal requiere seguimiento; su vencimiento no resuelve el escenario por sí solo.",
+          "reference": "https://www.nist.gov/cyberframework"
+        },
+        {
+          "id": "w35d6-q07",
+          "prompt": "La pregunta pide preservar evidencia volátil y el equipo sigue encendido. ¿Qué respuesta atiende esa restricción?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Evaluar adquisición autorizada de memoria antes de acciones que la destruyan"
+            },
+            {
+              "id": "b",
+              "text": "Apagarlo siempre como primer paso universal"
+            },
+            {
+              "id": "c",
+              "text": "Reinstalar antes de registrar el estado"
+            },
+            {
+              "id": "d",
+              "text": "Conservar solo el nombre del usuario"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La decisión debe considerar volatilidad y riesgo operativo; no hay una secuencia ciega para todo caso.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w35d6-q08",
+          "prompt": "Un resultado local consistente supera tu meta, pero faltan prácticas autónomas. ¿Qué decisión evita exagerar preparación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Declarar equivalencia oficial de puntuación"
+            },
+            {
+              "id": "b",
+              "text": "Comprar inmediatamente porque el promedio basta"
+            },
+            {
+              "id": "c",
+              "text": "Omitir prácticas si se reconocen términos"
+            },
+            {
+              "id": "d",
+              "text": "Completar competencias pendientes y tratar la nota como señal parcial"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las notas de estudio necesitan contexto y no sustituyen evidencia de desempeño ni reglas oficiales.",
+          "reference": "https://www.comptia.org/en-us/certifications/security/"
+        }
+      ],
+      "challenge": {
+        "id": "w35d6-challenge",
+        "prompt": "En el tercer simulacro una restauración funciona, pero los datos tienen seis horas de antigüedad frente a RPO de una hora. ¿Qué concluyes?",
+        "options": [
+          {
+            "id": "a",
+            "text": "No cumple el objetivo de pérdida de datos aunque el servicio arranque"
+          },
+          {
+            "id": "b",
+            "text": "Cumple porque todo RPO mide velocidad de arranque"
+          },
+          {
+            "id": "c",
+            "text": "Cumple si RTO fue inferior a una hora"
+          },
+          {
+            "id": "d",
+            "text": "No hay requisito de comprobar contenido"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La recuperación debe satisfacer objetivos de tiempo y punto de datos por separado.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+      }
+    },
+    {
+      "dayId": "w35d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w35d7-q01",
+          "prompt": "Un servidor web sufre borrado de datos por una credencial válida robada. ¿Qué control reduce permisos aprovechables por esa cuenta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aumentar solo la retención de logs"
+            },
+            {
+              "id": "b",
+              "text": "Mínimo privilegio"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar únicamente el puerto HTTPS"
+            },
+            {
+              "id": "d",
+              "text": "Duplicar registros DNS públicos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La credencial válida no debe conceder más acciones de las necesarias; el monitoreo complementa la restricción.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/best-practices",
+          "reviewOf": "w35d1-q01"
+        },
+        {
+          "id": "w35d7-q02",
+          "prompt": "Confundes cifrado y firma. ¿Qué ejemplo corrige la diferencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Firmar oculta siempre el contenido"
+            },
+            {
+              "id": "b",
+              "text": "Cifrar con cualquier clave pública prueba autoría del emisor"
+            },
+            {
+              "id": "c",
+              "text": "Cifrar protege lectura; firmar permite verificar origen e integridad bajo sus supuestos"
+            },
+            {
+              "id": "d",
+              "text": "Un hash sin clave identifica al autor"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las funciones criptográficas responden a objetivos diferentes y dependen de gestión de claves.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final",
+          "reviewOf": "w35d2-q01"
+        },
+        {
+          "id": "w35d7-q03",
+          "prompt": "Reglas de firewall: 1 permitir TCP/443 desde cualquiera a web; 2 denegar todo. ¿Qué ocurre con TCP/22 hacia web bajo primera coincidencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Se permite porque comparte IP con HTTPS"
+            },
+            {
+              "id": "b",
+              "text": "Se convierte a TCP/443"
+            },
+            {
+              "id": "c",
+              "text": "Se deniega por la segunda regla"
+            },
+            {
+              "id": "d",
+              "text": "Se permite por cualquier regla de TCP"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El puerto 22 no coincide con permiso de 443; alcanza la denegación definida.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final",
+          "reviewOf": "w35d3-q01"
+        },
+        {
+          "id": "w35d7-q04",
+          "prompt": "En una segunda práctica aparece tráfico permitido por firewall pero HTTP 403. ¿Qué respuesta integra ambas capas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El firewall bloqueó necesariamente la conexión"
+            },
+            {
+              "id": "b",
+              "text": "HTTP 403 demuestra contraseña correcta siempre"
+            },
+            {
+              "id": "c",
+              "text": "La red permite conexión y la aplicación niega la acción"
+            },
+            {
+              "id": "d",
+              "text": "Los registros no pueden corresponder a una sesión"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Conectividad y autorización se deciden en capas distintas y deben correlacionarse con contexto.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity-platform/authentication-vs-authorization",
+          "reviewOf": "w35d4-q01"
+        },
+        {
+          "id": "w35d7-q05",
+          "prompt": "El área débil es IAM. Un usuario cambió de puesto y conserva acceso antiguo. ¿Qué tarea practica la corrección?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Revisar permisos efectivos y retirar los no justificados con autorización"
+            },
+            {
+              "id": "b",
+              "text": "Añadir el nuevo grupo sin revisar anteriores"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar solo su nombre visible"
+            },
+            {
+              "id": "d",
+              "text": "Reiniciar su navegador sin cambiar acceso"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El cambio de función exige revisar acumulación y necesidad de privilegios.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w35d5-q01"
+        },
+        {
+          "id": "w35d7-q06",
+          "prompt": "En una tercera práctica, una copia cifrada está junto a su clave accesible por la misma cuenta comprometida. ¿Qué conclusión corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El cifrado garantiza confidencialidad en ese escenario"
+            },
+            {
+              "id": "b",
+              "text": "El hash del archivo impide usar la clave"
+            },
+            {
+              "id": "c",
+              "text": "El aislamiento y protección de claves son insuficientes frente a ese acceso"
+            },
+            {
+              "id": "d",
+              "text": "La clave pública de TLS protege ese almacenamiento automáticamente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La seguridad depende de quién puede obtener datos y material de claves, no solo del algoritmo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final",
+          "reviewOf": "w35d6-q01"
+        },
+        {
+          "id": "w35d7-q07",
+          "prompt": "Debes identificar el PRIMER paso para analizar una alerta sin evidencia de daño activo. ¿Qué opción responde mejor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Reinstalar inmediatamente todos los sistemas"
+            },
+            {
+              "id": "b",
+              "text": "Validar alerta, contexto y fuentes pertinentes"
+            },
+            {
+              "id": "c",
+              "text": "Publicar atribución del atacante"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar la cuenta sin verificar su función"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La validación inicial evita acciones desproporcionadas y orienta alcance; la urgencia puede modificar prioridades.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w35d1-q02"
+        },
+        {
+          "id": "w35d7-q08",
+          "prompt": "Una respuesta errónea equipara copia y alta disponibilidad. ¿Qué ejemplo distingue ambas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dos nodos garantizan conservar todas las versiones borradas"
+            },
+            {
+              "id": "b",
+              "text": "Una copia desconectada mantiene siempre el servicio sin interrupción"
+            },
+            {
+              "id": "c",
+              "text": "RAID reemplaza cualquier objetivo de recuperación"
+            },
+            {
+              "id": "d",
+              "text": "Dos nodos mantienen servicio, pero una copia histórica permite recuperar un borrado replicado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Disponibilidad y recuperación histórica requieren capacidades distintas y pueden complementarse.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final",
+          "reviewOf": "w35d2-q02"
+        },
+        {
+          "id": "w35d7-q09",
+          "prompt": "Permisos de carpeta: grupo Lectores=lectura; usuario ana pertenece solo a Lectores. ¿Qué acción está autorizada según esos datos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Modificar el archivo"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar permisos"
+            },
+            {
+              "id": "c",
+              "text": "Borrar toda la carpeta"
+            },
+            {
+              "id": "d",
+              "text": "Leer el archivo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "No se deben inferir privilegios no concedidos; la evaluación real también contempla otros controles aplicables.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w35d3-q02"
+        },
+        {
+          "id": "w35d7-q10",
+          "prompt": "Un usuario inicia sesión con contraseña y pregunta secreta. ¿Qué limitación tiene llamarlo MFA?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Son dos factores porque hay dos pantallas"
+            },
+            {
+              "id": "b",
+              "text": "La pregunta secreta es siempre posesión"
+            },
+            {
+              "id": "c",
+              "text": "La contraseña cuenta como biometría"
+            },
+            {
+              "id": "d",
+              "text": "Ambas pruebas son conocimiento"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "MFA exige categorías diferentes, no solo dos secretos de la misma categoría.",
+          "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html",
+          "reviewOf": "w35d4-q02"
+        },
+        {
+          "id": "w35d7-q11",
+          "prompt": "¿Qué diferencia práctica hay entre grupo y permiso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El grupo reúne miembros; el permiso autoriza una acción sobre un recurso"
+            },
+            {
+              "id": "b",
+              "text": "Todo grupo siempre concede administrador global"
+            },
+            {
+              "id": "c",
+              "text": "Un permiso solo organiza nombres sin efecto"
+            },
+            {
+              "id": "d",
+              "text": "Son idénticos en todos los sistemas"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los grupos facilitan asignaciones, pero el acceso depende de derechos otorgados y pertenencias.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview",
+          "reviewOf": "w35d5-q02"
+        },
+        {
+          "id": "w35d7-q12",
+          "prompt": "Un ataque aparece en la red pero no en el SIEM porque su fuente nunca se integró. ¿Qué falla?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el formato del resumen ejecutivo"
+            },
+            {
+              "id": "b",
+              "text": "El algoritmo SHA-256"
+            },
+            {
+              "id": "c",
+              "text": "El modelo de licencias del navegador"
+            },
+            {
+              "id": "d",
+              "text": "Cobertura de recolección y detección"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La detección requiere datos pertinentes; una regla no puede evaluar eventos que no recibe.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final",
+          "reviewOf": "w35d6-q02"
+        },
+        {
+          "id": "w35d7-q13",
+          "prompt": "Un certificado TLS está firmado por una autoridad confiable, pero su nombre no corresponde al sitio. ¿Qué procede?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aceptar porque la firma basta para cualquier dominio"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar DNS sin revisar el certificado"
+            },
+            {
+              "id": "c",
+              "text": "Rechazar la conexión según validación de identidad"
+            },
+            {
+              "id": "d",
+              "text": "Desactivar comprobación de nombres"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La confianza en la cadena no sustituye comprobar que el certificado corresponde al extremo solicitado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/52/r2/final",
+          "reviewOf": "w35d1-q03"
+        },
+        {
+          "id": "w35d7-q14",
+          "prompt": "¿Qué caso diferencia un falso negativo de un falso positivo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Actividad legítima que la regla alerta"
+            },
+            {
+              "id": "b",
+              "text": "Ataque real que la regla no alerta"
+            },
+            {
+              "id": "c",
+              "text": "Alerta duplicada de actividad legítima"
+            },
+            {
+              "id": "d",
+              "text": "Una consulta correcta sobre datos de prueba sin amenazas"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La omisión de un ataque es falso negativo; alertar actividad benigna es falso positivo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w35d2-q03"
+        },
+        {
+          "id": "w35d7-q15",
+          "prompt": "Logs educativos: ana fail, ana fail, luis success. ¿Qué devuelve contar fallos por usuario?",
+          "options": [
+            {
+              "id": "a",
+              "text": "ana=2 y luis=1 como fallo"
+            },
+            {
+              "id": "b",
+              "text": "ana=2"
+            },
+            {
+              "id": "c",
+              "text": "ana=1 y luis=1"
+            },
+            {
+              "id": "d",
+              "text": "Total de usuarios=3"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El filtro de fallos excluye el éxito antes de agrupar por identidad.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/spl-search-reference/9.1/search-commands/stats",
+          "reviewOf": "w35d3-q03"
+        },
+        {
+          "id": "w35d7-q16",
+          "prompt": "Un portátil compartió IP con otro la semana pasada. ¿Qué evidencia necesitas para atribuir actividad de entonces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Asignación DHCP/NAT histórica y autenticación de ese intervalo"
+            },
+            {
+              "id": "b",
+              "text": "La dirección actual exclusivamente"
+            },
+            {
+              "id": "c",
+              "text": "La geolocalización de la IP privada"
+            },
+            {
+              "id": "d",
+              "text": "El nombre actual del usuario conectado a otro host"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La identidad de red cambia; la correlación debe corresponder al momento investigado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final",
+          "reviewOf": "w35d4-q03"
+        },
+        {
+          "id": "w35d7-q17",
+          "prompt": "Una aplicación valida firma pero no expiración del token. ¿Qué riesgo queda?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aceptar tokens fuera de su período de validez"
+            },
+            {
+              "id": "b",
+              "text": "La firma se vuelve automáticamente inválida"
+            },
+            {
+              "id": "c",
+              "text": "El token pasa a ser una copia de seguridad"
+            },
+            {
+              "id": "d",
+              "text": "Desaparece la necesidad de audiencia"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Cada condición de validación tiene propósito; la firma no cubre por sí sola vigencia aceptada.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc",
+          "reviewOf": "w35d5-q03"
+        },
+        {
+          "id": "w35d7-q18",
+          "prompt": "Un equipo restaurado cumple funcionamiento, pero conserva la vulnerabilidad explotada. ¿Qué debe resolverse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo cambiar el título del caso"
+            },
+            {
+              "id": "b",
+              "text": "Tratamiento de la vía de entrada y riesgo antes de operar según criterios"
+            },
+            {
+              "id": "c",
+              "text": "Concluir que restaurar equivale a parchear"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar los logs para reiniciar el monitoreo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Recuperación funcional no demuestra cierre de causa ni ausencia de reinfección.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w35d6-q03"
+        },
+        {
+          "id": "w35d7-q19",
+          "prompt": "Un token permite leer archivos, pero no iniciar sesión en la interfaz como usuario. ¿Qué distinción debes considerar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cifrado simétrico frente a hash"
+            },
+            {
+              "id": "b",
+              "text": "Autorización mediante token frente a autenticación de usuario"
+            },
+            {
+              "id": "c",
+              "text": "Retención frente a deduplicación"
+            },
+            {
+              "id": "d",
+              "text": "Segmentación frente a respaldo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los protocolos y tokens tienen propósitos distintos; acceso a una API no equivale a cualquier sesión interactiva.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity-platform/authentication-vs-authorization",
+          "reviewOf": "w35d1-q04"
+        },
+        {
+          "id": "w35d7-q20",
+          "prompt": "Un respaldo se completa, pero nunca se restaura. ¿Qué capacidad sigue sin demostrar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Recuperación utilizable dentro de requisitos"
+            },
+            {
+              "id": "b",
+              "text": "Existencia de algún archivo de salida"
+            },
+            {
+              "id": "c",
+              "text": "Que el trabajo llegó a su final configurado"
+            },
+            {
+              "id": "d",
+              "text": "Disponibilidad del software de copia en ese momento"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El éxito de copia no prueba que datos y servicio puedan recuperarse.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final",
+          "reviewOf": "w35d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w35d7-challenge",
+        "prompt": "Tienes 87 % local y dos competencias sin practicar. ¿Qué decisión de preparación sustentas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Afirmar equivalencia oficial con 750 puntos"
+          },
+          {
+            "id": "b",
+            "text": "Marcar la etapa certificada"
+          },
+          {
+            "id": "c",
+            "text": "Refuerzo de esas competencias y revisión de evidencia antes de decidir presentación"
+          },
+          {
+            "id": "d",
+            "text": "Ignorar vacíos porque 85 % siempre garantiza aprobar"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La meta de estudio no es conversión a una escala oficial ni cubre habilidades ausentes.",
+        "reference": "https://www.comptia.org/en-us/certifications/security/"
+      }
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+import { validateBank } from './assessments.js';
+
 export function safeUrl(value) {
   try { const u = new URL(value); return u.protocol === 'https:' ? u.href : null; } catch { return null; }
 }
@@ -20,17 +22,49 @@ export function embedUrl(value) {
 
 export async function loadCurriculum() {
   const base = new URL('../../data/', import.meta.url);
-  const response = await fetch(new URL('curriculum.json', base));
+  const [response, assessmentResponse] = await Promise.all([
+    fetch(new URL('curriculum.json', base)),
+    fetch(new URL('assessments/index.json?v=1.5.0', base))
+  ]);
   if (!response.ok) throw new Error(`No se pudo cargar el temario (${response.status}). Comprueba la carpeta data.`);
-  const curriculum = await response.json();
+  if (!assessmentResponse.ok) throw new Error(`No se pudieron cargar las evaluaciones (${assessmentResponse.status}). Comprueba data/assessments/index.json.`);
+  const [curriculum, assessmentIndex] = await Promise.all([response.json(), assessmentResponse.json()]);
   if (!Array.isArray(curriculum.weeks) || curriculum.weeks.length !== 52) throw new Error('El temario no contiene las 52 semanas esperadas.');
+  if (!Array.isArray(assessmentIndex.weeks) || assessmentIndex.weeks.length !== 52) throw new Error('El índice de evaluaciones está incompleto.');
   const banks = new Map();
-  for (let n = 1; n <= 4; n++) {
-    const file = `assessments/week-${String(n).padStart(2, '0')}.json`;
-    const result = await fetch(new URL(file, base));
-    if (!result.ok) throw new Error(`Falta ${file}. Sube todas las carpetas del proyecto.`);
-    const week = await result.json();
-    for (const day of week.days) banks.set(day.dayId, day);
+  const weekFiles = new Map();
+  const requests = new Map();
+  for (const [index, week] of assessmentIndex.weeks.entries()) {
+    const expected = curriculum.weeks[index];
+    if (week.week !== expected.number || week.file !== `week-${String(week.week).padStart(2,'0')}.json` || !Array.isArray(week.dayIds) || week.dayIds.length !== expected.days.length) throw new Error('El índice de evaluaciones no coincide con el temario.');
+    weekFiles.set(week.week, week.file);
+    for (const [dayIndex, dayId] of week.dayIds.entries()) {
+      if (dayId !== expected.days[dayIndex].id || banks.has(dayId)) throw new Error('Una evaluación no coincide con su sesión de estudio.');
+      banks.set(dayId, { dayId, loaded: false });
+    }
   }
-  return { curriculum, banks };
+  async function loadBank(dayId) {
+    const current = banks.get(dayId);
+    if (!current) throw new Error('La sesión de evaluación no existe.');
+    if (current.loaded) return current;
+    const number = Number(dayId.slice(1,3));
+    if (!requests.has(number)) {
+      const request = (async () => {
+        const result = await fetch(new URL(`assessments/${weekFiles.get(number)}?v=1.5.0`, base));
+        if (!result.ok) throw new Error('No se pudo cargar la prueba. Comprueba tu conexión y vuelve a intentarlo.');
+        const week = await result.json(), expected = curriculum.weeks[number - 1];
+        if (week.week !== number || !Array.isArray(week.days) || week.days.length !== 7) throw new Error('El banco de esta semana está incompleto.');
+        const checked = week.days.map((day,index) => {
+          if (day.dayId !== expected.days[index].id || validateBank(day).length) throw new Error('Una prueba de esta semana no es válida.');
+          return { ...day, version: day.version || week.version || '1.0.0', loaded: true };
+        });
+        for (const day of checked) banks.set(day.dayId, day);
+      })();
+      requests.set(number, request);
+      request.catch(() => { if (requests.get(number) === request) requests.delete(number); });
+    }
+    await requests.get(number);
+    return banks.get(dayId);
+  }
+  return { curriculum, banks, loadBank };
 }

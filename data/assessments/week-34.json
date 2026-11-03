@@ -1,0 +1,2094 @@
+{
+  "week": 34,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w34d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w34d1-q01",
+          "prompt": "Una historia clínica cambia de dosis sin autorización. ¿Qué propiedad está afectada directamente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Disponibilidad exclusivamente"
+            },
+            {
+              "id": "b",
+              "text": "Confidencialidad exclusivamente"
+            },
+            {
+              "id": "c",
+              "text": "No repudio exclusivamente"
+            },
+            {
+              "id": "d",
+              "text": "Integridad"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La integridad protege contra modificación indebida; otros efectos pueden existir, pero el cambio es el hecho descrito.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w34d1-q02",
+          "prompt": "Un registro de auditoría avisa después de un cambio. ¿Qué función cumple principalmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Preventiva de ese cambio ya ocurrido"
+            },
+            {
+              "id": "b",
+              "text": "Correctiva por sí sola"
+            },
+            {
+              "id": "c",
+              "text": "Transferencia contractual"
+            },
+            {
+              "id": "d",
+              "text": "Detectiva"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El aviso identifica actividad; no implica que la haya bloqueado ni que repare el estado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w34d1-q03",
+          "prompt": "¿Qué clave usa un receptor para verificar una firma digital del emisor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La clave privada del receptor exclusivamente"
+            },
+            {
+              "id": "b",
+              "text": "Una contraseña compartida de todos"
+            },
+            {
+              "id": "c",
+              "text": "La clave pública correspondiente al emisor"
+            },
+            {
+              "id": "d",
+              "text": "El hash del nombre del emisor"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La firma se verifica con la clave pública asociada; confianza en identidad requiere validar su vinculación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
+        },
+        {
+          "id": "w34d1-q04",
+          "prompt": "¿Qué NO ofrece por sí solo un hash de un documento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Confidencialidad de su contenido"
+            },
+            {
+              "id": "b",
+              "text": "Detección de cambios respecto a un valor confiable"
+            },
+            {
+              "id": "c",
+              "text": "Una huella de los bytes procesados"
+            },
+            {
+              "id": "d",
+              "text": "Apoyo a comprobar igualdad entre copias"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una función hash no cifra el documento ni impide leerlo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
+        },
+        {
+          "id": "w34d1-q05",
+          "prompt": "Una sesión proviene de la LAN. ¿Qué exige un diseño de confianza cero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conceder acceso completo por estar en la red interna"
+            },
+            {
+              "id": "b",
+              "text": "Ignorar estado de dispositivo si la cuenta es corporativa"
+            },
+            {
+              "id": "c",
+              "text": "Evaluar identidad, dispositivo y autorización sin confiar solo en ubicación"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar autenticación porque la conexión usa cable"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La ubicación de red no otorga confianza implícita en el modelo de confianza cero.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/207/final"
+        },
+        {
+          "id": "w34d1-q06",
+          "prompt": "¿Qué combinación usa dos categorías de factor diferentes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Contraseña y PIN memorizado"
+            },
+            {
+              "id": "b",
+              "text": "Dos preguntas secretas"
+            },
+            {
+              "id": "c",
+              "text": "Contraseña y llave criptográfica en posesión del usuario"
+            },
+            {
+              "id": "d",
+              "text": "Dos contraseñas de distinta longitud"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Memoria y posesión son categorías distintas; dos secretos memorizados siguen siendo una sola categoría.",
+          "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html"
+        },
+        {
+          "id": "w34d1-q07",
+          "prompt": "¿Para qué sirve separar desarrollo, aprobación y despliegue en cambios sensibles?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantizar que el cambio no tenga errores"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar toda necesidad de logs"
+            },
+            {
+              "id": "c",
+              "text": "Permitir que cualquiera apruebe su propio acceso"
+            },
+            {
+              "id": "d",
+              "text": "Reducir posibilidad de acción indebida sin revisión independiente"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La separación de funciones distribuye autoridad y dificulta abuso unilateral.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w34d1-q08",
+          "prompt": "¿Qué condición hace eficaz el no repudio apoyado en firmas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Publicar la clave privada en el informe"
+            },
+            {
+              "id": "b",
+              "text": "Protección de claves y verificación de identidad y firma"
+            },
+            {
+              "id": "c",
+              "text": "Compartir una clave privada entre todo el equipo"
+            },
+            {
+              "id": "d",
+              "text": "Conservar solo el nombre del archivo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La firma aporta evidencia bajo supuestos de custodia y confianza; una clave compartida debilita atribución.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
+        }
+      ],
+      "challenge": {
+        "id": "w34d1-challenge",
+        "prompt": "Un examen de práctica pide integridad, pero eliges cifrado del disco ante un cambio de dosis. ¿Qué corrección conceptual haces?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Suponer que todo cifrado verifica autoría humana"
+          },
+          {
+            "id": "b",
+            "text": "Aprender solo la letra correcta"
+          },
+          {
+            "id": "c",
+            "text": "Concluir que integridad significa disponibilidad"
+          },
+          {
+            "id": "d",
+            "text": "Distinguir confidencialidad de detección y prevención de modificaciones indebidas"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La selección debe responder a la propiedad afectada y al alcance real del control.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      }
+    },
+    {
+      "dayId": "w34d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w34d2-q01",
+          "prompt": "Una API concatena entrada de usuario en SQL. ¿Qué defensa aborda la separación de datos y consulta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Escapar unas pocas palabras manteniendo concatenación insegura"
+            },
+            {
+              "id": "b",
+              "text": "Ocultar errores SQL como única defensa"
+            },
+            {
+              "id": "c",
+              "text": "Consultas parametrizadas"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar GET a POST sin cambiar cómo se construye SQL"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La parametrización evita interpretar valores como estructura SQL cuando se implementa correctamente.",
+          "reference": "https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html"
+        },
+        {
+          "id": "w34d2-q02",
+          "prompt": "Un comentario se inserta en HTML como código. ¿Qué mitigación corresponde al contexto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cifrar solamente el disco del servidor"
+            },
+            {
+              "id": "b",
+              "text": "Aumentar longitud de contraseña del autor"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar el puerto del servidor web"
+            },
+            {
+              "id": "d",
+              "text": "Codificación de salida adecuada al destino y renderizado seguro"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La prevención de XSS exige tratar datos como datos en el contexto de salida, con controles adicionales pertinentes.",
+          "reference": "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+        },
+        {
+          "id": "w34d2-q03",
+          "prompt": "Un servidor obtiene una URL proporcionada por el usuario y alcanza recursos internos. ¿Qué riesgo es?",
+          "options": [
+            {
+              "id": "a",
+              "text": "SSRF"
+            },
+            {
+              "id": "b",
+              "text": "Fuerza bruta de contraseñas"
+            },
+            {
+              "id": "c",
+              "text": "Ataque de cumpleaños"
+            },
+            {
+              "id": "d",
+              "text": "Fragmentación legítima"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La solicitud se origina en el servidor y puede alcanzar destinos a los que el usuario no debería acceder.",
+          "reference": "https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html"
+        },
+        {
+          "id": "w34d2-q04",
+          "prompt": "¿Qué patrón describe password spraying?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Miles de contraseñas contra una sola cuenta necesariamente"
+            },
+            {
+              "id": "b",
+              "text": "Cifrar todas las copias de seguridad"
+            },
+            {
+              "id": "c",
+              "text": "Enviar un único correo a soporte"
+            },
+            {
+              "id": "d",
+              "text": "Pocas contraseñas probadas contra muchas cuentas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La distribución por cuentas puede evitar umbrales centrados en muchos intentos por usuario.",
+          "reference": "https://attack.mitre.org/techniques/T1078/"
+        },
+        {
+          "id": "w34d2-q05",
+          "prompt": "Un componente figura en un catálogo de explotación conocida y está expuesto. ¿Qué revisión procede?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Priorizar remediación según explotación, exposición e impacto"
+            },
+            {
+              "id": "b",
+              "text": "Ignorarlo si la puntuación numérica no es máxima"
+            },
+            {
+              "id": "c",
+              "text": "Esperar a que el servidor falle"
+            },
+            {
+              "id": "d",
+              "text": "Corregir primero solo por orden alfabético"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La explotación observada aporta contexto crítico además de la puntuación técnica.",
+          "reference": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+        },
+        {
+          "id": "w34d2-q06",
+          "prompt": "¿Qué vulnerabilidad crea un bucket con lectura pública no requerida?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Debilidad del cifrado TLS aunque el permiso sea público"
+            },
+            {
+              "id": "b",
+              "text": "Exposición por configuración de acceso excesiva"
+            },
+            {
+              "id": "c",
+              "text": "Colisión del hash del objeto como causa necesaria"
+            },
+            {
+              "id": "d",
+              "text": "Fallo del servidor DNS como causa de la autorización pública"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La configuración puede exponer datos sin necesidad de un defecto del código.",
+          "reference": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility"
+        },
+        {
+          "id": "w34d2-q07",
+          "prompt": "Un atacante cifra archivos y amenaza publicar copias robadas. ¿Qué dimensión adicional hay además de indisponibilidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo retraso de DNS"
+            },
+            {
+              "id": "b",
+              "text": "Posible exposición de información"
+            },
+            {
+              "id": "c",
+              "text": "Cambio de formato de logs"
+            },
+            {
+              "id": "d",
+              "text": "Mejora de integridad"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La extorsión puede combinar afectación de disponibilidad y confidencialidad; las copias no resuelven por sí solas la filtración.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w34d2-q08",
+          "prompt": "Un escáner informa una versión vulnerable detrás de un proxy. ¿Qué debes confirmar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el banner siempre refleja la versión exacta"
+            },
+            {
+              "id": "b",
+              "text": "Que todo proxy elimina vulnerabilidades"
+            },
+            {
+              "id": "c",
+              "text": "Que cualquier hallazgo equivale a explotación"
+            },
+            {
+              "id": "d",
+              "text": "Componente real afectado, configuración y aplicabilidad del hallazgo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La validación evita falsas suposiciones y orienta remediación de la superficie real.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w34d2-challenge",
+        "prompt": "Una consulta SQL concatena el nombre recibido y el equipo propone bloquear una palabra. ¿Qué solución priorizas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Depender solo de una lista de palabras prohibidas"
+          },
+          {
+            "id": "b",
+            "text": "Cambiar la extensión del formulario"
+          },
+          {
+            "id": "c",
+            "text": "Ocultar el error sin corregir consulta"
+          },
+          {
+            "id": "d",
+            "text": "Parametrizar la consulta y validar el uso previsto de entradas"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La separación estructural de consulta y valores trata la causa de inyección mejor que filtros frágiles.",
+        "reference": "https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html"
+      }
+    },
+    {
+      "dayId": "w34d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w34d3-q01",
+          "prompt": "Una aplicación pública no necesita conexión directa a la base de datos desde Internet. ¿Qué diseño limita exposición?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Publicar todos los puertos de la base"
+            },
+            {
+              "id": "b",
+              "text": "Usar la misma cuenta privilegiada en todas las capas"
+            },
+            {
+              "id": "c",
+              "text": "Confiar solo en un nombre DNS poco conocido"
+            },
+            {
+              "id": "d",
+              "text": "Capas segmentadas con flujos explícitos entre aplicación y datos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La segmentación y reglas mínimas reducen vías de acceso y movimiento entre componentes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w34d3-q02",
+          "prompt": "RPO=15 minutos. ¿Qué expresa ese objetivo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Quince minutos para reparar cualquier servidor"
+            },
+            {
+              "id": "b",
+              "text": "Pérdida de datos tolerable medida hacia atrás desde la interrupción"
+            },
+            {
+              "id": "c",
+              "text": "Quince intentos de inicio de sesión"
+            },
+            {
+              "id": "d",
+              "text": "Retención obligatoria de quince años"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "RPO se refiere al punto de recuperación de datos; RTO trata tiempo de restablecimiento.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w34d3-q03",
+          "prompt": "RTO=2 horas. ¿Qué prueba responde mejor al requisito?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Existencia de un archivo de copia"
+            },
+            {
+              "id": "b",
+              "text": "Compra de discos de mayor capacidad"
+            },
+            {
+              "id": "c",
+              "text": "Restauración funcional medida dentro de dos horas"
+            },
+            {
+              "id": "d",
+              "text": "Cambio del nombre del plan"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El objetivo de tiempo requiere demostrar recuperación operativa, no solo almacenamiento.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w34d3-q04",
+          "prompt": "¿Por qué RAID no reemplaza una copia de seguridad separada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "RAID impide leer todos los archivos"
+            },
+            {
+              "id": "b",
+              "text": "Puede replicar borrados o corrupción y comparte ciertos fallos"
+            },
+            {
+              "id": "c",
+              "text": "Toda copia tarda menos que un disco"
+            },
+            {
+              "id": "d",
+              "text": "RAID cifra automáticamente datos históricos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La redundancia de discos atiende disponibilidad ante ciertos fallos, no todos los escenarios de recuperación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w34d3-q05",
+          "prompt": "¿Qué protege TLS correctamente validado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todos los datos después de que una aplicación comprometida los lee"
+            },
+            {
+              "id": "b",
+              "text": "Copias locales fuera del canal"
+            },
+            {
+              "id": "c",
+              "text": "Datos en tránsito entre extremos de la conexión TLS"
+            },
+            {
+              "id": "d",
+              "text": "Permisos de cada fila en la base de datos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El cifrado del transporte tiene un alcance definido y depende de validación y configuración apropiadas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/52/r2/final"
+        },
+        {
+          "id": "w34d3-q06",
+          "prompt": "Una aplicación guarda claves de descifrado junto al archivo cifrado con permisos idénticos. ¿Qué problema aparece?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un acceso al mismo ámbito puede revelar datos y claves"
+            },
+            {
+              "id": "b",
+              "text": "El cifrado se vuelve automáticamente más fuerte"
+            },
+            {
+              "id": "c",
+              "text": "No hace falta rotar ninguna clave"
+            },
+            {
+              "id": "d",
+              "text": "Se garantiza no repudio"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La gestión y separación de claves importa tanto como elegir un algoritmo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
+        },
+        {
+          "id": "w34d3-q07",
+          "prompt": "En IaaS, ¿qué responsabilidad suele conservar el cliente sobre su VM?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Configurar y actualizar el sistema operativo invitado según el servicio"
+            },
+            {
+              "id": "b",
+              "text": "Reparar físicamente el centro de datos del proveedor"
+            },
+            {
+              "id": "c",
+              "text": "Fabricar el procesador"
+            },
+            {
+              "id": "d",
+              "text": "Controlar la refrigeración del proveedor"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El reparto depende del servicio; IaaS deja al cliente responsabilidades sobre sistemas y datos desplegados.",
+          "reference": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility"
+        },
+        {
+          "id": "w34d3-q08",
+          "prompt": "Dos nodos redundantes comparten alimentación única. ¿Qué debilidad persiste?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Falta inevitable de cifrado"
+            },
+            {
+              "id": "b",
+              "text": "Imposibilidad de balancear tráfico"
+            },
+            {
+              "id": "c",
+              "text": "Punto común de fallo de energía"
+            },
+            {
+              "id": "d",
+              "text": "Duplicación de identidades por definición"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La redundancia debe considerar dependencias compartidas, no solo duplicar servidores.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w34d3-challenge",
+        "prompt": "Una empresa tiene RAID y copias en línea con las mismas credenciales administrativas. ¿Qué carencia principal señalas ante ransomware?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Recuperación independiente y protegida que deba probarse"
+          },
+          {
+            "id": "b",
+            "text": "Falta de más iconos de discos"
+          },
+          {
+            "id": "c",
+            "text": "RPO automáticamente igual a cero"
+          },
+          {
+            "id": "d",
+            "text": "Imposibilidad de perder datos por RAID"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La redundancia y copias accesibles por el mismo compromiso no garantizan recuperación.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+      }
+    },
+    {
+      "dayId": "w34d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w34d4-q01",
+          "prompt": "¿Qué campo vincula mejor un evento Windows de inicio de sesión con actividad posterior de esa sesión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Nombre visible del usuario sin host ni sesión"
+            },
+            {
+              "id": "b",
+              "text": "Dirección IP actual sin correspondencia temporal"
+            },
+            {
+              "id": "c",
+              "text": "Orden de ingesta como sustituto de los identificadores de sesión"
+            },
+            {
+              "id": "d",
+              "text": "Logon ID dentro del contexto adecuado del host"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los identificadores de sesión ayudan a correlacionar eventos, junto con host y tiempos.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4624"
+        },
+        {
+          "id": "w34d4-q02",
+          "prompt": "Una cuenta de aplicación solo lee informes, pero tiene control total. ¿Qué corrección corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Añadir privilegios administrativos para evitar errores de acceso"
+            },
+            {
+              "id": "b",
+              "text": "Reducir al permiso de lectura necesario tras validar dependencias"
+            },
+            {
+              "id": "c",
+              "text": "Mover la cuenta de OU suponiendo que eso retira todos sus permisos"
+            },
+            {
+              "id": "d",
+              "text": "Desactivar auditoría para que no genere alertas de autorización"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La autorización debe ajustarse a la tarea y verificarse con pruebas funcionales.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/best-practices"
+        },
+        {
+          "id": "w34d4-q03",
+          "prompt": "¿Qué evita que un script trate una importación fallida como cero hallazgos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Convertir cualquier excepción en lista vacía silenciosa"
+            },
+            {
+              "id": "b",
+              "text": "Manejo explícito de error y estado de ejecución"
+            },
+            {
+              "id": "c",
+              "text": "Exportar siempre un CSV vacío"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar el título a Auditoría aprobada"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La ausencia de resultados válidos y la ausencia de problemas son estados distintos.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_try_catch_finally"
+        },
+        {
+          "id": "w34d4-q04",
+          "prompt": "¿Qué comprueba un ejercicio de aislamiento EDR?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Efecto sobre conectividad, gestión y recuperación del equipo"
+            },
+            {
+              "id": "b",
+              "text": "Que todo archivo malicioso desaparezca"
+            },
+            {
+              "id": "c",
+              "text": "Que no se necesitan responsables"
+            },
+            {
+              "id": "d",
+              "text": "Que los eventos previos cambien de hora"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La prueba verifica consecuencias y límites de una acción de respuesta.",
+          "reference": "https://learn.microsoft.com/en-us/defender-endpoint/respond-machine-alerts"
+        },
+        {
+          "id": "w34d4-q05",
+          "prompt": "Un SIEM centraliza datos, pero la consulta no incluye el índice de correo. ¿Qué límite hay?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todo buzón está limpio por defecto"
+            },
+            {
+              "id": "b",
+              "text": "La búsqueda no permite descartar actividad de correo"
+            },
+            {
+              "id": "c",
+              "text": "El SIEM nunca admite correo"
+            },
+            {
+              "id": "d",
+              "text": "La consulta prueba que no existen reenvíos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La cobertura de la búsqueda depende de fuentes, permisos y filtros efectivos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        },
+        {
+          "id": "w34d4-q06",
+          "prompt": "¿Qué actividad sigue a instalar un parche para una vulnerabilidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cerrar siempre sin validación"
+            },
+            {
+              "id": "b",
+              "text": "Verificar versión/configuración y funcionamiento relevante"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar el inventario del activo"
+            },
+            {
+              "id": "d",
+              "text": "Reducir retención de logs"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La remediación necesita evidencia del estado resultante y de que el servicio sigue operativo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w34d4-q07",
+          "prompt": "¿Qué diferencia clave hay entre contención y recuperación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Contención consiste en redactar el resumen final"
+            },
+            {
+              "id": "b",
+              "text": "Recuperación confirma automáticamente atribución"
+            },
+            {
+              "id": "c",
+              "text": "Contención limita daño y recuperación restaura operación validada"
+            },
+            {
+              "id": "d",
+              "text": "Ambas consisten solo en bloquear una IP"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las fases u objetivos requieren acciones y criterios diferentes según el caso.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w34d4-q08",
+          "prompt": "¿Por qué registrar versión de una regla de detección?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantiza que todo aviso sea verdadero"
+            },
+            {
+              "id": "b",
+              "text": "Elimina el tiempo de ingesta"
+            },
+            {
+              "id": "c",
+              "text": "Permite interpretar y reproducir resultados cuando la lógica cambia"
+            },
+            {
+              "id": "d",
+              "text": "Impide que haya falsos negativos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El resultado depende de lógica, datos y contexto; versionar ayuda a conservar trazabilidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        }
+      ],
+      "challenge": {
+        "id": "w34d4-challenge",
+        "prompt": "Debes demostrar operaciones de seguridad y presentas solo capturas de herramientas. ¿Qué añades?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Caso con consulta, evidencia, decisión, acciones y verificación"
+          },
+          {
+            "id": "b",
+            "text": "Más capturas sin consultas ni interpretación"
+          },
+          {
+            "id": "c",
+            "text": "Una lista de comandos sin resultados ni contexto"
+          },
+          {
+            "id": "d",
+            "text": "El tiempo de uso de la herramienta como única prueba"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La competencia aplicada exige explicar resultados y límites de las operaciones.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    },
+    {
+      "dayId": "w34d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w34d5-q01",
+          "prompt": "¿Qué cadena demuestra mejor un requisito de revisión de accesos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la política que exige revisiones, sin ejecución"
+            },
+            {
+              "id": "b",
+              "text": "Requisito, responsable, revisión fechada, decisiones y seguimiento"
+            },
+            {
+              "id": "c",
+              "text": "Un total de usuarios sin decisión ni período"
+            },
+            {
+              "id": "d",
+              "text": "Una captura actual usada como prueba de todo el año"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La evidencia debe conectar obligación y ejecución dentro del alcance.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w34d5-q02",
+          "prompt": "Un proveedor trata datos sensibles en una región no evaluada. ¿Qué falta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Suponer que cualquier certificado cubre la región"
+            },
+            {
+              "id": "b",
+              "text": "Ignorar ubicación porque usa TLS"
+            },
+            {
+              "id": "c",
+              "text": "Analizar condiciones y riesgos de ese tratamiento concreto"
+            },
+            {
+              "id": "d",
+              "text": "Revisar solo el diseño del portal"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El alcance de evaluación debe corresponder al servicio y sus flujos reales.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        },
+        {
+          "id": "w34d5-q03",
+          "prompt": "¿Cuándo una excepción de control queda incompleta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cuando documenta su riesgo residual"
+            },
+            {
+              "id": "b",
+              "text": "Cuando no tiene autoridad, justificación ni revisión definida"
+            },
+            {
+              "id": "c",
+              "text": "Cuando identifica controles compensatorios"
+            },
+            {
+              "id": "d",
+              "text": "Cuando fija un vencimiento"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La excepción debe ser una decisión trazable con límites y seguimiento.",
+          "reference": "https://www.nist.gov/cyberframework"
+        },
+        {
+          "id": "w34d5-q04",
+          "prompt": "¿Qué diferencia una política de un procedimiento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La política solo sirve para automatizar bucles"
+            },
+            {
+              "id": "b",
+              "text": "El procedimiento siempre es opcional"
+            },
+            {
+              "id": "c",
+              "text": "La política fija dirección y obligaciones; el procedimiento concreta pasos"
+            },
+            {
+              "id": "d",
+              "text": "Ambos sustituyen evidencia de ejecución"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El gobierno requiere documentos con funciones distintas y relación coherente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w34d5-q05",
+          "prompt": "¿Qué impacto de privacidad conviene analizar en datos de salud?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el coste técnico de restaurar el servidor"
+            },
+            {
+              "id": "b",
+              "text": "Daños a personas por uso, divulgación o tratamiento indebido"
+            },
+            {
+              "id": "c",
+              "text": "Solo el cumplimiento del ancho de banda contratado"
+            },
+            {
+              "id": "d",
+              "text": "Solo el nivel de disponibilidad de la aplicación"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La privacidad incluye consecuencias sobre personas, más allá de costes técnicos.",
+          "reference": "https://www.nist.gov/privacy-framework"
+        },
+        {
+          "id": "w34d5-q06",
+          "prompt": "Un riesgo tiene pérdida estimada alta y frecuencia incierta. ¿Qué presentación ayuda a decidir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una cifra puntual inventada para evitar incertidumbre"
+            },
+            {
+              "id": "b",
+              "text": "Probabilidad cero porque faltan datos"
+            },
+            {
+              "id": "c",
+              "text": "Una puntuación sin criterios ni supuestos"
+            },
+            {
+              "id": "d",
+              "text": "Rangos y supuestos explícitos con análisis de sensibilidad"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La incertidumbre debe informarse y puede orientar obtención adicional de datos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w34d5-q07",
+          "prompt": "¿Qué demuestra eficacia de concienciación mejor que asistencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el porcentaje de usuarios que asistieron"
+            },
+            {
+              "id": "b",
+              "text": "Decisiones correctas y reportes útiles en escenarios nuevos comparables"
+            },
+            {
+              "id": "c",
+              "text": "Solo el tiempo dedicado a mostrar el material"
+            },
+            {
+              "id": "d",
+              "text": "Solo el número de respuestas repetidas del mismo banco"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El resultado buscado es conducta y capacidad aplicada; la asistencia solo prueba participación.",
+          "reference": "https://www.cisa.gov/secure-our-world/recognize-and-report-phishing"
+        },
+        {
+          "id": "w34d5-q08",
+          "prompt": "¿Qué riesgo residual permanece tras un SLA con compensaciones?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Toda falla queda técnicamente impedida"
+            },
+            {
+              "id": "b",
+              "text": "La compensación restaura datos siempre"
+            },
+            {
+              "id": "c",
+              "text": "No se necesitan planes alternativos"
+            },
+            {
+              "id": "d",
+              "text": "La interrupción puede causar daños que la compensación no evita"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El acuerdo financiero no sustituye continuidad ni elimina todas las consecuencias.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w34d5-challenge",
+        "prompt": "El mapa de gobierno tiene políticas, pero ninguna prueba de ejecución. ¿Qué tarea aporta evidencia?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Cambiar todas las políticas a PDF"
+          },
+          {
+            "id": "b",
+            "text": "Eliminar fechas para no mostrar antigüedad"
+          },
+          {
+            "id": "c",
+            "text": "Añadir un sello genérico de aprobado"
+          },
+          {
+            "id": "d",
+            "text": "Vincular un requisito con revisión fechada, decisiones y seguimiento"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La documentación normativa y su cumplimiento efectivo requieren evidencia distinta.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      }
+    },
+    {
+      "dayId": "w34d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w34d6-q01",
+          "prompt": "Al comparar tu matriz con los objetivos de la versión elegida aparece un apartado de automatización sin prueba. ¿Qué evidencia lo cubre mejor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo definir la palabra bucle"
+            },
+            {
+              "id": "b",
+              "text": "Script que valida entradas, registra fallos y demuestra resultados sobre datos sintéticos"
+            },
+            {
+              "id": "c",
+              "text": "Marcarlo cubierto por leer el índice"
+            },
+            {
+              "id": "d",
+              "text": "Memorizar nombres de cmdlets sin ejecutarlos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un objetivo aplicado necesita resultados y límites verificables, no una marca de lectura.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_try_catch_finally"
+        },
+        {
+          "id": "w34d6-q02",
+          "prompt": "Un objetivo que debes cubrir pide proteger cargas en contenedores. ¿Qué ejercicio es pertinente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usar imágenes sin revisar procedencia porque son pequeñas"
+            },
+            {
+              "id": "b",
+              "text": "Ejecutar todas las cargas con privilegios del host"
+            },
+            {
+              "id": "c",
+              "text": "Asumir que contenedores eliminan necesidad de parches del entorno"
+            },
+            {
+              "id": "d",
+              "text": "Revisar imagen, privilegios, secretos y aislamiento de una carga de laboratorio"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El riesgo del contenedor incluye imagen, ejecución y entorno; no se reduce a su existencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/190/final"
+        },
+        {
+          "id": "w34d6-q03",
+          "prompt": "La nueva matriz exige confianza cero y tu evidencia solo muestra una VLAN. ¿Qué falta demostrar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Decisión de acceso basada en identidad, dispositivo, recurso y contexto"
+            },
+            {
+              "id": "b",
+              "text": "Que la VLAN tenga nombre largo"
+            },
+            {
+              "id": "c",
+              "text": "Que todo equipo interno sea de confianza"
+            },
+            {
+              "id": "d",
+              "text": "Que el switch use más puertos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La segmentación puede contribuir, pero no demuestra por sí sola evaluación de acceso sin confianza implícita.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/207/final"
+        },
+        {
+          "id": "w34d6-q04",
+          "prompt": "Un apartado de cadena de suministro no tiene práctica. ¿Qué tarea evidencia comprensión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Enumerar productos sin dependencias ni acceso"
+            },
+            {
+              "id": "b",
+              "text": "Dar por evaluado al proveedor por tener un certificado de alcance distinto"
+            },
+            {
+              "id": "c",
+              "text": "Evaluar dependencia, acceso, controles y salida de un proveedor ficticio"
+            },
+            {
+              "id": "d",
+              "text": "Comparar solo precios sin datos ni funciones del servicio"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El análisis debe vincular el servicio y sus dependencias con riesgos y condiciones verificables.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        },
+        {
+          "id": "w34d6-q05",
+          "prompt": "¿Qué hacer si un recurso antiguo habla de un proceso de respuesta y la guía actual cambia su organización?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Comparar conceptos y actualizar evidencias usando la guía vigente como referencia"
+            },
+            {
+              "id": "b",
+              "text": "Suponer equivalencia por compartir un título"
+            },
+            {
+              "id": "c",
+              "text": "Borrar toda evidencia anterior sin revisar"
+            },
+            {
+              "id": "d",
+              "text": "Presentar la fecha antigua como garantía de vigencia"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las revisiones pueden reorganizar recomendaciones; la cobertura debe trazarse a la referencia elegida.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w34d6-q06",
+          "prompt": "Una matriz exige interpretar registros, pero solo tienes definiciones de SIEM. ¿Qué ejercicio cierra mejor la laguna?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Repetir la sigla diez veces"
+            },
+            {
+              "id": "b",
+              "text": "Añadir una imagen comercial del panel"
+            },
+            {
+              "id": "c",
+              "text": "Correlacionar dos fuentes con tiempos normalizados y límites explícitos"
+            },
+            {
+              "id": "d",
+              "text": "Afirmar que centralizar equivale a investigar"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Interpretar requiere usar datos y justificar conclusiones, no solo reconocer herramientas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        },
+        {
+          "id": "w34d6-q07",
+          "prompt": "¿Qué evidencia distingue protección de datos en tránsito de protección en reposo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una captura del candado como prueba de ambos"
+            },
+            {
+              "id": "b",
+              "text": "Pruebas separadas de TLS validado y cifrado/gestión de claves del almacenamiento"
+            },
+            {
+              "id": "c",
+              "text": "Solo un hash público del archivo"
+            },
+            {
+              "id": "d",
+              "text": "Una política sin controles implementados"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los estados del dato tienen mecanismos y límites diferentes que requieren comprobación adecuada.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/52/r2/final"
+        },
+        {
+          "id": "w34d6-q08",
+          "prompt": "Si un subobjetivo de la versión elegida no tiene recurso ni prueba, ¿qué estado es honesto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Completo por haber terminado la semana"
+            },
+            {
+              "id": "b",
+              "text": "Pendiente con plan concreto para obtener evidencia"
+            },
+            {
+              "id": "c",
+              "text": "Aprobado si el promedio es alto"
+            },
+            {
+              "id": "d",
+              "text": "No aplicable sin analizar su texto"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La cobertura es trazabilidad de cada competencia; el calendario o un promedio no rellenan vacíos.",
+          "reference": "https://www.comptia.org/en-us/certifications/security/"
+        }
+      ],
+      "challenge": {
+        "id": "w34d6-challenge",
+        "prompt": "Tu curso base usa SY0-701 y eliges otra versión. ¿Cómo decides qué falta?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Confiar en que todo título similar significa igual cobertura"
+          },
+          {
+            "id": "b",
+            "text": "Aplicar un porcentaje de equivalencia inventado"
+          },
+          {
+            "id": "c",
+            "text": "Comparar objetivos oficiales de ambas versiones y probar cada diferencia relevante"
+          },
+          {
+            "id": "d",
+            "text": "Usar preguntas filtradas para descubrir cambios"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "Solo la comparación documentada permite actualizar cobertura sin inventar equivalencias oficiales.",
+        "reference": "https://www.comptia.org/en-us/certifications/security/"
+      }
+    },
+    {
+      "dayId": "w34d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w34d7-q01",
+          "prompt": "Una historia clínica cambia de dosis sin autorización. ¿Qué propiedad está afectada directamente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Disponibilidad exclusivamente"
+            },
+            {
+              "id": "b",
+              "text": "Confidencialidad exclusivamente"
+            },
+            {
+              "id": "c",
+              "text": "No repudio exclusivamente"
+            },
+            {
+              "id": "d",
+              "text": "Integridad"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La integridad protege contra modificación indebida; otros efectos pueden existir, pero el cambio es el hecho descrito.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w34d1-q01"
+        },
+        {
+          "id": "w34d7-q02",
+          "prompt": "Una API concatena entrada de usuario en SQL. ¿Qué defensa aborda la separación de datos y consulta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Escapar unas pocas palabras manteniendo concatenación insegura"
+            },
+            {
+              "id": "b",
+              "text": "Ocultar errores SQL como única defensa"
+            },
+            {
+              "id": "c",
+              "text": "Consultas parametrizadas"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar GET a POST sin cambiar cómo se construye SQL"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La parametrización evita interpretar valores como estructura SQL cuando se implementa correctamente.",
+          "reference": "https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html",
+          "reviewOf": "w34d2-q01"
+        },
+        {
+          "id": "w34d7-q03",
+          "prompt": "Una aplicación pública no necesita conexión directa a la base de datos desde Internet. ¿Qué diseño limita exposición?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Publicar todos los puertos de la base"
+            },
+            {
+              "id": "b",
+              "text": "Usar la misma cuenta privilegiada en todas las capas"
+            },
+            {
+              "id": "c",
+              "text": "Confiar solo en un nombre DNS poco conocido"
+            },
+            {
+              "id": "d",
+              "text": "Capas segmentadas con flujos explícitos entre aplicación y datos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La segmentación y reglas mínimas reducen vías de acceso y movimiento entre componentes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final",
+          "reviewOf": "w34d3-q01"
+        },
+        {
+          "id": "w34d7-q04",
+          "prompt": "¿Qué campo vincula mejor un evento Windows de inicio de sesión con actividad posterior de esa sesión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Nombre visible del usuario sin host ni sesión"
+            },
+            {
+              "id": "b",
+              "text": "Dirección IP actual sin correspondencia temporal"
+            },
+            {
+              "id": "c",
+              "text": "Orden de ingesta como sustituto de los identificadores de sesión"
+            },
+            {
+              "id": "d",
+              "text": "Logon ID dentro del contexto adecuado del host"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los identificadores de sesión ayudan a correlacionar eventos, junto con host y tiempos.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4624",
+          "reviewOf": "w34d4-q01"
+        },
+        {
+          "id": "w34d7-q05",
+          "prompt": "¿Qué cadena demuestra mejor un requisito de revisión de accesos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la política que exige revisiones, sin ejecución"
+            },
+            {
+              "id": "b",
+              "text": "Requisito, responsable, revisión fechada, decisiones y seguimiento"
+            },
+            {
+              "id": "c",
+              "text": "Un total de usuarios sin decisión ni período"
+            },
+            {
+              "id": "d",
+              "text": "Una captura actual usada como prueba de todo el año"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La evidencia debe conectar obligación y ejecución dentro del alcance.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w34d5-q01"
+        },
+        {
+          "id": "w34d7-q06",
+          "prompt": "Al comparar tu matriz con los objetivos de la versión elegida aparece un apartado de automatización sin prueba. ¿Qué evidencia lo cubre mejor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo definir la palabra bucle"
+            },
+            {
+              "id": "b",
+              "text": "Script que valida entradas, registra fallos y demuestra resultados sobre datos sintéticos"
+            },
+            {
+              "id": "c",
+              "text": "Marcarlo cubierto por leer el índice"
+            },
+            {
+              "id": "d",
+              "text": "Memorizar nombres de cmdlets sin ejecutarlos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un objetivo aplicado necesita resultados y límites verificables, no una marca de lectura.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_try_catch_finally",
+          "reviewOf": "w34d6-q01"
+        },
+        {
+          "id": "w34d7-q07",
+          "prompt": "Un registro de auditoría avisa después de un cambio. ¿Qué función cumple principalmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Preventiva de ese cambio ya ocurrido"
+            },
+            {
+              "id": "b",
+              "text": "Correctiva por sí sola"
+            },
+            {
+              "id": "c",
+              "text": "Transferencia contractual"
+            },
+            {
+              "id": "d",
+              "text": "Detectiva"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El aviso identifica actividad; no implica que la haya bloqueado ni que repare el estado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w34d1-q02"
+        },
+        {
+          "id": "w34d7-q08",
+          "prompt": "Un comentario se inserta en HTML como código. ¿Qué mitigación corresponde al contexto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cifrar solamente el disco del servidor"
+            },
+            {
+              "id": "b",
+              "text": "Aumentar longitud de contraseña del autor"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar el puerto del servidor web"
+            },
+            {
+              "id": "d",
+              "text": "Codificación de salida adecuada al destino y renderizado seguro"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La prevención de XSS exige tratar datos como datos en el contexto de salida, con controles adicionales pertinentes.",
+          "reference": "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html",
+          "reviewOf": "w34d2-q02"
+        },
+        {
+          "id": "w34d7-q09",
+          "prompt": "RPO=15 minutos. ¿Qué expresa ese objetivo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Quince minutos para reparar cualquier servidor"
+            },
+            {
+              "id": "b",
+              "text": "Pérdida de datos tolerable medida hacia atrás desde la interrupción"
+            },
+            {
+              "id": "c",
+              "text": "Quince intentos de inicio de sesión"
+            },
+            {
+              "id": "d",
+              "text": "Retención obligatoria de quince años"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "RPO se refiere al punto de recuperación de datos; RTO trata tiempo de restablecimiento.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final",
+          "reviewOf": "w34d3-q02"
+        },
+        {
+          "id": "w34d7-q10",
+          "prompt": "Una cuenta de aplicación solo lee informes, pero tiene control total. ¿Qué corrección corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Añadir privilegios administrativos para evitar errores de acceso"
+            },
+            {
+              "id": "b",
+              "text": "Reducir al permiso de lectura necesario tras validar dependencias"
+            },
+            {
+              "id": "c",
+              "text": "Mover la cuenta de OU suponiendo que eso retira todos sus permisos"
+            },
+            {
+              "id": "d",
+              "text": "Desactivar auditoría para que no genere alertas de autorización"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La autorización debe ajustarse a la tarea y verificarse con pruebas funcionales.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/best-practices",
+          "reviewOf": "w34d4-q02"
+        },
+        {
+          "id": "w34d7-q11",
+          "prompt": "Un proveedor trata datos sensibles en una región no evaluada. ¿Qué falta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Suponer que cualquier certificado cubre la región"
+            },
+            {
+              "id": "b",
+              "text": "Ignorar ubicación porque usa TLS"
+            },
+            {
+              "id": "c",
+              "text": "Analizar condiciones y riesgos de ese tratamiento concreto"
+            },
+            {
+              "id": "d",
+              "text": "Revisar solo el diseño del portal"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El alcance de evaluación debe corresponder al servicio y sus flujos reales.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final",
+          "reviewOf": "w34d5-q02"
+        },
+        {
+          "id": "w34d7-q12",
+          "prompt": "Un objetivo que debes cubrir pide proteger cargas en contenedores. ¿Qué ejercicio es pertinente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usar imágenes sin revisar procedencia porque son pequeñas"
+            },
+            {
+              "id": "b",
+              "text": "Ejecutar todas las cargas con privilegios del host"
+            },
+            {
+              "id": "c",
+              "text": "Asumir que contenedores eliminan necesidad de parches del entorno"
+            },
+            {
+              "id": "d",
+              "text": "Revisar imagen, privilegios, secretos y aislamiento de una carga de laboratorio"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El riesgo del contenedor incluye imagen, ejecución y entorno; no se reduce a su existencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/190/final",
+          "reviewOf": "w34d6-q02"
+        },
+        {
+          "id": "w34d7-q13",
+          "prompt": "¿Qué clave usa un receptor para verificar una firma digital del emisor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La clave privada del receptor exclusivamente"
+            },
+            {
+              "id": "b",
+              "text": "Una contraseña compartida de todos"
+            },
+            {
+              "id": "c",
+              "text": "La clave pública correspondiente al emisor"
+            },
+            {
+              "id": "d",
+              "text": "El hash del nombre del emisor"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La firma se verifica con la clave pública asociada; confianza en identidad requiere validar su vinculación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final",
+          "reviewOf": "w34d1-q03"
+        },
+        {
+          "id": "w34d7-q14",
+          "prompt": "Un servidor obtiene una URL proporcionada por el usuario y alcanza recursos internos. ¿Qué riesgo es?",
+          "options": [
+            {
+              "id": "a",
+              "text": "SSRF"
+            },
+            {
+              "id": "b",
+              "text": "Fuerza bruta de contraseñas"
+            },
+            {
+              "id": "c",
+              "text": "Ataque de cumpleaños"
+            },
+            {
+              "id": "d",
+              "text": "Fragmentación legítima"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La solicitud se origina en el servidor y puede alcanzar destinos a los que el usuario no debería acceder.",
+          "reference": "https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html",
+          "reviewOf": "w34d2-q03"
+        },
+        {
+          "id": "w34d7-q15",
+          "prompt": "RTO=2 horas. ¿Qué prueba responde mejor al requisito?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Existencia de un archivo de copia"
+            },
+            {
+              "id": "b",
+              "text": "Compra de discos de mayor capacidad"
+            },
+            {
+              "id": "c",
+              "text": "Restauración funcional medida dentro de dos horas"
+            },
+            {
+              "id": "d",
+              "text": "Cambio del nombre del plan"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El objetivo de tiempo requiere demostrar recuperación operativa, no solo almacenamiento.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final",
+          "reviewOf": "w34d3-q03"
+        },
+        {
+          "id": "w34d7-q16",
+          "prompt": "¿Qué evita que un script trate una importación fallida como cero hallazgos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Convertir cualquier excepción en lista vacía silenciosa"
+            },
+            {
+              "id": "b",
+              "text": "Manejo explícito de error y estado de ejecución"
+            },
+            {
+              "id": "c",
+              "text": "Exportar siempre un CSV vacío"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar el título a Auditoría aprobada"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La ausencia de resultados válidos y la ausencia de problemas son estados distintos.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_try_catch_finally",
+          "reviewOf": "w34d4-q03"
+        },
+        {
+          "id": "w34d7-q17",
+          "prompt": "¿Cuándo una excepción de control queda incompleta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cuando documenta su riesgo residual"
+            },
+            {
+              "id": "b",
+              "text": "Cuando no tiene autoridad, justificación ni revisión definida"
+            },
+            {
+              "id": "c",
+              "text": "Cuando identifica controles compensatorios"
+            },
+            {
+              "id": "d",
+              "text": "Cuando fija un vencimiento"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La excepción debe ser una decisión trazable con límites y seguimiento.",
+          "reference": "https://www.nist.gov/cyberframework",
+          "reviewOf": "w34d5-q03"
+        },
+        {
+          "id": "w34d7-q18",
+          "prompt": "La nueva matriz exige confianza cero y tu evidencia solo muestra una VLAN. ¿Qué falta demostrar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Decisión de acceso basada en identidad, dispositivo, recurso y contexto"
+            },
+            {
+              "id": "b",
+              "text": "Que la VLAN tenga nombre largo"
+            },
+            {
+              "id": "c",
+              "text": "Que todo equipo interno sea de confianza"
+            },
+            {
+              "id": "d",
+              "text": "Que el switch use más puertos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La segmentación puede contribuir, pero no demuestra por sí sola evaluación de acceso sin confianza implícita.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/207/final",
+          "reviewOf": "w34d6-q03"
+        },
+        {
+          "id": "w34d7-q19",
+          "prompt": "¿Qué NO ofrece por sí solo un hash de un documento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Confidencialidad de su contenido"
+            },
+            {
+              "id": "b",
+              "text": "Detección de cambios respecto a un valor confiable"
+            },
+            {
+              "id": "c",
+              "text": "Una huella de los bytes procesados"
+            },
+            {
+              "id": "d",
+              "text": "Apoyo a comprobar igualdad entre copias"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una función hash no cifra el documento ni impide leerlo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final",
+          "reviewOf": "w34d1-q04"
+        },
+        {
+          "id": "w34d7-q20",
+          "prompt": "¿Qué comprueba un ejercicio de aislamiento EDR?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Efecto sobre conectividad, gestión y recuperación del equipo"
+            },
+            {
+              "id": "b",
+              "text": "Que todo archivo malicioso desaparezca"
+            },
+            {
+              "id": "c",
+              "text": "Que no se necesitan responsables"
+            },
+            {
+              "id": "d",
+              "text": "Que los eventos previos cambien de hora"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La prueba verifica consecuencias y límites de una acción de respuesta.",
+          "reference": "https://learn.microsoft.com/en-us/defender-endpoint/respond-machine-alerts",
+          "reviewOf": "w34d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w34d7-challenge",
+        "prompt": "La matriz tiene todos los temas marcados, pero segmentación solo se leyó. ¿Qué decisión de avance es defendible?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Registrar evidencia insuficiente y diseñar una práctica de flujos permitidos y bloqueados"
+          },
+          {
+            "id": "b",
+            "text": "Declarar preparación oficial porque todos tienen marca"
+          },
+          {
+            "id": "c",
+            "text": "Contar la lectura como cualquier desempeño"
+          },
+          {
+            "id": "d",
+            "text": "Eliminar segmentación de la matriz"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La trazabilidad debe distinguir exposición a contenidos de capacidad de aplicarlos.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+      }
+    }
+  ]
+}

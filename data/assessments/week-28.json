@@ -1,0 +1,2094 @@
+{
+  "week": 28,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w28d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w28d1-q01",
+          "prompt": "El laboratorio autoriza revisar 10.20.30.10 y 10.20.30.11; la impresora 10.20.30.12 está excluida. ¿Cómo configuras el descubrimiento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Exploro toda la subred y descarto después la impresora"
+            },
+            {
+              "id": "b",
+              "text": "Incluyo la impresora sólo con detección de versiones"
+            },
+            {
+              "id": "c",
+              "text": "Amplío el rango si los dos objetivos no responden"
+            },
+            {
+              "id": "d",
+              "text": "Uso una lista explícita de los dos objetivos y excluyo la impresora"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El alcance limita las acciones desde el inicio; filtrar un informe después no evita haber probado un activo excluido.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+        },
+        {
+          "id": "w28d1-q02",
+          "prompt": "Un inventario sólo registra IP y sistema operativo. ¿Qué dato adicional ayuda más a decidir a quién asignar un hallazgo y cuánto afecta al negocio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Responsable del activo y servicio de negocio que sostiene"
+            },
+            {
+              "id": "b",
+              "text": "Nombre de la tarea que utilizó el escáner para descubrirlo"
+            },
+            {
+              "id": "c",
+              "text": "Número total de comprobaciones disponibles en la herramienta"
+            },
+            {
+              "id": "d",
+              "text": "Dirección del servidor desde el que se lanzó la revisión"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La identidad técnica necesita contexto de propiedad e impacto para convertir un resultado en una acción asignable.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+        },
+        {
+          "id": "w28d1-q03",
+          "prompt": "Para revisar parches instalados en una VM autorizada se ofrece un escaneo con credenciales. ¿Qué ventaja aporta frente a inferir versiones desde un banner?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Reproduce por sí solo la visibilidad de cualquier atacante externo"
+            },
+            {
+              "id": "b",
+              "text": "Elimina la necesidad de interpretar coincidencias del escáner"
+            },
+            {
+              "id": "c",
+              "text": "Puede consultar información local de paquetes y configuración según sus permisos"
+            },
+            {
+              "id": "d",
+              "text": "Permite extender las pruebas a otros equipos que usen la misma cuenta"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El acceso autenticado permite comprobaciones internas; su alcance y fiabilidad siguen dependiendo de los permisos y de la validación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+        },
+        {
+          "id": "w28d1-q04",
+          "prompt": "La tarea aparece como completada, pero todos los accesos autenticados fallaron. ¿Cómo registras la cobertura de parches locales?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Como incompleta, corrigiendo el acceso autorizado antes de repetirla"
+            },
+            {
+              "id": "b",
+              "text": "Como completa si se identificaron los puertos abiertos"
+            },
+            {
+              "id": "c",
+              "text": "Como equivalente a una revisión local sin hallazgos"
+            },
+            {
+              "id": "d",
+              "text": "Como completa si el escaneo duró el tiempo previsto"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Completar una tarea de red no demuestra que se ejecutaran las comprobaciones locales previstas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+        },
+        {
+          "id": "w28d1-q05",
+          "prompt": "Una aplicación del laboratorio usa un servicio de pago de un proveedor. La autorización sólo cubre las VMs propias. ¿Qué haces con el endpoint del proveedor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Lo documento como dependencia fuera de las pruebas activas autorizadas"
+            },
+            {
+              "id": "b",
+              "text": "Lo pruebo porque la aplicación propia depende de él"
+            },
+            {
+              "id": "c",
+              "text": "Lo incluyo si responde al mismo nombre comercial"
+            },
+            {
+              "id": "d",
+              "text": "Lo escaneo con una tasa menor para mantenerlo dentro del alcance"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una dependencia técnica no amplía la autorización; deben distinguirse los activos propios y los servicios externos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+        },
+        {
+          "id": "w28d1-q06",
+          "prompt": "Un equipo antiguo del laboratorio se bloqueó durante una revisión anterior. ¿Qué preparación es más adecuada antes de volver a probarlo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usar el perfil más completo para evitar varias sesiones"
+            },
+            {
+              "id": "b",
+              "text": "Desactivar las alertas operativas para reducir interrupciones al evaluador"
+            },
+            {
+              "id": "c",
+              "text": "Acordar perfil conservador, ventana, monitorización y condición de parada"
+            },
+            {
+              "id": "d",
+              "text": "Mantener la tasa predeterminada y revisar los registros al terminar"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las pruebas pueden afectar a la disponibilidad; los límites y la coordinación deben ajustarse al activo antes de ejecutarlas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+        },
+        {
+          "id": "w28d1-q07",
+          "prompt": "El portal sólo se ha revisado desde una red administrativa interna. ¿Qué falta para afirmar qué servicios están expuestos a Internet?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una segunda ejecución desde la misma red administrativa"
+            },
+            {
+              "id": "b",
+              "text": "Una comprobación desde un punto externo autorizado y el contexto de los controles de acceso"
+            },
+            {
+              "id": "c",
+              "text": "Un listado local de procesos sin comprobar rutas de acceso"
+            },
+            {
+              "id": "d",
+              "text": "Una puntuación de severidad de los paquetes instalados"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La visibilidad depende del punto de observación y de los controles entre éste y el servicio.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+        },
+        {
+          "id": "w28d1-q08",
+          "prompt": "Una dirección inventariada no responde al descubrimiento autorizado. ¿Qué conclusión es defendible?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El activo ya fue retirado y puede borrarse del inventario"
+            },
+            {
+              "id": "b",
+              "text": "El equipo no presenta vulnerabilidades accesibles"
+            },
+            {
+              "id": "c",
+              "text": "La dirección puede reasignarse sin consultar a su responsable"
+            },
+            {
+              "id": "d",
+              "text": "No se confirmó su estado con ese método y debe contrastarse con el inventario"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El silencio puede deberse a filtrado, desconexión o limitaciones del método; no prueba ausencia ni seguridad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+        }
+      ],
+      "challenge": {
+        "id": "w28d1-challenge",
+        "prompt": "Reto de descubrimiento: el permiso cubre dos VMs, excluye el router compartido y permite sólo comprobaciones no destructivas de 18:00 a 19:00. Una VM no responde y la otra aloja un servicio frágil. ¿Qué plan respeta el alcance y produce evidencia útil?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Descubrir toda la subred para localizar otra dirección de la VM y después filtrar el router del informe"
+          },
+          {
+            "id": "b",
+            "text": "Limitar objetivos y perfil al permiso, contrastar la VM silenciosa con el dueño y monitorizar con parada acordada"
+          },
+          {
+            "id": "c",
+            "text": "Probar también el router con baja tasa para distinguir un fallo de ruta de un fallo del objetivo"
+          },
+          {
+            "id": "d",
+            "text": "Activar todas las pruebas de disponibilidad en la VM frágil para confirmar su comportamiento dentro de la ventana"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "El plan debe controlar objetivos, técnicas, horario e impacto. Una dificultad de descubrimiento se documenta y resuelve mediante coordinación, sin ampliar por inferencia el permiso.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+      }
+    },
+    {
+      "dayId": "w28d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w28d2-q01",
+          "prompt": "Dos herramientas describen una misma debilidad con nombres distintos, pero citan el mismo CVE. ¿Para qué sirve principalmente ese identificador?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para correlacionar referencias al mismo problema de seguridad publicado"
+            },
+            {
+              "id": "b",
+              "text": "Para demostrar que todos los activos con ese producto están afectados"
+            },
+            {
+              "id": "c",
+              "text": "Para fijar el plazo de reparación de cualquier organización"
+            },
+            {
+              "id": "d",
+              "text": "Para certificar que ya existe un parche compatible con cada instalación"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "CVE proporciona una referencia común; la aplicabilidad, la solución y el riesgo requieren consultar los detalles del producto y del entorno.",
+          "reference": "https://www.cve.org/ResourcesSupport/FAQs"
+        },
+        {
+          "id": "w28d2-q02",
+          "prompt": "Una ficha asigna CVSS Base 9,0 a una vulnerabilidad. ¿Qué expresa esa puntuación por sí sola?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La severidad técnica de sus características intrínsecas"
+            },
+            {
+              "id": "b",
+              "text": "La probabilidad de que esta organización sea atacada esta semana"
+            },
+            {
+              "id": "c",
+              "text": "La pérdida económica estimada para cada activo afectado"
+            },
+            {
+              "id": "d",
+              "text": "La prioridad definitiva frente a todos los hallazgos internos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "FIRST distingue la severidad base del riesgo contextual, que depende también de amenazas y del entorno.",
+          "reference": "https://www.first.org/cvss/v4.0/user-guide"
+        },
+        {
+          "id": "w28d2-q03",
+          "prompt": "El escáner señala una biblioteca por su banner antiguo; el administrador aporta un aviso del fabricante sobre un parche incorporado sin cambiar ese banner. ¿Qué sigue?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Contrastar el paquete instalado y el aviso antes de confirmar o descartar el hallazgo"
+            },
+            {
+              "id": "b",
+              "text": "Confirmarlo porque el banner tiene más valor que el estado del paquete"
+            },
+            {
+              "id": "c",
+              "text": "Descartarlo sólo por la declaración verbal del administrador"
+            },
+            {
+              "id": "d",
+              "text": "Aumentar su severidad porque el banner y el paquete no coinciden"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La detección por versiones puede producir falsos positivos; se necesita evidencia aplicable al paquete realmente instalado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+        },
+        {
+          "id": "w28d2-q04",
+          "prompt": "Una fuente informa CVSS 3.1 y otra CVSS 4.0 con números diferentes para un CVE. ¿Cómo se evita una comparación engañosa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Se promedian los dos números para producir una puntuación común"
+            },
+            {
+              "id": "b",
+              "text": "Se conservan versión, vector, fuente y contexto de cada puntuación"
+            },
+            {
+              "id": "c",
+              "text": "Se publica únicamente el número mayor sin identificar el modelo"
+            },
+            {
+              "id": "d",
+              "text": "Se toma la diferencia numérica como cambio de riesgo demostrado"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La cifra necesita su método y vector para interpretarse; modelos o supuestos diferentes no son intercambiables sin análisis.",
+          "reference": "https://www.first.org/cvss/v4.0/user-guide"
+        },
+        {
+          "id": "w28d2-q05",
+          "prompt": "Dos escáneres coinciden en un hallazgo porque ambos comparan el mismo banner con la misma base de versiones. ¿Qué aporta más confianza?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Contar la coincidencia como dos pruebas independientes de explotación"
+            },
+            {
+              "id": "b",
+              "text": "Ejecutar ambos otra vez sin cambiar el método de detección"
+            },
+            {
+              "id": "c",
+              "text": "Sumar las puntuaciones de ambos para expresar certeza"
+            },
+            {
+              "id": "d",
+              "text": "Revisar de forma autorizada el paquete y las condiciones de afectación"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Dos resultados pueden compartir la misma suposición errónea; la evidencia local puede resolver esa incertidumbre.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+        },
+        {
+          "id": "w28d2-q06",
+          "prompt": "Un aviso del fabricante sólo afecta a la función de importación cuando está habilitada. ¿Qué comprobación permite decidir si la instalación está afectada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sólo la familia comercial del producto detectado"
+            },
+            {
+              "id": "b",
+              "text": "Sólo el número de descargas públicas del aviso"
+            },
+            {
+              "id": "c",
+              "text": "Versión instalada y estado real de la función indicada en el aviso"
+            },
+            {
+              "id": "d",
+              "text": "Sólo la antigüedad de la última revisión de seguridad"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un hallazgo debe relacionarse con las versiones y condiciones concretas que describe su fuente técnica.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+        },
+        {
+          "id": "w28d2-q07",
+          "prompt": "No hubo hallazgos en una VM porque el perfil ejecutado omitía las comprobaciones de aplicaciones. ¿Qué riesgo de interpretación existe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tomar una comprobación omitida como un falso positivo confirmado"
+            },
+            {
+              "id": "b",
+              "text": "Considerar que el perfil evaluó las aplicaciones por identificar el sistema operativo"
+            },
+            {
+              "id": "c",
+              "text": "Confundir ausencia de detecciones con ausencia de vulnerabilidades en aplicaciones"
+            },
+            {
+              "id": "d",
+              "text": "Tratar la omisión como prueba de que la aplicación está mitigada"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un resultado negativo sólo informa sobre lo que efectivamente se evaluó; las comprobaciones omitidas limitan la conclusión.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+        },
+        {
+          "id": "w28d2-q08",
+          "prompt": "Un servicio parece vulnerable por su versión, pero aún falta contrastar la configuración requerida. ¿Cómo describes el hallazgo inicial?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Como explotación confirmada porque existe una versión coincidente"
+            },
+            {
+              "id": "b",
+              "text": "Como falso positivo porque todavía no hay una demostración práctica"
+            },
+            {
+              "id": "c",
+              "text": "Como corregido mientras el responsable prepara la revisión"
+            },
+            {
+              "id": "d",
+              "text": "Como pendiente de validación, indicando la evidencia y la condición sin comprobar"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Separar observación, aplicabilidad y explotación evita que una inferencia se publique como un hecho confirmado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+        }
+      ],
+      "challenge": {
+        "id": "w28d2-challenge",
+        "prompt": "Reto de hallazgos: una herramienta deduce una vulnerabilidad desde un banner. El aviso del fabricante distingue dos ramas del producto; la organización usa una rama con parches incorporados y aún no se ha comprobado su paquete. ¿Qué entrega inicial es rigurosa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Confirmar la vulnerabilidad por la coincidencia del banner y añadir sólo una nota sobre la rama"
+          },
+          {
+            "id": "b",
+            "text": "Descartarla porque una rama del fabricante incorpora parches, sin verificar cuál está instalada"
+          },
+          {
+            "id": "c",
+            "text": "Promediar las puntuaciones de ambas ramas y asignar el resultado al activo"
+          },
+          {
+            "id": "d",
+            "text": "Registrar la detección como pendiente y contrastar rama, paquete y aviso antes de determinar aplicabilidad"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La evidencia disponible no resuelve todavía qué código y correcciones tiene el activo. La validación debe seguir las condiciones del aviso sin afirmar vulnerabilidad ni descarte prematuramente.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+      }
+    },
+    {
+      "dayId": "w28d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w28d3-q01",
+          "prompt": "En un caso ficticio, una vulnerabilidad aplicable está incluida en KEV. ¿Qué señal añade esto a la priorización?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El activo local ya ha sido comprometido por esa vulnerabilidad"
+            },
+            {
+              "id": "b",
+              "text": "Su CVSS Base aumenta automáticamente hasta la puntuación máxima"
+            },
+            {
+              "id": "c",
+              "text": "Existe evidencia de explotación real de esa vulnerabilidad, que debe incorporarse al análisis"
+            },
+            {
+              "id": "d",
+              "text": "Todos los productos del mismo fabricante deben retirarse"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "KEV aporta información de explotación conocida; no demuestra compromiso de una instalación concreta ni sustituye el contexto del activo.",
+          "reference": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+        },
+        {
+          "id": "w28d3-q02",
+          "prompt": "Sólo puede adelantarse una corrección: A tiene CVSS 9,8 en un laboratorio aislado; B tiene 8,1, está expuesta a Internet, sostiene cobros y tiene explotación conocida. Con esos datos, ¿qué orden es más razonable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Adelantar A únicamente porque su puntuación base es mayor"
+            },
+            {
+              "id": "b",
+              "text": "Adelantar el hallazgo registrado primero sin revisar exposición"
+            },
+            {
+              "id": "c",
+              "text": "Adelantar B y dejar documentada la evaluación y fecha de A"
+            },
+            {
+              "id": "d",
+              "text": "Posponer ambos hasta que sus puntuaciones base sean iguales"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La explotación, la accesibilidad y la criticidad pueden justificar una prioridad mayor que la ordenación exclusiva por CVSS Base.",
+          "reference": "https://www.first.org/cvss/v4.0/user-guide"
+        },
+        {
+          "id": "w28d3-q03",
+          "prompt": "El dueño afirma que un cortafuegos reduce la exposición de un servicio vulnerable. ¿Qué necesitas para usar ese control en la decisión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Evidencia de las rutas realmente bloqueadas, las permitidas y el funcionamiento del control"
+            },
+            {
+              "id": "b",
+              "text": "Sólo el nombre comercial del cortafuegos instalado"
+            },
+            {
+              "id": "c",
+              "text": "Sólo una captura de su licencia vigente"
+            },
+            {
+              "id": "d",
+              "text": "Sólo la puntuación base del hallazgo antes del filtrado"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un control reduce riesgo cuando protege las rutas relevantes y funciona; su mera presencia no acredita esa reducción.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+        },
+        {
+          "id": "w28d3-q04",
+          "prompt": "Dos equipos tienen la misma debilidad y exposición; uno controla un proceso crítico y el otro publica datos de prueba recuperables. ¿Qué dato puede justificar priorizar el primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El hecho de que ambos tengan la misma versión instalada"
+            },
+            {
+              "id": "b",
+              "text": "El mayor impacto de una interrupción o alteración de su servicio"
+            },
+            {
+              "id": "c",
+              "text": "La coincidencia de la vulnerabilidad en ambos inventarios"
+            },
+            {
+              "id": "d",
+              "text": "El uso del mismo perfil de detección durante la evaluación"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La criticidad del servicio aporta consecuencias propias del entorno y ayuda a decidir entre hallazgos técnicamente similares.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+        },
+        {
+          "id": "w28d3-q05",
+          "prompt": "Una excepción de parcheo venció y el control compensatorio sigue descrito sólo en una propuesta. ¿Qué corresponde hacer?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Prorrogar automáticamente la excepción porque ya fue aprobada una vez"
+            },
+            {
+              "id": "b",
+              "text": "Marcar el hallazgo como mitigado porque existe una propuesta escrita"
+            },
+            {
+              "id": "c",
+              "text": "Reevaluar y escalar el riesgo con su responsable, comprobando el control y un nuevo plan"
+            },
+            {
+              "id": "d",
+              "text": "Reducir la severidad base para reflejar el retraso administrativo"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las excepciones requieren seguimiento y revisión; una intención de aplicar un control no acredita protección efectiva.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+        },
+        {
+          "id": "w28d3-q06",
+          "prompt": "Entre diez hallazgos, uno afecta a un equipo cuyo dueño y exposición se desconocen. ¿Cómo tratas esa incertidumbre?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Lo clasifico de bajo riesgo porque no aparece un responsable"
+            },
+            {
+              "id": "b",
+              "text": "Lo declaro crítico sin registrar qué información falta"
+            },
+            {
+              "id": "c",
+              "text": "Lo elimino del informe hasta completar todo el inventario"
+            },
+            {
+              "id": "d",
+              "text": "Abro una verificación rápida de propiedad y alcance antes de asignarle una prioridad definitiva"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La falta de contexto exige investigación y visibilidad; no demuestra ni bajo riesgo ni una severidad máxima.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+        },
+        {
+          "id": "w28d3-q07",
+          "prompt": "Hay presupuesto para una ventana: un parche corrige seis activos críticos expuestos y otro corrige un equipo de prueba aislado; la duración y el riesgo de cambio son similares. ¿Qué argumento respalda elegir el primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La facilidad de medir sólo el número de paquetes instalados"
+            },
+            {
+              "id": "b",
+              "text": "La facilidad de cerrar primero el ticket más antiguo"
+            },
+            {
+              "id": "c",
+              "text": "La mayor reducción de riesgo sobre los servicios y activos afectados"
+            },
+            {
+              "id": "d",
+              "text": "La coincidencia de su fecha de publicación con la ventana"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La planificación debe relacionar esfuerzo y reducción de riesgo, además de considerar dependencias y continuidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+        },
+        {
+          "id": "w28d3-q08",
+          "prompt": "Se publica una prueba de concepto, pero no se ha aportado evidencia de uso real contra víctimas. ¿Qué distinción debes mantener?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una prueba de concepto demuestra compromiso de todos los activos afectados"
+            },
+            {
+              "id": "b",
+              "text": "Disponibilidad de una técnica y explotación observada son señales diferentes"
+            },
+            {
+              "id": "c",
+              "text": "Una prueba de concepto garantiza inclusión automática en KEV"
+            },
+            {
+              "id": "d",
+              "text": "Sin explotación observada la debilidad deja de requerir evaluación"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La posibilidad técnica puede aumentar la preocupación, pero no equivale a evidencia de explotación real ni descarta el riesgo contextual.",
+          "reference": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+        }
+      ],
+      "challenge": {
+        "id": "w28d3-challenge",
+        "prompt": "Reto de priorización: en una organización ficticia, A es un portal de cobros expuesto con vulnerabilidad aplicable y explotación conocida; B es una VM aislada con CVSS Base mayor. Sólo hay una ventana hoy y ambas correcciones consumen el mismo esfuerzo. ¿Qué decisión está mejor sustentada?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Usar la ventana para A, documentar los factores de riesgo y programar B con responsable y revisión"
+          },
+          {
+            "id": "b",
+            "text": "Elegir B por tener la cifra base mayor y dejar A sin revisar hasta que cambie esa cifra"
+          },
+          {
+            "id": "c",
+            "text": "Asignar media ventana a cada parche aunque ambos requieran una ventana completa para validarse"
+          },
+          {
+            "id": "d",
+            "text": "Atender el ticket más antiguo y retirar del análisis la exposición porque ya figura en el inventario"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La puntuación base no representa por sí sola el riesgo propio. Con los datos del caso, exposición, explotación e impacto justifican adelantar A sin perder el seguimiento de B.",
+        "reference": "https://www.first.org/cvss/v4.0/user-guide"
+      }
+    },
+    {
+      "dayId": "w28d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w28d4-q01",
+          "prompt": "El equipo de seguridad identifica un parche, pero la aplicación depende de un complemento administrado por otro equipo. ¿Qué debe incluir la acción de remediación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sólo el enlace al parche y la instrucción de instalarlo al recibirlo"
+            },
+            {
+              "id": "b",
+              "text": "Sólo una aceptación del hallazgo por parte del escáner"
+            },
+            {
+              "id": "c",
+              "text": "Sólo el cierre del ticket de seguridad y la creación de otro sin vínculo"
+            },
+            {
+              "id": "d",
+              "text": "Responsable, compatibilidad con el complemento, secuencia de cambios y fecha objetivo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una corrección ejecutable necesita propiedad y coordinación de las dependencias que pueden impedir o alterar el cambio.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+        },
+        {
+          "id": "w28d4-q02",
+          "prompt": "Antes de desplegar un parche en un servicio importante, ¿qué preparación reduce mejor el riesgo operativo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aplicarlo a todas las réplicas a la vez para acortar la intervención"
+            },
+            {
+              "id": "b",
+              "text": "Usar cualquier copia del parche si coincide su nombre de archivo"
+            },
+            {
+              "id": "c",
+              "text": "Validar su procedencia, probarlo en un entorno representativo y preparar recuperación y criterios de reversión"
+            },
+            {
+              "id": "d",
+              "text": "Omitir pruebas funcionales si el aviso tiene severidad crítica"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La urgencia puede acelerar las pruebas y el despliegue, pero debe considerarse autenticidad, compatibilidad y recuperación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+        },
+        {
+          "id": "w28d4-q03",
+          "prompt": "No existe parche y el fabricante recomienda desactivar una función vulnerable. ¿Qué plan convierte esa medida en una mitigación gestionada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cerrar el caso como parcheado al publicar la recomendación"
+            },
+            {
+              "id": "b",
+              "text": "Aplicar y verificar la desactivación, registrar limitaciones y revisar cuando exista una solución permanente"
+            },
+            {
+              "id": "c",
+              "text": "Mantener la recomendación sin verificar si la función sigue activa"
+            },
+            {
+              "id": "d",
+              "text": "Esperar sin cambios porque sólo un parche puede reducir riesgo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una mitigación puede reducir exposición antes del parche; necesita validación, seguimiento y transición planificada a una solución permanente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+        },
+        {
+          "id": "w28d4-q04",
+          "prompt": "Se restringe el acceso a un servicio vulnerable a dos redes autorizadas, pero su software sigue sin actualizar. ¿Qué estado describe mejor el resultado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Parcheado porque ya no está disponible para cualquier origen"
+            },
+            {
+              "id": "b",
+              "text": "Falso positivo porque el acceso requiere una ruta autorizada"
+            },
+            {
+              "id": "c",
+              "text": "Corregido definitivamente porque la puntuación base ya no aplica"
+            },
+            {
+              "id": "d",
+              "text": "Mitigado con riesgo residual, sujeto a verificar las restricciones y completar la corrección"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Restringir rutas puede reducir riesgo sin eliminar la debilidad del software; deben distinguirse mitigación y corrección.",
+          "reference": "https://www.cisa.gov/sites/default/files/2024-08/Federal_Government_Cybersecurity_Incident_and_Vulnerability_Response_Playbooks_508C.pdf"
+        },
+        {
+          "id": "w28d4-q05",
+          "prompt": "Un activo sin soporte no puede recibir el parche requerido y debe seguir operando temporalmente. ¿Qué propuesta es más completa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mantenerlo sin cambios mientras siga respondiendo correctamente"
+            },
+            {
+              "id": "b",
+              "text": "Excluirlo del inventario de vulnerabilidades por falta de parche"
+            },
+            {
+              "id": "c",
+              "text": "Controles evaluados, responsable del riesgo, revisiones periódicas y un plan de sustitución o retiro"
+            },
+            {
+              "id": "d",
+              "text": "Asignarle sólo una nueva etiqueta de criticidad y cerrar la acción"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los activos no parcheables requieren una respuesta alternativa sostenida y reevaluada, junto con decisiones sobre su continuidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+        },
+        {
+          "id": "w28d4-q06",
+          "prompt": "El fabricante indica que la actualización sólo entra en vigor tras reiniciar el servicio. El instalador terminó correctamente, pero aún no hubo reinicio. ¿Qué acción falta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cerrar el hallazgo usando únicamente el registro del instalador"
+            },
+            {
+              "id": "b",
+              "text": "Reinstalar el mismo paquete sin planificar el reinicio"
+            },
+            {
+              "id": "c",
+              "text": "Reducir el alcance de la validación a los archivos descargados"
+            },
+            {
+              "id": "d",
+              "text": "Coordinar el reinicio autorizado y comprobar la versión activa antes de declarar la corrección"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Instalar archivos no siempre cambia el código que está ejecutándose; la preparación debe contemplar el cambio de estado requerido.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+        },
+        {
+          "id": "w28d4-q07",
+          "prompt": "Una actualización provoca fallos y se restaura la versión vulnerable mediante el procedimiento aprobado. ¿Cómo debe continuar el seguimiento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conservar el estado corregido porque la instalación inicial tuvo éxito"
+            },
+            {
+              "id": "b",
+              "text": "Reabrir o mantener el hallazgo, aplicar una mitigación viable y revisar la estrategia de corrección"
+            },
+            {
+              "id": "c",
+              "text": "Declarar falso positivo el hallazgo debido al fallo funcional"
+            },
+            {
+              "id": "d",
+              "text": "Retirar el activo del informe hasta que exista otra versión"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La reversión recupera el servicio pero puede restaurar la exposición; el registro debe reflejar el estado efectivo y la respuesta pendiente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+        },
+        {
+          "id": "w28d4-q08",
+          "prompt": "Se confirma una vulnerabilidad explotada en un servicio expuesto y la ventana ordinaria está a tres semanas. ¿Qué propuesta respeta la gestión del cambio y atiende la urgencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Activar el procedimiento de emergencia, evaluar una mitigación inmediata y acelerar un despliegue probado"
+            },
+            {
+              "id": "b",
+              "text": "Esperar la ventana ordinaria sin evaluar controles intermedios"
+            },
+            {
+              "id": "c",
+              "text": "Instalar en producción sin propietario ni registro por tratarse de una urgencia"
+            },
+            {
+              "id": "d",
+              "text": "Cerrar la vulnerabilidad cuando se solicita una ventana extraordinaria"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La respuesta de emergencia debe acelerar decisiones y acciones coordinadas, manteniendo validación y trazabilidad del riesgo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+        }
+      ],
+      "challenge": {
+        "id": "w28d4-challenge",
+        "prompt": "Reto de remediación: un parche necesita actualizar primero un complemento y reiniciar el servicio. La ventana es el sábado; hoy puede restringirse la función vulnerable siguiendo al fabricante. ¿Qué propuesta es ejecutable?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Marcar el caso como corregido al aplicar la restricción y cancelar la coordinación del complemento"
+          },
+          {
+            "id": "b",
+            "text": "Asignar responsables, verificar la restricción temporal y preparar actualización, reinicio, recuperación y validación del sábado"
+          },
+          {
+            "id": "c",
+            "text": "Instalar hoy el parche sin reiniciar y cerrar el ticket si el instalador no informa errores"
+          },
+          {
+            "id": "d",
+            "text": "Esperar al sábado sin evaluar la restricción y dejar la validación para cuando haya otro hallazgo"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La mitigación inmediata y la corrección permanente requieren evidencia y seguimiento. La dependencia, la activación y las pruebas deben formar parte del cambio acordado.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+      }
+    },
+    {
+      "dayId": "w28d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w28d5-q01",
+          "prompt": "Un ticket afirma «parche instalado». ¿Qué evidencia permite verificar que la corrección está activa en el servidor objetivo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La fecha en que el parche se descargó en un equipo administrativo"
+            },
+            {
+              "id": "b",
+              "text": "Versión o estado efectivo del componente, requisitos de activación cumplidos y comprobación aplicable al hallazgo"
+            },
+            {
+              "id": "c",
+              "text": "El cierre del ticket por el técnico sin evidencia del sistema"
+            },
+            {
+              "id": "d",
+              "text": "La existencia de un paquete correctivo en el portal del fabricante"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Validar exige confirmar el resultado en el activo, incluida la activación del cambio, y relacionarlo con la debilidad original.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+        },
+        {
+          "id": "w28d5-q02",
+          "prompt": "Tras el cambio, un escaneo no detecta el hallazgo, pero también indica error de autenticación. ¿Qué decisión es adecuada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cerrar porque el número de hallazgos se redujo a cero"
+            },
+            {
+              "id": "b",
+              "text": "No cerrar todavía; recuperar la cobertura necesaria y repetir la comprobación autorizada"
+            },
+            {
+              "id": "c",
+              "text": "Cerrar si el técnico confirma que lanzó el instalador"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar el hallazgo a falso positivo por no reproducirse"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un resultado negativo con cobertura fallida no demuestra que la condición vulnerable desapareciera.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+        },
+        {
+          "id": "w28d5-q03",
+          "prompt": "Para comparar una comprobación anterior y posterior, ¿qué información necesitas conservar además del resultado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sólo el total de hallazgos que muestran ambos informes"
+            },
+            {
+              "id": "b",
+              "text": "Sólo el nombre del técnico que ejecutó la actualización"
+            },
+            {
+              "id": "c",
+              "text": "Sólo la severidad más alta observada en la primera prueba"
+            },
+            {
+              "id": "d",
+              "text": "Activo, momento, método, alcance, permisos y configuración relevante de ambas pruebas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La comparación necesita contexto suficiente para distinguir una mejora real de un cambio de objetivo, permisos o cobertura.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+        },
+        {
+          "id": "w28d5-q04",
+          "prompt": "Se corrigió un nodo de un grupo de tres réplicas. La prueba funcional del portal responde bien. ¿Qué falta para cerrar el hallazgo del grupo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cerrar porque una respuesta correcta representa a todas las réplicas"
+            },
+            {
+              "id": "b",
+              "text": "Comprobar el estado de los tres nodos afectados, incluyendo los que no atendieron esa prueba"
+            },
+            {
+              "id": "c",
+              "text": "Repetir sólo la prueba del portal hasta que responda varias veces"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar los otros nodos del alcance porque comparten configuración prevista"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La validación debe cubrir las instancias afectadas; un balanceador puede ocultar réplicas que aún ejecutan la versión vulnerable.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+        },
+        {
+          "id": "w28d5-q05",
+          "prompt": "Una regla compensatoria pretende bloquear el acceso desde una red no autorizada sin impedir el servicio al personal permitido. ¿Qué prueba es más útil?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Comprobar únicamente que la regla figura habilitada en la consola"
+            },
+            {
+              "id": "b",
+              "text": "Probar sólo desde una red permitida y asumir el bloqueo del resto"
+            },
+            {
+              "id": "c",
+              "text": "Verificar desde puntos autorizados tanto el bloqueo previsto como el acceso legítimo esperado"
+            },
+            {
+              "id": "d",
+              "text": "Revisar sólo el texto de la solicitud de cambio aprobada"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un control necesita cumplir su objetivo de seguridad y conservar el funcionamiento esperado; su estado nominal no demuestra ambos resultados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+        },
+        {
+          "id": "w28d5-q06",
+          "prompt": "Una excepción vence mañana y aún impide aplicar el parche. ¿Qué debe comprobarse en su revisión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Si la excepción puede renovarse copiando sin cambios su fecha inicial"
+            },
+            {
+              "id": "b",
+              "text": "Si el ticket puede cerrarse por haber tenido una aprobación previa"
+            },
+            {
+              "id": "c",
+              "text": "Si el hallazgo debe omitirse de futuras mediciones para evitar duplicados"
+            },
+            {
+              "id": "d",
+              "text": "Si persiste la justificación, funcionan los controles y existe responsable y próxima fecha de revisión"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las excepciones deben seguir visibles y reevaluarse según las condiciones actuales, con responsabilidad explícita.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+        },
+        {
+          "id": "w28d5-q07",
+          "prompt": "Un mes después de validar la corrección se restaura una copia anterior al parche. ¿Qué riesgo debe detectar el seguimiento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La reintroducción de la versión vulnerable y la necesidad de volver a corregirla"
+            },
+            {
+              "id": "b",
+              "text": "Un falso positivo inevitable porque la vulnerabilidad ya tuvo cierre"
+            },
+            {
+              "id": "c",
+              "text": "Un cambio que no afecta a la seguridad si el servicio vuelve a responder"
+            },
+            {
+              "id": "d",
+              "text": "Una reducción del riesgo porque la copia ya había funcionado antes"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El estado seguro puede perderse por restauraciones, reinicios o desinstalaciones; la monitorización debe detectar regresiones.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+        },
+        {
+          "id": "w28d5-q08",
+          "prompt": "La validación de seguridad pasa, pero la prueba de transacciones falla después del parche. ¿Qué resultado debes registrar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Éxito completo porque desapareció la detección de vulnerabilidad"
+            },
+            {
+              "id": "b",
+              "text": "Corrección técnica comprobada con incidencia funcional pendiente y decisión de cambio por resolver"
+            },
+            {
+              "id": "c",
+              "text": "Falso positivo del hallazgo original por fallar la aplicación"
+            },
+            {
+              "id": "d",
+              "text": "Fracaso de toda la validación sin conservar la evidencia de seguridad"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las evidencias de seguridad y funcionamiento pueden mostrar resultados distintos; ambas son necesarias para decidir la aceptación o reversión del cambio.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+        }
+      ],
+      "challenge": {
+        "id": "w28d5-challenge",
+        "prompt": "Reto de validación: el portal tiene tres nodos. El técnico actualizó dos; la prueba por el balanceador fue satisfactoria y el escaneo no pudo autenticarse en el tercero. ¿Qué estado debes defender?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Corrección completa: el balanceador respondió y no mostró errores al usuario"
+          },
+          {
+            "id": "b",
+            "text": "Falso positivo global: el escáner dejó de informar la debilidad en el portal"
+          },
+          {
+            "id": "c",
+            "text": "Corrección completa con una excepción implícita para el nodo no revisado"
+          },
+          {
+            "id": "d",
+            "text": "Validación parcial: verificar el estado efectivo de cada nodo y resolver la cobertura del tercero antes del cierre global"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "Una respuesta funcional no demuestra el estado de todas las réplicas. La cobertura incompleta debe permanecer visible hasta comprobar el nodo y las condiciones del hallazgo.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+      }
+    },
+    {
+      "dayId": "w28d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w28d6-q01",
+          "prompt": "¿Qué registro permite que otro evaluador autorizado comprenda y reproduzca un hallazgo sin depender de tu memoria?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sólo un título de severidad alta y una captura sin identificar el objetivo"
+            },
+            {
+              "id": "b",
+              "text": "Activo, fecha, condición observada, método seguro, evidencia, impacto y límites de la conclusión"
+            },
+            {
+              "id": "c",
+              "text": "Sólo un enlace general al producto y el total de hallazgos del día"
+            },
+            {
+              "id": "d",
+              "text": "Sólo el nombre del escáner y la fecha prevista para el parche"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un informe útil conecta el resultado con su origen y condiciones, de modo que el responsable pueda validarlo y actuar.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+        },
+        {
+          "id": "w28d6-q02",
+          "prompt": "La dirección necesita decidir una inversión tras la revisión. ¿Qué contenido aporta más un resumen ejecutivo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El volcado completo de cada comprobación ordenado por nombre de plugin"
+            },
+            {
+              "id": "b",
+              "text": "La lista de todos los puertos sin relacionarlos con servicios del negocio"
+            },
+            {
+              "id": "c",
+              "text": "Servicios afectados, riesgos principales, acciones prioritarias y decisiones o recursos necesarios"
+            },
+            {
+              "id": "d",
+              "text": "Los pasos de instalación del escáner y su configuración de escritorio"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El resumen debe traducir los hallazgos en consecuencias y decisiones para su audiencia; el detalle técnico puede ir en el cuerpo o los anexos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+        },
+        {
+          "id": "w28d6-q03",
+          "prompt": "Se validaron 12 correcciones entre 20 activos afectados. Cinco activos adicionales nunca pudieron revisarse. ¿Cómo evitas una métrica engañosa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Publico 12 activos seguros sin informar el denominador"
+            },
+            {
+              "id": "b",
+              "text": "Cuento los cinco no revisados como corregidos por no tener detecciones"
+            },
+            {
+              "id": "c",
+              "text": "Indico 12 de 20 correcciones validadas y presento por separado los cinco activos sin cobertura"
+            },
+            {
+              "id": "d",
+              "text": "Divido las correcciones por el número de informes descargados"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La métrica necesita población y definición de estado, además de visibilidad de la cobertura que falta.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+        },
+        {
+          "id": "w28d6-q04",
+          "prompt": "Una captura probatoria contiene un token operativo. ¿Cómo debe prepararse para el informe educativo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Incluirla completa para que el lector pueda repetir exactamente la sesión"
+            },
+            {
+              "id": "b",
+              "text": "Publicar el token en un anexo separado sin cambiar sus permisos de acceso"
+            },
+            {
+              "id": "c",
+              "text": "Redactar el secreto en la copia del informe y conservar sólo la evidencia necesaria bajo acceso controlado"
+            },
+            {
+              "id": "d",
+              "text": "Sustituir toda la evidencia por una afirmación de que la prueba funcionó"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La evidencia puede ser sensible; debe preservar el valor de la prueba sin difundir credenciales ni datos innecesarios.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+        },
+        {
+          "id": "w28d6-q05",
+          "prompt": "Un hallazgo de severidad alta tiene una restricción temporal verificada y parche pendiente. ¿Cómo lo presentas para evitar confundir severidad con estado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mantengo la severidad y señalo estado mitigado, riesgo residual y acción pendiente"
+            },
+            {
+              "id": "b",
+              "text": "Lo retiro de los pendientes y lo cuento como parcheado"
+            },
+            {
+              "id": "c",
+              "text": "Cambio su CVSS Base a cero por existir una restricción de acceso"
+            },
+            {
+              "id": "d",
+              "text": "Lo etiqueto como falso positivo hasta la próxima ventana de mantenimiento"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La severidad técnica, el estado del tratamiento y el riesgo residual son dimensiones distintas que conviene mostrar explícitamente.",
+          "reference": "https://www.cisa.gov/sites/default/files/2024-08/Federal_Government_Cybersecurity_Incident_and_Vulnerability_Response_Playbooks_508C.pdf"
+        },
+        {
+          "id": "w28d6-q06",
+          "prompt": "El informe propone un plazo para corregir un servidor. ¿Qué justificación hace defendible esa fecha?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La misma fecha para todos los hallazgos porque comparten escáner"
+            },
+            {
+              "id": "b",
+              "text": "Prioridad contextual, política aplicable, dependencias y ventana acordada con el responsable"
+            },
+            {
+              "id": "c",
+              "text": "El plazo de otra organización sin comprobar si aplica a este entorno"
+            },
+            {
+              "id": "d",
+              "text": "La elección del evaluador sin consultar impacto ni restricciones"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un plazo accionable relaciona riesgo y ejecución con las obligaciones que realmente aplican a la organización.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+        },
+        {
+          "id": "w28d6-q07",
+          "prompt": "Se revisaron cuatro VMs del laboratorio y una quedó inaccesible. ¿Qué límite debe figurar en las conclusiones?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Toda la red puede considerarse evaluada porque comparte segmento"
+            },
+            {
+              "id": "b",
+              "text": "Las conclusiones cubren los activos y comprobaciones realizados; la VM inaccesible queda pendiente"
+            },
+            {
+              "id": "c",
+              "text": "La VM inaccesible se considera segura al no producir alertas"
+            },
+            {
+              "id": "d",
+              "text": "El informe puede omitir el alcance si incluye suficientes capturas"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Informar cobertura y exclusiones impide extender resultados a sistemas o técnicas que no fueron evaluados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+        },
+        {
+          "id": "w28d6-q08",
+          "prompt": "El mismo CVE está confirmado en nueve servidores. ¿Qué forma de contarlo conserva mejor la información para planificar trabajo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Nueve vulnerabilidades distintas sin identificar que comparten CVE"
+            },
+            {
+              "id": "b",
+              "text": "Una vulnerabilidad distinta con nueve activos afectados y su estado individual de tratamiento"
+            },
+            {
+              "id": "c",
+              "text": "Un único hallazgo corregido al resolver el primer servidor"
+            },
+            {
+              "id": "d",
+              "text": "Una incidencia global sin inventario de servidores ni responsables"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Separar problemas únicos e instancias afectadas evita confundir diversidad de fallos con alcance de remediación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+        }
+      ],
+      "challenge": {
+        "id": "w28d6-challenge",
+        "prompt": "Reto de informe: se evaluaron 15 de 18 activos autorizados. Un CVE afecta a seis; cuatro tienen corrección validada y dos una mitigación temporal probada. ¿Qué resumen representa fielmente la situación?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Cobertura completa; seis vulnerabilidades corregidas porque todos los activos afectados recibieron alguna acción"
+          },
+          {
+            "id": "b",
+            "text": "Cobertura 15/18; cuatro vulnerabilidades totales y dos falsos positivos debido a los controles temporales"
+          },
+          {
+            "id": "c",
+            "text": "Cobertura completa; un CVE corregido porque ya se verificó el parche en más de la mitad de sus instancias"
+          },
+          {
+            "id": "d",
+            "text": "Cobertura 15/18; un CVE en seis activos, cuatro corregidos, dos mitigados y tres activos pendientes de evaluación"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "El resumen diferencia cobertura, problemas únicos, activos afectados y estados de tratamiento. Una mitigación temporal no debe contabilizarse automáticamente como corrección permanente.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+      }
+    },
+    {
+      "dayId": "w28d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w28d7-q01",
+          "prompt": "El laboratorio autoriza revisar 10.20.30.10 y 10.20.30.11; la impresora 10.20.30.12 está excluida. ¿Cómo configuras el descubrimiento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Exploro toda la subred y descarto después la impresora"
+            },
+            {
+              "id": "b",
+              "text": "Incluyo la impresora sólo con detección de versiones"
+            },
+            {
+              "id": "c",
+              "text": "Amplío el rango si los dos objetivos no responden"
+            },
+            {
+              "id": "d",
+              "text": "Uso una lista explícita de los dos objetivos y excluyo la impresora"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El alcance limita las acciones desde el inicio; filtrar un informe después no evita haber probado un activo excluido.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final",
+          "reviewOf": "w28d1-q01"
+        },
+        {
+          "id": "w28d7-q02",
+          "prompt": "Dos herramientas describen una misma debilidad con nombres distintos, pero citan el mismo CVE. ¿Para qué sirve principalmente ese identificador?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para correlacionar referencias al mismo problema de seguridad publicado"
+            },
+            {
+              "id": "b",
+              "text": "Para demostrar que todos los activos con ese producto están afectados"
+            },
+            {
+              "id": "c",
+              "text": "Para fijar el plazo de reparación de cualquier organización"
+            },
+            {
+              "id": "d",
+              "text": "Para certificar que ya existe un parche compatible con cada instalación"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "CVE proporciona una referencia común; la aplicabilidad, la solución y el riesgo requieren consultar los detalles del producto y del entorno.",
+          "reference": "https://www.cve.org/ResourcesSupport/FAQs",
+          "reviewOf": "w28d2-q01"
+        },
+        {
+          "id": "w28d7-q03",
+          "prompt": "En un caso ficticio, una vulnerabilidad aplicable está incluida en KEV. ¿Qué señal añade esto a la priorización?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El activo local ya ha sido comprometido por esa vulnerabilidad"
+            },
+            {
+              "id": "b",
+              "text": "Su CVSS Base aumenta automáticamente hasta la puntuación máxima"
+            },
+            {
+              "id": "c",
+              "text": "Existe evidencia de explotación real de esa vulnerabilidad, que debe incorporarse al análisis"
+            },
+            {
+              "id": "d",
+              "text": "Todos los productos del mismo fabricante deben retirarse"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "KEV aporta información de explotación conocida; no demuestra compromiso de una instalación concreta ni sustituye el contexto del activo.",
+          "reference": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "reviewOf": "w28d3-q01"
+        },
+        {
+          "id": "w28d7-q04",
+          "prompt": "El equipo de seguridad identifica un parche, pero la aplicación depende de un complemento administrado por otro equipo. ¿Qué debe incluir la acción de remediación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sólo el enlace al parche y la instrucción de instalarlo al recibirlo"
+            },
+            {
+              "id": "b",
+              "text": "Sólo una aceptación del hallazgo por parte del escáner"
+            },
+            {
+              "id": "c",
+              "text": "Sólo el cierre del ticket de seguridad y la creación de otro sin vínculo"
+            },
+            {
+              "id": "d",
+              "text": "Responsable, compatibilidad con el complemento, secuencia de cambios y fecha objetivo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una corrección ejecutable necesita propiedad y coordinación de las dependencias que pueden impedir o alterar el cambio.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final",
+          "reviewOf": "w28d4-q01"
+        },
+        {
+          "id": "w28d7-q05",
+          "prompt": "Un ticket afirma «parche instalado». ¿Qué evidencia permite verificar que la corrección está activa en el servidor objetivo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La fecha en que el parche se descargó en un equipo administrativo"
+            },
+            {
+              "id": "b",
+              "text": "Versión o estado efectivo del componente, requisitos de activación cumplidos y comprobación aplicable al hallazgo"
+            },
+            {
+              "id": "c",
+              "text": "El cierre del ticket por el técnico sin evidencia del sistema"
+            },
+            {
+              "id": "d",
+              "text": "La existencia de un paquete correctivo en el portal del fabricante"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Validar exige confirmar el resultado en el activo, incluida la activación del cambio, y relacionarlo con la debilidad original.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final",
+          "reviewOf": "w28d5-q01"
+        },
+        {
+          "id": "w28d7-q06",
+          "prompt": "¿Qué registro permite que otro evaluador autorizado comprenda y reproduzca un hallazgo sin depender de tu memoria?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sólo un título de severidad alta y una captura sin identificar el objetivo"
+            },
+            {
+              "id": "b",
+              "text": "Activo, fecha, condición observada, método seguro, evidencia, impacto y límites de la conclusión"
+            },
+            {
+              "id": "c",
+              "text": "Sólo un enlace general al producto y el total de hallazgos del día"
+            },
+            {
+              "id": "d",
+              "text": "Sólo el nombre del escáner y la fecha prevista para el parche"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un informe útil conecta el resultado con su origen y condiciones, de modo que el responsable pueda validarlo y actuar.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final",
+          "reviewOf": "w28d6-q01"
+        },
+        {
+          "id": "w28d7-q07",
+          "prompt": "Un inventario sólo registra IP y sistema operativo. ¿Qué dato adicional ayuda más a decidir a quién asignar un hallazgo y cuánto afecta al negocio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Responsable del activo y servicio de negocio que sostiene"
+            },
+            {
+              "id": "b",
+              "text": "Nombre de la tarea que utilizó el escáner para descubrirlo"
+            },
+            {
+              "id": "c",
+              "text": "Número total de comprobaciones disponibles en la herramienta"
+            },
+            {
+              "id": "d",
+              "text": "Dirección del servidor desde el que se lanzó la revisión"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La identidad técnica necesita contexto de propiedad e impacto para convertir un resultado en una acción asignable.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final",
+          "reviewOf": "w28d1-q02"
+        },
+        {
+          "id": "w28d7-q08",
+          "prompt": "Una ficha asigna CVSS Base 9,0 a una vulnerabilidad. ¿Qué expresa esa puntuación por sí sola?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La severidad técnica de sus características intrínsecas"
+            },
+            {
+              "id": "b",
+              "text": "La probabilidad de que esta organización sea atacada esta semana"
+            },
+            {
+              "id": "c",
+              "text": "La pérdida económica estimada para cada activo afectado"
+            },
+            {
+              "id": "d",
+              "text": "La prioridad definitiva frente a todos los hallazgos internos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "FIRST distingue la severidad base del riesgo contextual, que depende también de amenazas y del entorno.",
+          "reference": "https://www.first.org/cvss/v4.0/user-guide",
+          "reviewOf": "w28d2-q02"
+        },
+        {
+          "id": "w28d7-q09",
+          "prompt": "Sólo puede adelantarse una corrección: A tiene CVSS 9,8 en un laboratorio aislado; B tiene 8,1, está expuesta a Internet, sostiene cobros y tiene explotación conocida. Con esos datos, ¿qué orden es más razonable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Adelantar A únicamente porque su puntuación base es mayor"
+            },
+            {
+              "id": "b",
+              "text": "Adelantar el hallazgo registrado primero sin revisar exposición"
+            },
+            {
+              "id": "c",
+              "text": "Adelantar B y dejar documentada la evaluación y fecha de A"
+            },
+            {
+              "id": "d",
+              "text": "Posponer ambos hasta que sus puntuaciones base sean iguales"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La explotación, la accesibilidad y la criticidad pueden justificar una prioridad mayor que la ordenación exclusiva por CVSS Base.",
+          "reference": "https://www.first.org/cvss/v4.0/user-guide",
+          "reviewOf": "w28d3-q02"
+        },
+        {
+          "id": "w28d7-q10",
+          "prompt": "Antes de desplegar un parche en un servicio importante, ¿qué preparación reduce mejor el riesgo operativo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aplicarlo a todas las réplicas a la vez para acortar la intervención"
+            },
+            {
+              "id": "b",
+              "text": "Usar cualquier copia del parche si coincide su nombre de archivo"
+            },
+            {
+              "id": "c",
+              "text": "Validar su procedencia, probarlo en un entorno representativo y preparar recuperación y criterios de reversión"
+            },
+            {
+              "id": "d",
+              "text": "Omitir pruebas funcionales si el aviso tiene severidad crítica"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La urgencia puede acelerar las pruebas y el despliegue, pero debe considerarse autenticidad, compatibilidad y recuperación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final",
+          "reviewOf": "w28d4-q02"
+        },
+        {
+          "id": "w28d7-q11",
+          "prompt": "Tras el cambio, un escaneo no detecta el hallazgo, pero también indica error de autenticación. ¿Qué decisión es adecuada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cerrar porque el número de hallazgos se redujo a cero"
+            },
+            {
+              "id": "b",
+              "text": "No cerrar todavía; recuperar la cobertura necesaria y repetir la comprobación autorizada"
+            },
+            {
+              "id": "c",
+              "text": "Cerrar si el técnico confirma que lanzó el instalador"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar el hallazgo a falso positivo por no reproducirse"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un resultado negativo con cobertura fallida no demuestra que la condición vulnerable desapareciera.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final",
+          "reviewOf": "w28d5-q02"
+        },
+        {
+          "id": "w28d7-q12",
+          "prompt": "La dirección necesita decidir una inversión tras la revisión. ¿Qué contenido aporta más un resumen ejecutivo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El volcado completo de cada comprobación ordenado por nombre de plugin"
+            },
+            {
+              "id": "b",
+              "text": "La lista de todos los puertos sin relacionarlos con servicios del negocio"
+            },
+            {
+              "id": "c",
+              "text": "Servicios afectados, riesgos principales, acciones prioritarias y decisiones o recursos necesarios"
+            },
+            {
+              "id": "d",
+              "text": "Los pasos de instalación del escáner y su configuración de escritorio"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El resumen debe traducir los hallazgos en consecuencias y decisiones para su audiencia; el detalle técnico puede ir en el cuerpo o los anexos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final",
+          "reviewOf": "w28d6-q02"
+        },
+        {
+          "id": "w28d7-q13",
+          "prompt": "Para revisar parches instalados en una VM autorizada se ofrece un escaneo con credenciales. ¿Qué ventaja aporta frente a inferir versiones desde un banner?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Reproduce por sí solo la visibilidad de cualquier atacante externo"
+            },
+            {
+              "id": "b",
+              "text": "Elimina la necesidad de interpretar coincidencias del escáner"
+            },
+            {
+              "id": "c",
+              "text": "Puede consultar información local de paquetes y configuración según sus permisos"
+            },
+            {
+              "id": "d",
+              "text": "Permite extender las pruebas a otros equipos que usen la misma cuenta"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El acceso autenticado permite comprobaciones internas; su alcance y fiabilidad siguen dependiendo de los permisos y de la validación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final",
+          "reviewOf": "w28d1-q03"
+        },
+        {
+          "id": "w28d7-q14",
+          "prompt": "El escáner señala una biblioteca por su banner antiguo; el administrador aporta un aviso del fabricante sobre un parche incorporado sin cambiar ese banner. ¿Qué sigue?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Contrastar el paquete instalado y el aviso antes de confirmar o descartar el hallazgo"
+            },
+            {
+              "id": "b",
+              "text": "Confirmarlo porque el banner tiene más valor que el estado del paquete"
+            },
+            {
+              "id": "c",
+              "text": "Descartarlo sólo por la declaración verbal del administrador"
+            },
+            {
+              "id": "d",
+              "text": "Aumentar su severidad porque el banner y el paquete no coinciden"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La detección por versiones puede producir falsos positivos; se necesita evidencia aplicable al paquete realmente instalado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final",
+          "reviewOf": "w28d2-q03"
+        },
+        {
+          "id": "w28d7-q15",
+          "prompt": "El dueño afirma que un cortafuegos reduce la exposición de un servicio vulnerable. ¿Qué necesitas para usar ese control en la decisión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Evidencia de las rutas realmente bloqueadas, las permitidas y el funcionamiento del control"
+            },
+            {
+              "id": "b",
+              "text": "Sólo el nombre comercial del cortafuegos instalado"
+            },
+            {
+              "id": "c",
+              "text": "Sólo una captura de su licencia vigente"
+            },
+            {
+              "id": "d",
+              "text": "Sólo la puntuación base del hallazgo antes del filtrado"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un control reduce riesgo cuando protege las rutas relevantes y funciona; su mera presencia no acredita esa reducción.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final",
+          "reviewOf": "w28d3-q03"
+        },
+        {
+          "id": "w28d7-q16",
+          "prompt": "No existe parche y el fabricante recomienda desactivar una función vulnerable. ¿Qué plan convierte esa medida en una mitigación gestionada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cerrar el caso como parcheado al publicar la recomendación"
+            },
+            {
+              "id": "b",
+              "text": "Aplicar y verificar la desactivación, registrar limitaciones y revisar cuando exista una solución permanente"
+            },
+            {
+              "id": "c",
+              "text": "Mantener la recomendación sin verificar si la función sigue activa"
+            },
+            {
+              "id": "d",
+              "text": "Esperar sin cambios porque sólo un parche puede reducir riesgo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una mitigación puede reducir exposición antes del parche; necesita validación, seguimiento y transición planificada a una solución permanente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final",
+          "reviewOf": "w28d4-q03"
+        },
+        {
+          "id": "w28d7-q17",
+          "prompt": "Para comparar una comprobación anterior y posterior, ¿qué información necesitas conservar además del resultado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sólo el total de hallazgos que muestran ambos informes"
+            },
+            {
+              "id": "b",
+              "text": "Sólo el nombre del técnico que ejecutó la actualización"
+            },
+            {
+              "id": "c",
+              "text": "Sólo la severidad más alta observada en la primera prueba"
+            },
+            {
+              "id": "d",
+              "text": "Activo, momento, método, alcance, permisos y configuración relevante de ambas pruebas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La comparación necesita contexto suficiente para distinguir una mejora real de un cambio de objetivo, permisos o cobertura.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final",
+          "reviewOf": "w28d5-q03"
+        },
+        {
+          "id": "w28d7-q18",
+          "prompt": "Se validaron 12 correcciones entre 20 activos afectados. Cinco activos adicionales nunca pudieron revisarse. ¿Cómo evitas una métrica engañosa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Publico 12 activos seguros sin informar el denominador"
+            },
+            {
+              "id": "b",
+              "text": "Cuento los cinco no revisados como corregidos por no tener detecciones"
+            },
+            {
+              "id": "c",
+              "text": "Indico 12 de 20 correcciones validadas y presento por separado los cinco activos sin cobertura"
+            },
+            {
+              "id": "d",
+              "text": "Divido las correcciones por el número de informes descargados"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La métrica necesita población y definición de estado, además de visibilidad de la cobertura que falta.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final",
+          "reviewOf": "w28d6-q03"
+        },
+        {
+          "id": "w28d7-q19",
+          "prompt": "La tarea aparece como completada, pero todos los accesos autenticados fallaron. ¿Cómo registras la cobertura de parches locales?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Como incompleta, corrigiendo el acceso autorizado antes de repetirla"
+            },
+            {
+              "id": "b",
+              "text": "Como completa si se identificaron los puertos abiertos"
+            },
+            {
+              "id": "c",
+              "text": "Como equivalente a una revisión local sin hallazgos"
+            },
+            {
+              "id": "d",
+              "text": "Como completa si el escaneo duró el tiempo previsto"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Completar una tarea de red no demuestra que se ejecutaran las comprobaciones locales previstas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final",
+          "reviewOf": "w28d1-q04"
+        },
+        {
+          "id": "w28d7-q20",
+          "prompt": "Se restringe el acceso a un servicio vulnerable a dos redes autorizadas, pero su software sigue sin actualizar. ¿Qué estado describe mejor el resultado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Parcheado porque ya no está disponible para cualquier origen"
+            },
+            {
+              "id": "b",
+              "text": "Falso positivo porque el acceso requiere una ruta autorizada"
+            },
+            {
+              "id": "c",
+              "text": "Corregido definitivamente porque la puntuación base ya no aplica"
+            },
+            {
+              "id": "d",
+              "text": "Mitigado con riesgo residual, sujeto a verificar las restricciones y completar la corrección"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Restringir rutas puede reducir riesgo sin eliminar la debilidad del software; deben distinguirse mitigación y corrección.",
+          "reference": "https://www.cisa.gov/sites/default/files/2024-08/Federal_Government_Cybersecurity_Incident_and_Vulnerability_Response_Playbooks_508C.pdf",
+          "reviewOf": "w28d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w28d7-challenge",
+        "prompt": "Reto semanal: sólo hay presupuesto para una corrección esta semana. Un servicio crítico expuesto tiene una vulnerabilidad aplicable con explotación conocida; su parche exige la ventana del viernes. Un control temporal del fabricante puede reducir hoy la exposición. Otra debilidad afecta a un equipo aislado de bajo impacto. ¿Qué plan cierra mejor el ciclo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Corregir primero el equipo aislado para mejorar la cantidad de cierres y dejar el servicio crítico hasta el siguiente presupuesto"
+          },
+          {
+            "id": "b",
+            "text": "Cerrar hoy el servicio crítico como parcheado al aplicar la mitigación y utilizar el viernes para revisar sólo el otro equipo"
+          },
+          {
+            "id": "c",
+            "text": "Verificar hoy la mitigación del servicio crítico, asignar el cambio del viernes y su retest, y programar el equipo aislado con riesgo y plazo documentados"
+          },
+          {
+            "id": "d",
+            "text": "Reservar toda decisión para el viernes y declarar seguro el servicio crítico cuando el instalador termine, sin pruebas posteriores"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "El plan combina prioridad contextual, reducción inmediata del riesgo, responsables y corrección verificable. Las limitaciones de presupuesto y ventana se registran y se revisan; ninguna acción aislada garantiza por sí sola el cierre.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+      }
+    }
+  ]
+}

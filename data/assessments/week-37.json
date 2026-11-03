@@ -1,0 +1,2094 @@
+{
+  "week": 37,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w37d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w37d1-q01",
+          "prompt": "Antes de activar un curso con acceso limitado, ¿qué dato debes contrastar directamente con el proveedor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La vigencia del acceso y las condiciones actuales de uso y evaluación"
+            },
+            {
+              "id": "b",
+              "text": "El plazo que recuerda un compañero de una edición anterior"
+            },
+            {
+              "id": "c",
+              "text": "La duración estimada de cualquier video de YouTube"
+            },
+            {
+              "id": "d",
+              "text": "El número de alertas de tu equipo personal"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las condiciones pueden cambiar; la fuente oficial permite planificar la compra y el tiempo de laboratorio.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1"
+        },
+        {
+          "id": "w37d1-q02",
+          "prompt": "El temario BTL1 incluye varias herramientas. ¿Qué preparación evita aprender solo a pulsar botones?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Memorizar únicamente el color de cada interfaz"
+            },
+            {
+              "id": "b",
+              "text": "Elegir una herramienta y asumir que resuelve todos los módulos"
+            },
+            {
+              "id": "c",
+              "text": "Omitir los fundamentos porque el producto muestra un resultado"
+            },
+            {
+              "id": "d",
+              "text": "Relacionar cada herramienta con la evidencia que analiza y la pregunta que responde"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El análisis defensivo requiere comprender las fuentes, el método y las limitaciones de cada herramienta.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1"
+        },
+        {
+          "id": "w37d1-q03",
+          "prompt": "Tienes tres horas disponibles esta semana y un módulo práctico extenso. ¿Qué plan es más verificable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dividirlo en sesiones con un objetivo, una evidencia y una revisión"
+            },
+            {
+              "id": "b",
+              "text": "Marcar todo el módulo como completado al abrirlo"
+            },
+            {
+              "id": "c",
+              "text": "Reservar un examen sin revisar antes las condiciones"
+            },
+            {
+              "id": "d",
+              "text": "Estudiar exclusivamente los nombres de las herramientas"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un plan con resultados observables permite comprobar el aprendizaje y ajustar el ritmo.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1"
+        },
+        {
+          "id": "w37d1-q04",
+          "prompt": "Una guía comunitaria y el programa oficial discrepan sobre una herramienta evaluada. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Comprobar la edición vigente del programa y pedir aclaración al soporte oficial"
+            },
+            {
+              "id": "b",
+              "text": "Dar prioridad automática a la guía con más comentarios"
+            },
+            {
+              "id": "c",
+              "text": "Instalar ambas versiones en producción para descubrir cuál funciona"
+            },
+            {
+              "id": "d",
+              "text": "Ignorar cualquier diferencia porque todas las ediciones son equivalentes"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La guía de terceros puede ser útil, pero el alcance y las condiciones deben confirmarse con el proveedor.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1"
+        },
+        {
+          "id": "w37d1-q05",
+          "prompt": "Un curso proporciona máquinas y muestras para practicar. ¿Cuál es el alcance autorizado por defecto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cualquier sistema con el mismo software"
+            },
+            {
+              "id": "b",
+              "text": "El entorno y los ejercicios expresamente autorizados"
+            },
+            {
+              "id": "c",
+              "text": "La red de tu empresa por estar relacionada con el curso"
+            },
+            {
+              "id": "d",
+              "text": "Todos los dominios que aparezcan en un ejemplo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La formación no concede autorización para actuar sobre sistemas ajenos.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1"
+        },
+        {
+          "id": "w37d1-q06",
+          "prompt": "Has terminado un video de análisis de correo. ¿Qué evidencia demuestra mejor progreso práctico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Anotar solo la duración del video"
+            },
+            {
+              "id": "b",
+              "text": "Copiar el veredicto del instructor sin revisar los datos"
+            },
+            {
+              "id": "c",
+              "text": "Analizar un mensaje de laboratorio distinto y justificar sus indicadores"
+            },
+            {
+              "id": "d",
+              "text": "Guardar una captura del botón de reproducción"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Transferir el método a una muestra nueva aporta más evidencia de comprensión que consumir un recurso.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1"
+        },
+        {
+          "id": "w37d1-q07",
+          "prompt": "Un módulo menciona SIEM y forense. ¿Cómo organizarías tus apuntes iniciales?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usar una lista única de comandos sin explicar para qué sirven"
+            },
+            {
+              "id": "b",
+              "text": "Clasificar las notas por el tamaño de la pantalla"
+            },
+            {
+              "id": "c",
+              "text": "Registrar solo las respuestas finales correctas"
+            },
+            {
+              "id": "d",
+              "text": "Separar objetivos, fuentes de datos, pasos reproducibles y limitaciones"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La organización por objetivos y evidencia facilita reutilizar el método en casos nuevos.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1"
+        },
+        {
+          "id": "w37d1-q08",
+          "prompt": "Encuentras un supuesto volcado de preguntas reales del examen del curso. ¿Qué alternativa es adecuada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Memorizarlo porque equivale a practicar con evidencia"
+            },
+            {
+              "id": "b",
+              "text": "Usar ejercicios propios y los materiales permitidos por las reglas oficiales"
+            },
+            {
+              "id": "c",
+              "text": "Compartirlo públicamente para validar las respuestas"
+            },
+            {
+              "id": "d",
+              "text": "Sustituir los laboratorios por el volcado"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La preparación debe respetar las condiciones del proveedor y desarrollar habilidades propias.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1"
+        }
+      ],
+      "challenge": {
+        "id": "w37d1-challenge",
+        "prompt": "Dispones de acceso al curso, pero desconoces su vigencia y los permisos del laboratorio. ¿Qué decisión protege mejor tu preparación?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Reservar el examen y completar después las condiciones que falten"
+          },
+          {
+            "id": "b",
+            "text": "Usar una red empresarial como laboratorio por comodidad"
+          },
+          {
+            "id": "c",
+            "text": "Confirmar condiciones oficiales y planificar sesiones con evidencias antes de activarlo todo"
+          },
+          {
+            "id": "d",
+            "text": "Tomar como vigentes los plazos de una reseña antigua"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La planificación y el alcance deben basarse en las condiciones actuales del proveedor.",
+        "reference": "https://www.centri.org/certifications/blue-team-level-1"
+      }
+    },
+    {
+      "dayId": "w37d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w37d2-q01",
+          "prompt": "Un registro muestra un inicio de sesión correcto. Por sí solo, ¿qué representa en un SOC?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un incidente confirmado de robo de credenciales"
+            },
+            {
+              "id": "b",
+              "text": "Una alerta que exige aislar inmediatamente todo el dominio"
+            },
+            {
+              "id": "c",
+              "text": "Un evento que necesita contexto para determinar su relevancia"
+            },
+            {
+              "id": "d",
+              "text": "Una prueba de que la cuenta nunca estuvo comprometida"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un evento es una observación; la clasificación de seguridad depende de su contexto y de otras evidencias.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d2-q02",
+          "prompt": "Una regla agrupa diez intentos fallidos y genera una notificación. ¿Cuál es el siguiente paso del analista?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Declarar automáticamente una brecha de datos"
+            },
+            {
+              "id": "b",
+              "text": "Validar la alerta y revisar el contexto antes de decidir la respuesta"
+            },
+            {
+              "id": "c",
+              "text": "Borrar los eventos para reducir el ruido"
+            },
+            {
+              "id": "d",
+              "text": "Cerrar la cuenta sin comprobar quién la utiliza"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La alerta es una señal para analizar, no una conclusión completa sobre el incidente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d2-q03",
+          "prompt": "Tres alertas afectan al mismo usuario y equipo en cinco minutos. ¿Qué ayuda a investigarlas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eliminar dos alertas para que quede una sola evidencia"
+            },
+            {
+              "id": "b",
+              "text": "Agruparlas en un caso correlacionado preservando sus referencias individuales"
+            },
+            {
+              "id": "c",
+              "text": "Tratarlas siempre como tres incidentes independientes"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar sus marcas de tiempo para ordenarlas"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un caso permite relacionar eventos sin perder las fuentes originales.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d2-q04",
+          "prompt": "Un analista junior detecta posible acceso a datos sensibles fuera de su autoridad. ¿Qué debe hacer?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Escalar con hechos, alcance conocido, urgencia y evidencias"
+            },
+            {
+              "id": "b",
+              "text": "Ampliar sus propios permisos para continuar solo"
+            },
+            {
+              "id": "c",
+              "text": "Esperar al cierre de turno sin registrar lo observado"
+            },
+            {
+              "id": "d",
+              "text": "Prometer al usuario que no existe compromiso"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El escalamiento transmite información accionable y respeta las responsabilidades definidas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d2-q05",
+          "prompt": "Una alerta resulta ser una tarea autorizada de mantenimiento. ¿Qué cierre es más útil?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eliminar el caso sin explicación porque no era un ataque"
+            },
+            {
+              "id": "b",
+              "text": "Marcarla como maliciosa para evitar revisar la regla"
+            },
+            {
+              "id": "c",
+              "text": "Desactivar todas las alertas similares sin valorar el riesgo"
+            },
+            {
+              "id": "d",
+              "text": "Documentar la comprobación, su fuente y el motivo de la clasificación"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un cierre sustentado conserva trazabilidad y puede ayudar a mejorar la detección.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d2-q06",
+          "prompt": "El SOC entrega un caso al equipo de respuesta. ¿Qué elemento permite continuar sin repetir todo el trabajo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una captura aislada sin fecha ni origen"
+            },
+            {
+              "id": "b",
+              "text": "Una cronología con indicadores, consultas y acciones ya realizadas"
+            },
+            {
+              "id": "c",
+              "text": "Solo el nivel de severidad seleccionado"
+            },
+            {
+              "id": "d",
+              "text": "El nombre del analista que abrió el ticket"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El traspaso necesita contexto técnico y un registro de lo que se ha comprobado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d2-q07",
+          "prompt": "Una alarma de baja confianza coincide con una ejecución sospechosa confirmada. ¿Qué criterio guía el caso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Reevaluar el conjunto de evidencias y el impacto, no solo la etiqueta inicial"
+            },
+            {
+              "id": "b",
+              "text": "Mantener la prioridad inicial porque la regla no puede equivocarse"
+            },
+            {
+              "id": "c",
+              "text": "Ignorar la ejecución por proceder de otra fuente"
+            },
+            {
+              "id": "d",
+              "text": "Cerrar la alerta de menor confianza y eliminar sus datos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La evaluación evoluciona cuando aparecen nuevas observaciones relevantes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d2-q08",
+          "prompt": "Antes de cerrar un caso que requiere restauración del servicio, ¿qué debe quedar claro?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Únicamente cuántos mensajes escribió el analista"
+            },
+            {
+              "id": "b",
+              "text": "Que cualquier equipo vuelve a ser seguro al reiniciarse"
+            },
+            {
+              "id": "c",
+              "text": "Quién valida la recuperación y qué acciones o riesgos siguen pendientes"
+            },
+            {
+              "id": "d",
+              "text": "Que el cierre del ticket elimina la necesidad de seguimiento"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El cierre administrativo debe reflejar el estado operativo y las responsabilidades de seguimiento.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        }
+      ],
+      "challenge": {
+        "id": "w37d2-challenge",
+        "prompt": "A las 10:02 aparecen fallos de acceso; a las 10:03, un acceso correcto desde el mismo origen; a las 10:05, una alerta. ¿Qué caso preparas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Tres incidentes confirmados sin relación"
+          },
+          {
+            "id": "b",
+            "text": "Un cierre automático porque hubo un acceso correcto"
+          },
+          {
+            "id": "c",
+            "text": "Una cronología correlacionada con fuentes, usuario, activo y validaciones pendientes"
+          },
+          {
+            "id": "d",
+            "text": "Un informe de exfiltración aunque no existan datos de transferencia"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "Los eventos relacionados deben investigarse juntos, sin atribuir acciones que no se observaron.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    },
+    {
+      "dayId": "w37d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w37d3-q01",
+          "prompt": "Anotas una consulta SIEM que devolvió tres resultados. ¿Qué falta para reproducirla?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El color del tema de la consola"
+            },
+            {
+              "id": "b",
+              "text": "La fuente, el intervalo temporal, la zona horaria y los filtros usados"
+            },
+            {
+              "id": "c",
+              "text": "El nombre comercial del monitor"
+            },
+            {
+              "id": "d",
+              "text": "La posición del ratón al ejecutar la búsqueda"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La misma consulta puede cambiar de resultado según las fuentes y el intervalo examinados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d3-q02",
+          "prompt": "Un registro dice 09:00 y otro 15:00. ¿Qué dato debes revisar antes de afirmar que ocurrieron con seis horas de diferencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El orden alfabético de los nombres de equipo"
+            },
+            {
+              "id": "b",
+              "text": "El tamaño en bytes de las líneas"
+            },
+            {
+              "id": "c",
+              "text": "Las zonas horarias y la sincronización de los relojes"
+            },
+            {
+              "id": "d",
+              "text": "El nombre del archivo donde guardaste la captura"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los relojes y sus convenciones deben normalizarse para construir una cronología fiable.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d3-q03",
+          "prompt": "¿Qué nota distingue una observación de una hipótesis en un caso SOC?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La IP nueva demuestra de forma definitiva que el usuario fue suplantado"
+            },
+            {
+              "id": "b",
+              "text": "El usuario afirma estar seguro, por lo que no se conservan registros"
+            },
+            {
+              "id": "c",
+              "text": "Se registró un acceso desde IP nueva; se investiga si corresponde a una VPN autorizada"
+            },
+            {
+              "id": "d",
+              "text": "La alerta tenía color rojo y por eso la hipótesis está confirmada"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La nota separa el hecho observado de la explicación que todavía debe contrastarse.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d3-q04",
+          "prompt": "Un compañero necesita revisar el evento que citaste en un informe. ¿Qué referencia ayuda más?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la frase acceso extraño"
+            },
+            {
+              "id": "b",
+              "text": "Una imagen recortada sin metadatos"
+            },
+            {
+              "id": "c",
+              "text": "La puntuación final que asignaste al caso"
+            },
+            {
+              "id": "d",
+              "text": "Identificador del evento y enlace o ruta a la fuente preservada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los identificadores y fuentes concretas permiten localizar y verificar la evidencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d3-q05",
+          "prompt": "Una búsqueda no devuelve coincidencias. ¿Cuál es la anotación correcta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No hubo coincidencias en la fuente y el periodo consultados, indicando sus límites"
+            },
+            {
+              "id": "b",
+              "text": "Se demuestra que nunca existió actividad maliciosa"
+            },
+            {
+              "id": "c",
+              "text": "La herramienta garantiza que el sistema está limpio"
+            },
+            {
+              "id": "d",
+              "text": "El indicador es legítimo en todos los entornos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un resultado negativo solo describe la cobertura efectiva de la búsqueda.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d3-q06",
+          "prompt": "Debes compartir un fragmento de registro con otro equipo. ¿Qué haces con los datos personales innecesarios?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Minimizarlos o enmascararlos y conservar la versión original según la política"
+            },
+            {
+              "id": "b",
+              "text": "Publicar todo para que la investigación parezca más completa"
+            },
+            {
+              "id": "c",
+              "text": "Modificar silenciosamente el original para eliminar información"
+            },
+            {
+              "id": "d",
+              "text": "Enviar también las contraseñas relacionadas por si resultan útiles"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La colaboración debe conservar la integridad de la evidencia y limitar la exposición de datos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d3-q07",
+          "prompt": "Una hipótesis fue descartada durante la investigación. ¿Cómo se registra?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Se elimina para que el informe solo muestre aciertos"
+            },
+            {
+              "id": "b",
+              "text": "Se mantiene como hecho confirmado para simplificar el resumen"
+            },
+            {
+              "id": "c",
+              "text": "Se sustituye por una conclusión sin indicar el cambio"
+            },
+            {
+              "id": "d",
+              "text": "Con la evidencia que la contradijo y la explicación de la decisión"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Documentar hipótesis descartadas evita repetir trabajo y explica el razonamiento.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d3-q08",
+          "prompt": "Un comando de investigación tiene parámetros importantes. ¿Qué apunte permite repetirlo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la última línea de la salida"
+            },
+            {
+              "id": "b",
+              "text": "El nombre del comando sin argumentos"
+            },
+            {
+              "id": "c",
+              "text": "Comando exacto, parámetros, versión relevante y resultado obtenido"
+            },
+            {
+              "id": "d",
+              "text": "Una descripción como se usó la herramienta habitual"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La reproducibilidad depende de registrar tanto la operación como su contexto.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        }
+      ],
+      "challenge": {
+        "id": "w37d3-challenge",
+        "prompt": "Otro analista no puede reproducir tu resultado porque anotaste solo tres coincidencias. ¿Qué entrega corrige el problema?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Consulta exacta, fuente, periodo, zona horaria y referencias de los tres eventos"
+          },
+          {
+            "id": "b",
+            "text": "Una captura más recortada del contador"
+          },
+          {
+            "id": "c",
+            "text": "La conclusión final sin añadir contexto"
+          },
+          {
+            "id": "d",
+            "text": "El nombre de la herramienta y el color de la consola"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La evidencia debe poder localizarse y el procedimiento repetirse.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    },
+    {
+      "dayId": "w37d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w37d4-q01",
+          "prompt": "Dos alertas tienen la misma severidad técnica; una afecta a nóminas y otra a un laboratorio aislado. ¿Qué revisas para priorizar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo cuál llegó primero a la consola"
+            },
+            {
+              "id": "b",
+              "text": "La criticidad del activo, el impacto posible y la evidencia disponible"
+            },
+            {
+              "id": "c",
+              "text": "Únicamente el nombre de la regla"
+            },
+            {
+              "id": "d",
+              "text": "El número de caracteres del usuario afectado"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El contexto de negocio y la exposición modifican la prioridad operativa.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d4-q02",
+          "prompt": "Una alerta menciona transferencia de datos desde un servidor sensible. ¿Qué dato acelera el triaje?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El fondo de pantalla del servidor"
+            },
+            {
+              "id": "b",
+              "text": "El fabricante del teclado del analista"
+            },
+            {
+              "id": "c",
+              "text": "La cantidad de alertas resueltas el mes anterior"
+            },
+            {
+              "id": "d",
+              "text": "Destino, volumen, periodo y si la actividad estaba autorizada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La autorización y el contexto de la transferencia ayudan a estimar alcance e impacto.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d4-q03",
+          "prompt": "Un fallo aislado de contraseña coincide con veinte fallos en otros usuarios desde la misma fuente. ¿Qué harías?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Correlacionar usuarios, origen y tiempo para evaluar una campaña"
+            },
+            {
+              "id": "b",
+              "text": "Descartar cada fallo porque individualmente es pequeño"
+            },
+            {
+              "id": "c",
+              "text": "Bloquear todas las cuentas sin registrar el contexto"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar la hora de los eventos para agruparlos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La correlación puede revelar un patrón que no se aprecia al analizar eventos aislados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d4-q04",
+          "prompt": "La fuente de telemetría de un equipo dejó de enviar registros. ¿Cómo interpretas la ausencia de alertas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Como prueba de que el equipo no tiene incidentes"
+            },
+            {
+              "id": "b",
+              "text": "Como una limitación de visibilidad que debe investigarse"
+            },
+            {
+              "id": "c",
+              "text": "Como una señal suficiente para borrar el caso"
+            },
+            {
+              "id": "d",
+              "text": "Como evidencia de que todos los controles funcionan"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La falta de datos no equivale a ausencia de actividad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d4-q05",
+          "prompt": "El triaje confirma cifrado no autorizado activo en un equipo. ¿Qué prioridad tiene preservar contexto y activar el procedimiento de respuesta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Alta, coordinando acciones autorizadas para limitar el impacto"
+            },
+            {
+              "id": "b",
+              "text": "Baja hasta que exista una atribución a un actor conocido"
+            },
+            {
+              "id": "c",
+              "text": "Ninguna hasta que una segunda marca de antivirus coincida"
+            },
+            {
+              "id": "d",
+              "text": "Depende solo de si el usuario considera importante el archivo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una actividad destructiva activa exige actuar según el plan y las facultades establecidas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d4-q06",
+          "prompt": "Una herramienta asigna 95 de riesgo a una alerta. ¿Qué significa para el analista?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una probabilidad universal de 95 por ciento de que exista una brecha"
+            },
+            {
+              "id": "b",
+              "text": "Un permiso automático para ejecutar cualquier contención"
+            },
+            {
+              "id": "c",
+              "text": "Un reemplazo de la valoración del impacto de negocio"
+            },
+            {
+              "id": "d",
+              "text": "Una señal de priorización que debe contrastarse con la evidencia"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los puntajes dependen del modelo y no sustituyen el análisis contextual.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d4-q07",
+          "prompt": "¿Qué información justifica un escalamiento urgente durante el triaje?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la palabra urgente repetida en el título"
+            },
+            {
+              "id": "b",
+              "text": "Actividad observada, activos expuestos, impacto estimado y acción solicitada"
+            },
+            {
+              "id": "c",
+              "text": "La suposición de que siempre es el mismo atacante"
+            },
+            {
+              "id": "d",
+              "text": "La cantidad de pestañas abiertas por el analista"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El escalamiento debe permitir que el equipo receptor decida y actúe con rapidez.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d4-q08",
+          "prompt": "Al revisar cinco alertas, una carece de datos suficientes. ¿Qué clasificación es honesta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Pendiente de validación, con las fuentes o acciones necesarias para resolverla"
+            },
+            {
+              "id": "b",
+              "text": "Falso positivo confirmado porque falta información"
+            },
+            {
+              "id": "c",
+              "text": "Incidente crítico confirmado por precaución documental"
+            },
+            {
+              "id": "d",
+              "text": "Cerrada sin motivo para que no aparezca en la cola"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La incertidumbre debe hacerse explícita y acompañarse de un siguiente paso.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        }
+      ],
+      "challenge": {
+        "id": "w37d4-challenge",
+        "prompt": "Tienes una alerta de prueba en laboratorio y otra de cifrado no autorizado en un servidor esencial. ¿Qué priorización justificas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Atender primero la alerta con el identificador menor"
+          },
+          {
+            "id": "b",
+            "text": "Cerrar ambas porque aún no se conoce un actor"
+          },
+          {
+            "id": "c",
+            "text": "Dar siempre la misma prioridad a todos los equipos"
+          },
+          {
+            "id": "d",
+            "text": "Atender y escalar el cifrado activo por su impacto, preservando la alerta de prueba para su revisión"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La prioridad considera actividad, criticidad e impacto, no solo el orden de llegada.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    },
+    {
+      "dayId": "w37d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w37d5-q01",
+          "prompt": "Antes de empezar un laboratorio defensivo remoto, ¿qué conviene comprobar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que la red corporativa acepta todas las muestras del curso"
+            },
+            {
+              "id": "b",
+              "text": "Que puedes reutilizar credenciales de producción"
+            },
+            {
+              "id": "c",
+              "text": "Que desactivar la seguridad del equipo es siempre obligatorio"
+            },
+            {
+              "id": "d",
+              "text": "Acceso autorizado, conectividad y requisitos indicados por el proveedor"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una preparación controlada evita interrupciones y mantiene separado el entorno de trabajo real.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1"
+        },
+        {
+          "id": "w37d5-q02",
+          "prompt": "No puedes acceder a una máquina del curso. ¿Cuál es el primer paso razonable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Probar contraseñas de otros participantes"
+            },
+            {
+              "id": "b",
+              "text": "Escanear redes ajenas para buscar una máquina equivalente"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar reglas del entorno sin registrar qué modificaste"
+            },
+            {
+              "id": "d",
+              "text": "Revisar las instrucciones, el estado del acceso y la conectividad prevista"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El diagnóstico debe seguir el entorno autorizado y la documentación del servicio.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1"
+        },
+        {
+          "id": "w37d5-q03",
+          "prompt": "Necesitas guardar notas que contienen indicadores del laboratorio. ¿Dónde lo haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "En cualquier repositorio público aunque el material lo prohíba"
+            },
+            {
+              "id": "b",
+              "text": "En un espacio propio autorizado, respetando las condiciones de distribución"
+            },
+            {
+              "id": "c",
+              "text": "Dentro del archivo original de evidencia sobrescribiéndolo"
+            },
+            {
+              "id": "d",
+              "text": "En una conversación abierta con datos de acceso incluidos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El material del curso y las evidencias deben manejarse según el alcance y las condiciones aplicables.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1"
+        },
+        {
+          "id": "w37d5-q04",
+          "prompt": "El laboratorio ofrece una opción de reinicio. ¿Qué verificas antes de usarla?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Qué trabajo y evidencias se perderán y qué permite conservar el proveedor"
+            },
+            {
+              "id": "b",
+              "text": "Que el reinicio conservará siempre todos los archivos"
+            },
+            {
+              "id": "c",
+              "text": "Que reiniciar equivale a superar la práctica"
+            },
+            {
+              "id": "d",
+              "text": "Que no hace falta guardar consultas porque se reconstruyen solas"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los entornos temporales pueden perder cambios; conviene entender su recuperación.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1"
+        },
+        {
+          "id": "w37d5-q05",
+          "prompt": "Una cuenta de formación comparte la contraseña con una cuenta personal. ¿Qué mejora aplicas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Compartirla con el grupo para facilitar el soporte"
+            },
+            {
+              "id": "b",
+              "text": "Guardar ambas contraseñas en el informe público"
+            },
+            {
+              "id": "c",
+              "text": "Reutilizar la misma clave en más laboratorios para recordarla"
+            },
+            {
+              "id": "d",
+              "text": "Usar una credencial exclusiva y los mecanismos de protección disponibles"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Separar credenciales reduce el efecto de una exposición de la cuenta de formación.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1"
+        },
+        {
+          "id": "w37d5-q06",
+          "prompt": "Se solicita descargar una muestra educativa. ¿Cuál es el destino adecuado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El entorno de análisis expresamente preparado y autorizado para ella"
+            },
+            {
+              "id": "b",
+              "text": "La carpeta de inicio automático del equipo principal"
+            },
+            {
+              "id": "c",
+              "text": "Una carpeta compartida con documentos de clientes"
+            },
+            {
+              "id": "d",
+              "text": "Un sistema ajeno sin autorización para probar el archivo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las muestras deben permanecer dentro del entorno y las instrucciones autorizadas.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1"
+        },
+        {
+          "id": "w37d5-q07",
+          "prompt": "Una herramienta del laboratorio presenta una versión distinta a la de un tutorial antiguo. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Suponer que todos los menús conservan exactamente la misma función"
+            },
+            {
+              "id": "b",
+              "text": "Modificar el servicio del proveedor sin consultar"
+            },
+            {
+              "id": "c",
+              "text": "Comparar las instrucciones actuales y documentar las diferencias relevantes"
+            },
+            {
+              "id": "d",
+              "text": "Declarar el laboratorio completado porque cambió la interfaz"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La reproducibilidad requiere tener en cuenta versiones y cambios del entorno.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1"
+        },
+        {
+          "id": "w37d5-q08",
+          "prompt": "El objetivo es demostrar que tu entorno de estudio está listo. ¿Qué comprobación es más útil?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ver únicamente la página de compra del curso"
+            },
+            {
+              "id": "b",
+              "text": "Contar los iconos instalados sin abrirlos"
+            },
+            {
+              "id": "c",
+              "text": "Dar por listo el acceso porque funcionó el mes pasado"
+            },
+            {
+              "id": "d",
+              "text": "Abrir una práctica permitida, consultar su evidencia y guardar un resultado de prueba"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una prueba pequeña del flujo real confirma mejor la preparación que una suposición.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1"
+        }
+      ],
+      "challenge": {
+        "id": "w37d5-challenge",
+        "prompt": "Antes de reiniciar una máquina temporal, tienes consultas y resultados sin guardar. ¿Qué haces?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Reiniciar porque las herramientas guardan siempre todo"
+          },
+          {
+            "id": "b",
+            "text": "Copiar las credenciales del laboratorio a un repositorio público"
+          },
+          {
+            "id": "c",
+            "text": "Conservar el trabajo permitido y confirmar qué elimina el reinicio"
+          },
+          {
+            "id": "d",
+            "text": "Marcar la práctica como aprobada por haber llegado al reinicio"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La recuperación del entorno no debe destruir trabajo necesario ni vulnerar las condiciones del curso.",
+        "reference": "https://www.centri.org/certifications/blue-team-level-1"
+      }
+    },
+    {
+      "dayId": "w37d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w37d6-q01",
+          "prompt": "Tu primer caso contiene una alerta de acceso y un registro de autenticación. ¿Cómo comienzas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eligiendo un atacante conocido antes de leer los datos"
+            },
+            {
+              "id": "b",
+              "text": "Definiendo la pregunta investigable y revisando las fuentes originales"
+            },
+            {
+              "id": "c",
+              "text": "Aplicando una sanción al usuario para acelerar el cierre"
+            },
+            {
+              "id": "d",
+              "text": "Borrando los intentos fallidos para ver solo los correctos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una investigación empieza por una pregunta y evidencia verificable, no por una conclusión prefijada.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d6-q02",
+          "prompt": "El usuario atribuye un inicio de sesión a su VPN. ¿Qué evidencia ayudaría a contrastarlo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Registros de la VPN y de autenticación correlacionados en tiempo"
+            },
+            {
+              "id": "b",
+              "text": "El hecho de que el usuario conozca la palabra VPN"
+            },
+            {
+              "id": "c",
+              "text": "La marca del ordenador personal del usuario"
+            },
+            {
+              "id": "d",
+              "text": "El tamaño del ticket de soporte"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La explicación necesita corroboración con fuentes relevantes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d6-q03",
+          "prompt": "Dos equipos registran el mismo hash de archivo en momentos diferentes. ¿Qué puedes afirmar inicialmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que se observó ese mismo contenido identificado por el hash en ambos contextos"
+            },
+            {
+              "id": "b",
+              "text": "Que ambos archivos fueron ejecutados por el mismo actor"
+            },
+            {
+              "id": "c",
+              "text": "Que existe necesariamente movimiento lateral entre los equipos"
+            },
+            {
+              "id": "d",
+              "text": "Que el hash determina la identidad de la persona responsable"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La coincidencia del hash es una relación técnica; la ejecución y la atribución requieren más evidencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d6-q04",
+          "prompt": "Una hipótesis de infección no explica la ausencia de procesos esperados. ¿Qué debes hacer?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ignorar la contradicción para conservar la hipótesis inicial"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar los registros hasta que encajen"
+            },
+            {
+              "id": "c",
+              "text": "Confirmar el incidente porque ya invertiste tiempo en él"
+            },
+            {
+              "id": "d",
+              "text": "Buscar evidencia adicional y considerar explicaciones alternativas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las hipótesis deben poder contrastarse y revisarse frente a datos contradictorios.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d6-q05",
+          "prompt": "Solo tienes registros de una hora, pero el aviso menciona una semana. ¿Cómo redactas la conclusión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Limitarla al periodo observado e indicar la brecha de cobertura"
+            },
+            {
+              "id": "b",
+              "text": "Afirmar que toda la semana fue investigada"
+            },
+            {
+              "id": "c",
+              "text": "Extrapolar la ausencia de eventos a todos los días"
+            },
+            {
+              "id": "d",
+              "text": "Ocultar la limitación porque reduce la confianza del informe"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El alcance de una conclusión no debe superar la cobertura de las fuentes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d6-q06",
+          "prompt": "Encuentras una acción potencialmente urgente fuera de tus permisos. ¿Cuál es tu respuesta en el primer caso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usar una cuenta compartida para evitar la autorización"
+            },
+            {
+              "id": "b",
+              "text": "Escalar con la evidencia y solicitar la acción al responsable autorizado"
+            },
+            {
+              "id": "c",
+              "text": "Ejecutar la acción sin dejar registro"
+            },
+            {
+              "id": "d",
+              "text": "Esperar a conocer al atacante antes de comunicarla"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una respuesta eficaz combina urgencia, trazabilidad y facultades claras.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d6-q07",
+          "prompt": "¿Qué diferencia un indicador observado de una medida propuesta en el cierre del caso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ambos son hechos ejecutados automáticamente"
+            },
+            {
+              "id": "b",
+              "text": "El indicador describe evidencia; la medida es una recomendación para tratar el riesgo"
+            },
+            {
+              "id": "c",
+              "text": "La recomendación demuestra que la contención ya ocurrió"
+            },
+            {
+              "id": "d",
+              "text": "El indicador solo es válido si contiene un nombre de actor"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La documentación debe separar hechos, decisiones y acciones pendientes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w37d6-q08",
+          "prompt": "Tras resolver el primer caso con ayuda, ¿qué práctica mide mejor tu autonomía?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Copiar el informe cambiando únicamente el nombre del equipo"
+            },
+            {
+              "id": "b",
+              "text": "Leer otra vez la solución sin consultar la evidencia"
+            },
+            {
+              "id": "c",
+              "text": "Resolver otra muestra autorizada con el mismo método y explicar las diferencias"
+            },
+            {
+              "id": "d",
+              "text": "Memorizar el número de resultados del caso anterior"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una muestra nueva comprueba la capacidad de aplicar el método más allá de una respuesta aprendida.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        }
+      ],
+      "challenge": {
+        "id": "w37d6-challenge",
+        "prompt": "La alerta sugiere uso indebido de una cuenta, pero la VPN y el usuario apuntan a mantenimiento. ¿Qué conclusión inicial es defendible?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Mantener hipótesis alternativas y contrastarlas con registros de acceso y cambios autorizados"
+          },
+          {
+            "id": "b",
+            "text": "Confirmar el ataque porque la alerta se generó antes"
+          },
+          {
+            "id": "c",
+            "text": "Descartar todo porque el usuario lo niega"
+          },
+          {
+            "id": "d",
+            "text": "Atribuirlo a un grupo conocido por usar VPN"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La investigación debe contrastar las explicaciones con evidencia relevante.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    },
+    {
+      "dayId": "w37d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w37d7-q01",
+          "prompt": "Antes de activar un curso con acceso limitado, ¿qué dato debes contrastar directamente con el proveedor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La vigencia del acceso y las condiciones actuales de uso y evaluación"
+            },
+            {
+              "id": "b",
+              "text": "El plazo que recuerda un compañero de una edición anterior"
+            },
+            {
+              "id": "c",
+              "text": "La duración estimada de cualquier video de YouTube"
+            },
+            {
+              "id": "d",
+              "text": "El número de alertas de tu equipo personal"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las condiciones pueden cambiar; la fuente oficial permite planificar la compra y el tiempo de laboratorio.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1",
+          "reviewOf": "w37d1-q01"
+        },
+        {
+          "id": "w37d7-q02",
+          "prompt": "Un registro muestra un inicio de sesión correcto. Por sí solo, ¿qué representa en un SOC?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un incidente confirmado de robo de credenciales"
+            },
+            {
+              "id": "b",
+              "text": "Una alerta que exige aislar inmediatamente todo el dominio"
+            },
+            {
+              "id": "c",
+              "text": "Un evento que necesita contexto para determinar su relevancia"
+            },
+            {
+              "id": "d",
+              "text": "Una prueba de que la cuenta nunca estuvo comprometida"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un evento es una observación; la clasificación de seguridad depende de su contexto y de otras evidencias.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w37d2-q01"
+        },
+        {
+          "id": "w37d7-q03",
+          "prompt": "Anotas una consulta SIEM que devolvió tres resultados. ¿Qué falta para reproducirla?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El color del tema de la consola"
+            },
+            {
+              "id": "b",
+              "text": "La fuente, el intervalo temporal, la zona horaria y los filtros usados"
+            },
+            {
+              "id": "c",
+              "text": "El nombre comercial del monitor"
+            },
+            {
+              "id": "d",
+              "text": "La posición del ratón al ejecutar la búsqueda"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La misma consulta puede cambiar de resultado según las fuentes y el intervalo examinados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w37d3-q01"
+        },
+        {
+          "id": "w37d7-q04",
+          "prompt": "Dos alertas tienen la misma severidad técnica; una afecta a nóminas y otra a un laboratorio aislado. ¿Qué revisas para priorizar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo cuál llegó primero a la consola"
+            },
+            {
+              "id": "b",
+              "text": "La criticidad del activo, el impacto posible y la evidencia disponible"
+            },
+            {
+              "id": "c",
+              "text": "Únicamente el nombre de la regla"
+            },
+            {
+              "id": "d",
+              "text": "El número de caracteres del usuario afectado"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El contexto de negocio y la exposición modifican la prioridad operativa.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w37d4-q01"
+        },
+        {
+          "id": "w37d7-q05",
+          "prompt": "Antes de empezar un laboratorio defensivo remoto, ¿qué conviene comprobar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que la red corporativa acepta todas las muestras del curso"
+            },
+            {
+              "id": "b",
+              "text": "Que puedes reutilizar credenciales de producción"
+            },
+            {
+              "id": "c",
+              "text": "Que desactivar la seguridad del equipo es siempre obligatorio"
+            },
+            {
+              "id": "d",
+              "text": "Acceso autorizado, conectividad y requisitos indicados por el proveedor"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una preparación controlada evita interrupciones y mantiene separado el entorno de trabajo real.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1",
+          "reviewOf": "w37d5-q01"
+        },
+        {
+          "id": "w37d7-q06",
+          "prompt": "Tu primer caso contiene una alerta de acceso y un registro de autenticación. ¿Cómo comienzas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eligiendo un atacante conocido antes de leer los datos"
+            },
+            {
+              "id": "b",
+              "text": "Definiendo la pregunta investigable y revisando las fuentes originales"
+            },
+            {
+              "id": "c",
+              "text": "Aplicando una sanción al usuario para acelerar el cierre"
+            },
+            {
+              "id": "d",
+              "text": "Borrando los intentos fallidos para ver solo los correctos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una investigación empieza por una pregunta y evidencia verificable, no por una conclusión prefijada.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w37d6-q01"
+        },
+        {
+          "id": "w37d7-q07",
+          "prompt": "El temario BTL1 incluye varias herramientas. ¿Qué preparación evita aprender solo a pulsar botones?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Memorizar únicamente el color de cada interfaz"
+            },
+            {
+              "id": "b",
+              "text": "Elegir una herramienta y asumir que resuelve todos los módulos"
+            },
+            {
+              "id": "c",
+              "text": "Omitir los fundamentos porque el producto muestra un resultado"
+            },
+            {
+              "id": "d",
+              "text": "Relacionar cada herramienta con la evidencia que analiza y la pregunta que responde"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El análisis defensivo requiere comprender las fuentes, el método y las limitaciones de cada herramienta.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1",
+          "reviewOf": "w37d1-q02"
+        },
+        {
+          "id": "w37d7-q08",
+          "prompt": "Una regla agrupa diez intentos fallidos y genera una notificación. ¿Cuál es el siguiente paso del analista?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Declarar automáticamente una brecha de datos"
+            },
+            {
+              "id": "b",
+              "text": "Validar la alerta y revisar el contexto antes de decidir la respuesta"
+            },
+            {
+              "id": "c",
+              "text": "Borrar los eventos para reducir el ruido"
+            },
+            {
+              "id": "d",
+              "text": "Cerrar la cuenta sin comprobar quién la utiliza"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La alerta es una señal para analizar, no una conclusión completa sobre el incidente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w37d2-q02"
+        },
+        {
+          "id": "w37d7-q09",
+          "prompt": "Un registro dice 09:00 y otro 15:00. ¿Qué dato debes revisar antes de afirmar que ocurrieron con seis horas de diferencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El orden alfabético de los nombres de equipo"
+            },
+            {
+              "id": "b",
+              "text": "El tamaño en bytes de las líneas"
+            },
+            {
+              "id": "c",
+              "text": "Las zonas horarias y la sincronización de los relojes"
+            },
+            {
+              "id": "d",
+              "text": "El nombre del archivo donde guardaste la captura"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los relojes y sus convenciones deben normalizarse para construir una cronología fiable.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w37d3-q02"
+        },
+        {
+          "id": "w37d7-q10",
+          "prompt": "Una alerta menciona transferencia de datos desde un servidor sensible. ¿Qué dato acelera el triaje?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El fondo de pantalla del servidor"
+            },
+            {
+              "id": "b",
+              "text": "El fabricante del teclado del analista"
+            },
+            {
+              "id": "c",
+              "text": "La cantidad de alertas resueltas el mes anterior"
+            },
+            {
+              "id": "d",
+              "text": "Destino, volumen, periodo y si la actividad estaba autorizada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La autorización y el contexto de la transferencia ayudan a estimar alcance e impacto.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w37d4-q02"
+        },
+        {
+          "id": "w37d7-q11",
+          "prompt": "No puedes acceder a una máquina del curso. ¿Cuál es el primer paso razonable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Probar contraseñas de otros participantes"
+            },
+            {
+              "id": "b",
+              "text": "Escanear redes ajenas para buscar una máquina equivalente"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar reglas del entorno sin registrar qué modificaste"
+            },
+            {
+              "id": "d",
+              "text": "Revisar las instrucciones, el estado del acceso y la conectividad prevista"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El diagnóstico debe seguir el entorno autorizado y la documentación del servicio.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1",
+          "reviewOf": "w37d5-q02"
+        },
+        {
+          "id": "w37d7-q12",
+          "prompt": "El usuario atribuye un inicio de sesión a su VPN. ¿Qué evidencia ayudaría a contrastarlo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Registros de la VPN y de autenticación correlacionados en tiempo"
+            },
+            {
+              "id": "b",
+              "text": "El hecho de que el usuario conozca la palabra VPN"
+            },
+            {
+              "id": "c",
+              "text": "La marca del ordenador personal del usuario"
+            },
+            {
+              "id": "d",
+              "text": "El tamaño del ticket de soporte"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La explicación necesita corroboración con fuentes relevantes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w37d6-q02"
+        },
+        {
+          "id": "w37d7-q13",
+          "prompt": "Tienes tres horas disponibles esta semana y un módulo práctico extenso. ¿Qué plan es más verificable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dividirlo en sesiones con un objetivo, una evidencia y una revisión"
+            },
+            {
+              "id": "b",
+              "text": "Marcar todo el módulo como completado al abrirlo"
+            },
+            {
+              "id": "c",
+              "text": "Reservar un examen sin revisar antes las condiciones"
+            },
+            {
+              "id": "d",
+              "text": "Estudiar exclusivamente los nombres de las herramientas"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un plan con resultados observables permite comprobar el aprendizaje y ajustar el ritmo.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1",
+          "reviewOf": "w37d1-q03"
+        },
+        {
+          "id": "w37d7-q14",
+          "prompt": "Tres alertas afectan al mismo usuario y equipo en cinco minutos. ¿Qué ayuda a investigarlas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eliminar dos alertas para que quede una sola evidencia"
+            },
+            {
+              "id": "b",
+              "text": "Agruparlas en un caso correlacionado preservando sus referencias individuales"
+            },
+            {
+              "id": "c",
+              "text": "Tratarlas siempre como tres incidentes independientes"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar sus marcas de tiempo para ordenarlas"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un caso permite relacionar eventos sin perder las fuentes originales.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w37d2-q03"
+        },
+        {
+          "id": "w37d7-q15",
+          "prompt": "¿Qué nota distingue una observación de una hipótesis en un caso SOC?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La IP nueva demuestra de forma definitiva que el usuario fue suplantado"
+            },
+            {
+              "id": "b",
+              "text": "El usuario afirma estar seguro, por lo que no se conservan registros"
+            },
+            {
+              "id": "c",
+              "text": "Se registró un acceso desde IP nueva; se investiga si corresponde a una VPN autorizada"
+            },
+            {
+              "id": "d",
+              "text": "La alerta tenía color rojo y por eso la hipótesis está confirmada"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La nota separa el hecho observado de la explicación que todavía debe contrastarse.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w37d3-q03"
+        },
+        {
+          "id": "w37d7-q16",
+          "prompt": "Un fallo aislado de contraseña coincide con veinte fallos en otros usuarios desde la misma fuente. ¿Qué harías?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Correlacionar usuarios, origen y tiempo para evaluar una campaña"
+            },
+            {
+              "id": "b",
+              "text": "Descartar cada fallo porque individualmente es pequeño"
+            },
+            {
+              "id": "c",
+              "text": "Bloquear todas las cuentas sin registrar el contexto"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar la hora de los eventos para agruparlos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La correlación puede revelar un patrón que no se aprecia al analizar eventos aislados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w37d4-q03"
+        },
+        {
+          "id": "w37d7-q17",
+          "prompt": "Necesitas guardar notas que contienen indicadores del laboratorio. ¿Dónde lo haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "En cualquier repositorio público aunque el material lo prohíba"
+            },
+            {
+              "id": "b",
+              "text": "En un espacio propio autorizado, respetando las condiciones de distribución"
+            },
+            {
+              "id": "c",
+              "text": "Dentro del archivo original de evidencia sobrescribiéndolo"
+            },
+            {
+              "id": "d",
+              "text": "En una conversación abierta con datos de acceso incluidos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El material del curso y las evidencias deben manejarse según el alcance y las condiciones aplicables.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1",
+          "reviewOf": "w37d5-q03"
+        },
+        {
+          "id": "w37d7-q18",
+          "prompt": "Dos equipos registran el mismo hash de archivo en momentos diferentes. ¿Qué puedes afirmar inicialmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que se observó ese mismo contenido identificado por el hash en ambos contextos"
+            },
+            {
+              "id": "b",
+              "text": "Que ambos archivos fueron ejecutados por el mismo actor"
+            },
+            {
+              "id": "c",
+              "text": "Que existe necesariamente movimiento lateral entre los equipos"
+            },
+            {
+              "id": "d",
+              "text": "Que el hash determina la identidad de la persona responsable"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La coincidencia del hash es una relación técnica; la ejecución y la atribución requieren más evidencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w37d6-q03"
+        },
+        {
+          "id": "w37d7-q19",
+          "prompt": "Una guía comunitaria y el programa oficial discrepan sobre una herramienta evaluada. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Comprobar la edición vigente del programa y pedir aclaración al soporte oficial"
+            },
+            {
+              "id": "b",
+              "text": "Dar prioridad automática a la guía con más comentarios"
+            },
+            {
+              "id": "c",
+              "text": "Instalar ambas versiones en producción para descubrir cuál funciona"
+            },
+            {
+              "id": "d",
+              "text": "Ignorar cualquier diferencia porque todas las ediciones son equivalentes"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La guía de terceros puede ser útil, pero el alcance y las condiciones deben confirmarse con el proveedor.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1",
+          "reviewOf": "w37d1-q04"
+        },
+        {
+          "id": "w37d7-q20",
+          "prompt": "La fuente de telemetría de un equipo dejó de enviar registros. ¿Cómo interpretas la ausencia de alertas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Como prueba de que el equipo no tiene incidentes"
+            },
+            {
+              "id": "b",
+              "text": "Como una limitación de visibilidad que debe investigarse"
+            },
+            {
+              "id": "c",
+              "text": "Como una señal suficiente para borrar el caso"
+            },
+            {
+              "id": "d",
+              "text": "Como evidencia de que todos los controles funcionan"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La falta de datos no equivale a ausencia de actividad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w37d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w37d7-challenge",
+        "prompt": "Debes entregar el caso al siguiente turno. Ya revisaste dos fuentes y falta una tercera. ¿Qué ticket permite continuar?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Resumen de hechos, consultas reproducibles, alcance, incertidumbres y siguiente acción con responsable"
+          },
+          {
+            "id": "b",
+            "text": "Solo un indicador y la palabra urgente"
+          },
+          {
+            "id": "c",
+            "text": "Una conclusión definitiva que omita la fuente faltante"
+          },
+          {
+            "id": "d",
+            "text": "Un listado de herramientas sin resultados"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "Un traspaso útil combina trazabilidad, límites y acciones concretas.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    }
+  ]
+}

@@ -1,0 +1,2094 @@
+{
+  "week": 32,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w32d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w32d1-q01",
+          "prompt": "¿Qué documento expresa la obligación general de proteger la información?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Guía opcional de atajos"
+            },
+            {
+              "id": "b",
+              "text": "Registro de un evento"
+            },
+            {
+              "id": "c",
+              "text": "Inventario de monitores"
+            },
+            {
+              "id": "d",
+              "text": "Política aprobada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La política define dirección y obligaciones; procedimientos y estándares concretan su aplicación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w32d1-q02",
+          "prompt": "¿Qué distingue un estándar interno de una guía?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La guía siempre tiene rango de ley"
+            },
+            {
+              "id": "b",
+              "text": "El estándar solo contiene opiniones"
+            },
+            {
+              "id": "c",
+              "text": "Ambos son siempre contratos externos"
+            },
+            {
+              "id": "d",
+              "text": "El estándar fija requisitos obligatorios dentro de su ámbito"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La fuerza y el alcance deben quedar explícitos en el sistema de gobierno documental.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w32d1-q03",
+          "prompt": "¿Dónde encaja una secuencia para revocar accesos al recibir una baja?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Declaración genérica de misión"
+            },
+            {
+              "id": "b",
+              "text": "Procedimiento operativo"
+            },
+            {
+              "id": "c",
+              "text": "Catálogo de vulnerabilidades"
+            },
+            {
+              "id": "d",
+              "text": "Modelo financiero de ingresos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un procedimiento describe pasos, responsables y condiciones para ejecutar una actividad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w32d1-q04",
+          "prompt": "¿Quién debe aprobar una excepción a una política?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cualquier usuario que tenga prisa"
+            },
+            {
+              "id": "b",
+              "text": "El fabricante del navegador"
+            },
+            {
+              "id": "c",
+              "text": "Quien cambie primero el archivo"
+            },
+            {
+              "id": "d",
+              "text": "La autoridad definida con aceptación explícita del riesgo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La excepción necesita autoridad, justificación, vigencia y seguimiento del riesgo.",
+          "reference": "https://www.nist.gov/cyberframework"
+        },
+        {
+          "id": "w32d1-q05",
+          "prompt": "¿Qué dato evita aplicar una política retirada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el título, aunque existan versiones contradictorias"
+            },
+            {
+              "id": "b",
+              "text": "Versión, vigencia, propietario y estado documental"
+            },
+            {
+              "id": "c",
+              "text": "Solo la fecha del archivo descargado sin vigencia normativa"
+            },
+            {
+              "id": "d",
+              "text": "Solo la firma de un documento retirado sin estado actual"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El control documental permite identificar la norma aplicable y sus responsables.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w32d1-q06",
+          "prompt": "Una política exige MFA y una guía recomienda una aplicación concreta. ¿Qué es obligatorio según lo descrito?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usar siempre esa aplicación por ser guía"
+            },
+            {
+              "id": "b",
+              "text": "Ignorar MFA si la aplicación cambia"
+            },
+            {
+              "id": "c",
+              "text": "Usar MFA conforme al alcance de la política"
+            },
+            {
+              "id": "d",
+              "text": "Publicar los factores en el directorio"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La obligación general y una recomendación de implementación tienen distinta fuerza normativa interna.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity-platform/authentication-vs-authorization"
+        },
+        {
+          "id": "w32d1-q07",
+          "prompt": "¿Para qué asignar un propietario de política?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Permitir que cambie requisitos sin aprobación definida"
+            },
+            {
+              "id": "b",
+              "text": "Convertir al propietario en único sujeto de la política"
+            },
+            {
+              "id": "c",
+              "text": "Mantenerla, revisarla y coordinar su aplicación"
+            },
+            {
+              "id": "d",
+              "text": "Afirmar que la política no necesitará revisiones futuras"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La responsabilidad documental ayuda a mantener requisitos aplicables y actualizados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w32d1-q08",
+          "prompt": "¿Qué hace medible una norma de revisión de accesos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Frecuencia, alcance, responsables y evidencia requerida"
+            },
+            {
+              "id": "b",
+              "text": "Una frase revisar cuando sea posible sin frecuencia"
+            },
+            {
+              "id": "c",
+              "text": "Solo una fecha de creación sin alcance ni evidencia"
+            },
+            {
+              "id": "d",
+              "text": "Un total de cuentas sin responsable ni criterios de revisión"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una obligación verificable requiere definir qué se hace y cómo se demuestra.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w32d1-challenge",
+        "prompt": "Una norma dice MFA obligatorio; una guía antigua recomienda SMS. El equipo quiere omitir MFA porque la guía no sirve. ¿Qué decides?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Mantener la obligación y actualizar la implementación según requisitos vigentes"
+          },
+          {
+            "id": "b",
+            "text": "Anular la política automáticamente"
+          },
+          {
+            "id": "c",
+            "text": "Convertir la guía en ley externa"
+          },
+          {
+            "id": "d",
+            "text": "Aceptar cualquier contraseña como dos factores"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La dirección obligatoria y la forma de implementarla requieren gestión documental coherente.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      }
+    },
+    {
+      "dayId": "w32d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w32d2-q01",
+          "prompt": "¿Qué elemento permite volver a una configuración anterior tras un cambio fallido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Plan de reversión probado"
+            },
+            {
+              "id": "b",
+              "text": "Solo el correo de aprobación"
+            },
+            {
+              "id": "c",
+              "text": "Una captura sin parámetros"
+            },
+            {
+              "id": "d",
+              "text": "La lista de asistentes a la reunión"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La reversión debe especificar pasos, datos y condiciones para recuperar el estado requerido.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w32d2-q02",
+          "prompt": "¿Para qué analizar dependencias antes de cambiar una regla de firewall?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Suponer que toda conexión entre servicios es innecesaria"
+            },
+            {
+              "id": "b",
+              "text": "Reemplazar pruebas funcionales por un diagrama sin validar"
+            },
+            {
+              "id": "c",
+              "text": "Prever servicios y flujos que podrían interrumpirse"
+            },
+            {
+              "id": "d",
+              "text": "Aplicar la regla y documentar dependencias solo si hay una caída"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las dependencias revelan consecuencias fuera del componente modificado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w32d2-q03",
+          "prompt": "¿Qué debe definir una prueba de aceptación de un parche?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo que el instalador finalizó sin comprobar el servicio"
+            },
+            {
+              "id": "b",
+              "text": "Solo que la consola del proveedor muestra el parche disponible"
+            },
+            {
+              "id": "c",
+              "text": "Solo que el ticket se cerró al iniciar la instalación"
+            },
+            {
+              "id": "d",
+              "text": "Resultado funcional y de seguridad esperado con criterio de fallo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La instalación no demuestra funcionamiento correcto ni cierre de la debilidad relevante.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w32d2-q04",
+          "prompt": "Un cambio urgente evita explotación activa. ¿Qué sigue siendo necesario?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eliminar toda aprobación y trazabilidad para siempre"
+            },
+            {
+              "id": "b",
+              "text": "Publicar la contraseña administrativa"
+            },
+            {
+              "id": "c",
+              "text": "Registrar justificación, autoridad y revisión posterior según proceso"
+            },
+            {
+              "id": "d",
+              "text": "Clasificarlo automáticamente como cambio normal"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El proceso urgente adapta tiempos y autoridad sin eliminar control y rendición de cuentas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w32d2-q05",
+          "prompt": "¿Qué reduce riesgo al desplegar una nueva configuración a cien equipos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aplicarla simultáneamente sin pruebas"
+            },
+            {
+              "id": "b",
+              "text": "Desactivar logs hasta terminar"
+            },
+            {
+              "id": "c",
+              "text": "Probar solo en un equipo sin funciones relacionadas"
+            },
+            {
+              "id": "d",
+              "text": "Piloto representativo y despliegue por etapas con monitoreo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El despliegue gradual permite detectar efectos y contener fallos antes de ampliar alcance.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w32d2-q06",
+          "prompt": "¿Qué significa una ventana de cambio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Intervalo autorizado para realizar una modificación planificada"
+            },
+            {
+              "id": "b",
+              "text": "Duración garantizada de cualquier incidente"
+            },
+            {
+              "id": "c",
+              "text": "Tiempo de retención de todas las copias"
+            },
+            {
+              "id": "d",
+              "text": "Período en que no se necesita responsable"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La ventana coordina impacto y disponibilidad; no reemplaza plan, pruebas ni reversión.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w32d2-q07",
+          "prompt": "¿Qué demuestra que un cambio aprobado se aplicó correctamente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La firma del solicitante por sí sola"
+            },
+            {
+              "id": "b",
+              "text": "Evidencia de configuración resultante y pruebas previstas"
+            },
+            {
+              "id": "c",
+              "text": "Que el ticket tiene un número"
+            },
+            {
+              "id": "d",
+              "text": "Que nadie escribió en el chat"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Aprobación autoriza la acción; verificación demuestra el resultado real.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w32d2-q08",
+          "prompt": "Una regla nueva corta acceso legítimo. ¿Cuándo activar reversión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo al terminar el trimestre aunque el fallo ya cumpla criterio"
+            },
+            {
+              "id": "b",
+              "text": "Al cumplirse los criterios definidos de fallo o impacto"
+            },
+            {
+              "id": "c",
+              "text": "Nunca si el cambio tuvo aprobación previa"
+            },
+            {
+              "id": "d",
+              "text": "Cuando el solicitante cierre el ticket sin verificar efectos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los disparadores de reversión evitan improvisación y limitan indisponibilidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w32d2-challenge",
+        "prompt": "Un parche afecta una base de datos de ventas y el plan solo dice instalar. ¿Qué falta antes del cambio?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Dependencias, pruebas, responsables, ventana y reversión"
+          },
+          {
+            "id": "b",
+            "text": "Un nombre más breve para el ticket"
+          },
+          {
+            "id": "c",
+            "text": "Ocultar el cambio a operaciones"
+          },
+          {
+            "id": "d",
+            "text": "Eliminar la configuración anterior sin copia"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "El cambio debe ser ejecutable y verificable, incluyendo recuperación si falla.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      }
+    },
+    {
+      "dayId": "w32d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w32d3-q01",
+          "prompt": "¿Qué combinación describe el riesgo de un servidor sin parche expuesto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Amenaza que explota una vulnerabilidad con impacto y probabilidad estimados"
+            },
+            {
+              "id": "b",
+              "text": "Solo el número de versión del sistema, sin escenario"
+            },
+            {
+              "id": "c",
+              "text": "Solo el coste del activo, sin consecuencias ni probabilidad"
+            },
+            {
+              "id": "d",
+              "text": "Solo la existencia de un escáner, sin exposición ni impacto"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El riesgo vincula condiciones de amenaza y vulnerabilidad con consecuencias y probabilidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w32d3-q02",
+          "prompt": "Dos riesgos tienen igual impacto, pero distinta probabilidad. ¿Qué permite compararlos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Criterios de probabilidad explícitos y coherentes"
+            },
+            {
+              "id": "b",
+              "text": "La puntuación del impacto únicamente, ignorando probabilidad"
+            },
+            {
+              "id": "c",
+              "text": "Una escala distinta elegida para cada activo"
+            },
+            {
+              "id": "d",
+              "text": "La cantidad de controles comprados sin comprobar efecto"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una escala definida hace las valoraciones comparables dentro de su contexto.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w32d3-q03",
+          "prompt": "¿Qué es una vulnerabilidad en un escenario de riesgo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La pérdida final ya contabilizada"
+            },
+            {
+              "id": "b",
+              "text": "Debilidad que puede ser explotada o activada por una amenaza"
+            },
+            {
+              "id": "c",
+              "text": "La póliza de seguro"
+            },
+            {
+              "id": "d",
+              "text": "La fecha de reunión del comité"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Amenaza, debilidad e impacto cumplen funciones distintas en el análisis.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w32d3-q04",
+          "prompt": "¿Qué expresa la tolerancia al riesgo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantía de que no ocurrirán pérdidas"
+            },
+            {
+              "id": "b",
+              "text": "Número fijo universal para todas las empresas"
+            },
+            {
+              "id": "c",
+              "text": "Límites de exposición que la organización acepta bajo su gobierno"
+            },
+            {
+              "id": "d",
+              "text": "Una orden de ignorar riesgos pequeños"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los umbrales dependen de objetivos y decisiones de la organización.",
+          "reference": "https://www.nist.gov/cyberframework"
+        },
+        {
+          "id": "w32d3-q05",
+          "prompt": "¿Riesgo alto significa certeza de incidente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No; combina estimaciones de probabilidad y consecuencias"
+            },
+            {
+              "id": "b",
+              "text": "Sí; es un hecho ya ocurrido"
+            },
+            {
+              "id": "c",
+              "text": "Sí; equivale a cien por ciento siempre"
+            },
+            {
+              "id": "d",
+              "text": "No; significa impacto nulo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La valoración orienta decisiones bajo incertidumbre y debe comunicar supuestos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w32d3-q06",
+          "prompt": "¿Qué mejora la calidad de una matriz cualitativa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usar colores sin leyenda"
+            },
+            {
+              "id": "b",
+              "text": "Asignar todos los riesgos al mismo nivel"
+            },
+            {
+              "id": "c",
+              "text": "Definir qué significan bajo, medio y alto con ejemplos y criterios"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar escala en cada fila"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las etiquetas necesitan significado común; de otro modo dan precisión aparente sin comparación fiable.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w32d3-q07",
+          "prompt": "¿Qué dato puede cambiar la prioridad de una vulnerabilidad igual en dos equipos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La puntuación técnica aislada como único dato"
+            },
+            {
+              "id": "b",
+              "text": "El número de parches instalados, sin exposición actual"
+            },
+            {
+              "id": "c",
+              "text": "La cantidad de alertas totales sin relación con ese activo"
+            },
+            {
+              "id": "d",
+              "text": "Exposición y criticidad de los servicios afectados"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Contexto y consecuencias del activo modifican riesgo aunque la debilidad técnica coincida.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w32d3-q08",
+          "prompt": "¿Qué debe hacer el evaluador si no conoce la frecuencia de una amenaza?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Registrar incertidumbre y buscar evidencia o estimación sustentada"
+            },
+            {
+              "id": "b",
+              "text": "Inventar una frecuencia exacta y omitir incertidumbre"
+            },
+            {
+              "id": "c",
+              "text": "Asignar probabilidad cero por falta de evidencia"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar el escenario para no mostrar datos incompletos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La incertidumbre forma parte del análisis y puede justificar recopilación adicional o rangos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w32d3-challenge",
+        "prompt": "Un servidor público y uno aislado comparten la misma vulnerabilidad. ¿Cómo priorizas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Asignarles automáticamente igual riesgo por la versión"
+          },
+          {
+            "id": "b",
+            "text": "Priorizar el que tenga nombre más corto"
+          },
+          {
+            "id": "c",
+            "text": "Evaluar exposición, probabilidad e impacto de cada escenario"
+          },
+          {
+            "id": "d",
+            "text": "Ignorar el servidor aislado para siempre"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "Una vulnerabilidad común no iguala contexto ni consecuencias.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+      }
+    },
+    {
+      "dayId": "w32d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w32d4-q01",
+          "prompt": "En un ejercicio, AV=200.000 € y EF=25 %. ¿Cuál es SLE=AV×EF?",
+          "options": [
+            {
+              "id": "a",
+              "text": "25.000 €"
+            },
+            {
+              "id": "b",
+              "text": "800.000 €"
+            },
+            {
+              "id": "c",
+              "text": "50.000 €"
+            },
+            {
+              "id": "d",
+              "text": "200.025 €"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La pérdida por evento estimada es el valor expuesto multiplicado por la fracción de pérdida.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w32d4-q02",
+          "prompt": "Si SLE=40.000 € y ARO=0,2 al año, ¿cuál es ALE=SLE×ARO?",
+          "options": [
+            {
+              "id": "a",
+              "text": "8.000 € al año"
+            },
+            {
+              "id": "b",
+              "text": "200.000 € al año"
+            },
+            {
+              "id": "c",
+              "text": "40.000 € por mes"
+            },
+            {
+              "id": "d",
+              "text": "0,2 € al año"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El valor anual esperado multiplica pérdida por evento y frecuencia anual según el modelo declarado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w32d4-q03",
+          "prompt": "En el modelo del ejercicio, ¿qué significa ARO=0,25?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Exactamente cuatro eventos cada año"
+            },
+            {
+              "id": "b",
+              "text": "Frecuencia media estimada de un evento cada cuatro años"
+            },
+            {
+              "id": "c",
+              "text": "Pérdida del 25 % de cada activo"
+            },
+            {
+              "id": "d",
+              "text": "Garantía de cuatro años sin incidentes"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La frecuencia es una expectativa estadística, no un calendario garantizado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w32d4-q04",
+          "prompt": "ALE previa=30.000 € y posterior=10.000 €. ¿Qué reducción anual esperada se estima?",
+          "options": [
+            {
+              "id": "a",
+              "text": "20.000 €"
+            },
+            {
+              "id": "b",
+              "text": "40.000 €"
+            },
+            {
+              "id": "c",
+              "text": "3.000 €"
+            },
+            {
+              "id": "d",
+              "text": "300.000 €"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La diferencia entre valores esperados es 20.000; no garantiza ahorro exacto en un año particular.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w32d4-q05",
+          "prompt": "Una medida cuesta 12.000 €/año y reduce pérdida esperada en 20.000 €/año. ¿Cuál es el beneficio neto simple estimado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "32.000 €/año"
+            },
+            {
+              "id": "b",
+              "text": "20.000 €/mes"
+            },
+            {
+              "id": "c",
+              "text": "8.000 €/año"
+            },
+            {
+              "id": "d",
+              "text": "12.000 €/incidente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El cálculo simplificado resta coste a reducción esperada; omite otros efectos que deben explicitarse.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w32d4-q06",
+          "prompt": "¿Por qué presentar un rango de pérdida en lugar de una cifra excesivamente precisa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Demuestra que no existe riesgo"
+            },
+            {
+              "id": "b",
+              "text": "Evita definir unidades"
+            },
+            {
+              "id": "c",
+              "text": "Refleja incertidumbre de supuestos y datos"
+            },
+            {
+              "id": "d",
+              "text": "Hace innecesario revisar fuentes"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los rangos o análisis de sensibilidad muestran cuánto cambian resultados según estimaciones.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w32d4-q07",
+          "prompt": "¿Qué error supone multiplicar una pérdida mensual por una frecuencia anual sin ajustar unidades?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mezclar períodos y distorsionar la estimación"
+            },
+            {
+              "id": "b",
+              "text": "Aplicar necesariamente cifrado fuerte"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar la incertidumbre estadística"
+            },
+            {
+              "id": "d",
+              "text": "Convertir impacto cualitativo en certeza"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La consistencia de unidades y períodos es requisito básico para interpretar un modelo cuantitativo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w32d4-q08",
+          "prompt": "Un control reduce frecuencia, pero no pérdida por evento. ¿Qué parámetro cambia directamente en SLE×ARO?",
+          "options": [
+            {
+              "id": "a",
+              "text": "ARO"
+            },
+            {
+              "id": "b",
+              "text": "AV necesariamente"
+            },
+            {
+              "id": "c",
+              "text": "EF necesariamente"
+            },
+            {
+              "id": "d",
+              "text": "El nombre del activo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "En el esquema dado la frecuencia se expresa como ARO; SLE permanece igual si la pérdida por evento no cambia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w32d4-challenge",
+        "prompt": "SLE=60.000 €, ARO=0,5; un control baja ARO a 0,1 y cuesta 9.000 €/año. ¿Cuál es el beneficio neto simple esperado?",
+        "options": [
+          {
+            "id": "a",
+            "text": "15.000 €/año"
+          },
+          {
+            "id": "b",
+            "text": "24.000 €/año"
+          },
+          {
+            "id": "c",
+            "text": "3.000 €/año"
+          },
+          {
+            "id": "d",
+            "text": "39.000 €/año"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "ALE baja de 30.000 a 6.000: reducción de 24.000 menos coste de 9.000 da 15.000.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+      }
+    },
+    {
+      "dayId": "w32d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w32d5-q01",
+          "prompt": "Una empresa deja de ofrecer un servicio demasiado expuesto. ¿Qué tratamiento aplica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Transferir todo el riesgo por contrato"
+            },
+            {
+              "id": "b",
+              "text": "Aceptar sin cambios"
+            },
+            {
+              "id": "c",
+              "text": "Evitar ese riesgo retirando la actividad"
+            },
+            {
+              "id": "d",
+              "text": "Mitigar únicamente con registros"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Eliminar la actividad que origina la exposición es una forma de evitación, con consecuencias de negocio.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w32d5-q02",
+          "prompt": "Comprar seguro cibernético es principalmente un ejemplo de ¿qué?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eliminación de toda responsabilidad"
+            },
+            {
+              "id": "b",
+              "text": "Transferencia de parte de consecuencias financieras"
+            },
+            {
+              "id": "c",
+              "text": "Erradicación técnica de vulnerabilidades"
+            },
+            {
+              "id": "d",
+              "text": "Prueba de que no habrá incidentes"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La transferencia tiene condiciones y exclusiones; el riesgo técnico y otras consecuencias pueden permanecer.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w32d5-q03",
+          "prompt": "¿Qué es riesgo residual?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Riesgo previo a cualquier control"
+            },
+            {
+              "id": "b",
+              "text": "Solo un incidente ya cerrado"
+            },
+            {
+              "id": "c",
+              "text": "Un error de cálculo de la matriz"
+            },
+            {
+              "id": "d",
+              "text": "Riesgo que permanece después del tratamiento aplicado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las medidas no suelen eliminar toda exposición; el remanente necesita evaluación y autoridad de aceptación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w32d5-q04",
+          "prompt": "¿Qué exige una aceptación de riesgo defendible?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Silencio de los usuarios"
+            },
+            {
+              "id": "b",
+              "text": "Ausencia de alertas durante una hora"
+            },
+            {
+              "id": "c",
+              "text": "Una excepción sin fecha ni dueño"
+            },
+            {
+              "id": "d",
+              "text": "Responsable autorizado, justificación, alcance y revisión"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La aceptación es una decisión consciente y trazable, no la omisión de actuar.",
+          "reference": "https://www.nist.gov/cyberframework"
+        },
+        {
+          "id": "w32d5-q05",
+          "prompt": "Instalar MFA para reducir abuso de contraseñas es ¿qué tratamiento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Evitación de toda identidad digital"
+            },
+            {
+              "id": "b",
+              "text": "Mitigación"
+            },
+            {
+              "id": "c",
+              "text": "Transferencia completa al empleado"
+            },
+            {
+              "id": "d",
+              "text": "Aceptación sin controles"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El control reduce probabilidad o impacto de un escenario, aunque quedan vías de ataque y dependencias.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity-platform/authentication-vs-authorization"
+        },
+        {
+          "id": "w32d5-q06",
+          "prompt": "Un contrato exige que el proveedor responda a incidentes. ¿Qué NO debe asumirse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que la organización ha eliminado todo su riesgo y responsabilidad"
+            },
+            {
+              "id": "b",
+              "text": "Que existen responsabilidades acordadas"
+            },
+            {
+              "id": "c",
+              "text": "Que debe verificarse la capacidad del proveedor"
+            },
+            {
+              "id": "d",
+              "text": "Que el acuerdo necesita seguimiento"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Externalizar tareas no elimina necesidad de supervisión, controles internos y evaluación residual.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        },
+        {
+          "id": "w32d5-q07",
+          "prompt": "¿Cuándo reevaluar un riesgo aceptado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo cuando ocurra un incidente, aunque hayan cambiado condiciones"
+            },
+            {
+              "id": "b",
+              "text": "Cuando cambian condiciones, vence la aceptación o llega la revisión prevista"
+            },
+            {
+              "id": "c",
+              "text": "Nunca, porque la primera aprobación es permanente"
+            },
+            {
+              "id": "d",
+              "text": "Solo si cambia la herramienta que contiene el registro"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La aceptación se apoya en condiciones que pueden cambiar y debe tener seguimiento.",
+          "reference": "https://www.nist.gov/cyberframework"
+        },
+        {
+          "id": "w32d5-q08",
+          "prompt": "Un control nuevo introduce una dependencia única. ¿Qué debe analizarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el precio de compra"
+            },
+            {
+              "id": "b",
+              "text": "Solo la marca del proveedor"
+            },
+            {
+              "id": "c",
+              "text": "Que cualquier control siempre reduce todo riesgo"
+            },
+            {
+              "id": "d",
+              "text": "Riesgo reducido y nuevos riesgos creados por la dependencia"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El tratamiento puede desplazar o crear exposición; la decisión debe valorar el resultado conjunto.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w32d5-challenge",
+        "prompt": "Una empresa contrata seguro pero conserva acceso remoto sin MFA. ¿Qué afirmación es correcta?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Todo riesgo desaparece con la póliza"
+          },
+          {
+            "id": "b",
+            "text": "Puede transferir pérdidas cubiertas mientras persiste la exposición técnica"
+          },
+          {
+            "id": "c",
+            "text": "El seguro instala MFA por definición"
+          },
+          {
+            "id": "d",
+            "text": "No queda necesidad de evaluar exclusiones"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "Transferir consecuencias financieras no reemplaza controles ni garantiza cobertura de cada pérdida.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+      }
+    },
+    {
+      "dayId": "w32d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w32d6-q01",
+          "prompt": "Una tienda pierde ventas por caídas. ¿Qué dato ayuda a priorizar inversión de continuidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Impacto por hora y tiempo de recuperación requerido"
+            },
+            {
+              "id": "b",
+              "text": "Solo la capacidad del disco de copias"
+            },
+            {
+              "id": "c",
+              "text": "Solo el número de alertas recibidas por el SIEM"
+            },
+            {
+              "id": "d",
+              "text": "Solo la fecha de compra del software de recuperación"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las consecuencias operativas vinculan seguridad y objetivos de negocio.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w32d6-q02",
+          "prompt": "¿Cómo comparar dos inversiones con presupuestos distintos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Elegir siempre la de mayor cantidad de funciones"
+            },
+            {
+              "id": "b",
+              "text": "Comparar solo el coste inicial, sin operación ni impacto"
+            },
+            {
+              "id": "c",
+              "text": "Priorizar la de mejor puntuación comercial sin metodología"
+            },
+            {
+              "id": "d",
+              "text": "Relacionar escenarios de riesgo, beneficio esperado, costes y restricciones"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La selección necesita supuestos y resultados relevantes, no etiquetas comerciales.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w32d6-q03",
+          "prompt": "Una mejora de copias no reduce la probabilidad de ransomware. ¿Qué puede reducir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Toda exposición de credenciales automáticamente"
+            },
+            {
+              "id": "b",
+              "text": "Necesidad de probar restauración"
+            },
+            {
+              "id": "c",
+              "text": "Número de correos recibidos"
+            },
+            {
+              "id": "d",
+              "text": "Impacto y tiempo de recuperación si las copias son utilizables"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un control puede actuar sobre consecuencias sin prevenir la amenaza inicial.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w32d6-q04",
+          "prompt": "¿Qué hace trazable una inversión propuesta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Vínculo entre riesgo, control, propietario y criterio de éxito"
+            },
+            {
+              "id": "b",
+              "text": "Solo una factura estimada"
+            },
+            {
+              "id": "c",
+              "text": "Una lista de productos sin problema definido"
+            },
+            {
+              "id": "d",
+              "text": "Una puntuación sin explicación"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La trazabilidad permite evaluar si el gasto trata el escenario priorizado.",
+          "reference": "https://www.nist.gov/cyberframework"
+        },
+        {
+          "id": "w32d6-q05",
+          "prompt": "El presupuesto no cubre todos los riesgos. ¿Qué presenta una propuesta honesta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Prioridades y riesgo que permanece sin tratar"
+            },
+            {
+              "id": "b",
+              "text": "La promesa de seguridad completa"
+            },
+            {
+              "id": "c",
+              "text": "Todos los riesgos como resueltos"
+            },
+            {
+              "id": "d",
+              "text": "Solo los costes más pequeños"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las restricciones exigen decisiones explícitas y aceptación del remanente correspondiente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w32d6-q06",
+          "prompt": "¿Por qué incluir coste de operación además de compra?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El precio inicial refleja siempre todo el coste de vida"
+            },
+            {
+              "id": "b",
+              "text": "La compra elimina necesidades de personal e integración"
+            },
+            {
+              "id": "c",
+              "text": "El control necesita personal, mantenimiento e integración"
+            },
+            {
+              "id": "d",
+              "text": "Toda herramienta mantiene su eficacia sin revisión de configuración"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una inversión sostenible considera el ciclo de vida y la capacidad de operarla.",
+          "reference": "https://www.nist.gov/cyberframework"
+        },
+        {
+          "id": "w32d6-q07",
+          "prompt": "¿Qué indicador evalúa una inversión en recuperación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cantidad de copias creadas sin probar su uso"
+            },
+            {
+              "id": "b",
+              "text": "Capacidad total comprada sin relación con requisitos"
+            },
+            {
+              "id": "c",
+              "text": "Porcentaje de restauraciones probadas que cumplen el tiempo requerido"
+            },
+            {
+              "id": "d",
+              "text": "Número de tareas programadas aunque fallen sus restauraciones"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El éxito debe medir capacidad real de recuperar dentro de requisitos, no solo adquisición o volumen.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w32d6-q08",
+          "prompt": "Un proveedor promete reducir riesgo un 99 % sin explicar método. ¿Qué solicitas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Escenario, evidencia, límites y supuestos del cálculo"
+            },
+            {
+              "id": "b",
+              "text": "Solo una declaración firmada sin método ni alcance"
+            },
+            {
+              "id": "c",
+              "text": "Una cifra mayor que iguale la promesa de otro proveedor"
+            },
+            {
+              "id": "d",
+              "text": "Solo el número de clientes, sin prueba del escenario relevante"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las cifras comerciales necesitan contexto y validación antes de usarse para decidir inversiones.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w32d6-challenge",
+        "prompt": "Un hospital compara respaldo probado y otra herramienta con alertas no atendidas. ¿Qué criterio ayuda?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Número de funciones anunciadas sin capacidad operativa"
+          },
+          {
+            "id": "b",
+            "text": "Descuento inicial sin considerar mantenimiento"
+          },
+          {
+            "id": "c",
+            "text": "Capacidad operativa, impacto tratado y evidencia de cumplimiento de requisitos"
+          },
+          {
+            "id": "d",
+            "text": "Cantidad de alertas generadas sin comprobar su atención"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La inversión debe aportar resultados sostenibles vinculados a riesgos del negocio.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+      }
+    },
+    {
+      "dayId": "w32d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w32d7-q01",
+          "prompt": "¿Qué documento expresa la obligación general de proteger la información?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Guía opcional de atajos"
+            },
+            {
+              "id": "b",
+              "text": "Registro de un evento"
+            },
+            {
+              "id": "c",
+              "text": "Inventario de monitores"
+            },
+            {
+              "id": "d",
+              "text": "Política aprobada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La política define dirección y obligaciones; procedimientos y estándares concretan su aplicación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w32d1-q01"
+        },
+        {
+          "id": "w32d7-q02",
+          "prompt": "¿Qué elemento permite volver a una configuración anterior tras un cambio fallido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Plan de reversión probado"
+            },
+            {
+              "id": "b",
+              "text": "Solo el correo de aprobación"
+            },
+            {
+              "id": "c",
+              "text": "Una captura sin parámetros"
+            },
+            {
+              "id": "d",
+              "text": "La lista de asistentes a la reunión"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La reversión debe especificar pasos, datos y condiciones para recuperar el estado requerido.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w32d2-q01"
+        },
+        {
+          "id": "w32d7-q03",
+          "prompt": "¿Qué combinación describe el riesgo de un servidor sin parche expuesto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Amenaza que explota una vulnerabilidad con impacto y probabilidad estimados"
+            },
+            {
+              "id": "b",
+              "text": "Solo el número de versión del sistema, sin escenario"
+            },
+            {
+              "id": "c",
+              "text": "Solo el coste del activo, sin consecuencias ni probabilidad"
+            },
+            {
+              "id": "d",
+              "text": "Solo la existencia de un escáner, sin exposición ni impacto"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El riesgo vincula condiciones de amenaza y vulnerabilidad con consecuencias y probabilidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w32d3-q01"
+        },
+        {
+          "id": "w32d7-q04",
+          "prompt": "En un ejercicio, AV=200.000 € y EF=25 %. ¿Cuál es SLE=AV×EF?",
+          "options": [
+            {
+              "id": "a",
+              "text": "25.000 €"
+            },
+            {
+              "id": "b",
+              "text": "800.000 €"
+            },
+            {
+              "id": "c",
+              "text": "50.000 €"
+            },
+            {
+              "id": "d",
+              "text": "200.025 €"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La pérdida por evento estimada es el valor expuesto multiplicado por la fracción de pérdida.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w32d4-q01"
+        },
+        {
+          "id": "w32d7-q05",
+          "prompt": "Una empresa deja de ofrecer un servicio demasiado expuesto. ¿Qué tratamiento aplica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Transferir todo el riesgo por contrato"
+            },
+            {
+              "id": "b",
+              "text": "Aceptar sin cambios"
+            },
+            {
+              "id": "c",
+              "text": "Evitar ese riesgo retirando la actividad"
+            },
+            {
+              "id": "d",
+              "text": "Mitigar únicamente con registros"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Eliminar la actividad que origina la exposición es una forma de evitación, con consecuencias de negocio.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w32d5-q01"
+        },
+        {
+          "id": "w32d7-q06",
+          "prompt": "Una tienda pierde ventas por caídas. ¿Qué dato ayuda a priorizar inversión de continuidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Impacto por hora y tiempo de recuperación requerido"
+            },
+            {
+              "id": "b",
+              "text": "Solo la capacidad del disco de copias"
+            },
+            {
+              "id": "c",
+              "text": "Solo el número de alertas recibidas por el SIEM"
+            },
+            {
+              "id": "d",
+              "text": "Solo la fecha de compra del software de recuperación"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las consecuencias operativas vinculan seguridad y objetivos de negocio.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final",
+          "reviewOf": "w32d6-q01"
+        },
+        {
+          "id": "w32d7-q07",
+          "prompt": "¿Qué distingue un estándar interno de una guía?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La guía siempre tiene rango de ley"
+            },
+            {
+              "id": "b",
+              "text": "El estándar solo contiene opiniones"
+            },
+            {
+              "id": "c",
+              "text": "Ambos son siempre contratos externos"
+            },
+            {
+              "id": "d",
+              "text": "El estándar fija requisitos obligatorios dentro de su ámbito"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La fuerza y el alcance deben quedar explícitos en el sistema de gobierno documental.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w32d1-q02"
+        },
+        {
+          "id": "w32d7-q08",
+          "prompt": "¿Para qué analizar dependencias antes de cambiar una regla de firewall?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Suponer que toda conexión entre servicios es innecesaria"
+            },
+            {
+              "id": "b",
+              "text": "Reemplazar pruebas funcionales por un diagrama sin validar"
+            },
+            {
+              "id": "c",
+              "text": "Prever servicios y flujos que podrían interrumpirse"
+            },
+            {
+              "id": "d",
+              "text": "Aplicar la regla y documentar dependencias solo si hay una caída"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las dependencias revelan consecuencias fuera del componente modificado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w32d2-q02"
+        },
+        {
+          "id": "w32d7-q09",
+          "prompt": "Dos riesgos tienen igual impacto, pero distinta probabilidad. ¿Qué permite compararlos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Criterios de probabilidad explícitos y coherentes"
+            },
+            {
+              "id": "b",
+              "text": "La puntuación del impacto únicamente, ignorando probabilidad"
+            },
+            {
+              "id": "c",
+              "text": "Una escala distinta elegida para cada activo"
+            },
+            {
+              "id": "d",
+              "text": "La cantidad de controles comprados sin comprobar efecto"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una escala definida hace las valoraciones comparables dentro de su contexto.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w32d3-q02"
+        },
+        {
+          "id": "w32d7-q10",
+          "prompt": "Si SLE=40.000 € y ARO=0,2 al año, ¿cuál es ALE=SLE×ARO?",
+          "options": [
+            {
+              "id": "a",
+              "text": "8.000 € al año"
+            },
+            {
+              "id": "b",
+              "text": "200.000 € al año"
+            },
+            {
+              "id": "c",
+              "text": "40.000 € por mes"
+            },
+            {
+              "id": "d",
+              "text": "0,2 € al año"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El valor anual esperado multiplica pérdida por evento y frecuencia anual según el modelo declarado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w32d4-q02"
+        },
+        {
+          "id": "w32d7-q11",
+          "prompt": "Comprar seguro cibernético es principalmente un ejemplo de ¿qué?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eliminación de toda responsabilidad"
+            },
+            {
+              "id": "b",
+              "text": "Transferencia de parte de consecuencias financieras"
+            },
+            {
+              "id": "c",
+              "text": "Erradicación técnica de vulnerabilidades"
+            },
+            {
+              "id": "d",
+              "text": "Prueba de que no habrá incidentes"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La transferencia tiene condiciones y exclusiones; el riesgo técnico y otras consecuencias pueden permanecer.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w32d5-q02"
+        },
+        {
+          "id": "w32d7-q12",
+          "prompt": "¿Cómo comparar dos inversiones con presupuestos distintos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Elegir siempre la de mayor cantidad de funciones"
+            },
+            {
+              "id": "b",
+              "text": "Comparar solo el coste inicial, sin operación ni impacto"
+            },
+            {
+              "id": "c",
+              "text": "Priorizar la de mejor puntuación comercial sin metodología"
+            },
+            {
+              "id": "d",
+              "text": "Relacionar escenarios de riesgo, beneficio esperado, costes y restricciones"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La selección necesita supuestos y resultados relevantes, no etiquetas comerciales.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w32d6-q02"
+        },
+        {
+          "id": "w32d7-q13",
+          "prompt": "¿Dónde encaja una secuencia para revocar accesos al recibir una baja?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Declaración genérica de misión"
+            },
+            {
+              "id": "b",
+              "text": "Procedimiento operativo"
+            },
+            {
+              "id": "c",
+              "text": "Catálogo de vulnerabilidades"
+            },
+            {
+              "id": "d",
+              "text": "Modelo financiero de ingresos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un procedimiento describe pasos, responsables y condiciones para ejecutar una actividad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w32d1-q03"
+        },
+        {
+          "id": "w32d7-q14",
+          "prompt": "¿Qué debe definir una prueba de aceptación de un parche?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo que el instalador finalizó sin comprobar el servicio"
+            },
+            {
+              "id": "b",
+              "text": "Solo que la consola del proveedor muestra el parche disponible"
+            },
+            {
+              "id": "c",
+              "text": "Solo que el ticket se cerró al iniciar la instalación"
+            },
+            {
+              "id": "d",
+              "text": "Resultado funcional y de seguridad esperado con criterio de fallo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La instalación no demuestra funcionamiento correcto ni cierre de la debilidad relevante.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w32d2-q03"
+        },
+        {
+          "id": "w32d7-q15",
+          "prompt": "¿Qué es una vulnerabilidad en un escenario de riesgo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La pérdida final ya contabilizada"
+            },
+            {
+              "id": "b",
+              "text": "Debilidad que puede ser explotada o activada por una amenaza"
+            },
+            {
+              "id": "c",
+              "text": "La póliza de seguro"
+            },
+            {
+              "id": "d",
+              "text": "La fecha de reunión del comité"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Amenaza, debilidad e impacto cumplen funciones distintas en el análisis.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w32d3-q03"
+        },
+        {
+          "id": "w32d7-q16",
+          "prompt": "En el modelo del ejercicio, ¿qué significa ARO=0,25?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Exactamente cuatro eventos cada año"
+            },
+            {
+              "id": "b",
+              "text": "Frecuencia media estimada de un evento cada cuatro años"
+            },
+            {
+              "id": "c",
+              "text": "Pérdida del 25 % de cada activo"
+            },
+            {
+              "id": "d",
+              "text": "Garantía de cuatro años sin incidentes"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La frecuencia es una expectativa estadística, no un calendario garantizado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w32d4-q03"
+        },
+        {
+          "id": "w32d7-q17",
+          "prompt": "¿Qué es riesgo residual?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Riesgo previo a cualquier control"
+            },
+            {
+              "id": "b",
+              "text": "Solo un incidente ya cerrado"
+            },
+            {
+              "id": "c",
+              "text": "Un error de cálculo de la matriz"
+            },
+            {
+              "id": "d",
+              "text": "Riesgo que permanece después del tratamiento aplicado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las medidas no suelen eliminar toda exposición; el remanente necesita evaluación y autoridad de aceptación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w32d5-q03"
+        },
+        {
+          "id": "w32d7-q18",
+          "prompt": "Una mejora de copias no reduce la probabilidad de ransomware. ¿Qué puede reducir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Toda exposición de credenciales automáticamente"
+            },
+            {
+              "id": "b",
+              "text": "Necesidad de probar restauración"
+            },
+            {
+              "id": "c",
+              "text": "Número de correos recibidos"
+            },
+            {
+              "id": "d",
+              "text": "Impacto y tiempo de recuperación si las copias son utilizables"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un control puede actuar sobre consecuencias sin prevenir la amenaza inicial.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final",
+          "reviewOf": "w32d6-q03"
+        },
+        {
+          "id": "w32d7-q19",
+          "prompt": "¿Quién debe aprobar una excepción a una política?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cualquier usuario que tenga prisa"
+            },
+            {
+              "id": "b",
+              "text": "El fabricante del navegador"
+            },
+            {
+              "id": "c",
+              "text": "Quien cambie primero el archivo"
+            },
+            {
+              "id": "d",
+              "text": "La autoridad definida con aceptación explícita del riesgo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La excepción necesita autoridad, justificación, vigencia y seguimiento del riesgo.",
+          "reference": "https://www.nist.gov/cyberframework",
+          "reviewOf": "w32d1-q04"
+        },
+        {
+          "id": "w32d7-q20",
+          "prompt": "ALE previa=30.000 € y posterior=10.000 €. ¿Qué reducción anual esperada se estima?",
+          "options": [
+            {
+              "id": "a",
+              "text": "20.000 €"
+            },
+            {
+              "id": "b",
+              "text": "40.000 €"
+            },
+            {
+              "id": "c",
+              "text": "3.000 €"
+            },
+            {
+              "id": "d",
+              "text": "300.000 €"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La diferencia entre valores esperados es 20.000; no garantiza ahorro exacto en un año particular.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w32d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w32d7-challenge",
+        "prompt": "El registro marca un riesgo como aceptado, sin dueño ni fecha. ¿Qué debes corregir?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Documentar autoridad, motivo, condiciones y plazo de revisión"
+          },
+          {
+            "id": "b",
+            "text": "Cambiar la etiqueta a bajo sin reevaluar exposición"
+          },
+          {
+            "id": "c",
+            "text": "Eliminarlo del registro por haber sido mencionado en reunión"
+          },
+          {
+            "id": "d",
+            "text": "Marcarlo resuelto sin aplicar ni aprobar tratamiento"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La decisión de tratamiento necesita trazabilidad y revisión; una etiqueta aislada no la demuestra.",
+        "reference": "https://www.nist.gov/cyberframework"
+      }
+    }
+  ]
+}

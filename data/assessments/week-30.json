@@ -1,0 +1,2094 @@
+{
+  "week": 30,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w30d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w30d1-q01",
+          "prompt": "¿Qué representa un grupo de seguridad de un directorio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un cifrado obligatorio del disco"
+            },
+            {
+              "id": "b",
+              "text": "Una colección de miembros utilizable para asignar permisos"
+            },
+            {
+              "id": "c",
+              "text": "Una sesión de red individual"
+            },
+            {
+              "id": "d",
+              "text": "Una copia completa del servidor"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los grupos simplifican asignación de derechos; deben revisarse sus miembros y usos.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview"
+        },
+        {
+          "id": "w30d1-q02",
+          "prompt": "Una empresa organiza usuarios por departamentos en unidades organizativas. ¿Qué NO se deduce solo de esa ubicación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que exista una estructura administrativa"
+            },
+            {
+              "id": "b",
+              "text": "Que puedan aplicarse políticas según diseño"
+            },
+            {
+              "id": "c",
+              "text": "Que los objetos estén organizados en el directorio"
+            },
+            {
+              "id": "d",
+              "text": "Que el usuario tenga permiso para leer los archivos del departamento"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Organización y permisos son conceptos distintos; la autorización depende de los controles aplicados.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview"
+        },
+        {
+          "id": "w30d1-q03",
+          "prompt": "¿Qué identifica mejor una cuenta cuando cambia su nombre visible?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El nombre de pila del empleado"
+            },
+            {
+              "id": "b",
+              "text": "El título de su puesto"
+            },
+            {
+              "id": "c",
+              "text": "Su identificador estable en el directorio"
+            },
+            {
+              "id": "d",
+              "text": "Su extensión telefónica"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los nombres pueden cambiar o repetirse; los identificadores estables evitan mezclar identidades.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview"
+        },
+        {
+          "id": "w30d1-q04",
+          "prompt": "¿Por qué registrar equipos además de usuarios en el directorio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cada objeto de equipo reemplaza automáticamente toda identidad de usuario"
+            },
+            {
+              "id": "b",
+              "text": "Registrar un equipo lo autoriza a cualquier recurso del dominio"
+            },
+            {
+              "id": "c",
+              "text": "Permite gestionar identidad y políticas de dispositivos"
+            },
+            {
+              "id": "d",
+              "text": "La pertenencia al directorio elimina necesidad de revisar su configuración"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El directorio puede representar y gestionar entidades de equipo, sin eliminar otras necesidades de seguridad.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview"
+        },
+        {
+          "id": "w30d1-q05",
+          "prompt": "Ana hereda acceso mediante Grupo-A, miembro de Grupo-B. ¿Qué hay que revisar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo miembros directos de Grupo-A sin recorrer anidación"
+            },
+            {
+              "id": "b",
+              "text": "Solo las asignaciones solicitadas, aunque no coincidan con las efectivas"
+            },
+            {
+              "id": "c",
+              "text": "Pertenencia anidada y permisos de ambos grupos"
+            },
+            {
+              "id": "d",
+              "text": "Solo la unidad organizativa donde está Ana"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La pertenencia indirecta puede conceder acceso efectivo aunque no figure asignación directa a la usuaria.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w30d1-q06",
+          "prompt": "¿Qué diferencia básica hay entre autenticación y autorización en un dominio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La primera valida identidad y la segunda permite acciones"
+            },
+            {
+              "id": "b",
+              "text": "Ambas significan cifrado del canal"
+            },
+            {
+              "id": "c",
+              "text": "La autorización siempre ocurre antes de existir identidad"
+            },
+            {
+              "id": "d",
+              "text": "La autenticación asigna todos los permisos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Identidad validada no implica permiso universal; los recursos aplican decisiones de acceso.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity-platform/authentication-vs-authorization"
+        },
+        {
+          "id": "w30d1-q07",
+          "prompt": "¿Qué registro ayuda a revisar una baja laboral?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cuenta, propietario, fecha de baja y accesos asignados"
+            },
+            {
+              "id": "b",
+              "text": "Solo el último inicio de sesión, sin vínculo con la baja"
+            },
+            {
+              "id": "c",
+              "text": "Solo la lista de cuentas creadas ese día"
+            },
+            {
+              "id": "d",
+              "text": "Solo la pertenencia actual a un único grupo visible"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La trazabilidad del ciclo de vida permite retirar accesos de la persona y detectar cuentas huérfanas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w30d1-q08",
+          "prompt": "¿Por qué una cuenta compartida dificulta auditoría?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Varios usuarios actúan bajo una misma identidad registrada"
+            },
+            {
+              "id": "b",
+              "text": "Impide que se genere cualquier log"
+            },
+            {
+              "id": "c",
+              "text": "Hace imposible cifrar el tráfico"
+            },
+            {
+              "id": "d",
+              "text": "Siempre crea dos dominios"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La atribución individual requiere controles adicionales cuando varias personas comparten credenciales.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w30d1-challenge",
+        "prompt": "Una clínica asigna acceso por departamento, pero dos auxiliares aparecen en un grupo administrativo anidado. ¿Qué revisas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Pertenencia efectiva y permisos que heredan antes de corregir asignaciones"
+          },
+          {
+            "id": "b",
+            "text": "Solo la unidad organizativa de cada auxiliar"
+          },
+          {
+            "id": "c",
+            "text": "Solo el nombre del grupo, sin permisos efectivos"
+          },
+          {
+            "id": "d",
+            "text": "Solo la pertenencia directa sin grupos anidados"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "Los grupos anidados pueden ampliar acceso más allá de la organización aparente del directorio.",
+        "reference": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview"
+      }
+    },
+    {
+      "dayId": "w30d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w30d2-q01",
+          "prompt": "En federación, ¿quién autentica normalmente al usuario para emitir una aserción?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El proveedor de servicio sin usar la relación federada"
+            },
+            {
+              "id": "b",
+              "text": "El navegador como autoridad que firma sus propias aserciones"
+            },
+            {
+              "id": "c",
+              "text": "El proveedor de identidad"
+            },
+            {
+              "id": "d",
+              "text": "El servidor DNS como validador de la contraseña del usuario"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El proveedor de identidad autentica y emite datos que la aplicación acepta según una relación de confianza.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity-platform/single-sign-on-saml-protocol"
+        },
+        {
+          "id": "w30d2-q02",
+          "prompt": "¿Qué papel cumple el proveedor de servicio en SAML?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Emite la contraseña del usuario para compartirla entre aplicaciones"
+            },
+            {
+              "id": "b",
+              "text": "Acepta cualquier aserción si llegó por HTTPS"
+            },
+            {
+              "id": "c",
+              "text": "Consume y valida la aserción para dar acceso a la aplicación"
+            },
+            {
+              "id": "d",
+              "text": "Autoriza por el nombre visible sin validar emisor ni firma"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El receptor debe validar la aserción y aplicar autorización; no basta recibir cualquier XML.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity-platform/single-sign-on-saml-protocol"
+        },
+        {
+          "id": "w30d2-q03",
+          "prompt": "¿Qué protocolo añade autenticación sobre OAuth 2.0?",
+          "options": [
+            {
+              "id": "a",
+              "text": "OpenID Connect"
+            },
+            {
+              "id": "b",
+              "text": "OAuth 2.0 sin capa de identidad como garantía universal de login"
+            },
+            {
+              "id": "c",
+              "text": "SAML interpretado únicamente como protocolo de transporte IP"
+            },
+            {
+              "id": "d",
+              "text": "LDAP tratado como formato de ID token de OAuth"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "OIDC permite autenticar mediante ID tokens; OAuth 2.0 por sí solo se orienta a autorización.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc"
+        },
+        {
+          "id": "w30d2-q04",
+          "prompt": "¿Cuál es una ventaja operativa de SSO?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Desaparición de toda revisión de permisos"
+            },
+            {
+              "id": "b",
+              "text": "Contraseñas públicas entre aplicaciones"
+            },
+            {
+              "id": "c",
+              "text": "Garantía de que todo acceso sea legítimo"
+            },
+            {
+              "id": "d",
+              "text": "Menos inicios de sesión separados en aplicaciones integradas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "SSO reduce autenticaciones repetidas; la seguridad del proveedor y de las sesiones sigue siendo crítica.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity-platform/authentication-vs-authorization"
+        },
+        {
+          "id": "w30d2-q05",
+          "prompt": "Una aplicación recibe un token válido para otra audiencia. ¿Qué debe hacer?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Rechazarlo por no estar destinado a esa aplicación"
+            },
+            {
+              "id": "b",
+              "text": "Aceptarlo si la firma es válida"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar la audiencia sin validar"
+            },
+            {
+              "id": "d",
+              "text": "Aceptar solo porque usa HTTPS"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una firma válida no reemplaza verificar destinatario, emisor, vigencia y demás condiciones.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc"
+        },
+        {
+          "id": "w30d2-q06",
+          "prompt": "¿Qué riesgo concentra un IdP comprometido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo afecta al portal y nunca a aplicaciones federadas"
+            },
+            {
+              "id": "b",
+              "text": "Todo token emitido se invalida automáticamente al comprometer el IdP"
+            },
+            {
+              "id": "c",
+              "text": "Cada aplicación detecta por sí sola todas las aserciones fraudulentas"
+            },
+            {
+              "id": "d",
+              "text": "Puede afectar accesos de varias aplicaciones que confían en él"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La confianza federada amplía impacto; protección y respuesta del IdP deben contemplar aplicaciones dependientes.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity-platform/authentication-vs-authorization"
+        },
+        {
+          "id": "w30d2-q07",
+          "prompt": "¿SSO implica que dos empresas federadas compartan una base de contraseñas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí; es requisito de SAML"
+            },
+            {
+              "id": "b",
+              "text": "Sí; cada navegador replica todos los hashes"
+            },
+            {
+              "id": "c",
+              "text": "No; porque ninguna autentica usuarios"
+            },
+            {
+              "id": "d",
+              "text": "No; pueden confiar en aserciones o tokens validados"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Federación permite confiar en resultados de autenticación sin distribuir contraseñas entre todas las aplicaciones.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity-platform/single-sign-on-saml-protocol"
+        },
+        {
+          "id": "w30d2-q08",
+          "prompt": "¿Cerrar el navegador garantiza revocar todos los tokens y sesiones de una cuenta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí; toda sesión reside solo en la pestaña"
+            },
+            {
+              "id": "b",
+              "text": "Sí; OAuth obliga a borrar todos los servidores"
+            },
+            {
+              "id": "c",
+              "text": "No; porque los tokens nunca caducan"
+            },
+            {
+              "id": "d",
+              "text": "No; hay que considerar sesiones y mecanismos de revocación"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La duración y revocación dependen del sistema; cerrar la interfaz no equivale a invalidación central.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc"
+        }
+      ],
+      "challenge": {
+        "id": "w30d2-challenge",
+        "prompt": "Un SaaS acepta un token firmado de un IdP conocido, aunque aud apunta a otro servicio. ¿Qué fallo existe?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La firma basta para aceptar cualquier audiencia"
+          },
+          {
+            "id": "b",
+            "text": "El nombre visible del usuario sustituye validar destinatario"
+          },
+          {
+            "id": "c",
+            "text": "Falta validación de audiencia del token"
+          },
+          {
+            "id": "d",
+            "text": "HTTPS del portal convierte cualquier token en válido para el SaaS"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La aplicación debe verificar que el token está destinado a ella, además de emisor y vigencia.",
+        "reference": "https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc"
+      }
+    },
+    {
+      "dayId": "w30d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w30d3-q01",
+          "prompt": "Una cuenta de respaldo solo necesita leer una carpeta. ¿Qué asignación sigue mínimo privilegio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Administrador global permanente"
+            },
+            {
+              "id": "b",
+              "text": "Lectura en esa carpeta con cuenta dedicada"
+            },
+            {
+              "id": "c",
+              "text": "Control total de todos los discos"
+            },
+            {
+              "id": "d",
+              "text": "Cuenta compartida del director general"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los privilegios deben corresponder a la tarea y al alcance requerido.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/best-practices"
+        },
+        {
+          "id": "w30d3-q02",
+          "prompt": "¿Qué señal justifica revisar una cuenta de servicio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No tiene propietario y conserva privilegios amplios"
+            },
+            {
+              "id": "b",
+              "text": "Tiene un nombre largo"
+            },
+            {
+              "id": "c",
+              "text": "Su descripción incluye el departamento"
+            },
+            {
+              "id": "d",
+              "text": "Fue inventariada ayer"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Falta de responsable y privilegios elevados impiden justificar y mantener correctamente el acceso.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w30d3-q03",
+          "prompt": "¿Por qué separar la cuenta administrativa de la cuenta de correo diario?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Evita cualquier necesidad de MFA"
+            },
+            {
+              "id": "b",
+              "text": "Reduce exposición de credenciales privilegiadas durante tareas comunes"
+            },
+            {
+              "id": "c",
+              "text": "Duplica automáticamente todas las licencias"
+            },
+            {
+              "id": "d",
+              "text": "Permite omitir registros de administración"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La separación reduce uso rutinario de privilegios y facilita control de las operaciones elevadas.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/best-practices"
+        },
+        {
+          "id": "w30d3-q04",
+          "prompt": "¿Qué mejora ofrece un privilegio activado por tiempo limitado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hace innecesaria toda aprobación"
+            },
+            {
+              "id": "b",
+              "text": "Impide cualquier error administrativo"
+            },
+            {
+              "id": "c",
+              "text": "Convierte al usuario en propietario de todos los datos"
+            },
+            {
+              "id": "d",
+              "text": "Reduce la duración del acceso elevado disponible"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La duración limitada reduce exposición; aún se requieren justificación, alcance y auditoría.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/best-practices"
+        },
+        {
+          "id": "w30d3-q05",
+          "prompt": "Un empleado cambió de área pero conserva grupos de ambas. ¿Qué riesgo aparece?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Falta inevitable de conexión DNS"
+            },
+            {
+              "id": "b",
+              "text": "Acumulación de privilegios incompatibles con su función actual"
+            },
+            {
+              "id": "c",
+              "text": "Expiración inmediata de todos los certificados"
+            },
+            {
+              "id": "d",
+              "text": "Pérdida de todos sus logs históricos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los cambios de función requieren reevaluar accesos anteriores y nuevos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w30d3-q06",
+          "prompt": "¿Quién debe confirmar la necesidad de acceso a un repositorio financiero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cualquier compañero con acceso"
+            },
+            {
+              "id": "b",
+              "text": "Solo el fabricante del disco"
+            },
+            {
+              "id": "c",
+              "text": "El responsable autorizado del recurso según el proceso"
+            },
+            {
+              "id": "d",
+              "text": "El usuario que solicita más permisos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El dueño o responsable del recurso tiene contexto para aprobar necesidad, con controles organizativos definidos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w30d3-q07",
+          "prompt": "¿Qué dato hace útil una revisión periódica de accesos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el total de cuentas sin permisos asociados"
+            },
+            {
+              "id": "b",
+              "text": "Solo la política que ordena revisar sin prueba de ejecución"
+            },
+            {
+              "id": "c",
+              "text": "Solo el último login sin decisión del responsable"
+            },
+            {
+              "id": "d",
+              "text": "Decisión por cuenta y permiso con responsable y fecha"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La revisión necesita evidencia de qué se evaluó, quién decidió y qué correcciones quedan pendientes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w30d3-q08",
+          "prompt": "Una cuenta inactiva aparece en un servicio crítico. ¿Qué haces antes de deshabilitarla?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Borrarla inmediatamente sin copia de configuración"
+            },
+            {
+              "id": "b",
+              "text": "Compartir su contraseña por correo"
+            },
+            {
+              "id": "c",
+              "text": "Añadirle privilegios para que vuelva a usarse"
+            },
+            {
+              "id": "d",
+              "text": "Verificar dependencias y propietario mediante cambio controlado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La inactividad es una señal de revisión, pero la acción debe considerar dependencias operativas y recuperación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w30d3-challenge",
+        "prompt": "Una cuenta que genera facturas posee permisos para crear administradores. ¿Qué propones?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Reducir a permisos necesarios tras comprobar dependencias y aprobación"
+          },
+          {
+            "id": "b",
+            "text": "Mantener el exceso porque es una cuenta automática"
+          },
+          {
+            "id": "c",
+            "text": "Compartirla entre todo finanzas"
+          },
+          {
+            "id": "d",
+            "text": "Borrar registros de sus operaciones"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La cuenta de servicio necesita alcance mínimo y propietario; automatización no justifica administración global.",
+        "reference": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/best-practices"
+      }
+    },
+    {
+      "dayId": "w30d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w30d4-q01",
+          "prompt": "¿Qué devuelve Import-Csv para columnas User y DaysInactive?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una cadena de texto única sin propiedades por columna"
+            },
+            {
+              "id": "b",
+              "text": "Objetos con propiedades User y DaysInactive"
+            },
+            {
+              "id": "c",
+              "text": "Cuentas nuevas creadas automáticamente en el directorio"
+            },
+            {
+              "id": "d",
+              "text": "Objetos que conservan obligatoriamente los tipos numéricos del CSV"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Cada fila se convierte en objeto con propiedades derivadas de cabeceras; no altera el directorio.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/import-csv"
+        },
+        {
+          "id": "w30d4-q02",
+          "prompt": "En PowerShell, ¿qué referencia representa la fila actual dentro de Where-Object?",
+          "options": [
+            {
+              "id": "a",
+              "text": "$HOME"
+            },
+            {
+              "id": "b",
+              "text": "$_"
+            },
+            {
+              "id": "c",
+              "text": "$null exclusivamente"
+            },
+            {
+              "id": "d",
+              "text": "El nombre literal CSV"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "$_ representa el objeto actual del pipeline en ese bloque.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/where-object"
+        },
+        {
+          "id": "w30d4-q03",
+          "prompt": "DaysInactive contiene texto del CSV. ¿Qué hace más explícita una comparación numérica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Validar y convertir el valor a número antes de compararlo"
+            },
+            {
+              "id": "b",
+              "text": "Ordenar siempre como texto"
+            },
+            {
+              "id": "c",
+              "text": "Añadir la palabra días al valor"
+            },
+            {
+              "id": "d",
+              "text": "Sustituir valores vacíos por 999 sin avisar"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los datos de CSV se importan como texto; validar tipos evita clasificaciones incorrectas.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/import-csv"
+        },
+        {
+          "id": "w30d4-q04",
+          "prompt": "¿Qué estructura procesa cada fila de $rows una vez?",
+          "options": [
+            {
+              "id": "a",
+              "text": "if ($rows) sin iterar los elementos de la colección"
+            },
+            {
+              "id": "b",
+              "text": "Export-Csv como sustituto de la lógica por fila"
+            },
+            {
+              "id": "c",
+              "text": "foreach ($row in $rows) { ... }"
+            },
+            {
+              "id": "d",
+              "text": "Procesar siempre $rows[0] esperando cubrir todas las filas"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "foreach recorre los elementos de la colección; el bloque define la operación por elemento.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_foreach"
+        },
+        {
+          "id": "w30d4-q05",
+          "prompt": "Si la regla es DaysInactive -ge 90, ¿cómo se clasifica una fila validada con 90?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No cumple porque exige más de 90"
+            },
+            {
+              "id": "b",
+              "text": "Se convierte automáticamente en administrador"
+            },
+            {
+              "id": "c",
+              "text": "Se descarta como encabezado"
+            },
+            {
+              "id": "d",
+              "text": "Cumple la condición"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "-ge incluye igualdad; los valores frontera comprueban que la regla refleja el requisito.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_if"
+        },
+        {
+          "id": "w30d4-q06",
+          "prompt": "¿Qué error introduce usar un nombre de usuario fijo dentro del bucle?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Acelera la clasificación sin alterar datos"
+            },
+            {
+              "id": "b",
+              "text": "Convierte automáticamente el CSV en JSON"
+            },
+            {
+              "id": "c",
+              "text": "Impide importar cualquier archivo"
+            },
+            {
+              "id": "d",
+              "text": "Puede asignar el resultado de todas las filas a la misma identidad"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El código debe tomar la identidad de la fila actual y conservar vínculo con su dato original.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_foreach"
+        },
+        {
+          "id": "w30d4-q07",
+          "prompt": "¿Cómo obtener solo filas cuyo campo State sea Disabled?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Format-Table State"
+            },
+            {
+              "id": "b",
+              "text": "Export-Csv -State Disabled"
+            },
+            {
+              "id": "c",
+              "text": "Asignar State='Disabled' a todas las filas"
+            },
+            {
+              "id": "d",
+              "text": "Where-Object { $_.State -eq 'Disabled' }"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Where-Object filtra por condición; dar formato o cambiar valores no realiza esa selección.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/where-object"
+        },
+        {
+          "id": "w30d4-q08",
+          "prompt": "¿Qué distingue una variable $count de la cadena literal 'count'?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La cadena literal siempre consulta la variable del mismo nombre"
+            },
+            {
+              "id": "b",
+              "text": "Una variable cifra por defecto el contenido almacenado"
+            },
+            {
+              "id": "c",
+              "text": "Toda variable contiene únicamente nombres de cuentas"
+            },
+            {
+              "id": "d",
+              "text": "La variable almacena un valor que el script puede consultar o cambiar"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las variables representan valores; las cadenas literales representan texto según la sintaxis usada.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_if"
+        }
+      ],
+      "challenge": {
+        "id": "w30d4-challenge",
+        "prompt": "Un CSV tiene User,DaysInactive y filas con 9,90,100. La política exige 90 o más. ¿Qué resultado esperado valida el filtro?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo la fila con 100"
+          },
+          {
+            "id": "b",
+            "text": "Las tres filas"
+          },
+          {
+            "id": "c",
+            "text": "Solo las filas con 90 y 100"
+          },
+          {
+            "id": "d",
+            "text": "Solo la fila con 9"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La condición incluye el límite y requiere interpretar el campo como número validado.",
+        "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/import-csv"
+      }
+    },
+    {
+      "dayId": "w30d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w30d5-q01",
+          "prompt": "El CSV carece de la columna Owner requerida. ¿Qué debe hacer la validación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Inventar un propietario a partir del nombre"
+            },
+            {
+              "id": "b",
+              "text": "Exportar propietario vacío como aprobado"
+            },
+            {
+              "id": "c",
+              "text": "Suponer que todas las cuentas son huérfanas confirmadas"
+            },
+            {
+              "id": "d",
+              "text": "Detener o marcar el lote con error explícito de esquema"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un dato ausente no demuestra una condición real; el script debe distinguir errores de entrada de hallazgos.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/import-csv"
+        },
+        {
+          "id": "w30d5-q02",
+          "prompt": "¿Cómo llevar un error no terminante de un cmdlet a catch cuando corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usar Format-Table antes de try"
+            },
+            {
+              "id": "b",
+              "text": "Usar -ErrorAction Stop dentro de try"
+            },
+            {
+              "id": "c",
+              "text": "Vaciar siempre $Error"
+            },
+            {
+              "id": "d",
+              "text": "Renombrar catch como log"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La detención permite gestionar el error en catch; ocultarlo no valida el resultado.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_try_catch_finally"
+        },
+        {
+          "id": "w30d5-q03",
+          "prompt": "Una fila tiene DaysInactive='desconocido'. ¿Qué salida es adecuada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Clasificarla como cero días sin aviso"
+            },
+            {
+              "id": "b",
+              "text": "Clasificarla como 365 días sin aviso"
+            },
+            {
+              "id": "c",
+              "text": "Fila rechazada o pendiente con motivo de validación"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar la fila del origen silenciosamente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los estados desconocidos deben conservarse como tales para no fabricar conclusiones.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/import-csv"
+        },
+        {
+          "id": "w30d5-q04",
+          "prompt": "¿Qué evita enviar objetos de Format-Table a Export-Csv?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conserva los campos de datos en lugar de objetos de formato"
+            },
+            {
+              "id": "b",
+              "text": "Evita que el CSV tenga cabeceras"
+            },
+            {
+              "id": "c",
+              "text": "Hace que toda fecha se convierta a UTC"
+            },
+            {
+              "id": "d",
+              "text": "Firma automáticamente el archivo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Export-Csv necesita objetos de datos; el formato de pantalla altera la representación enviada.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/export-csv"
+        },
+        {
+          "id": "w30d5-q05",
+          "prompt": "¿Qué permiso necesita un script que solo audita cuentas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Lectura limitada a los datos necesarios"
+            },
+            {
+              "id": "b",
+              "text": "Administrador global por comodidad"
+            },
+            {
+              "id": "c",
+              "text": "Capacidad de borrar todo usuario"
+            },
+            {
+              "id": "d",
+              "text": "Acceso de escritura a todos los buzones"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El permiso debe limitarse a la función de auditoría, separando generación de informe y remediación.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/best-practices"
+        },
+        {
+          "id": "w30d5-q06",
+          "prompt": "¿Cómo detectar pérdida de filas durante una clasificación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conciliar entrada, válidas, rechazadas y salidas según la política"
+            },
+            {
+              "id": "b",
+              "text": "Comprobar solo que existe un archivo de salida"
+            },
+            {
+              "id": "c",
+              "text": "Comparar solo el número de filas positivas sin los rechazos"
+            },
+            {
+              "id": "d",
+              "text": "Tomar una ejecución sin excepciones visibles como conciliación completa"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los conteos y estados permiten detectar omisiones o duplicación; deben definirse antes de evaluar.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/import-csv"
+        },
+        {
+          "id": "w30d5-q07",
+          "prompt": "¿Qué debe registrar un informe automático sin exponer secretos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Contraseñas completas de todas las cuentas"
+            },
+            {
+              "id": "b",
+              "text": "Tokens de acceso para reproducir el informe"
+            },
+            {
+              "id": "c",
+              "text": "Solo una frase: todo correcto"
+            },
+            {
+              "id": "d",
+              "text": "Fuente, fecha, versión de regla, conteos y errores pertinentes"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La trazabilidad explica cómo se produjo el resultado; los secretos no son necesarios para auditar la clasificación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w30d5-q08",
+          "prompt": "¿Qué asegura ejecutar el mismo clasificador sobre una copia sintética sin modificaciones?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Prueba que cualquier dato real tendrá el mismo contenido"
+            },
+            {
+              "id": "b",
+              "text": "Permite comparar resultados esperados y observados de manera reproducible"
+            },
+            {
+              "id": "c",
+              "text": "Elimina todas las futuras excepciones"
+            },
+            {
+              "id": "d",
+              "text": "Garantiza que el directorio está seguro"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un conjunto controlado prueba comportamiento acotado, con límites que deben explicarse.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/import-csv"
+        }
+      ],
+      "challenge": {
+        "id": "w30d5-challenge",
+        "prompt": "Import-Csv falla por ruta inexistente, pero el script exporta un informe vacío titulado Sin riesgos. ¿Qué corriges?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Añadir un usuario ficticio para que no quede vacío"
+          },
+          {
+            "id": "b",
+            "text": "Ocultar el mensaje de error"
+          },
+          {
+            "id": "c",
+            "text": "Tratar el fallo como error de ejecución y evitar presentar ausencia de datos como auditoría limpia"
+          },
+          {
+            "id": "d",
+            "text": "Declarar revisadas todas las cuentas de memoria"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "Un informe vacío por error no demuestra ausencia de hallazgos; el estado de ejecución debe ser explícito.",
+        "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_try_catch_finally"
+      }
+    },
+    {
+      "dayId": "w30d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w30d6-q01",
+          "prompt": "El CSV dice Enabled=true y Owner vacío. ¿Qué conclusión prudente produce el auditor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cuenta de atacante confirmada"
+            },
+            {
+              "id": "b",
+              "text": "Cuenta deshabilitada por definición"
+            },
+            {
+              "id": "c",
+              "text": "Cuenta habilitada sin propietario registrado; requiere revisión"
+            },
+            {
+              "id": "d",
+              "text": "Servicio innecesario confirmado"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El informe refleja datos observados y prioridad de revisión sin inventar intención o dependencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w30d6-q02",
+          "prompt": "¿Qué columna explica por qué una cuenta aparece en el informe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "RuleMatched o motivo de revisión"
+            },
+            {
+              "id": "b",
+              "text": "LastLogon como único motivo universal de toda regla"
+            },
+            {
+              "id": "c",
+              "text": "DisplayName sin identificador ni condición aplicada"
+            },
+            {
+              "id": "d",
+              "text": "ExportTime sin datos de la condición que coincidió"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un motivo trazable vincula fila, condición y decisión; facilita corrección y revisión humana.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w30d6-q03",
+          "prompt": "Dos filas comparten username pero tienen identificadores distintos. ¿Qué es más seguro?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Fusionarlas por nombre sin aviso"
+            },
+            {
+              "id": "b",
+              "text": "Detectar la colisión y mantener ambos identificadores para revisión"
+            },
+            {
+              "id": "c",
+              "text": "Descartar la que aparece después"
+            },
+            {
+              "id": "d",
+              "text": "Asignar ambas al primer propietario"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La clave debe corresponder a la identidad real; los nombres no siempre son únicos entre ámbitos.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview"
+        },
+        {
+          "id": "w30d6-q04",
+          "prompt": "¿Qué resultado demuestra que el script no cambió cuentas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una captura del escritorio solamente"
+            },
+            {
+              "id": "b",
+              "text": "Un nombre de archivo terminado en audit"
+            },
+            {
+              "id": "c",
+              "text": "Operaciones de lectura y exportación verificadas, con revisión del código y permisos"
+            },
+            {
+              "id": "d",
+              "text": "Que el informe tenga cero filas"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La evidencia debe corresponder a operaciones y privilegios; una etiqueta no prueba ausencia de cambios.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/best-practices"
+        },
+        {
+          "id": "w30d6-q05",
+          "prompt": "Una cuenta de servicio tiene LastLogon vacío. ¿Qué debe verificar el analista?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que nunca se utilizó en ningún sistema"
+            },
+            {
+              "id": "b",
+              "text": "Que su contraseña es inválida"
+            },
+            {
+              "id": "c",
+              "text": "Semántica y cobertura de la fuente antes de inferir inactividad"
+            },
+            {
+              "id": "d",
+              "text": "Que fue creada por un intruso"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un valor ausente puede depender de la fuente y del tipo de autenticación, no de falta absoluta de uso.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w30d6-q06",
+          "prompt": "¿Para qué conservar el hash del CSV de entrada con el informe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Demostrar que todos sus datos son verdaderos"
+            },
+            {
+              "id": "b",
+              "text": "Identificar exactamente el archivo analizado"
+            },
+            {
+              "id": "c",
+              "text": "Cifrar las cuentas del directorio"
+            },
+            {
+              "id": "d",
+              "text": "Reemplazar la revisión del propietario"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El hash ayuda a detectar cambios del archivo, sin verificar por sí solo exactitud o legitimidad del contenido.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash"
+        },
+        {
+          "id": "w30d6-q07",
+          "prompt": "El script marca 14 cuentas y un revisor descarta 3 por excepción vigente. ¿Qué conserva trazabilidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mantener hallazgo original y decisión documentada de excepción"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar el CSV original para que nunca aparezcan"
+            },
+            {
+              "id": "c",
+              "text": "Borrar todo el informe"
+            },
+            {
+              "id": "d",
+              "text": "Ocultar al revisor la regla aplicada"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Distinguir detección automática de decisión humana permite revisar excepciones y cambios posteriores.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w30d6-q08",
+          "prompt": "¿Cuál es una salida útil para una fila con fecha futura inesperada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambiar la fecha a hoy sin indicarlo"
+            },
+            {
+              "id": "b",
+              "text": "Estado de dato inconsistente y valor original conservado"
+            },
+            {
+              "id": "c",
+              "text": "Afirmar compromiso de cuenta"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar toda la columna temporal"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La validación debe exponer la anomalía del dato; corregir sin procedencia oculta problemas del origen.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/import-csv"
+        }
+      ],
+      "challenge": {
+        "id": "w30d6-challenge",
+        "prompt": "La auditoría marca una cuenta de respaldo sin dueño, con privilegios elevados y uso reciente. ¿Qué decisión es defendible?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Excluirla por tener actividad"
+          },
+          {
+            "id": "b",
+            "text": "Priorizar revisión de propietario y privilegios sin asumir que el uso reciente justifica acceso"
+          },
+          {
+            "id": "c",
+            "text": "Deshabilitarla sin comprobar el respaldo"
+          },
+          {
+            "id": "d",
+            "text": "Asignar como dueño al analista automáticamente"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La actividad no demuestra necesidad de cada permiso; la revisión debe considerar dependencia y responsabilidad.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      }
+    },
+    {
+      "dayId": "w30d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w30d7-q01",
+          "prompt": "¿Qué representa un grupo de seguridad de un directorio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un cifrado obligatorio del disco"
+            },
+            {
+              "id": "b",
+              "text": "Una colección de miembros utilizable para asignar permisos"
+            },
+            {
+              "id": "c",
+              "text": "Una sesión de red individual"
+            },
+            {
+              "id": "d",
+              "text": "Una copia completa del servidor"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los grupos simplifican asignación de derechos; deben revisarse sus miembros y usos.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview",
+          "reviewOf": "w30d1-q01"
+        },
+        {
+          "id": "w30d7-q02",
+          "prompt": "En federación, ¿quién autentica normalmente al usuario para emitir una aserción?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El proveedor de servicio sin usar la relación federada"
+            },
+            {
+              "id": "b",
+              "text": "El navegador como autoridad que firma sus propias aserciones"
+            },
+            {
+              "id": "c",
+              "text": "El proveedor de identidad"
+            },
+            {
+              "id": "d",
+              "text": "El servidor DNS como validador de la contraseña del usuario"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El proveedor de identidad autentica y emite datos que la aplicación acepta según una relación de confianza.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity-platform/single-sign-on-saml-protocol",
+          "reviewOf": "w30d2-q01"
+        },
+        {
+          "id": "w30d7-q03",
+          "prompt": "Una cuenta de respaldo solo necesita leer una carpeta. ¿Qué asignación sigue mínimo privilegio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Administrador global permanente"
+            },
+            {
+              "id": "b",
+              "text": "Lectura en esa carpeta con cuenta dedicada"
+            },
+            {
+              "id": "c",
+              "text": "Control total de todos los discos"
+            },
+            {
+              "id": "d",
+              "text": "Cuenta compartida del director general"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los privilegios deben corresponder a la tarea y al alcance requerido.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/best-practices",
+          "reviewOf": "w30d3-q01"
+        },
+        {
+          "id": "w30d7-q04",
+          "prompt": "¿Qué devuelve Import-Csv para columnas User y DaysInactive?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una cadena de texto única sin propiedades por columna"
+            },
+            {
+              "id": "b",
+              "text": "Objetos con propiedades User y DaysInactive"
+            },
+            {
+              "id": "c",
+              "text": "Cuentas nuevas creadas automáticamente en el directorio"
+            },
+            {
+              "id": "d",
+              "text": "Objetos que conservan obligatoriamente los tipos numéricos del CSV"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Cada fila se convierte en objeto con propiedades derivadas de cabeceras; no altera el directorio.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/import-csv",
+          "reviewOf": "w30d4-q01"
+        },
+        {
+          "id": "w30d7-q05",
+          "prompt": "El CSV carece de la columna Owner requerida. ¿Qué debe hacer la validación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Inventar un propietario a partir del nombre"
+            },
+            {
+              "id": "b",
+              "text": "Exportar propietario vacío como aprobado"
+            },
+            {
+              "id": "c",
+              "text": "Suponer que todas las cuentas son huérfanas confirmadas"
+            },
+            {
+              "id": "d",
+              "text": "Detener o marcar el lote con error explícito de esquema"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un dato ausente no demuestra una condición real; el script debe distinguir errores de entrada de hallazgos.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/import-csv",
+          "reviewOf": "w30d5-q01"
+        },
+        {
+          "id": "w30d7-q06",
+          "prompt": "El CSV dice Enabled=true y Owner vacío. ¿Qué conclusión prudente produce el auditor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cuenta de atacante confirmada"
+            },
+            {
+              "id": "b",
+              "text": "Cuenta deshabilitada por definición"
+            },
+            {
+              "id": "c",
+              "text": "Cuenta habilitada sin propietario registrado; requiere revisión"
+            },
+            {
+              "id": "d",
+              "text": "Servicio innecesario confirmado"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El informe refleja datos observados y prioridad de revisión sin inventar intención o dependencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w30d6-q01"
+        },
+        {
+          "id": "w30d7-q07",
+          "prompt": "Una empresa organiza usuarios por departamentos en unidades organizativas. ¿Qué NO se deduce solo de esa ubicación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que exista una estructura administrativa"
+            },
+            {
+              "id": "b",
+              "text": "Que puedan aplicarse políticas según diseño"
+            },
+            {
+              "id": "c",
+              "text": "Que los objetos estén organizados en el directorio"
+            },
+            {
+              "id": "d",
+              "text": "Que el usuario tenga permiso para leer los archivos del departamento"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Organización y permisos son conceptos distintos; la autorización depende de los controles aplicados.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview",
+          "reviewOf": "w30d1-q02"
+        },
+        {
+          "id": "w30d7-q08",
+          "prompt": "¿Qué papel cumple el proveedor de servicio en SAML?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Emite la contraseña del usuario para compartirla entre aplicaciones"
+            },
+            {
+              "id": "b",
+              "text": "Acepta cualquier aserción si llegó por HTTPS"
+            },
+            {
+              "id": "c",
+              "text": "Consume y valida la aserción para dar acceso a la aplicación"
+            },
+            {
+              "id": "d",
+              "text": "Autoriza por el nombre visible sin validar emisor ni firma"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El receptor debe validar la aserción y aplicar autorización; no basta recibir cualquier XML.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity-platform/single-sign-on-saml-protocol",
+          "reviewOf": "w30d2-q02"
+        },
+        {
+          "id": "w30d7-q09",
+          "prompt": "¿Qué señal justifica revisar una cuenta de servicio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No tiene propietario y conserva privilegios amplios"
+            },
+            {
+              "id": "b",
+              "text": "Tiene un nombre largo"
+            },
+            {
+              "id": "c",
+              "text": "Su descripción incluye el departamento"
+            },
+            {
+              "id": "d",
+              "text": "Fue inventariada ayer"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Falta de responsable y privilegios elevados impiden justificar y mantener correctamente el acceso.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w30d3-q02"
+        },
+        {
+          "id": "w30d7-q10",
+          "prompt": "En PowerShell, ¿qué referencia representa la fila actual dentro de Where-Object?",
+          "options": [
+            {
+              "id": "a",
+              "text": "$HOME"
+            },
+            {
+              "id": "b",
+              "text": "$_"
+            },
+            {
+              "id": "c",
+              "text": "$null exclusivamente"
+            },
+            {
+              "id": "d",
+              "text": "El nombre literal CSV"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "$_ representa el objeto actual del pipeline en ese bloque.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/where-object",
+          "reviewOf": "w30d4-q02"
+        },
+        {
+          "id": "w30d7-q11",
+          "prompt": "¿Cómo llevar un error no terminante de un cmdlet a catch cuando corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usar Format-Table antes de try"
+            },
+            {
+              "id": "b",
+              "text": "Usar -ErrorAction Stop dentro de try"
+            },
+            {
+              "id": "c",
+              "text": "Vaciar siempre $Error"
+            },
+            {
+              "id": "d",
+              "text": "Renombrar catch como log"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La detención permite gestionar el error en catch; ocultarlo no valida el resultado.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_try_catch_finally",
+          "reviewOf": "w30d5-q02"
+        },
+        {
+          "id": "w30d7-q12",
+          "prompt": "¿Qué columna explica por qué una cuenta aparece en el informe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "RuleMatched o motivo de revisión"
+            },
+            {
+              "id": "b",
+              "text": "LastLogon como único motivo universal de toda regla"
+            },
+            {
+              "id": "c",
+              "text": "DisplayName sin identificador ni condición aplicada"
+            },
+            {
+              "id": "d",
+              "text": "ExportTime sin datos de la condición que coincidió"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un motivo trazable vincula fila, condición y decisión; facilita corrección y revisión humana.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w30d6-q02"
+        },
+        {
+          "id": "w30d7-q13",
+          "prompt": "¿Qué identifica mejor una cuenta cuando cambia su nombre visible?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El nombre de pila del empleado"
+            },
+            {
+              "id": "b",
+              "text": "El título de su puesto"
+            },
+            {
+              "id": "c",
+              "text": "Su identificador estable en el directorio"
+            },
+            {
+              "id": "d",
+              "text": "Su extensión telefónica"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los nombres pueden cambiar o repetirse; los identificadores estables evitan mezclar identidades.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview",
+          "reviewOf": "w30d1-q03"
+        },
+        {
+          "id": "w30d7-q14",
+          "prompt": "¿Qué protocolo añade autenticación sobre OAuth 2.0?",
+          "options": [
+            {
+              "id": "a",
+              "text": "OpenID Connect"
+            },
+            {
+              "id": "b",
+              "text": "OAuth 2.0 sin capa de identidad como garantía universal de login"
+            },
+            {
+              "id": "c",
+              "text": "SAML interpretado únicamente como protocolo de transporte IP"
+            },
+            {
+              "id": "d",
+              "text": "LDAP tratado como formato de ID token de OAuth"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "OIDC permite autenticar mediante ID tokens; OAuth 2.0 por sí solo se orienta a autorización.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols-oidc",
+          "reviewOf": "w30d2-q03"
+        },
+        {
+          "id": "w30d7-q15",
+          "prompt": "¿Por qué separar la cuenta administrativa de la cuenta de correo diario?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Evita cualquier necesidad de MFA"
+            },
+            {
+              "id": "b",
+              "text": "Reduce exposición de credenciales privilegiadas durante tareas comunes"
+            },
+            {
+              "id": "c",
+              "text": "Duplica automáticamente todas las licencias"
+            },
+            {
+              "id": "d",
+              "text": "Permite omitir registros de administración"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La separación reduce uso rutinario de privilegios y facilita control de las operaciones elevadas.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/best-practices",
+          "reviewOf": "w30d3-q03"
+        },
+        {
+          "id": "w30d7-q16",
+          "prompt": "DaysInactive contiene texto del CSV. ¿Qué hace más explícita una comparación numérica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Validar y convertir el valor a número antes de compararlo"
+            },
+            {
+              "id": "b",
+              "text": "Ordenar siempre como texto"
+            },
+            {
+              "id": "c",
+              "text": "Añadir la palabra días al valor"
+            },
+            {
+              "id": "d",
+              "text": "Sustituir valores vacíos por 999 sin avisar"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los datos de CSV se importan como texto; validar tipos evita clasificaciones incorrectas.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/import-csv",
+          "reviewOf": "w30d4-q03"
+        },
+        {
+          "id": "w30d7-q17",
+          "prompt": "Una fila tiene DaysInactive='desconocido'. ¿Qué salida es adecuada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Clasificarla como cero días sin aviso"
+            },
+            {
+              "id": "b",
+              "text": "Clasificarla como 365 días sin aviso"
+            },
+            {
+              "id": "c",
+              "text": "Fila rechazada o pendiente con motivo de validación"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar la fila del origen silenciosamente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los estados desconocidos deben conservarse como tales para no fabricar conclusiones.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/import-csv",
+          "reviewOf": "w30d5-q03"
+        },
+        {
+          "id": "w30d7-q18",
+          "prompt": "Dos filas comparten username pero tienen identificadores distintos. ¿Qué es más seguro?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Fusionarlas por nombre sin aviso"
+            },
+            {
+              "id": "b",
+              "text": "Detectar la colisión y mantener ambos identificadores para revisión"
+            },
+            {
+              "id": "c",
+              "text": "Descartar la que aparece después"
+            },
+            {
+              "id": "d",
+              "text": "Asignar ambas al primer propietario"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La clave debe corresponder a la identidad real; los nombres no siempre son únicos entre ámbitos.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview",
+          "reviewOf": "w30d6-q03"
+        },
+        {
+          "id": "w30d7-q19",
+          "prompt": "¿Por qué registrar equipos además de usuarios en el directorio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cada objeto de equipo reemplaza automáticamente toda identidad de usuario"
+            },
+            {
+              "id": "b",
+              "text": "Registrar un equipo lo autoriza a cualquier recurso del dominio"
+            },
+            {
+              "id": "c",
+              "text": "Permite gestionar identidad y políticas de dispositivos"
+            },
+            {
+              "id": "d",
+              "text": "La pertenencia al directorio elimina necesidad de revisar su configuración"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El directorio puede representar y gestionar entidades de equipo, sin eliminar otras necesidades de seguridad.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview",
+          "reviewOf": "w30d1-q04"
+        },
+        {
+          "id": "w30d7-q20",
+          "prompt": "¿Qué estructura procesa cada fila de $rows una vez?",
+          "options": [
+            {
+              "id": "a",
+              "text": "if ($rows) sin iterar los elementos de la colección"
+            },
+            {
+              "id": "b",
+              "text": "Export-Csv como sustituto de la lógica por fila"
+            },
+            {
+              "id": "c",
+              "text": "foreach ($row in $rows) { ... }"
+            },
+            {
+              "id": "d",
+              "text": "Procesar siempre $rows[0] esperando cubrir todas las filas"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "foreach recorre los elementos de la colección; el bloque define la operación por elemento.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_foreach",
+          "reviewOf": "w30d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w30d7-challenge",
+        "prompt": "Defiendes un informe IAM de 120 filas con dos fechas inválidas. ¿Qué entrega evita inventar datos?",
+        "options": [
+          {
+            "id": "a",
+            "text": "120 aprobadas sustituyendo fechas inválidas por hoy"
+          },
+          {
+            "id": "b",
+            "text": "118 filas evaluadas, 2 pendientes, reglas, fuente y motivos de excepción"
+          },
+          {
+            "id": "c",
+            "text": "Solo las filas positivas sin total de entrada"
+          },
+          {
+            "id": "d",
+            "text": "Un porcentaje sin información sobre errores"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "Separar datos evaluados y rechazados permite valorar cobertura real y reproducir el resultado.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      }
+    }
+  ]
+}

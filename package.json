@@ -1,11 +1,12 @@
 {
   "name": "cybertrack",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "private": true,
   "type": "module",
   "description": "Aprendizaje personal de ciberseguridad con progreso local",
   "scripts": {
     "test": "node --test tests/*.test.mjs",
-    "validate": "python3 tools/validate-content.py"
+    "validate": "python3 tools/validate-content.py",
+    "build:assessments": "python3 tools/build-assessments.py"
   }
 }

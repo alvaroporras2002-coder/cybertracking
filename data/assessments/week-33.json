@@ -1,0 +1,2094 @@
+{
+  "week": 33,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w33d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w33d1-q01",
+          "prompt": "¿Qué proveedor necesita mayor evaluación inicial según riesgo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El de menor precio, sin considerar acceso ni datos"
+            },
+            {
+              "id": "b",
+              "text": "El de menor tamaño, independientemente del servicio"
+            },
+            {
+              "id": "c",
+              "text": "El que procesa datos sensibles y opera un servicio crítico"
+            },
+            {
+              "id": "d",
+              "text": "El que ofrece más funciones, aunque no tenga datos ni acceso crítico"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Criticidad, datos y acceso determinan exposición; el tamaño o presentación no bastan.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        },
+        {
+          "id": "w33d1-q02",
+          "prompt": "¿Qué pregunta evalúa capacidad de respuesta del proveedor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cómo notifica incidentes y conserva evidencia del servicio contratado"
+            },
+            {
+              "id": "b",
+              "text": "Si tiene antivirus, suponiendo que eso cubre toda respuesta"
+            },
+            {
+              "id": "c",
+              "text": "Si promete cero incidentes sin explicar coordinación"
+            },
+            {
+              "id": "d",
+              "text": "Si borra logs rápidamente para reducir almacenamiento"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las capacidades deben corresponder al servicio, alcance y coordinación necesarios.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        },
+        {
+          "id": "w33d1-q03",
+          "prompt": "Un proveedor presenta una certificación. ¿Qué verificas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo que el certificado incluya un nombre reconocido"
+            },
+            {
+              "id": "b",
+              "text": "Vigencia, alcance y pertinencia para el servicio adquirido"
+            },
+            {
+              "id": "c",
+              "text": "Suponer que cubre cualquier servicio de la misma empresa"
+            },
+            {
+              "id": "d",
+              "text": "Suponer que evita toda evaluación posterior durante la relación"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una certificación tiene límites y no garantiza que todo servicio o período esté cubierto.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        },
+        {
+          "id": "w33d1-q04",
+          "prompt": "¿Qué es riesgo de concentración de proveedores?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo tener varias cuentas de usuario en el proveedor"
+            },
+            {
+              "id": "b",
+              "text": "Que dos contratos compartan idioma"
+            },
+            {
+              "id": "c",
+              "text": "Dependencia excesiva de un mismo proveedor o componente común"
+            },
+            {
+              "id": "d",
+              "text": "Tener proveedores distintos sin ninguna dependencia compartida"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un fallo compartido puede afectar varios servicios aparentemente separados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        },
+        {
+          "id": "w33d1-q05",
+          "prompt": "¿Por qué revisar subproveedores relevantes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Nunca participan en el riesgo contratado"
+            },
+            {
+              "id": "b",
+              "text": "Pueden procesar datos o sostener funciones críticas indirectamente"
+            },
+            {
+              "id": "c",
+              "text": "Siempre están totalmente fuera de alcance"
+            },
+            {
+              "id": "d",
+              "text": "Eliminan responsabilidad del proveedor principal"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La cadena de suministro incluye dependencias que deben conocerse y gestionarse según el riesgo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        },
+        {
+          "id": "w33d1-q06",
+          "prompt": "¿Qué añade la supervisión continua a la evaluación inicial?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantiza que jamás cambie el proveedor"
+            },
+            {
+              "id": "b",
+              "text": "Reemplaza todo contrato"
+            },
+            {
+              "id": "c",
+              "text": "Evita revisar accesos externos"
+            },
+            {
+              "id": "d",
+              "text": "Detecta cambios de servicio, incidentes y degradación de controles"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La exposición cambia durante la relación; evaluar una vez no cubre el ciclo de vida.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        },
+        {
+          "id": "w33d1-q07",
+          "prompt": "¿Qué dato necesitas antes de aprobar acceso técnico externo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el correo comercial del proveedor"
+            },
+            {
+              "id": "b",
+              "text": "El nombre de todos sus clientes"
+            },
+            {
+              "id": "c",
+              "text": "Su margen de beneficio"
+            },
+            {
+              "id": "d",
+              "text": "Tarea, sistemas, privilegios, duración y responsable"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La autorización debe limitar alcance y tiempo a la necesidad y permitir seguimiento.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w33d1-q08",
+          "prompt": "¿Qué aporta un plan de salida del proveedor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantía de que nunca habrá interrupción"
+            },
+            {
+              "id": "b",
+              "text": "Opciones para recuperar datos, revocar accesos y mantener continuidad"
+            },
+            {
+              "id": "c",
+              "text": "Permiso ilimitado para retener datos"
+            },
+            {
+              "id": "d",
+              "text": "Eliminación de la necesidad de copias"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La dependencia debe contemplar terminación y transición del servicio.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w33d1-challenge",
+        "prompt": "Dos servicios usan nubes distintas, pero dependen del mismo proveedor de identidad. ¿Qué riesgo debes registrar?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Redundancia totalmente independiente garantizada"
+          },
+          {
+            "id": "b",
+            "text": "Ausencia de riesgo por tener dos contratos"
+          },
+          {
+            "id": "c",
+            "text": "Dependencia común que puede afectar ambos servicios"
+          },
+          {
+            "id": "d",
+            "text": "Necesidad de compartir contraseñas entre nubes"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La diversidad aparente no elimina fallos concentrados en dependencias compartidas.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+      }
+    },
+    {
+      "dayId": "w33d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w33d2-q01",
+          "prompt": "¿Qué suele definir un SLA?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La propiedad automática de todos los datos del cliente"
+            },
+            {
+              "id": "b",
+              "text": "El código fuente de cualquier aplicación contratada"
+            },
+            {
+              "id": "c",
+              "text": "Niveles de servicio y métricas acordadas"
+            },
+            {
+              "id": "d",
+              "text": "Una obligación de disponibilidad idéntica para todo servicio"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Disponibilidad, tiempos y medición deben estar definidos dentro del acuerdo concreto.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        },
+        {
+          "id": "w33d2-q02",
+          "prompt": "¿Para qué sirve un acuerdo de confidencialidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantizar por sí solo cifrado de todos los equipos"
+            },
+            {
+              "id": "b",
+              "text": "Establecer obligaciones sobre uso y divulgación de información"
+            },
+            {
+              "id": "c",
+              "text": "Definir siempre recuperación en quince minutos"
+            },
+            {
+              "id": "d",
+              "text": "Evitar toda necesidad de controles técnicos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una obligación contractual debe acompañarse de prácticas y controles adecuados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        },
+        {
+          "id": "w33d2-q03",
+          "prompt": "¿Qué acuerdo ayuda a delimitar responsabilidades de tratamiento de datos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un SLA que solo mide tiempo de respuesta del portal"
+            },
+            {
+              "id": "b",
+              "text": "Una orden de compra que solo identifica precio y licencias"
+            },
+            {
+              "id": "c",
+              "text": "Condiciones que describen datos, finalidad, funciones y obligaciones aplicables"
+            },
+            {
+              "id": "d",
+              "text": "Un acuerdo de confidencialidad sin finalidad ni reparto de funciones"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las responsabilidades deben quedar explícitas para el servicio y contexto, sin presumir una ley concreta.",
+          "reference": "https://www.nist.gov/privacy-framework"
+        },
+        {
+          "id": "w33d2-q04",
+          "prompt": "¿Por qué definir cómo se mide disponibilidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque todo SLA usa idéntica fórmula"
+            },
+            {
+              "id": "b",
+              "text": "Para evitar diferencias sobre ventana, exclusiones y fuente del cálculo"
+            },
+            {
+              "id": "c",
+              "text": "Porque una captura mensual siempre basta"
+            },
+            {
+              "id": "d",
+              "text": "Para sustituir pruebas de recuperación"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una métrica solo es verificable si sus condiciones y datos están acordados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        },
+        {
+          "id": "w33d2-q05",
+          "prompt": "¿Qué cláusula facilita investigar incidentes del servicio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Acceso a evidencia y cooperación con plazos y responsabilidades definidos"
+            },
+            {
+              "id": "b",
+              "text": "Una cláusula de disponibilidad sin acceso a registros"
+            },
+            {
+              "id": "c",
+              "text": "Una exclusión general de toda cooperación técnica"
+            },
+            {
+              "id": "d",
+              "text": "Un compromiso de borrar todos los logs inmediatamente tras una alerta"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La coordinación depende de compromisos concretos sobre información y apoyo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        },
+        {
+          "id": "w33d2-q06",
+          "prompt": "¿Qué diferencia hay entre RTO y un porcentaje mensual de disponibilidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "RTO y disponibilidad siempre expresan exactamente la misma condición"
+            },
+            {
+              "id": "b",
+              "text": "RTO mide pérdida máxima de datos, sin tiempo de restablecimiento"
+            },
+            {
+              "id": "c",
+              "text": "RTO fija objetivo de recuperación; disponibilidad mide servicio durante un período"
+            },
+            {
+              "id": "d",
+              "text": "El porcentaje de disponibilidad determina por sí solo cómo restaurar copias"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las métricas atienden requisitos diferentes y deben interpretarse con sus definiciones.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w33d2-q07",
+          "prompt": "Un contrato no dice qué ocurre con los datos al finalizar. ¿Qué falta acordar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo renovar el acuerdo de confidencialidad sin condiciones de salida"
+            },
+            {
+              "id": "b",
+              "text": "Devolución, formato, plazos, retención y eliminación verificable"
+            },
+            {
+              "id": "c",
+              "text": "Solo cambiar la cuenta de facturación del servicio"
+            },
+            {
+              "id": "d",
+              "text": "Solo acordar disponibilidad, ignorando devolución y eliminación"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La salida debe preservar acceso a datos y limitar conservación según obligaciones y necesidades.",
+          "reference": "https://www.nist.gov/privacy-framework"
+        },
+        {
+          "id": "w33d2-q08",
+          "prompt": "¿Un SLA con compensación económica demuestra continuidad suficiente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí; el pago restaura automáticamente el servicio"
+            },
+            {
+              "id": "b",
+              "text": "No; hay que evaluar recuperación, dependencias e impacto real"
+            },
+            {
+              "id": "c",
+              "text": "Sí; toda pérdida queda cubierta sin límites"
+            },
+            {
+              "id": "d",
+              "text": "No; porque los SLA nunca tienen utilidad"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las compensaciones y capacidades operativas son cosas distintas; el servicio necesita requisitos apropiados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w33d2-challenge",
+        "prompt": "Un SLA promete 99,9 % pero no define período ni exclusiones. ¿Qué solicitas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo una cifra con más decimales"
+          },
+          {
+            "id": "b",
+            "text": "Fórmula, ventana, fuente de medición y tratamiento de interrupciones"
+          },
+          {
+            "id": "c",
+            "text": "Que cambien el nombre del contrato"
+          },
+          {
+            "id": "d",
+            "text": "Que borren los incidentes de la medición sin criterio"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La disponibilidad debe ser medible bajo términos acordados.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+      }
+    },
+    {
+      "dayId": "w33d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w33d3-q01",
+          "prompt": "¿Qué debe mostrar un flujo de datos personales?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el diagrama de red sin tipos ni finalidades de datos"
+            },
+            {
+              "id": "b",
+              "text": "Origen, finalidad, destinatarios, almacenamiento y eliminación"
+            },
+            {
+              "id": "c",
+              "text": "Solo una lista de usuarios autorizados sin destinatarios externos"
+            },
+            {
+              "id": "d",
+              "text": "Solo el inventario de servidores sin acciones de tratamiento"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El mapa permite evaluar qué se trata, por qué y quién interviene en el ciclo de vida.",
+          "reference": "https://www.nist.gov/privacy-framework"
+        },
+        {
+          "id": "w33d3-q02",
+          "prompt": "¿Qué aplica minimización de datos en un formulario?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Pedir solo datos necesarios para la finalidad definida"
+            },
+            {
+              "id": "b",
+              "text": "Recoger todo por si fuera útil"
+            },
+            {
+              "id": "c",
+              "text": "Copiar credenciales de otros servicios"
+            },
+            {
+              "id": "d",
+              "text": "Mantener campos ocultos sin finalidad"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La necesidad de cada dato debe justificarse respecto al tratamiento previsto.",
+          "reference": "https://www.nist.gov/privacy-framework"
+        },
+        {
+          "id": "w33d3-q03",
+          "prompt": "¿Qué determina un plazo de retención defendible?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Capacidad ilimitada del disco"
+            },
+            {
+              "id": "b",
+              "text": "Preferencia por guardar todo siempre"
+            },
+            {
+              "id": "c",
+              "text": "Finalidad, obligaciones aplicables y criterios documentados"
+            },
+            {
+              "id": "d",
+              "text": "Fecha de compra de la licencia únicamente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Retener o eliminar exige considerar necesidades y obligaciones reales, sin inventar un plazo universal.",
+          "reference": "https://www.nist.gov/privacy-framework"
+        },
+        {
+          "id": "w33d3-q04",
+          "prompt": "¿Qué riesgo queda si se eliminan nombres pero persisten identificadores combinables?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Posibilidad de reidentificación por vinculación"
+            },
+            {
+              "id": "b",
+              "text": "Anonimización irreversible garantizada por quitar nombres"
+            },
+            {
+              "id": "c",
+              "text": "Imposibilidad de asociación aunque haya datos externos combinables"
+            },
+            {
+              "id": "d",
+              "text": "Eliminación automática de datos en todas las réplicas"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Quitar identificadores directos no asegura anonimato cuando otros datos permiten vincular personas.",
+          "reference": "https://www.nist.gov/privacy-framework"
+        },
+        {
+          "id": "w33d3-q05",
+          "prompt": "¿Quién debe autorizar un nuevo uso de datos fuera de la finalidad registrada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cualquier desarrollador con acceso de lectura"
+            },
+            {
+              "id": "b",
+              "text": "Un usuario elegido al azar"
+            },
+            {
+              "id": "c",
+              "text": "El proceso y responsables de gobierno de datos correspondientes"
+            },
+            {
+              "id": "d",
+              "text": "El fabricante del navegador"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un cambio de uso requiere evaluar legitimidad, riesgos y responsabilidades antes de ejecutarlo.",
+          "reference": "https://www.nist.gov/privacy-framework"
+        },
+        {
+          "id": "w33d3-q06",
+          "prompt": "¿Qué error implica borrar datos del sistema principal ignorando réplicas y exportaciones?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Los datos desaparecen de todo lugar por definición"
+            },
+            {
+              "id": "b",
+              "text": "Las copias nunca forman parte del tratamiento"
+            },
+            {
+              "id": "c",
+              "text": "La eliminación puede quedar incompleta"
+            },
+            {
+              "id": "d",
+              "text": "La retención deja de necesitar reglas"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El ciclo de vida debe contemplar ubicaciones y copias, con requisitos y excepciones documentados.",
+          "reference": "https://www.nist.gov/privacy-framework"
+        },
+        {
+          "id": "w33d3-q07",
+          "prompt": "¿Qué información conecta una aplicación con responsables de privacidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el inventario de hosts sin actividades de tratamiento"
+            },
+            {
+              "id": "b",
+              "text": "Inventario de datos, propósitos y actores que los tratan"
+            },
+            {
+              "id": "c",
+              "text": "Solo el consumo de CPU de la aplicación"
+            },
+            {
+              "id": "d",
+              "text": "Solo las direcciones IP sin finalidad ni actores"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La responsabilidad depende de actividades y funciones sobre los datos, no solo infraestructura.",
+          "reference": "https://www.nist.gov/privacy-framework"
+        },
+        {
+          "id": "w33d3-q08",
+          "prompt": "¿Cuál es una pregunta de riesgo de privacidad además de acceso no autorizado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo si el antivirus detectó un archivo malicioso"
+            },
+            {
+              "id": "b",
+              "text": "Solo si el servidor permite conexiones por 443"
+            },
+            {
+              "id": "c",
+              "text": "Si el uso autorizado puede causar daño o tratar datos innecesariamente"
+            },
+            {
+              "id": "d",
+              "text": "Solo si existe una contraseña débil"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La privacidad también analiza efectos del tratamiento autorizado sobre personas.",
+          "reference": "https://www.nist.gov/privacy-framework"
+        }
+      ],
+      "challenge": {
+        "id": "w33d3-challenge",
+        "prompt": "Un formulario de entrega pide fecha de nacimiento sin uso declarado. ¿Qué revisión corresponde?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Justificar necesidad o retirar el dato, evaluando finalidad y riesgos"
+          },
+          {
+            "id": "b",
+            "text": "Guardarla indefinidamente por si sirve"
+          },
+          {
+            "id": "c",
+            "text": "Publicarla como metadato técnico"
+          },
+          {
+            "id": "d",
+            "text": "Pedir además documento de identidad automáticamente"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La minimización exige relación entre dato y finalidad, incluso si el acceso está protegido.",
+        "reference": "https://www.nist.gov/privacy-framework"
+      }
+    },
+    {
+      "dayId": "w33d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w33d4-q01",
+          "prompt": "¿Qué define el alcance de una auditoría?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sistemas, controles, período y criterios evaluados"
+            },
+            {
+              "id": "b",
+              "text": "Solo el resultado deseado antes de revisar evidencia"
+            },
+            {
+              "id": "c",
+              "text": "Todos los controles de la empresa sin período ni límites"
+            },
+            {
+              "id": "d",
+              "text": "Solo el nombre del auditor sin sistemas ni criterios"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Sin alcance no puede interpretarse qué cubre ni qué excluye una conclusión.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w33d4-q02",
+          "prompt": "¿Qué evidencia apoya que se revisaron accesos el trimestre anterior?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La política que exige revisarlos solamente"
+            },
+            {
+              "id": "b",
+              "text": "Una promesa del responsable sin detalle"
+            },
+            {
+              "id": "c",
+              "text": "Captura de un grupo tomada hoy únicamente"
+            },
+            {
+              "id": "d",
+              "text": "Registro fechado de revisión con decisiones y correcciones"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La política establece requisito; la evidencia debe demostrar ejecución durante el período pertinente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w33d4-q03",
+          "prompt": "¿Qué distingue un hallazgo de una opinión genérica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una opinión sin criterio ni evidencia del período"
+            },
+            {
+              "id": "b",
+              "text": "Una recomendación comercial sin relación con el alcance"
+            },
+            {
+              "id": "c",
+              "text": "Criterio, condición observada y evidencia suficiente"
+            },
+            {
+              "id": "d",
+              "text": "Una impresión del auditor que no describe condición observada"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El hallazgo compara lo requerido con lo observado y permite verificar la diferencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w33d4-q04",
+          "prompt": "Una muestra de tres cuentas no tiene errores. ¿Qué conclusión es prudente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No se hallaron errores en esa muestra, con límites de representatividad"
+            },
+            {
+              "id": "b",
+              "text": "Todas las cuentas de todos los años cumplen"
+            },
+            {
+              "id": "c",
+              "text": "No hará falta auditar de nuevo"
+            },
+            {
+              "id": "d",
+              "text": "El control es infalible"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La evidencia de muestra se interpreta dentro de su método, población y período.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w33d4-q05",
+          "prompt": "¿Qué debe incluir el seguimiento de un hallazgo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el estado verde"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar el hallazgo al asignarlo"
+            },
+            {
+              "id": "c",
+              "text": "Responsable, acción, plazo y evidencia de cierre"
+            },
+            {
+              "id": "d",
+              "text": "Repetir el texto sin dueño"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La corrección debe verificarse; asignar una tarea no demuestra que el control ya funcione.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w33d4-q06",
+          "prompt": "¿Por qué separar a quien ejecuta un control de quien lo evalúa cuando corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Reducir conflictos de interés y mejorar objetividad"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar todo conocimiento técnico"
+            },
+            {
+              "id": "c",
+              "text": "Evitar recopilar evidencia"
+            },
+            {
+              "id": "d",
+              "text": "Garantizar hallazgos negativos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La independencia apropiada fortalece la evaluación, sin sustituir competencia ni método.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w33d4-q07",
+          "prompt": "¿Una captura con MFA activado hoy prueba que estuvo activo todo el año?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí; las configuraciones nunca cambian"
+            },
+            {
+              "id": "b",
+              "text": "No; requiere evidencia temporal pertinente"
+            },
+            {
+              "id": "c",
+              "text": "Sí; la captura revela toda historia"
+            },
+            {
+              "id": "d",
+              "text": "No; porque ninguna captura sirve como evidencia"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una evidencia puntual puede demostrar un estado, pero no automáticamente continuidad durante otro período.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w33d4-q08",
+          "prompt": "¿Qué hacer con evidencia que contiene datos personales innecesarios para el auditor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Publicarla íntegra en el informe general"
+            },
+            {
+              "id": "b",
+              "text": "Alterar el único original sin registrar"
+            },
+            {
+              "id": "c",
+              "text": "Minimizar exposición manteniendo trazabilidad y acceso controlado"
+            },
+            {
+              "id": "d",
+              "text": "Ignorar la confidencialidad por ser auditoría"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El manejo de evidencia debe proteger datos y conservar capacidad de verificar el hallazgo.",
+          "reference": "https://www.nist.gov/privacy-framework"
+        }
+      ],
+      "challenge": {
+        "id": "w33d4-challenge",
+        "prompt": "La auditoría pide evidencia de revisión trimestral y recibe una política vigente. ¿Qué concluyes?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La política no demuestra que se ejecutó la revisión del trimestre"
+          },
+          {
+            "id": "b",
+            "text": "El requisito está probado por existir el documento"
+          },
+          {
+            "id": "c",
+            "text": "No hace falta mirar fechas"
+          },
+          {
+            "id": "d",
+            "text": "Toda la organización incumple cualquier control"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "Hay que buscar evidencia de ejecución dentro del alcance y período antes de formular una conclusión.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      }
+    },
+    {
+      "dayId": "w33d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w33d5-q01",
+          "prompt": "¿Qué métrica evalúa mejor un canal de reporte de phishing?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tiempo hasta reporte y calidad de información útil recibida"
+            },
+            {
+              "id": "b",
+              "text": "Solo el porcentaje de correos abiertos durante la campaña"
+            },
+            {
+              "id": "c",
+              "text": "Solo el número de usuarios que terminaron un vídeo"
+            },
+            {
+              "id": "d",
+              "text": "Solo el total de avisos, sin calidad ni tiempos de reporte"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las métricas deben reflejar conductas y capacidad operativa, no solo actividad educativa.",
+          "reference": "https://www.cisa.gov/secure-our-world/recognize-and-report-phishing"
+        },
+        {
+          "id": "w33d5-q02",
+          "prompt": "¿Qué actividad permite practicar sin engañar a terceros?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Enviar facturas falsas a clientes reales sin autorización"
+            },
+            {
+              "id": "b",
+              "text": "Pedir contraseñas reales para medir respuesta"
+            },
+            {
+              "id": "c",
+              "text": "Analizar mensajes sintéticos en un taller autorizado"
+            },
+            {
+              "id": "d",
+              "text": "Suplantar un banco a destinatarios externos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El ejercicio debe tener alcance y autorización, con datos educativos y objetivo formativo.",
+          "reference": "https://www.cisa.gov/secure-our-world/recognize-and-report-phishing"
+        },
+        {
+          "id": "w33d5-q03",
+          "prompt": "¿Cómo enseñar ante un mensaje urgente que pide cambiar una cuenta bancaria?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Responder al mismo mensaje con datos bancarios"
+            },
+            {
+              "id": "b",
+              "text": "Verificar por un canal conocido independiente antes de actuar"
+            },
+            {
+              "id": "c",
+              "text": "Confiar si el logo parece correcto"
+            },
+            {
+              "id": "d",
+              "text": "Abrir el enlace para confirmar primero"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las solicitudes financieras necesitan validación contextual y un contacto obtenido por vía fiable.",
+          "reference": "https://www.cisa.gov/secure-our-world/recognize-and-report-phishing"
+        },
+        {
+          "id": "w33d5-q04",
+          "prompt": "¿Por qué una baja tasa de clics no demuestra por sí sola seguridad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque todos los clics siempre ejecutan malware"
+            },
+            {
+              "id": "b",
+              "text": "Puede depender del diseño, población y reporte, y no mide todas las amenazas"
+            },
+            {
+              "id": "c",
+              "text": "Porque nunca se puede medir formación"
+            },
+            {
+              "id": "d",
+              "text": "Porque toda simulación carece de propósito"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una métrica aislada no resume exposición ni capacidad de detección y respuesta.",
+          "reference": "https://www.cisa.gov/secure-our-world/recognize-and-report-phishing"
+        },
+        {
+          "id": "w33d5-q05",
+          "prompt": "¿Qué respuesta favorece que usuarios comuniquen errores pronto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Castigar públicamente cada duda"
+            },
+            {
+              "id": "b",
+              "text": "Exigir certeza técnica antes de reportar"
+            },
+            {
+              "id": "c",
+              "text": "Ocultar el canal fuera del horario laboral"
+            },
+            {
+              "id": "d",
+              "text": "Canal claro y tratamiento orientado a aprendizaje y respuesta"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El reporte temprano permite limitar consecuencias; los usuarios necesitan saber cómo actuar.",
+          "reference": "https://www.cisa.gov/secure-our-world/recognize-and-report-phishing"
+        },
+        {
+          "id": "w33d5-q06",
+          "prompt": "¿Qué debe incluir material educativo accesible sobre phishing?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo definiciones técnicas sin pasos de verificación"
+            },
+            {
+              "id": "b",
+              "text": "Un listado de correos legítimos para memorizar remitentes"
+            },
+            {
+              "id": "c",
+              "text": "Señales, verificación y pasos concretos de reporte"
+            },
+            {
+              "id": "d",
+              "text": "Una promesa de detectar cualquier engaño por errores ortográficos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La formación debe convertir comprensión en acciones aplicables al entorno.",
+          "reference": "https://www.cisa.gov/secure-our-world/recognize-and-report-phishing"
+        },
+        {
+          "id": "w33d5-q07",
+          "prompt": "¿Cómo evaluar mejora tras un taller?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Repetir exactamente respuestas memorizadas únicamente"
+            },
+            {
+              "id": "b",
+              "text": "Comparar tareas equivalentes y calidad de decisiones con límites definidos"
+            },
+            {
+              "id": "c",
+              "text": "Contar asistentes y declarar riesgo cero"
+            },
+            {
+              "id": "d",
+              "text": "Medir velocidad de conexión Wi-Fi"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las tareas nuevas comparables muestran transferencia mejor que asistencia o recuerdo literal.",
+          "reference": "https://www.cisa.gov/secure-our-world/recognize-and-report-phishing"
+        },
+        {
+          "id": "w33d5-q08",
+          "prompt": "Un empleado reporta un correo legítimo sospechoso. ¿Cómo se usa el caso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Bloquearle el canal de reporte"
+            },
+            {
+              "id": "b",
+              "text": "Tratar todo reporte como incidente confirmado"
+            },
+            {
+              "id": "c",
+              "text": "Explicar por qué era legítimo y reforzar verificación sin penalizar la duda"
+            },
+            {
+              "id": "d",
+              "text": "Ignorarlo sin respuesta siempre"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La retroalimentación mejora criterio y mantiene útil el canal de detección humana.",
+          "reference": "https://www.cisa.gov/secure-our-world/recognize-and-report-phishing"
+        }
+      ],
+      "challenge": {
+        "id": "w33d5-challenge",
+        "prompt": "Quieres enseñar a verificar cambios bancarios sin mensajes a clientes reales. ¿Qué diseño eliges?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Campaña externa sin autorización"
+          },
+          {
+            "id": "b",
+            "text": "Cobrar una factura de prueba a un cliente real"
+          },
+          {
+            "id": "c",
+            "text": "Solicitar claves bancarias para evaluar reacción"
+          },
+          {
+            "id": "d",
+            "text": "Caso sintético con contacto conocido, decisiones y retroalimentación"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "El aprendizaje puede evaluarse con escenarios controlados y acciones pertinentes.",
+        "reference": "https://www.cisa.gov/secure-our-world/recognize-and-report-phishing"
+      }
+    },
+    {
+      "dayId": "w33d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w33d6-q01",
+          "prompt": "Un SaaS almacenará expedientes sensibles. ¿Qué debe preceder a la compra?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aprobar por el descuento únicamente"
+            },
+            {
+              "id": "b",
+              "text": "Evaluar datos, acceso, controles, dependencias y condiciones de salida"
+            },
+            {
+              "id": "c",
+              "text": "Enviar todos los expedientes para una demo pública"
+            },
+            {
+              "id": "d",
+              "text": "Suponer cumplimiento por usar HTTPS"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La evaluación debe corresponder al tratamiento y criticidad reales del servicio.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        },
+        {
+          "id": "w33d6-q02",
+          "prompt": "El proveedor no ofrece exportación de datos. ¿Qué riesgo merece atención?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Pérdida automática de cifrado de red"
+            },
+            {
+              "id": "b",
+              "text": "Imposibilidad de crear usuarios"
+            },
+            {
+              "id": "c",
+              "text": "Dependencia y dificultad de salida o migración"
+            },
+            {
+              "id": "d",
+              "text": "Fallo obligatorio del correo"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La portabilidad y salida afectan continuidad y control de datos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        },
+        {
+          "id": "w33d6-q03",
+          "prompt": "¿Qué condición de aceptación mejora un acceso de soporte del proveedor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cuenta compartida permanente con privilegios globales"
+            },
+            {
+              "id": "b",
+              "text": "Permitir acceso sin ticket ni responsable"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar logs de soporte al finalizar cada sesión"
+            },
+            {
+              "id": "d",
+              "text": "Acceso acotado, temporal, autenticado y registrado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El acceso externo debe ser necesario y verificable, con responsabilidades claras.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w33d6-q04",
+          "prompt": "Un informe de auditoría del proveedor excluye el centro donde estará tu servicio. ¿Qué implica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Demuestra cobertura completa de todos sus centros"
+            },
+            {
+              "id": "b",
+              "text": "El servicio queda libre de riesgos"
+            },
+            {
+              "id": "c",
+              "text": "No basta para asegurar controles de ese alojamiento"
+            },
+            {
+              "id": "d",
+              "text": "Debes copiar el informe a tus clientes íntegro"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El alcance de la evidencia debe coincidir con el servicio, ubicación y período evaluados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        },
+        {
+          "id": "w33d6-q05",
+          "prompt": "¿Qué exige aceptar un riesgo de proveedor temporalmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una promesa verbal sin plazo"
+            },
+            {
+              "id": "b",
+              "text": "Que el equipo de ventas lo prefiera"
+            },
+            {
+              "id": "c",
+              "text": "Una etiqueta verde automática"
+            },
+            {
+              "id": "d",
+              "text": "Autoridad, justificación, controles compensatorios y revisión prevista"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La aceptación debe vincularse a condiciones verificables y exposición residual.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        },
+        {
+          "id": "w33d6-q06",
+          "prompt": "Un contrato exige aviso de incidentes, pero no define destinatario ni plazo. ¿Qué problema hay?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El aviso es automáticamente inmediato y universal"
+            },
+            {
+              "id": "b",
+              "text": "La obligación puede ser difícil de ejecutar y medir"
+            },
+            {
+              "id": "c",
+              "text": "El contrato garantiza investigación completa"
+            },
+            {
+              "id": "d",
+              "text": "No es necesario coordinar al SOC"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los compromisos operativos necesitan condiciones claras para ser comprobables.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        },
+        {
+          "id": "w33d6-q07",
+          "prompt": "¿Qué validación evita confundir cumplimiento y seguridad del servicio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Concluir que un certificado elimina toda amenaza"
+            },
+            {
+              "id": "b",
+              "text": "Ignorar controles si hay contrato firmado"
+            },
+            {
+              "id": "c",
+              "text": "Evaluar solo la apariencia del portal"
+            },
+            {
+              "id": "d",
+              "text": "Comprobar obligaciones, controles y evidencia además de riesgos fuera del alcance auditado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Cumplir criterios acotados no demuestra ausencia de todos los escenarios de riesgo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        },
+        {
+          "id": "w33d6-q08",
+          "prompt": "¿Qué debe figurar en la recomendación final de compra?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la nota comercial del proveedor"
+            },
+            {
+              "id": "b",
+              "text": "Condiciones, riesgos pendientes, responsables y motivos de la decisión"
+            },
+            {
+              "id": "c",
+              "text": "Una garantía absoluta sin evidencia"
+            },
+            {
+              "id": "d",
+              "text": "Contraseñas de evaluación en texto abierto"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La decisión debe ser revisable y reflejar tanto lo aceptado como lo que falta resolver.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w33d6-challenge",
+        "prompt": "Un SaaS crítico aporta buen cifrado, pero no recuperación ni salida demostradas. ¿Qué recomiendas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Aprobar porque cifrado cubre toda la seguridad"
+          },
+          {
+            "id": "b",
+            "text": "Condicionar aprobación a resolver continuidad y portabilidad según impacto"
+          },
+          {
+            "id": "c",
+            "text": "Rechazar sin evaluar el uso ni alternativas"
+          },
+          {
+            "id": "d",
+            "text": "Declarar incumplimiento legal universal"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La evaluación integra más de un control y debe basarse en requisitos del servicio.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+      }
+    },
+    {
+      "dayId": "w33d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w33d7-q01",
+          "prompt": "¿Qué proveedor necesita mayor evaluación inicial según riesgo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El de menor precio, sin considerar acceso ni datos"
+            },
+            {
+              "id": "b",
+              "text": "El de menor tamaño, independientemente del servicio"
+            },
+            {
+              "id": "c",
+              "text": "El que procesa datos sensibles y opera un servicio crítico"
+            },
+            {
+              "id": "d",
+              "text": "El que ofrece más funciones, aunque no tenga datos ni acceso crítico"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Criticidad, datos y acceso determinan exposición; el tamaño o presentación no bastan.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final",
+          "reviewOf": "w33d1-q01"
+        },
+        {
+          "id": "w33d7-q02",
+          "prompt": "¿Qué suele definir un SLA?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La propiedad automática de todos los datos del cliente"
+            },
+            {
+              "id": "b",
+              "text": "El código fuente de cualquier aplicación contratada"
+            },
+            {
+              "id": "c",
+              "text": "Niveles de servicio y métricas acordadas"
+            },
+            {
+              "id": "d",
+              "text": "Una obligación de disponibilidad idéntica para todo servicio"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Disponibilidad, tiempos y medición deben estar definidos dentro del acuerdo concreto.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final",
+          "reviewOf": "w33d2-q01"
+        },
+        {
+          "id": "w33d7-q03",
+          "prompt": "¿Qué debe mostrar un flujo de datos personales?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el diagrama de red sin tipos ni finalidades de datos"
+            },
+            {
+              "id": "b",
+              "text": "Origen, finalidad, destinatarios, almacenamiento y eliminación"
+            },
+            {
+              "id": "c",
+              "text": "Solo una lista de usuarios autorizados sin destinatarios externos"
+            },
+            {
+              "id": "d",
+              "text": "Solo el inventario de servidores sin acciones de tratamiento"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El mapa permite evaluar qué se trata, por qué y quién interviene en el ciclo de vida.",
+          "reference": "https://www.nist.gov/privacy-framework",
+          "reviewOf": "w33d3-q01"
+        },
+        {
+          "id": "w33d7-q04",
+          "prompt": "¿Qué define el alcance de una auditoría?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sistemas, controles, período y criterios evaluados"
+            },
+            {
+              "id": "b",
+              "text": "Solo el resultado deseado antes de revisar evidencia"
+            },
+            {
+              "id": "c",
+              "text": "Todos los controles de la empresa sin período ni límites"
+            },
+            {
+              "id": "d",
+              "text": "Solo el nombre del auditor sin sistemas ni criterios"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Sin alcance no puede interpretarse qué cubre ni qué excluye una conclusión.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w33d4-q01"
+        },
+        {
+          "id": "w33d7-q05",
+          "prompt": "¿Qué métrica evalúa mejor un canal de reporte de phishing?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tiempo hasta reporte y calidad de información útil recibida"
+            },
+            {
+              "id": "b",
+              "text": "Solo el porcentaje de correos abiertos durante la campaña"
+            },
+            {
+              "id": "c",
+              "text": "Solo el número de usuarios que terminaron un vídeo"
+            },
+            {
+              "id": "d",
+              "text": "Solo el total de avisos, sin calidad ni tiempos de reporte"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las métricas deben reflejar conductas y capacidad operativa, no solo actividad educativa.",
+          "reference": "https://www.cisa.gov/secure-our-world/recognize-and-report-phishing",
+          "reviewOf": "w33d5-q01"
+        },
+        {
+          "id": "w33d7-q06",
+          "prompt": "Un SaaS almacenará expedientes sensibles. ¿Qué debe preceder a la compra?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aprobar por el descuento únicamente"
+            },
+            {
+              "id": "b",
+              "text": "Evaluar datos, acceso, controles, dependencias y condiciones de salida"
+            },
+            {
+              "id": "c",
+              "text": "Enviar todos los expedientes para una demo pública"
+            },
+            {
+              "id": "d",
+              "text": "Suponer cumplimiento por usar HTTPS"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La evaluación debe corresponder al tratamiento y criticidad reales del servicio.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final",
+          "reviewOf": "w33d6-q01"
+        },
+        {
+          "id": "w33d7-q07",
+          "prompt": "¿Qué pregunta evalúa capacidad de respuesta del proveedor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cómo notifica incidentes y conserva evidencia del servicio contratado"
+            },
+            {
+              "id": "b",
+              "text": "Si tiene antivirus, suponiendo que eso cubre toda respuesta"
+            },
+            {
+              "id": "c",
+              "text": "Si promete cero incidentes sin explicar coordinación"
+            },
+            {
+              "id": "d",
+              "text": "Si borra logs rápidamente para reducir almacenamiento"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las capacidades deben corresponder al servicio, alcance y coordinación necesarios.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final",
+          "reviewOf": "w33d1-q02"
+        },
+        {
+          "id": "w33d7-q08",
+          "prompt": "¿Para qué sirve un acuerdo de confidencialidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantizar por sí solo cifrado de todos los equipos"
+            },
+            {
+              "id": "b",
+              "text": "Establecer obligaciones sobre uso y divulgación de información"
+            },
+            {
+              "id": "c",
+              "text": "Definir siempre recuperación en quince minutos"
+            },
+            {
+              "id": "d",
+              "text": "Evitar toda necesidad de controles técnicos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una obligación contractual debe acompañarse de prácticas y controles adecuados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final",
+          "reviewOf": "w33d2-q02"
+        },
+        {
+          "id": "w33d7-q09",
+          "prompt": "¿Qué aplica minimización de datos en un formulario?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Pedir solo datos necesarios para la finalidad definida"
+            },
+            {
+              "id": "b",
+              "text": "Recoger todo por si fuera útil"
+            },
+            {
+              "id": "c",
+              "text": "Copiar credenciales de otros servicios"
+            },
+            {
+              "id": "d",
+              "text": "Mantener campos ocultos sin finalidad"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La necesidad de cada dato debe justificarse respecto al tratamiento previsto.",
+          "reference": "https://www.nist.gov/privacy-framework",
+          "reviewOf": "w33d3-q02"
+        },
+        {
+          "id": "w33d7-q10",
+          "prompt": "¿Qué evidencia apoya que se revisaron accesos el trimestre anterior?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La política que exige revisarlos solamente"
+            },
+            {
+              "id": "b",
+              "text": "Una promesa del responsable sin detalle"
+            },
+            {
+              "id": "c",
+              "text": "Captura de un grupo tomada hoy únicamente"
+            },
+            {
+              "id": "d",
+              "text": "Registro fechado de revisión con decisiones y correcciones"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La política establece requisito; la evidencia debe demostrar ejecución durante el período pertinente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w33d4-q02"
+        },
+        {
+          "id": "w33d7-q11",
+          "prompt": "¿Qué actividad permite practicar sin engañar a terceros?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Enviar facturas falsas a clientes reales sin autorización"
+            },
+            {
+              "id": "b",
+              "text": "Pedir contraseñas reales para medir respuesta"
+            },
+            {
+              "id": "c",
+              "text": "Analizar mensajes sintéticos en un taller autorizado"
+            },
+            {
+              "id": "d",
+              "text": "Suplantar un banco a destinatarios externos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El ejercicio debe tener alcance y autorización, con datos educativos y objetivo formativo.",
+          "reference": "https://www.cisa.gov/secure-our-world/recognize-and-report-phishing",
+          "reviewOf": "w33d5-q02"
+        },
+        {
+          "id": "w33d7-q12",
+          "prompt": "El proveedor no ofrece exportación de datos. ¿Qué riesgo merece atención?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Pérdida automática de cifrado de red"
+            },
+            {
+              "id": "b",
+              "text": "Imposibilidad de crear usuarios"
+            },
+            {
+              "id": "c",
+              "text": "Dependencia y dificultad de salida o migración"
+            },
+            {
+              "id": "d",
+              "text": "Fallo obligatorio del correo"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La portabilidad y salida afectan continuidad y control de datos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final",
+          "reviewOf": "w33d6-q02"
+        },
+        {
+          "id": "w33d7-q13",
+          "prompt": "Un proveedor presenta una certificación. ¿Qué verificas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo que el certificado incluya un nombre reconocido"
+            },
+            {
+              "id": "b",
+              "text": "Vigencia, alcance y pertinencia para el servicio adquirido"
+            },
+            {
+              "id": "c",
+              "text": "Suponer que cubre cualquier servicio de la misma empresa"
+            },
+            {
+              "id": "d",
+              "text": "Suponer que evita toda evaluación posterior durante la relación"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una certificación tiene límites y no garantiza que todo servicio o período esté cubierto.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final",
+          "reviewOf": "w33d1-q03"
+        },
+        {
+          "id": "w33d7-q14",
+          "prompt": "¿Qué acuerdo ayuda a delimitar responsabilidades de tratamiento de datos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un SLA que solo mide tiempo de respuesta del portal"
+            },
+            {
+              "id": "b",
+              "text": "Una orden de compra que solo identifica precio y licencias"
+            },
+            {
+              "id": "c",
+              "text": "Condiciones que describen datos, finalidad, funciones y obligaciones aplicables"
+            },
+            {
+              "id": "d",
+              "text": "Un acuerdo de confidencialidad sin finalidad ni reparto de funciones"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las responsabilidades deben quedar explícitas para el servicio y contexto, sin presumir una ley concreta.",
+          "reference": "https://www.nist.gov/privacy-framework",
+          "reviewOf": "w33d2-q03"
+        },
+        {
+          "id": "w33d7-q15",
+          "prompt": "¿Qué determina un plazo de retención defendible?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Capacidad ilimitada del disco"
+            },
+            {
+              "id": "b",
+              "text": "Preferencia por guardar todo siempre"
+            },
+            {
+              "id": "c",
+              "text": "Finalidad, obligaciones aplicables y criterios documentados"
+            },
+            {
+              "id": "d",
+              "text": "Fecha de compra de la licencia únicamente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Retener o eliminar exige considerar necesidades y obligaciones reales, sin inventar un plazo universal.",
+          "reference": "https://www.nist.gov/privacy-framework",
+          "reviewOf": "w33d3-q03"
+        },
+        {
+          "id": "w33d7-q16",
+          "prompt": "¿Qué distingue un hallazgo de una opinión genérica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una opinión sin criterio ni evidencia del período"
+            },
+            {
+              "id": "b",
+              "text": "Una recomendación comercial sin relación con el alcance"
+            },
+            {
+              "id": "c",
+              "text": "Criterio, condición observada y evidencia suficiente"
+            },
+            {
+              "id": "d",
+              "text": "Una impresión del auditor que no describe condición observada"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El hallazgo compara lo requerido con lo observado y permite verificar la diferencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w33d4-q03"
+        },
+        {
+          "id": "w33d7-q17",
+          "prompt": "¿Cómo enseñar ante un mensaje urgente que pide cambiar una cuenta bancaria?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Responder al mismo mensaje con datos bancarios"
+            },
+            {
+              "id": "b",
+              "text": "Verificar por un canal conocido independiente antes de actuar"
+            },
+            {
+              "id": "c",
+              "text": "Confiar si el logo parece correcto"
+            },
+            {
+              "id": "d",
+              "text": "Abrir el enlace para confirmar primero"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las solicitudes financieras necesitan validación contextual y un contacto obtenido por vía fiable.",
+          "reference": "https://www.cisa.gov/secure-our-world/recognize-and-report-phishing",
+          "reviewOf": "w33d5-q03"
+        },
+        {
+          "id": "w33d7-q18",
+          "prompt": "¿Qué condición de aceptación mejora un acceso de soporte del proveedor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cuenta compartida permanente con privilegios globales"
+            },
+            {
+              "id": "b",
+              "text": "Permitir acceso sin ticket ni responsable"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar logs de soporte al finalizar cada sesión"
+            },
+            {
+              "id": "d",
+              "text": "Acceso acotado, temporal, autenticado y registrado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El acceso externo debe ser necesario y verificable, con responsabilidades claras.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w33d6-q03"
+        },
+        {
+          "id": "w33d7-q19",
+          "prompt": "¿Qué es riesgo de concentración de proveedores?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo tener varias cuentas de usuario en el proveedor"
+            },
+            {
+              "id": "b",
+              "text": "Que dos contratos compartan idioma"
+            },
+            {
+              "id": "c",
+              "text": "Dependencia excesiva de un mismo proveedor o componente común"
+            },
+            {
+              "id": "d",
+              "text": "Tener proveedores distintos sin ninguna dependencia compartida"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un fallo compartido puede afectar varios servicios aparentemente separados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final",
+          "reviewOf": "w33d1-q04"
+        },
+        {
+          "id": "w33d7-q20",
+          "prompt": "Una muestra de tres cuentas no tiene errores. ¿Qué conclusión es prudente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No se hallaron errores en esa muestra, con límites de representatividad"
+            },
+            {
+              "id": "b",
+              "text": "Todas las cuentas de todos los años cumplen"
+            },
+            {
+              "id": "c",
+              "text": "No hará falta auditar de nuevo"
+            },
+            {
+              "id": "d",
+              "text": "El control es infalible"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La evidencia de muestra se interpreta dentro de su método, población y período.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w33d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w33d7-challenge",
+        "prompt": "Una matriz afirma obligación cumplida, pero no vincula control ni evidencia. ¿Qué falta?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Una declaración de cumplimiento sin pruebas adicionales"
+          },
+          {
+            "id": "b",
+            "text": "Una lista de herramientas sin vínculo con el requisito"
+          },
+          {
+            "id": "c",
+            "text": "Trazabilidad entre requisito, implementación, prueba y resultado"
+          },
+          {
+            "id": "d",
+            "text": "Un promedio de puntuaciones sin alcance ni controles"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "El cumplimiento debe justificarse con evidencia pertinente y límites explícitos.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      }
+    }
+  ]
+}

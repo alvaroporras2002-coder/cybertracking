@@ -1,0 +1,2094 @@
+{
+  "week": 45,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w45d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w45d1-q01",
+          "prompt": "Una captura en un portátil ve principalmente ¿qué?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tráfico visible desde su interfaz"
+            },
+            {
+              "id": "b",
+              "text": "Todo tráfico mundial"
+            },
+            {
+              "id": "c",
+              "text": "Todos los procesos remotos"
+            },
+            {
+              "id": "d",
+              "text": "Todos los discos del segmento"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La posición de captura delimita visibilidad de red.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d1-q02",
+          "prompt": "¿Qué dato describe la ventana de observación de un pcap?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo tamaño externo"
+            },
+            {
+              "id": "b",
+              "text": "Inicio, fin y huecos"
+            },
+            {
+              "id": "c",
+              "text": "Solo nombre del analista"
+            },
+            {
+              "id": "d",
+              "text": "Solo número de interfaces del host"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La cobertura temporal limita conclusiones sobre actividad ausente.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d1-q03",
+          "prompt": "¿Qué significa snaplen insuficiente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Paquetes pueden estar truncados"
+            },
+            {
+              "id": "b",
+              "text": "Todo tráfico está cifrado"
+            },
+            {
+              "id": "c",
+              "text": "Todos los paquetes son falsos"
+            },
+            {
+              "id": "d",
+              "text": "Se eliminan las direcciones IP"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La longitud capturada puede omitir parte del paquete.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d1-q04",
+          "prompt": "¿Qué diferencia paquete perdido en captura y en red?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La captura puede perderlo localmente"
+            },
+            {
+              "id": "b",
+              "text": "Ambos prueban ataque"
+            },
+            {
+              "id": "c",
+              "text": "Nunca difieren"
+            },
+            {
+              "id": "d",
+              "text": "Solo ocurre con DNS"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El sistema capturador puede descartar datos aunque circularan por la red.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d1-q05",
+          "prompt": "¿Por qué registrar interfaz y ubicación de sensor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Identificar al operador humano"
+            },
+            {
+              "id": "b",
+              "text": "Descifrar TLS"
+            },
+            {
+              "id": "c",
+              "text": "Corregir NAT automáticamente"
+            },
+            {
+              "id": "d",
+              "text": "Explicar qué flujos podía observar"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La topología condiciona qué tráfico llega al sensor.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d1-q06",
+          "prompt": "¿Una captura sin paquetes de PC9 prueba que PC9 estuvo inactivo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No, puede quedar fuera de visibilidad"
+            },
+            {
+              "id": "b",
+              "text": "Sí, en cualquier topología"
+            },
+            {
+              "id": "c",
+              "text": "Sí, si existe Wireshark"
+            },
+            {
+              "id": "d",
+              "text": "Solo si el archivo es grande"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La ausencia necesita cobertura suficiente para interpretarse.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d1-q07",
+          "prompt": "¿Qué preservas antes de filtrar una captura?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo paquetes sospechosos"
+            },
+            {
+              "id": "b",
+              "text": "Solo gráfico de conversaciones"
+            },
+            {
+              "id": "c",
+              "text": "Original y hash"
+            },
+            {
+              "id": "d",
+              "text": "Solo captura de pantalla"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El filtrado no debe reemplazar la fuente completa preservada.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d1-q08",
+          "prompt": "¿Por qué distinguir hora absoluta y relativa en Wireshark?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Representan referencias temporales distintas"
+            },
+            {
+              "id": "b",
+              "text": "La relativa siempre es UTC"
+            },
+            {
+              "id": "c",
+              "text": "La absoluta mide bytes"
+            },
+            {
+              "id": "d",
+              "text": "Son idénticas en todo pcap"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La presentación del tiempo afecta lectura y correlación.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        }
+      ],
+      "challenge": {
+        "id": "w45d1-challenge",
+        "prompt": "Una captura del equipo de analista no contiene tráfico del servidor. ¿Qué revisas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Declarar servidor inactivo"
+          },
+          {
+            "id": "b",
+            "text": "Inventar paquetes faltantes"
+          },
+          {
+            "id": "c",
+            "text": "Cambiar filtro hasta que aparezca"
+          },
+          {
+            "id": "d",
+            "text": "Ubicación del sensor, interfaz y cobertura"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La ausencia puede deberse a que el tráfico no pasa por ese punto.",
+        "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+      }
+    },
+    {
+      "dayId": "w45d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w45d2-q01",
+          "prompt": "¿Qué filtro de visualización selecciona tráfico IPv4 de 192.0.2.7 en ambos sentidos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "ip.src == 192.0.2.7"
+            },
+            {
+              "id": "b",
+              "text": "ip.dst == 192.0.2.7"
+            },
+            {
+              "id": "c",
+              "text": "ip.addr == 192.0.2.7"
+            },
+            {
+              "id": "d",
+              "text": "tcp.port == 192"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Ip.addr cubre origen o destino para esa dirección.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d2-q02",
+          "prompt": "¿Qué selecciona ip.src == 192.0.2.8?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo respuestas hacia ella"
+            },
+            {
+              "id": "b",
+              "text": "Todo el flujo bidireccional"
+            },
+            {
+              "id": "c",
+              "text": "Todos los equipos de su red"
+            },
+            {
+              "id": "d",
+              "text": "Paquetes originados en esa IP"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El campo src limita el sentido de origen.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d2-q03",
+          "prompt": "¿Qué expresa tcp.port == 443?",
+          "options": [
+            {
+              "id": "a",
+              "text": "TCP con puerto origen o destino443"
+            },
+            {
+              "id": "b",
+              "text": "Solo TLS confirmado"
+            },
+            {
+              "id": "c",
+              "text": "Todo HTTP de la red"
+            },
+            {
+              "id": "d",
+              "text": "Solo destino443"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un puerto orienta, pero no demuestra el protocolo de aplicación.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d2-q04",
+          "prompt": "¿Para qué usar tcp.stream == 4?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mostrar cuatro paquetes"
+            },
+            {
+              "id": "b",
+              "text": "Seleccionar IPv4 global"
+            },
+            {
+              "id": "c",
+              "text": "Aislar esa conversación TCP"
+            },
+            {
+              "id": "d",
+              "text": "Descifrar cuarta conexión"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El índice de stream agrupa paquetes de una conversación en esa captura.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d2-q05",
+          "prompt": "¿Qué diferencia filtro de captura y de visualización?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ambos siempre usan idéntica sintaxis"
+            },
+            {
+              "id": "b",
+              "text": "El segundo borra el original"
+            },
+            {
+              "id": "c",
+              "text": "El primero limita datos recogidos"
+            },
+            {
+              "id": "d",
+              "text": "El primero descifra tráfico"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los filtros de captura pueden excluir datos antes de guardarlos.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d2-q06",
+          "prompt": "¿Qué hace dns && ip.addr == 192.0.2.9?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Muestra DNS o cualquier IP"
+            },
+            {
+              "id": "b",
+              "text": "Cuenta nueve consultas"
+            },
+            {
+              "id": "c",
+              "text": "Muestra solo TCP443"
+            },
+            {
+              "id": "d",
+              "text": "Exige DNS y esa IP"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La conjunción exige ambas condiciones.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d2-q07",
+          "prompt": "¿Por qué guardar filtro junto a un hallazgo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Probar atribución humana"
+            },
+            {
+              "id": "b",
+              "text": "Aumentar calidad del cifrado"
+            },
+            {
+              "id": "c",
+              "text": "Evitar registrar el archivo fuente"
+            },
+            {
+              "id": "d",
+              "text": "Permitir localizar los paquetes"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El filtro es parte del procedimiento reproducible.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d2-q08",
+          "prompt": "¿Qué comprobación evita un falso negativo por sintaxis?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aceptar cero inmediatamente"
+            },
+            {
+              "id": "b",
+              "text": "Validar filtro con paquete conocido"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar la extensión del pcap"
+            },
+            {
+              "id": "d",
+              "text": "Ordenar por tamaño"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un ejemplo conocido comprueba campos y condiciones.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        }
+      ],
+      "challenge": {
+        "id": "w45d2-challenge",
+        "prompt": "Filtras solo ip.src del host y no ves respuestas. ¿Cómo verificas conversación?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Concluir que nadie respondió"
+          },
+          {
+            "id": "b",
+            "text": "Usar ambos sentidos con ip.addr y revisar stream"
+          },
+          {
+            "id": "c",
+            "text": "Eliminar todos los SYN"
+          },
+          {
+            "id": "d",
+            "text": "Cambiar hora del archivo"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "El filtro unidireccional ocultaba tráfico hacia el host.",
+        "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+      }
+    },
+    {
+      "dayId": "w45d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w45d3-q01",
+          "prompt": "Una consulta DNS a bad.example demuestra ¿qué?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solicitud de resolución observada"
+            },
+            {
+              "id": "b",
+              "text": "Conexión exitosa posterior"
+            },
+            {
+              "id": "c",
+              "text": "Descarga completa"
+            },
+            {
+              "id": "d",
+              "text": "Ejecución de malware"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Resolver un nombre es distinto de acceder a su servicio.",
+          "reference": "https://wiki.wireshark.org/TLS/"
+        },
+        {
+          "id": "w45d3-q02",
+          "prompt": "¿Qué aporta una respuesta A en DNS?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hash del sitio"
+            },
+            {
+              "id": "b",
+              "text": "Dirección IPv4 asociada al nombre"
+            },
+            {
+              "id": "c",
+              "text": "Proceso del cliente"
+            },
+            {
+              "id": "d",
+              "text": "Contraseña de usuario"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El registro A relaciona nombre con IPv4 según la respuesta observada.",
+          "reference": "https://wiki.wireshark.org/TLS/"
+        },
+        {
+          "id": "w45d3-q03",
+          "prompt": "Una respuesta NXDOMAIN indica ¿qué?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Servidor web caído necesariamente"
+            },
+            {
+              "id": "b",
+              "text": "Nombre inexistente según esa respuesta"
+            },
+            {
+              "id": "c",
+              "text": "TLS válido"
+            },
+            {
+              "id": "d",
+              "text": "Archivo descargado"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El estado DNS no describe directamente un servicio web.",
+          "reference": "https://wiki.wireshark.org/TLS/"
+        },
+        {
+          "id": "w45d3-q04",
+          "prompt": "¿Un flujo a TCP443 garantiza HTTPS legítimo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No, el puerto no garantiza contenido ni legitimidad"
+            },
+            {
+              "id": "b",
+              "text": "Sí, por definición"
+            },
+            {
+              "id": "c",
+              "text": "Sí, con mucho volumen"
+            },
+            {
+              "id": "d",
+              "text": "Solo si usa IPv4"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El análisis requiere protocolo y contexto adicionales.",
+          "reference": "https://wiki.wireshark.org/TLS/"
+        },
+        {
+          "id": "w45d3-q05",
+          "prompt": "Sin claves de sesión, TLS permite observar habitualmente ¿qué?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Contenido completo de formularios"
+            },
+            {
+              "id": "b",
+              "text": "Contraseñas en texto"
+            },
+            {
+              "id": "c",
+              "text": "Archivos descifrados siempre"
+            },
+            {
+              "id": "d",
+              "text": "Direcciones, puertos y tiempos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El cifrado protege contenido aunque queden metadatos de transporte.",
+          "reference": "https://wiki.wireshark.org/TLS/"
+        },
+        {
+          "id": "w45d3-q06",
+          "prompt": "Un ClientHello expone SNI cuando no está protegido. ¿Qué orienta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usuario humano"
+            },
+            {
+              "id": "b",
+              "text": "URL completa"
+            },
+            {
+              "id": "c",
+              "text": "Nombre de servidor solicitado"
+            },
+            {
+              "id": "d",
+              "text": "Contenido del adjunto"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El nombre observado es metadato y puede no estar siempre disponible.",
+          "reference": "https://wiki.wireshark.org/TLS/"
+        },
+        {
+          "id": "w45d3-q07",
+          "prompt": "¿Qué riesgo tiene visitar una URL extraída del pcap?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mejorar cadena de custodia"
+            },
+            {
+              "id": "b",
+              "text": "Provocar nueva interacción con destino sospechoso"
+            },
+            {
+              "id": "c",
+              "text": "Recuperar automáticamente el pasado"
+            },
+            {
+              "id": "d",
+              "text": "Corregir los tiempos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La investigación puede usar análisis pasivo y entorno autorizado.",
+          "reference": "https://wiki.wireshark.org/TLS/"
+        },
+        {
+          "id": "w45d3-q08",
+          "prompt": "¿Por qué una IP de CDN no identifica sola una amenaza?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Puede alojar múltiples servicios"
+            },
+            {
+              "id": "b",
+              "text": "Todas las CDN son benignas"
+            },
+            {
+              "id": "c",
+              "text": "Nunca tiene DNS"
+            },
+            {
+              "id": "d",
+              "text": "No usa TLS"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Infraestructura compartida necesita indicadores más específicos.",
+          "reference": "https://wiki.wireshark.org/TLS/"
+        }
+      ],
+      "challenge": {
+        "id": "w45d3-challenge",
+        "prompt": "Hay DNS a dominio raro y TLS a IP compartida, sin claves. ¿Qué afirmas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Credenciales robadas confirmadas"
+          },
+          {
+            "id": "b",
+            "text": "URL completa recuperada"
+          },
+          {
+            "id": "c",
+            "text": "Resolución y conexión observadas; contenido desconocido"
+          },
+          {
+            "id": "d",
+            "text": "Autor identificado por DNS"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "Los metadatos sustentan actividad limitada, no contenido cifrado.",
+        "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+      }
+    },
+    {
+      "dayId": "w45d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w45d4-q01",
+          "prompt": "Conexiones cada60segundos, ¿qué hipótesis requiere contraste?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Exfiltración demostrada"
+            },
+            {
+              "id": "b",
+              "text": "Beaconing o tarea periódica legítima"
+            },
+            {
+              "id": "c",
+              "text": "Usuario identificado"
+            },
+            {
+              "id": "d",
+              "text": "Cifrado roto"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La periodicidad puede tener causas maliciosas y benignas.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d4-q02",
+          "prompt": "¿Qué compara una línea base útil?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo equipos de distinto tipo"
+            },
+            {
+              "id": "b",
+              "text": "Solo el día del incidente"
+            },
+            {
+              "id": "c",
+              "text": "Mismo activo, horario y contexto"
+            },
+            {
+              "id": "d",
+              "text": "Solo mayor paquete"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las comparaciones deben tener condiciones suficientemente similares.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d4-q03",
+          "prompt": "Un host envía diez veces más bytes de lo habitual. ¿Qué compruebas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo tamaño de monitor"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombre del usuario"
+            },
+            {
+              "id": "c",
+              "text": "Solo TTL mayor"
+            },
+            {
+              "id": "d",
+              "text": "Destino, servicio y tarea esperada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La anomalía de volumen necesita contexto operativo.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d4-q04",
+          "prompt": "¿Por qué contar paquetes no equivale a contar sesiones?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cada paquete es una sesión"
+            },
+            {
+              "id": "b",
+              "text": "TCP nunca tiene sesiones"
+            },
+            {
+              "id": "c",
+              "text": "DNS elimina duplicados"
+            },
+            {
+              "id": "d",
+              "text": "Una sesión contiene muchos paquetes"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La unidad de medición cambia la interpretación del volumen.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d4-q05",
+          "prompt": "¿Qué puede explicar retransmisiones TCP sin ataque?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambio de contraseña"
+            },
+            {
+              "id": "b",
+              "text": "Dominio recién creado siempre"
+            },
+            {
+              "id": "c",
+              "text": "Pérdida o congestión"
+            },
+            {
+              "id": "d",
+              "text": "Hash diferente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las retransmisiones son síntomas de transporte que requieren contexto.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d4-q06",
+          "prompt": "¿Qué medida ayuda a detectar regularidad temporal?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo extensión del archivo"
+            },
+            {
+              "id": "b",
+              "text": "Solo total de DNS"
+            },
+            {
+              "id": "c",
+              "text": "Solo nombre del sensor"
+            },
+            {
+              "id": "d",
+              "text": "Distribución de intervalos entre conexiones"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los intervalos describen mejor la periodicidad que un total agregado.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d4-q07",
+          "prompt": "Un backup nocturno aumenta tráfico cada día. ¿Cómo tratarlo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Excluir cualquier tráfico nocturno"
+            },
+            {
+              "id": "b",
+              "text": "Compararlo con tarea y destinos autorizados"
+            },
+            {
+              "id": "c",
+              "text": "Confirmar exfiltración"
+            },
+            {
+              "id": "d",
+              "text": "Ignorar todos los picos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La línea base debe incorporar actividad operativa conocida.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d4-q08",
+          "prompt": "¿Qué límite tiene una captura corta al evaluar patrón diario?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Prueba estabilidad mensual"
+            },
+            {
+              "id": "b",
+              "text": "Muestra todos los backups"
+            },
+            {
+              "id": "c",
+              "text": "No representa necesariamente todo el ciclo"
+            },
+            {
+              "id": "d",
+              "text": "Elimina necesidad de contexto"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La duración de observación condiciona la representatividad.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        }
+      ],
+      "challenge": {
+        "id": "w45d4-challenge",
+        "prompt": "PC45 conecta cada minuto al mismo destino; es agente de inventario. ¿Qué valida la hipótesis benigna?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo periodicidad exacta"
+          },
+          {
+            "id": "b",
+            "text": "Solo puerto443"
+          },
+          {
+            "id": "c",
+            "text": "Configuración, proceso y destino autorizados"
+          },
+          {
+            "id": "d",
+            "text": "Solo firma del certificado"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La tarea conocida debe corresponder con la comunicación observada.",
+        "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+      }
+    },
+    {
+      "dayId": "w45d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w45d5-q01",
+          "prompt": "¿Qué permite unir red y proceso con mayor precisión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Flujo, host y tiempo compatibles"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombre de puerto"
+            },
+            {
+              "id": "c",
+              "text": "Solo severidad"
+            },
+            {
+              "id": "d",
+              "text": "Solo país de destino"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La correspondencia debe ser específica y temporalmente válida.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w45d5-q02",
+          "prompt": "¿Qué tabla ayuda con una IP interna reasignada por DHCP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Historial de concesiones"
+            },
+            {
+              "id": "b",
+              "text": "Solo DNS público actual"
+            },
+            {
+              "id": "c",
+              "text": "Solo lista de empleados"
+            },
+            {
+              "id": "d",
+              "text": "Solo tabla de rutas actual"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las concesiones relacionan dirección y dispositivo en cada intervalo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w45d5-q03",
+          "prompt": "Un sensor registra UTC y endpoint UTC+02. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Comparar horas visibles directamente"
+            },
+            {
+              "id": "b",
+              "text": "Restar dos horas al sensor"
+            },
+            {
+              "id": "c",
+              "text": "Modificar los archivos fuente"
+            },
+            {
+              "id": "d",
+              "text": "Normalizar conservando valores originales"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La correlación necesita instantes equivalentes y trazabilidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w45d5-q04",
+          "prompt": "¿Qué riesgo introduce NAT en atribución de tráfico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "NAT revela al usuario"
+            },
+            {
+              "id": "b",
+              "text": "NAT cifra contenido"
+            },
+            {
+              "id": "c",
+              "text": "NAT evita malware"
+            },
+            {
+              "id": "d",
+              "text": "Varios hosts pueden compartir IP"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Son necesarios registros de traducción y puertos cuando correspondan.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w45d5-q05",
+          "prompt": "¿Qué aporta DNS antes de un flujo a una IP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Causalidad y URL completas"
+            },
+            {
+              "id": "b",
+              "text": "Hipótesis de nombre relacionado"
+            },
+            {
+              "id": "c",
+              "text": "Identidad del atacante"
+            },
+            {
+              "id": "d",
+              "text": "Confirmación de contenido"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Tiempo y respuesta pueden apoyar vínculo, con límites como caché o infraestructura compartida.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w45d5-q06",
+          "prompt": "Si el proxy muestra URL y pcap solo TLS, ¿qué concluyes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El pcap debe ser falso"
+            },
+            {
+              "id": "b",
+              "text": "La URL se descifró sola"
+            },
+            {
+              "id": "c",
+              "text": "Las fuentes tienen visibilidad distinta"
+            },
+            {
+              "id": "d",
+              "text": "No hubo HTTPS"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La ubicación y función de cada fuente explican diferencias de detalle.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w45d5-q07",
+          "prompt": "¿Cómo tratar un desfase estimado de reloj?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Corregir silenciosamente todos los logs"
+            },
+            {
+              "id": "b",
+              "text": "Excluir toda fuente"
+            },
+            {
+              "id": "c",
+              "text": "Declarar simultaneidad exacta"
+            },
+            {
+              "id": "d",
+              "text": "Documentar estimación e incertidumbre"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La precisión de la alineación debe reflejarse en las conclusiones.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w45d5-q08",
+          "prompt": "¿Qué dato enlaza un evento endpoint con la captura?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo nombre del ejecutable"
+            },
+            {
+              "id": "b",
+              "text": "Direcciones, puertos, protocolo e instante"
+            },
+            {
+              "id": "c",
+              "text": "Solo extensión del pcap"
+            },
+            {
+              "id": "d",
+              "text": "Solo cantidad de alertas"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La tupla de flujo y el tiempo ayudan a identificar la misma comunicación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        }
+      ],
+      "challenge": {
+        "id": "w45d5-challenge",
+        "prompt": "Dos PCs compartían IP pública; el endpoint señala uno de ellos. ¿Qué refuerza el vínculo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Tupla de flujo, traducción NAT y tiempos"
+          },
+          {
+            "id": "b",
+            "text": "Mismo apellido de usuario"
+          },
+          {
+            "id": "c",
+            "text": "Mismo navegador"
+          },
+          {
+            "id": "d",
+            "text": "Mismo ancho de banda"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La atribución necesita enlazar comunicación interna y externa.",
+        "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+      }
+    },
+    {
+      "dayId": "w45d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w45d6-q01",
+          "prompt": "Una conversación termina con RST. ¿Qué indica prudentemente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Reinicio o rechazo de la conexión"
+            },
+            {
+              "id": "b",
+              "text": "Exfiltración probada"
+            },
+            {
+              "id": "c",
+              "text": "Malware identificado"
+            },
+            {
+              "id": "d",
+              "text": "DNS inválido"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "RST describe comportamiento TCP, no una causa única.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d6-q02",
+          "prompt": "Un SYN recibe SYN/ACK. ¿Qué evidencia aporta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Autenticación de aplicación completa"
+            },
+            {
+              "id": "b",
+              "text": "Archivo transferido"
+            },
+            {
+              "id": "c",
+              "text": "Respuesta TCP del destino"
+            },
+            {
+              "id": "d",
+              "text": "Usuario autorizado"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El intercambio de transporte no demuestra éxito de la aplicación.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d6-q03",
+          "prompt": "¿Qué referencia precisa conviene citar en un informe de pcap?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Archivo, números de trama y filtro"
+            },
+            {
+              "id": "b",
+              "text": "Solo captura recortada"
+            },
+            {
+              "id": "c",
+              "text": "Solo nombre del dominio"
+            },
+            {
+              "id": "d",
+              "text": "Solo total de bytes"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los localizadores permiten revisar el hallazgo directamente.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d6-q04",
+          "prompt": "¿Por qué revisar ambos sentidos de un flujo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Descifrar todo TLS"
+            },
+            {
+              "id": "b",
+              "text": "Identificar al operador"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar retransmisiones automáticamente"
+            },
+            {
+              "id": "d",
+              "text": "Distinguir solicitudes, respuestas y fallos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una sola dirección puede ocultar respuesta o ausencia de éxito.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d6-q05",
+          "prompt": "¿Qué significa que el dissector etiquete TLS?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tráfico necesariamente benigno"
+            },
+            {
+              "id": "b",
+              "text": "Certificado siempre válido"
+            },
+            {
+              "id": "c",
+              "text": "Contenido visible completo"
+            },
+            {
+              "id": "d",
+              "text": "Reconoció estructura compatible"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La identificación del protocolo no es un veredicto de seguridad.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d6-q06",
+          "prompt": "En una captura parcial faltan paquetes iniciales. ¿Qué limitación expones?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Nunca se puede leer ningún paquete"
+            },
+            {
+              "id": "b",
+              "text": "Puede faltar negociación o contexto"
+            },
+            {
+              "id": "c",
+              "text": "Todo flujo es inválido"
+            },
+            {
+              "id": "d",
+              "text": "Se prueba ocultación deliberada"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La falta de inicio dificulta interpretar el estado de la conversación.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d6-q07",
+          "prompt": "¿Qué distingue hallazgo y recomendación de tráfico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ambos son paquetes"
+            },
+            {
+              "id": "b",
+              "text": "Hallazgo describe; recomendación propone acción"
+            },
+            {
+              "id": "c",
+              "text": "Recomendación prueba ejecución"
+            },
+            {
+              "id": "d",
+              "text": "Hallazgo siempre es ataque"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las acciones propuestas deben derivarse de observaciones y riesgos.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        },
+        {
+          "id": "w45d6-q08",
+          "prompt": "¿Qué prueba apoya una conclusión de periodicidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tiempos e intervalos reproducibles"
+            },
+            {
+              "id": "b",
+              "text": "Solo un paquete grande"
+            },
+            {
+              "id": "c",
+              "text": "Solo dominio extraño"
+            },
+            {
+              "id": "d",
+              "text": "Solo país remoto"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un patrón requiere varias observaciones y una medida explícita.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+        }
+      ],
+      "challenge": {
+        "id": "w45d6-challenge",
+        "prompt": "Captura incompleta muestra SYN repetidos sin respuesta. ¿Qué conclusión es prudente?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Servicio comprometido"
+          },
+          {
+            "id": "b",
+            "text": "Intentos observados; éxito no demostrado en esta cobertura"
+          },
+          {
+            "id": "c",
+            "text": "Autenticación exitosa"
+          },
+          {
+            "id": "d",
+            "text": "Transferencia completa"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La evidencia disponible muestra intentos y límites de visibilidad.",
+        "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+      }
+    },
+    {
+      "dayId": "w45d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w45d7-q01",
+          "prompt": "Una captura en un portátil ve principalmente ¿qué?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tráfico visible desde su interfaz"
+            },
+            {
+              "id": "b",
+              "text": "Todo tráfico mundial"
+            },
+            {
+              "id": "c",
+              "text": "Todos los procesos remotos"
+            },
+            {
+              "id": "d",
+              "text": "Todos los discos del segmento"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La posición de captura delimita visibilidad de red.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/",
+          "reviewOf": "w45d1-q01"
+        },
+        {
+          "id": "w45d7-q02",
+          "prompt": "¿Qué filtro de visualización selecciona tráfico IPv4 de 192.0.2.7 en ambos sentidos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "ip.src == 192.0.2.7"
+            },
+            {
+              "id": "b",
+              "text": "ip.dst == 192.0.2.7"
+            },
+            {
+              "id": "c",
+              "text": "ip.addr == 192.0.2.7"
+            },
+            {
+              "id": "d",
+              "text": "tcp.port == 192"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Ip.addr cubre origen o destino para esa dirección.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/",
+          "reviewOf": "w45d2-q01"
+        },
+        {
+          "id": "w45d7-q03",
+          "prompt": "Una consulta DNS a bad.example demuestra ¿qué?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solicitud de resolución observada"
+            },
+            {
+              "id": "b",
+              "text": "Conexión exitosa posterior"
+            },
+            {
+              "id": "c",
+              "text": "Descarga completa"
+            },
+            {
+              "id": "d",
+              "text": "Ejecución de malware"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Resolver un nombre es distinto de acceder a su servicio.",
+          "reference": "https://wiki.wireshark.org/TLS/",
+          "reviewOf": "w45d3-q01"
+        },
+        {
+          "id": "w45d7-q04",
+          "prompt": "Conexiones cada60segundos, ¿qué hipótesis requiere contraste?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Exfiltración demostrada"
+            },
+            {
+              "id": "b",
+              "text": "Beaconing o tarea periódica legítima"
+            },
+            {
+              "id": "c",
+              "text": "Usuario identificado"
+            },
+            {
+              "id": "d",
+              "text": "Cifrado roto"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La periodicidad puede tener causas maliciosas y benignas.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/",
+          "reviewOf": "w45d4-q01"
+        },
+        {
+          "id": "w45d7-q05",
+          "prompt": "¿Qué permite unir red y proceso con mayor precisión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Flujo, host y tiempo compatibles"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombre de puerto"
+            },
+            {
+              "id": "c",
+              "text": "Solo severidad"
+            },
+            {
+              "id": "d",
+              "text": "Solo país de destino"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La correspondencia debe ser específica y temporalmente válida.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w45d5-q01"
+        },
+        {
+          "id": "w45d7-q06",
+          "prompt": "Una conversación termina con RST. ¿Qué indica prudentemente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Reinicio o rechazo de la conexión"
+            },
+            {
+              "id": "b",
+              "text": "Exfiltración probada"
+            },
+            {
+              "id": "c",
+              "text": "Malware identificado"
+            },
+            {
+              "id": "d",
+              "text": "DNS inválido"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "RST describe comportamiento TCP, no una causa única.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/",
+          "reviewOf": "w45d6-q01"
+        },
+        {
+          "id": "w45d7-q07",
+          "prompt": "¿Qué dato describe la ventana de observación de un pcap?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo tamaño externo"
+            },
+            {
+              "id": "b",
+              "text": "Inicio, fin y huecos"
+            },
+            {
+              "id": "c",
+              "text": "Solo nombre del analista"
+            },
+            {
+              "id": "d",
+              "text": "Solo número de interfaces del host"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La cobertura temporal limita conclusiones sobre actividad ausente.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/",
+          "reviewOf": "w45d1-q02"
+        },
+        {
+          "id": "w45d7-q08",
+          "prompt": "¿Qué selecciona ip.src == 192.0.2.8?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo respuestas hacia ella"
+            },
+            {
+              "id": "b",
+              "text": "Todo el flujo bidireccional"
+            },
+            {
+              "id": "c",
+              "text": "Todos los equipos de su red"
+            },
+            {
+              "id": "d",
+              "text": "Paquetes originados en esa IP"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El campo src limita el sentido de origen.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/",
+          "reviewOf": "w45d2-q02"
+        },
+        {
+          "id": "w45d7-q09",
+          "prompt": "¿Qué aporta una respuesta A en DNS?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hash del sitio"
+            },
+            {
+              "id": "b",
+              "text": "Dirección IPv4 asociada al nombre"
+            },
+            {
+              "id": "c",
+              "text": "Proceso del cliente"
+            },
+            {
+              "id": "d",
+              "text": "Contraseña de usuario"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El registro A relaciona nombre con IPv4 según la respuesta observada.",
+          "reference": "https://wiki.wireshark.org/TLS/",
+          "reviewOf": "w45d3-q02"
+        },
+        {
+          "id": "w45d7-q10",
+          "prompt": "¿Qué compara una línea base útil?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo equipos de distinto tipo"
+            },
+            {
+              "id": "b",
+              "text": "Solo el día del incidente"
+            },
+            {
+              "id": "c",
+              "text": "Mismo activo, horario y contexto"
+            },
+            {
+              "id": "d",
+              "text": "Solo mayor paquete"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las comparaciones deben tener condiciones suficientemente similares.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/",
+          "reviewOf": "w45d4-q02"
+        },
+        {
+          "id": "w45d7-q11",
+          "prompt": "¿Qué tabla ayuda con una IP interna reasignada por DHCP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Historial de concesiones"
+            },
+            {
+              "id": "b",
+              "text": "Solo DNS público actual"
+            },
+            {
+              "id": "c",
+              "text": "Solo lista de empleados"
+            },
+            {
+              "id": "d",
+              "text": "Solo tabla de rutas actual"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las concesiones relacionan dirección y dispositivo en cada intervalo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w45d5-q02"
+        },
+        {
+          "id": "w45d7-q12",
+          "prompt": "Un SYN recibe SYN/ACK. ¿Qué evidencia aporta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Autenticación de aplicación completa"
+            },
+            {
+              "id": "b",
+              "text": "Archivo transferido"
+            },
+            {
+              "id": "c",
+              "text": "Respuesta TCP del destino"
+            },
+            {
+              "id": "d",
+              "text": "Usuario autorizado"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El intercambio de transporte no demuestra éxito de la aplicación.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/",
+          "reviewOf": "w45d6-q02"
+        },
+        {
+          "id": "w45d7-q13",
+          "prompt": "¿Qué significa snaplen insuficiente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Paquetes pueden estar truncados"
+            },
+            {
+              "id": "b",
+              "text": "Todo tráfico está cifrado"
+            },
+            {
+              "id": "c",
+              "text": "Todos los paquetes son falsos"
+            },
+            {
+              "id": "d",
+              "text": "Se eliminan las direcciones IP"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La longitud capturada puede omitir parte del paquete.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/",
+          "reviewOf": "w45d1-q03"
+        },
+        {
+          "id": "w45d7-q14",
+          "prompt": "¿Qué expresa tcp.port == 443?",
+          "options": [
+            {
+              "id": "a",
+              "text": "TCP con puerto origen o destino443"
+            },
+            {
+              "id": "b",
+              "text": "Solo TLS confirmado"
+            },
+            {
+              "id": "c",
+              "text": "Todo HTTP de la red"
+            },
+            {
+              "id": "d",
+              "text": "Solo destino443"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un puerto orienta, pero no demuestra el protocolo de aplicación.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/",
+          "reviewOf": "w45d2-q03"
+        },
+        {
+          "id": "w45d7-q15",
+          "prompt": "Una respuesta NXDOMAIN indica ¿qué?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Servidor web caído necesariamente"
+            },
+            {
+              "id": "b",
+              "text": "Nombre inexistente según esa respuesta"
+            },
+            {
+              "id": "c",
+              "text": "TLS válido"
+            },
+            {
+              "id": "d",
+              "text": "Archivo descargado"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El estado DNS no describe directamente un servicio web.",
+          "reference": "https://wiki.wireshark.org/TLS/",
+          "reviewOf": "w45d3-q03"
+        },
+        {
+          "id": "w45d7-q16",
+          "prompt": "Un host envía diez veces más bytes de lo habitual. ¿Qué compruebas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo tamaño de monitor"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombre del usuario"
+            },
+            {
+              "id": "c",
+              "text": "Solo TTL mayor"
+            },
+            {
+              "id": "d",
+              "text": "Destino, servicio y tarea esperada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La anomalía de volumen necesita contexto operativo.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/",
+          "reviewOf": "w45d4-q03"
+        },
+        {
+          "id": "w45d7-q17",
+          "prompt": "Un sensor registra UTC y endpoint UTC+02. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Comparar horas visibles directamente"
+            },
+            {
+              "id": "b",
+              "text": "Restar dos horas al sensor"
+            },
+            {
+              "id": "c",
+              "text": "Modificar los archivos fuente"
+            },
+            {
+              "id": "d",
+              "text": "Normalizar conservando valores originales"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La correlación necesita instantes equivalentes y trazabilidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w45d5-q03"
+        },
+        {
+          "id": "w45d7-q18",
+          "prompt": "¿Qué referencia precisa conviene citar en un informe de pcap?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Archivo, números de trama y filtro"
+            },
+            {
+              "id": "b",
+              "text": "Solo captura recortada"
+            },
+            {
+              "id": "c",
+              "text": "Solo nombre del dominio"
+            },
+            {
+              "id": "d",
+              "text": "Solo total de bytes"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los localizadores permiten revisar el hallazgo directamente.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/",
+          "reviewOf": "w45d6-q03"
+        },
+        {
+          "id": "w45d7-q19",
+          "prompt": "¿Qué diferencia paquete perdido en captura y en red?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La captura puede perderlo localmente"
+            },
+            {
+              "id": "b",
+              "text": "Ambos prueban ataque"
+            },
+            {
+              "id": "c",
+              "text": "Nunca difieren"
+            },
+            {
+              "id": "d",
+              "text": "Solo ocurre con DNS"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El sistema capturador puede descartar datos aunque circularan por la red.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/",
+          "reviewOf": "w45d1-q04"
+        },
+        {
+          "id": "w45d7-q20",
+          "prompt": "¿Por qué contar paquetes no equivale a contar sesiones?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cada paquete es una sesión"
+            },
+            {
+              "id": "b",
+              "text": "TCP nunca tiene sesiones"
+            },
+            {
+              "id": "c",
+              "text": "DNS elimina duplicados"
+            },
+            {
+              "id": "d",
+              "text": "Una sesión contiene muchos paquetes"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La unidad de medición cambia la interpretación del volumen.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/",
+          "reviewOf": "w45d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w45d7-challenge",
+        "prompt": "Un informe afirma contraseña visible porque existe TLS. ¿Qué corriges?",
+        "options": [
+          {
+            "id": "a",
+            "text": "TLS siempre expone contraseñas"
+          },
+          {
+            "id": "b",
+            "text": "TCP443 prueba credenciales"
+          },
+          {
+            "id": "c",
+            "text": "DNS revela todos los formularios"
+          },
+          {
+            "id": "d",
+            "text": "Sin material de descifrado adecuado, contenido no demostrado"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "El protocolo cifrado no permite afirmar contenido sin evidencia adicional.",
+        "reference": "https://www.wireshark.org/docs/wsug_html_chunked/"
+      }
+    }
+  ]
+}

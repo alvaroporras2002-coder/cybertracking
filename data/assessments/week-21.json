@@ -1,0 +1,2094 @@
+{
+  "week": 21,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w21d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w21d1-q01",
+          "prompt": "¿Dónde confirmar la versión de Security+ que puedes presentar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "En el título de cualquier video antiguo"
+            },
+            {
+              "id": "b",
+              "text": "En una publicación sin fecha"
+            },
+            {
+              "id": "c",
+              "text": "En la numeración de tus apuntes"
+            },
+            {
+              "id": "d",
+              "text": "En la información oficial de CompTIA y registro aplicable"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La versión debe verificarse con la fuente que administra la certificación.",
+          "reference": "https://www.comptia.org/certifications/security"
+        },
+        {
+          "id": "w21d1-q02",
+          "prompt": "Un curso usa una versión distinta a tu convocatoria. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Comparar objetivos y cubrir diferencias"
+            },
+            {
+              "id": "b",
+              "text": "Asumir equivalencia completa"
+            },
+            {
+              "id": "c",
+              "text": "Descartar toda práctica previa"
+            },
+            {
+              "id": "d",
+              "text": "Memorizar solo el código nuevo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los conceptos previos pueden servir, pero hace falta contrastar alcance.",
+          "reference": "https://www.comptia.org/certifications/security"
+        },
+        {
+          "id": "w21d1-q03",
+          "prompt": "¿Qué fechas afectan la selección de un esquema de examen?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Disponibilidad y retirada oficiales de la versión"
+            },
+            {
+              "id": "b",
+              "text": "Solo la fecha del portátil"
+            },
+            {
+              "id": "c",
+              "text": "Solo la publicación de un video"
+            },
+            {
+              "id": "d",
+              "text": "Solo las vacaciones del instructor"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El plan debe corresponder a una versión disponible en la fecha prevista.",
+          "reference": "https://www.comptia.org/certifications/security"
+        },
+        {
+          "id": "w21d1-q04",
+          "prompt": "¿Por qué comprobar el idioma en la información oficial?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque cambia el cifrado de los datos"
+            },
+            {
+              "id": "b",
+              "text": "Porque todos los idiomas se lanzan siempre juntos"
+            },
+            {
+              "id": "c",
+              "text": "La disponibilidad puede variar según examen y modalidad"
+            },
+            {
+              "id": "d",
+              "text": "Para conocer respuestas exactas"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "No debe asumirse que toda versión está disponible en cualquier idioma o modalidad.",
+          "reference": "https://www.comptia.org/certifications/security"
+        },
+        {
+          "id": "w21d1-q05",
+          "prompt": "¿Qué guardar como referencia de la selección de examen?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Preguntas filtradas del examen"
+            },
+            {
+              "id": "b",
+              "text": "Una garantía de aprobación"
+            },
+            {
+              "id": "c",
+              "text": "Código, objetivos, fuente y fecha de consulta"
+            },
+            {
+              "id": "d",
+              "text": "Solo la portada del curso"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La trazabilidad permite revisar después si cambiaron condiciones o materiales.",
+          "reference": "https://www.comptia.org/certifications/security"
+        },
+        {
+          "id": "w21d1-q06",
+          "prompt": "Si una página oficial no es accesible automáticamente, ¿qué conclusión es válida?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La versión más antigua sigue disponible seguro"
+            },
+            {
+              "id": "b",
+              "text": "No existen requisitos"
+            },
+            {
+              "id": "c",
+              "text": "La verificación queda pendiente de consulta oficial manual"
+            },
+            {
+              "id": "d",
+              "text": "Cualquier rumor sirve de confirmación"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La imposibilidad de consultar no aporta evidencia sobre las condiciones reales.",
+          "reference": "https://www.comptia.org/certifications/security"
+        },
+        {
+          "id": "w21d1-q07",
+          "prompt": "¿Qué evita planificar con un precio recordado de años anteriores?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Suponer que nunca cambia"
+            },
+            {
+              "id": "b",
+              "text": "Copiar el importe de otro país"
+            },
+            {
+              "id": "c",
+              "text": "Consultar el importe y condiciones oficiales al decidir"
+            },
+            {
+              "id": "d",
+              "text": "Confundir curso y examen"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los precios y condiciones pueden variar; no deben inventarse ni darse por estables.",
+          "reference": "https://www.comptia.org/certifications/security"
+        },
+        {
+          "id": "w21d1-q08",
+          "prompt": "¿Por qué confirmar requisitos de registro antes de reservar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para evitar estudiar objetivos"
+            },
+            {
+              "id": "b",
+              "text": "Pueden condicionar identificación, modalidad y elegibilidad"
+            },
+            {
+              "id": "c",
+              "text": "Para predecir preguntas"
+            },
+            {
+              "id": "d",
+              "text": "Para sustituir evidencias técnicas"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La preparación administrativa debe basarse en políticas oficiales aplicables.",
+          "reference": "https://www.comptia.org/certifications/security"
+        }
+      ],
+      "challenge": {
+        "id": "w21d1-challenge",
+        "prompt": "Caso: tu material dice una versión, la reserva otra. ¿Cuál es el paso útil?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Confirmar la reserva oficial y contrastar su esquema con el material"
+          },
+          {
+            "id": "b",
+            "text": "Usar el curso sin comparar"
+          },
+          {
+            "id": "c",
+            "text": "Cambiar el código en el cuaderno"
+          },
+          {
+            "id": "d",
+            "text": "Afirmar que los exámenes son idénticos"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La reserva y el alcance aplicable orientan las brechas que deben cubrirse.",
+        "reference": "https://www.comptia.org/certifications/security"
+      }
+    },
+    {
+      "dayId": "w21d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w21d2-q01",
+          "prompt": "¿Qué unidad conviene usar para una matriz de cobertura detallada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el título general del examen"
+            },
+            {
+              "id": "b",
+              "text": "Cada objetivo y subobjetivo oficial"
+            },
+            {
+              "id": "c",
+              "text": "Cada página del cuaderno"
+            },
+            {
+              "id": "d",
+              "text": "Cada anuncio del curso"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La granularidad por subobjetivo ayuda a detectar lagunas ocultas por resúmenes amplios.",
+          "reference": "https://www.comptia.org/certifications/security"
+        },
+        {
+          "id": "w21d2-q02",
+          "prompt": "¿Qué columna distingue estudiar de demostrar habilidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Evidencia o práctica realizada"
+            },
+            {
+              "id": "b",
+              "text": "Color del enlace"
+            },
+            {
+              "id": "c",
+              "text": "Número de seguidores del docente"
+            },
+            {
+              "id": "d",
+              "text": "Duración total del curso"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una evidencia permite comprobar aplicación y comprensión del contenido.",
+          "reference": "https://www.comptia.org/certifications/security"
+        },
+        {
+          "id": "w21d2-q03",
+          "prompt": "Un recurso cubre parcialmente un objetivo. ¿Qué estado registrar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Completo por haberlo abierto"
+            },
+            {
+              "id": "b",
+              "text": "No aplicable sin motivo"
+            },
+            {
+              "id": "c",
+              "text": "Cobertura parcial y parte pendiente"
+            },
+            {
+              "id": "d",
+              "text": "Aprobado automáticamente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Registrar límites evita convertir exposición superficial en dominio supuesto.",
+          "reference": "https://www.comptia.org/certifications/security"
+        },
+        {
+          "id": "w21d2-q04",
+          "prompt": "Dos cursos cubren lo mismo y falta un subobjetivo nuevo. ¿Qué priorizar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Repetir ambos cursos completos sin diagnóstico"
+            },
+            {
+              "id": "b",
+              "text": "Borrar el objetivo nuevo"
+            },
+            {
+              "id": "c",
+              "text": "Un recurso adecuado para la brecha nueva"
+            },
+            {
+              "id": "d",
+              "text": "Añadir más recursos idénticos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La matriz debe dirigir esfuerzo a necesidades no cubiertas.",
+          "reference": "https://www.comptia.org/certifications/security"
+        },
+        {
+          "id": "w21d2-q05",
+          "prompt": "¿Cómo mapear un tema de SY0-701 a un esquema posterior sin asumir equivalencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Comparar contenido y alcance de ambos textos"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar solo el encabezado"
+            },
+            {
+              "id": "c",
+              "text": "Igualar todo por palabras similares"
+            },
+            {
+              "id": "d",
+              "text": "Copiar porcentajes sin fuente"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los títulos parecidos pueden ocultar diferencias de profundidad o contexto.",
+          "reference": "https://www.comptia.org/certifications/security"
+        },
+        {
+          "id": "w21d2-q06",
+          "prompt": "¿Qué permite rastrear un enlace de recurso que cambia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el número de pestañas"
+            },
+            {
+              "id": "b",
+              "text": "Fuente, sección y fecha de revisión"
+            },
+            {
+              "id": "c",
+              "text": "Una captura sin título"
+            },
+            {
+              "id": "d",
+              "text": "La velocidad de descarga"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La referencia específica facilita volver a localizar y validar el material.",
+          "reference": "https://www.comptia.org/certifications/security"
+        },
+        {
+          "id": "w21d2-q07",
+          "prompt": "¿Qué evidencia es mejor para «seleccionar controles»?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Repetir una lista de fabricantes"
+            },
+            {
+              "id": "b",
+              "text": "Contar minutos de video"
+            },
+            {
+              "id": "c",
+              "text": "Resolver un caso y justificar selección y límites"
+            },
+            {
+              "id": "d",
+              "text": "Copiar definiciones sin usarlas"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La selección requiere relacionar controles con requisitos y riesgos concretos.",
+          "reference": "https://www.comptia.org/certifications/security"
+        },
+        {
+          "id": "w21d2-q08",
+          "prompt": "¿Qué revisión mantiene útil la matriz durante el estudio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Actualizar estado tras evidencia nueva o cambio de alcance"
+            },
+            {
+              "id": "b",
+              "text": "Marcar todo al comienzo"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar filas difíciles"
+            },
+            {
+              "id": "d",
+              "text": "Conservar enlaces rotos sin nota"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La matriz representa un estado real de preparación y requiere mantenimiento.",
+          "reference": "https://www.comptia.org/certifications/security"
+        }
+      ],
+      "challenge": {
+        "id": "w21d2-challenge",
+        "prompt": "Caso: la matriz dice «nube: completo», pero no contempla responsabilidades IaaS/PaaS/SaaS. ¿Qué corrección corresponde?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Desglosar subobjetivos y añadir la práctica faltante"
+          },
+          {
+            "id": "b",
+            "text": "Mantener completo por conocer la palabra nube"
+          },
+          {
+            "id": "c",
+            "text": "Omitir nube del diagnóstico"
+          },
+          {
+            "id": "d",
+            "text": "Añadir una captura del título del curso"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "Un rótulo amplio no demuestra cobertura de todas las competencias incluidas.",
+        "reference": "https://www.comptia.org/certifications/security"
+      }
+    },
+    {
+      "dayId": "w21d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w21d3-q01",
+          "prompt": "Una cuenta se bloquea tras intentos repetidos. ¿Qué función busca principalmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Restaurar archivos borrados"
+            },
+            {
+              "id": "b",
+              "text": "Clasificar documentos"
+            },
+            {
+              "id": "c",
+              "text": "Detectar incendios"
+            },
+            {
+              "id": "d",
+              "text": "Prevenir nuevos intentos según la política"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La limitación de intentos busca dificultar acceso por adivinación; debe considerar impacto en usuarios.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w21d3-q02",
+          "prompt": "Un informe diario señala cambios no autorizados. ¿Qué función predomina?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Disuasoria exclusivamente"
+            },
+            {
+              "id": "b",
+              "text": "Recuperación de datos"
+            },
+            {
+              "id": "c",
+              "text": "Detectiva"
+            },
+            {
+              "id": "d",
+              "text": "Aislamiento físico"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Identifica actividad para revisión sin implicar que se impidiera.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w21d3-q03",
+          "prompt": "Una imagen validada reconstruye un endpoint comprometido. ¿Qué función cumple?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Correctiva y de recuperación"
+            },
+            {
+              "id": "b",
+              "text": "Identificación del actor"
+            },
+            {
+              "id": "c",
+              "text": "Clasificación de sensibilidad"
+            },
+            {
+              "id": "d",
+              "text": "Publicidad de controles"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Reconstruir restablece un estado conocido tras el problema.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w21d3-q04",
+          "prompt": "Una aprobación previa para crear proveedores es ¿qué clase de control?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo ambiental"
+            },
+            {
+              "id": "b",
+              "text": "Un algoritmo de cifrado"
+            },
+            {
+              "id": "c",
+              "text": "Un sensor físico"
+            },
+            {
+              "id": "d",
+              "text": "Administrativo con función preventiva"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un procedimiento puede prevenir operaciones sin autorización.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w21d3-q05",
+          "prompt": "Un sensor detecta apertura de una puerta restringida. ¿Qué combina?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hash y tokenización"
+            },
+            {
+              "id": "b",
+              "text": "Control físico y detección"
+            },
+            {
+              "id": "c",
+              "text": "Retención y anonimización"
+            },
+            {
+              "id": "d",
+              "text": "Cifrado y disponibilidad"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La categoría describe dónde actúa y la función describe qué pretende hacer.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w21d3-q06",
+          "prompt": "Un aviso de consecuencias para acceso indebido es principalmente ¿qué tipo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Recuperación automática"
+            },
+            {
+              "id": "b",
+              "text": "Validación de integridad"
+            },
+            {
+              "id": "c",
+              "text": "Disuasorio"
+            },
+            {
+              "id": "d",
+              "text": "Redundancia de red"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El aviso busca desalentar conducta, sin sustituir barreras o respuesta.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w21d3-q07",
+          "prompt": "¿Cuándo considerar un control compensatorio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cuando se quiere omitir todo análisis"
+            },
+            {
+              "id": "b",
+              "text": "Cuando el preferido no es viable y se evalúa una alternativa suficiente"
+            },
+            {
+              "id": "c",
+              "text": "Cuando el riesgo no tiene dueño"
+            },
+            {
+              "id": "d",
+              "text": "Cuando un control es difícil de nombrar"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La alternativa debe responder al mismo riesgo con límites documentados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w21d3-q08",
+          "prompt": "Un control está configurado, pero nunca se prueba. ¿Qué falta demostrar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que opera eficazmente en el escenario previsto"
+            },
+            {
+              "id": "b",
+              "text": "Que tiene nombre comercial"
+            },
+            {
+              "id": "c",
+              "text": "Que aparece en el inventario"
+            },
+            {
+              "id": "d",
+              "text": "Que lo usa otra empresa"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La existencia no equivale a eficacia; requiere comprobación proporcional al propósito.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w21d3-challenge",
+        "prompt": "Caso: el presupuesto permite un firewall o restauración probada; el problema principal es pérdida por borrado accidental. ¿Qué elección responde al escenario?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Comprar firewall porque siempre es primero"
+          },
+          {
+            "id": "b",
+            "text": "Añadir reglas de red sin revisar el riesgo"
+          },
+          {
+            "id": "c",
+            "text": "Priorizar recuperación de datos y evaluar controles contra borrado"
+          },
+          {
+            "id": "d",
+            "text": "Eliminar permisos de lectura a todos"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La selección parte del evento e impacto, no de una jerarquía universal de productos.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      }
+    },
+    {
+      "dayId": "w21d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w21d4-q01",
+          "prompt": "En AAA, ¿qué responde «quién eres»?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Autenticación"
+            },
+            {
+              "id": "b",
+              "text": "Autorización"
+            },
+            {
+              "id": "c",
+              "text": "Accounting"
+            },
+            {
+              "id": "d",
+              "text": "Archivado"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La autenticación verifica el control de credenciales asociadas a una identidad.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass"
+        },
+        {
+          "id": "w21d4-q02",
+          "prompt": "En AAA, ¿qué determina las acciones permitidas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Autorización"
+            },
+            {
+              "id": "b",
+              "text": "Autenticación por sí sola"
+            },
+            {
+              "id": "c",
+              "text": "Compresión"
+            },
+            {
+              "id": "d",
+              "text": "Disponibilidad"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La autorización evalúa derechos sobre un recurso tras identificar al solicitante.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass"
+        },
+        {
+          "id": "w21d4-q03",
+          "prompt": "En AAA, ¿qué permite atribuir acciones a una cuenta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cifrado de pantalla"
+            },
+            {
+              "id": "b",
+              "text": "Cambio de logotipo"
+            },
+            {
+              "id": "c",
+              "text": "Desfragmentación"
+            },
+            {
+              "id": "d",
+              "text": "Accounting o registro de actividad"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los registros aportan trazabilidad de uso, sujeto a calidad y protección de la evidencia.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass"
+        },
+        {
+          "id": "w21d4-q04",
+          "prompt": "¿Qué propiedad protege una firma digital al verificar datos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Integridad y autenticidad del firmante según la clave confiable"
+            },
+            {
+              "id": "b",
+              "text": "Confidencialidad automáticamente"
+            },
+            {
+              "id": "c",
+              "text": "Disponibilidad continua"
+            },
+            {
+              "id": "d",
+              "text": "Anonimato universal"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La firma puede detectar alteración y vincular el mensaje a una clave; no lo cifra por sí sola.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass"
+        },
+        {
+          "id": "w21d4-q05",
+          "prompt": "¿Qué condición apoya no repudio mediante firmas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Compartir la clave con todo el equipo"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar la evidencia de firma"
+            },
+            {
+              "id": "c",
+              "text": "Aceptar cualquier clave pública desconocida"
+            },
+            {
+              "id": "d",
+              "text": "Protección de la clave privada y vínculo confiable con su titular"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La atribución depende de gestión de claves, identidad y evidencia, además del algoritmo.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass"
+        },
+        {
+          "id": "w21d4-q06",
+          "prompt": "¿Qué implica asumir una brecha en confianza cero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Diseñar límites, monitorización y respuesta para reducir impacto"
+            },
+            {
+              "id": "b",
+              "text": "Conceder confianza total a la LAN"
+            },
+            {
+              "id": "c",
+              "text": "Desactivar comprobaciones internas"
+            },
+            {
+              "id": "d",
+              "text": "Tratar toda alerta como falsa"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Se prepara el entorno para limitar consecuencias incluso si alguna barrera falla.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass"
+        },
+        {
+          "id": "w21d4-q07",
+          "prompt": "¿Por qué autenticación correcta no garantiza confidencialidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque toda autenticación publica datos"
+            },
+            {
+              "id": "b",
+              "text": "Una cuenta puede tener permisos excesivos o ser usada indebidamente"
+            },
+            {
+              "id": "c",
+              "text": "Porque las contraseñas impiden cifrar"
+            },
+            {
+              "id": "d",
+              "text": "Porque los logs sustituyen permisos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La identidad debe combinarse con autorización y controles de manejo de información.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass"
+        },
+        {
+          "id": "w21d4-q08",
+          "prompt": "Un sistema permite leer datos, pero su registro no muestra quién lo hizo. ¿Qué capacidad falta fortalecer?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Trazabilidad de actividad"
+            },
+            {
+              "id": "b",
+              "text": "La resolución del monitor"
+            },
+            {
+              "id": "c",
+              "text": "La longitud del nombre del archivo"
+            },
+            {
+              "id": "d",
+              "text": "La compresión de los logs"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Identificar y registrar acciones permite investigar y responsabilizar su uso.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass"
+        }
+      ],
+      "challenge": {
+        "id": "w21d4-challenge",
+        "prompt": "Caso: la VPN autentica a Luis y lo deja borrar toda nómina aunque solo atiende soporte. ¿Qué principio falla?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Disponibilidad por definición"
+          },
+          {
+            "id": "b",
+            "text": "Redundancia eléctrica"
+          },
+          {
+            "id": "c",
+            "text": "Autorización y mínimo privilegio"
+          },
+          {
+            "id": "d",
+            "text": "Codificación de caracteres"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La autenticación del túnel no justifica derechos innecesarios sobre información sensible.",
+        "reference": "https://learn.microsoft.com/en-us/security/compass/compass"
+      }
+    },
+    {
+      "dayId": "w21d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w21d5-q01",
+          "prompt": "¿Qué diseño limita el acceso físico de visitantes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una llave maestra compartida"
+            },
+            {
+              "id": "b",
+              "text": "Recepción, credencial temporal y zonas autorizadas"
+            },
+            {
+              "id": "c",
+              "text": "Puertas interiores siempre abiertas"
+            },
+            {
+              "id": "d",
+              "text": "Un único cartel sin verificación"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La identificación debe vincularse a permisos físicos concretos y duración.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w21d5-q02",
+          "prompt": "¿Qué detecta un sensor de puerta abierta fuera de horario?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La identidad del atacante con certeza"
+            },
+            {
+              "id": "b",
+              "text": "La integridad de todas las bases"
+            },
+            {
+              "id": "c",
+              "text": "Una condición física que requiere evaluación"
+            },
+            {
+              "id": "d",
+              "text": "Una filtración confirmada"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un sensor informa una condición; el contexto determina su significado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w21d5-q03",
+          "prompt": "¿Qué objetivo cumple un honeypot bien aislado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Generar señales sobre interacción no esperada con un señuelo"
+            },
+            {
+              "id": "b",
+              "text": "Reemplazar todos los servidores reales"
+            },
+            {
+              "id": "c",
+              "text": "Almacenar datos de producción sin controles"
+            },
+            {
+              "id": "d",
+              "text": "Garantizar bloqueo de cualquier ataque"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un señuelo puede facilitar detección, pero requiere límites y monitorización.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w21d5-q04",
+          "prompt": "¿Por qué no poner secretos reales en un recurso señuelo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque impediría cualquier alerta"
+            },
+            {
+              "id": "b",
+              "text": "Podrían exponerse si alguien lo alcanza"
+            },
+            {
+              "id": "c",
+              "text": "Porque todo señuelo debe ser público"
+            },
+            {
+              "id": "d",
+              "text": "Porque los señuelos cifran solos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El mecanismo de engaño no debe crear una exposición innecesaria de información valiosa.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w21d5-q05",
+          "prompt": "¿Qué reduce el riesgo de manipulación de puertos en áreas comunes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Proteger físicamente equipos y controlar conexiones"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar solo las etiquetas de cables"
+            },
+            {
+              "id": "c",
+              "text": "Publicar configuraciones"
+            },
+            {
+              "id": "d",
+              "text": "Usar cuentas compartidas"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las barreras físicas y lógicas deben limitar acceso y uso no autorizado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w21d5-q06",
+          "prompt": "¿Qué debe acompañar una cámara de seguridad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Reglas de uso, acceso a grabaciones y respuesta"
+            },
+            {
+              "id": "b",
+              "text": "Divulgación pública permanente"
+            },
+            {
+              "id": "c",
+              "text": "Acceso universal sin límites"
+            },
+            {
+              "id": "d",
+              "text": "Borrado de toda trazabilidad"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La videovigilancia implica manejo de datos y un procedimiento operativo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w21d5-q07",
+          "prompt": "Un detector genera demasiados avisos irrelevantes. ¿Qué acción corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Desactivar todo el sistema definitivamente"
+            },
+            {
+              "id": "b",
+              "text": "Ignorar todos los avisos"
+            },
+            {
+              "id": "c",
+              "text": "Ajustar y validar la detección sin perder cobertura necesaria"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar el registro de incidentes"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La calidad de detección requiere medir señales y revisar su utilidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w21d5-q08",
+          "prompt": "¿Qué requisito debe respetar el control de puerta de emergencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Evacuación segura según diseño y reglas aplicables"
+            },
+            {
+              "id": "b",
+              "text": "Bloqueo permanente de toda salida"
+            },
+            {
+              "id": "c",
+              "text": "Entrada anónima a servidores"
+            },
+            {
+              "id": "d",
+              "text": "Publicación de códigos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La protección de activos debe coordinarse con seguridad de las personas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w21d5-challenge",
+        "prompt": "Caso: se instala un honeypot, pero comparte credenciales administrativas con producción. ¿Qué cambio es prioritario?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Añadir más datos reales al señuelo"
+          },
+          {
+            "id": "b",
+            "text": "Ocultar su icono"
+          },
+          {
+            "id": "c",
+            "text": "Confiar en que nadie lo descubrirá"
+          },
+          {
+            "id": "d",
+            "text": "Aislar el señuelo y separar credenciales y permisos"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "Un recurso destinado a atraer interacción no debe ofrecer una ruta privilegiada hacia activos reales.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      }
+    },
+    {
+      "dayId": "w21d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w21d6-q01",
+          "prompt": "Un requisito pide acceso de proveedor por dos semanas. ¿Qué diseño se ajusta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Administrador permanente compartido"
+            },
+            {
+              "id": "b",
+              "text": "Acceso anónimo desde cualquier origen"
+            },
+            {
+              "id": "c",
+              "text": "Sin registro por ser temporal"
+            },
+            {
+              "id": "d",
+              "text": "Acceso temporal limitado a recursos necesarios"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La duración limitada no elimina la necesidad de privilegios mínimos y trazabilidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w21d6-q02",
+          "prompt": "¿Qué control se relaciona directamente con robo de portátil apagado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un filtro de correo exclusivamente"
+            },
+            {
+              "id": "b",
+              "text": "Cifrado de almacenamiento con claves protegidas"
+            },
+            {
+              "id": "c",
+              "text": "Mayor ancho de banda"
+            },
+            {
+              "id": "d",
+              "text": "Un IDS sin conexión al portátil"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El cifrado limita lectura del soporte; su eficacia depende de gestión de claves y estado del equipo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w21d6-q03",
+          "prompt": "¿Qué requisito de negocio debe guiar una elección de redundancia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tiempo de interrupción tolerable y dependencias críticas"
+            },
+            {
+              "id": "b",
+              "text": "Solo marca del fabricante"
+            },
+            {
+              "id": "c",
+              "text": "Solo número de colores del panel"
+            },
+            {
+              "id": "d",
+              "text": "Solo antigüedad del logotipo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La redundancia tiene costes y debe responder a objetivos operativos concretos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w21d6-q04",
+          "prompt": "Una copia está protegida, pero nadie sabe restaurarla. ¿Qué falta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Otra etiqueta de clasificación"
+            },
+            {
+              "id": "b",
+              "text": "Más iconos de seguridad"
+            },
+            {
+              "id": "c",
+              "text": "Procedimiento y prueba de recuperación"
+            },
+            {
+              "id": "d",
+              "text": "Un firewall con más reglas"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La disponibilidad depende de poder ejecutar la recuperación, no solo almacenar copias.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w21d6-q05",
+          "prompt": "¿Qué decisión reconoce riesgo residual tras MFA?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Suprimir toda revisión de accesos"
+            },
+            {
+              "id": "b",
+              "text": "Garantizar que ya no habrá phishing"
+            },
+            {
+              "id": "c",
+              "text": "Mantener protección de sesiones y respuesta ante compromiso"
+            },
+            {
+              "id": "d",
+              "text": "Publicar códigos de recuperación"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "MFA reduce determinadas rutas de ataque, pero no elimina todos los escenarios.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w21d6-q06",
+          "prompt": "¿Qué criterio valida una regla que separa invitados de nómina?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que la regla tenga un nombre largo"
+            },
+            {
+              "id": "b",
+              "text": "Prueba de flujo denegado y funcionamiento de accesos permitidos"
+            },
+            {
+              "id": "c",
+              "text": "Que el dibujo tenga colores"
+            },
+            {
+              "id": "d",
+              "text": "Que nadie se haya quejado aún"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las pruebas deben verificar seguridad y funcionamiento esperado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w21d6-q07",
+          "prompt": "Un diseño depende de una única persona para recuperar claves. ¿Qué riesgo aparece?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una mejora automática de disponibilidad"
+            },
+            {
+              "id": "b",
+              "text": "Confidencialidad garantizada sin controles"
+            },
+            {
+              "id": "c",
+              "text": "Punto único de fallo operativo"
+            },
+            {
+              "id": "d",
+              "text": "Ausencia de necesidad de respaldo"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La recuperación puede fallar si no está disponible ese conocimiento o acceso.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w21d6-q08",
+          "prompt": "¿Qué entrega hace revisable una propuesta de controles?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Requisito, riesgo, control, prueba y limitaciones"
+            },
+            {
+              "id": "b",
+              "text": "Una lista de productos sin contexto"
+            },
+            {
+              "id": "c",
+              "text": "Solo una imagen decorativa"
+            },
+            {
+              "id": "d",
+              "text": "Una nota «seguro al 100 %»"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La relación explícita facilita evaluar adecuación y riesgos restantes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w21d6-challenge",
+        "prompt": "Caso: una oficina necesita proteger nómina sin detener pagos. ¿Qué propuesta equilibra requisitos?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Bloquear todo acceso permanentemente"
+          },
+          {
+            "id": "b",
+            "text": "Permisos limitados, registro, respaldo probado y procedimiento de contingencia"
+          },
+          {
+            "id": "c",
+            "text": "Dar acceso a toda la oficina"
+          },
+          {
+            "id": "d",
+            "text": "Cifrar sin conservar claves"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "El diseño debe reducir exposición y permitir la función autorizada con recuperación verificable.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+      }
+    },
+    {
+      "dayId": "w21d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w21d7-q01",
+          "prompt": "¿Dónde confirmar la versión de Security+ que puedes presentar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "En el título de cualquier video antiguo"
+            },
+            {
+              "id": "b",
+              "text": "En una publicación sin fecha"
+            },
+            {
+              "id": "c",
+              "text": "En la numeración de tus apuntes"
+            },
+            {
+              "id": "d",
+              "text": "En la información oficial de CompTIA y registro aplicable"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La versión debe verificarse con la fuente que administra la certificación.",
+          "reference": "https://www.comptia.org/certifications/security",
+          "reviewOf": "w21d1-q01"
+        },
+        {
+          "id": "w21d7-q02",
+          "prompt": "¿Qué unidad conviene usar para una matriz de cobertura detallada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el título general del examen"
+            },
+            {
+              "id": "b",
+              "text": "Cada objetivo y subobjetivo oficial"
+            },
+            {
+              "id": "c",
+              "text": "Cada página del cuaderno"
+            },
+            {
+              "id": "d",
+              "text": "Cada anuncio del curso"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La granularidad por subobjetivo ayuda a detectar lagunas ocultas por resúmenes amplios.",
+          "reference": "https://www.comptia.org/certifications/security",
+          "reviewOf": "w21d2-q01"
+        },
+        {
+          "id": "w21d7-q03",
+          "prompt": "Una cuenta se bloquea tras intentos repetidos. ¿Qué función busca principalmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Restaurar archivos borrados"
+            },
+            {
+              "id": "b",
+              "text": "Clasificar documentos"
+            },
+            {
+              "id": "c",
+              "text": "Detectar incendios"
+            },
+            {
+              "id": "d",
+              "text": "Prevenir nuevos intentos según la política"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La limitación de intentos busca dificultar acceso por adivinación; debe considerar impacto en usuarios.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w21d3-q01"
+        },
+        {
+          "id": "w21d7-q04",
+          "prompt": "En AAA, ¿qué responde «quién eres»?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Autenticación"
+            },
+            {
+              "id": "b",
+              "text": "Autorización"
+            },
+            {
+              "id": "c",
+              "text": "Accounting"
+            },
+            {
+              "id": "d",
+              "text": "Archivado"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La autenticación verifica el control de credenciales asociadas a una identidad.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass",
+          "reviewOf": "w21d4-q01"
+        },
+        {
+          "id": "w21d7-q05",
+          "prompt": "¿Qué diseño limita el acceso físico de visitantes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una llave maestra compartida"
+            },
+            {
+              "id": "b",
+              "text": "Recepción, credencial temporal y zonas autorizadas"
+            },
+            {
+              "id": "c",
+              "text": "Puertas interiores siempre abiertas"
+            },
+            {
+              "id": "d",
+              "text": "Un único cartel sin verificación"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La identificación debe vincularse a permisos físicos concretos y duración.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w21d5-q01"
+        },
+        {
+          "id": "w21d7-q06",
+          "prompt": "Un requisito pide acceso de proveedor por dos semanas. ¿Qué diseño se ajusta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Administrador permanente compartido"
+            },
+            {
+              "id": "b",
+              "text": "Acceso anónimo desde cualquier origen"
+            },
+            {
+              "id": "c",
+              "text": "Sin registro por ser temporal"
+            },
+            {
+              "id": "d",
+              "text": "Acceso temporal limitado a recursos necesarios"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La duración limitada no elimina la necesidad de privilegios mínimos y trazabilidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w21d6-q01"
+        },
+        {
+          "id": "w21d7-q07",
+          "prompt": "Un curso usa una versión distinta a tu convocatoria. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Comparar objetivos y cubrir diferencias"
+            },
+            {
+              "id": "b",
+              "text": "Asumir equivalencia completa"
+            },
+            {
+              "id": "c",
+              "text": "Descartar toda práctica previa"
+            },
+            {
+              "id": "d",
+              "text": "Memorizar solo el código nuevo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los conceptos previos pueden servir, pero hace falta contrastar alcance.",
+          "reference": "https://www.comptia.org/certifications/security",
+          "reviewOf": "w21d1-q02"
+        },
+        {
+          "id": "w21d7-q08",
+          "prompt": "¿Qué columna distingue estudiar de demostrar habilidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Evidencia o práctica realizada"
+            },
+            {
+              "id": "b",
+              "text": "Color del enlace"
+            },
+            {
+              "id": "c",
+              "text": "Número de seguidores del docente"
+            },
+            {
+              "id": "d",
+              "text": "Duración total del curso"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una evidencia permite comprobar aplicación y comprensión del contenido.",
+          "reference": "https://www.comptia.org/certifications/security",
+          "reviewOf": "w21d2-q02"
+        },
+        {
+          "id": "w21d7-q09",
+          "prompt": "Un informe diario señala cambios no autorizados. ¿Qué función predomina?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Disuasoria exclusivamente"
+            },
+            {
+              "id": "b",
+              "text": "Recuperación de datos"
+            },
+            {
+              "id": "c",
+              "text": "Detectiva"
+            },
+            {
+              "id": "d",
+              "text": "Aislamiento físico"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Identifica actividad para revisión sin implicar que se impidiera.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w21d3-q02"
+        },
+        {
+          "id": "w21d7-q10",
+          "prompt": "En AAA, ¿qué determina las acciones permitidas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Autorización"
+            },
+            {
+              "id": "b",
+              "text": "Autenticación por sí sola"
+            },
+            {
+              "id": "c",
+              "text": "Compresión"
+            },
+            {
+              "id": "d",
+              "text": "Disponibilidad"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La autorización evalúa derechos sobre un recurso tras identificar al solicitante.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass",
+          "reviewOf": "w21d4-q02"
+        },
+        {
+          "id": "w21d7-q11",
+          "prompt": "¿Qué detecta un sensor de puerta abierta fuera de horario?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La identidad del atacante con certeza"
+            },
+            {
+              "id": "b",
+              "text": "La integridad de todas las bases"
+            },
+            {
+              "id": "c",
+              "text": "Una condición física que requiere evaluación"
+            },
+            {
+              "id": "d",
+              "text": "Una filtración confirmada"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un sensor informa una condición; el contexto determina su significado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w21d5-q02"
+        },
+        {
+          "id": "w21d7-q12",
+          "prompt": "¿Qué control se relaciona directamente con robo de portátil apagado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un filtro de correo exclusivamente"
+            },
+            {
+              "id": "b",
+              "text": "Cifrado de almacenamiento con claves protegidas"
+            },
+            {
+              "id": "c",
+              "text": "Mayor ancho de banda"
+            },
+            {
+              "id": "d",
+              "text": "Un IDS sin conexión al portátil"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El cifrado limita lectura del soporte; su eficacia depende de gestión de claves y estado del equipo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w21d6-q02"
+        },
+        {
+          "id": "w21d7-q13",
+          "prompt": "¿Qué fechas afectan la selección de un esquema de examen?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Disponibilidad y retirada oficiales de la versión"
+            },
+            {
+              "id": "b",
+              "text": "Solo la fecha del portátil"
+            },
+            {
+              "id": "c",
+              "text": "Solo la publicación de un video"
+            },
+            {
+              "id": "d",
+              "text": "Solo las vacaciones del instructor"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El plan debe corresponder a una versión disponible en la fecha prevista.",
+          "reference": "https://www.comptia.org/certifications/security",
+          "reviewOf": "w21d1-q03"
+        },
+        {
+          "id": "w21d7-q14",
+          "prompt": "Un recurso cubre parcialmente un objetivo. ¿Qué estado registrar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Completo por haberlo abierto"
+            },
+            {
+              "id": "b",
+              "text": "No aplicable sin motivo"
+            },
+            {
+              "id": "c",
+              "text": "Cobertura parcial y parte pendiente"
+            },
+            {
+              "id": "d",
+              "text": "Aprobado automáticamente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Registrar límites evita convertir exposición superficial en dominio supuesto.",
+          "reference": "https://www.comptia.org/certifications/security",
+          "reviewOf": "w21d2-q03"
+        },
+        {
+          "id": "w21d7-q15",
+          "prompt": "Una imagen validada reconstruye un endpoint comprometido. ¿Qué función cumple?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Correctiva y de recuperación"
+            },
+            {
+              "id": "b",
+              "text": "Identificación del actor"
+            },
+            {
+              "id": "c",
+              "text": "Clasificación de sensibilidad"
+            },
+            {
+              "id": "d",
+              "text": "Publicidad de controles"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Reconstruir restablece un estado conocido tras el problema.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w21d3-q03"
+        },
+        {
+          "id": "w21d7-q16",
+          "prompt": "En AAA, ¿qué permite atribuir acciones a una cuenta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cifrado de pantalla"
+            },
+            {
+              "id": "b",
+              "text": "Cambio de logotipo"
+            },
+            {
+              "id": "c",
+              "text": "Desfragmentación"
+            },
+            {
+              "id": "d",
+              "text": "Accounting o registro de actividad"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los registros aportan trazabilidad de uso, sujeto a calidad y protección de la evidencia.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass",
+          "reviewOf": "w21d4-q03"
+        },
+        {
+          "id": "w21d7-q17",
+          "prompt": "¿Qué objetivo cumple un honeypot bien aislado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Generar señales sobre interacción no esperada con un señuelo"
+            },
+            {
+              "id": "b",
+              "text": "Reemplazar todos los servidores reales"
+            },
+            {
+              "id": "c",
+              "text": "Almacenar datos de producción sin controles"
+            },
+            {
+              "id": "d",
+              "text": "Garantizar bloqueo de cualquier ataque"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un señuelo puede facilitar detección, pero requiere límites y monitorización.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w21d5-q03"
+        },
+        {
+          "id": "w21d7-q18",
+          "prompt": "¿Qué requisito de negocio debe guiar una elección de redundancia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tiempo de interrupción tolerable y dependencias críticas"
+            },
+            {
+              "id": "b",
+              "text": "Solo marca del fabricante"
+            },
+            {
+              "id": "c",
+              "text": "Solo número de colores del panel"
+            },
+            {
+              "id": "d",
+              "text": "Solo antigüedad del logotipo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La redundancia tiene costes y debe responder a objetivos operativos concretos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w21d6-q03"
+        },
+        {
+          "id": "w21d7-q19",
+          "prompt": "¿Por qué comprobar el idioma en la información oficial?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque cambia el cifrado de los datos"
+            },
+            {
+              "id": "b",
+              "text": "Porque todos los idiomas se lanzan siempre juntos"
+            },
+            {
+              "id": "c",
+              "text": "La disponibilidad puede variar según examen y modalidad"
+            },
+            {
+              "id": "d",
+              "text": "Para conocer respuestas exactas"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "No debe asumirse que toda versión está disponible en cualquier idioma o modalidad.",
+          "reference": "https://www.comptia.org/certifications/security",
+          "reviewOf": "w21d1-q04"
+        },
+        {
+          "id": "w21d7-q20",
+          "prompt": "¿Qué propiedad protege una firma digital al verificar datos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Integridad y autenticidad del firmante según la clave confiable"
+            },
+            {
+              "id": "b",
+              "text": "Confidencialidad automáticamente"
+            },
+            {
+              "id": "c",
+              "text": "Disponibilidad continua"
+            },
+            {
+              "id": "d",
+              "text": "Anonimato universal"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La firma puede detectar alteración y vincular el mensaje a una clave; no lo cifra por sí sola.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass",
+          "reviewOf": "w21d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w21d7-challenge",
+        "prompt": "Caso semanal: el diagnóstico es alto en criptografía y bajo en operaciones; la nueva versión añade un subobjetivo no cubierto. ¿Cómo priorizar?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Registrar la brecha nueva y reforzar operaciones con evidencia por objetivo"
+          },
+          {
+            "id": "b",
+            "text": "Promediar y marcar todo completo"
+          },
+          {
+            "id": "c",
+            "text": "Repetir únicamente criptografía"
+          },
+          {
+            "id": "d",
+            "text": "Ignorar cambios porque el curso ya terminó"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La preparación requiere cobertura del alcance elegido y refuerzo dirigido a debilidades observadas.",
+        "reference": "https://www.comptia.org/certifications/security"
+      }
+    }
+  ]
+}

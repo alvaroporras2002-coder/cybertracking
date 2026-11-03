@@ -1,0 +1,2094 @@
+{
+  "week": 12,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w12d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w12d1-q01",
+          "prompt": "¿Qué solicita una aplicación al resolver un nombre mediante DNS?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Datos asociados al nombre y al tipo de registro consultado."
+            },
+            {
+              "id": "b",
+              "text": "La contraseña del propietario del dominio."
+            },
+            {
+              "id": "c",
+              "text": "Una copia completa del sitio web."
+            },
+            {
+              "id": "d",
+              "text": "El contenido de todos los correos del dominio."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "DNS almacena distintos datos; la resolución no equivale a descargar el contenido de la aplicación.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1034.html"
+        },
+        {
+          "id": "w12d1-q02",
+          "prompt": "¿Por qué una segunda consulta del mismo nombre puede no contactar al servidor autoritativo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Puede responder una caché con información aún válida."
+            },
+            {
+              "id": "b",
+              "text": "DNS prohíbe consultar dos veces un nombre."
+            },
+            {
+              "id": "c",
+              "text": "La primera consulta cambió la IP en el teclado."
+            },
+            {
+              "id": "d",
+              "text": "Todos los nombres quedan guardados para siempre."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las cachés reducen consultas mientras la información se conserva dentro de sus condiciones de validez.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1034.html"
+        },
+        {
+          "id": "w12d1-q03",
+          "prompt": "¿Qué expresa el TTL de un registro DNS en una respuesta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La duración de la contraseña del usuario."
+            },
+            {
+              "id": "b",
+              "text": "El número máximo de letras del dominio."
+            },
+            {
+              "id": "c",
+              "text": "Cuánto tiempo puede mantenerse en caché según ese valor."
+            },
+            {
+              "id": "d",
+              "text": "La hora local de creación de un paquete."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El TTL se expresa en segundos y limita la conservación del registro en caché.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1034.html"
+        },
+        {
+          "id": "w12d1-q04",
+          "prompt": "Una caché recibió TTL 300 y han pasado 200 segundos sin cambios de condiciones. ¿Qué tiempo nominal resta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "300 segundos adicionales."
+            },
+            {
+              "id": "b",
+              "text": "500 segundos."
+            },
+            {
+              "id": "c",
+              "text": "200 minutos."
+            },
+            {
+              "id": "d",
+              "text": "100 segundos."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El TTL restante disminuye con el tiempo transcurrido; no se reinicia solo por cada lectura de caché.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1034.html"
+        },
+        {
+          "id": "w12d1-q05",
+          "prompt": "¿Qué hace un resolvedor recursivo cuando no tiene una respuesta válida en caché?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Inventa una dirección con el mismo número de letras."
+            },
+            {
+              "id": "b",
+              "text": "Exige que el cliente consulte todos los routers del mundo."
+            },
+            {
+              "id": "c",
+              "text": "Descarga primero el disco completo del servidor web."
+            },
+            {
+              "id": "d",
+              "text": "Consulta servidores siguiendo las delegaciones necesarias."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El resolvedor busca datos a través de la jerarquía de nombres y puede conservar resultados permitidos.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1034.html"
+        },
+        {
+          "id": "w12d1-q06",
+          "prompt": "¿Qué significa que un servidor sea autoritativo para una zona?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tiene todos los archivos de internet."
+            },
+            {
+              "id": "b",
+              "text": "Es necesariamente el gateway de cada cliente."
+            },
+            {
+              "id": "c",
+              "text": "Guarda las credenciales de todos los navegadores."
+            },
+            {
+              "id": "d",
+              "text": "Mantiene o sirve los datos oficiales de esa zona según su configuración."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La autoridad se refiere a la zona DNS servida, no al control universal de la red.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1034.html"
+        },
+        {
+          "id": "w12d1-q07",
+          "prompt": "Un sitio cambió su registro y algunos clientes aún ven la dirección anterior. ¿Qué explicación inicial es plausible?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Toda la red ha cambiado obligatoriamente de proveedor."
+            },
+            {
+              "id": "b",
+              "text": "La IP anterior prueba que el dominio ya no existe."
+            },
+            {
+              "id": "c",
+              "text": "DNS solo admite una modificación en su vida útil."
+            },
+            {
+              "id": "d",
+              "text": "Todavía conservan una respuesta válida en caché."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El vencimiento de cachés puede provocar diferencias temporales sin que eso demuestre una avería global.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1034.html"
+        },
+        {
+          "id": "w12d1-q08",
+          "prompt": "¿Qué diferencia hay entre resolver un nombre y conectarse al servicio resuelto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Resolver garantiza que el servicio responda siempre."
+            },
+            {
+              "id": "b",
+              "text": "Una consulta DNS correcta abre automáticamente todos los puertos."
+            },
+            {
+              "id": "c",
+              "text": "La resolución obtiene datos; después debe establecerse la comunicación con el servicio."
+            },
+            {
+              "id": "d",
+              "text": "Conectarse por IP elimina toda necesidad de protocolo de aplicación."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una respuesta DNS no demuestra disponibilidad, permisos o comportamiento del servicio de destino.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1034.html"
+        }
+      ],
+      "challenge": {
+        "id": "w12d1-challenge",
+        "prompt": "Una respuesta de DNS está en caché con TTL restante 60. Se consulta de nuevo diez segundos después. ¿Qué resultado nominal explica su validez temporal?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Se convierte automáticamente en un registro permanente."
+          },
+          {
+            "id": "b",
+            "text": "Puede seguir utilizándose con unos 50 segundos restantes."
+          },
+          {
+            "id": "c",
+            "text": "Debe reiniciarse siempre a 60 por el mero hecho de leerla."
+          },
+          {
+            "id": "d",
+            "text": "La respuesta ya demuestra que el servidor web está disponible."
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "El TTL limita conservación; una lectura de caché no garantiza servicio de aplicación ni renueva indefinidamente el registro.",
+        "reference": "https://www.rfc-editor.org/rfc/rfc1034.html"
+      }
+    },
+    {
+      "dayId": "w12d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w12d2-q01",
+          "prompt": "¿Qué tipo de registro DNS asocia un nombre a una dirección IPv4?",
+          "options": [
+            {
+              "id": "a",
+              "text": "AAAA."
+            },
+            {
+              "id": "b",
+              "text": "MX."
+            },
+            {
+              "id": "c",
+              "text": "A."
+            },
+            {
+              "id": "d",
+              "text": "TXT."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un registro A contiene una dirección IPv4 para el nombre consultado.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1035.html"
+        },
+        {
+          "id": "w12d2-q02",
+          "prompt": "¿Qué tipo almacena una dirección IPv6?",
+          "options": [
+            {
+              "id": "a",
+              "text": "A."
+            },
+            {
+              "id": "b",
+              "text": "AAAA."
+            },
+            {
+              "id": "c",
+              "text": "CNAME."
+            },
+            {
+              "id": "d",
+              "text": "MX."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "AAAA contiene una dirección IPv6 de 128 bits.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3596.html"
+        },
+        {
+          "id": "w12d2-q03",
+          "prompt": "www.example.com tiene CNAME a portal.example.com. ¿Qué representa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "www contiene necesariamente la IP del servidor de correo."
+            },
+            {
+              "id": "b",
+              "text": "www es un alias cuyo nombre canónico es portal.example.com."
+            },
+            {
+              "id": "c",
+              "text": "portal es la contraseña de www."
+            },
+            {
+              "id": "d",
+              "text": "Ambos nombres deben ser interfaces Ethernet distintas."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "CNAME enlaza un nombre alias con otro nombre; puede requerirse obtener después sus registros de dirección.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1035.html"
+        },
+        {
+          "id": "w12d2-q04",
+          "prompt": "¿Qué finalidad tiene un registro MX?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Proporcionar obligatoriamente la MAC del servidor web."
+            },
+            {
+              "id": "b",
+              "text": "Guardar el número de puerto HTTPS de cada cliente."
+            },
+            {
+              "id": "c",
+              "text": "Cambiar la máscara de la red local."
+            },
+            {
+              "id": "d",
+              "text": "Indicar un intercambiador de correo y su preferencia."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "MX describe destinos de correo para el dominio y utiliza una prioridad o preferencia.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1035.html"
+        },
+        {
+          "id": "w12d2-q05",
+          "prompt": "Hay MX con preferencias 10 y 20. ¿Cuál se prefiere normalmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El de valor 10."
+            },
+            {
+              "id": "b",
+              "text": "El de valor 20."
+            },
+            {
+              "id": "c",
+              "text": "Ambos valores se suman para formar una IP."
+            },
+            {
+              "id": "d",
+              "text": "El elegido por orden alfabético de la contraseña."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los valores de preferencia MX menores tienen prioridad sobre los mayores.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1035.html"
+        },
+        {
+          "id": "w12d2-q06",
+          "prompt": "¿Qué contiene de forma general un registro TXT?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una o más cadenas de texto con significado según su uso."
+            },
+            {
+              "id": "b",
+              "text": "Siempre una dirección IPv4 binaria."
+            },
+            {
+              "id": "c",
+              "text": "Solo el puerto TCP de un servidor."
+            },
+            {
+              "id": "d",
+              "text": "La contraseña secreta de la cuenta DNS."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "TXT almacena texto; otras especificaciones pueden definir cómo interpretar ese texto.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1035.html"
+        },
+        {
+          "id": "w12d2-q07",
+          "prompt": "¿Qué consulta pide específicamente los MX de example.com en nslookup?",
+          "options": [
+            {
+              "id": "a",
+              "text": "nslookup -type=MAC example.com"
+            },
+            {
+              "id": "b",
+              "text": "nslookup -type=MX example.com"
+            },
+            {
+              "id": "c",
+              "text": "nslookup -port=MX example.com"
+            },
+            {
+              "id": "d",
+              "text": "nslookup -type=A-MAIL example.com"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El tipo seleccionado define qué clase de registro se solicita; aquí se pide MX.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup"
+        },
+        {
+          "id": "w12d2-q08",
+          "prompt": "No hay registros AAAA en la respuesta, pero sí A. ¿Qué no puede concluirse solo por ello?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el nombre no existe."
+            },
+            {
+              "id": "b",
+              "text": "Que la consulta por IPv6 no devolvió direcciones AAAA."
+            },
+            {
+              "id": "c",
+              "text": "Que se necesita distinguir el tipo solicitado."
+            },
+            {
+              "id": "d",
+              "text": "Que una respuesta A contiene direcciones IPv4."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Ausencia de un tipo de registro y ausencia del nombre completo son situaciones diferentes.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup"
+        }
+      ],
+      "challenge": {
+        "id": "w12d2-challenge",
+        "prompt": "La consulta devuelve un CNAME y un A para su destino; no devuelve MX porque se preguntó por A. ¿Qué interpretación evita confusiones?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Se resolvió un alias hacia una IPv4; no se ha evaluado la configuración de correo."
+          },
+          {
+            "id": "b",
+            "text": "El dominio carece de correo con certeza porque no aparece MX."
+          },
+          {
+            "id": "c",
+            "text": "El CNAME contiene la MAC del servidor web."
+          },
+          {
+            "id": "d",
+            "text": "El registro A cambia automáticamente la contraseña del alias."
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "El tipo de consulta y la cadena de nombres determinan qué información se obtuvo.",
+        "reference": "https://www.rfc-editor.org/rfc/rfc1035.html"
+      }
+    },
+    {
+      "dayId": "w12d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w12d3-q01",
+          "prompt": "La conexión a un servicio de laboratorio por IP funciona, pero su nombre falla. ¿Qué área investigar primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El cable necesariamente roto en todos sus tramos."
+            },
+            {
+              "id": "b",
+              "text": "La falta total de direccionamiento IP."
+            },
+            {
+              "id": "c",
+              "text": "La ausencia obligatoria del proceso de servicio."
+            },
+            {
+              "id": "d",
+              "text": "Resolución DNS, nombre consultado y servidor utilizado."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La prueba por IP limita el problema; no prueba la resolución del nombre.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup"
+        },
+        {
+          "id": "w12d3-q02",
+          "prompt": "¿Qué significa normalmente NXDOMAIN en una respuesta DNS?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La red entera está desconectada."
+            },
+            {
+              "id": "b",
+              "text": "El servicio web está caído necesariamente."
+            },
+            {
+              "id": "c",
+              "text": "El servidor DNS nunca recibió la consulta."
+            },
+            {
+              "id": "d",
+              "text": "El nombre consultado no existe según esa respuesta."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una respuesta negativa de nombre difiere de no recibir respuesta y de no tener un tipo concreto.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup"
+        },
+        {
+          "id": "w12d3-q03",
+          "prompt": "Una consulta DNS agota el tiempo de espera. ¿Qué puede afirmarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El nombre no existe con certeza."
+            },
+            {
+              "id": "b",
+              "text": "El dominio está disponible para registrarse."
+            },
+            {
+              "id": "c",
+              "text": "No se obtuvo una respuesta dentro del plazo de la prueba."
+            },
+            {
+              "id": "d",
+              "text": "Todos sus registros fueron borrados."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un timeout puede deberse a alcance, filtrado, servidor o red; no equivale a NXDOMAIN.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup"
+        },
+        {
+          "id": "w12d3-q04",
+          "prompt": "¿Qué permite nslookup nombre.example 192.0.2.53 en un caso simulado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Asignar 192.0.2.53 como IP del cliente."
+            },
+            {
+              "id": "b",
+              "text": "Renovar una concesión DHCP."
+            },
+            {
+              "id": "c",
+              "text": "Dirigir la consulta al servidor DNS indicado."
+            },
+            {
+              "id": "d",
+              "text": "Cambiar los registros autoritativos del dominio."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El segundo argumento selecciona el servidor de consulta; la IP es aquí documental.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup"
+        },
+        {
+          "id": "w12d3-q05",
+          "prompt": "El servidor configurado devuelve timeout y otro autorizado responde al mismo nombre y tipo. ¿Qué hipótesis queda mejor apoyada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un problema relacionado con el primer servidor o su alcance desde el cliente."
+            },
+            {
+              "id": "b",
+              "text": "Que el nombre es sintácticamente imposible."
+            },
+            {
+              "id": "c",
+              "text": "Que ningún servidor puede resolver el nombre."
+            },
+            {
+              "id": "d",
+              "text": "Que la aplicación nunca utiliza DNS."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Mantener nombre y tipo permite comparar el servidor como variable, sin afirmar una causa aún no verificada.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup"
+        },
+        {
+          "id": "w12d3-q06",
+          "prompt": "¿Para qué sirve ipconfig /flushdns en Windows?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Vaciar la caché local del resolvedor DNS."
+            },
+            {
+              "id": "b",
+              "text": "Eliminar registros de todos los servidores autoritativos."
+            },
+            {
+              "id": "c",
+              "text": "Renovar todos los certificados del sitio."
+            },
+            {
+              "id": "d",
+              "text": "Reiniciar físicamente el router del proveedor."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El comando actúa sobre la caché local; no modifica la publicación DNS externa.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig"
+        },
+        {
+          "id": "w12d3-q07",
+          "prompt": "Tras vaciar caché local, el servidor recursivo sigue dando una IP antigua. ¿Qué límite muestra?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La operación borró necesariamente el dominio."
+            },
+            {
+              "id": "b",
+              "text": "El cliente está obligado a usar siempre una IP antigua."
+            },
+            {
+              "id": "c",
+              "text": "Existen cachés o datos fuera del cliente que no se vaciaron."
+            },
+            {
+              "id": "d",
+              "text": "Todas las consultas siguientes evitan cualquier caché."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La resolución puede incluir varias capas de caché; borrar una no elimina las demás.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup"
+        },
+        {
+          "id": "w12d3-q08",
+          "prompt": "¿Qué conjunto mínimo debe acompañar un resultado de diagnóstico DNS?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la frase internet no funciona."
+            },
+            {
+              "id": "b",
+              "text": "La contraseña de administración del dominio."
+            },
+            {
+              "id": "c",
+              "text": "El nombre del navegador sin consulta ni salida."
+            },
+            {
+              "id": "d",
+              "text": "Nombre exacto, tipo, servidor, hora y respuesta o error."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Esos datos permiten comparar resultados y distinguir fallos de nombre, tipo, servidor o momento.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup"
+        }
+      ],
+      "challenge": {
+        "id": "w12d3-challenge",
+        "prompt": "En un caso ficticio el servicio por IP responde, nslookup al DNS configurado agota tiempo y un DNS autorizado alternativo resuelve el nombre. ¿Qué siguiente paso aporta evidencia?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Reinstalar el servicio que ya respondió sin revisar DNS."
+          },
+          {
+            "id": "b",
+            "text": "Cambiar todos los cables de la organización de forma indiscriminada."
+          },
+          {
+            "id": "c",
+            "text": "Verificar configuración y alcance del DNS original, manteniendo nombre y tipo de consulta."
+          },
+          {
+            "id": "d",
+            "text": "Concluir que el nombre no existe pese a la respuesta alternativa."
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La comparación apunta al servidor original o su trayecto; deben comprobarse antes de afirmar una causa concreta.",
+        "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup"
+      }
+    },
+    {
+      "dayId": "w12d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w12d4-q01",
+          "prompt": "¿Qué obtiene habitualmente un cliente mediante DHCPv4?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Permisos de administrador de archivos."
+            },
+            {
+              "id": "b",
+              "text": "Una configuración IP con concesión y opciones disponibles."
+            },
+            {
+              "id": "c",
+              "text": "Una cuenta nueva en cada servidor web."
+            },
+            {
+              "id": "d",
+              "text": "Una MAC física distinta en cada paquete."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "DHCP puede suministrar dirección y parámetros de red mediante una asignación gestionada.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc2131.html"
+        },
+        {
+          "id": "w12d4-q02",
+          "prompt": "¿Qué secuencia representa la obtención inicial típica de una concesión DHCPv4?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ack, Request, Offer, Discover."
+            },
+            {
+              "id": "b",
+              "text": "Query, Answer, CNAME, MX."
+            },
+            {
+              "id": "c",
+              "text": "SYN, SYN-ACK, ACK, FIN."
+            },
+            {
+              "id": "d",
+              "text": "Discover, Offer, Request, Ack."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El cliente descubre servidores, recibe oferta, solicita una asignación y recibe confirmación.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc2131.html"
+        },
+        {
+          "id": "w12d4-q03",
+          "prompt": "¿Qué expresa la duración de una concesión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El tiempo máximo que puede estar encendido el equipo."
+            },
+            {
+              "id": "b",
+              "text": "La fecha de caducidad del cable Ethernet."
+            },
+            {
+              "id": "c",
+              "text": "El periodo de validez de la asignación según el acuerdo DHCP."
+            },
+            {
+              "id": "d",
+              "text": "La duración del registro DNS de cualquier dominio."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La concesión se mantiene y renueva conforme al protocolo; no es una asignación perpetua por defecto.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc2131.html"
+        },
+        {
+          "id": "w12d4-q04",
+          "prompt": "El servidor DHCP no responde, pero el cliente tiene una concesión aún válida. ¿Qué matiz es correcto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Pierde obligatoriamente toda IP al primer paquete sin respuesta."
+            },
+            {
+              "id": "b",
+              "text": "Cambia automáticamente a la IP de cualquier vecino."
+            },
+            {
+              "id": "c",
+              "text": "Puede conservarla para siempre aunque venza la concesión."
+            },
+            {
+              "id": "d",
+              "text": "Puede seguir usando su configuración válida mientras procede según su estado de renovación."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El protocolo define renovación y vencimiento; un fallo instantáneo no equivale siempre a expiración inmediata.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc2131.html"
+        },
+        {
+          "id": "w12d4-q05",
+          "prompt": "¿Qué busca un cliente al renovar una concesión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Extender o confirmar el uso de la configuración asignada."
+            },
+            {
+              "id": "b",
+              "text": "Convertir su MAC en un nombre de dominio."
+            },
+            {
+              "id": "c",
+              "text": "Obtener permisos de escritura en el servidor."
+            },
+            {
+              "id": "d",
+              "text": "Desactivar definitivamente DNS."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La renovación gestiona la continuidad de una asignación DHCP.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc2131.html"
+        },
+        {
+          "id": "w12d4-q06",
+          "prompt": "¿Qué mensaje confirma parámetros y dirección comprometidos por el servidor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "DHCPACK."
+            },
+            {
+              "id": "b",
+              "text": "DNS CNAME."
+            },
+            {
+              "id": "c",
+              "text": "HTTP GET."
+            },
+            {
+              "id": "d",
+              "text": "ARP REQUEST."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "DHCPACK confirma la asignación o renovación conforme al estado del cliente.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc2131.html"
+        },
+        {
+          "id": "w12d4-q07",
+          "prompt": "¿Qué opciones pueden acompañar la dirección DHCP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Máscara, routers y servidores DNS."
+            },
+            {
+              "id": "b",
+              "text": "Contraseña de todos los usuarios del dominio."
+            },
+            {
+              "id": "c",
+              "text": "Contenido completo de los sitios web."
+            },
+            {
+              "id": "d",
+              "text": "Claves privadas TLS de cada servidor."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "DHCP define opciones de configuración de red; no debe confundirse con entrega de credenciales de usuario.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc2132.html"
+        },
+        {
+          "id": "w12d4-q08",
+          "prompt": "Una subred no tiene servidor DHCP local. ¿Qué función puede comunicar solicitudes con un servidor de otra red?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una entrada TXT del navegador."
+            },
+            {
+              "id": "b",
+              "text": "Un cambio de extensión del archivo de concesión."
+            },
+            {
+              "id": "c",
+              "text": "Un alias de PowerShell sin acceso a la red."
+            },
+            {
+              "id": "d",
+              "text": "Un agente de retransmisión DHCP configurado."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La arquitectura admite agentes relay; las difusiones locales no atraviesan por sí solas todos los routers.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc2131.html"
+        }
+      ],
+      "challenge": {
+        "id": "w12d4-challenge",
+        "prompt": "Un cliente recibe Offer, envía Request y aún no aparece Ack. ¿Qué puede afirmarse del intercambio observado?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Se ha visto una oferta y una solicitud; falta observar la confirmación de esa asignación."
+          },
+          {
+            "id": "b",
+            "text": "Toda la concesión quedó completada solo al ver Offer."
+          },
+          {
+            "id": "c",
+            "text": "El cliente está consultando necesariamente registros MX."
+          },
+          {
+            "id": "d",
+            "text": "La falta de Ack prueba que el cable está físicamente roto."
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "Cada mensaje cumple una función; una observación parcial no debe presentarse como un proceso completo.",
+        "reference": "https://www.rfc-editor.org/rfc/rfc2131.html"
+      }
+    },
+    {
+      "dayId": "w12d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w12d5-q01",
+          "prompt": "¿Qué diferencia una reserva DHCP de una IP configurada manualmente en el cliente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La reserva la entrega DHCP a la identidad de cliente definida."
+            },
+            {
+              "id": "b",
+              "text": "Una reserva obliga a desinstalar el cliente DHCP."
+            },
+            {
+              "id": "c",
+              "text": "La configuración manual siempre aparece como reserva en el servidor."
+            },
+            {
+              "id": "d",
+              "text": "Ambas impiden cualquier conflicto sin revisar el ámbito."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La reserva es una decisión del servidor; una IP manual se fija en el dispositivo y debe coordinarse.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/networking/technologies/dhcp/dhcp-scopes"
+        },
+        {
+          "id": "w12d5-q02",
+          "prompt": "Una impresora tiene IP manual dentro del rango que el servidor asigna libremente. ¿Qué riesgo existe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que la impresora se convierta en servidor DNS automáticamente."
+            },
+            {
+              "id": "b",
+              "text": "Que todos los clientes cambien de contraseña."
+            },
+            {
+              "id": "c",
+              "text": "Que DHCP asigne esa misma dirección a otro cliente."
+            },
+            {
+              "id": "d",
+              "text": "Que la dirección manual se vuelva loopback."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las IP manuales deben coordinarse con el ámbito, por ejemplo mediante exclusiones apropiadas.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/networking/technologies/dhcp/dhcp-scopes"
+        },
+        {
+          "id": "w12d5-q03",
+          "prompt": "Dos equipos usan 192.168.90.25 en el mismo segmento. ¿Qué problema se investiga?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Falta de un registro MX exclusivamente."
+            },
+            {
+              "id": "b",
+              "text": "Incompatibilidad obligatoria entre IPv4 y texto UTF-8."
+            },
+            {
+              "id": "c",
+              "text": "Un fallo de zona horaria."
+            },
+            {
+              "id": "d",
+              "text": "Conflicto de direcciones IP."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La duplicidad puede provocar asociaciones de vecino y comunicación inconsistentes.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/networking/technologies/dhcp/dhcp-scopes"
+        },
+        {
+          "id": "w12d5-q04",
+          "prompt": "Un cliente 192.168.91.20/24 usa gateway 192.168.92.1 sin ruta especial. ¿Qué inconsistencia básica aparece?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La IP cliente es loopback."
+            },
+            {
+              "id": "b",
+              "text": "El gateway no está en su subred local prevista."
+            },
+            {
+              "id": "c",
+              "text": "El gateway es siempre un servidor DNS válido."
+            },
+            {
+              "id": "d",
+              "text": "La máscara /24 impide cualquier comunicación local."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "En el caso básico el siguiente salto debe ser alcanzable por el enlace; la configuración requiere corrección o explicación adicional.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+        },
+        {
+          "id": "w12d5-q05",
+          "prompt": "La IP y gateway son correctos, pero el DNS configurado es un equipo inexistente. ¿Qué síntoma es coherente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Se pierde necesariamente todo enlace Ethernet."
+            },
+            {
+              "id": "b",
+              "text": "La IP del cliente pasa a ser pública automáticamente."
+            },
+            {
+              "id": "c",
+              "text": "Cada paquete ARP se convierte en DNS."
+            },
+            {
+              "id": "d",
+              "text": "Falla resolución de nombres aunque algunos destinos por IP funcionen."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "DNS es una función adicional al direccionamiento y al recorrido IP.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup"
+        },
+        {
+          "id": "w12d5-q06",
+          "prompt": "Una reserva DHCP está asociada a la interfaz antigua tras cambiar la tarjeta. ¿Qué revisar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El identificador de cliente o MAC vinculado a la reserva."
+            },
+            {
+              "id": "b",
+              "text": "El idioma del escritorio de la impresora."
+            },
+            {
+              "id": "c",
+              "text": "La fecha de edición de un documento cualquiera."
+            },
+            {
+              "id": "d",
+              "text": "El número de letras del nombre del proveedor."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El servidor debe asociar la reserva con la identidad del cliente que realmente solicita la configuración.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/networking/technologies/dhcp/dhcp-scopes"
+        },
+        {
+          "id": "w12d5-q07",
+          "prompt": "¿Por qué no asignar al azar una IP libre solo porque no respondió al ping?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque todas las direcciones tienen que terminar en 1."
+            },
+            {
+              "id": "b",
+              "text": "Porque ping muestra siempre el inventario completo del segmento."
+            },
+            {
+              "id": "c",
+              "text": "Porque DHCP impide cualquier dirección manual por definición."
+            },
+            {
+              "id": "d",
+              "text": "La ausencia de respuesta no prueba que no esté asignada o reservada."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un equipo apagado o filtrado puede tener una dirección asignada; se consulta el plan y el estado autorizado.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/networking/technologies/dhcp/dhcp-scopes"
+        },
+        {
+          "id": "w12d5-q08",
+          "prompt": "Tras corregir un conflicto, ¿qué validación corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo cambiar sus nombres visibles en el escritorio."
+            },
+            {
+              "id": "b",
+              "text": "Comprobar direcciones únicas, vecinos y comunicación esperada de ambos equipos."
+            },
+            {
+              "id": "c",
+              "text": "Vaciar todas las zonas DNS externas sin relación."
+            },
+            {
+              "id": "d",
+              "text": "Afirmar resuelto sin volver a consultar la configuración."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La corrección debe verificarse en los dos participantes y en la función que fallaba.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/networking/technologies/dhcp/dhcp-scopes"
+        }
+      ],
+      "challenge": {
+        "id": "w12d5-challenge",
+        "prompt": "DHCP reparte .100–.200 en 192.168.93.0/24 y una impresora usa manualmente .150. Aparecen conflictos intermitentes. ¿Qué corrección abordar?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Cambiar solo el nombre de la impresora y dejar la misma asignación libre."
+          },
+          {
+            "id": "b",
+            "text": "Borrar todos los registros MX del dominio de correo."
+          },
+          {
+            "id": "c",
+            "text": "Dar la misma IP .150 a otra impresora para estabilizar el enlace."
+          },
+          {
+            "id": "d",
+            "text": "Coordinar la impresora con el plan DHCP, excluyendo la IP manual o usando una reserva apropiada."
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La dirección manual se superpone con el espacio que el servidor puede conceder a otros clientes.",
+        "reference": "https://learn.microsoft.com/en-us/windows-server/networking/technologies/dhcp/dhcp-scopes"
+      }
+    },
+    {
+      "dayId": "w12d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w12d6-q01",
+          "prompt": "¿Qué hora UTC corresponde a 2026-05-10T10:00:00+02:00?",
+          "options": [
+            {
+              "id": "a",
+              "text": "2026-05-10T12:00:00Z."
+            },
+            {
+              "id": "b",
+              "text": "2026-05-10T08:00:00Z."
+            },
+            {
+              "id": "c",
+              "text": "2026-05-10T10:00:00Z."
+            },
+            {
+              "id": "d",
+              "text": "2026-05-09T08:00:00Z."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Se resta el desplazamiento +02:00 a la hora local para obtener UTC.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html"
+        },
+        {
+          "id": "w12d6-q02",
+          "prompt": "¿Qué hora UTC equivale a 2026-05-10T18:30:00-05:00?",
+          "options": [
+            {
+              "id": "a",
+              "text": "2026-05-10T13:30:00Z."
+            },
+            {
+              "id": "b",
+              "text": "2026-05-10T23:30:00Z."
+            },
+            {
+              "id": "c",
+              "text": "2026-05-11T18:30:00Z."
+            },
+            {
+              "id": "d",
+              "text": "2026-05-10T18:35:00Z."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un desplazamiento -05:00 indica que la hora local está cinco horas detrás de UTC.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html"
+        },
+        {
+          "id": "w12d6-q03",
+          "prompt": "Convierte 2026-05-10T00:15:00+03:00 a UTC. ¿Qué resultado es correcto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "2026-05-10T03:15:00Z."
+            },
+            {
+              "id": "b",
+              "text": "2026-05-10T21:15:00Z."
+            },
+            {
+              "id": "c",
+              "text": "2026-05-09T03:15:00Z."
+            },
+            {
+              "id": "d",
+              "text": "2026-05-09T21:15:00Z."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Al restar tres horas se cruza al día anterior; debe cambiar también la fecha.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html"
+        },
+        {
+          "id": "w12d6-q04",
+          "prompt": "¿Qué UTC corresponde a 2026-05-10T23:45:00-02:00?",
+          "options": [
+            {
+              "id": "a",
+              "text": "2026-05-10T21:45:00Z."
+            },
+            {
+              "id": "b",
+              "text": "2026-05-10T01:45:00Z."
+            },
+            {
+              "id": "c",
+              "text": "2026-05-11T23:45:00Z."
+            },
+            {
+              "id": "d",
+              "text": "2026-05-11T01:45:00Z."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Sumar dos horas cruza la medianoche al día siguiente.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html"
+        },
+        {
+          "id": "w12d6-q05",
+          "prompt": "Convierte 2026-05-10T12:00:00+05:30 a UTC. ¿Cuál es el resultado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "2026-05-10T17:30:00Z."
+            },
+            {
+              "id": "b",
+              "text": "2026-05-10T06:30:00Z."
+            },
+            {
+              "id": "c",
+              "text": "2026-05-10T07:00:00Z."
+            },
+            {
+              "id": "d",
+              "text": "2026-05-10T06:00:00Z."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El desplazamiento incluye cinco horas y treinta minutos; ambos componentes deben restarse.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html"
+        },
+        {
+          "id": "w12d6-q06",
+          "prompt": "¿Qué indica la Z al final de una marca de tiempo RFC 3339?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el equipo no conoce su fecha."
+            },
+            {
+              "id": "b",
+              "text": "Que el tiempo está cifrado."
+            },
+            {
+              "id": "c",
+              "text": "Que pertenece siempre a una zona con horario de verano."
+            },
+            {
+              "id": "d",
+              "text": "Que está expresada en UTC."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Z señala la referencia UTC y facilita comparar instantes sin desplazamientos locales distintos.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html"
+        },
+        {
+          "id": "w12d6-q07",
+          "prompt": "¿Qué problema ayuda a reducir NTP entre equipos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Los conflictos de MAC en cada switch."
+            },
+            {
+              "id": "b",
+              "text": "La diferencia de sus relojes respecto a fuentes de tiempo."
+            },
+            {
+              "id": "c",
+              "text": "La falta de registros MX del correo."
+            },
+            {
+              "id": "d",
+              "text": "La cantidad de archivos temporales."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "NTP sincroniza tiempo; cambiar la zona de visualización es una función diferente.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5905.html"
+        },
+        {
+          "id": "w12d6-q08",
+          "prompt": "Dos registros muestran 10:00 sin fecha ni zona y proceden de países distintos. ¿Qué limita ordenar los sucesos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El texto garantiza que ocurrieron simultáneamente."
+            },
+            {
+              "id": "b",
+              "text": "Todos los países usan siempre UTC."
+            },
+            {
+              "id": "c",
+              "text": "No se conoce el instante comparable en una referencia común."
+            },
+            {
+              "id": "d",
+              "text": "Los registros de red no necesitan relojes."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Se necesitan fecha, zona o desplazamiento y una evaluación del estado de los relojes.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html"
+        }
+      ],
+      "challenge": {
+        "id": "w12d6-challenge",
+        "prompt": "El servidor A registra 2026-05-10T09:15:00+01:00 y B registra 2026-05-10T08:16:00Z. Suponiendo relojes correctos, ¿qué ocurrió antes?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El evento de A, un minuto antes que B."
+          },
+          {
+            "id": "b",
+            "text": "El evento de B, cincuenta y nueve minutos antes que A."
+          },
+          {
+            "id": "c",
+            "text": "Ambos son simultáneos porque indican la misma fecha."
+          },
+          {
+            "id": "d",
+            "text": "No se puede comparar aunque se conozcan los desplazamientos."
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "A equivale a 08:15 UTC; B es 08:16 UTC, de modo que se pueden ordenar en una referencia común.",
+        "reference": "https://www.rfc-editor.org/rfc/rfc3339.html"
+      }
+    },
+    {
+      "dayId": "w12d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w12d7-q01",
+          "prompt": "¿Qué solicita una aplicación al resolver un nombre mediante DNS?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Datos asociados al nombre y al tipo de registro consultado."
+            },
+            {
+              "id": "b",
+              "text": "La contraseña del propietario del dominio."
+            },
+            {
+              "id": "c",
+              "text": "Una copia completa del sitio web."
+            },
+            {
+              "id": "d",
+              "text": "El contenido de todos los correos del dominio."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "DNS almacena distintos datos; la resolución no equivale a descargar el contenido de la aplicación.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1034.html",
+          "reviewOf": "w12d1-q01"
+        },
+        {
+          "id": "w12d7-q02",
+          "prompt": "¿Qué tipo de registro DNS asocia un nombre a una dirección IPv4?",
+          "options": [
+            {
+              "id": "a",
+              "text": "AAAA."
+            },
+            {
+              "id": "b",
+              "text": "MX."
+            },
+            {
+              "id": "c",
+              "text": "A."
+            },
+            {
+              "id": "d",
+              "text": "TXT."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un registro A contiene una dirección IPv4 para el nombre consultado.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1035.html",
+          "reviewOf": "w12d2-q01"
+        },
+        {
+          "id": "w12d7-q03",
+          "prompt": "La conexión a un servicio de laboratorio por IP funciona, pero su nombre falla. ¿Qué área investigar primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El cable necesariamente roto en todos sus tramos."
+            },
+            {
+              "id": "b",
+              "text": "La falta total de direccionamiento IP."
+            },
+            {
+              "id": "c",
+              "text": "La ausencia obligatoria del proceso de servicio."
+            },
+            {
+              "id": "d",
+              "text": "Resolución DNS, nombre consultado y servidor utilizado."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La prueba por IP limita el problema; no prueba la resolución del nombre.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup",
+          "reviewOf": "w12d3-q01"
+        },
+        {
+          "id": "w12d7-q04",
+          "prompt": "¿Qué obtiene habitualmente un cliente mediante DHCPv4?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Permisos de administrador de archivos."
+            },
+            {
+              "id": "b",
+              "text": "Una configuración IP con concesión y opciones disponibles."
+            },
+            {
+              "id": "c",
+              "text": "Una cuenta nueva en cada servidor web."
+            },
+            {
+              "id": "d",
+              "text": "Una MAC física distinta en cada paquete."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "DHCP puede suministrar dirección y parámetros de red mediante una asignación gestionada.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc2131.html",
+          "reviewOf": "w12d4-q01"
+        },
+        {
+          "id": "w12d7-q05",
+          "prompt": "¿Qué diferencia una reserva DHCP de una IP configurada manualmente en el cliente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La reserva la entrega DHCP a la identidad de cliente definida."
+            },
+            {
+              "id": "b",
+              "text": "Una reserva obliga a desinstalar el cliente DHCP."
+            },
+            {
+              "id": "c",
+              "text": "La configuración manual siempre aparece como reserva en el servidor."
+            },
+            {
+              "id": "d",
+              "text": "Ambas impiden cualquier conflicto sin revisar el ámbito."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La reserva es una decisión del servidor; una IP manual se fija en el dispositivo y debe coordinarse.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/networking/technologies/dhcp/dhcp-scopes",
+          "reviewOf": "w12d5-q01"
+        },
+        {
+          "id": "w12d7-q06",
+          "prompt": "¿Qué hora UTC corresponde a 2026-05-10T10:00:00+02:00?",
+          "options": [
+            {
+              "id": "a",
+              "text": "2026-05-10T12:00:00Z."
+            },
+            {
+              "id": "b",
+              "text": "2026-05-10T08:00:00Z."
+            },
+            {
+              "id": "c",
+              "text": "2026-05-10T10:00:00Z."
+            },
+            {
+              "id": "d",
+              "text": "2026-05-09T08:00:00Z."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Se resta el desplazamiento +02:00 a la hora local para obtener UTC.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html",
+          "reviewOf": "w12d6-q01"
+        },
+        {
+          "id": "w12d7-q07",
+          "prompt": "¿Por qué una segunda consulta del mismo nombre puede no contactar al servidor autoritativo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Puede responder una caché con información aún válida."
+            },
+            {
+              "id": "b",
+              "text": "DNS prohíbe consultar dos veces un nombre."
+            },
+            {
+              "id": "c",
+              "text": "La primera consulta cambió la IP en el teclado."
+            },
+            {
+              "id": "d",
+              "text": "Todos los nombres quedan guardados para siempre."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las cachés reducen consultas mientras la información se conserva dentro de sus condiciones de validez.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1034.html",
+          "reviewOf": "w12d1-q02"
+        },
+        {
+          "id": "w12d7-q08",
+          "prompt": "¿Qué tipo almacena una dirección IPv6?",
+          "options": [
+            {
+              "id": "a",
+              "text": "A."
+            },
+            {
+              "id": "b",
+              "text": "AAAA."
+            },
+            {
+              "id": "c",
+              "text": "CNAME."
+            },
+            {
+              "id": "d",
+              "text": "MX."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "AAAA contiene una dirección IPv6 de 128 bits.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3596.html",
+          "reviewOf": "w12d2-q02"
+        },
+        {
+          "id": "w12d7-q09",
+          "prompt": "¿Qué significa normalmente NXDOMAIN en una respuesta DNS?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La red entera está desconectada."
+            },
+            {
+              "id": "b",
+              "text": "El servicio web está caído necesariamente."
+            },
+            {
+              "id": "c",
+              "text": "El servidor DNS nunca recibió la consulta."
+            },
+            {
+              "id": "d",
+              "text": "El nombre consultado no existe según esa respuesta."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una respuesta negativa de nombre difiere de no recibir respuesta y de no tener un tipo concreto.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup",
+          "reviewOf": "w12d3-q02"
+        },
+        {
+          "id": "w12d7-q10",
+          "prompt": "¿Qué secuencia representa la obtención inicial típica de una concesión DHCPv4?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ack, Request, Offer, Discover."
+            },
+            {
+              "id": "b",
+              "text": "Query, Answer, CNAME, MX."
+            },
+            {
+              "id": "c",
+              "text": "SYN, SYN-ACK, ACK, FIN."
+            },
+            {
+              "id": "d",
+              "text": "Discover, Offer, Request, Ack."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El cliente descubre servidores, recibe oferta, solicita una asignación y recibe confirmación.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc2131.html",
+          "reviewOf": "w12d4-q02"
+        },
+        {
+          "id": "w12d7-q11",
+          "prompt": "Una impresora tiene IP manual dentro del rango que el servidor asigna libremente. ¿Qué riesgo existe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que la impresora se convierta en servidor DNS automáticamente."
+            },
+            {
+              "id": "b",
+              "text": "Que todos los clientes cambien de contraseña."
+            },
+            {
+              "id": "c",
+              "text": "Que DHCP asigne esa misma dirección a otro cliente."
+            },
+            {
+              "id": "d",
+              "text": "Que la dirección manual se vuelva loopback."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las IP manuales deben coordinarse con el ámbito, por ejemplo mediante exclusiones apropiadas.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/networking/technologies/dhcp/dhcp-scopes",
+          "reviewOf": "w12d5-q02"
+        },
+        {
+          "id": "w12d7-q12",
+          "prompt": "¿Qué hora UTC equivale a 2026-05-10T18:30:00-05:00?",
+          "options": [
+            {
+              "id": "a",
+              "text": "2026-05-10T13:30:00Z."
+            },
+            {
+              "id": "b",
+              "text": "2026-05-10T23:30:00Z."
+            },
+            {
+              "id": "c",
+              "text": "2026-05-11T18:30:00Z."
+            },
+            {
+              "id": "d",
+              "text": "2026-05-10T18:35:00Z."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un desplazamiento -05:00 indica que la hora local está cinco horas detrás de UTC.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html",
+          "reviewOf": "w12d6-q02"
+        },
+        {
+          "id": "w12d7-q13",
+          "prompt": "¿Qué expresa el TTL de un registro DNS en una respuesta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La duración de la contraseña del usuario."
+            },
+            {
+              "id": "b",
+              "text": "El número máximo de letras del dominio."
+            },
+            {
+              "id": "c",
+              "text": "Cuánto tiempo puede mantenerse en caché según ese valor."
+            },
+            {
+              "id": "d",
+              "text": "La hora local de creación de un paquete."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El TTL se expresa en segundos y limita la conservación del registro en caché.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1034.html",
+          "reviewOf": "w12d1-q03"
+        },
+        {
+          "id": "w12d7-q14",
+          "prompt": "www.example.com tiene CNAME a portal.example.com. ¿Qué representa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "www contiene necesariamente la IP del servidor de correo."
+            },
+            {
+              "id": "b",
+              "text": "www es un alias cuyo nombre canónico es portal.example.com."
+            },
+            {
+              "id": "c",
+              "text": "portal es la contraseña de www."
+            },
+            {
+              "id": "d",
+              "text": "Ambos nombres deben ser interfaces Ethernet distintas."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "CNAME enlaza un nombre alias con otro nombre; puede requerirse obtener después sus registros de dirección.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1035.html",
+          "reviewOf": "w12d2-q03"
+        },
+        {
+          "id": "w12d7-q15",
+          "prompt": "Una consulta DNS agota el tiempo de espera. ¿Qué puede afirmarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El nombre no existe con certeza."
+            },
+            {
+              "id": "b",
+              "text": "El dominio está disponible para registrarse."
+            },
+            {
+              "id": "c",
+              "text": "No se obtuvo una respuesta dentro del plazo de la prueba."
+            },
+            {
+              "id": "d",
+              "text": "Todos sus registros fueron borrados."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un timeout puede deberse a alcance, filtrado, servidor o red; no equivale a NXDOMAIN.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup",
+          "reviewOf": "w12d3-q03"
+        },
+        {
+          "id": "w12d7-q16",
+          "prompt": "¿Qué expresa la duración de una concesión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El tiempo máximo que puede estar encendido el equipo."
+            },
+            {
+              "id": "b",
+              "text": "La fecha de caducidad del cable Ethernet."
+            },
+            {
+              "id": "c",
+              "text": "El periodo de validez de la asignación según el acuerdo DHCP."
+            },
+            {
+              "id": "d",
+              "text": "La duración del registro DNS de cualquier dominio."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La concesión se mantiene y renueva conforme al protocolo; no es una asignación perpetua por defecto.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc2131.html",
+          "reviewOf": "w12d4-q03"
+        },
+        {
+          "id": "w12d7-q17",
+          "prompt": "Dos equipos usan 192.168.90.25 en el mismo segmento. ¿Qué problema se investiga?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Falta de un registro MX exclusivamente."
+            },
+            {
+              "id": "b",
+              "text": "Incompatibilidad obligatoria entre IPv4 y texto UTF-8."
+            },
+            {
+              "id": "c",
+              "text": "Un fallo de zona horaria."
+            },
+            {
+              "id": "d",
+              "text": "Conflicto de direcciones IP."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La duplicidad puede provocar asociaciones de vecino y comunicación inconsistentes.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/networking/technologies/dhcp/dhcp-scopes",
+          "reviewOf": "w12d5-q03"
+        },
+        {
+          "id": "w12d7-q18",
+          "prompt": "Convierte 2026-05-10T00:15:00+03:00 a UTC. ¿Qué resultado es correcto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "2026-05-10T03:15:00Z."
+            },
+            {
+              "id": "b",
+              "text": "2026-05-10T21:15:00Z."
+            },
+            {
+              "id": "c",
+              "text": "2026-05-09T03:15:00Z."
+            },
+            {
+              "id": "d",
+              "text": "2026-05-09T21:15:00Z."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Al restar tres horas se cruza al día anterior; debe cambiar también la fecha.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html",
+          "reviewOf": "w12d6-q03"
+        },
+        {
+          "id": "w12d7-q19",
+          "prompt": "Una caché recibió TTL 300 y han pasado 200 segundos sin cambios de condiciones. ¿Qué tiempo nominal resta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "300 segundos adicionales."
+            },
+            {
+              "id": "b",
+              "text": "500 segundos."
+            },
+            {
+              "id": "c",
+              "text": "200 minutos."
+            },
+            {
+              "id": "d",
+              "text": "100 segundos."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El TTL restante disminuye con el tiempo transcurrido; no se reinicia solo por cada lectura de caché.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1034.html",
+          "reviewOf": "w12d1-q04"
+        },
+        {
+          "id": "w12d7-q20",
+          "prompt": "El servidor DHCP no responde, pero el cliente tiene una concesión aún válida. ¿Qué matiz es correcto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Pierde obligatoriamente toda IP al primer paquete sin respuesta."
+            },
+            {
+              "id": "b",
+              "text": "Cambia automáticamente a la IP de cualquier vecino."
+            },
+            {
+              "id": "c",
+              "text": "Puede conservarla para siempre aunque venza la concesión."
+            },
+            {
+              "id": "d",
+              "text": "Puede seguir usando su configuración válida mientras procede según su estado de renovación."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El protocolo define renovación y vencimiento; un fallo instantáneo no equivale siempre a expiración inmediata.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc2131.html",
+          "reviewOf": "w12d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w12d7-challenge",
+        "prompt": "Un equipo obtuvo IP y gateway válidos por DHCP, conecta a un servicio por IP y falla al resolver su nombre. ¿Qué caso queda mejor delimitado?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La concesión DHCP es imposible porque un nombre falló."
+          },
+          {
+            "id": "b",
+            "text": "El gateway está necesariamente roto para cualquier destino."
+          },
+          {
+            "id": "c",
+            "text": "La configuración IP permite esa conexión; falta diagnosticar DNS y su configuración recibida."
+          },
+          {
+            "id": "d",
+            "text": "El servicio por IP demostró que todos los DNS responden."
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "Los servicios se distinguen por función; obtener dirección y ruta no garantiza que el DNS recibido sea correcto o accesible.",
+        "reference": "https://www.rfc-editor.org/rfc/rfc2131.html"
+      }
+    }
+  ]
+}

@@ -1,0 +1,2094 @@
+{
+  "week": 26,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w26d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w26d1-q01",
+          "prompt": "En IaaS, ¿quién gestiona normalmente el sistema operativo invitado del cliente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El cliente"
+            },
+            {
+              "id": "b",
+              "text": "Siempre el proveedor sin excepciones"
+            },
+            {
+              "id": "c",
+              "text": "Nadie por ser virtual"
+            },
+            {
+              "id": "d",
+              "text": "El visitante que usa la aplicación"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "En IaaS el cliente conserva administración del sistema operativo y aplicaciones que despliega.",
+          "reference": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility"
+        },
+        {
+          "id": "w26d1-q02",
+          "prompt": "En PaaS, ¿qué administración suele asumir el proveedor respecto a IaaS?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La plataforma y su sistema operativo subyacente"
+            },
+            {
+              "id": "b",
+              "text": "Todas las decisiones de acceso del cliente"
+            },
+            {
+              "id": "c",
+              "text": "La clasificación de cualquier dato del negocio"
+            },
+            {
+              "id": "d",
+              "text": "Toda seguridad del código del cliente"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "PaaS reduce gestión de infraestructura, pero no elimina responsabilidades de aplicación y datos.",
+          "reference": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility"
+        },
+        {
+          "id": "w26d1-q03",
+          "prompt": "¿Qué caracteriza a SaaS?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Uso de una aplicación preparada como servicio"
+            },
+            {
+              "id": "b",
+              "text": "Administración obligatoria de cada hipervisor"
+            },
+            {
+              "id": "c",
+              "text": "Compra exclusiva de hardware físico"
+            },
+            {
+              "id": "d",
+              "text": "Ausencia de identidades de usuario"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El proveedor opera gran parte de la pila; el cliente sigue gestionando configuración, acceso y datos.",
+          "reference": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility"
+        },
+        {
+          "id": "w26d1-q04",
+          "prompt": "¿Quién conserva responsabilidad por clasificar datos propios en cualquier modelo de nube?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el operador del centro de datos"
+            },
+            {
+              "id": "b",
+              "text": "La organización cliente"
+            },
+            {
+              "id": "c",
+              "text": "Nadie si se usa cifrado"
+            },
+            {
+              "id": "d",
+              "text": "El proveedor de conectividad"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Trasladar infraestructura no elimina decisiones sobre sensibilidad, finalidad y manejo de información.",
+          "reference": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility"
+        },
+        {
+          "id": "w26d1-q05",
+          "prompt": "Un cliente publica por error un contenedor de datos en nube. ¿Qué debe revisar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la seguridad física del proveedor"
+            },
+            {
+              "id": "b",
+              "text": "Asumir que nube significa acceso privado automático"
+            },
+            {
+              "id": "c",
+              "text": "Su configuración de acceso y responsabilidades del servicio"
+            },
+            {
+              "id": "d",
+              "text": "Dar más permisos para corregirlo"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La configuración que controla el cliente forma parte de su responsabilidad de protección.",
+          "reference": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility"
+        },
+        {
+          "id": "w26d1-q06",
+          "prompt": "¿Qué describe una nube híbrida?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Uso integrado de entornos privados y públicos según el diseño"
+            },
+            {
+              "id": "b",
+              "text": "Cualquier SaaS con dos usuarios"
+            },
+            {
+              "id": "c",
+              "text": "Una sola máquina sin conectividad"
+            },
+            {
+              "id": "d",
+              "text": "Un respaldo en el mismo disco"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El despliegue puede combinar entornos y necesita controlar sus conexiones y responsabilidades.",
+          "reference": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility"
+        },
+        {
+          "id": "w26d1-q07",
+          "prompt": "¿Qué dato aclara una responsabilidad aparentemente compartida?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Documentación y contrato del servicio concreto"
+            },
+            {
+              "id": "b",
+              "text": "Un diagrama genérico tomado como garantía legal"
+            },
+            {
+              "id": "c",
+              "text": "El tamaño del logotipo del proveedor"
+            },
+            {
+              "id": "d",
+              "text": "La antigüedad del usuario"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La división exacta depende de capacidades, configuración y compromisos del servicio utilizado.",
+          "reference": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility"
+        },
+        {
+          "id": "w26d1-q08",
+          "prompt": "¿Por qué proteger endpoints que acceden a SaaS?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque SaaS elimina permisos"
+            },
+            {
+              "id": "b",
+              "text": "Pueden exponer sesiones o datos aunque la aplicación esté en nube"
+            },
+            {
+              "id": "c",
+              "text": "Porque el proveedor administra todos los portátiles"
+            },
+            {
+              "id": "d",
+              "text": "Porque las sesiones no usan secretos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La seguridad del cliente y sus dispositivos sigue influyendo en el acceso al servicio.",
+          "reference": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility"
+        }
+      ],
+      "challenge": {
+        "id": "w26d1-challenge",
+        "prompt": "Caso: una VM IaaS está sin parches y el cliente dice que «todo es del proveedor». ¿Qué corrección corresponde?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Aceptar que ninguna VM requiere mantenimiento"
+          },
+          {
+            "id": "b",
+            "text": "Verificar el modelo: el cliente normalmente mantiene el sistema invitado"
+          },
+          {
+            "id": "c",
+            "text": "Pedir al usuario final que parchee el hipervisor"
+          },
+          {
+            "id": "d",
+            "text": "Eliminar el inventario de software"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La infraestructura física del proveedor y el sistema invitado del cliente son capas con responsabilidades distintas.",
+        "reference": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility"
+      }
+    },
+    {
+      "dayId": "w26d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w26d2-q01",
+          "prompt": "¿Qué diferencia habitual hay entre VM y contenedor de aplicación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todo contenedor incluye un hipervisor físico propio"
+            },
+            {
+              "id": "b",
+              "text": "La VM tiene sistema invitado; el contenedor suele compartir kernel del host"
+            },
+            {
+              "id": "c",
+              "text": "Las VM no necesitan sistema operativo"
+            },
+            {
+              "id": "d",
+              "text": "El contenedor garantiza aislamiento perfecto"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los mecanismos de aislamiento y administración difieren y tienen límites que deben comprenderse.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/190/final"
+        },
+        {
+          "id": "w26d2-q02",
+          "prompt": "¿Qué es una imagen de contenedor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una copia de seguridad completa de todo el negocio"
+            },
+            {
+              "id": "b",
+              "text": "Una sesión de usuario temporal"
+            },
+            {
+              "id": "c",
+              "text": "Una plantilla empaquetada de aplicación y dependencias"
+            },
+            {
+              "id": "d",
+              "text": "Una garantía de ausencia de fallos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las imágenes aportan componentes que deben mantenerse y validarse.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/190/final"
+        },
+        {
+          "id": "w26d2-q03",
+          "prompt": "¿Por qué escanear dependencias de una imagen?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para probar que nunca habrá ejecución maliciosa"
+            },
+            {
+              "id": "b",
+              "text": "Detectar componentes vulnerables presentes en ella"
+            },
+            {
+              "id": "c",
+              "text": "Para reemplazar la autorización del servicio"
+            },
+            {
+              "id": "d",
+              "text": "Para borrar todas las capas automáticamente"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La visibilidad de componentes permite evaluar exposición y actualizar imágenes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/190/final"
+        },
+        {
+          "id": "w26d2-q04",
+          "prompt": "¿Qué riesgo añade ejecutar un contenedor con privilegios amplios sobre el host?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aislamiento automáticamente superior"
+            },
+            {
+              "id": "b",
+              "text": "Mayor impacto si se abusa del contenedor"
+            },
+            {
+              "id": "c",
+              "text": "Ausencia de necesidad de parcheo"
+            },
+            {
+              "id": "d",
+              "text": "Protección de todos los secretos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La configuración de privilegios y recursos expuestos condiciona los límites reales de aislamiento.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/190/final"
+        },
+        {
+          "id": "w26d2-q05",
+          "prompt": "¿Qué debe protegerse en un registro de imágenes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo los nombres de carpetas"
+            },
+            {
+              "id": "b",
+              "text": "Quién puede publicar, descargar y modificar contenido confiado"
+            },
+            {
+              "id": "c",
+              "text": "Solo la rapidez de descarga"
+            },
+            {
+              "id": "d",
+              "text": "Nada si las imágenes son pequeñas"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El registro es parte de la cadena de entrega y puede influir en qué código se despliega.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/190/final"
+        },
+        {
+          "id": "w26d2-q06",
+          "prompt": "¿Por qué no incluir claves de producción dentro de una imagen?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque una imagen nunca almacena texto"
+            },
+            {
+              "id": "b",
+              "text": "Pueden extraerse o propagarse con sus copias y capas"
+            },
+            {
+              "id": "c",
+              "text": "Porque el cifrado no funciona en contenedores"
+            },
+            {
+              "id": "d",
+              "text": "Porque impide arrancar cualquier proceso"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los secretos deben gestionarse mediante mecanismos adecuados al entorno y su ciclo de vida.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/190/final"
+        },
+        {
+          "id": "w26d2-q07",
+          "prompt": "Una imagen actualizada se construye, pero siguen instancias antiguas. ¿Qué falta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Declarar cerrado por tener una imagen nueva"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar solo la etiqueta del repositorio"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar la revisión de ejecución"
+            },
+            {
+              "id": "d",
+              "text": "Desplegar y verificar las instancias corregidas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Construir una corrección no demuestra que el entorno en uso la haya recibido.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/190/final"
+        },
+        {
+          "id": "w26d2-q08",
+          "prompt": "¿Qué persiste al terminar un contenedor depende de su diseño?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todo dato se guarda siempre para siempre"
+            },
+            {
+              "id": "b",
+              "text": "Ningún dato puede salir del proceso"
+            },
+            {
+              "id": "c",
+              "text": "La imagen se convierte siempre en respaldo"
+            },
+            {
+              "id": "d",
+              "text": "Volúmenes y servicios de almacenamiento externos configurados"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los datos requieren una estrategia explícita de persistencia, protección y recuperación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/190/final"
+        }
+      ],
+      "challenge": {
+        "id": "w26d2-challenge",
+        "prompt": "Caso: un contenedor «aislado» monta el directorio raíz del host con escritura. ¿Qué límite debe revisarse?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El contenedor no puede tocar archivos externos nunca"
+          },
+          {
+            "id": "b",
+            "text": "Ese montaje amplía su capacidad de modificar el host"
+          },
+          {
+            "id": "c",
+            "text": "La imagen queda firmada automáticamente"
+          },
+          {
+            "id": "d",
+            "text": "El montaje sustituye los permisos"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "Compartir recursos del host puede debilitar el aislamiento esperado y exige restringir acceso.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/190/final"
+      }
+    },
+    {
+      "dayId": "w26d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w26d3-q01",
+          "prompt": "Una base guarda expedientes en disco. ¿Qué estado de datos representa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "En tránsito necesariamente"
+            },
+            {
+              "id": "b",
+              "text": "En reposo"
+            },
+            {
+              "id": "c",
+              "text": "En uso exclusivamente"
+            },
+            {
+              "id": "d",
+              "text": "Datos eliminados"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El almacenamiento persistente es un ejemplo de datos en reposo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w26d3-q02",
+          "prompt": "Un mensaje viaja del cliente al servidor. ¿Qué estado predomina?",
+          "options": [
+            {
+              "id": "a",
+              "text": "En retención legal"
+            },
+            {
+              "id": "b",
+              "text": "Eliminado"
+            },
+            {
+              "id": "c",
+              "text": "En reposo exclusivamente"
+            },
+            {
+              "id": "d",
+              "text": "En tránsito"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Durante el transporte deben considerarse protección del canal y extremos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w26d3-q03",
+          "prompt": "Una aplicación descifra un registro en memoria para procesarlo. ¿Qué estado representa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eliminado de forma segura"
+            },
+            {
+              "id": "b",
+              "text": "En uso"
+            },
+            {
+              "id": "c",
+              "text": "En tránsito siempre"
+            },
+            {
+              "id": "d",
+              "text": "Respaldo inmutable"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El procesamiento puede exponer datos descifrados aun si el disco y canal están cifrados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w26d3-q04",
+          "prompt": "¿Qué describe residencia de datos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ubicación geográfica donde se almacenan o procesan según el contexto"
+            },
+            {
+              "id": "b",
+              "text": "Solo el dueño del portátil"
+            },
+            {
+              "id": "c",
+              "text": "El tamaño de los registros"
+            },
+            {
+              "id": "d",
+              "text": "La longitud de claves"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La ubicación puede afectar requisitos de negocio, contratación y protección aplicables.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w26d3-q05",
+          "prompt": "¿Qué debe revisarse antes de replicar información sensible a otra región?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Requisitos de ubicación, acceso y transferencias pertinentes"
+            },
+            {
+              "id": "b",
+              "text": "Solo disponibilidad de espacio"
+            },
+            {
+              "id": "c",
+              "text": "Asumir que toda región es equivalente legalmente"
+            },
+            {
+              "id": "d",
+              "text": "Solo el idioma de la interfaz"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La resiliencia debe coordinarse con requisitos aplicables al dato y su tratamiento.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w26d3-q06",
+          "prompt": "¿Cambiar datos personales a formato JSON los vuelve públicos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí; todo formato abierto elimina privacidad"
+            },
+            {
+              "id": "b",
+              "text": "Sí, si se comprime"
+            },
+            {
+              "id": "c",
+              "text": "Solo si contiene números"
+            },
+            {
+              "id": "d",
+              "text": "No; la sensibilidad depende del contenido y contexto"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La representación técnica no cambia por sí sola finalidad ni sensibilidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w26d3-q07",
+          "prompt": "¿Qué control responde mejor a lectura no autorizada de una copia almacenada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo más ancho de banda"
+            },
+            {
+              "id": "b",
+              "text": "Acceso restringido y cifrado con claves protegidas"
+            },
+            {
+              "id": "c",
+              "text": "Una réplica pública adicional"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar el nombre del archivo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La protección del contenido requiere controlar tanto obtención como capacidad de lectura.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w26d3-q08",
+          "prompt": "¿Por qué incluir copias y exportaciones al clasificar un activo de datos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque toda copia es siempre menos sensible"
+            },
+            {
+              "id": "b",
+              "text": "Porque solo el original tiene dueño"
+            },
+            {
+              "id": "c",
+              "text": "Porque un CSV no almacena datos personales"
+            },
+            {
+              "id": "d",
+              "text": "También contienen la información que necesita protección"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las obligaciones de manejo siguen al contenido y a su contexto de uso.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w26d3-challenge",
+        "prompt": "Caso: una empresa cifra la base, pero exporta datos sin protección a una región no evaluada. ¿Qué falta revisar?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo el algoritmo de la base original"
+          },
+          {
+            "id": "b",
+            "text": "Nada porque el origen está cifrado"
+          },
+          {
+            "id": "c",
+            "text": "Todo el ciclo y las ubicaciones de las copias, no solo la base"
+          },
+          {
+            "id": "d",
+            "text": "Únicamente la cantidad de filas"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La protección debe abarcar transformaciones, movimiento, acceso y localización del conjunto de datos.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      }
+    },
+    {
+      "dayId": "w26d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w26d4-q01",
+          "prompt": "¿Qué debe definir el dueño de información sobre acceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Quién necesita qué acciones y para qué finalidad"
+            },
+            {
+              "id": "b",
+              "text": "Un permiso global para evitar solicitudes"
+            },
+            {
+              "id": "c",
+              "text": "Solo el nombre del producto"
+            },
+            {
+              "id": "d",
+              "text": "Una clave compartida para todos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La necesidad de negocio debe guiar la autorización y sus revisiones.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w26d4-q02",
+          "prompt": "¿Qué combinación protege una copia cifrada sensible?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cifrado con clave publicada junto al archivo"
+            },
+            {
+              "id": "b",
+              "text": "Acceso público porque el nombre es difícil"
+            },
+            {
+              "id": "c",
+              "text": "Retención indefinida sin dueño"
+            },
+            {
+              "id": "d",
+              "text": "Permisos limitados y gestión separada de claves"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El cifrado no reemplaza el control de quién obtiene y utiliza el material de descifrado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w26d4-q03",
+          "prompt": "¿Qué debe ocurrir al expirar la retención autorizada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Evaluar eliminación según obligaciones y procesos aprobados"
+            },
+            {
+              "id": "b",
+              "text": "Guardar todo por defecto para siempre"
+            },
+            {
+              "id": "c",
+              "text": "Publicar el archivo para ahorrar espacio"
+            },
+            {
+              "id": "d",
+              "text": "Quitar solo el atributo de lectura"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La disposición final debe respetar requisitos y evitar conservar exposición innecesaria.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w26d4-q04",
+          "prompt": "Una obligación de conservación suspende eliminación. ¿Qué procede?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Borrar igual para cumplir el calendario normal"
+            },
+            {
+              "id": "b",
+              "text": "Hacer pública la información"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar al dueño del dato"
+            },
+            {
+              "id": "d",
+              "text": "Aplicar la excepción controlada con acceso y revisión"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las decisiones de retención pueden requerir excepciones justificadas y supervisadas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w26d4-q05",
+          "prompt": "¿Por qué registrar quién comparte un conjunto sensible?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para eliminar la clasificación"
+            },
+            {
+              "id": "b",
+              "text": "Facilitar trazabilidad, revisión y revocación de accesos"
+            },
+            {
+              "id": "c",
+              "text": "Para garantizar que nadie copiará datos"
+            },
+            {
+              "id": "d",
+              "text": "Para evitar toda aprobación"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Conocer destinatarios y permisos ayuda a controlar la distribución y corregir exposición.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w26d4-q06",
+          "prompt": "¿Qué debe comprobarse al eliminar datos de un servicio de nube?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Alcance, copias, retención y mecanismos ofrecidos por el servicio"
+            },
+            {
+              "id": "b",
+              "text": "Solo que desapareció un icono"
+            },
+            {
+              "id": "c",
+              "text": "Que el archivo tiene otro nombre"
+            },
+            {
+              "id": "d",
+              "text": "Que ya no ocupa la carpeta principal"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La eliminación visible puede no abarcar versiones, respaldos o otras ubicaciones.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w26d4-q07",
+          "prompt": "¿Qué control reduce divulgación en entornos de pruebas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Copiar producción completa a cuentas personales"
+            },
+            {
+              "id": "b",
+              "text": "Desactivar registros"
+            },
+            {
+              "id": "c",
+              "text": "Datos sintéticos o transformación adecuada con acceso limitado"
+            },
+            {
+              "id": "d",
+              "text": "Usar nombres falsos dejando todos los demás identificadores"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La reducción de datos debe atender posibilidad de identificación y necesidad real de la práctica.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w26d4-q08",
+          "prompt": "¿Por qué revisar permisos después de cambiar finalidad o equipo responsable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque toda información se vuelve pública"
+            },
+            {
+              "id": "b",
+              "text": "Porque el cifrado deja de funcionar"
+            },
+            {
+              "id": "c",
+              "text": "Porque no quedan copias"
+            },
+            {
+              "id": "d",
+              "text": "La necesidad original de acceso puede dejar de existir"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El ciclo de vida de datos y personas modifica quién necesita acceso y bajo qué límites.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w26d4-challenge",
+        "prompt": "Caso: un proyecto termina, pero quedan enlaces públicos a sus exportaciones. ¿Qué acción cierra mejor el ciclo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Inventariar copias, revocar enlaces y aplicar retención o eliminación aprobada"
+          },
+          {
+            "id": "b",
+            "text": "Archivar solo el correo del proyecto"
+          },
+          {
+            "id": "c",
+            "text": "Conservar enlaces por si alguien los necesita"
+          },
+          {
+            "id": "d",
+            "text": "Cambiar el título del directorio"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "El cierre debe atender todas las rutas de acceso y copias, no únicamente el recurso principal.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      }
+    },
+    {
+      "dayId": "w26d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w26d5-q01",
+          "prompt": "¿Qué diferencia respaldo de réplica operativa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Toda réplica es una copia histórica inmutable"
+            },
+            {
+              "id": "b",
+              "text": "El respaldo busca recuperar estados; la réplica puede seguir cambios del servicio"
+            },
+            {
+              "id": "c",
+              "text": "El respaldo garantiza continuidad instantánea"
+            },
+            {
+              "id": "d",
+              "text": "La réplica no almacena datos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los mecanismos pueden complementarse, pero no cubren necesariamente los mismos fallos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w26d5-q02",
+          "prompt": "¿Qué riesgo tiene replicar un borrado de forma inmediata?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aumentar siempre retención"
+            },
+            {
+              "id": "b",
+              "text": "Convertir el borrado en autenticación"
+            },
+            {
+              "id": "c",
+              "text": "Impedir todo fallo de aplicación"
+            },
+            {
+              "id": "d",
+              "text": "Perder el dato en origen y destino si no hay historia recuperable"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La propagación de cambios incluye cambios erróneos o maliciosos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w26d5-q03",
+          "prompt": "¿Qué debe probar un procedimiento de restauración en nube?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo que existe un panel de copias"
+            },
+            {
+              "id": "b",
+              "text": "Solo el nombre de la región"
+            },
+            {
+              "id": "c",
+              "text": "Solo la velocidad contratada"
+            },
+            {
+              "id": "d",
+              "text": "Datos, configuración, claves y dependencias operativas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La recuperabilidad depende del conjunto de elementos necesarios para operar.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w26d5-q04",
+          "prompt": "Dos regiones dependen de una sola cuenta administrativa comprometida. ¿Qué fallo compartido existe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un mismo acceso podría afectar ambas y sus copias"
+            },
+            {
+              "id": "b",
+              "text": "La diversidad geográfica elimina ese riesgo"
+            },
+            {
+              "id": "c",
+              "text": "Cada región crea permisos independientes siempre"
+            },
+            {
+              "id": "d",
+              "text": "No hay relación entre identidad y resiliencia"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La separación geográfica no equivale a independencia de credenciales y administración.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w26d5-q05",
+          "prompt": "¿Qué medida mejora resistencia a borrado de respaldos por una cuenta comprometida?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dar al administrador todos los permisos sin revisión"
+            },
+            {
+              "id": "b",
+              "text": "Usar una carpeta sincronizada abierta"
+            },
+            {
+              "id": "c",
+              "text": "Separación de privilegios y retención protegida apropiada"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar alertas de borrado"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La recuperación necesita protección contra los mismos actores capaces de dañar producción.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w26d5-q06",
+          "prompt": "¿Qué representa una prueba de conmutación con usuarios reales autorizados?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Demostrar que nunca habrá pérdida de datos"
+            },
+            {
+              "id": "b",
+              "text": "Confirmar que no existen vulnerabilidades"
+            },
+            {
+              "id": "c",
+              "text": "Sustituir los respaldos históricos"
+            },
+            {
+              "id": "d",
+              "text": "Validar que funciones críticas operan en la alternativa"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La prueba debe contrastar experiencia funcional y dependencias, no solo arranque de máquinas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w26d5-q07",
+          "prompt": "¿Puede un servicio altamente disponible necesitar respaldos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No, porque redundancia evita todos los errores"
+            },
+            {
+              "id": "b",
+              "text": "Solo si no tiene usuarios"
+            },
+            {
+              "id": "c",
+              "text": "Solo si no usa cifrado"
+            },
+            {
+              "id": "d",
+              "text": "Sí, para recuperar estados ante corrupción o borrados"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La alta disponibilidad no impide propagar datos incorrectos entre componentes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w26d5-q08",
+          "prompt": "¿Qué dato permite evaluar si la copia cumple RPO?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Punto temporal de los datos recuperables"
+            },
+            {
+              "id": "b",
+              "text": "Solo cantidad de instancias"
+            },
+            {
+              "id": "c",
+              "text": "Únicamente número de administradores"
+            },
+            {
+              "id": "d",
+              "text": "Solo tiempo de arranque del navegador"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La pérdida potencial depende de cuán reciente es el estado recuperable.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w26d5-challenge",
+        "prompt": "Caso: hay réplica en otra región, pero un borrado llega a ambas. ¿Qué capacidad faltaba para ese escenario?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Más capacidad de CPU en la réplica"
+          },
+          {
+            "id": "b",
+            "text": "Recuperación de versiones o copias protegidas anteriores al borrado"
+          },
+          {
+            "id": "c",
+            "text": "Un nombre de región diferente"
+          },
+          {
+            "id": "d",
+            "text": "Un balanceador adicional sin historia"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La redundancia actualizada no conserva necesariamente un estado anterior al error.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+      }
+    },
+    {
+      "dayId": "w26d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w26d6-q01",
+          "prompt": "Ante caída de un servicio de nube, ¿qué se evalúa primero para activar continuidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el número de avisos en redes sociales"
+            },
+            {
+              "id": "b",
+              "text": "Impacto, alcance y criterios de activación acordados"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar proveedores sin plan"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar datos para reducir carga"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La respuesta debe seguir requisitos del negocio y hechos verificables sobre el incidente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w26d6-q02",
+          "prompt": "¿Qué ayuda a distinguir fallo del proveedor de configuración propia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Asumir siempre que la nube es culpable"
+            },
+            {
+              "id": "b",
+              "text": "Asumir siempre que es el usuario"
+            },
+            {
+              "id": "c",
+              "text": "Una única queja sin contexto"
+            },
+            {
+              "id": "d",
+              "text": "Telemetría interna, estado del servicio y cambios recientes"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La correlación de fuentes permite evaluar hipótesis sin atribuir causa prematuramente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w26d6-q03",
+          "prompt": "¿Por qué verificar identidad al habilitar acceso de contingencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque todo acceso temporal es público"
+            },
+            {
+              "id": "b",
+              "text": "Porque una caída hace inútiles los logs"
+            },
+            {
+              "id": "c",
+              "text": "La emergencia no elimina riesgo de suplantación y exceso de privilegios"
+            },
+            {
+              "id": "d",
+              "text": "Porque los usuarios dejan de necesitar autorización"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las rutas de emergencia necesitan controles adecuados y trazabilidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w26d6-q04",
+          "prompt": "¿Qué debe medir el ejercicio además del tiempo de recuperación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Pérdida de datos y validez funcional del servicio"
+            },
+            {
+              "id": "b",
+              "text": "Solo el tamaño del reporte"
+            },
+            {
+              "id": "c",
+              "text": "Solo número de mensajes enviados"
+            },
+            {
+              "id": "d",
+              "text": "Solo cantidad de máquinas creadas"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un servicio rápido pero con datos incompletos o funciones rotas puede no cumplir objetivos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w26d6-q05",
+          "prompt": "¿Qué valida integridad después de restaurar una base?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo que el servidor responda a ping"
+            },
+            {
+              "id": "b",
+              "text": "Comprobaciones técnicas y funcionales sobre datos esperados"
+            },
+            {
+              "id": "c",
+              "text": "Solo que haya un archivo con el nombre correcto"
+            },
+            {
+              "id": "d",
+              "text": "Únicamente que el disco esté cifrado"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La presencia y accesibilidad no demuestran consistencia del contenido.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w26d6-q06",
+          "prompt": "¿Qué comunicar durante una recuperación a los responsables pertinentes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Causas inventadas para dar certeza"
+            },
+            {
+              "id": "b",
+              "text": "Todos los secretos de acceso"
+            },
+            {
+              "id": "c",
+              "text": "Una garantía de hora exacta sin base"
+            },
+            {
+              "id": "d",
+              "text": "Impacto confirmado, estado, acciones y próxima actualización"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La comunicación útil separa hechos, estimaciones e incertidumbre.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w26d6-q07",
+          "prompt": "¿Por qué planificar el retorno desde el entorno de contingencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque toda alternativa debe destruirse sin revisar"
+            },
+            {
+              "id": "b",
+              "text": "Evitar divergencias, pérdida de cambios o nueva interrupción"
+            },
+            {
+              "id": "c",
+              "text": "Para omitir las pruebas finales"
+            },
+            {
+              "id": "d",
+              "text": "Para compartir las claves de producción"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Volver al entorno habitual requiere coordinar datos, accesos y dependencias.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w26d6-q08",
+          "prompt": "¿Qué mejora útil puede resultar de un simulacro fallido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Acción concreta sobre una dependencia con dueño y nueva prueba"
+            },
+            {
+              "id": "b",
+              "text": "Ocultar el resultado para mantener confianza"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar el objetivo de recuperación sin acuerdo"
+            },
+            {
+              "id": "d",
+              "text": "Marcar el ejercicio como exitoso"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La prueba tiene valor si sus hallazgos se convierten en correcciones verificables.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w26d6-challenge",
+        "prompt": "Caso: al conmutar de región, la aplicación arranca pero falla autenticación por dependencia caída. ¿Qué se corrige?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Declarar éxito por el arranque"
+          },
+          {
+            "id": "b",
+            "text": "Incluir recuperación o alternativa de identidad y probar el servicio completo"
+          },
+          {
+            "id": "c",
+            "text": "Aumentar almacenamiento sin revisar identidad"
+          },
+          {
+            "id": "d",
+            "text": "Desactivar toda autenticación permanentemente"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La continuidad debe abarcar las dependencias necesarias para uso autorizado del servicio.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+      }
+    },
+    {
+      "dayId": "w26d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w26d7-q01",
+          "prompt": "En IaaS, ¿quién gestiona normalmente el sistema operativo invitado del cliente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El cliente"
+            },
+            {
+              "id": "b",
+              "text": "Siempre el proveedor sin excepciones"
+            },
+            {
+              "id": "c",
+              "text": "Nadie por ser virtual"
+            },
+            {
+              "id": "d",
+              "text": "El visitante que usa la aplicación"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "En IaaS el cliente conserva administración del sistema operativo y aplicaciones que despliega.",
+          "reference": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
+          "reviewOf": "w26d1-q01"
+        },
+        {
+          "id": "w26d7-q02",
+          "prompt": "¿Qué diferencia habitual hay entre VM y contenedor de aplicación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todo contenedor incluye un hipervisor físico propio"
+            },
+            {
+              "id": "b",
+              "text": "La VM tiene sistema invitado; el contenedor suele compartir kernel del host"
+            },
+            {
+              "id": "c",
+              "text": "Las VM no necesitan sistema operativo"
+            },
+            {
+              "id": "d",
+              "text": "El contenedor garantiza aislamiento perfecto"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los mecanismos de aislamiento y administración difieren y tienen límites que deben comprenderse.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/190/final",
+          "reviewOf": "w26d2-q01"
+        },
+        {
+          "id": "w26d7-q03",
+          "prompt": "Una base guarda expedientes en disco. ¿Qué estado de datos representa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "En tránsito necesariamente"
+            },
+            {
+              "id": "b",
+              "text": "En reposo"
+            },
+            {
+              "id": "c",
+              "text": "En uso exclusivamente"
+            },
+            {
+              "id": "d",
+              "text": "Datos eliminados"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El almacenamiento persistente es un ejemplo de datos en reposo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w26d3-q01"
+        },
+        {
+          "id": "w26d7-q04",
+          "prompt": "¿Qué debe definir el dueño de información sobre acceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Quién necesita qué acciones y para qué finalidad"
+            },
+            {
+              "id": "b",
+              "text": "Un permiso global para evitar solicitudes"
+            },
+            {
+              "id": "c",
+              "text": "Solo el nombre del producto"
+            },
+            {
+              "id": "d",
+              "text": "Una clave compartida para todos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La necesidad de negocio debe guiar la autorización y sus revisiones.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w26d4-q01"
+        },
+        {
+          "id": "w26d7-q05",
+          "prompt": "¿Qué diferencia respaldo de réplica operativa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Toda réplica es una copia histórica inmutable"
+            },
+            {
+              "id": "b",
+              "text": "El respaldo busca recuperar estados; la réplica puede seguir cambios del servicio"
+            },
+            {
+              "id": "c",
+              "text": "El respaldo garantiza continuidad instantánea"
+            },
+            {
+              "id": "d",
+              "text": "La réplica no almacena datos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los mecanismos pueden complementarse, pero no cubren necesariamente los mismos fallos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final",
+          "reviewOf": "w26d5-q01"
+        },
+        {
+          "id": "w26d7-q06",
+          "prompt": "Ante caída de un servicio de nube, ¿qué se evalúa primero para activar continuidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el número de avisos en redes sociales"
+            },
+            {
+              "id": "b",
+              "text": "Impacto, alcance y criterios de activación acordados"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar proveedores sin plan"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar datos para reducir carga"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La respuesta debe seguir requisitos del negocio y hechos verificables sobre el incidente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final",
+          "reviewOf": "w26d6-q01"
+        },
+        {
+          "id": "w26d7-q07",
+          "prompt": "En PaaS, ¿qué administración suele asumir el proveedor respecto a IaaS?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La plataforma y su sistema operativo subyacente"
+            },
+            {
+              "id": "b",
+              "text": "Todas las decisiones de acceso del cliente"
+            },
+            {
+              "id": "c",
+              "text": "La clasificación de cualquier dato del negocio"
+            },
+            {
+              "id": "d",
+              "text": "Toda seguridad del código del cliente"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "PaaS reduce gestión de infraestructura, pero no elimina responsabilidades de aplicación y datos.",
+          "reference": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
+          "reviewOf": "w26d1-q02"
+        },
+        {
+          "id": "w26d7-q08",
+          "prompt": "¿Qué es una imagen de contenedor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una copia de seguridad completa de todo el negocio"
+            },
+            {
+              "id": "b",
+              "text": "Una sesión de usuario temporal"
+            },
+            {
+              "id": "c",
+              "text": "Una plantilla empaquetada de aplicación y dependencias"
+            },
+            {
+              "id": "d",
+              "text": "Una garantía de ausencia de fallos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las imágenes aportan componentes que deben mantenerse y validarse.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/190/final",
+          "reviewOf": "w26d2-q02"
+        },
+        {
+          "id": "w26d7-q09",
+          "prompt": "Un mensaje viaja del cliente al servidor. ¿Qué estado predomina?",
+          "options": [
+            {
+              "id": "a",
+              "text": "En retención legal"
+            },
+            {
+              "id": "b",
+              "text": "Eliminado"
+            },
+            {
+              "id": "c",
+              "text": "En reposo exclusivamente"
+            },
+            {
+              "id": "d",
+              "text": "En tránsito"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Durante el transporte deben considerarse protección del canal y extremos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w26d3-q02"
+        },
+        {
+          "id": "w26d7-q10",
+          "prompt": "¿Qué combinación protege una copia cifrada sensible?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cifrado con clave publicada junto al archivo"
+            },
+            {
+              "id": "b",
+              "text": "Acceso público porque el nombre es difícil"
+            },
+            {
+              "id": "c",
+              "text": "Retención indefinida sin dueño"
+            },
+            {
+              "id": "d",
+              "text": "Permisos limitados y gestión separada de claves"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El cifrado no reemplaza el control de quién obtiene y utiliza el material de descifrado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w26d4-q02"
+        },
+        {
+          "id": "w26d7-q11",
+          "prompt": "¿Qué riesgo tiene replicar un borrado de forma inmediata?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aumentar siempre retención"
+            },
+            {
+              "id": "b",
+              "text": "Convertir el borrado en autenticación"
+            },
+            {
+              "id": "c",
+              "text": "Impedir todo fallo de aplicación"
+            },
+            {
+              "id": "d",
+              "text": "Perder el dato en origen y destino si no hay historia recuperable"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La propagación de cambios incluye cambios erróneos o maliciosos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final",
+          "reviewOf": "w26d5-q02"
+        },
+        {
+          "id": "w26d7-q12",
+          "prompt": "¿Qué ayuda a distinguir fallo del proveedor de configuración propia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Asumir siempre que la nube es culpable"
+            },
+            {
+              "id": "b",
+              "text": "Asumir siempre que es el usuario"
+            },
+            {
+              "id": "c",
+              "text": "Una única queja sin contexto"
+            },
+            {
+              "id": "d",
+              "text": "Telemetría interna, estado del servicio y cambios recientes"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La correlación de fuentes permite evaluar hipótesis sin atribuir causa prematuramente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final",
+          "reviewOf": "w26d6-q02"
+        },
+        {
+          "id": "w26d7-q13",
+          "prompt": "¿Qué caracteriza a SaaS?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Uso de una aplicación preparada como servicio"
+            },
+            {
+              "id": "b",
+              "text": "Administración obligatoria de cada hipervisor"
+            },
+            {
+              "id": "c",
+              "text": "Compra exclusiva de hardware físico"
+            },
+            {
+              "id": "d",
+              "text": "Ausencia de identidades de usuario"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El proveedor opera gran parte de la pila; el cliente sigue gestionando configuración, acceso y datos.",
+          "reference": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
+          "reviewOf": "w26d1-q03"
+        },
+        {
+          "id": "w26d7-q14",
+          "prompt": "¿Por qué escanear dependencias de una imagen?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para probar que nunca habrá ejecución maliciosa"
+            },
+            {
+              "id": "b",
+              "text": "Detectar componentes vulnerables presentes en ella"
+            },
+            {
+              "id": "c",
+              "text": "Para reemplazar la autorización del servicio"
+            },
+            {
+              "id": "d",
+              "text": "Para borrar todas las capas automáticamente"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La visibilidad de componentes permite evaluar exposición y actualizar imágenes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/190/final",
+          "reviewOf": "w26d2-q03"
+        },
+        {
+          "id": "w26d7-q15",
+          "prompt": "Una aplicación descifra un registro en memoria para procesarlo. ¿Qué estado representa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eliminado de forma segura"
+            },
+            {
+              "id": "b",
+              "text": "En uso"
+            },
+            {
+              "id": "c",
+              "text": "En tránsito siempre"
+            },
+            {
+              "id": "d",
+              "text": "Respaldo inmutable"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El procesamiento puede exponer datos descifrados aun si el disco y canal están cifrados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w26d3-q03"
+        },
+        {
+          "id": "w26d7-q16",
+          "prompt": "¿Qué debe ocurrir al expirar la retención autorizada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Evaluar eliminación según obligaciones y procesos aprobados"
+            },
+            {
+              "id": "b",
+              "text": "Guardar todo por defecto para siempre"
+            },
+            {
+              "id": "c",
+              "text": "Publicar el archivo para ahorrar espacio"
+            },
+            {
+              "id": "d",
+              "text": "Quitar solo el atributo de lectura"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La disposición final debe respetar requisitos y evitar conservar exposición innecesaria.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w26d4-q03"
+        },
+        {
+          "id": "w26d7-q17",
+          "prompt": "¿Qué debe probar un procedimiento de restauración en nube?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo que existe un panel de copias"
+            },
+            {
+              "id": "b",
+              "text": "Solo el nombre de la región"
+            },
+            {
+              "id": "c",
+              "text": "Solo la velocidad contratada"
+            },
+            {
+              "id": "d",
+              "text": "Datos, configuración, claves y dependencias operativas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La recuperabilidad depende del conjunto de elementos necesarios para operar.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final",
+          "reviewOf": "w26d5-q03"
+        },
+        {
+          "id": "w26d7-q18",
+          "prompt": "¿Por qué verificar identidad al habilitar acceso de contingencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque todo acceso temporal es público"
+            },
+            {
+              "id": "b",
+              "text": "Porque una caída hace inútiles los logs"
+            },
+            {
+              "id": "c",
+              "text": "La emergencia no elimina riesgo de suplantación y exceso de privilegios"
+            },
+            {
+              "id": "d",
+              "text": "Porque los usuarios dejan de necesitar autorización"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las rutas de emergencia necesitan controles adecuados y trazabilidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final",
+          "reviewOf": "w26d6-q03"
+        },
+        {
+          "id": "w26d7-q19",
+          "prompt": "¿Quién conserva responsabilidad por clasificar datos propios en cualquier modelo de nube?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el operador del centro de datos"
+            },
+            {
+              "id": "b",
+              "text": "La organización cliente"
+            },
+            {
+              "id": "c",
+              "text": "Nadie si se usa cifrado"
+            },
+            {
+              "id": "d",
+              "text": "El proveedor de conectividad"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Trasladar infraestructura no elimina decisiones sobre sensibilidad, finalidad y manejo de información.",
+          "reference": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
+          "reviewOf": "w26d1-q04"
+        },
+        {
+          "id": "w26d7-q20",
+          "prompt": "Una obligación de conservación suspende eliminación. ¿Qué procede?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Borrar igual para cumplir el calendario normal"
+            },
+            {
+              "id": "b",
+              "text": "Hacer pública la información"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar al dueño del dato"
+            },
+            {
+              "id": "d",
+              "text": "Aplicar la excepción controlada con acceso y revisión"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las decisiones de retención pueden requerir excepciones justificadas y supervisadas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w26d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w26d7-challenge",
+        "prompt": "Caso semanal: un SaaS está disponible, pero una cuenta cliente comparte datos públicamente. ¿Qué responsabilidad debe actuar?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El cliente debe revisar permisos, exposición y respuesta dentro del servicio"
+          },
+          {
+            "id": "b",
+            "text": "Solo el proveedor físico puede corregir cualquier permiso"
+          },
+          {
+            "id": "c",
+            "text": "Nadie porque no cayó el servicio"
+          },
+          {
+            "id": "d",
+            "text": "La disponibilidad garantiza confidencialidad"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La operación del proveedor no reemplaza la gestión del acceso y los datos que controla el cliente.",
+        "reference": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility"
+      }
+    }
+  ]
+}

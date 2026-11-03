@@ -1,0 +1,2094 @@
+{
+  "week": 49,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w49d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w49d1-q01",
+          "prompt": "En Alba convertiste UTC+02 sumando dos horas. ¿Qué tipo de error fue?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Permiso de publicación"
+            },
+            {
+              "id": "b",
+              "text": "Cadena de custodia"
+            },
+            {
+              "id": "c",
+              "text": "Concepto de desplazamiento temporal"
+            },
+            {
+              "id": "d",
+              "text": "Fallo de ingestión"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Para obtener UTC se resta el desplazamiento indicado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w49d1-q02",
+          "prompt": "Una búsqueda usó src cuando el dataset tenía src_ip. ¿Qué falló?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La hipótesis de ataque"
+            },
+            {
+              "id": "b",
+              "text": "Integridad de disco"
+            },
+            {
+              "id": "c",
+              "text": "Identidad del usuario"
+            },
+            {
+              "id": "d",
+              "text": "Uso del esquema de herramienta"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El campo incorrecto impidió seleccionar los eventos pertinentes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w49d1-q03",
+          "prompt": "Afirmaste ejecución por un LNK únicamente. ¿Qué error clasificas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sintaxis de filtro"
+            },
+            {
+              "id": "b",
+              "text": "Retención del SIEM"
+            },
+            {
+              "id": "c",
+              "text": "Conversión de IP"
+            },
+            {
+              "id": "d",
+              "text": "Interpretación excesiva del artefacto"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una referencia al archivo no establece por sí sola su ejecución.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w49d1-q04",
+          "prompt": "Un hallazgo válido no aparece en tu informe. ¿Qué debilidad refleja?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Registro y comunicación del método"
+            },
+            {
+              "id": "b",
+              "text": "Fallo de SHA-256"
+            },
+            {
+              "id": "c",
+              "text": "Cambio de zona"
+            },
+            {
+              "id": "d",
+              "text": "Ausencia de incidente"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La evidencia debe quedar vinculada a conclusiones y documentación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w49d1-q05",
+          "prompt": "¿Cómo priorizar errores tras Alba?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Por impacto en conclusiones y recurrencia"
+            },
+            {
+              "id": "b",
+              "text": "Solo por longitud de respuesta"
+            },
+            {
+              "id": "c",
+              "text": "Solo por orden alfabético"
+            },
+            {
+              "id": "d",
+              "text": "Solo por facilidad"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los errores que alteran decisiones merecen refuerzo prioritario.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w49d1-q06",
+          "prompt": "¿Qué demuestra corrección real de una debilidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Releer la misma solución"
+            },
+            {
+              "id": "b",
+              "text": "Memorizar el valor correcto"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar la puntuación"
+            },
+            {
+              "id": "d",
+              "text": "Resolver caso diferente y explicar por qué"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Datos nuevos comprueban transferencia del aprendizaje.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w49d1-q07",
+          "prompt": "Tu hash era correcto pero copiaste el de otro archivo. ¿Qué falló?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Algoritmo SHA-256"
+            },
+            {
+              "id": "b",
+              "text": "Calidad del cifrado"
+            },
+            {
+              "id": "c",
+              "text": "Disponibilidad del sistema"
+            },
+            {
+              "id": "d",
+              "text": "Trazabilidad entre resultado y objeto"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un resultado correcto asociado al objeto equivocado es evidencia inválida.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w49d1-q08",
+          "prompt": "¿Por qué conservar la primera hipótesis errónea en notas de aprendizaje?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Presentarla como conclusión"
+            },
+            {
+              "id": "b",
+              "text": "Identificar el razonamiento que debe corregirse"
+            },
+            {
+              "id": "c",
+              "text": "Evitar datos nuevos"
+            },
+            {
+              "id": "d",
+              "text": "Justificar cualquier resultado"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La revisión necesita entender el origen del error.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        }
+      ],
+      "challenge": {
+        "id": "w49d1-challenge",
+        "prompt": "En Alba acertaste veredicto copiando una consulta sin comprender sus campos. ¿Qué debes reforzar?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo velocidad de copia"
+          },
+          {
+            "id": "b",
+            "text": "Construcción e interpretación con otro dataset"
+          },
+          {
+            "id": "c",
+            "text": "Solo formato del informe"
+          },
+          {
+            "id": "d",
+            "text": "Solo nombres de comandos"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "Un acierto no demuestra dominio si el procedimiento no se entiende.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    },
+    {
+      "dayId": "w49d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w49d2-q01",
+          "prompt": "Refuerzo:14:20 UTC-05 corresponde a ¿qué UTC?",
+          "options": [
+            {
+              "id": "a",
+              "text": "09:20Z"
+            },
+            {
+              "id": "b",
+              "text": "14:20Z"
+            },
+            {
+              "id": "c",
+              "text": "19:20Z"
+            },
+            {
+              "id": "d",
+              "text": "20:20Z"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Restar un desplazamiento negativo equivale a sumar cinco horas.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html"
+        },
+        {
+          "id": "w49d2-q02",
+          "prompt": "Refuerzo:01:10+03 el4junio corresponde a ¿qué?",
+          "options": [
+            {
+              "id": "a",
+              "text": "04:10Z del4junio"
+            },
+            {
+              "id": "b",
+              "text": "22:10Z del3junio"
+            },
+            {
+              "id": "c",
+              "text": "01:10Z del4junio"
+            },
+            {
+              "id": "d",
+              "text": "23:10Z del3junio"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La conversión cruza el límite del día.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html"
+        },
+        {
+          "id": "w49d2-q03",
+          "prompt": "¿Qué distingue tiempo mostrado y tiempo almacenado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La interfaz puede aplicar una zona"
+            },
+            {
+              "id": "b",
+              "text": "Siempre son texto idéntico"
+            },
+            {
+              "id": "c",
+              "text": "El almacenado carece de significado"
+            },
+            {
+              "id": "d",
+              "text": "El mostrado cambia el hash fuente"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La presentación puede transformar un mismo instante.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html"
+        },
+        {
+          "id": "w49d2-q04",
+          "prompt": "¿Qué prueba evalúa una corrección de filtros?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo consulta vacía"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombre del comando"
+            },
+            {
+              "id": "c",
+              "text": "Solo una gráfica bonita"
+            },
+            {
+              "id": "d",
+              "text": "Seleccionar un evento positivo y uno negativo conocidos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los casos contrastados verifican inclusión y exclusión.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html"
+        },
+        {
+          "id": "w49d2-q05",
+          "prompt": "¿Qué compruebas si un conteo aumenta al ampliar rango?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Si nuevos eventos explican la diferencia"
+            },
+            {
+              "id": "b",
+              "text": "Que el SIEM inventa datos"
+            },
+            {
+              "id": "c",
+              "text": "Que todo es duplicado"
+            },
+            {
+              "id": "d",
+              "text": "Que el ataque empezó después"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La variación puede ser consecuencia legítima de mayor cobertura.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html"
+        },
+        {
+          "id": "w49d2-q06",
+          "prompt": "Un ejercicio nuevo tiene campos distintos al anterior. ¿Qué transfieres?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Nombres de campos sin revisar"
+            },
+            {
+              "id": "b",
+              "text": "Respuesta numérica antigua"
+            },
+            {
+              "id": "c",
+              "text": "Fechas de la solución"
+            },
+            {
+              "id": "d",
+              "text": "Pregunta analítica y método de validación"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La competencia consiste en adaptar razonamiento a los datos.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html"
+        },
+        {
+          "id": "w49d2-q07",
+          "prompt": "¿Qué hace útil una prueba pequeña de hash?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo mirar longitud"
+            },
+            {
+              "id": "b",
+              "text": "Comparar copia idéntica y copia modificada"
+            },
+            {
+              "id": "c",
+              "text": "Solo renombrar carpetas"
+            },
+            {
+              "id": "d",
+              "text": "Solo abrir el PDF"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los casos controlados comprueban qué cambia y qué permanece.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html"
+        },
+        {
+          "id": "w49d2-q08",
+          "prompt": "¿Qué evidencia muestra refuerzo de interpretación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo identificar más dominios"
+            },
+            {
+              "id": "b",
+              "text": "Solo usar más herramientas"
+            },
+            {
+              "id": "c",
+              "text": "Solo terminar más rápido"
+            },
+            {
+              "id": "d",
+              "text": "Explicar una alternativa benigna y cómo descartarla"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Distinguir hipótesis fortalece inferencias basadas en datos.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html"
+        }
+      ],
+      "challenge": {
+        "id": "w49d2-challenge",
+        "prompt": "Tu error era convertir UTC-04 restando cuatro horas. ¿Qué prueba demuestra mejora?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Repetir el mismo valor memorizado"
+          },
+          {
+            "id": "b",
+            "text": "Resolver nuevas marcas con cambio de día y justificar"
+          },
+          {
+            "id": "c",
+            "text": "Cambiar la zona del ordenador"
+          },
+          {
+            "id": "d",
+            "text": "Borrar notas equivocadas"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La nueva prueba debe comprobar el concepto de desplazamiento.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    },
+    {
+      "dayId": "w49d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w49d3-q01",
+          "prompt": "Tus notas dicen IP rara sin localizador. ¿Qué falta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo más adjetivos"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombre del alumno"
+            },
+            {
+              "id": "c",
+              "text": "Solo color rojo"
+            },
+            {
+              "id": "d",
+              "text": "Fuente, evento y criterio de rareza"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La afirmación necesita observación y base de comparación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w49d3-q02",
+          "prompt": "¿Qué plantilla reduce pérdida de hipótesis?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo lista de herramientas"
+            },
+            {
+              "id": "b",
+              "text": "Solo capturas"
+            },
+            {
+              "id": "c",
+              "text": "Pregunta, evidencia a favor, en contra y estado"
+            },
+            {
+              "id": "d",
+              "text": "Solo resultado final"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La estructura conserva el razonamiento y pendientes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w49d3-q03",
+          "prompt": "¿Cuál es un hito temporal útil en investigación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Reevaluar hipótesis tras búsquedas prioritarias"
+            },
+            {
+              "id": "b",
+              "text": "Cerrar siempre al primer error"
+            },
+            {
+              "id": "c",
+              "text": "Escribir informe antes de mirar datos"
+            },
+            {
+              "id": "d",
+              "text": "Buscar indefinidamente todo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los hitos controlan tiempo sin sustituir evidencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w49d3-q04",
+          "prompt": "¿Qué dato permite retomar una consulta tras pausa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Texto exacto, rango y resultado"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombre corto"
+            },
+            {
+              "id": "c",
+              "text": "Solo número de pestaña"
+            },
+            {
+              "id": "d",
+              "text": "Solo impresión general"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El estado debe conservar condiciones de ejecución.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w49d3-q05",
+          "prompt": "¿Qué evita confundir observación y acción futura?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Etiquetarlas explícitamente en notas"
+            },
+            {
+              "id": "b",
+              "text": "Usar mismo tiempo verbal"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar propuestas"
+            },
+            {
+              "id": "d",
+              "text": "Quitar responsables"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La distinción impide afirmar acciones no realizadas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w49d3-q06",
+          "prompt": "Dos analistas no reproducen una tabla. ¿Qué revisan?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo estilo del informe"
+            },
+            {
+              "id": "b",
+              "text": "Solo orden de columnas"
+            },
+            {
+              "id": "c",
+              "text": "Entrada, versión, parámetros y ventana"
+            },
+            {
+              "id": "d",
+              "text": "Solo firma del autor"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las condiciones de análisis explican divergencias de resultados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w49d3-q07",
+          "prompt": "¿Qué organización ayuda a preservar originales?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Editar todo en una carpeta"
+            },
+            {
+              "id": "b",
+              "text": "Sobrescribir al exportar"
+            },
+            {
+              "id": "c",
+              "text": "Renombrar sin inventario"
+            },
+            {
+              "id": "d",
+              "text": "Fuentes separadas de copias y salidas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Separar entradas y resultados reduce alteraciones y confusión.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w49d3-q08",
+          "prompt": "¿Qué debe pasar al cambiar una hipótesis?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Borrar toda nota previa"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar fuente original"
+            },
+            {
+              "id": "c",
+              "text": "Actualizar estado y registrar evidencia causante"
+            },
+            {
+              "id": "d",
+              "text": "Ocultar búsquedas negativas"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El historial explica cómo se revisó la conclusión.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        }
+      ],
+      "challenge": {
+        "id": "w49d3-challenge",
+        "prompt": "Tras una pausa no sabes qué rango generó tu tabla. ¿Qué cambio de método aplicas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Tomar más capturas sin fecha"
+          },
+          {
+            "id": "b",
+            "text": "Usar nombres como final2"
+          },
+          {
+            "id": "c",
+            "text": "Copiar números al informe"
+          },
+          {
+            "id": "d",
+            "text": "Guardar consulta, rango, fuente y salida enlazados"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La trazabilidad conserva el contexto para retomar y repetir.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    },
+    {
+      "dayId": "w49d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w49d4-q01",
+          "prompt": "Caso Brisa entrega logs SSH y proxy, sin correo. ¿Qué cambia respecto a Alba?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hipótesis y fuentes iniciales"
+            },
+            {
+              "id": "b",
+              "text": "Reglas de integridad"
+            },
+            {
+              "id": "c",
+              "text": "Necesidad de límites"
+            },
+            {
+              "id": "d",
+              "text": "Necesidad de autorización"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un tipo de caso distinto requiere preguntas ajustadas a su evidencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w49d4-q02",
+          "prompt": "Brisa:20fallos SSH de unaIP y ningún éxito en ventana. ¿Qué observas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Intentos fallidos; acceso no demostrado"
+            },
+            {
+              "id": "b",
+              "text": "Compromiso confirmado"
+            },
+            {
+              "id": "c",
+              "text": "Ausencia de todo ataque"
+            },
+            {
+              "id": "d",
+              "text": "Contraseña robada"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los fallos no prueban acceso conseguido.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w49d4-q03",
+          "prompt": "Brisa:Accepted publickey de IP de administración a02:00. ¿Qué verificas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Intrusión segura por horario"
+            },
+            {
+              "id": "b",
+              "text": "Benignidad segura por clave"
+            },
+            {
+              "id": "c",
+              "text": "Autorización, cuenta y actividad posterior"
+            },
+            {
+              "id": "d",
+              "text": "Exfiltración confirmada"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El método de autenticación no determina legitimidad de uso.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w49d4-q04",
+          "prompt": "Brisa tiene proxy en UTC y SSH en UTC-04. ¿Qué haces primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ordenar texto sin convertir"
+            },
+            {
+              "id": "b",
+              "text": "Descartar el proxy"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar reloj del servidor"
+            },
+            {
+              "id": "d",
+              "text": "Alinear instantes conservando originales"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La correlación requiere una base temporal comparable.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w49d4-q05",
+          "prompt": "¿Qué fuente de Brisa falta para vincular comando y proceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Logo del proveedor"
+            },
+            {
+              "id": "b",
+              "text": "Telemetría endpoint o auditoría pertinente"
+            },
+            {
+              "id": "c",
+              "text": "Factura del servidor"
+            },
+            {
+              "id": "d",
+              "text": "DNS público actual"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los logs disponibles pueden no registrar ejecución detallada.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w49d4-q06",
+          "prompt": "Una IP de Brisa fue reasignada al día siguiente. ¿Qué necesitas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Inventario actual solamente"
+            },
+            {
+              "id": "b",
+              "text": "Nombre comercial del router"
+            },
+            {
+              "id": "c",
+              "text": "País de la IP pública"
+            },
+            {
+              "id": "d",
+              "text": "Asignación válida durante el evento"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La identidad del activo depende del intervalo temporal.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w49d4-q07",
+          "prompt": "Brisa incluye acceso administrativo permitido en mantenimiento. ¿Qué papel tiene?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hipótesis benigna que debe contrastarse"
+            },
+            {
+              "id": "b",
+              "text": "Exclusión automática de todo el caso"
+            },
+            {
+              "id": "c",
+              "text": "Prueba de que no hubo ataque"
+            },
+            {
+              "id": "d",
+              "text": "Error que debe eliminarse"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La autorización puede explicar parte de la actividad sin cubrirla toda.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w49d4-q08",
+          "prompt": "¿Qué objetivo inicial evita repetir la solución de Alba?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Determinar si hubo acceso no autorizado en Brisa"
+            },
+            {
+              "id": "b",
+              "text": "Buscar adjunto inexistente"
+            },
+            {
+              "id": "c",
+              "text": "Atribuir phishing sin correo"
+            },
+            {
+              "id": "d",
+              "text": "Reutilizar veredicto anterior"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La pregunta debe nacer de las fuentes y alcance del nuevo caso.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        }
+      ],
+      "challenge": {
+        "id": "w49d4-challenge",
+        "prompt": "Brisa registra fallosSSH desdeIP-X y éxito autorizado desdeIP-Y. ¿Qué evita falsa conclusión?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Unir todo como mismo atacante"
+          },
+          {
+            "id": "b",
+            "text": "Ignorar éxito por autorizado"
+          },
+          {
+            "id": "c",
+            "text": "Declarar acceso deIP-X"
+          },
+          {
+            "id": "d",
+            "text": "Separar orígenes y contrastar actividad de la sesión exitosa"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La proximidad temporal no une automáticamente actores o sesiones.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    },
+    {
+      "dayId": "w49d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w49d5-q01",
+          "prompt": "Brisa:sesión SSH01:00Z y proxy03:02+02. ¿Qué relación temporal hay?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Proxy dos horas después"
+            },
+            {
+              "id": "b",
+              "text": "Proxy dos minutos después"
+            },
+            {
+              "id": "c",
+              "text": "SSH dos horas después"
+            },
+            {
+              "id": "d",
+              "text": "Eventos simultáneos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El proxy corresponde a01:02Z.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w49d5-q02",
+          "prompt": "Brisa:proxy muestra salida de500MB durante backup programado. ¿Qué prueba discrimina?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo volumen grande"
+            },
+            {
+              "id": "b",
+              "text": "Solo hora nocturna"
+            },
+            {
+              "id": "c",
+              "text": "Proceso, destino y registro de tarea"
+            },
+            {
+              "id": "d",
+              "text": "Solo puerto443"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El contexto de tarea y destino permite contrastar exfiltración y backup.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w49d5-q03",
+          "prompt": "Un usuario Brisa existe local y en dominio. ¿Qué falta para correlacionar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ámbito e identificador de cuenta"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombre visible"
+            },
+            {
+              "id": "c",
+              "text": "Solo tamaño del perfil"
+            },
+            {
+              "id": "d",
+              "text": "Solo fecha del informe"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las identidades homónimas no son intercambiables.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w49d5-q04",
+          "prompt": "Brisa:un log falta entre01:05y01:20. ¿Qué afirmación evitas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Existe hueco de cobertura"
+            },
+            {
+              "id": "b",
+              "text": "Faltan datos"
+            },
+            {
+              "id": "c",
+              "text": "No ocurrió actividad en ese intervalo"
+            },
+            {
+              "id": "d",
+              "text": "Se requieren otras fuentes"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una laguna no equivale a un periodo sin actividad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w49d5-q05",
+          "prompt": "Un comando legítimo de Brisa usa destino no autorizado. ¿Qué evalúas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo firma digital"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombre conocido"
+            },
+            {
+              "id": "c",
+              "text": "Solo ruta de sistema"
+            },
+            {
+              "id": "d",
+              "text": "Uso y contexto, además del binario"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una herramienta legítima puede usarse de forma indebida.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w49d5-q06",
+          "prompt": "¿Qué búsqueda amplía alcance de Brisa con precisión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Misma cuenta e indicadores en activos cubiertos"
+            },
+            {
+              "id": "b",
+              "text": "Todo texto con la palabra error"
+            },
+            {
+              "id": "c",
+              "text": "Solo evento original"
+            },
+            {
+              "id": "d",
+              "text": "Solo historial del analista"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El alcance debe seguir entidades y artefactos del caso.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w49d5-q07",
+          "prompt": "Brisa:solo el proxy conserva URL completa. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Atribuir URL al pcap cifrado"
+            },
+            {
+              "id": "b",
+              "text": "Citar esa fuente para la URL"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar detalle por discrepancia"
+            },
+            {
+              "id": "d",
+              "text": "Inventar claves TLS"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Cada afirmación debe apoyarse en la fuente que realmente la contiene.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w49d5-q08",
+          "prompt": "¿Cuándo dejar una pregunta de Brisa como no resuelta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cuando fuentes disponibles no discriminan hipótesis"
+            },
+            {
+              "id": "b",
+              "text": "Cuando la respuesta es incómoda"
+            },
+            {
+              "id": "c",
+              "text": "Cuando hay demasiadas filas"
+            },
+            {
+              "id": "d",
+              "text": "Cuando termina un gráfico"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La incertidumbre debe corresponder a límites reales de evidencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        }
+      ],
+      "challenge": {
+        "id": "w49d5-challenge",
+        "prompt": "Brisa:backup explica500MB, pero existe comando fuera de tarea. ¿Qué haces?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Cerrar todo por explicación parcial"
+          },
+          {
+            "id": "b",
+            "text": "Declarar todo exfiltración"
+          },
+          {
+            "id": "c",
+            "text": "Eliminar el backup del informe"
+          },
+          {
+            "id": "d",
+            "text": "Investigar el comando sin usar backup como cierre total"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "Una explicación benigna puede cubrir parte, no toda la actividad.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    },
+    {
+      "dayId": "w49d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w49d6-q01",
+          "prompt": "Tu informe Brisa dice intrusión, pero solo hay fallosSSH. ¿Qué revisión procede?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Añadir actor especulativo"
+            },
+            {
+              "id": "b",
+              "text": "Rebajar a intentos observados y acceso no demostrado"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar logs de fallos"
+            },
+            {
+              "id": "d",
+              "text": "Mantener título por impacto"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El veredicto debe corresponder a hechos sustentados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w49d6-q02",
+          "prompt": "¿Qué comparación con la solución aporta más aprendizaje?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo porcentaje final"
+            },
+            {
+              "id": "b",
+              "text": "Solo palabras exactas"
+            },
+            {
+              "id": "c",
+              "text": "Solo cantidad de páginas"
+            },
+            {
+              "id": "d",
+              "text": "Diferencias de evidencia y razonamiento"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La revisión debe explicar por qué divergieron las conclusiones.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w49d6-q03",
+          "prompt": "Descubres que Brisa tenía una tarea legítima omitida. ¿Qué actualizas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo formato"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombre del archivo"
+            },
+            {
+              "id": "c",
+              "text": "Hipótesis, conclusión y causa del error"
+            },
+            {
+              "id": "d",
+              "text": "Solo tiempo gastado"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La explicación alternativa afecta interpretación y método.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w49d6-q04",
+          "prompt": "¿Qué comunica bien riesgo residual de Brisa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Qué actividad no pudo evaluarse y por qué"
+            },
+            {
+              "id": "b",
+              "text": "Todo está seguro"
+            },
+            {
+              "id": "c",
+              "text": "Todo está comprometido"
+            },
+            {
+              "id": "d",
+              "text": "No hay nada más que decir"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El riesgo residual depende de brechas y controles pendientes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w49d6-q05",
+          "prompt": "¿Cómo diferencias un error de método de uno de herramienta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo por resultado final"
+            },
+            {
+              "id": "b",
+              "text": "Solo por marca del software"
+            },
+            {
+              "id": "c",
+              "text": "Revisando pasos, entradas y salidas comprobables"
+            },
+            {
+              "id": "d",
+              "text": "Solo por velocidad"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La clasificación necesita identificar dónde falló el proceso.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w49d6-q06",
+          "prompt": "¿Qué demuestra revisión independiente del informe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Otro lector localiza y contrasta hallazgos"
+            },
+            {
+              "id": "b",
+              "text": "Solo corrige ortografía"
+            },
+            {
+              "id": "c",
+              "text": "Solo cambia portada"
+            },
+            {
+              "id": "d",
+              "text": "Solo aprueba por confianza"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La revisión técnica exige verificar sustento y reproducibilidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w49d6-q07",
+          "prompt": "¿Qué mejora concreta aborda omitir consultas negativas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Guardar solo resultados positivos"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar sección de método"
+            },
+            {
+              "id": "c",
+              "text": "Usar frases más firmes"
+            },
+            {
+              "id": "d",
+              "text": "Registrar búsqueda, rango y limitación aunque no coincida"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las búsquedas negativas explican alcance, con sus límites.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w49d6-q08",
+          "prompt": "¿Qué criterio apoya decidir más práctica tras dos casos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo semana del calendario"
+            },
+            {
+              "id": "b",
+              "text": "Brechas repetidas en objetivos relevantes"
+            },
+            {
+              "id": "c",
+              "text": "Solo horas acumuladas"
+            },
+            {
+              "id": "d",
+              "text": "Solo satisfacción al terminar"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La decisión de preparación debe basarse en competencias demostradas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        }
+      ],
+      "challenge": {
+        "id": "w49d6-challenge",
+        "prompt": "La solución Brisa usa fuente que tú no recibiste. ¿Cómo evalúas tu conclusión?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Según evidencia disponible y límite documentado"
+          },
+          {
+            "id": "b",
+            "text": "Como incorrecta automáticamente"
+          },
+          {
+            "id": "c",
+            "text": "Inventando el hallazgo faltante"
+          },
+          {
+            "id": "d",
+            "text": "Copiando la respuesta como propia"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "El análisis debe juzgarse con el alcance y datos reales.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    },
+    {
+      "dayId": "w49d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w49d7-q01",
+          "prompt": "En Alba convertiste UTC+02 sumando dos horas. ¿Qué tipo de error fue?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Permiso de publicación"
+            },
+            {
+              "id": "b",
+              "text": "Cadena de custodia"
+            },
+            {
+              "id": "c",
+              "text": "Concepto de desplazamiento temporal"
+            },
+            {
+              "id": "d",
+              "text": "Fallo de ingestión"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Para obtener UTC se resta el desplazamiento indicado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w49d1-q01"
+        },
+        {
+          "id": "w49d7-q02",
+          "prompt": "Refuerzo:14:20 UTC-05 corresponde a ¿qué UTC?",
+          "options": [
+            {
+              "id": "a",
+              "text": "09:20Z"
+            },
+            {
+              "id": "b",
+              "text": "14:20Z"
+            },
+            {
+              "id": "c",
+              "text": "19:20Z"
+            },
+            {
+              "id": "d",
+              "text": "20:20Z"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Restar un desplazamiento negativo equivale a sumar cinco horas.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html",
+          "reviewOf": "w49d2-q01"
+        },
+        {
+          "id": "w49d7-q03",
+          "prompt": "Tus notas dicen IP rara sin localizador. ¿Qué falta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo más adjetivos"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombre del alumno"
+            },
+            {
+              "id": "c",
+              "text": "Solo color rojo"
+            },
+            {
+              "id": "d",
+              "text": "Fuente, evento y criterio de rareza"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La afirmación necesita observación y base de comparación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w49d3-q01"
+        },
+        {
+          "id": "w49d7-q04",
+          "prompt": "Caso Brisa entrega logs SSH y proxy, sin correo. ¿Qué cambia respecto a Alba?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hipótesis y fuentes iniciales"
+            },
+            {
+              "id": "b",
+              "text": "Reglas de integridad"
+            },
+            {
+              "id": "c",
+              "text": "Necesidad de límites"
+            },
+            {
+              "id": "d",
+              "text": "Necesidad de autorización"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un tipo de caso distinto requiere preguntas ajustadas a su evidencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w49d4-q01"
+        },
+        {
+          "id": "w49d7-q05",
+          "prompt": "Brisa:sesión SSH01:00Z y proxy03:02+02. ¿Qué relación temporal hay?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Proxy dos horas después"
+            },
+            {
+              "id": "b",
+              "text": "Proxy dos minutos después"
+            },
+            {
+              "id": "c",
+              "text": "SSH dos horas después"
+            },
+            {
+              "id": "d",
+              "text": "Eventos simultáneos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El proxy corresponde a01:02Z.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w49d5-q01"
+        },
+        {
+          "id": "w49d7-q06",
+          "prompt": "Tu informe Brisa dice intrusión, pero solo hay fallosSSH. ¿Qué revisión procede?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Añadir actor especulativo"
+            },
+            {
+              "id": "b",
+              "text": "Rebajar a intentos observados y acceso no demostrado"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar logs de fallos"
+            },
+            {
+              "id": "d",
+              "text": "Mantener título por impacto"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El veredicto debe corresponder a hechos sustentados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w49d6-q01"
+        },
+        {
+          "id": "w49d7-q07",
+          "prompt": "Una búsqueda usó src cuando el dataset tenía src_ip. ¿Qué falló?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La hipótesis de ataque"
+            },
+            {
+              "id": "b",
+              "text": "Integridad de disco"
+            },
+            {
+              "id": "c",
+              "text": "Identidad del usuario"
+            },
+            {
+              "id": "d",
+              "text": "Uso del esquema de herramienta"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El campo incorrecto impidió seleccionar los eventos pertinentes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w49d1-q02"
+        },
+        {
+          "id": "w49d7-q08",
+          "prompt": "Refuerzo:01:10+03 el4junio corresponde a ¿qué?",
+          "options": [
+            {
+              "id": "a",
+              "text": "04:10Z del4junio"
+            },
+            {
+              "id": "b",
+              "text": "22:10Z del3junio"
+            },
+            {
+              "id": "c",
+              "text": "01:10Z del4junio"
+            },
+            {
+              "id": "d",
+              "text": "23:10Z del3junio"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La conversión cruza el límite del día.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html",
+          "reviewOf": "w49d2-q02"
+        },
+        {
+          "id": "w49d7-q09",
+          "prompt": "¿Qué plantilla reduce pérdida de hipótesis?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo lista de herramientas"
+            },
+            {
+              "id": "b",
+              "text": "Solo capturas"
+            },
+            {
+              "id": "c",
+              "text": "Pregunta, evidencia a favor, en contra y estado"
+            },
+            {
+              "id": "d",
+              "text": "Solo resultado final"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La estructura conserva el razonamiento y pendientes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w49d3-q02"
+        },
+        {
+          "id": "w49d7-q10",
+          "prompt": "Brisa:20fallos SSH de unaIP y ningún éxito en ventana. ¿Qué observas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Intentos fallidos; acceso no demostrado"
+            },
+            {
+              "id": "b",
+              "text": "Compromiso confirmado"
+            },
+            {
+              "id": "c",
+              "text": "Ausencia de todo ataque"
+            },
+            {
+              "id": "d",
+              "text": "Contraseña robada"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los fallos no prueban acceso conseguido.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w49d4-q02"
+        },
+        {
+          "id": "w49d7-q11",
+          "prompt": "Brisa:proxy muestra salida de500MB durante backup programado. ¿Qué prueba discrimina?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo volumen grande"
+            },
+            {
+              "id": "b",
+              "text": "Solo hora nocturna"
+            },
+            {
+              "id": "c",
+              "text": "Proceso, destino y registro de tarea"
+            },
+            {
+              "id": "d",
+              "text": "Solo puerto443"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El contexto de tarea y destino permite contrastar exfiltración y backup.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w49d5-q02"
+        },
+        {
+          "id": "w49d7-q12",
+          "prompt": "¿Qué comparación con la solución aporta más aprendizaje?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo porcentaje final"
+            },
+            {
+              "id": "b",
+              "text": "Solo palabras exactas"
+            },
+            {
+              "id": "c",
+              "text": "Solo cantidad de páginas"
+            },
+            {
+              "id": "d",
+              "text": "Diferencias de evidencia y razonamiento"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La revisión debe explicar por qué divergieron las conclusiones.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w49d6-q02"
+        },
+        {
+          "id": "w49d7-q13",
+          "prompt": "Afirmaste ejecución por un LNK únicamente. ¿Qué error clasificas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sintaxis de filtro"
+            },
+            {
+              "id": "b",
+              "text": "Retención del SIEM"
+            },
+            {
+              "id": "c",
+              "text": "Conversión de IP"
+            },
+            {
+              "id": "d",
+              "text": "Interpretación excesiva del artefacto"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una referencia al archivo no establece por sí sola su ejecución.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w49d1-q03"
+        },
+        {
+          "id": "w49d7-q14",
+          "prompt": "¿Qué distingue tiempo mostrado y tiempo almacenado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La interfaz puede aplicar una zona"
+            },
+            {
+              "id": "b",
+              "text": "Siempre son texto idéntico"
+            },
+            {
+              "id": "c",
+              "text": "El almacenado carece de significado"
+            },
+            {
+              "id": "d",
+              "text": "El mostrado cambia el hash fuente"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La presentación puede transformar un mismo instante.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html",
+          "reviewOf": "w49d2-q03"
+        },
+        {
+          "id": "w49d7-q15",
+          "prompt": "¿Cuál es un hito temporal útil en investigación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Reevaluar hipótesis tras búsquedas prioritarias"
+            },
+            {
+              "id": "b",
+              "text": "Cerrar siempre al primer error"
+            },
+            {
+              "id": "c",
+              "text": "Escribir informe antes de mirar datos"
+            },
+            {
+              "id": "d",
+              "text": "Buscar indefinidamente todo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los hitos controlan tiempo sin sustituir evidencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w49d3-q03"
+        },
+        {
+          "id": "w49d7-q16",
+          "prompt": "Brisa:Accepted publickey de IP de administración a02:00. ¿Qué verificas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Intrusión segura por horario"
+            },
+            {
+              "id": "b",
+              "text": "Benignidad segura por clave"
+            },
+            {
+              "id": "c",
+              "text": "Autorización, cuenta y actividad posterior"
+            },
+            {
+              "id": "d",
+              "text": "Exfiltración confirmada"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El método de autenticación no determina legitimidad de uso.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w49d4-q03"
+        },
+        {
+          "id": "w49d7-q17",
+          "prompt": "Un usuario Brisa existe local y en dominio. ¿Qué falta para correlacionar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ámbito e identificador de cuenta"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombre visible"
+            },
+            {
+              "id": "c",
+              "text": "Solo tamaño del perfil"
+            },
+            {
+              "id": "d",
+              "text": "Solo fecha del informe"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las identidades homónimas no son intercambiables.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w49d5-q03"
+        },
+        {
+          "id": "w49d7-q18",
+          "prompt": "Descubres que Brisa tenía una tarea legítima omitida. ¿Qué actualizas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo formato"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombre del archivo"
+            },
+            {
+              "id": "c",
+              "text": "Hipótesis, conclusión y causa del error"
+            },
+            {
+              "id": "d",
+              "text": "Solo tiempo gastado"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La explicación alternativa afecta interpretación y método.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w49d6-q03"
+        },
+        {
+          "id": "w49d7-q19",
+          "prompt": "Un hallazgo válido no aparece en tu informe. ¿Qué debilidad refleja?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Registro y comunicación del método"
+            },
+            {
+              "id": "b",
+              "text": "Fallo de SHA-256"
+            },
+            {
+              "id": "c",
+              "text": "Cambio de zona"
+            },
+            {
+              "id": "d",
+              "text": "Ausencia de incidente"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La evidencia debe quedar vinculada a conclusiones y documentación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w49d1-q04"
+        },
+        {
+          "id": "w49d7-q20",
+          "prompt": "Brisa tiene proxy en UTC y SSH en UTC-04. ¿Qué haces primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ordenar texto sin convertir"
+            },
+            {
+              "id": "b",
+              "text": "Descartar el proxy"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar reloj del servidor"
+            },
+            {
+              "id": "d",
+              "text": "Alinear instantes conservando originales"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La correlación requiere una base temporal comparable.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w49d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w49d7-challenge",
+        "prompt": "Dos casos muestran buena búsqueda pero atribución excesiva. ¿Qué preparación necesitas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo completar otra semana"
+          },
+          {
+            "id": "b",
+            "text": "Memorizar nombres de actores"
+          },
+          {
+            "id": "c",
+            "text": "Añadir más herramientas"
+          },
+          {
+            "id": "d",
+            "text": "Practicar límites y alternativas con evidencia nueva"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La brecha recurrente debe orientar el siguiente refuerzo.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    }
+  ]
+}

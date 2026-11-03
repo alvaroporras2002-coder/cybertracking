@@ -1,0 +1,2094 @@
+{
+  "week": 18,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w18d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w18d1-q01",
+          "prompt": "Una usuaria escribe su nombre de cuenta. ¿Qué realiza inicialmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Autorización de pagos"
+            },
+            {
+              "id": "b",
+              "text": "Cifrado de datos"
+            },
+            {
+              "id": "c",
+              "text": "Identificación"
+            },
+            {
+              "id": "d",
+              "text": "Registro de actividad"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El identificador declara una identidad; aún falta demostrar control de sus autenticadores.",
+          "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html"
+        },
+        {
+          "id": "w18d1-q02",
+          "prompt": "¿Qué demuestra una autenticación satisfactoria?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Control de autenticadores vinculados a una cuenta"
+            },
+            {
+              "id": "b",
+              "text": "Permiso para toda carpeta"
+            },
+            {
+              "id": "c",
+              "text": "Ausencia de malware"
+            },
+            {
+              "id": "d",
+              "text": "Identidad legal en todos los contextos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Autenticar una cuenta no concede automáticamente derechos ni prueba todos los atributos personales.",
+          "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html"
+        },
+        {
+          "id": "w18d1-q03",
+          "prompt": "Un usuario inicia sesión y recibe «acceso denegado» a nómina. ¿Qué etapa lo rechazó?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Autorización"
+            },
+            {
+              "id": "b",
+              "text": "Identificación"
+            },
+            {
+              "id": "c",
+              "text": "Creación de contraseña"
+            },
+            {
+              "id": "d",
+              "text": "Sincronización horaria"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Puede estar autenticado y carecer del permiso para ese recurso.",
+          "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html"
+        },
+        {
+          "id": "w18d1-q04",
+          "prompt": "¿Qué secreto permite continuar una sesión web sin introducir contraseña en cada página?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un identificador de sesión protegido"
+            },
+            {
+              "id": "b",
+              "text": "El nombre visible del usuario"
+            },
+            {
+              "id": "c",
+              "text": "La dirección pública del servidor"
+            },
+            {
+              "id": "d",
+              "text": "La etiqueta del equipo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un secreto de sesión vincula interacciones posteriores con la autenticación inicial.",
+          "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html"
+        },
+        {
+          "id": "w18d1-q05",
+          "prompt": "¿Por qué proteger una cookie de sesión contra robo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Siempre contiene la contraseña en texto claro"
+            },
+            {
+              "id": "b",
+              "text": "Puede permitir actuar como la sesión autenticada"
+            },
+            {
+              "id": "c",
+              "text": "Solo afecta el aspecto del portal"
+            },
+            {
+              "id": "d",
+              "text": "Sustituye todos los permisos del servidor"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un token portador robado puede facilitar suplantación aun sin conocer la contraseña.",
+          "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html"
+        },
+        {
+          "id": "w18d1-q06",
+          "prompt": "¿Qué pretende un tiempo de inactividad de sesión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hacer públicas las credenciales"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar los roles laborales"
+            },
+            {
+              "id": "c",
+              "text": "Reducir exposición de sesiones abandonadas"
+            },
+            {
+              "id": "d",
+              "text": "Verificar la identidad legal"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Expirar sesiones inactivas limita el acceso cuando la persona deja el equipo.",
+          "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html"
+        },
+        {
+          "id": "w18d1-q07",
+          "prompt": "¿Qué acción es más adecuada al terminar en un equipo compartido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cerrar solo una pestaña y asumir revocación"
+            },
+            {
+              "id": "b",
+              "text": "Guardar la sesión para el siguiente usuario"
+            },
+            {
+              "id": "c",
+              "text": "Cerrar la sesión mediante el mecanismo del servicio"
+            },
+            {
+              "id": "d",
+              "text": "Desactivar los registros de acceso"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Cerrar una pestaña no garantiza que el servidor invalide una sesión.",
+          "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html"
+        },
+        {
+          "id": "w18d1-q08",
+          "prompt": "¿Para qué sirve verificar identidad antes de restablecer un autenticador?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conceder permisos administrativos permanentes"
+            },
+            {
+              "id": "b",
+              "text": "Garantizar que todos los archivos son íntegros"
+            },
+            {
+              "id": "c",
+              "text": "Evitar entregar el control de la cuenta a un impostor"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar las revisiones de acceso"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La recuperación de cuenta debe resistir suplantación igual que el acceso normal.",
+          "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html"
+        }
+      ],
+      "challenge": {
+        "id": "w18d1-challenge",
+        "prompt": "Caso: Marta cierra la pestaña, pero otro usuario abre el portal con su sesión. ¿Qué control responde al problema?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Añadir Marta al grupo de administradores"
+          },
+          {
+            "id": "b",
+            "text": "Cierre explícito con invalidación y expiración de sesión"
+          },
+          {
+            "id": "c",
+            "text": "Cambiar el nombre del portal"
+          },
+          {
+            "id": "d",
+            "text": "Conservar la cookie indefinidamente"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La sesión debe finalizar de forma verificable; el cierre visual no equivale necesariamente a invalidación.",
+        "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html"
+      }
+    },
+    {
+      "dayId": "w18d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w18d2-q01",
+          "prompt": "Contraseña y PIN memorizado, ambos exigidos, representan ¿cuántas categorías de factor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dos: conocimiento y posesión"
+            },
+            {
+              "id": "b",
+              "text": "Una: conocimiento"
+            },
+            {
+              "id": "c",
+              "text": "Dos: conocimiento y biometría"
+            },
+            {
+              "id": "d",
+              "text": "Tres: una por cada pantalla"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Dos secretos conocidos pertenecen a la misma categoría y no constituyen MFA por sí solos.",
+          "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html"
+        },
+        {
+          "id": "w18d2-q02",
+          "prompt": "Contraseña y código de una aplicación autenticadora combinan ¿qué categorías?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dos factores biométricos"
+            },
+            {
+              "id": "b",
+              "text": "Dos factores de conocimiento"
+            },
+            {
+              "id": "c",
+              "text": "Conocimiento y posesión"
+            },
+            {
+              "id": "d",
+              "text": "Ubicación y disponibilidad"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El código demuestra posesión del autenticador además del secreto conocido.",
+          "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html"
+        },
+        {
+          "id": "w18d2-q03",
+          "prompt": "Una huella desbloquea una llave criptográfica y ambos son necesarios. ¿Qué combinación aporta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo dos contraseñas"
+            },
+            {
+              "id": "b",
+              "text": "Inherencia y posesión"
+            },
+            {
+              "id": "c",
+              "text": "Solo ubicación"
+            },
+            {
+              "id": "d",
+              "text": "Autorización y auditoría"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La biometría puede activar un autenticador físico en un mecanismo multifactor.",
+          "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html"
+        },
+        {
+          "id": "w18d2-q04",
+          "prompt": "¿Por qué un código OTP introducido en una web falsa puede fallar frente al phishing?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El código es siempre público"
+            },
+            {
+              "id": "b",
+              "text": "El atacante puede retransmitirlo al servicio real"
+            },
+            {
+              "id": "c",
+              "text": "Los OTP no caducan nunca"
+            },
+            {
+              "id": "d",
+              "text": "Todo OTP es una firma de documento"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un OTP puede resistir repetición posterior sin quedar vinculado al sitio auténtico.",
+          "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html"
+        },
+        {
+          "id": "w18d2-q05",
+          "prompt": "¿Qué mecanismo está diseñado para vincular autenticación al dominio legítimo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un PIN escrito en el correo"
+            },
+            {
+              "id": "b",
+              "text": "Una pregunta sobre el apellido"
+            },
+            {
+              "id": "c",
+              "text": "WebAuthn/FIDO2 correctamente implementado"
+            },
+            {
+              "id": "d",
+              "text": "Un OTP entregado al supuesto soporte"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La vinculación criptográfica al verificador dificulta reutilizar la respuesta en un sitio impostor.",
+          "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html"
+        },
+        {
+          "id": "w18d2-q06",
+          "prompt": "Llegan solicitudes push que no iniciaste. ¿Qué corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aprobar una para detenerlas"
+            },
+            {
+              "id": "b",
+              "text": "Desactivar MFA definitivamente"
+            },
+            {
+              "id": "c",
+              "text": "Compartir el código con quien llama"
+            },
+            {
+              "id": "d",
+              "text": "Rechazarlas y reportar el intento"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las solicitudes inesperadas pueden intentar aprovechar fatiga de autenticación.",
+          "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html"
+        },
+        {
+          "id": "w18d2-q07",
+          "prompt": "¿Qué debe protegerse al registrar un segundo factor nuevo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el color del icono"
+            },
+            {
+              "id": "b",
+              "text": "Solo la longitud del usuario"
+            },
+            {
+              "id": "c",
+              "text": "Solo el fondo de pantalla"
+            },
+            {
+              "id": "d",
+              "text": "La vinculación del autenticador con la cuenta correcta"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un atacante que registra su factor podría mantener acceso incluso con MFA activado.",
+          "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html"
+        },
+        {
+          "id": "w18d2-q08",
+          "prompt": "¿Qué riesgo introduce una recuperación más débil que el inicio normal?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Permitir eludir MFA mediante el restablecimiento"
+            },
+            {
+              "id": "b",
+              "text": "Convertir biometría en cifrado de disco"
+            },
+            {
+              "id": "c",
+              "text": "Crear redundancia independiente"
+            },
+            {
+              "id": "d",
+              "text": "Impedir todos los bloqueos accidentales"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La seguridad efectiva incluye recuperación y sustitución de autenticadores.",
+          "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html"
+        }
+      ],
+      "challenge": {
+        "id": "w18d2-challenge",
+        "prompt": "Caso: una empresa exige contraseña y pregunta secreta y lo llama MFA. ¿Qué corrección es apropiada?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Añadir otra pregunta memorizada"
+          },
+          {
+            "id": "b",
+            "text": "Añadir un factor de posesión o inherencia mediante un método adecuado"
+          },
+          {
+            "id": "c",
+            "text": "Cambiar el orden de las preguntas"
+          },
+          {
+            "id": "d",
+            "text": "Duplicar la misma contraseña"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "MFA requiere categorías distintas; aumentar secretos de conocimiento no crea esa diversidad.",
+        "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html"
+      }
+    },
+    {
+      "dayId": "w18d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w18d3-q01",
+          "prompt": "Un rol «ventas» permite leer clientes, pero no nóminas. ¿Qué modelo usa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cifrado simétrico"
+            },
+            {
+              "id": "b",
+              "text": "Balanceo de carga"
+            },
+            {
+              "id": "c",
+              "text": "RBAC basado en roles"
+            },
+            {
+              "id": "d",
+              "text": "Autenticación biométrica"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "RBAC asigna permisos a funciones y después vincula usuarios con esas funciones.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d3-q02",
+          "prompt": "El acceso exige departamento=finanzas y dispositivo gestionado. ¿Qué modelo encaja?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo una lista de nombres"
+            },
+            {
+              "id": "b",
+              "text": "Respaldo incremental"
+            },
+            {
+              "id": "c",
+              "text": "Anonimización"
+            },
+            {
+              "id": "d",
+              "text": "ABAC basado en atributos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "ABAC evalúa atributos de sujetos, recursos y contexto según una política.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d3-q03",
+          "prompt": "¿Qué expresa mínimo privilegio para una analista nueva?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Copiar todos los permisos del jefe"
+            },
+            {
+              "id": "b",
+              "text": "Usar una cuenta compartida administrativa"
+            },
+            {
+              "id": "c",
+              "text": "Dar solo permisos necesarios para tareas asignadas"
+            },
+            {
+              "id": "d",
+              "text": "Conceder todo y revisar en un año"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los derechos deben responder a necesidades concretas y revisarse al cambiar estas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d3-q04",
+          "prompt": "¿Qué evita separar la creación y aprobación de un pago?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cualquier caída del sistema"
+            },
+            {
+              "id": "b",
+              "text": "La pérdida del segundo factor"
+            },
+            {
+              "id": "c",
+              "text": "La necesidad de registros"
+            },
+            {
+              "id": "d",
+              "text": "Que una sola persona complete una operación sensible sin revisión"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La segregación de funciones reduce fraude y errores sin control independiente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d3-q05",
+          "prompt": "Un administrador usa privilegios elevados solo durante una tarea aprobada. ¿Qué principio aplica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Privilegios permanentes universales"
+            },
+            {
+              "id": "b",
+              "text": "Acceso temporal y mínimo privilegio"
+            },
+            {
+              "id": "c",
+              "text": "Cuenta huérfana"
+            },
+            {
+              "id": "d",
+              "text": "Divulgación pública"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La elevación limitada reduce el tiempo durante el cual pueden abusarse permisos sensibles.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d3-q06",
+          "prompt": "Una matriz muestra «soporte: lectura» sobre expedientes. ¿Qué conviene comprobar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Si el rol tiene un nombre atractivo"
+            },
+            {
+              "id": "b",
+              "text": "Si la lectura responde a una necesidad de soporte aprobada"
+            },
+            {
+              "id": "c",
+              "text": "Si todos los departamentos tienen igual acceso"
+            },
+            {
+              "id": "d",
+              "text": "Si puede escribirse sin registro"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La matriz debe justificarse por función y sensibilidad, no por uniformidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d3-q07",
+          "prompt": "Un grupo heredado da escritura adicional al usuario. ¿Qué debe revisarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo su nombre de usuario"
+            },
+            {
+              "id": "b",
+              "text": "Solo el último acceso correcto"
+            },
+            {
+              "id": "c",
+              "text": "Todos los mecanismos que producen permisos efectivos"
+            },
+            {
+              "id": "d",
+              "text": "Solo permisos mostrados en una solicitud"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los derechos pueden provenir de grupos, roles, herencia y asignaciones directas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d3-q08",
+          "prompt": "¿Quién debe validar que un permiso de negocio es necesario?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El dueño del recurso con los responsables pertinentes"
+            },
+            {
+              "id": "b",
+              "text": "Solo quien solicita acceso"
+            },
+            {
+              "id": "c",
+              "text": "Cualquier visitante"
+            },
+            {
+              "id": "d",
+              "text": "Una herramienta sin contexto de negocio"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La necesidad de acceso requiere autoridad y conocimiento sobre el recurso y la función.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w18d3-challenge",
+        "prompt": "Caso: Lucía cambia de ventas a compras y mantiene ambos roles. ¿Qué acción sigue mínimo privilegio?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Conservar ambos para facilitar futuros cambios"
+          },
+          {
+            "id": "b",
+            "text": "Crear una cuenta compartida"
+          },
+          {
+            "id": "c",
+            "text": "Conceder administración para evitar conflictos"
+          },
+          {
+            "id": "d",
+            "text": "Revisar tareas nuevas y retirar derechos de ventas innecesarios"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "Los cambios de función requieren ajustar permisos acumulados, no solo añadir otros.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      }
+    },
+    {
+      "dayId": "w18d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w18d4-q01",
+          "prompt": "¿Qué inicia correctamente el alta de una cuenta empresarial?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un correo informal sin verificar identidad"
+            },
+            {
+              "id": "b",
+              "text": "Solicitud validada con responsable y función"
+            },
+            {
+              "id": "c",
+              "text": "Copiar permisos de cualquier cuenta"
+            },
+            {
+              "id": "d",
+              "text": "Crear primero permisos globales"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El alta debe vincular identidad, necesidad y aprobación antes de habilitar derechos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d4-q02",
+          "prompt": "¿Qué registro demuestra que un alta fue revisada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la existencia del usuario"
+            },
+            {
+              "id": "b",
+              "text": "Un fondo de pantalla estándar"
+            },
+            {
+              "id": "c",
+              "text": "Aprobación identificable y permisos concedidos"
+            },
+            {
+              "id": "d",
+              "text": "Una contraseña compartida"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La evidencia debe permitir relacionar la autorización con los derechos implementados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d4-q03",
+          "prompt": "Una baja laboral es efectiva hoy. ¿Qué acción evita conservar acceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Esperar a que expire la contraseña"
+            },
+            {
+              "id": "b",
+              "text": "Deshabilitar acceso y revocar sesiones según procedimiento"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar solo el nombre del directorio telefónico"
+            },
+            {
+              "id": "d",
+              "text": "Quitar únicamente la fotografía"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las credenciales y sesiones activas pueden sobrevivir a cambios meramente administrativos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d4-q04",
+          "prompt": "¿Por qué inventariar cuentas de servicio con dueño?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Poder revisar necesidad, secretos y continuidad"
+            },
+            {
+              "id": "b",
+              "text": "Para tratarlas siempre como personas"
+            },
+            {
+              "id": "c",
+              "text": "Para darles permisos globales"
+            },
+            {
+              "id": "d",
+              "text": "Para excluirlas de toda revisión"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las identidades no humanas también necesitan responsables y ciclo de vida.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d4-q05",
+          "prompt": "Un contratista trabaja hasta el día 30. ¿Qué control reduce olvidos de baja?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Permiso permanente por comodidad"
+            },
+            {
+              "id": "b",
+              "text": "Cuenta compartida sin dueño"
+            },
+            {
+              "id": "c",
+              "text": "Contraseña sin caducidad de contrato"
+            },
+            {
+              "id": "d",
+              "text": "Fecha de expiración con revisión y responsable"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un límite temporal alineado al contrato facilita controlar la duración del acceso.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d4-q06",
+          "prompt": "¿Por qué no borrar inmediatamente toda evidencia de una cuenta dada de baja?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque debe seguir iniciando sesión"
+            },
+            {
+              "id": "b",
+              "text": "Puede ser necesaria para trazabilidad y retención aprobada"
+            },
+            {
+              "id": "c",
+              "text": "Porque todos sus permisos deben transferirse"
+            },
+            {
+              "id": "d",
+              "text": "Porque borrar registros fortalece auditorías"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La baja de acceso y la conservación de registros son decisiones distintas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d4-q07",
+          "prompt": "Un cambio de puesto añade permisos nuevos. ¿Qué paso evita acumulación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Añadir todos los grupos del departamento"
+            },
+            {
+              "id": "b",
+              "text": "Revisar y retirar los anteriores que ya no necesita"
+            },
+            {
+              "id": "c",
+              "text": "Renombrar la cuenta solamente"
+            },
+            {
+              "id": "d",
+              "text": "Desactivar el registro de actividad"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El proceso de cambio debe contemplar tanto altas como revocaciones de derechos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d4-q08",
+          "prompt": "¿Qué diferencia hay entre deshabilitar una cuenta y rotar un secreto compartido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Son siempre la misma operación"
+            },
+            {
+              "id": "b",
+              "text": "Rotar solo cambia el nombre visible"
+            },
+            {
+              "id": "c",
+              "text": "Ninguna sirve para revocar acceso"
+            },
+            {
+              "id": "d",
+              "text": "Deshabilitar no invalida necesariamente copias del secreto usadas por otras cuentas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los secretos utilizados fuera de una cuenta requieren identificar y actualizar sus consumidores.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w18d4-challenge",
+        "prompt": "Caso: un empleado sale y su token de API continúa funcionando. ¿Qué falta en la baja?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Cambiar solo su correo de contacto"
+          },
+          {
+            "id": "b",
+            "text": "Volver a activar su contraseña"
+          },
+          {
+            "id": "c",
+            "text": "Revocar credenciales y tokens asociados además del acceso interactivo"
+          },
+          {
+            "id": "d",
+            "text": "Borrar las copias de seguridad"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "El inventario de accesos debe incluir tokens, sesiones y otras credenciales no interactivas.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      }
+    },
+    {
+      "dayId": "w18d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w18d5-q01",
+          "prompt": "Una visita debe entrar a una zona pública, no al centro de datos. ¿Qué control encaja?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tarjeta permanente de administrador"
+            },
+            {
+              "id": "b",
+              "text": "Credencial temporal limitada y acompañamiento según zona"
+            },
+            {
+              "id": "c",
+              "text": "Dejar abierta toda puerta interior"
+            },
+            {
+              "id": "d",
+              "text": "Compartir el pase de un empleado"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los permisos físicos deben ajustarse a la finalidad y duración de la visita.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d5-q02",
+          "prompt": "¿Qué describe tailgating en control físico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usar un segundo factor autorizado"
+            },
+            {
+              "id": "b",
+              "text": "Entrar siguiendo a alguien sin validación propia"
+            },
+            {
+              "id": "c",
+              "text": "Rotar una clave de cifrado"
+            },
+            {
+              "id": "d",
+              "text": "Verificar un inventario"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Cada persona debe superar el control; una puerta abierta puede permitir eludirlo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d5-q03",
+          "prompt": "¿Por qué definir zonas en una oficina?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantizar que no habrá incendios"
+            },
+            {
+              "id": "b",
+              "text": "Dar idéntico permiso a todos"
+            },
+            {
+              "id": "c",
+              "text": "Reemplazar el registro de visitas"
+            },
+            {
+              "id": "d",
+              "text": "Aplicar protección distinta según activos y exposición"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las zonas permiten controlar rutas y acceso según sensibilidad y función.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d5-q04",
+          "prompt": "¿Qué evidencia ayuda a revisar acceso a una sala técnica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el color de la puerta"
+            },
+            {
+              "id": "b",
+              "text": "La lista pública de clientes"
+            },
+            {
+              "id": "c",
+              "text": "Un cartel de bienvenida"
+            },
+            {
+              "id": "d",
+              "text": "Registro de entradas asociado a identidades y horarios"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La trazabilidad física permite contrastar entradas con autorizaciones y sucesos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d5-q05",
+          "prompt": "Un armario protege switches en un área compartida. ¿Qué riesgo reduce?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todos los errores de software"
+            },
+            {
+              "id": "b",
+              "text": "Phishing de correo automáticamente"
+            },
+            {
+              "id": "c",
+              "text": "Pérdida de datos por cualquier causa"
+            },
+            {
+              "id": "d",
+              "text": "Manipulación física no autorizada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Controlar acceso al equipo limita cambios materiales, pero no sustituye otras defensas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d5-q06",
+          "prompt": "¿Qué control responde a humo o aumento de temperatura?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Roles de aplicación de ventas"
+            },
+            {
+              "id": "b",
+              "text": "Sensores y procedimientos ambientales"
+            },
+            {
+              "id": "c",
+              "text": "Cifrado de documentos exclusivamente"
+            },
+            {
+              "id": "d",
+              "text": "Preguntas de recuperación"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La protección física incluye condiciones ambientales que pueden dañar equipos y servicios.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d5-q07",
+          "prompt": "Una tarjeta extraviada tenía acceso a almacén. ¿Qué corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Esperar a encontrarla sin aviso"
+            },
+            {
+              "id": "b",
+              "text": "Publicar su código para localizarla"
+            },
+            {
+              "id": "c",
+              "text": "Revocarla y gestionar reposición con verificación"
+            },
+            {
+              "id": "d",
+              "text": "Dar acceso temporal a todo el personal"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un autenticador físico perdido debe tratarse como una posible vía de acceso no autorizado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d5-q08",
+          "prompt": "¿Por qué probar salida de emergencia al diseñar controles físicos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para obligar a dejar todas las puertas abiertas"
+            },
+            {
+              "id": "b",
+              "text": "Para eliminar registros de entrada"
+            },
+            {
+              "id": "c",
+              "text": "La seguridad debe contemplar evacuación y protección de personas"
+            },
+            {
+              "id": "d",
+              "text": "Para sustituir permisos digitales"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los controles de acceso deben coordinarse con requisitos de emergencia y seguridad personal.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w18d5-challenge",
+        "prompt": "Caso: un mensajero pide seguir a una empleada hasta servidores por urgencia. ¿Qué procedimiento es adecuado?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Verificar motivo y autorización mediante recepción y acompañamiento"
+          },
+          {
+            "id": "b",
+            "text": "Prestarle la tarjeta sin registro"
+          },
+          {
+            "id": "c",
+            "text": "Permitirlo porque lleva uniforme"
+          },
+          {
+            "id": "d",
+            "text": "Compartir el código por teléfono"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La urgencia y apariencia no reemplazan la comprobación del permiso a una zona restringida.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      }
+    },
+    {
+      "dayId": "w18d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w18d6-q01",
+          "prompt": "El CSV muestra una cuenta activa sin dueño ni función. ¿Qué hallazgo representa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cuenta huérfana que requiere investigación"
+            },
+            {
+              "id": "b",
+              "text": "Prueba definitiva de ataque estatal"
+            },
+            {
+              "id": "c",
+              "text": "Una copia de seguridad válida"
+            },
+            {
+              "id": "d",
+              "text": "Autenticación multifactor"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La falta de responsable dificulta justificar y gestionar el acceso; no demuestra por sí sola intrusión.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d6-q02",
+          "prompt": "Una cuenta de lectura tiene permiso de borrar expedientes. ¿Qué problema aparece?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Privilegios excesivos respecto a su función"
+            },
+            {
+              "id": "b",
+              "text": "Falta de cifrado en tránsito necesariamente"
+            },
+            {
+              "id": "c",
+              "text": "Tiempo de sesión demasiado corto"
+            },
+            {
+              "id": "d",
+              "text": "Duplicación de respaldos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La discrepancia entre función y derecho indica incumplimiento del mínimo privilegio.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d6-q03",
+          "prompt": "Una persona puede crear y aprobar el mismo proveedor. ¿Qué revisar primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La marca del monitor"
+            },
+            {
+              "id": "b",
+              "text": "Conflicto de segregación de funciones"
+            },
+            {
+              "id": "c",
+              "text": "La compresión de archivos"
+            },
+            {
+              "id": "d",
+              "text": "La longitud del nombre del proveedor"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La combinación de derechos puede permitir una operación sensible sin revisión independiente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d6-q04",
+          "prompt": "El último acceso es antiguo. ¿Qué concluye una revisión responsable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Debe verificarse necesidad antes de retirar acceso con impacto conocido"
+            },
+            {
+              "id": "b",
+              "text": "La cuenta es maliciosa con certeza"
+            },
+            {
+              "id": "c",
+              "text": "Debe recibir más permisos"
+            },
+            {
+              "id": "d",
+              "text": "La antigüedad demuestra autorización vigente"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La inactividad es una señal para revisar; las cuentas de contingencia pueden tener uso infrecuente legítimo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d6-q05",
+          "prompt": "¿Qué evidencia cierra un hallazgo de acceso excesivo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un correo que dice «ya está» sin verificación"
+            },
+            {
+              "id": "b",
+              "text": "Solo renombrar el rol"
+            },
+            {
+              "id": "c",
+              "text": "Ocultar la fila del CSV"
+            },
+            {
+              "id": "d",
+              "text": "Permisos efectivos corregidos y comprobación documentada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Cerrar requiere confirmar que el acceso resultante coincide con la decisión aprobada.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d6-q06",
+          "prompt": "¿Por qué revisar membresías anidadas de grupos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Siempre duplican contraseñas"
+            },
+            {
+              "id": "b",
+              "text": "Pueden conceder permisos indirectos no evidentes"
+            },
+            {
+              "id": "c",
+              "text": "Solo afectan al fondo de pantalla"
+            },
+            {
+              "id": "d",
+              "text": "Impiden registrar eventos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un usuario puede heredar acceso mediante varios niveles de pertenencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d6-q07",
+          "prompt": "Una excepción permite acceso elevado durante una migración. ¿Qué dato necesita?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Justificación, aprobador, límite y revisión"
+            },
+            {
+              "id": "b",
+              "text": "Solo el nombre de la herramienta"
+            },
+            {
+              "id": "c",
+              "text": "Un permiso sin fecha final"
+            },
+            {
+              "id": "d",
+              "text": "Una contraseña compartida"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las excepciones deben mantenerse bajo control y revisarse cuando finaliza la necesidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w18d6-q08",
+          "prompt": "¿Qué resultado de auditoría permite seguimiento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una lista de nombres sin acciones"
+            },
+            {
+              "id": "b",
+              "text": "Hallazgo, recurso, dueño, decisión y comprobación"
+            },
+            {
+              "id": "c",
+              "text": "Solo una puntuación general"
+            },
+            {
+              "id": "d",
+              "text": "Capturas con todas las claves privadas"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un seguimiento útil conecta la exposición detectada con responsables y evidencia de corrección.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w18d6-challenge",
+        "prompt": "Caso: CSV: Pablo, baja ayer, activo, grupo administradores. ¿Qué prioridad es adecuada?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Esperar a la revisión anual"
+          },
+          {
+            "id": "b",
+            "text": "Quitar solo su nombre visible"
+          },
+          {
+            "id": "c",
+            "text": "Moverlo a otro grupo privilegiado"
+          },
+          {
+            "id": "d",
+            "text": "Validar baja y revocar acceso siguiendo el procedimiento urgente"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "Una cuenta privilegiada activa tras baja merece tratamiento rápido y trazable para cortar acceso innecesario.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      }
+    },
+    {
+      "dayId": "w18d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w18d7-q01",
+          "prompt": "Una usuaria escribe su nombre de cuenta. ¿Qué realiza inicialmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Autorización de pagos"
+            },
+            {
+              "id": "b",
+              "text": "Cifrado de datos"
+            },
+            {
+              "id": "c",
+              "text": "Identificación"
+            },
+            {
+              "id": "d",
+              "text": "Registro de actividad"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El identificador declara una identidad; aún falta demostrar control de sus autenticadores.",
+          "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html",
+          "reviewOf": "w18d1-q01"
+        },
+        {
+          "id": "w18d7-q02",
+          "prompt": "Contraseña y PIN memorizado, ambos exigidos, representan ¿cuántas categorías de factor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dos: conocimiento y posesión"
+            },
+            {
+              "id": "b",
+              "text": "Una: conocimiento"
+            },
+            {
+              "id": "c",
+              "text": "Dos: conocimiento y biometría"
+            },
+            {
+              "id": "d",
+              "text": "Tres: una por cada pantalla"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Dos secretos conocidos pertenecen a la misma categoría y no constituyen MFA por sí solos.",
+          "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html",
+          "reviewOf": "w18d2-q01"
+        },
+        {
+          "id": "w18d7-q03",
+          "prompt": "Un rol «ventas» permite leer clientes, pero no nóminas. ¿Qué modelo usa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cifrado simétrico"
+            },
+            {
+              "id": "b",
+              "text": "Balanceo de carga"
+            },
+            {
+              "id": "c",
+              "text": "RBAC basado en roles"
+            },
+            {
+              "id": "d",
+              "text": "Autenticación biométrica"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "RBAC asigna permisos a funciones y después vincula usuarios con esas funciones.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w18d3-q01"
+        },
+        {
+          "id": "w18d7-q04",
+          "prompt": "¿Qué inicia correctamente el alta de una cuenta empresarial?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un correo informal sin verificar identidad"
+            },
+            {
+              "id": "b",
+              "text": "Solicitud validada con responsable y función"
+            },
+            {
+              "id": "c",
+              "text": "Copiar permisos de cualquier cuenta"
+            },
+            {
+              "id": "d",
+              "text": "Crear primero permisos globales"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El alta debe vincular identidad, necesidad y aprobación antes de habilitar derechos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w18d4-q01"
+        },
+        {
+          "id": "w18d7-q05",
+          "prompt": "Una visita debe entrar a una zona pública, no al centro de datos. ¿Qué control encaja?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tarjeta permanente de administrador"
+            },
+            {
+              "id": "b",
+              "text": "Credencial temporal limitada y acompañamiento según zona"
+            },
+            {
+              "id": "c",
+              "text": "Dejar abierta toda puerta interior"
+            },
+            {
+              "id": "d",
+              "text": "Compartir el pase de un empleado"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los permisos físicos deben ajustarse a la finalidad y duración de la visita.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w18d5-q01"
+        },
+        {
+          "id": "w18d7-q06",
+          "prompt": "El CSV muestra una cuenta activa sin dueño ni función. ¿Qué hallazgo representa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cuenta huérfana que requiere investigación"
+            },
+            {
+              "id": "b",
+              "text": "Prueba definitiva de ataque estatal"
+            },
+            {
+              "id": "c",
+              "text": "Una copia de seguridad válida"
+            },
+            {
+              "id": "d",
+              "text": "Autenticación multifactor"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La falta de responsable dificulta justificar y gestionar el acceso; no demuestra por sí sola intrusión.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w18d6-q01"
+        },
+        {
+          "id": "w18d7-q07",
+          "prompt": "¿Qué demuestra una autenticación satisfactoria?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Control de autenticadores vinculados a una cuenta"
+            },
+            {
+              "id": "b",
+              "text": "Permiso para toda carpeta"
+            },
+            {
+              "id": "c",
+              "text": "Ausencia de malware"
+            },
+            {
+              "id": "d",
+              "text": "Identidad legal en todos los contextos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Autenticar una cuenta no concede automáticamente derechos ni prueba todos los atributos personales.",
+          "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html",
+          "reviewOf": "w18d1-q02"
+        },
+        {
+          "id": "w18d7-q08",
+          "prompt": "Contraseña y código de una aplicación autenticadora combinan ¿qué categorías?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dos factores biométricos"
+            },
+            {
+              "id": "b",
+              "text": "Dos factores de conocimiento"
+            },
+            {
+              "id": "c",
+              "text": "Conocimiento y posesión"
+            },
+            {
+              "id": "d",
+              "text": "Ubicación y disponibilidad"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El código demuestra posesión del autenticador además del secreto conocido.",
+          "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html",
+          "reviewOf": "w18d2-q02"
+        },
+        {
+          "id": "w18d7-q09",
+          "prompt": "El acceso exige departamento=finanzas y dispositivo gestionado. ¿Qué modelo encaja?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo una lista de nombres"
+            },
+            {
+              "id": "b",
+              "text": "Respaldo incremental"
+            },
+            {
+              "id": "c",
+              "text": "Anonimización"
+            },
+            {
+              "id": "d",
+              "text": "ABAC basado en atributos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "ABAC evalúa atributos de sujetos, recursos y contexto según una política.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w18d3-q02"
+        },
+        {
+          "id": "w18d7-q10",
+          "prompt": "¿Qué registro demuestra que un alta fue revisada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la existencia del usuario"
+            },
+            {
+              "id": "b",
+              "text": "Un fondo de pantalla estándar"
+            },
+            {
+              "id": "c",
+              "text": "Aprobación identificable y permisos concedidos"
+            },
+            {
+              "id": "d",
+              "text": "Una contraseña compartida"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La evidencia debe permitir relacionar la autorización con los derechos implementados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w18d4-q02"
+        },
+        {
+          "id": "w18d7-q11",
+          "prompt": "¿Qué describe tailgating en control físico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usar un segundo factor autorizado"
+            },
+            {
+              "id": "b",
+              "text": "Entrar siguiendo a alguien sin validación propia"
+            },
+            {
+              "id": "c",
+              "text": "Rotar una clave de cifrado"
+            },
+            {
+              "id": "d",
+              "text": "Verificar un inventario"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Cada persona debe superar el control; una puerta abierta puede permitir eludirlo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w18d5-q02"
+        },
+        {
+          "id": "w18d7-q12",
+          "prompt": "Una cuenta de lectura tiene permiso de borrar expedientes. ¿Qué problema aparece?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Privilegios excesivos respecto a su función"
+            },
+            {
+              "id": "b",
+              "text": "Falta de cifrado en tránsito necesariamente"
+            },
+            {
+              "id": "c",
+              "text": "Tiempo de sesión demasiado corto"
+            },
+            {
+              "id": "d",
+              "text": "Duplicación de respaldos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La discrepancia entre función y derecho indica incumplimiento del mínimo privilegio.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w18d6-q02"
+        },
+        {
+          "id": "w18d7-q13",
+          "prompt": "Un usuario inicia sesión y recibe «acceso denegado» a nómina. ¿Qué etapa lo rechazó?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Autorización"
+            },
+            {
+              "id": "b",
+              "text": "Identificación"
+            },
+            {
+              "id": "c",
+              "text": "Creación de contraseña"
+            },
+            {
+              "id": "d",
+              "text": "Sincronización horaria"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Puede estar autenticado y carecer del permiso para ese recurso.",
+          "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html",
+          "reviewOf": "w18d1-q03"
+        },
+        {
+          "id": "w18d7-q14",
+          "prompt": "Una huella desbloquea una llave criptográfica y ambos son necesarios. ¿Qué combinación aporta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo dos contraseñas"
+            },
+            {
+              "id": "b",
+              "text": "Inherencia y posesión"
+            },
+            {
+              "id": "c",
+              "text": "Solo ubicación"
+            },
+            {
+              "id": "d",
+              "text": "Autorización y auditoría"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La biometría puede activar un autenticador físico en un mecanismo multifactor.",
+          "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html",
+          "reviewOf": "w18d2-q03"
+        },
+        {
+          "id": "w18d7-q15",
+          "prompt": "¿Qué expresa mínimo privilegio para una analista nueva?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Copiar todos los permisos del jefe"
+            },
+            {
+              "id": "b",
+              "text": "Usar una cuenta compartida administrativa"
+            },
+            {
+              "id": "c",
+              "text": "Dar solo permisos necesarios para tareas asignadas"
+            },
+            {
+              "id": "d",
+              "text": "Conceder todo y revisar en un año"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los derechos deben responder a necesidades concretas y revisarse al cambiar estas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w18d3-q03"
+        },
+        {
+          "id": "w18d7-q16",
+          "prompt": "Una baja laboral es efectiva hoy. ¿Qué acción evita conservar acceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Esperar a que expire la contraseña"
+            },
+            {
+              "id": "b",
+              "text": "Deshabilitar acceso y revocar sesiones según procedimiento"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar solo el nombre del directorio telefónico"
+            },
+            {
+              "id": "d",
+              "text": "Quitar únicamente la fotografía"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las credenciales y sesiones activas pueden sobrevivir a cambios meramente administrativos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w18d4-q03"
+        },
+        {
+          "id": "w18d7-q17",
+          "prompt": "¿Por qué definir zonas en una oficina?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantizar que no habrá incendios"
+            },
+            {
+              "id": "b",
+              "text": "Dar idéntico permiso a todos"
+            },
+            {
+              "id": "c",
+              "text": "Reemplazar el registro de visitas"
+            },
+            {
+              "id": "d",
+              "text": "Aplicar protección distinta según activos y exposición"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las zonas permiten controlar rutas y acceso según sensibilidad y función.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w18d5-q03"
+        },
+        {
+          "id": "w18d7-q18",
+          "prompt": "Una persona puede crear y aprobar el mismo proveedor. ¿Qué revisar primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La marca del monitor"
+            },
+            {
+              "id": "b",
+              "text": "Conflicto de segregación de funciones"
+            },
+            {
+              "id": "c",
+              "text": "La compresión de archivos"
+            },
+            {
+              "id": "d",
+              "text": "La longitud del nombre del proveedor"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La combinación de derechos puede permitir una operación sensible sin revisión independiente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w18d6-q03"
+        },
+        {
+          "id": "w18d7-q19",
+          "prompt": "¿Qué secreto permite continuar una sesión web sin introducir contraseña en cada página?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un identificador de sesión protegido"
+            },
+            {
+              "id": "b",
+              "text": "El nombre visible del usuario"
+            },
+            {
+              "id": "c",
+              "text": "La dirección pública del servidor"
+            },
+            {
+              "id": "d",
+              "text": "La etiqueta del equipo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un secreto de sesión vincula interacciones posteriores con la autenticación inicial.",
+          "reference": "https://pages.nist.gov/800-63-4/sp800-63b.html",
+          "reviewOf": "w18d1-q04"
+        },
+        {
+          "id": "w18d7-q20",
+          "prompt": "¿Por qué inventariar cuentas de servicio con dueño?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Poder revisar necesidad, secretos y continuidad"
+            },
+            {
+              "id": "b",
+              "text": "Para tratarlas siempre como personas"
+            },
+            {
+              "id": "c",
+              "text": "Para darles permisos globales"
+            },
+            {
+              "id": "d",
+              "text": "Para excluirlas de toda revisión"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las identidades no humanas también necesitan responsables y ciclo de vida.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w18d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w18d7-challenge",
+        "prompt": "Caso semanal: una contratista termina hoy; tiene contraseña, token API y tarjeta. ¿Qué revocación es completa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Cambiar solo la contraseña"
+          },
+          {
+            "id": "b",
+            "text": "Borrar su fila del inventario"
+          },
+          {
+            "id": "c",
+            "text": "Retirar solo su fotografía"
+          },
+          {
+            "id": "d",
+            "text": "Gestionar cuenta, sesiones, token y tarjeta con evidencia"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "Las vías físicas y digitales deben revisarse en conjunto para evitar accesos residuales.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      }
+    }
+  ]
+}

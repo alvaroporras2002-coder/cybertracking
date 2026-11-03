@@ -1,0 +1,2094 @@
+{
+  "week": 52,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w52d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w52d1-q01",
+          "prompt": "En una explicación oral, ¿qué función principal cumple un router?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Autenticar todo usuario"
+            },
+            {
+              "id": "b",
+              "text": "Guardar todos los archivos"
+            },
+            {
+              "id": "c",
+              "text": "Encaminar paquetes entre redes"
+            },
+            {
+              "id": "d",
+              "text": "Descifrar cualquier TLS"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El enrutamiento decide el siguiente salto según destino y rutas.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+        },
+        {
+          "id": "w52d1-q02",
+          "prompt": "¿Para qué sirve una máscara IPv4?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Distinguir porción de red y host"
+            },
+            {
+              "id": "b",
+              "text": "Cifrar direcciones"
+            },
+            {
+              "id": "c",
+              "text": "Identificar al usuario"
+            },
+            {
+              "id": "d",
+              "text": "Elegir contraseña"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La máscara permite determinar pertenencia a una subred.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+        },
+        {
+          "id": "w52d1-q03",
+          "prompt": "¿Qué diferencia IP y MAC en un recorrido enrutado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ambas identifican persona"
+            },
+            {
+              "id": "b",
+              "text": "MAC es siempre pública"
+            },
+            {
+              "id": "c",
+              "text": "MAC corresponde al enlace; IP orienta el destino de red"
+            },
+            {
+              "id": "d",
+              "text": "IP solo existe dentro del switch"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La comunicación usa direccionamiento en capas con alcances distintos.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+        },
+        {
+          "id": "w52d1-q04",
+          "prompt": "¿Por qué ping exitoso no prueba que una web funcione?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ping valida credenciales"
+            },
+            {
+              "id": "b",
+              "text": "ICMP y servicio web son comprobaciones distintas"
+            },
+            {
+              "id": "c",
+              "text": "Ping descarga el sitio entero"
+            },
+            {
+              "id": "d",
+              "text": "ICMP descifra HTTPS"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La conectividad de red no garantiza disponibilidad de aplicación.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+        },
+        {
+          "id": "w52d1-q05",
+          "prompt": "¿Qué aporta TCP frente a IP solo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Transporte fiable con control de entrega"
+            },
+            {
+              "id": "b",
+              "text": "Identidad humana"
+            },
+            {
+              "id": "c",
+              "text": "Permiso de archivos"
+            },
+            {
+              "id": "d",
+              "text": "Resolución de nombres"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "TCP maneja secuencia y retransmisión dentro de la comunicación.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+        },
+        {
+          "id": "w52d1-q06",
+          "prompt": "¿Qué indica gateway predeterminado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Siguiente salto para destinos sin ruta más específica"
+            },
+            {
+              "id": "b",
+              "text": "Servidor DNS obligatorio"
+            },
+            {
+              "id": "c",
+              "text": "Dirección del usuario"
+            },
+            {
+              "id": "d",
+              "text": "Hash del adaptador"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La ruta por defecto permite enviar tráfico hacia otras redes.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+        },
+        {
+          "id": "w52d1-q07",
+          "prompt": "¿Una dirección privada puede usarse directamente como destino público global?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí, siempre es enrutable"
+            },
+            {
+              "id": "b",
+              "text": "Solo si termina en1"
+            },
+            {
+              "id": "c",
+              "text": "Solo si usa HTTPS"
+            },
+            {
+              "id": "d",
+              "text": "No, requiere contexto de red o traducción pertinente"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los rangos privados no se anuncian como direcciones globales de Internet.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+        },
+        {
+          "id": "w52d1-q08",
+          "prompt": "¿Cómo explicar encapsulación de forma precisa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cada capa borra todo lo anterior"
+            },
+            {
+              "id": "b",
+              "text": "Solo cambia nombres de archivos"
+            },
+            {
+              "id": "c",
+              "text": "Es cifrado obligatorio de todos los datos"
+            },
+            {
+              "id": "d",
+              "text": "Cada capa añade información para su función"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los protocolos transportan datos de capas superiores con sus propios encabezados.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+        }
+      ],
+      "challenge": {
+        "id": "w52d1-challenge",
+        "prompt": "En entrevista te preguntan diferencia autenticación y autorización. ¿Qué respuesta es precisa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Verificar identidad y determinar permisos"
+          },
+          {
+            "id": "b",
+            "text": "Son sinónimos de cifrado"
+          },
+          {
+            "id": "c",
+            "text": "Ambas son copias de seguridad"
+          },
+          {
+            "id": "d",
+            "text": "Autorización siempre identifica persona física"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "Las funciones están relacionadas, pero responden preguntas distintas.",
+        "reference": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/getting-started"
+      }
+    },
+    {
+      "dayId": "w52d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w52d2-q01",
+          "prompt": "Entrevista:alerta de login desde IP nueva. ¿Qué preguntas primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Nacionalidad del atacante"
+            },
+            {
+              "id": "b",
+              "text": "Cuenta, tiempo, origen y actividad posterior"
+            },
+            {
+              "id": "c",
+              "text": "Precio de la herramienta"
+            },
+            {
+              "id": "d",
+              "text": "Nombre del malware supuesto"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El contexto permite evaluar legitimidad e impacto.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w52d2-q02",
+          "prompt": "El entrevistador no entrega rango de logs. ¿Qué aclaras?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo color del panel"
+            },
+            {
+              "id": "b",
+              "text": "Solo número de preguntas"
+            },
+            {
+              "id": "c",
+              "text": "Solo marca del portátil"
+            },
+            {
+              "id": "d",
+              "text": "Cobertura temporal y fuentes disponibles"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Sin alcance no se interpretan correctamente resultados negativos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w52d2-q03",
+          "prompt": "Hay éxito de acceso pero no evidencia de comandos. ¿Qué afirmas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No hizo nada"
+            },
+            {
+              "id": "b",
+              "text": "Robó todos los datos"
+            },
+            {
+              "id": "c",
+              "text": "Ejecutó malware"
+            },
+            {
+              "id": "d",
+              "text": "Acceso registrado; acciones posteriores no determinadas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El éxito no demuestra la actividad posterior.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w52d2-q04",
+          "prompt": "Una IP pertenece a VPN corporativa. ¿Qué hipótesis incluyes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo ataque externo"
+            },
+            {
+              "id": "b",
+              "text": "Solo falso positivo"
+            },
+            {
+              "id": "c",
+              "text": "Solo error de DNS"
+            },
+            {
+              "id": "d",
+              "text": "Acceso autorizado o abuso de cuenta"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La infraestructura conocida no garantiza legitimidad del usuario.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w52d2-q05",
+          "prompt": "¿Qué acción inicial tiene sentido ante cifrado activo confirmado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Escalar y contener según impacto y autoridad"
+            },
+            {
+              "id": "b",
+              "text": "Esperar atribución completa"
+            },
+            {
+              "id": "c",
+              "text": "Borrar todos los registros"
+            },
+            {
+              "id": "d",
+              "text": "Publicar la IP"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La respuesta debe limitar daño sin esperar resolver todas las preguntas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w52d2-q06",
+          "prompt": "¿Cómo responder si falta evidencia decisiva?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Inventar certeza"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar tema"
+            },
+            {
+              "id": "c",
+              "text": "Afirmar que no hay riesgo"
+            },
+            {
+              "id": "d",
+              "text": "Explicar límites y pedir fuente discriminante"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El razonamiento técnico incluye identificar datos faltantes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w52d2-q07",
+          "prompt": "¿Qué pregunta diferencia alerta e incidente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "¿Qué color tiene?"
+            },
+            {
+              "id": "b",
+              "text": "¿Qué actividad e impacto están confirmados?"
+            },
+            {
+              "id": "c",
+              "text": "¿Cuántas capturas hay?"
+            },
+            {
+              "id": "d",
+              "text": "¿Qué nombre suena más grave?"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La clasificación necesita validar hechos y consecuencias.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w52d2-q08",
+          "prompt": "¿Qué evita actuar fuera de autorización en un caso oral?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Asumir permisos totales"
+            },
+            {
+              "id": "b",
+              "text": "Usar cualquier credencial"
+            },
+            {
+              "id": "c",
+              "text": "Precisar alcance y responsables antes de cambios"
+            },
+            {
+              "id": "d",
+              "text": "Explorar terceros"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El juicio técnico incluye límites operativos y de acceso.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        }
+      ],
+      "challenge": {
+        "id": "w52d2-challenge",
+        "prompt": "Alerta nueva:login exitoso de una cuenta desdeVPN, sin datos posteriores. ¿Qué presentas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Intrusión y exfiltración confirmadas"
+          },
+          {
+            "id": "b",
+            "text": "Hecho observado, hipótesis y fuentes necesarias"
+          },
+          {
+            "id": "c",
+            "text": "Falso positivo seguro"
+          },
+          {
+            "id": "d",
+            "text": "Ausencia total de riesgo"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "El análisis debe separar evidencia de explicaciones posibles.",
+        "reference": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/getting-started"
+      }
+    },
+    {
+      "dayId": "w52d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w52d3-q01",
+          "prompt": "En cinco minutos de proyecto, ¿qué debe quedar claro primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todas las opciones del programa"
+            },
+            {
+              "id": "b",
+              "text": "Problema, alcance y resultado observado"
+            },
+            {
+              "id": "c",
+              "text": "Toda la historia del curso"
+            },
+            {
+              "id": "d",
+              "text": "Nombres de todas las amenazas"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El oyente necesita contexto para evaluar el método y resultado.",
+          "reference": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/getting-started"
+        },
+        {
+          "id": "w52d3-q02",
+          "prompt": "Te preguntan por qué elegiste una fuente. ¿Qué respuesta aporta criterio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Era la más vistosa"
+            },
+            {
+              "id": "b",
+              "text": "Qué pregunta respondía y sus límites"
+            },
+            {
+              "id": "c",
+              "text": "Siempre se usa"
+            },
+            {
+              "id": "d",
+              "text": "Era la primera carpeta"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La selección debe justificarse por utilidad analítica.",
+          "reference": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/getting-started"
+        },
+        {
+          "id": "w52d3-q03",
+          "prompt": "El proyecto fue de equipo. ¿Qué debes distinguir oralmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo resultado total como propio"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombres de compañeros"
+            },
+            {
+              "id": "c",
+              "text": "Tu contribución y la del grupo"
+            },
+            {
+              "id": "d",
+              "text": "Solo horas de reunión"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La evaluación de habilidades requiere conocer tu acción concreta.",
+          "reference": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/getting-started"
+        },
+        {
+          "id": "w52d3-q04",
+          "prompt": "Un entrevistador cuestiona una conclusión. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Defenderla sin revisar"
+            },
+            {
+              "id": "b",
+              "text": "Volver a evidencia y considerar alternativa"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar números"
+            },
+            {
+              "id": "d",
+              "text": "Citar popularidad de herramienta"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La defensa técnica se basa en datos y apertura a corrección.",
+          "reference": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/getting-started"
+        },
+        {
+          "id": "w52d3-q05",
+          "prompt": "¿Cómo explicar una consulta sin recitar toda sintaxis?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo nombre del comando"
+            },
+            {
+              "id": "b",
+              "text": "Pregunta, filtros, agrupación y validación"
+            },
+            {
+              "id": "c",
+              "text": "Solo número final"
+            },
+            {
+              "id": "d",
+              "text": "Solo longitud del texto"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La explicación debe transmitir lógica y comprobación.",
+          "reference": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/getting-started"
+        },
+        {
+          "id": "w52d3-q06",
+          "prompt": "¿Qué prueba que comprendiste una herramienta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Nombrar su versión"
+            },
+            {
+              "id": "b",
+              "text": "Mostrar su logo"
+            },
+            {
+              "id": "c",
+              "text": "Decir que es popular"
+            },
+            {
+              "id": "d",
+              "text": "Explicar qué observa y qué no puede inferir"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La comprensión incluye capacidad y límites de uso.",
+          "reference": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/getting-started"
+        },
+        {
+          "id": "w52d3-q07",
+          "prompt": "Si tu resultado fue parcial, ¿cómo lo presentas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hallazgo alcanzado, limitación y próximo paso"
+            },
+            {
+              "id": "b",
+              "text": "Éxito total"
+            },
+            {
+              "id": "c",
+              "text": "Fracaso sin valor"
+            },
+            {
+              "id": "d",
+              "text": "Certeza inventada"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un resultado parcial puede ser útil si está correctamente delimitado.",
+          "reference": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/getting-started"
+        },
+        {
+          "id": "w52d3-q08",
+          "prompt": "¿Qué hace defendible una mejora propuesta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Más herramientas por sí mismas"
+            },
+            {
+              "id": "b",
+              "text": "Más capturas"
+            },
+            {
+              "id": "c",
+              "text": "Un título más técnico"
+            },
+            {
+              "id": "d",
+              "text": "Relación con una brecha y criterio de validación"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La mejora debe responder a un problema observado.",
+          "reference": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/getting-started"
+        }
+      ],
+      "challenge": {
+        "id": "w52d3-challenge",
+        "prompt": "Defiendes un proyecto y el lector propone una explicación benigna. ¿Qué haces?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Contrastar con evidencia y ajustar si corresponde"
+          },
+          {
+            "id": "b",
+            "text": "Descartarla por no ser tuya"
+          },
+          {
+            "id": "c",
+            "text": "Cambiar datos"
+          },
+          {
+            "id": "d",
+            "text": "Añadir certeza al título"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La defensa técnica acepta pruebas que revisen la hipótesis.",
+        "reference": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/getting-started"
+      }
+    },
+    {
+      "dayId": "w52d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w52d4-q01",
+          "prompt": "¿Qué representa S en STAR?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Seguridad"
+            },
+            {
+              "id": "b",
+              "text": "Solución"
+            },
+            {
+              "id": "c",
+              "text": "Severidad"
+            },
+            {
+              "id": "d",
+              "text": "Situación"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La situación describe el contexto del ejemplo.",
+          "reference": "https://nationalcareers.service.gov.uk/careers-advice/interview-advice/the-star-method"
+        },
+        {
+          "id": "w52d4-q02",
+          "prompt": "¿Qué representa T en STAR?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tiempo total"
+            },
+            {
+              "id": "b",
+              "text": "Técnica del atacante"
+            },
+            {
+              "id": "c",
+              "text": "Tarea o responsabilidad"
+            },
+            {
+              "id": "d",
+              "text": "Tipo de herramienta"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La tarea aclara qué necesitabas lograr.",
+          "reference": "https://nationalcareers.service.gov.uk/careers-advice/interview-advice/the-star-method"
+        },
+        {
+          "id": "w52d4-q03",
+          "prompt": "¿Qué parte muestra qué hiciste tú?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Situación únicamente"
+            },
+            {
+              "id": "b",
+              "text": "Título del puesto"
+            },
+            {
+              "id": "c",
+              "text": "Acción"
+            },
+            {
+              "id": "d",
+              "text": "Contexto de empresa"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La acción debe precisar tu intervención y razonamiento.",
+          "reference": "https://nationalcareers.service.gov.uk/careers-advice/interview-advice/the-star-method"
+        },
+        {
+          "id": "w52d4-q04",
+          "prompt": "¿Qué debe incluir R en un ejemplo de aprendizaje?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo reputación del equipo"
+            },
+            {
+              "id": "b",
+              "text": "Solo requisito inicial"
+            },
+            {
+              "id": "c",
+              "text": "Resultado y lo aprendido"
+            },
+            {
+              "id": "d",
+              "text": "Solo recursos usados"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El cierre muestra consecuencia y aprendizaje del ejemplo.",
+          "reference": "https://nationalcareers.service.gov.uk/careers-advice/interview-advice/the-star-method"
+        },
+        {
+          "id": "w52d4-q05",
+          "prompt": "No tienes empleo en ciberseguridad. ¿Qué ejemplo puede ser válido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Proyecto, estudio o voluntariado real"
+            },
+            {
+              "id": "b",
+              "text": "Incidente inventado de empresa"
+            },
+            {
+              "id": "c",
+              "text": "Historia de un compañero como propia"
+            },
+            {
+              "id": "d",
+              "text": "Respuesta copiada"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los ejemplos verdaderos pueden proceder de distintos contextos.",
+          "reference": "https://nationalcareers.service.gov.uk/careers-advice/interview-advice/the-star-method"
+        },
+        {
+          "id": "w52d4-q06",
+          "prompt": "Te preguntan por un error. ¿Qué respuesta demuestra aprendizaje?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Nunca me equivoco"
+            },
+            {
+              "id": "b",
+              "text": "Culpa de otra persona"
+            },
+            {
+              "id": "c",
+              "text": "Detalle secreto de cliente"
+            },
+            {
+              "id": "d",
+              "text": "Error real, corrección y cambio de método"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La reflexión debe mostrar responsabilidad y mejora verificable.",
+          "reference": "https://nationalcareers.service.gov.uk/careers-advice/interview-advice/the-star-method"
+        },
+        {
+          "id": "w52d4-q07",
+          "prompt": "¿Cómo explicar un desacuerdo técnico real?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Evidencia, escucha y decisión conjunta"
+            },
+            {
+              "id": "b",
+              "text": "Ataque personal"
+            },
+            {
+              "id": "c",
+              "text": "Ocultar opiniones"
+            },
+            {
+              "id": "d",
+              "text": "Atribuirte toda razón"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La colaboración se demuestra mediante acciones concretas.",
+          "reference": "https://nationalcareers.service.gov.uk/careers-advice/interview-advice/the-star-method"
+        },
+        {
+          "id": "w52d4-q08",
+          "prompt": "¿Qué debes evitar al preparar cuatro ejemplos STAR?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Inventar cifras o responsabilidades"
+            },
+            {
+              "id": "b",
+              "text": "Recordar contexto"
+            },
+            {
+              "id": "c",
+              "text": "Relacionar acción y resultado"
+            },
+            {
+              "id": "d",
+              "text": "Practicar respuestas breves"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La estructura no justifica alterar hechos.",
+          "reference": "https://nationalcareers.service.gov.uk/careers-advice/interview-advice/the-star-method"
+        }
+      ],
+      "challenge": {
+        "id": "w52d4-challenge",
+        "prompt": "Tu ejemplo STAR describe acción del grupo sin aclarar tu aporte. ¿Qué corriges?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Atribuirte todo"
+          },
+          {
+            "id": "b",
+            "text": "Responsabilidad propia, acción y resultado reales"
+          },
+          {
+            "id": "c",
+            "text": "Inventar métrica"
+          },
+          {
+            "id": "d",
+            "text": "Eliminar contexto"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "El ejemplo debe permitir evaluar tu contribución y aprendizaje.",
+        "reference": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/getting-started"
+      }
+    },
+    {
+      "dayId": "w52d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w52d5-q01",
+          "prompt": "¿Qué frase en inglés expresa incertidumbre sustentada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The evidence suggests credential misuse."
+            },
+            {
+              "id": "b",
+              "text": "The attacker certainly stole everything."
+            },
+            {
+              "id": "c",
+              "text": "There is zero risk forever."
+            },
+            {
+              "id": "d",
+              "text": "All alerts are incidents."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Suggests comunica inferencia sin afirmar certeza absoluta.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w52d5-q02",
+          "prompt": "¿Cómo traducir evidencia en un informe técnico en inglés?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Evidence"
+            },
+            {
+              "id": "b",
+              "text": "Evidences como plural contable habitual"
+            },
+            {
+              "id": "c",
+              "text": "Proofs siempre"
+            },
+            {
+              "id": "d",
+              "text": "Evidency"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Evidence se usa normalmente como sustantivo no contable.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w52d5-q03",
+          "prompt": "¿Qué significa false positive en detección?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Benign activity flagged as suspicious"
+            },
+            {
+              "id": "b",
+              "text": "Malicious activity missed by detection"
+            },
+            {
+              "id": "c",
+              "text": "A broken clock"
+            },
+            {
+              "id": "d",
+              "text": "An encrypted packet"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un falso positivo alerta sobre actividad que no corresponde a la amenaza buscada.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w52d5-q04",
+          "prompt": "¿Qué frase comunica contención realizada sin exagerar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "We eradicated every threat worldwide."
+            },
+            {
+              "id": "b",
+              "text": "We proved the attacker identity."
+            },
+            {
+              "id": "c",
+              "text": "We restored all data without checking."
+            },
+            {
+              "id": "d",
+              "text": "We isolated the affected endpoint."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El aislamiento es una acción específica y no demuestra erradicación total.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w52d5-q05",
+          "prompt": "¿Cómo pedir aclaración temporal en inglés?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Who is guilty of these logs?"
+            },
+            {
+              "id": "b",
+              "text": "Why is every event malicious?"
+            },
+            {
+              "id": "c",
+              "text": "Which time zone do these logs use?"
+            },
+            {
+              "id": "d",
+              "text": "Can we ignore all timestamps?"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La pregunta solicita un dato necesario para correlacionar.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w52d5-q06",
+          "prompt": "¿Qué comunica no evidence of exfiltration was found in the available logs?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Se probó ausencia total de exfiltración"
+            },
+            {
+              "id": "b",
+              "text": "Se confirmó exfiltración"
+            },
+            {
+              "id": "c",
+              "text": "No se halló evidencia en esas fuentes"
+            },
+            {
+              "id": "d",
+              "text": "Todos los datos fueron recuperados"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La frase limita el resultado al conjunto de registros disponible.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w52d5-q07",
+          "prompt": "¿Qué término corresponde a alcance del incidente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Incident wallpaper"
+            },
+            {
+              "id": "b",
+              "text": "Incident spelling"
+            },
+            {
+              "id": "c",
+              "text": "Incident scope"
+            },
+            {
+              "id": "d",
+              "text": "Incident password"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Scope describe extensión y límites de lo investigado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w52d5-q08",
+          "prompt": "¿Cómo expresar una acción propuesta en inglés?",
+          "options": [
+            {
+              "id": "a",
+              "text": "We revoked it, aunque no se hizo."
+            },
+            {
+              "id": "b",
+              "text": "We recommend revoking the exposed token."
+            },
+            {
+              "id": "c",
+              "text": "The token can never be abused."
+            },
+            {
+              "id": "d",
+              "text": "All accounts are safe forever."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Recommend distingue propuesta de acción ya ejecutada.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        }
+      ],
+      "challenge": {
+        "id": "w52d5-challenge",
+        "prompt": "En inglés dijiste no exfiltration happened, pero faltaban registros. ¿Qué corrección respeta evidencia?",
+        "options": [
+          {
+            "id": "a",
+            "text": "We found no evidence of exfiltration in the available logs."
+          },
+          {
+            "id": "b",
+            "text": "Exfiltration was impossible."
+          },
+          {
+            "id": "c",
+            "text": "The attacker stole everything."
+          },
+          {
+            "id": "d",
+            "text": "The missing logs prove safety."
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La nueva frase limita la conclusión a la cobertura analizada.",
+        "reference": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/getting-started"
+      }
+    },
+    {
+      "dayId": "w52d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w52d6-q01",
+          "prompt": "Una vacante llega por mensaje y pide pago previo por equipo. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Verificar por canal oficial antes de compartir o pagar"
+            },
+            {
+              "id": "b",
+              "text": "Pagar para reservar el puesto"
+            },
+            {
+              "id": "c",
+              "text": "Enviar credenciales bancarias"
+            },
+            {
+              "id": "d",
+              "text": "Confiar por el logotipo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los pagos previos y contactos no verificados son señales de fraude.",
+          "reference": "https://consumer.ftc.gov/consumer-alerts/2023/11/searching-job-work-remotely-avoid-scams-identity-theft"
+        },
+        {
+          "id": "w52d6-q02",
+          "prompt": "¿Qué confirma mejor que una oportunidad existe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Captura reenviada"
+            },
+            {
+              "id": "b",
+              "text": "Publicación o contacto verificado del empleador"
+            },
+            {
+              "id": "c",
+              "text": "Promesa de salario"
+            },
+            {
+              "id": "d",
+              "text": "Cantidad de emojis"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La comprobación independiente reduce riesgo de suplantación.",
+          "reference": "https://consumer.ftc.gov/consumer-alerts/2023/11/searching-job-work-remotely-avoid-scams-identity-theft"
+        },
+        {
+          "id": "w52d6-q03",
+          "prompt": "¿Qué dato conviene guardar en seguimiento de candidaturas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Contraseñas del reclutador"
+            },
+            {
+              "id": "b",
+              "text": "Vacante, fecha, versión enviada y estado"
+            },
+            {
+              "id": "c",
+              "text": "Datos de otros candidatos"
+            },
+            {
+              "id": "d",
+              "text": "Token del portal"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El seguimiento organiza acciones sin almacenar secretos innecesarios.",
+          "reference": "https://consumer.ftc.gov/consumer-alerts/2023/11/searching-job-work-remotely-avoid-scams-identity-theft"
+        },
+        {
+          "id": "w52d6-q04",
+          "prompt": "Si una oferta exige experiencia que no tienes, ¿qué haces al postular?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Inventar años de empleo"
+            },
+            {
+              "id": "b",
+              "text": "Mostrar evidencia real y reconocer la brecha"
+            },
+            {
+              "id": "c",
+              "text": "Modificar fechas"
+            },
+            {
+              "id": "d",
+              "text": "Usar proyecto ajeno"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El ajuste debe basarse en capacidades y trayectoria verdaderas.",
+          "reference": "https://consumer.ftc.gov/consumer-alerts/2023/11/searching-job-work-remotely-avoid-scams-identity-theft"
+        },
+        {
+          "id": "w52d6-q05",
+          "prompt": "¿Qué diferencia requisito y evidencia de ajuste?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Son el mismo texto"
+            },
+            {
+              "id": "b",
+              "text": "La evidencia es solo una promesa"
+            },
+            {
+              "id": "c",
+              "text": "El requisito reemplaza proyectos"
+            },
+            {
+              "id": "d",
+              "text": "El requisito pide; la evidencia demuestra capacidad"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una candidatura necesita relacionar demanda y desempeño verificable.",
+          "reference": "https://consumer.ftc.gov/consumer-alerts/2023/11/searching-job-work-remotely-avoid-scams-identity-theft"
+        },
+        {
+          "id": "w52d6-q06",
+          "prompt": "¿Qué debes revisar antes de enviar datos personales a un portal?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo diseño visual"
+            },
+            {
+              "id": "b",
+              "text": "Dominio y legitimidad del proceso"
+            },
+            {
+              "id": "c",
+              "text": "Solo salario"
+            },
+            {
+              "id": "d",
+              "text": "Solo urgencia del mensaje"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las páginas de suplantación pueden copiar apariencia de empleadores.",
+          "reference": "https://consumer.ftc.gov/consumer-alerts/2023/11/searching-job-work-remotely-avoid-scams-identity-theft"
+        },
+        {
+          "id": "w52d6-q07",
+          "prompt": "Una candidatura pide un ejemplo técnico público. ¿Qué compartes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Preguntas de examen"
+            },
+            {
+              "id": "b",
+              "text": "Proyecto propio autorizado y pertinente"
+            },
+            {
+              "id": "c",
+              "text": "Datos privados de empresa"
+            },
+            {
+              "id": "d",
+              "text": "Credenciales de laboratorio"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La pertinencia no elimina obligaciones de privacidad o confidencialidad.",
+          "reference": "https://consumer.ftc.gov/consumer-alerts/2023/11/searching-job-work-remotely-avoid-scams-identity-theft"
+        },
+        {
+          "id": "w52d6-q08",
+          "prompt": "¿Qué actualización anual permite priorizar próximos90días?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo cantidad de cursos"
+            },
+            {
+              "id": "b",
+              "text": "Brechas frente a tareas y evidencias del rol"
+            },
+            {
+              "id": "c",
+              "text": "Solo fechas del calendario"
+            },
+            {
+              "id": "d",
+              "text": "Solo número de postulaciones"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El plan debe responder a competencias necesarias y desempeño observado.",
+          "reference": "https://consumer.ftc.gov/consumer-alerts/2023/11/searching-job-work-remotely-avoid-scams-identity-theft"
+        }
+      ],
+      "challenge": {
+        "id": "w52d6-challenge",
+        "prompt": "Un reclutador pide pago y documentos por una dirección no verificada. ¿Qué haces?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Pagar por urgencia"
+          },
+          {
+            "id": "b",
+            "text": "Enviar todo por ser empresa conocida"
+          },
+          {
+            "id": "c",
+            "text": "Confirmar oportunidad por canal oficial independiente"
+          },
+          {
+            "id": "d",
+            "text": "Compartir contraseña del correo"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La verificación independiente protege frente a ofertas suplantadas.",
+        "reference": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/getting-started"
+      }
+    },
+    {
+      "dayId": "w52d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w52d7-q01",
+          "prompt": "En una explicación oral, ¿qué función principal cumple un router?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Autenticar todo usuario"
+            },
+            {
+              "id": "b",
+              "text": "Guardar todos los archivos"
+            },
+            {
+              "id": "c",
+              "text": "Encaminar paquetes entre redes"
+            },
+            {
+              "id": "d",
+              "text": "Descifrar cualquier TLS"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El enrutamiento decide el siguiente salto según destino y rutas.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html",
+          "reviewOf": "w52d1-q01"
+        },
+        {
+          "id": "w52d7-q02",
+          "prompt": "Entrevista:alerta de login desde IP nueva. ¿Qué preguntas primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Nacionalidad del atacante"
+            },
+            {
+              "id": "b",
+              "text": "Cuenta, tiempo, origen y actividad posterior"
+            },
+            {
+              "id": "c",
+              "text": "Precio de la herramienta"
+            },
+            {
+              "id": "d",
+              "text": "Nombre del malware supuesto"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El contexto permite evaluar legitimidad e impacto.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w52d2-q01"
+        },
+        {
+          "id": "w52d7-q03",
+          "prompt": "En cinco minutos de proyecto, ¿qué debe quedar claro primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todas las opciones del programa"
+            },
+            {
+              "id": "b",
+              "text": "Problema, alcance y resultado observado"
+            },
+            {
+              "id": "c",
+              "text": "Toda la historia del curso"
+            },
+            {
+              "id": "d",
+              "text": "Nombres de todas las amenazas"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El oyente necesita contexto para evaluar el método y resultado.",
+          "reference": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/getting-started",
+          "reviewOf": "w52d3-q01"
+        },
+        {
+          "id": "w52d7-q04",
+          "prompt": "¿Qué representa S en STAR?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Seguridad"
+            },
+            {
+              "id": "b",
+              "text": "Solución"
+            },
+            {
+              "id": "c",
+              "text": "Severidad"
+            },
+            {
+              "id": "d",
+              "text": "Situación"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La situación describe el contexto del ejemplo.",
+          "reference": "https://nationalcareers.service.gov.uk/careers-advice/interview-advice/the-star-method",
+          "reviewOf": "w52d4-q01"
+        },
+        {
+          "id": "w52d7-q05",
+          "prompt": "¿Qué frase en inglés expresa incertidumbre sustentada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "The evidence suggests credential misuse."
+            },
+            {
+              "id": "b",
+              "text": "The attacker certainly stole everything."
+            },
+            {
+              "id": "c",
+              "text": "There is zero risk forever."
+            },
+            {
+              "id": "d",
+              "text": "All alerts are incidents."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Suggests comunica inferencia sin afirmar certeza absoluta.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w52d5-q01"
+        },
+        {
+          "id": "w52d7-q06",
+          "prompt": "Una vacante llega por mensaje y pide pago previo por equipo. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Verificar por canal oficial antes de compartir o pagar"
+            },
+            {
+              "id": "b",
+              "text": "Pagar para reservar el puesto"
+            },
+            {
+              "id": "c",
+              "text": "Enviar credenciales bancarias"
+            },
+            {
+              "id": "d",
+              "text": "Confiar por el logotipo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los pagos previos y contactos no verificados son señales de fraude.",
+          "reference": "https://consumer.ftc.gov/consumer-alerts/2023/11/searching-job-work-remotely-avoid-scams-identity-theft",
+          "reviewOf": "w52d6-q01"
+        },
+        {
+          "id": "w52d7-q07",
+          "prompt": "¿Para qué sirve una máscara IPv4?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Distinguir porción de red y host"
+            },
+            {
+              "id": "b",
+              "text": "Cifrar direcciones"
+            },
+            {
+              "id": "c",
+              "text": "Identificar al usuario"
+            },
+            {
+              "id": "d",
+              "text": "Elegir contraseña"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La máscara permite determinar pertenencia a una subred.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html",
+          "reviewOf": "w52d1-q02"
+        },
+        {
+          "id": "w52d7-q08",
+          "prompt": "El entrevistador no entrega rango de logs. ¿Qué aclaras?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo color del panel"
+            },
+            {
+              "id": "b",
+              "text": "Solo número de preguntas"
+            },
+            {
+              "id": "c",
+              "text": "Solo marca del portátil"
+            },
+            {
+              "id": "d",
+              "text": "Cobertura temporal y fuentes disponibles"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Sin alcance no se interpretan correctamente resultados negativos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w52d2-q02"
+        },
+        {
+          "id": "w52d7-q09",
+          "prompt": "Te preguntan por qué elegiste una fuente. ¿Qué respuesta aporta criterio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Era la más vistosa"
+            },
+            {
+              "id": "b",
+              "text": "Qué pregunta respondía y sus límites"
+            },
+            {
+              "id": "c",
+              "text": "Siempre se usa"
+            },
+            {
+              "id": "d",
+              "text": "Era la primera carpeta"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La selección debe justificarse por utilidad analítica.",
+          "reference": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/getting-started",
+          "reviewOf": "w52d3-q02"
+        },
+        {
+          "id": "w52d7-q10",
+          "prompt": "¿Qué representa T en STAR?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tiempo total"
+            },
+            {
+              "id": "b",
+              "text": "Técnica del atacante"
+            },
+            {
+              "id": "c",
+              "text": "Tarea o responsabilidad"
+            },
+            {
+              "id": "d",
+              "text": "Tipo de herramienta"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La tarea aclara qué necesitabas lograr.",
+          "reference": "https://nationalcareers.service.gov.uk/careers-advice/interview-advice/the-star-method",
+          "reviewOf": "w52d4-q02"
+        },
+        {
+          "id": "w52d7-q11",
+          "prompt": "¿Cómo traducir evidencia en un informe técnico en inglés?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Evidence"
+            },
+            {
+              "id": "b",
+              "text": "Evidences como plural contable habitual"
+            },
+            {
+              "id": "c",
+              "text": "Proofs siempre"
+            },
+            {
+              "id": "d",
+              "text": "Evidency"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Evidence se usa normalmente como sustantivo no contable.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w52d5-q02"
+        },
+        {
+          "id": "w52d7-q12",
+          "prompt": "¿Qué confirma mejor que una oportunidad existe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Captura reenviada"
+            },
+            {
+              "id": "b",
+              "text": "Publicación o contacto verificado del empleador"
+            },
+            {
+              "id": "c",
+              "text": "Promesa de salario"
+            },
+            {
+              "id": "d",
+              "text": "Cantidad de emojis"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La comprobación independiente reduce riesgo de suplantación.",
+          "reference": "https://consumer.ftc.gov/consumer-alerts/2023/11/searching-job-work-remotely-avoid-scams-identity-theft",
+          "reviewOf": "w52d6-q02"
+        },
+        {
+          "id": "w52d7-q13",
+          "prompt": "¿Qué diferencia IP y MAC en un recorrido enrutado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ambas identifican persona"
+            },
+            {
+              "id": "b",
+              "text": "MAC es siempre pública"
+            },
+            {
+              "id": "c",
+              "text": "MAC corresponde al enlace; IP orienta el destino de red"
+            },
+            {
+              "id": "d",
+              "text": "IP solo existe dentro del switch"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La comunicación usa direccionamiento en capas con alcances distintos.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html",
+          "reviewOf": "w52d1-q03"
+        },
+        {
+          "id": "w52d7-q14",
+          "prompt": "Hay éxito de acceso pero no evidencia de comandos. ¿Qué afirmas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No hizo nada"
+            },
+            {
+              "id": "b",
+              "text": "Robó todos los datos"
+            },
+            {
+              "id": "c",
+              "text": "Ejecutó malware"
+            },
+            {
+              "id": "d",
+              "text": "Acceso registrado; acciones posteriores no determinadas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El éxito no demuestra la actividad posterior.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w52d2-q03"
+        },
+        {
+          "id": "w52d7-q15",
+          "prompt": "El proyecto fue de equipo. ¿Qué debes distinguir oralmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo resultado total como propio"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombres de compañeros"
+            },
+            {
+              "id": "c",
+              "text": "Tu contribución y la del grupo"
+            },
+            {
+              "id": "d",
+              "text": "Solo horas de reunión"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La evaluación de habilidades requiere conocer tu acción concreta.",
+          "reference": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/getting-started",
+          "reviewOf": "w52d3-q03"
+        },
+        {
+          "id": "w52d7-q16",
+          "prompt": "¿Qué parte muestra qué hiciste tú?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Situación únicamente"
+            },
+            {
+              "id": "b",
+              "text": "Título del puesto"
+            },
+            {
+              "id": "c",
+              "text": "Acción"
+            },
+            {
+              "id": "d",
+              "text": "Contexto de empresa"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La acción debe precisar tu intervención y razonamiento.",
+          "reference": "https://nationalcareers.service.gov.uk/careers-advice/interview-advice/the-star-method",
+          "reviewOf": "w52d4-q03"
+        },
+        {
+          "id": "w52d7-q17",
+          "prompt": "¿Qué significa false positive en detección?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Benign activity flagged as suspicious"
+            },
+            {
+              "id": "b",
+              "text": "Malicious activity missed by detection"
+            },
+            {
+              "id": "c",
+              "text": "A broken clock"
+            },
+            {
+              "id": "d",
+              "text": "An encrypted packet"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un falso positivo alerta sobre actividad que no corresponde a la amenaza buscada.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w52d5-q03"
+        },
+        {
+          "id": "w52d7-q18",
+          "prompt": "¿Qué dato conviene guardar en seguimiento de candidaturas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Contraseñas del reclutador"
+            },
+            {
+              "id": "b",
+              "text": "Vacante, fecha, versión enviada y estado"
+            },
+            {
+              "id": "c",
+              "text": "Datos de otros candidatos"
+            },
+            {
+              "id": "d",
+              "text": "Token del portal"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El seguimiento organiza acciones sin almacenar secretos innecesarios.",
+          "reference": "https://consumer.ftc.gov/consumer-alerts/2023/11/searching-job-work-remotely-avoid-scams-identity-theft",
+          "reviewOf": "w52d6-q03"
+        },
+        {
+          "id": "w52d7-q19",
+          "prompt": "¿Por qué ping exitoso no prueba que una web funcione?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ping valida credenciales"
+            },
+            {
+              "id": "b",
+              "text": "ICMP y servicio web son comprobaciones distintas"
+            },
+            {
+              "id": "c",
+              "text": "Ping descarga el sitio entero"
+            },
+            {
+              "id": "d",
+              "text": "ICMP descifra HTTPS"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La conectividad de red no garantiza disponibilidad de aplicación.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html",
+          "reviewOf": "w52d1-q04"
+        },
+        {
+          "id": "w52d7-q20",
+          "prompt": "¿Qué debe incluir R en un ejemplo de aprendizaje?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo reputación del equipo"
+            },
+            {
+              "id": "b",
+              "text": "Solo requisito inicial"
+            },
+            {
+              "id": "c",
+              "text": "Resultado y lo aprendido"
+            },
+            {
+              "id": "d",
+              "text": "Solo recursos usados"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El cierre muestra consecuencia y aprendizaje del ejemplo.",
+          "reference": "https://nationalcareers.service.gov.uk/careers-advice/interview-advice/the-star-method",
+          "reviewOf": "w52d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w52d7-challenge",
+        "prompt": "Tu revisión anual muestra debilidad en tiempos, consultas y comunicación. ¿Qué plan de90días es medible?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Tres prácticas nuevas con criterios y revisión de esas competencias"
+          },
+          {
+            "id": "b",
+            "text": "Ver videos sin comprobar resultados"
+          },
+          {
+            "id": "c",
+            "text": "Comprar herramientas sin objetivos"
+          },
+          {
+            "id": "d",
+            "text": "Postular sin adaptar evidencia"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "Los objetivos deben relacionar brecha, actividad y criterio de mejora.",
+        "reference": "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center/getting-started"
+      }
+    }
+  ]
+}

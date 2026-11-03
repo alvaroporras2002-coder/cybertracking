@@ -1,0 +1,2094 @@
+{
+  "week": 20,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w20d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w20d1-q01",
+          "prompt": "¿Qué documento debe guiar la cobertura al preparar CC?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El esquema oficial aplicable a la fecha del examen"
+            },
+            {
+              "id": "b",
+              "text": "Un índice de curso antiguo sin comparar"
+            },
+            {
+              "id": "c",
+              "text": "Una lista de rumores"
+            },
+            {
+              "id": "d",
+              "text": "Un banco de preguntas recordadas"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El esquema oficial define el alcance que debe contrastarse con los materiales de estudio.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+        },
+        {
+          "id": "w20d1-q02",
+          "prompt": "El esquema descargado tiene fecha de entrada en vigor. ¿Para qué sirve comprobarla?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conocer las preguntas exactas"
+            },
+            {
+              "id": "b",
+              "text": "Garantizar un aprobado"
+            },
+            {
+              "id": "c",
+              "text": "Confirmar que corresponde a la convocatoria elegida"
+            },
+            {
+              "id": "d",
+              "text": "Evitar estudiar prácticas"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las versiones pueden cambiar; la fecha permite elegir el alcance adecuado sin asumir vigencia.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+        },
+        {
+          "id": "w20d1-q03",
+          "prompt": "¿Qué fila demuestra mejor cobertura de un subobjetivo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo «video visto»"
+            },
+            {
+              "id": "b",
+              "text": "Concepto, recurso, ejercicio y evidencia propia"
+            },
+            {
+              "id": "c",
+              "text": "Solo una marca sin explicación"
+            },
+            {
+              "id": "d",
+              "text": "El nombre del instructor"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La cobertura debe mostrar comprensión y aplicación, no únicamente consumo de contenido.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+        },
+        {
+          "id": "w20d1-q04",
+          "prompt": "Un tema del esquema no aparece en el curso usado. ¿Qué corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Suponer que no se preguntará"
+            },
+            {
+              "id": "b",
+              "text": "Añadir material y una práctica para esa brecha"
+            },
+            {
+              "id": "c",
+              "text": "Borrar el tema de la matriz"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar su nombre por uno conocido"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las lagunas del recurso deben resolverse frente al alcance oficial.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+        },
+        {
+          "id": "w20d1-q05",
+          "prompt": "Un tema figura como opcional en tus notas, pero aparece en el esquema. ¿Qué prevalece para cobertura?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El objetivo oficial aplicable"
+            },
+            {
+              "id": "b",
+              "text": "La etiqueta personal de opcional"
+            },
+            {
+              "id": "c",
+              "text": "El orden del cuaderno"
+            },
+            {
+              "id": "d",
+              "text": "El tamaño del capítulo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La planificación personal debe ajustarse a los objetivos incluidos en el alcance elegido.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+        },
+        {
+          "id": "w20d1-q06",
+          "prompt": "¿Para qué usar referencias complementarias oficiales?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Profundizar conceptos que requieren estudio adicional"
+            },
+            {
+              "id": "b",
+              "text": "Obtener preguntas reales del examen"
+            },
+            {
+              "id": "c",
+              "text": "Sustituir toda práctica"
+            },
+            {
+              "id": "d",
+              "text": "Garantizar una fecha futura"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las referencias apoyan el estudio, pero no prometen contenido exacto ni resultados.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+        },
+        {
+          "id": "w20d1-q07",
+          "prompt": "¿Qué dato conviene guardar junto a una copia del esquema?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una predicción del resultado"
+            },
+            {
+              "id": "b",
+              "text": "El secreto de otra cuenta"
+            },
+            {
+              "id": "c",
+              "text": "Fuente y fecha de consulta o versión"
+            },
+            {
+              "id": "d",
+              "text": "Solo el color de portada"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Registrar procedencia facilita detectar después si la planificación usa una versión distinta.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+        },
+        {
+          "id": "w20d1-q08",
+          "prompt": "¿Cómo tratar una diferencia entre un resumen y un subobjetivo oficial?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Escoger la versión más corta sin revisar"
+            },
+            {
+              "id": "b",
+              "text": "Memorizar ambos como idénticos"
+            },
+            {
+              "id": "c",
+              "text": "Consultar el texto oficial y aclarar la diferencia"
+            },
+            {
+              "id": "d",
+              "text": "Ignorar todo el dominio"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La comparación debe resolver ambigüedades usando la fuente que establece el alcance.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+        }
+      ],
+      "challenge": {
+        "id": "w20d1-challenge",
+        "prompt": "Caso: tu matriz está completa para un esquema anterior, pero cambian varios subobjetivos. ¿Qué haces?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Declararte preparado por tener todas las casillas antiguas"
+          },
+          {
+            "id": "b",
+            "text": "Mapear cambios y validar las nuevas brechas antes de decidir preparación"
+          },
+          {
+            "id": "c",
+            "text": "Empezar todo sin revisar equivalencias"
+          },
+          {
+            "id": "d",
+            "text": "Memorizar los nombres nuevos solamente"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "Las evidencias previas pueden servir, pero su correspondencia debe verificarse con el alcance nuevo.",
+        "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+      }
+    },
+    {
+      "dayId": "w20d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w20d2-q01",
+          "prompt": "¿Qué distingue una política de un procedimiento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La política siempre es código ejecutable"
+            },
+            {
+              "id": "b",
+              "text": "El procedimiento autoriza cualquier excepción"
+            },
+            {
+              "id": "c",
+              "text": "Son idénticos por definición"
+            },
+            {
+              "id": "d",
+              "text": "La política fija requisitos; el procedimiento detalla pasos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La dirección y los pasos operativos tienen funciones complementarias.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w20d2-q02",
+          "prompt": "¿Qué hace gestionable una excepción de seguridad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un permiso oral indefinido"
+            },
+            {
+              "id": "b",
+              "text": "Aprobación, motivo, controles y revisión"
+            },
+            {
+              "id": "c",
+              "text": "Ocultar el incumplimiento"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar el dueño del recurso"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La excepción requiere límites y responsabilidad para controlar la exposición restante.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w20d2-q03",
+          "prompt": "¿Quién acepta formalmente un riesgo de negocio según su autoridad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cualquier técnico por defecto"
+            },
+            {
+              "id": "b",
+              "text": "El responsable con autoridad delegada para esa decisión"
+            },
+            {
+              "id": "c",
+              "text": "Un usuario externo"
+            },
+            {
+              "id": "d",
+              "text": "La herramienta de escaneo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La aceptación corresponde a quien puede asumir consecuencias dentro del gobierno establecido.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w20d2-q04",
+          "prompt": "¿Qué ejemplo respeta una finalidad de tratamiento de datos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Reutilizarlos para publicidad sin evaluación"
+            },
+            {
+              "id": "b",
+              "text": "Usar datos de soporte solo para resolver el caso autorizado"
+            },
+            {
+              "id": "c",
+              "text": "Copiarlos a cuentas personales"
+            },
+            {
+              "id": "d",
+              "text": "Conservarlos siempre por comodidad"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los permisos técnicos no sustituyen las reglas de propósito y manejo responsable.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w20d2-q05",
+          "prompt": "¿Qué aporta un registro de riesgos a gobierno?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantía de cero incidentes"
+            },
+            {
+              "id": "b",
+              "text": "Una lista automática de culpables"
+            },
+            {
+              "id": "c",
+              "text": "Visibilidad de escenarios, responsables y tratamiento"
+            },
+            {
+              "id": "d",
+              "text": "Permiso para omitir controles"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El registro conecta decisiones de seguridad con seguimiento y responsabilidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w20d2-q06",
+          "prompt": "Una política exige cifrado, pero no hay evidencia de despliegue. ¿Qué falta comprobar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el título de la política"
+            },
+            {
+              "id": "b",
+              "text": "Que haya más páginas"
+            },
+            {
+              "id": "c",
+              "text": "La popularidad del cifrado"
+            },
+            {
+              "id": "d",
+              "text": "Implementación y eficacia del control"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Documentar una obligación no demuestra que el control exista ni funcione.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w20d2-q07",
+          "prompt": "¿Qué decisión muestra proporcionalidad de controles?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Proteger nómina según sensibilidad y necesidad de acceso"
+            },
+            {
+              "id": "b",
+              "text": "Dar el mismo permiso a todos por igualdad"
+            },
+            {
+              "id": "c",
+              "text": "Aplicar solo controles visibles"
+            },
+            {
+              "id": "d",
+              "text": "Elegir siempre el producto más caro"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La selección debe responder a riesgos y requisitos concretos del activo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w20d2-q08",
+          "prompt": "¿Por qué revisar políticas después de cambios importantes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para eliminar todo historial"
+            },
+            {
+              "id": "b",
+              "text": "Para evitar informar a los responsables"
+            },
+            {
+              "id": "c",
+              "text": "Pueden cambiar procesos, activos y responsabilidades"
+            },
+            {
+              "id": "d",
+              "text": "Porque cada cambio exige hacer públicos los datos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El gobierno debe mantenerse alineado con el funcionamiento real de la organización.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w20d2-challenge",
+        "prompt": "Caso: una política prohíbe cuentas compartidas, pero soporte usa una por rapidez. ¿Qué propuesta responde mejor?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Cambiar la política en secreto"
+          },
+          {
+            "id": "b",
+            "text": "Crear acceso individual apropiado con trazabilidad y aprobación"
+          },
+          {
+            "id": "c",
+            "text": "Compartir también la contraseña de dirección"
+          },
+          {
+            "id": "d",
+            "text": "Desactivar logs para no registrar incumplimiento"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La solución debe cubrir la necesidad operativa y mantener atribución de acciones.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      }
+    },
+    {
+      "dayId": "w20d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w20d3-q01",
+          "prompt": "Un usuario está en la LAN de oficina. ¿Qué asume confianza cero sobre su acceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Está autorizado a todos los servidores"
+            },
+            {
+              "id": "b",
+              "text": "No necesita identidad"
+            },
+            {
+              "id": "c",
+              "text": "Su equipo nunca puede estar comprometido"
+            },
+            {
+              "id": "d",
+              "text": "Debe autenticarse y autorizarse según señales y recurso"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La ubicación de red no concede confianza implícita a todas las solicitudes.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass"
+        },
+        {
+          "id": "w20d3-q02",
+          "prompt": "Una VPN conecta a un empleado. ¿Qué sigue siendo necesario?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Acceso global a todas las subredes"
+            },
+            {
+              "id": "b",
+              "text": "Desactivar MFA"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar registros"
+            },
+            {
+              "id": "d",
+              "text": "Permisos por recurso y control de identidad"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un túnel protegido no sustituye autorización ni limita por sí mismo el alcance.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass"
+        },
+        {
+          "id": "w20d3-q03",
+          "prompt": "¿Qué reduce mover malware desde invitados a servidores internos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una contraseña del Wi-Fi publicada"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombres distintos de red"
+            },
+            {
+              "id": "c",
+              "text": "Un logotipo nuevo"
+            },
+            {
+              "id": "d",
+              "text": "Segmentación con flujos restringidos y verificados"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La separación efectiva requiere reglas de comunicación, no únicamente etiquetas.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass"
+        },
+        {
+          "id": "w20d3-q04",
+          "prompt": "Una cuenta necesita leer informes, no administrarlos. ¿Qué asignación conviene?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Administrador global por comodidad"
+            },
+            {
+              "id": "b",
+              "text": "Rol de lectura sobre los informes necesarios"
+            },
+            {
+              "id": "c",
+              "text": "Acceso anónimo a la carpeta"
+            },
+            {
+              "id": "d",
+              "text": "Permisos de borrar todo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La autorización debe restringirse a acciones y recursos necesarios.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass"
+        },
+        {
+          "id": "w20d3-q05",
+          "prompt": "En SaaS, ¿quién debe gestionar altas y bajas de usuarios del cliente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el fabricante de equipos"
+            },
+            {
+              "id": "b",
+              "text": "Nadie porque está en nube"
+            },
+            {
+              "id": "c",
+              "text": "Los visitantes del edificio"
+            },
+            {
+              "id": "d",
+              "text": "La organización cliente dentro de sus controles"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La adopción de nube no elimina la responsabilidad por identidades y acceso del cliente.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass"
+        },
+        {
+          "id": "w20d3-q06",
+          "prompt": "¿Qué protege TLS correctamente validado en una conexión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Confidencialidad e integridad del transporte entre extremos TLS"
+            },
+            {
+              "id": "b",
+              "text": "La legitimidad de cualquier contenido descargado"
+            },
+            {
+              "id": "c",
+              "text": "Todos los archivos del disco"
+            },
+            {
+              "id": "d",
+              "text": "La autorización de cada usuario automáticamente"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El transporte seguro no equivale a contenido inocuo ni permisos adecuados.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass"
+        },
+        {
+          "id": "w20d3-q07",
+          "prompt": "¿Qué señal contextual puede influir en una decisión de acceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Color del teclado"
+            },
+            {
+              "id": "b",
+              "text": "Tamaño del logotipo"
+            },
+            {
+              "id": "c",
+              "text": "Orden alfabético del usuario"
+            },
+            {
+              "id": "d",
+              "text": "Estado gestionado del dispositivo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El estado del dispositivo puede aportar contexto de riesgo junto con identidad y recurso.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass"
+        },
+        {
+          "id": "w20d3-q08",
+          "prompt": "¿Por qué limitar una cuenta comprometida mediante mínimo privilegio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hace imposible todo phishing"
+            },
+            {
+              "id": "b",
+              "text": "Sustituye la revocación de credenciales"
+            },
+            {
+              "id": "c",
+              "text": "Permite ignorar alertas"
+            },
+            {
+              "id": "d",
+              "text": "Reduce acciones y recursos alcanzables"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La restricción de alcance limita consecuencias, aunque requiere respuesta al compromiso.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass"
+        }
+      ],
+      "challenge": {
+        "id": "w20d3-challenge",
+        "prompt": "Caso: el proveedor ofrece VPN y propone acceso total a la LAN. ¿Qué alternativa reduce exposición?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Aceptar acceso total por usar cifrado"
+          },
+          {
+            "id": "b",
+            "text": "Compartir la cuenta de dirección"
+          },
+          {
+            "id": "c",
+            "text": "Abrir también las bases de datos por si acaso"
+          },
+          {
+            "id": "d",
+            "text": "Permitir solo servicios requeridos, con identidad fuerte y registros"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La conexión cifrada debe complementarse con acceso limitado y trazable a recursos concretos.",
+        "reference": "https://learn.microsoft.com/en-us/security/compass/compass"
+      }
+    },
+    {
+      "dayId": "w20d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w20d4-q01",
+          "prompt": "¿Qué evidencia apoya la reconstrucción de una secuencia de acceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la memoria del operador"
+            },
+            {
+              "id": "b",
+              "text": "Logs preservados con tiempo, cuenta y acción"
+            },
+            {
+              "id": "c",
+              "text": "Una conclusión sin fechas"
+            },
+            {
+              "id": "d",
+              "text": "La lista de colores del panel"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La trazabilidad requiere observaciones verificables y contexto temporal.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w20d4-q02",
+          "prompt": "¿Cuál es una práctica adecuada para un objetivo de continuidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Leer el título del plan"
+            },
+            {
+              "id": "b",
+              "text": "Simular interrupción y probar procedimiento alternativo"
+            },
+            {
+              "id": "c",
+              "text": "Cerrar alertas sin revisar"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar nombres de carpetas"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una práctica comprueba que las personas y dependencias pueden ejecutar el plan.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w20d4-q03",
+          "prompt": "Una restauración cumple RTO pero pierde más datos que el RPO. ¿Cómo registrarla?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Éxito total porque el servicio arrancó"
+            },
+            {
+              "id": "b",
+              "text": "Fracaso de autenticación"
+            },
+            {
+              "id": "c",
+              "text": "Recuperación parcial respecto a objetivos: RPO incumplido"
+            },
+            {
+              "id": "d",
+              "text": "Prueba sin relación con continuidad"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los criterios de recuperación deben evaluarse por separado y con evidencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w20d4-q04",
+          "prompt": "¿Qué canal usar al sospechar exposición de credenciales?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El canal de respuesta establecido y verificado"
+            },
+            {
+              "id": "b",
+              "text": "La dirección incluida en el mensaje sospechoso"
+            },
+            {
+              "id": "c",
+              "text": "Una red social pública con el secreto"
+            },
+            {
+              "id": "d",
+              "text": "Un grupo externo sin contexto"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un canal confiable evita seguir instrucciones del posible atacante.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w20d4-q05",
+          "prompt": "¿Qué distingue contener de recuperar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Contener significa borrar todo"
+            },
+            {
+              "id": "b",
+              "text": "Recuperar consiste solo en cambiar nombres"
+            },
+            {
+              "id": "c",
+              "text": "Son siempre la misma acción"
+            },
+            {
+              "id": "d",
+              "text": "Contener limita propagación; recuperar restablece operaciones seguras"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las funciones se coordinan, pero persiguen resultados diferentes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w20d4-q06",
+          "prompt": "¿Por qué inventariar dependencias antes de un ejercicio de recuperación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantiza pérdida cero"
+            },
+            {
+              "id": "b",
+              "text": "Reemplaza la prueba de datos"
+            },
+            {
+              "id": "c",
+              "text": "Permite ordenar restauración de servicios necesarios"
+            },
+            {
+              "id": "d",
+              "text": "Elimina el dueño del proceso"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Identidad, red, claves y almacenamiento pueden condicionar la vuelta del servicio.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w20d4-q07",
+          "prompt": "¿Qué resultado útil deja una lección aprendida?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo una lista de culpables"
+            },
+            {
+              "id": "b",
+              "text": "La eliminación de todos los logs"
+            },
+            {
+              "id": "c",
+              "text": "Una mejora concreta con responsable y comprobación"
+            },
+            {
+              "id": "d",
+              "text": "Una promesa sin seguimiento"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La revisión debe convertir hallazgos en acciones verificables.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w20d4-q08",
+          "prompt": "¿Cómo manejar una alerta que resulta actividad legítima?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Documentar el motivo y ajustar detección si procede"
+            },
+            {
+              "id": "b",
+              "text": "Borrar toda regla de seguridad"
+            },
+            {
+              "id": "c",
+              "text": "Declarar que no habrá incidentes"
+            },
+            {
+              "id": "d",
+              "text": "Cerrar sin conservar criterio"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El aprendizaje permite mejorar calidad de señales sin perder trazabilidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        }
+      ],
+      "challenge": {
+        "id": "w20d4-challenge",
+        "prompt": "Caso: una copia restaura archivos, pero la aplicación no conecta porque falta identidad. ¿Qué brecha revela?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El respaldo es necesariamente malicioso"
+          },
+          {
+            "id": "b",
+            "text": "El plan no validó todas las dependencias del servicio"
+          },
+          {
+            "id": "c",
+            "text": "El RPO siempre es cero"
+          },
+          {
+            "id": "d",
+            "text": "La aplicación no necesita recuperación"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "Una recuperación debe demostrar operación completa, no solo presencia de ficheros.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    },
+    {
+      "dayId": "w20d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w20d5-q01",
+          "prompt": "En un simulacro, ¿qué conviene hacer antes de leer opciones?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Escoger la respuesta más larga"
+            },
+            {
+              "id": "b",
+              "text": "Buscar palabras memorizadas sin contexto"
+            },
+            {
+              "id": "c",
+              "text": "Responder según posición de la opción"
+            },
+            {
+              "id": "d",
+              "text": "Identificar qué decisión y restricciones plantea el caso"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Comprender el problema permite evaluar opciones por adecuación al escenario.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+        },
+        {
+          "id": "w20d5-q02",
+          "prompt": "¿Qué demuestra mejor corregir un error de simulación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Explicar el concepto y resolver un caso diferente"
+            },
+            {
+              "id": "b",
+              "text": "Recordar la letra de la respuesta"
+            },
+            {
+              "id": "c",
+              "text": "Copiar el texto del banco"
+            },
+            {
+              "id": "d",
+              "text": "Repetir sin comprender"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La transferencia a un escenario nuevo indica comprensión más allá de memorización.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+        },
+        {
+          "id": "w20d5-q03",
+          "prompt": "¿Por qué agrupar errores por concepto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Identificar brechas repetidas de conocimiento o aplicación"
+            },
+            {
+              "id": "b",
+              "text": "Predecir preguntas exactas"
+            },
+            {
+              "id": "c",
+              "text": "Evitar revisar explicaciones"
+            },
+            {
+              "id": "d",
+              "text": "Garantizar una nota futura"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La clasificación orienta el refuerzo hacia causas comunes de errores.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+        },
+        {
+          "id": "w20d5-q04",
+          "prompt": "Un caso no dice si una IP es maliciosa. ¿Cómo responder?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Asumir que toda IP externa es atacante"
+            },
+            {
+              "id": "b",
+              "text": "Inventar registros adicionales"
+            },
+            {
+              "id": "c",
+              "text": "Usar hechos dados y evitar suposiciones no respaldadas"
+            },
+            {
+              "id": "d",
+              "text": "Elegir siempre aislar toda la empresa"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El razonamiento debe respetar la evidencia y las restricciones explícitas.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+        },
+        {
+          "id": "w20d5-q05",
+          "prompt": "Una opción protege datos, pero impide una función crítica requerida. ¿Cómo valorarla?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Elegirla siempre por ser más restrictiva"
+            },
+            {
+              "id": "b",
+              "text": "Considerar el requisito de negocio junto a seguridad"
+            },
+            {
+              "id": "c",
+              "text": "Ignorar disponibilidad"
+            },
+            {
+              "id": "d",
+              "text": "Suponer que el negocio no importa"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La mejor decisión satisface los requisitos relevantes de manera proporcionada.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+        },
+        {
+          "id": "w20d5-q06",
+          "prompt": "¿Por qué alternar casos de identidad, redes y operación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque todos son sinónimos"
+            },
+            {
+              "id": "b",
+              "text": "Comprobar que distingues conceptos en contextos variados"
+            },
+            {
+              "id": "c",
+              "text": "Para evitar toda revisión profunda"
+            },
+            {
+              "id": "d",
+              "text": "Para obtener preguntas reales"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La variación reduce dependencia de pistas superficiales del material practicado.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+        },
+        {
+          "id": "w20d5-q07",
+          "prompt": "¿Qué significa acertar por descarte sin comprender el concepto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conviene revisar el fundamento aunque la respuesta sea correcta"
+            },
+            {
+              "id": "b",
+              "text": "El tema está dominado definitivamente"
+            },
+            {
+              "id": "c",
+              "text": "No hace falta práctica posterior"
+            },
+            {
+              "id": "d",
+              "text": "La pregunta carece de utilidad siempre"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un acierto no revela por sí solo el razonamiento que lo produjo.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+        },
+        {
+          "id": "w20d5-q08",
+          "prompt": "¿Qué afirmación sobre este banco es apropiada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Reproduce preguntas oficiales"
+            },
+            {
+              "id": "b",
+              "text": "Garantiza aprobar CC"
+            },
+            {
+              "id": "c",
+              "text": "Es práctica formativa original, sin garantía de contenido del examen"
+            },
+            {
+              "id": "d",
+              "text": "Predice todos los temas concretos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La formación evalúa conceptos y debe distinguirse de promesas sobre exámenes reales.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+        }
+      ],
+      "challenge": {
+        "id": "w20d5-challenge",
+        "prompt": "Caso: aciertas 90 % repitiendo las mismas preguntas, pero fallas escenarios nuevos. ¿Qué indica?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Preparación asegurada por la cifra"
+          },
+          {
+            "id": "b",
+            "text": "Que deben eliminarse preguntas nuevas"
+          },
+          {
+            "id": "c",
+            "text": "Que los conceptos ya no importan"
+          },
+          {
+            "id": "d",
+            "text": "Memorización posible; necesitas práctica y explicación transferibles"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "Las evidencias de preparación deben incluir desempeño ante variaciones desconocidas.",
+        "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+      }
+    },
+    {
+      "dayId": "w20d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w20d6-q01",
+          "prompt": "Una matriz muestra un subobjetivo sin práctica. ¿Qué refuerzo es más útil?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una tarea que aplique ese concepto y genere evidencia"
+            },
+            {
+              "id": "b",
+              "text": "Volver a marcarlo como completo"
+            },
+            {
+              "id": "c",
+              "text": "Releer solo su título"
+            },
+            {
+              "id": "d",
+              "text": "Estudiar un tema ya dominado"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El refuerzo debe responder a la brecha identificada y demostrar capacidad.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+        },
+        {
+          "id": "w20d6-q02",
+          "prompt": "¿Qué criterio ayuda a decidir si presentar CC?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo haber completado videos"
+            },
+            {
+              "id": "b",
+              "text": "La nota de otra persona"
+            },
+            {
+              "id": "c",
+              "text": "Una promoción publicitaria"
+            },
+            {
+              "id": "d",
+              "text": "Cobertura aplicable, comprensión y desempeño nuevo consistente"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La decisión requiere evidencia de preparación y condiciones oficiales verificadas.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+        },
+        {
+          "id": "w20d6-q03",
+          "prompt": "Si decides omitir CC, ¿qué uso tiene esta consolidación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Fortalecer bases y cerrar lagunas antes de avanzar"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar prácticas de fundamentos"
+            },
+            {
+              "id": "c",
+              "text": "Asumir automáticamente dominio"
+            },
+            {
+              "id": "d",
+              "text": "Saltar identidad y continuidad"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La competencia básica sigue siendo necesaria con independencia de presentar la credencial.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+        },
+        {
+          "id": "w20d6-q04",
+          "prompt": "Un estudiante confunde RTO y RPO. ¿Qué ejercicio atiende esa brecha?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Comparar tiempo de recuperación y pérdida de datos en varios casos"
+            },
+            {
+              "id": "b",
+              "text": "Memorizar solo sus siglas"
+            },
+            {
+              "id": "c",
+              "text": "Practicar únicamente contraseñas"
+            },
+            {
+              "id": "d",
+              "text": "Copiar una respuesta sin números"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Aplicar ambos objetivos en escenarios distintos permite comprobar la distinción.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+        },
+        {
+          "id": "w20d6-q05",
+          "prompt": "¿Qué señal sugiere que una explicación necesita refuerzo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usa un ejemplo propio correcto"
+            },
+            {
+              "id": "b",
+              "text": "Reconoce límites de evidencia"
+            },
+            {
+              "id": "c",
+              "text": "No puede justificar por qué descarta alternativas plausibles"
+            },
+            {
+              "id": "d",
+              "text": "Relaciona control con riesgo"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Justificar alternativas ayuda a detectar confusiones ocultas tras respuestas acertadas.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+        },
+        {
+          "id": "w20d6-q06",
+          "prompt": "¿Qué debe incluir una lista de pendientes útil?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo «estudiar más»"
+            },
+            {
+              "id": "b",
+              "text": "Concepto débil, acción, evidencia esperada y revisión"
+            },
+            {
+              "id": "c",
+              "text": "Un porcentaje sin diagnóstico"
+            },
+            {
+              "id": "d",
+              "text": "Todos los títulos sin prioridad"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La acción concreta conecta una brecha con un criterio para considerarla resuelta.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+        },
+        {
+          "id": "w20d6-q07",
+          "prompt": "Un nuevo intento mejora en preguntas idénticas. ¿Qué prueba añade confianza?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Repetir otra vez la misma letra"
+            },
+            {
+              "id": "b",
+              "text": "Resolver un escenario diferente del mismo concepto"
+            },
+            {
+              "id": "c",
+              "text": "Leer el resultado más rápido"
+            },
+            {
+              "id": "d",
+              "text": "Reducir las opciones a una"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La transferencia aporta evidencia de aprendizaje que una repetición puede ocultar.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+        },
+        {
+          "id": "w20d6-q08",
+          "prompt": "¿Por qué fijar una fecha de revisión de brechas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantiza aprobar sin práctica"
+            },
+            {
+              "id": "b",
+              "text": "Hace vigente cualquier esquema"
+            },
+            {
+              "id": "c",
+              "text": "Permite comprobar avances y ajustar el plan"
+            },
+            {
+              "id": "d",
+              "text": "Sustituye los objetivos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La planificación necesita un momento para contrastar el resultado con evidencias.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+        }
+      ],
+      "challenge": {
+        "id": "w20d6-challenge",
+        "prompt": "Caso: faltan dos temas del esquema, aunque la media global supera tu objetivo. ¿Qué decisión está justificada?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Presentar por la media sin revisar cobertura"
+          },
+          {
+            "id": "b",
+            "text": "Cerrar esas brechas y reevaluar con preguntas nuevas"
+          },
+          {
+            "id": "c",
+            "text": "Borrar las filas pendientes"
+          },
+          {
+            "id": "d",
+            "text": "Asumir que esos temas no cuentan"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La puntuación agregada puede ocultar áreas sin estudiar o sin aplicación demostrada.",
+        "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+      }
+    },
+    {
+      "dayId": "w20d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w20d7-q01",
+          "prompt": "¿Qué documento debe guiar la cobertura al preparar CC?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El esquema oficial aplicable a la fecha del examen"
+            },
+            {
+              "id": "b",
+              "text": "Un índice de curso antiguo sin comparar"
+            },
+            {
+              "id": "c",
+              "text": "Una lista de rumores"
+            },
+            {
+              "id": "d",
+              "text": "Un banco de preguntas recordadas"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El esquema oficial define el alcance que debe contrastarse con los materiales de estudio.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline",
+          "reviewOf": "w20d1-q01"
+        },
+        {
+          "id": "w20d7-q02",
+          "prompt": "¿Qué distingue una política de un procedimiento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La política siempre es código ejecutable"
+            },
+            {
+              "id": "b",
+              "text": "El procedimiento autoriza cualquier excepción"
+            },
+            {
+              "id": "c",
+              "text": "Son idénticos por definición"
+            },
+            {
+              "id": "d",
+              "text": "La política fija requisitos; el procedimiento detalla pasos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La dirección y los pasos operativos tienen funciones complementarias.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w20d2-q01"
+        },
+        {
+          "id": "w20d7-q03",
+          "prompt": "Un usuario está en la LAN de oficina. ¿Qué asume confianza cero sobre su acceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Está autorizado a todos los servidores"
+            },
+            {
+              "id": "b",
+              "text": "No necesita identidad"
+            },
+            {
+              "id": "c",
+              "text": "Su equipo nunca puede estar comprometido"
+            },
+            {
+              "id": "d",
+              "text": "Debe autenticarse y autorizarse según señales y recurso"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La ubicación de red no concede confianza implícita a todas las solicitudes.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass",
+          "reviewOf": "w20d3-q01"
+        },
+        {
+          "id": "w20d7-q04",
+          "prompt": "¿Qué evidencia apoya la reconstrucción de una secuencia de acceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la memoria del operador"
+            },
+            {
+              "id": "b",
+              "text": "Logs preservados con tiempo, cuenta y acción"
+            },
+            {
+              "id": "c",
+              "text": "Una conclusión sin fechas"
+            },
+            {
+              "id": "d",
+              "text": "La lista de colores del panel"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La trazabilidad requiere observaciones verificables y contexto temporal.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w20d4-q01"
+        },
+        {
+          "id": "w20d7-q05",
+          "prompt": "En un simulacro, ¿qué conviene hacer antes de leer opciones?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Escoger la respuesta más larga"
+            },
+            {
+              "id": "b",
+              "text": "Buscar palabras memorizadas sin contexto"
+            },
+            {
+              "id": "c",
+              "text": "Responder según posición de la opción"
+            },
+            {
+              "id": "d",
+              "text": "Identificar qué decisión y restricciones plantea el caso"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Comprender el problema permite evaluar opciones por adecuación al escenario.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline",
+          "reviewOf": "w20d5-q01"
+        },
+        {
+          "id": "w20d7-q06",
+          "prompt": "Una matriz muestra un subobjetivo sin práctica. ¿Qué refuerzo es más útil?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una tarea que aplique ese concepto y genere evidencia"
+            },
+            {
+              "id": "b",
+              "text": "Volver a marcarlo como completo"
+            },
+            {
+              "id": "c",
+              "text": "Releer solo su título"
+            },
+            {
+              "id": "d",
+              "text": "Estudiar un tema ya dominado"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El refuerzo debe responder a la brecha identificada y demostrar capacidad.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline",
+          "reviewOf": "w20d6-q01"
+        },
+        {
+          "id": "w20d7-q07",
+          "prompt": "El esquema descargado tiene fecha de entrada en vigor. ¿Para qué sirve comprobarla?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conocer las preguntas exactas"
+            },
+            {
+              "id": "b",
+              "text": "Garantizar un aprobado"
+            },
+            {
+              "id": "c",
+              "text": "Confirmar que corresponde a la convocatoria elegida"
+            },
+            {
+              "id": "d",
+              "text": "Evitar estudiar prácticas"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las versiones pueden cambiar; la fecha permite elegir el alcance adecuado sin asumir vigencia.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline",
+          "reviewOf": "w20d1-q02"
+        },
+        {
+          "id": "w20d7-q08",
+          "prompt": "¿Qué hace gestionable una excepción de seguridad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un permiso oral indefinido"
+            },
+            {
+              "id": "b",
+              "text": "Aprobación, motivo, controles y revisión"
+            },
+            {
+              "id": "c",
+              "text": "Ocultar el incumplimiento"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar el dueño del recurso"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La excepción requiere límites y responsabilidad para controlar la exposición restante.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w20d2-q02"
+        },
+        {
+          "id": "w20d7-q09",
+          "prompt": "Una VPN conecta a un empleado. ¿Qué sigue siendo necesario?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Acceso global a todas las subredes"
+            },
+            {
+              "id": "b",
+              "text": "Desactivar MFA"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar registros"
+            },
+            {
+              "id": "d",
+              "text": "Permisos por recurso y control de identidad"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un túnel protegido no sustituye autorización ni limita por sí mismo el alcance.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass",
+          "reviewOf": "w20d3-q02"
+        },
+        {
+          "id": "w20d7-q10",
+          "prompt": "¿Cuál es una práctica adecuada para un objetivo de continuidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Leer el título del plan"
+            },
+            {
+              "id": "b",
+              "text": "Simular interrupción y probar procedimiento alternativo"
+            },
+            {
+              "id": "c",
+              "text": "Cerrar alertas sin revisar"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar nombres de carpetas"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una práctica comprueba que las personas y dependencias pueden ejecutar el plan.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w20d4-q02"
+        },
+        {
+          "id": "w20d7-q11",
+          "prompt": "¿Qué demuestra mejor corregir un error de simulación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Explicar el concepto y resolver un caso diferente"
+            },
+            {
+              "id": "b",
+              "text": "Recordar la letra de la respuesta"
+            },
+            {
+              "id": "c",
+              "text": "Copiar el texto del banco"
+            },
+            {
+              "id": "d",
+              "text": "Repetir sin comprender"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La transferencia a un escenario nuevo indica comprensión más allá de memorización.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline",
+          "reviewOf": "w20d5-q02"
+        },
+        {
+          "id": "w20d7-q12",
+          "prompt": "¿Qué criterio ayuda a decidir si presentar CC?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo haber completado videos"
+            },
+            {
+              "id": "b",
+              "text": "La nota de otra persona"
+            },
+            {
+              "id": "c",
+              "text": "Una promoción publicitaria"
+            },
+            {
+              "id": "d",
+              "text": "Cobertura aplicable, comprensión y desempeño nuevo consistente"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La decisión requiere evidencia de preparación y condiciones oficiales verificadas.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline",
+          "reviewOf": "w20d6-q02"
+        },
+        {
+          "id": "w20d7-q13",
+          "prompt": "¿Qué fila demuestra mejor cobertura de un subobjetivo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo «video visto»"
+            },
+            {
+              "id": "b",
+              "text": "Concepto, recurso, ejercicio y evidencia propia"
+            },
+            {
+              "id": "c",
+              "text": "Solo una marca sin explicación"
+            },
+            {
+              "id": "d",
+              "text": "El nombre del instructor"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La cobertura debe mostrar comprensión y aplicación, no únicamente consumo de contenido.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline",
+          "reviewOf": "w20d1-q03"
+        },
+        {
+          "id": "w20d7-q14",
+          "prompt": "¿Quién acepta formalmente un riesgo de negocio según su autoridad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cualquier técnico por defecto"
+            },
+            {
+              "id": "b",
+              "text": "El responsable con autoridad delegada para esa decisión"
+            },
+            {
+              "id": "c",
+              "text": "Un usuario externo"
+            },
+            {
+              "id": "d",
+              "text": "La herramienta de escaneo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La aceptación corresponde a quien puede asumir consecuencias dentro del gobierno establecido.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w20d2-q03"
+        },
+        {
+          "id": "w20d7-q15",
+          "prompt": "¿Qué reduce mover malware desde invitados a servidores internos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una contraseña del Wi-Fi publicada"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombres distintos de red"
+            },
+            {
+              "id": "c",
+              "text": "Un logotipo nuevo"
+            },
+            {
+              "id": "d",
+              "text": "Segmentación con flujos restringidos y verificados"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La separación efectiva requiere reglas de comunicación, no únicamente etiquetas.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass",
+          "reviewOf": "w20d3-q03"
+        },
+        {
+          "id": "w20d7-q16",
+          "prompt": "Una restauración cumple RTO pero pierde más datos que el RPO. ¿Cómo registrarla?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Éxito total porque el servicio arrancó"
+            },
+            {
+              "id": "b",
+              "text": "Fracaso de autenticación"
+            },
+            {
+              "id": "c",
+              "text": "Recuperación parcial respecto a objetivos: RPO incumplido"
+            },
+            {
+              "id": "d",
+              "text": "Prueba sin relación con continuidad"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los criterios de recuperación deben evaluarse por separado y con evidencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w20d4-q03"
+        },
+        {
+          "id": "w20d7-q17",
+          "prompt": "¿Por qué agrupar errores por concepto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Identificar brechas repetidas de conocimiento o aplicación"
+            },
+            {
+              "id": "b",
+              "text": "Predecir preguntas exactas"
+            },
+            {
+              "id": "c",
+              "text": "Evitar revisar explicaciones"
+            },
+            {
+              "id": "d",
+              "text": "Garantizar una nota futura"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La clasificación orienta el refuerzo hacia causas comunes de errores.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline",
+          "reviewOf": "w20d5-q03"
+        },
+        {
+          "id": "w20d7-q18",
+          "prompt": "Si decides omitir CC, ¿qué uso tiene esta consolidación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Fortalecer bases y cerrar lagunas antes de avanzar"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar prácticas de fundamentos"
+            },
+            {
+              "id": "c",
+              "text": "Asumir automáticamente dominio"
+            },
+            {
+              "id": "d",
+              "text": "Saltar identidad y continuidad"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La competencia básica sigue siendo necesaria con independencia de presentar la credencial.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline",
+          "reviewOf": "w20d6-q03"
+        },
+        {
+          "id": "w20d7-q19",
+          "prompt": "Un tema del esquema no aparece en el curso usado. ¿Qué corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Suponer que no se preguntará"
+            },
+            {
+              "id": "b",
+              "text": "Añadir material y una práctica para esa brecha"
+            },
+            {
+              "id": "c",
+              "text": "Borrar el tema de la matriz"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar su nombre por uno conocido"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las lagunas del recurso deben resolverse frente al alcance oficial.",
+          "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline",
+          "reviewOf": "w20d1-q04"
+        },
+        {
+          "id": "w20d7-q20",
+          "prompt": "¿Qué canal usar al sospechar exposición de credenciales?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El canal de respuesta establecido y verificado"
+            },
+            {
+              "id": "b",
+              "text": "La dirección incluida en el mensaje sospechoso"
+            },
+            {
+              "id": "c",
+              "text": "Una red social pública con el secreto"
+            },
+            {
+              "id": "d",
+              "text": "Un grupo externo sin contexto"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un canal confiable evita seguir instrucciones del posible atacante.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w20d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w20d7-challenge",
+        "prompt": "Caso semanal: optas por no presentar CC y tu defensa oral falla en permisos y recuperación. ¿Qué acción permite avanzar con bases?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Omitirlos porque el examen es opcional"
+          },
+          {
+            "id": "b",
+            "text": "Cambiar solo la nota del registro"
+          },
+          {
+            "id": "c",
+            "text": "Practicar ambos temas, registrar evidencia y reevaluar pendientes"
+          },
+          {
+            "id": "d",
+            "text": "Repetir el video de otro dominio"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La opción de certificarse es independiente de demostrar fundamentos necesarios para la etapa siguiente.",
+        "reference": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+      }
+    }
+  ]
+}

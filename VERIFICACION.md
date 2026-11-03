@@ -1,38 +1,36 @@
 # Verificación de la entrega
 
-Fecha: 3 de noviembre de 2026. Versión 1.4.0.
+Fecha: 3 de noviembre de 2026. Versión 1.5.0.
 
 ## Comprobaciones ejecutadas
 
-- `node --test tests/*.test.mjs`: **26 pruebas correctas, 0 fallos**.
-- `python3 tools/validate-content.py`: **52 semanas, 364 sesiones, 272 preguntas y 28 retos**; estructura y referencias internas correctas.
-- Correspondencia de los IDs con el HTML de origen: correcta.
-- Sintaxis de los módulos JavaScript y rutas de archivos del HTML: correctas.
-- Integración en Node VM: 19 vistas/rutas, borrador de prueba, intento superado, siguiente sesión, notas escapadas y aviso visible de fallo de guardado.
-- Respaldo lógico: exportación/importación de notas, intentos y bytes de adjuntos; rechazo de respaldos malformados o de versión futura sin modificar el estado original.
-- Métricas: ventanas de 7/30 días, medianoche local, fechas inválidas o futuras, duplicados, ausencia de actividad, intentos y compatibilidad con respaldos sin fecha de intento. Diez pruebas también comprobadas con `TZ=America/Los_Angeles`.
-- Escena isométrica: SVG válido, IDs únicos y ausencia de scripts.
-- Movimiento: revisión de sintaxis y ciclo de vida simulado para pausa por visibilidad, preferencia de movimiento reducido, contadores y retirada de listeners.
-- Rediseño editorial: comparación con la versión 1.1 de controles, formularios y navegación; módulos de lógica y contenido conservados. Se actualizaron dos textos esperados por las pruebas de interfaz.
-- Rediseño de vidrio: se conservan controles y manejadores. Seis imágenes WebP inspeccionadas visualmente y verificadas; dimensiones declaradas, carga diferida en el programa y rutas locales comprobadas. Estilos de vidrio, fondo alternativo y esquinas redondeadas revisados estáticamente.
-- Versión clara: comprobaciones de preferencias antiguas oscuras, perfil y guardado sin selectores de apariencia, paginación con 52 portadas diferentes y correspondencia entre aula y semana.
-- Interacciones: tres pruebas nuevas sobre clic/teclado, campos editables, ausencia de manejadores duplicados, movimiento reducido, visibilidad, limpieza y alternativa sin Web Animations.
-- Imágenes semanales: 52 archivos WebP válidos de 1024 × 683 píxeles, hashes únicos, prompts documentados y revisión visual de las escenas.
+- `node --test tests/*.test.mjs`: **34 pruebas correctas, 0 fallos**.
+- `python3 tools/validate-content.py`: **52 semanas, 364 sesiones, 3.536 entradas de pregunta y 364 retos**. Las preguntas incluyen 2.576 enunciados originales y 960 recuperaciones de repaso con `reviewOf`.
+- `python3 tools/build-assessments.py --check`: índice de 52 semanas consistente con sus fuentes; 5.307 bytes.
+- Recorrido completo con los bancos reales: paso de semana 4 a 5, requisitos conservados y avance hasta 364/364. Los intentos resultantes validan contra el formato de respaldo existente.
+- Carga real del módulo de recursos con transporte simulado: dos solicitudes iniciales, un banco por semana solicitada, deduplicación, reintentos y rechazo atómico de un banco incompleto.
+- Notas: cambios rápidos entre sesiones, escritura durante persistencia, fallo y reintento, navegación rechazada sin perder el editor y actualización externa sin sobrescritura de un editor no modificado.
+- Reproductores: marcar recursos, usar temporizador o registrar tiempo manual conserva el contenedor y el reproductor en la integración simulada.
+- Métricas: el tiempo registrado actualiza sus cifras sin reconstruir la pantalla. El filtro de gráficos conserva los demás formularios.
+- Búsqueda: espera breve y actualización exclusiva de resultados; no reemplaza la pantalla ni el campo de búsqueda.
+- Red: fallo inicial al cargar una evaluación ofrece recuperación y recursos; reintentar no elimina el control tras otro fallo.
+- Tiempo manual: límites, asociación de sesión y conservación del temporizador; exportación e importación por el esquema de datos anterior.
+- Respaldo: notas, intentos, evidencias y bytes; rechazo de datos malformados, claves inseguras y versiones futuras.
+- Movimiento: clic/teclado, campos editables, ausencia de manejadores duplicados, movimiento reducido, visibilidad y limpieza.
+- HTML, sintaxis JavaScript, SVG, referencias locales y estructura CSS comprobados estáticamente. Un solo archivo CSS publicado.
+- Los IDs del temario, los bancos originales de semanas 1 a 4 y las 58 imágenes existentes se conservan. No hay migración destructiva del almacenamiento.
 
-## Límites de la comprobación
+## Límites
 
-Las pruebas de integración utilizan un DOM mínimo y persistencia simulada. No equivalen a ejecutar un navegador real, verificar IndexedDB en todos los dispositivos ni revisar el diseño mediante capturas. La infraestructura de navegador de este entorno no estaba disponible; no se instaló un navegador alternativo.
+Las pruebas de interfaz utilizan un DOM y transporte simulados. No equivalen a comprobar IndexedDB, reproductores externos, contraste, fluidez y uso táctil en un navegador real. La infraestructura de navegador no está disponible en este entorno.
 
-La revisión visual, el uso táctil y el guardado real en PC/móvil deben comprobarse al abrir el sitio. Los reproductores y recursos externos dependen de sus proveedores. Sus enlaces se conservaron del temario y no se presentan como una nueva revisión de disponibilidad.
+Los bancos son autoevaluación formativa, no preguntas oficiales ni una garantía de aprobar una certificación. La validación comprueba estructura, soluciones referenciadas, procedencia de repasos y duplicados; la revisión pedagógica puede seguir ampliándose. Los recursos del temario se conservan y no se presenta una nueva verificación de disponibilidad de todos sus enlaces.
 
-## Revisión breve antes de usar datos importantes
+## Comprobación de uso real
 
-1. Abre la página mediante HTTP o GitHub Pages.
-2. Escribe una nota, recarga y confirma que permanece.
-3. Marca los recursos obligatorios del día 1 y resuelve su reto.
-4. Entrega un intento fallido: debe conservarse sin desbloquear el día 2.
-5. Supera la prueba con los requisitos: debe activarse el día 2.
-6. Adjunta un archivo pequeño, exporta un respaldo y comprueba su importación.
-7. Revisa el móvil, navegación por teclado y movimiento reducido.
-
-Las pruebas formativas y los retos son de las semanas 1 a 4. Las otras semanas tienen contenido consultable y evaluación pendiente. La aplicación no simula una aprobación para ocultar esa limitación.
+1. Escribir una nota, cambiar de sesión y volver; probar además un fallo de guardado y la descarga del borrador.
+2. Abrir un video y marcar un recurso o iniciar el temporizador; confirmar que el reproductor permanece.
+3. Registrar estudio externo y comprobar que las métricas se actualizan.
+4. Realizar una prueba fallida y una aprobada; confirmar los requisitos de avance.
+5. Exportar e importar un respaldo con un archivo pequeño.
+6. Revisar móvil, navegación por teclado, lectura de gráficos y movimiento reducido.

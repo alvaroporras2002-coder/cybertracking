@@ -1,0 +1,2094 @@
+{
+  "week": 15,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w15d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w15d1-q01",
+          "prompt": "En https://campus.example:8443/cursos/redes?tema=tcp#resumen, ¿cuál es el nombre de host sin puerto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "https"
+            },
+            {
+              "id": "b",
+              "text": "/cursos/redes"
+            },
+            {
+              "id": "c",
+              "text": "campus.example"
+            },
+            {
+              "id": "d",
+              "text": "tema=tcp"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El nombre de host identifica el destino nominal; esquema, ruta y consulta son componentes diferentes.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/API/URL"
+        },
+        {
+          "id": "w15d1-q02",
+          "prompt": "En la URL https://campus.example:8443/cursos/redes, ¿qué representa 8443?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El número de versión de IPv4"
+            },
+            {
+              "id": "b",
+              "text": "La cantidad de páginas del sitio"
+            },
+            {
+              "id": "c",
+              "text": "El puerto explícito elegido para ese destino"
+            },
+            {
+              "id": "d",
+              "text": "El identificador de la zona DNS"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una URL puede indicar un puerto distinto del habitual del esquema.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/API/URL"
+        },
+        {
+          "id": "w15d1-q03",
+          "prompt": "En https://campus.example/cursos/redes?tema=tcp, ¿cuál es la ruta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "/cursos/redes"
+            },
+            {
+              "id": "b",
+              "text": "campus.example"
+            },
+            {
+              "id": "c",
+              "text": "https://"
+            },
+            {
+              "id": "d",
+              "text": "tema=tcp"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La ruta identifica el recurso dentro del destino, separada de la consulta.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/API/URL"
+        },
+        {
+          "id": "w15d1-q04",
+          "prompt": "¿Qué componente de https://campus.example/buscar?q=seguridad introduce la consulta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "#q=seguridad"
+            },
+            {
+              "id": "b",
+              "text": "https:"
+            },
+            {
+              "id": "c",
+              "text": "?q=seguridad"
+            },
+            {
+              "id": "d",
+              "text": "/campus.example"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El signo de interrogación inicia los parámetros de consulta de la URL.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/API/URL"
+        },
+        {
+          "id": "w15d1-q05",
+          "prompt": "¿Qué función tiene normalmente #resumen al final de una URL web?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Identificar un fragmento tratado por el cliente, no enviado como parte de la solicitud HTTP al servidor"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar el servidor DNS que resuelve el nombre"
+            },
+            {
+              "id": "c",
+              "text": "Solicitar automáticamente el puerto TCP 443"
+            },
+            {
+              "id": "d",
+              "text": "Autenticar a la persona que abrió el enlace"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El fragmento orienta al navegador dentro del recurso; no es un mecanismo de autenticación.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/API/URL"
+        },
+        {
+          "id": "w15d1-q06",
+          "prompt": "Un enlace muestra https://banco.example.seguro.test/ingreso. ¿Por qué conviene revisar el host completo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La palabra https garantiza que pertenece a esa marca"
+            },
+            {
+              "id": "b",
+              "text": "Un prefijo que parece una marca no determina quién controla todo el nombre"
+            },
+            {
+              "id": "c",
+              "text": "La ruta /ingreso demuestra la propiedad del dominio"
+            },
+            {
+              "id": "d",
+              "text": "Cualquier punto del nombre identifica una empresa distinta validada"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los nombres deben interpretarse completos y no por la apariencia de un prefijo.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/API/URL"
+        },
+        {
+          "id": "w15d1-q07",
+          "prompt": "¿Qué diferencia entre una URL relativa y una absoluta importa al analizar un enlace?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La relativa necesita un contexto base para resolver su destino completo"
+            },
+            {
+              "id": "b",
+              "text": "La relativa siempre usa cifrado más fuerte"
+            },
+            {
+              "id": "c",
+              "text": "La absoluta no puede incluir una ruta"
+            },
+            {
+              "id": "d",
+              "text": "La relativa solo funciona con direcciones IPv6"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Resolver el enlace requiere conocer la URL base de la página.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/API/URL"
+        },
+        {
+          "id": "w15d1-q08",
+          "prompt": "Un parámetro contiene un dato sensible. ¿Qué conviene considerar incluso cuando el enlace usa HTTPS?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que TLS elimina automáticamente todo registro local"
+            },
+            {
+              "id": "b",
+              "text": "Que los parámetros nunca llegan a aplicaciones"
+            },
+            {
+              "id": "c",
+              "text": "Que la URL puede quedar en historiales o registros de los extremos"
+            },
+            {
+              "id": "d",
+              "text": "Que el fragmento y la consulta son siempre equivalentes"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El cifrado en tránsito no evita todos los registros del cliente y servidor.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security"
+        }
+      ],
+      "challenge": {
+        "id": "w15d1-challenge",
+        "prompt": "Caso: https://soporte.example:9443/cuenta?modo=lectura#ayuda se analiza sin abrirlo. ¿Qué descripción es correcta?",
+        "options": [
+          {
+            "id": "a",
+            "text": "9443 es la dirección MAC del servidor"
+          },
+          {
+            "id": "b",
+            "text": "HTTPS es el esquema, soporte.example el host, 9443 el puerto y #ayuda un fragmento"
+          },
+          {
+            "id": "c",
+            "text": "El parámetro demuestra que el usuario solo tendrá lectura"
+          },
+          {
+            "id": "d",
+            "text": "El fragmento cambia el propietario del dominio"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "Los componentes sintácticos no prueban por sí mismos permisos o legitimidad.",
+        "reference": "https://developer.mozilla.org/en-US/docs/Web/API/URL"
+      }
+    },
+    {
+      "dayId": "w15d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w15d2-q01",
+          "prompt": "¿Qué describe el modelo básico de una interacción HTTP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un cliente envía una solicitud y el servidor emite una respuesta"
+            },
+            {
+              "id": "b",
+              "text": "Un servidor DNS decide la contraseña del navegador"
+            },
+            {
+              "id": "c",
+              "text": "Un switch autentica cada método de aplicación"
+            },
+            {
+              "id": "d",
+              "text": "Todo intercambio exige enviar archivos completos en ambos sentidos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Distinguir solicitud y respuesta ayuda a interpretar las acciones del navegador.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview"
+        },
+        {
+          "id": "w15d2-q02",
+          "prompt": "Según su semántica, ¿para qué se utiliza GET principalmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambiar siempre la contraseña del servidor"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar un recurso obligatoriamente"
+            },
+            {
+              "id": "c",
+              "text": "Solicitar una representación de un recurso"
+            },
+            {
+              "id": "d",
+              "text": "Cifrar los datos sin necesidad de TLS"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El método describe la intención de la operación; no sustituye la protección del transporte.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods"
+        },
+        {
+          "id": "w15d2-q03",
+          "prompt": "Un formulario usa POST. ¿Qué afirmación evita una conclusión incorrecta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "POST no cifra por sí mismo el contenido enviado"
+            },
+            {
+              "id": "b",
+              "text": "POST garantiza que ningún registro conservará los datos"
+            },
+            {
+              "id": "c",
+              "text": "POST demuestra que el sitio pertenece a un banco"
+            },
+            {
+              "id": "d",
+              "text": "POST impide toda modificación del servidor"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La confidencialidad del tránsito depende de mecanismos como HTTPS/TLS.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods"
+        },
+        {
+          "id": "w15d2-q04",
+          "prompt": "Una solicitud recibe 200 OK. ¿Cuál es la interpretación adecuada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Toda la aplicación está libre de fallos"
+            },
+            {
+              "id": "b",
+              "text": "El usuario tiene permisos para cualquier recurso"
+            },
+            {
+              "id": "c",
+              "text": "El servidor informa éxito de esa operación HTTP según el método"
+            },
+            {
+              "id": "d",
+              "text": "La conexión necesariamente carece de intermediarios"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El código se interpreta en el contexto de la solicitud, no como garantía global.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status"
+        },
+        {
+          "id": "w15d2-q05",
+          "prompt": "Una respuesta indica 301 y una cabecera Location. ¿Qué significa principalmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una solicitud que requiere activar DHCP"
+            },
+            {
+              "id": "b",
+              "text": "Una redirección permanente al destino indicado"
+            },
+            {
+              "id": "c",
+              "text": "Una comprobación de firma de archivo exitosa"
+            },
+            {
+              "id": "d",
+              "text": "Un bloqueo del gateway a nivel Ethernet"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las respuestas de redirección pueden cambiar el siguiente destino del cliente.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status"
+        },
+        {
+          "id": "w15d2-q06",
+          "prompt": "Recibes 404 al pedir una ruta. ¿Qué conclusión es correcta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El cable del cliente está desconectado necesariamente"
+            },
+            {
+              "id": "b",
+              "text": "No hubo ninguna respuesta del destino"
+            },
+            {
+              "id": "c",
+              "text": "El nombre DNS no pudo resolverse en ningún caso"
+            },
+            {
+              "id": "d",
+              "text": "El servidor HTTP respondió que no encontró el recurso solicitado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un error de aplicación no equivale a ausencia de conectividad.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status"
+        },
+        {
+          "id": "w15d2-q07",
+          "prompt": "¿Qué diferencia básica hay entre 401 y 403?",
+          "options": [
+            {
+              "id": "a",
+              "text": "401 significa éxito y 403 redirección permanente"
+            },
+            {
+              "id": "b",
+              "text": "Ambos indican siempre un fallo físico del enlace"
+            },
+            {
+              "id": "c",
+              "text": "401 se relaciona con autenticación requerida; 403 indica rechazo de acceso a la solicitud"
+            },
+            {
+              "id": "d",
+              "text": "403 prueba por sí solo que todas las credenciales son incorrectas"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los códigos orientan el diagnóstico; su contexto y la implementación deben revisarse.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status"
+        },
+        {
+          "id": "w15d2-q08",
+          "prompt": "El servidor devuelve 503 Service Unavailable. ¿Qué investigarías?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el formato de la dirección MAC del navegador"
+            },
+            {
+              "id": "b",
+              "text": "Un supuesto éxito de autenticación completo"
+            },
+            {
+              "id": "c",
+              "text": "La necesidad obligatoria de cambiar todos los puertos"
+            },
+            {
+              "id": "d",
+              "text": "Disponibilidad o capacidad del servicio de aplicación"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La respuesta proviene de una capa de aplicación que declara no poder atender esa solicitud.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status"
+        }
+      ],
+      "challenge": {
+        "id": "w15d2-challenge",
+        "prompt": "Caso: una web devuelve 404 al abrir un enlace antiguo. ¿Qué prueba esa respuesta?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El cliente no tiene enlace físico en ningún caso"
+          },
+          {
+            "id": "b",
+            "text": "No existe ruta al servidor que respondió"
+          },
+          {
+            "id": "c",
+            "text": "Se recibió una respuesta HTTP para un recurso que no fue encontrado"
+          },
+          {
+            "id": "d",
+            "text": "La contraseña del usuario es incorrecta necesariamente"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "Una respuesta de aplicación demuestra más que una ausencia completa de conectividad, pero no identifica toda la causa.",
+        "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status"
+      }
+    },
+    {
+      "dayId": "w15d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w15d3-q01",
+          "prompt": "HTTP no recuerda por sí solo todos los pasos de un usuario. ¿Cómo puede una aplicación mantener una sesión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Suponiendo que una dirección IP identifica siempre a una persona"
+            },
+            {
+              "id": "b",
+              "text": "Reutilizando un único puerto TCP para todos los visitantes"
+            },
+            {
+              "id": "c",
+              "text": "Relacionando solicitudes con un identificador y estado gestionado por la aplicación"
+            },
+            {
+              "id": "d",
+              "text": "Guardando la contraseña en cada enlace del menú"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El estado de sesión requiere un diseño de aplicación, no confiar solo en la IP.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Cookies"
+        },
+        {
+          "id": "w15d3-q02",
+          "prompt": "¿Qué debe protegerse especialmente en una cookie que identifica una sesión autenticada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el nombre visible de la pestaña"
+            },
+            {
+              "id": "b",
+              "text": "Únicamente el tamaño del icono de la aplicación"
+            },
+            {
+              "id": "c",
+              "text": "Su valor de sesión para impedir usos no autorizados"
+            },
+            {
+              "id": "d",
+              "text": "La posición del botón de recarga"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Quien obtenga un identificador válido puede llegar a actuar dentro de la sesión.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Cookies"
+        },
+        {
+          "id": "w15d3-q03",
+          "prompt": "¿Qué aporta el atributo Secure a una cookie?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cifrarla automáticamente cuando se almacena en todos los discos"
+            },
+            {
+              "id": "b",
+              "text": "Demostrar que nunca puede ser robada"
+            },
+            {
+              "id": "c",
+              "text": "Bloquear toda petición entre aplicaciones"
+            },
+            {
+              "id": "d",
+              "text": "Restringir su envío a conexiones seguras según las reglas del navegador"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Secure protege su envío; no representa una defensa completa.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie"
+        },
+        {
+          "id": "w15d3-q04",
+          "prompt": "¿Qué limita HttpOnly en una cookie?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Toda lectura de la cookie por el propio servidor"
+            },
+            {
+              "id": "b",
+              "text": "La necesidad de HTTPS para el sitio"
+            },
+            {
+              "id": "c",
+              "text": "El acceso desde interfaces de script del cliente como document.cookie"
+            },
+            {
+              "id": "d",
+              "text": "Todo envío automático de la cookie por el navegador"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "HttpOnly reduce una vía de acceso por script, pero no vuelve imposible el abuso de sesión.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie"
+        },
+        {
+          "id": "w15d3-q05",
+          "prompt": "¿Qué controla SameSite en una cookie?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Condiciones para incluirla en solicitudes entre sitios"
+            },
+            {
+              "id": "b",
+              "text": "La dirección IP exacta del switch de acceso"
+            },
+            {
+              "id": "c",
+              "text": "El número de preguntas de una evaluación"
+            },
+            {
+              "id": "d",
+              "text": "El algoritmo de compresión del navegador"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La política entre sitios es una parte del diseño de protección de las sesiones.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie"
+        },
+        {
+          "id": "w15d3-q06",
+          "prompt": "Un usuario cierra la sesión de un servicio sensible. ¿Qué debe hacer también el servidor cuando corresponda?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mantener indefinidamente el mismo token activo"
+            },
+            {
+              "id": "b",
+              "text": "Confiar solo en que se cerró una pestaña"
+            },
+            {
+              "id": "c",
+              "text": "Invalidar la sesión o credencial activa, no solo ocultar la pantalla del cliente"
+            },
+            {
+              "id": "d",
+              "text": "Convertir toda cookie en permanente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El cierre efectivo debe impedir que siga utilizándose una sesión que ya no corresponde.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Cookies"
+        },
+        {
+          "id": "w15d3-q07",
+          "prompt": "¿Por qué no conviene usar únicamente la IP como identidad de sesión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Puede compartirse entre usuarios o cambiar durante el uso"
+            },
+            {
+              "id": "b",
+              "text": "Porque una IP siempre contiene una contraseña"
+            },
+            {
+              "id": "c",
+              "text": "Porque las cookies no pueden coexistir con IPv6"
+            },
+            {
+              "id": "d",
+              "text": "Porque TCP obliga a reutilizar la misma identidad humana"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una dirección de red describe conectividad y no equivale a una identidad individual.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Cookies"
+        },
+        {
+          "id": "w15d3-q08",
+          "prompt": "Encuentras una cookie HttpOnly en un sitio con un fallo de script. ¿Qué conclusión es prudente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La vulnerabilidad queda completamente eliminada"
+            },
+            {
+              "id": "b",
+              "text": "La cookie nunca se enviará al servidor"
+            },
+            {
+              "id": "c",
+              "text": "HttpOnly limita la lectura directa, pero el script aún puede realizar acciones en el contexto del usuario"
+            },
+            {
+              "id": "d",
+              "text": "El navegador se desconecta automáticamente del sitio"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La protección de una propiedad no sustituye el control de otros comportamientos del navegador.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie"
+        }
+      ],
+      "challenge": {
+        "id": "w15d3-challenge",
+        "prompt": "Caso: cerrar una pestaña deja utilizable el token copiado de una sesión. ¿Qué control debe revisarse?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Caducidad e invalidación de la sesión del lado del servicio"
+          },
+          {
+            "id": "b",
+            "text": "Solo retirar el botón de acceso del cliente, dejando el token válido"
+          },
+          {
+            "id": "c",
+            "text": "La velocidad de la tarjeta de red"
+          },
+          {
+            "id": "d",
+            "text": "La máscara de subred del token"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "Cerrar una interfaz no equivale a revocar una credencial de sesión.",
+        "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Cookies"
+      }
+    },
+    {
+      "dayId": "w15d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w15d4-q01",
+          "prompt": "¿Qué añade TLS correctamente utilizado a una conexión web?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Protección de confidencialidad e integridad y autenticación del servidor según la validación"
+            },
+            {
+              "id": "b",
+              "text": "Una garantía sobre la honestidad de todo contenido publicado"
+            },
+            {
+              "id": "c",
+              "text": "La eliminación de todos los registros del servidor"
+            },
+            {
+              "id": "d",
+              "text": "Una copia de respaldo de la cuenta del usuario"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La seguridad del canal no certifica la calidad comercial o editorial del sitio.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security"
+        },
+        {
+          "id": "w15d4-q02",
+          "prompt": "¿Qué dato debe coincidir al validar el certificado para un sitio visitado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La etiqueta visible de la pestaña, aunque el nombre no coincida"
+            },
+            {
+              "id": "b",
+              "text": "La longitud del cable y la del documento"
+            },
+            {
+              "id": "c",
+              "text": "El nombre solicitado y los nombres autorizados por el certificado"
+            },
+            {
+              "id": "d",
+              "text": "El puerto de origen del cliente, sin validar el nombre del certificado"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La validación de nombre ayuda a comprobar que el certificado corresponde al destino esperado.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security"
+        },
+        {
+          "id": "w15d4-q03",
+          "prompt": "El navegador avisa de un certificado vencido o con nombre incorrecto. ¿Qué debes hacer en un entorno normal?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Detenerte y revisar el destino y la causa antes de continuar"
+            },
+            {
+              "id": "b",
+              "text": "Aceptar siempre porque cualquier cifrado basta"
+            },
+            {
+              "id": "c",
+              "text": "Enviar credenciales para comprobar si el sitio responde"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar solo la resolución de pantalla"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una alerta de validación requiere investigación; no debe sortearse automáticamente.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security"
+        },
+        {
+          "id": "w15d4-q04",
+          "prompt": "Una captura pasiva observa HTTPS sin claves de sesión. ¿Qué puede analizar normalmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todas las contraseñas del formulario en texto claro"
+            },
+            {
+              "id": "b",
+              "text": "El historial completo del usuario en el equipo"
+            },
+            {
+              "id": "c",
+              "text": "Extremos, tamaños y tiempos, sin asumir que conoce el contenido HTTP cifrado"
+            },
+            {
+              "id": "d",
+              "text": "La clave privada del servidor automáticamente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los metadatos pueden ser observables aunque el contenido esté protegido.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security"
+        },
+        {
+          "id": "w15d4-q05",
+          "prompt": "¿Qué demuestra por sí solo un certificado válido de un dominio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el sitio no puede alojar phishing"
+            },
+            {
+              "id": "b",
+              "text": "Que todas sus aplicaciones están libres de vulnerabilidades"
+            },
+            {
+              "id": "c",
+              "text": "Una identidad de servidor verificada dentro del modelo de confianza, no la bondad de su negocio"
+            },
+            {
+              "id": "d",
+              "text": "Que el dueño es la persona con la que hablaste por teléfono"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un atacante puede controlar un dominio y obtener un certificado para él.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security"
+        },
+        {
+          "id": "w15d4-q06",
+          "prompt": "¿Por qué importa que el reloj del equipo sea razonablemente correcto al revisar certificados?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque el reloj elige el nombre del dominio"
+            },
+            {
+              "id": "b",
+              "text": "Porque una hora exacta garantiza que no haya malware"
+            },
+            {
+              "id": "c",
+              "text": "Porque TLS elimina todas las comprobaciones si hay sincronización"
+            },
+            {
+              "id": "d",
+              "text": "La validación considera sus periodos de vigencia"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La hora afecta a comprobaciones de validez, aunque no es el único requisito.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security"
+        },
+        {
+          "id": "w15d4-q07",
+          "prompt": "Un sitio carga la página por HTTPS y un recurso sensible por HTTP. ¿Qué problema merece corregirse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La página deja de tener direcciones IP"
+            },
+            {
+              "id": "b",
+              "text": "El navegador convierte siempre ese recurso en una VPN"
+            },
+            {
+              "id": "c",
+              "text": "La consulta DNS queda autenticada por ese recurso"
+            },
+            {
+              "id": "d",
+              "text": "El recurso no recibe la misma protección de transporte"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La protección debe considerar también los subrecursos utilizados por la aplicación.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security"
+        },
+        {
+          "id": "w15d4-q08",
+          "prompt": "¿Qué distingue cifrar un canal de autorizar una acción del usuario?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ambos controles son intercambiables"
+            },
+            {
+              "id": "b",
+              "text": "El canal protege la comunicación; la aplicación debe decidir qué acción puede realizar esa identidad"
+            },
+            {
+              "id": "c",
+              "text": "Un canal cifrado concede acceso a todos los datos"
+            },
+            {
+              "id": "d",
+              "text": "La autorización elimina la necesidad de verificar el servidor"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La arquitectura debe combinar controles de transporte, autenticación y autorización.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security"
+        }
+      ],
+      "challenge": {
+        "id": "w15d4-challenge",
+        "prompt": "Caso: un enlace de phishing usa HTTPS y un certificado válido para su propio dominio. ¿Qué conducta es correcta?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Verificar la identidad y el contexto del sitio sin usar TLS como garantía de legitimidad"
+          },
+          {
+            "id": "b",
+            "text": "Confiar en cualquier solicitud de contraseña por aparecer HTTPS"
+          },
+          {
+            "id": "c",
+            "text": "Ignorar completamente la URL porque el canal está cifrado"
+          },
+          {
+            "id": "d",
+            "text": "Afirmar que un certificado válido impide el fraude"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La protección del canal y la legitimidad de la solicitud son preguntas diferentes.",
+        "reference": "https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security"
+      }
+    },
+    {
+      "dayId": "w15d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w15d5-q01",
+          "prompt": "¿Qué permite hacer un filtro de visualización de Wireshark?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Recuperar paquetes que nunca fueron capturados"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar la configuración del firewall remoto"
+            },
+            {
+              "id": "c",
+              "text": "Cifrar el archivo de captura automáticamente"
+            },
+            {
+              "id": "d",
+              "text": "Seleccionar qué paquetes ya disponibles se muestran"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El filtro facilita revisar un subconjunto de la evidencia existente.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkBuildDisplayFilterSection.html"
+        },
+        {
+          "id": "w15d5-q02",
+          "prompt": "¿Cuál es un filtro de visualización válido para paquetes IPv4 con origen o destino 192.0.2.7?",
+          "options": [
+            {
+              "id": "a",
+              "text": "ip = 192.0.2.7 como asignación"
+            },
+            {
+              "id": "b",
+              "text": "host 192.0.2.7 escrito como filtro de visualización"
+            },
+            {
+              "id": "c",
+              "text": "ip.addr == 192.0.2.7"
+            },
+            {
+              "id": "d",
+              "text": "tcp.status == 192.0.2.7"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La sintaxis de visualización usa campos del disector y operadores.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkBuildDisplayFilterSection.html"
+        },
+        {
+          "id": "w15d5-q03",
+          "prompt": "¿Qué diferencia hay entre un filtro de captura y uno de visualización?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ambos recuperan tráfico que no pasó por la interfaz"
+            },
+            {
+              "id": "b",
+              "text": "El primero filtra después de guardar; el segundo decide lo capturado"
+            },
+            {
+              "id": "c",
+              "text": "Ambos utilizan siempre exactamente la misma sintaxis"
+            },
+            {
+              "id": "d",
+              "text": "El primero limita lo registrado; el segundo selecciona lo mostrado después"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Excluir tráfico durante la captura impide revisarlo posteriormente en ese archivo.",
+          "reference": "https://wiki.wireshark.org/CaptureFilters"
+        },
+        {
+          "id": "w15d5-q04",
+          "prompt": "En una captura, ¿para qué sirve el panel de detalles de paquetes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Expandir los campos de protocolos del paquete seleccionado"
+            },
+            {
+              "id": "b",
+              "text": "Modificar las credenciales del emisor"
+            },
+            {
+              "id": "c",
+              "text": "Asignar un permiso de administrador al analista"
+            },
+            {
+              "id": "d",
+              "text": "Confirmar automáticamente toda hipótesis de ataque"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los detalles decodificados ayudan a interpretar campos concretos.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkBuildDisplayFilterSection.html"
+        },
+        {
+          "id": "w15d5-q05",
+          "prompt": "No aparece tráfico al abrir una captura de laboratorio. ¿Qué debes revisar antes de concluir que no hubo comunicaciones?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Filtros activos, interfaz, intervalo y alcance del archivo"
+            },
+            {
+              "id": "b",
+              "text": "Solo la velocidad del adaptador, sin revisar filtros ni interfaz"
+            },
+            {
+              "id": "c",
+              "text": "Un cambio general de todas las rutas de la red"
+            },
+            {
+              "id": "d",
+              "text": "La reinstalación inmediata del sistema"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un punto de captura o filtro inadecuado puede ocultar la evidencia pertinente.",
+          "reference": "https://wiki.wireshark.org/CaptureFilters"
+        },
+        {
+          "id": "w15d5-q06",
+          "prompt": "Necesitas localizar paquetes DNS reconocidos por el disector. ¿Qué filtro inicial resulta útil?",
+          "options": [
+            {
+              "id": "a",
+              "text": "tcp.port == 22"
+            },
+            {
+              "id": "b",
+              "text": "dns"
+            },
+            {
+              "id": "c",
+              "text": "http.response.code == 404"
+            },
+            {
+              "id": "d",
+              "text": "frame.time == dns"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La selección de protocolo ofrece un punto de partida, sin asegurar que toda resolución de nombres sea visible.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkBuildDisplayFilterSection.html"
+        },
+        {
+          "id": "w15d5-q07",
+          "prompt": "¿Qué permite Follow TCP Stream en un flujo cifrado sin sus secretos de sesión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Extraer automáticamente la clave privada del servidor"
+            },
+            {
+              "id": "b",
+              "text": "Identificar la contraseña de cualquier usuario"
+            },
+            {
+              "id": "c",
+              "text": "Reunir los datos del flujo, pero no garantiza convertir el cifrado en texto de aplicación"
+            },
+            {
+              "id": "d",
+              "text": "Modificar los paquetes originales de la red"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Seguir un flujo y descifrar su contenido son operaciones distintas.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security"
+        },
+        {
+          "id": "w15d5-q08",
+          "prompt": "¿Cuál es una condición apropiada para una práctica de captura?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cualquier red visible sin informar a su responsable"
+            },
+            {
+              "id": "b",
+              "text": "Tráfico propio de un laboratorio autorizado y alcance definido"
+            },
+            {
+              "id": "c",
+              "text": "Credenciales reales de otros usuarios como material de prueba"
+            },
+            {
+              "id": "d",
+              "text": "Publicar toda la captura sin revisar datos sensibles"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El trabajo técnico requiere autorización y manejo cuidadoso de la evidencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w15d5-challenge",
+        "prompt": "Caso: necesitas conservar toda una captura y ver únicamente TCP/443 durante el análisis. ¿Qué elección es adecuada?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Aplicar un filtro de visualización al archivo conservado"
+          },
+          {
+            "id": "b",
+            "text": "Eliminar de forma irreversible todos los demás paquetes sin copia"
+          },
+          {
+            "id": "c",
+            "text": "Suponer que un filtro de captura puede recuperar lo omitido"
+          },
+          {
+            "id": "d",
+            "text": "Tratar cualquier salida de TCP/443 como texto HTTP descifrado"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "El filtrado de visualización no necesita descartar la evidencia original.",
+        "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkBuildDisplayFilterSection.html"
+      }
+    },
+    {
+      "dayId": "w15d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w15d6-q01",
+          "prompt": "¿Qué conjunto de datos inicia mejor un análisis de conversación de red?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el nombre del fabricante del equipo"
+            },
+            {
+              "id": "b",
+              "text": "Extremos, protocolo, tiempos y cantidad de tráfico"
+            },
+            {
+              "id": "c",
+              "text": "La conclusión final antes de revisar los paquetes"
+            },
+            {
+              "id": "d",
+              "text": "Una única captura de pantalla sin contexto"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Estos datos permiten acotar qué intercambio se está describiendo.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChStatConversations.html"
+        },
+        {
+          "id": "w15d6-q02",
+          "prompt": "Dos archivos usan zonas horarias distintas. ¿Qué debes hacer antes de correlacionarlos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Normalizar o documentar sus referencias temporales y posibles diferencias de reloj"
+            },
+            {
+              "id": "b",
+              "text": "Ordenarlos por tamaño y asumir la misma hora"
+            },
+            {
+              "id": "c",
+              "text": "Ignorar todos los eventos que no coincidan al segundo"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar la dirección de origen de los paquetes"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La correlación necesita una base de tiempo comparable.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkTimeFormatsSection.html"
+        },
+        {
+          "id": "w15d6-q03",
+          "prompt": "Una consulta DNS precede una conexión web. ¿Qué afirmación es una hipótesis y no un hecho demostrado por esa secuencia sola?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que se registró una consulta DNS"
+            },
+            {
+              "id": "b",
+              "text": "Que después se registró una conexión entre extremos"
+            },
+            {
+              "id": "c",
+              "text": "Que existen marcas temporales en la captura"
+            },
+            {
+              "id": "d",
+              "text": "Que una persona concreta introdujo credenciales en la página"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La captura no demuestra por sí sola todas las acciones humanas.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChStatConversations.html"
+        },
+        {
+          "id": "w15d6-q04",
+          "prompt": "¿Cómo haces reproducible un hallazgo en Wireshark?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conservar nombre del archivo, filtro, paquetes relevantes y razonamiento"
+            },
+            {
+              "id": "b",
+              "text": "Anotar únicamente que el tráfico parecía extraño"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar el archivo hasta que coincida con la hipótesis"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar los paquetes que contradicen la interpretación"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La evidencia y el procedimiento deben permitir que otra persona compruebe la lectura.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkBuildDisplayFilterSection.html"
+        },
+        {
+          "id": "w15d6-q05",
+          "prompt": "La captura termina antes de una respuesta esperada. ¿Qué debe señalar el informe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el servidor nunca respondió en ningún momento"
+            },
+            {
+              "id": "b",
+              "text": "La limitación temporal y que no puede descartarse una respuesta posterior"
+            },
+            {
+              "id": "c",
+              "text": "Que el cliente está necesariamente infectado"
+            },
+            {
+              "id": "d",
+              "text": "Que el protocolo de transporte estaba mal diseñado"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una ventana de observación limitada no permite afirmar hechos fuera de ella.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkTimeFormatsSection.html"
+        },
+        {
+          "id": "w15d6-q06",
+          "prompt": "Varios intentos TCP no reciben respuesta en el punto capturado. ¿Qué conclusión es proporcionada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Describir el patrón observado y comprobar ruta, filtrado o disponibilidad con otras evidencias"
+            },
+            {
+              "id": "b",
+              "text": "Declarar una única causa sin ninguna comprobación adicional"
+            },
+            {
+              "id": "c",
+              "text": "Confirmar que la contraseña del usuario era incorrecta"
+            },
+            {
+              "id": "d",
+              "text": "Afirmar que DNS devolvió obligatoriamente NXDOMAIN"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un síntoma de transporte admite varias causas que deben contrastarse.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc9293.html"
+        },
+        {
+          "id": "w15d6-q07",
+          "prompt": "¿Por qué debe preservarse una copia original de la captura antes del análisis?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para que el archivo cambie de protocolo de red"
+            },
+            {
+              "id": "b",
+              "text": "Para conservar la evidencia y poder reproducir el trabajo sobre una copia"
+            },
+            {
+              "id": "c",
+              "text": "Para evitar tener que documentar los filtros"
+            },
+            {
+              "id": "d",
+              "text": "Para que toda dirección IP se vuelva anónima automáticamente"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La conservación del original facilita distinguir evidencia de productos del análisis.",
+          "reference": "https://wiki.wireshark.org/CaptureFilters"
+        },
+        {
+          "id": "w15d6-q08",
+          "prompt": "Tres hallazgos tienen distintos grados de certeza. ¿Cómo conviene redactarlos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Presentándolos todos como hechos confirmados"
+            },
+            {
+              "id": "b",
+              "text": "Separando observaciones directas, hipótesis y limitaciones"
+            },
+            {
+              "id": "c",
+              "text": "Omitiendo cualquier dato que no apoye la conclusión"
+            },
+            {
+              "id": "d",
+              "text": "Asignando a todas las hipótesis la misma certeza sin justificarla"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un informe técnico deja claro qué se sabe y qué falta comprobar.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkTimeFormatsSection.html"
+        }
+      ],
+      "challenge": {
+        "id": "w15d6-challenge",
+        "prompt": "Caso: un informe afirma que la red atacó al servidor solo por tres retransmisiones. ¿Qué mejora requiere?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Reemplazar el número de paquetes por un adjetivo más fuerte"
+          },
+          {
+            "id": "b",
+            "text": "Eliminar las limitaciones del informe"
+          },
+          {
+            "id": "c",
+            "text": "Relacionar secuencia, tiempos, punto de captura y otras evidencias, distinguiendo hipótesis"
+          },
+          {
+            "id": "d",
+            "text": "Dar por hecho que toda retransmisión es intencionalmente maliciosa"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "Los indicadores requieren contexto para sostener una explicación causal.",
+        "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkTimeFormatsSection.html"
+      }
+    },
+    {
+      "dayId": "w15d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w15d7-q01",
+          "prompt": "En https://campus.example:8443/cursos/redes?tema=tcp#resumen, ¿cuál es el nombre de host sin puerto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "https"
+            },
+            {
+              "id": "b",
+              "text": "/cursos/redes"
+            },
+            {
+              "id": "c",
+              "text": "campus.example"
+            },
+            {
+              "id": "d",
+              "text": "tema=tcp"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El nombre de host identifica el destino nominal; esquema, ruta y consulta son componentes diferentes.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/API/URL",
+          "reviewOf": "w15d1-q01"
+        },
+        {
+          "id": "w15d7-q02",
+          "prompt": "¿Qué describe el modelo básico de una interacción HTTP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un cliente envía una solicitud y el servidor emite una respuesta"
+            },
+            {
+              "id": "b",
+              "text": "Un servidor DNS decide la contraseña del navegador"
+            },
+            {
+              "id": "c",
+              "text": "Un switch autentica cada método de aplicación"
+            },
+            {
+              "id": "d",
+              "text": "Todo intercambio exige enviar archivos completos en ambos sentidos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Distinguir solicitud y respuesta ayuda a interpretar las acciones del navegador.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview",
+          "reviewOf": "w15d2-q01"
+        },
+        {
+          "id": "w15d7-q03",
+          "prompt": "HTTP no recuerda por sí solo todos los pasos de un usuario. ¿Cómo puede una aplicación mantener una sesión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Suponiendo que una dirección IP identifica siempre a una persona"
+            },
+            {
+              "id": "b",
+              "text": "Reutilizando un único puerto TCP para todos los visitantes"
+            },
+            {
+              "id": "c",
+              "text": "Relacionando solicitudes con un identificador y estado gestionado por la aplicación"
+            },
+            {
+              "id": "d",
+              "text": "Guardando la contraseña en cada enlace del menú"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El estado de sesión requiere un diseño de aplicación, no confiar solo en la IP.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Cookies",
+          "reviewOf": "w15d3-q01"
+        },
+        {
+          "id": "w15d7-q04",
+          "prompt": "¿Qué añade TLS correctamente utilizado a una conexión web?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Protección de confidencialidad e integridad y autenticación del servidor según la validación"
+            },
+            {
+              "id": "b",
+              "text": "Una garantía sobre la honestidad de todo contenido publicado"
+            },
+            {
+              "id": "c",
+              "text": "La eliminación de todos los registros del servidor"
+            },
+            {
+              "id": "d",
+              "text": "Una copia de respaldo de la cuenta del usuario"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La seguridad del canal no certifica la calidad comercial o editorial del sitio.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security",
+          "reviewOf": "w15d4-q01"
+        },
+        {
+          "id": "w15d7-q05",
+          "prompt": "¿Qué permite hacer un filtro de visualización de Wireshark?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Recuperar paquetes que nunca fueron capturados"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar la configuración del firewall remoto"
+            },
+            {
+              "id": "c",
+              "text": "Cifrar el archivo de captura automáticamente"
+            },
+            {
+              "id": "d",
+              "text": "Seleccionar qué paquetes ya disponibles se muestran"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El filtro facilita revisar un subconjunto de la evidencia existente.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkBuildDisplayFilterSection.html",
+          "reviewOf": "w15d5-q01"
+        },
+        {
+          "id": "w15d7-q06",
+          "prompt": "¿Qué conjunto de datos inicia mejor un análisis de conversación de red?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el nombre del fabricante del equipo"
+            },
+            {
+              "id": "b",
+              "text": "Extremos, protocolo, tiempos y cantidad de tráfico"
+            },
+            {
+              "id": "c",
+              "text": "La conclusión final antes de revisar los paquetes"
+            },
+            {
+              "id": "d",
+              "text": "Una única captura de pantalla sin contexto"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Estos datos permiten acotar qué intercambio se está describiendo.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChStatConversations.html",
+          "reviewOf": "w15d6-q01"
+        },
+        {
+          "id": "w15d7-q07",
+          "prompt": "En la URL https://campus.example:8443/cursos/redes, ¿qué representa 8443?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El número de versión de IPv4"
+            },
+            {
+              "id": "b",
+              "text": "La cantidad de páginas del sitio"
+            },
+            {
+              "id": "c",
+              "text": "El puerto explícito elegido para ese destino"
+            },
+            {
+              "id": "d",
+              "text": "El identificador de la zona DNS"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una URL puede indicar un puerto distinto del habitual del esquema.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/API/URL",
+          "reviewOf": "w15d1-q02"
+        },
+        {
+          "id": "w15d7-q08",
+          "prompt": "Según su semántica, ¿para qué se utiliza GET principalmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambiar siempre la contraseña del servidor"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar un recurso obligatoriamente"
+            },
+            {
+              "id": "c",
+              "text": "Solicitar una representación de un recurso"
+            },
+            {
+              "id": "d",
+              "text": "Cifrar los datos sin necesidad de TLS"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El método describe la intención de la operación; no sustituye la protección del transporte.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods",
+          "reviewOf": "w15d2-q02"
+        },
+        {
+          "id": "w15d7-q09",
+          "prompt": "¿Qué debe protegerse especialmente en una cookie que identifica una sesión autenticada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el nombre visible de la pestaña"
+            },
+            {
+              "id": "b",
+              "text": "Únicamente el tamaño del icono de la aplicación"
+            },
+            {
+              "id": "c",
+              "text": "Su valor de sesión para impedir usos no autorizados"
+            },
+            {
+              "id": "d",
+              "text": "La posición del botón de recarga"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Quien obtenga un identificador válido puede llegar a actuar dentro de la sesión.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Cookies",
+          "reviewOf": "w15d3-q02"
+        },
+        {
+          "id": "w15d7-q10",
+          "prompt": "¿Qué dato debe coincidir al validar el certificado para un sitio visitado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La etiqueta visible de la pestaña, aunque el nombre no coincida"
+            },
+            {
+              "id": "b",
+              "text": "La longitud del cable y la del documento"
+            },
+            {
+              "id": "c",
+              "text": "El nombre solicitado y los nombres autorizados por el certificado"
+            },
+            {
+              "id": "d",
+              "text": "El puerto de origen del cliente, sin validar el nombre del certificado"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La validación de nombre ayuda a comprobar que el certificado corresponde al destino esperado.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security",
+          "reviewOf": "w15d4-q02"
+        },
+        {
+          "id": "w15d7-q11",
+          "prompt": "¿Cuál es un filtro de visualización válido para paquetes IPv4 con origen o destino 192.0.2.7?",
+          "options": [
+            {
+              "id": "a",
+              "text": "ip = 192.0.2.7 como asignación"
+            },
+            {
+              "id": "b",
+              "text": "host 192.0.2.7 escrito como filtro de visualización"
+            },
+            {
+              "id": "c",
+              "text": "ip.addr == 192.0.2.7"
+            },
+            {
+              "id": "d",
+              "text": "tcp.status == 192.0.2.7"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La sintaxis de visualización usa campos del disector y operadores.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkBuildDisplayFilterSection.html",
+          "reviewOf": "w15d5-q02"
+        },
+        {
+          "id": "w15d7-q12",
+          "prompt": "Dos archivos usan zonas horarias distintas. ¿Qué debes hacer antes de correlacionarlos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Normalizar o documentar sus referencias temporales y posibles diferencias de reloj"
+            },
+            {
+              "id": "b",
+              "text": "Ordenarlos por tamaño y asumir la misma hora"
+            },
+            {
+              "id": "c",
+              "text": "Ignorar todos los eventos que no coincidan al segundo"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar la dirección de origen de los paquetes"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La correlación necesita una base de tiempo comparable.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkTimeFormatsSection.html",
+          "reviewOf": "w15d6-q02"
+        },
+        {
+          "id": "w15d7-q13",
+          "prompt": "En https://campus.example/cursos/redes?tema=tcp, ¿cuál es la ruta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "/cursos/redes"
+            },
+            {
+              "id": "b",
+              "text": "campus.example"
+            },
+            {
+              "id": "c",
+              "text": "https://"
+            },
+            {
+              "id": "d",
+              "text": "tema=tcp"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La ruta identifica el recurso dentro del destino, separada de la consulta.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/API/URL",
+          "reviewOf": "w15d1-q03"
+        },
+        {
+          "id": "w15d7-q14",
+          "prompt": "Un formulario usa POST. ¿Qué afirmación evita una conclusión incorrecta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "POST no cifra por sí mismo el contenido enviado"
+            },
+            {
+              "id": "b",
+              "text": "POST garantiza que ningún registro conservará los datos"
+            },
+            {
+              "id": "c",
+              "text": "POST demuestra que el sitio pertenece a un banco"
+            },
+            {
+              "id": "d",
+              "text": "POST impide toda modificación del servidor"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La confidencialidad del tránsito depende de mecanismos como HTTPS/TLS.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods",
+          "reviewOf": "w15d2-q03"
+        },
+        {
+          "id": "w15d7-q15",
+          "prompt": "¿Qué aporta el atributo Secure a una cookie?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cifrarla automáticamente cuando se almacena en todos los discos"
+            },
+            {
+              "id": "b",
+              "text": "Demostrar que nunca puede ser robada"
+            },
+            {
+              "id": "c",
+              "text": "Bloquear toda petición entre aplicaciones"
+            },
+            {
+              "id": "d",
+              "text": "Restringir su envío a conexiones seguras según las reglas del navegador"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Secure protege su envío; no representa una defensa completa.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Set-Cookie",
+          "reviewOf": "w15d3-q03"
+        },
+        {
+          "id": "w15d7-q16",
+          "prompt": "El navegador avisa de un certificado vencido o con nombre incorrecto. ¿Qué debes hacer en un entorno normal?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Detenerte y revisar el destino y la causa antes de continuar"
+            },
+            {
+              "id": "b",
+              "text": "Aceptar siempre porque cualquier cifrado basta"
+            },
+            {
+              "id": "c",
+              "text": "Enviar credenciales para comprobar si el sitio responde"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar solo la resolución de pantalla"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una alerta de validación requiere investigación; no debe sortearse automáticamente.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security",
+          "reviewOf": "w15d4-q03"
+        },
+        {
+          "id": "w15d7-q17",
+          "prompt": "¿Qué diferencia hay entre un filtro de captura y uno de visualización?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ambos recuperan tráfico que no pasó por la interfaz"
+            },
+            {
+              "id": "b",
+              "text": "El primero filtra después de guardar; el segundo decide lo capturado"
+            },
+            {
+              "id": "c",
+              "text": "Ambos utilizan siempre exactamente la misma sintaxis"
+            },
+            {
+              "id": "d",
+              "text": "El primero limita lo registrado; el segundo selecciona lo mostrado después"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Excluir tráfico durante la captura impide revisarlo posteriormente en ese archivo.",
+          "reference": "https://wiki.wireshark.org/CaptureFilters",
+          "reviewOf": "w15d5-q03"
+        },
+        {
+          "id": "w15d7-q18",
+          "prompt": "Una consulta DNS precede una conexión web. ¿Qué afirmación es una hipótesis y no un hecho demostrado por esa secuencia sola?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que se registró una consulta DNS"
+            },
+            {
+              "id": "b",
+              "text": "Que después se registró una conexión entre extremos"
+            },
+            {
+              "id": "c",
+              "text": "Que existen marcas temporales en la captura"
+            },
+            {
+              "id": "d",
+              "text": "Que una persona concreta introdujo credenciales en la página"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La captura no demuestra por sí sola todas las acciones humanas.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChStatConversations.html",
+          "reviewOf": "w15d6-q03"
+        },
+        {
+          "id": "w15d7-q19",
+          "prompt": "¿Qué componente de https://campus.example/buscar?q=seguridad introduce la consulta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "#q=seguridad"
+            },
+            {
+              "id": "b",
+              "text": "https:"
+            },
+            {
+              "id": "c",
+              "text": "?q=seguridad"
+            },
+            {
+              "id": "d",
+              "text": "/campus.example"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El signo de interrogación inicia los parámetros de consulta de la URL.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/API/URL",
+          "reviewOf": "w15d1-q04"
+        },
+        {
+          "id": "w15d7-q20",
+          "prompt": "Una captura pasiva observa HTTPS sin claves de sesión. ¿Qué puede analizar normalmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todas las contraseñas del formulario en texto claro"
+            },
+            {
+              "id": "b",
+              "text": "El historial completo del usuario en el equipo"
+            },
+            {
+              "id": "c",
+              "text": "Extremos, tamaños y tiempos, sin asumir que conoce el contenido HTTP cifrado"
+            },
+            {
+              "id": "d",
+              "text": "La clave privada del servidor automáticamente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los metadatos pueden ser observables aunque el contenido esté protegido.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security",
+          "reviewOf": "w15d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w15d7-challenge",
+        "prompt": "Caso semanal: observas extremos, tiempos y tamaños de HTTPS, pero no tienes secretos de sesión. ¿Qué informe es válido?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Reproducir las contraseñas supuestas como si fueran evidencia"
+          },
+          {
+            "id": "b",
+            "text": "Afirmar que el tamaño revela inequívocamente cada página visitada"
+          },
+          {
+            "id": "c",
+            "text": "Concluir que todo el contenido era benigno porque estaba cifrado"
+          },
+          {
+            "id": "d",
+            "text": "Describir esos metadatos y declarar que el contenido de aplicación no se ha observado"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La interpretación debe respetar la frontera entre lo observable y lo cifrado.",
+        "reference": "https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security"
+      }
+    }
+  ]
+}

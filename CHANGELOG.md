@@ -1,5 +1,16 @@
 # Registro de cambios
 
+## 1.5.0 — Correcciones del flujo de estudio
+
+- Borradores de notas independientes por sesión, guardado antes de navegar y recuperación tras un fallo de persistencia.
+- Recursos, búsqueda y temporizador actualizan sus controles sin reconstruir toda la pantalla ni cerrar los reproductores.
+- Registro manual de estudio externo y etiqueta de la sesión que contabiliza el temporizador.
+- Inicio centrado en la actividad actual, semanas desplegables y portadas con encuadre estable.
+- Un solo archivo CSS, paneles de lectura más opacos y controles móviles más amplios.
+- Bancos formativos para las 52 semanas; los repasos semanales de los bloques nuevos identifican sus preguntas de origen con `reviewOf`.
+- Índice de evaluaciones ligero y carga del banco de cada semana solo cuando se abre una práctica o prueba.
+- Pruebas de regresión para notas, navegación, reproducción, búsquedas, tiempo manual y avance hasta la sesión 364.
+
 ## 1.4.0 — Un espacio claro y portadas por semana
 
 - Nuevo logotipo y tipografía adaptable del sistema; sustituye Times New Roman.

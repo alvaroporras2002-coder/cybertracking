@@ -1,0 +1,2094 @@
+{
+  "week": 22,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w22d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w22d1-q01",
+          "prompt": "¿Qué caracteriza al cifrado simétrico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una clave pública para todos los procesos"
+            },
+            {
+              "id": "b",
+              "text": "La ausencia de claves"
+            },
+            {
+              "id": "c",
+              "text": "Una contraseña distinta por cada byte"
+            },
+            {
+              "id": "d",
+              "text": "Una clave secreta compartida para cifrar y descifrar"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Ambos extremos deben proteger el secreto utilizado por el mecanismo simétrico.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
+        },
+        {
+          "id": "w22d1-q02",
+          "prompt": "¿Qué caracteriza a un par asimétrico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una clave pública y una privada relacionadas"
+            },
+            {
+              "id": "b",
+              "text": "Dos nombres para una misma contraseña pública"
+            },
+            {
+              "id": "c",
+              "text": "Un hash y una copia de seguridad"
+            },
+            {
+              "id": "d",
+              "text": "Dos certificados sin claves"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las funciones se distribuyen entre claves relacionadas con necesidades de protección distintas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
+        },
+        {
+          "id": "w22d1-q03",
+          "prompt": "Para cifrar grandes volúmenes de datos, ¿qué suele usarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Base64 sin secretos"
+            },
+            {
+              "id": "b",
+              "text": "Cifrado simétrico con una clave gestionada adecuadamente"
+            },
+            {
+              "id": "c",
+              "text": "Un hash irreversible como sustituto del archivo"
+            },
+            {
+              "id": "d",
+              "text": "Solo un nombre de archivo oculto"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El cifrado simétrico suele ser eficiente para proteger contenido en volumen.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
+        },
+        {
+          "id": "w22d1-q04",
+          "prompt": "Para que solo el receptor descifre, ¿qué debe proteger especialmente ese receptor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La clave pública publicada"
+            },
+            {
+              "id": "b",
+              "text": "El nombre del algoritmo"
+            },
+            {
+              "id": "c",
+              "text": "Su clave privada de descifrado"
+            },
+            {
+              "id": "d",
+              "text": "El formato del mensaje"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El secreto de la clave privada sostiene la confidencialidad del mecanismo asimétrico.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
+        },
+        {
+          "id": "w22d1-q05",
+          "prompt": "¿Qué pretende un sistema híbrido de cifrado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Combinar gestión asimétrica de claves con cifrado simétrico de datos"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar toda necesidad de claves"
+            },
+            {
+              "id": "c",
+              "text": "Usar únicamente codificación de texto"
+            },
+            {
+              "id": "d",
+              "text": "Publicar el secreto junto al mensaje"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los sistemas híbridos aprovechan propiedades distintas de ambos tipos de criptografía.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
+        },
+        {
+          "id": "w22d1-q06",
+          "prompt": "Un disco está cifrado, pero el equipo está desbloqueado. ¿Qué límite importa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Nadie puede leer ningún dato"
+            },
+            {
+              "id": "b",
+              "text": "El cifrado del disco no impide todo acceso mediante la sesión activa"
+            },
+            {
+              "id": "c",
+              "text": "La sesión se convierte en una clave pública"
+            },
+            {
+              "id": "d",
+              "text": "El disco deja de necesitar permisos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los datos descifrados para uso legítimo pueden quedar accesibles por la sesión o aplicaciones.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
+        },
+        {
+          "id": "w22d1-q07",
+          "prompt": "¿Qué protege cifrado en tránsito?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Toda copia posterior en cualquier equipo"
+            },
+            {
+              "id": "b",
+              "text": "La eliminación segura del soporte"
+            },
+            {
+              "id": "c",
+              "text": "Datos durante el transporte entre los extremos protegidos"
+            },
+            {
+              "id": "d",
+              "text": "Los permisos de lectura de una base"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El cifrado de transporte tiene un alcance distinto del cifrado en reposo y del acceso final.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
+        },
+        {
+          "id": "w22d1-q08",
+          "prompt": "¿Qué puede causar guardar clave y copia cifrada bajo el mismo acceso sin separación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el cifrado sea matemáticamente irreversible"
+            },
+            {
+              "id": "b",
+              "text": "Que un compromiso permita obtener ambas"
+            },
+            {
+              "id": "c",
+              "text": "Que los datos se hagan anónimos"
+            },
+            {
+              "id": "d",
+              "text": "Que desaparezca el riesgo de pérdida"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La protección depende también de quién puede obtener las claves, no solo del algoritmo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
+        }
+      ],
+      "challenge": {
+        "id": "w22d1-challenge",
+        "prompt": "Caso: quieres proteger un archivo grande y enviar su clave al receptor de forma segura. ¿Qué diseño encaja?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Aplicar Base64 y publicar la receta"
+          },
+          {
+            "id": "b",
+            "text": "Calcular un hash y borrar el original"
+          },
+          {
+            "id": "c",
+            "text": "Cifrar datos con clave simétrica y proteger su intercambio con un mecanismo adecuado"
+          },
+          {
+            "id": "d",
+            "text": "Enviar archivo y clave juntos sin protección"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La selección combina confidencialidad eficiente y una distribución de clave protegida.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
+      }
+    },
+    {
+      "dayId": "w22d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w22d2-q01",
+          "prompt": "¿Qué produce una función hash criptográfica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un resumen de longitud definida para el algoritmo"
+            },
+            {
+              "id": "b",
+              "text": "Un archivo cifrado recuperable con contraseña"
+            },
+            {
+              "id": "c",
+              "text": "Una copia comprimida reversible"
+            },
+            {
+              "id": "d",
+              "text": "Una clave pública de identidad"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El resumen representa contenido para comparación; no conserva una vía de descifrado.",
+          "reference": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"
+        },
+        {
+          "id": "w22d2-q02",
+          "prompt": "Dos archivos difieren en un byte. ¿Qué se espera normalmente de sus hashes criptográficos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El mismo resumen por tener tamaño parecido"
+            },
+            {
+              "id": "b",
+              "text": "Resúmenes distintos"
+            },
+            {
+              "id": "c",
+              "text": "Un certificado nuevo"
+            },
+            {
+              "id": "d",
+              "text": "Una contraseña de usuario nueva"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La sensibilidad a cambios permite detectar modificaciones de contenido.",
+          "reference": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"
+        },
+        {
+          "id": "w22d2-q03",
+          "prompt": "¿Qué fuente del hash esperado aporta más confianza?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El mismo sitio sospechoso sin protección"
+            },
+            {
+              "id": "b",
+              "text": "Un nombre de archivo elegido al azar"
+            },
+            {
+              "id": "c",
+              "text": "Una fuente autenticada independiente del archivo recibido"
+            },
+            {
+              "id": "d",
+              "text": "El tamaño de la carpeta"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Si un atacante sustituye archivo y resumen, la comparación sola no autentica el origen.",
+          "reference": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"
+        },
+        {
+          "id": "w22d2-q04",
+          "prompt": "¿Qué demuestra por sí sola la coincidencia con un hash confiable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el contenido es inocuo"
+            },
+            {
+              "id": "b",
+              "text": "Que nadie lo leyó"
+            },
+            {
+              "id": "c",
+              "text": "Correspondencia del contenido con el valor esperado"
+            },
+            {
+              "id": "d",
+              "text": "Que el autor es legalmente responsable"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La comparación de integridad no analiza seguridad semántica ni acceso histórico.",
+          "reference": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"
+        },
+        {
+          "id": "w22d2-q05",
+          "prompt": "¿Por qué un hash simple no es cifrado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No se diseña para recuperar el mensaje con una clave"
+            },
+            {
+              "id": "b",
+              "text": "Porque siempre contiene todo el texto"
+            },
+            {
+              "id": "c",
+              "text": "Porque solo acepta números"
+            },
+            {
+              "id": "d",
+              "text": "Porque necesita una autoridad certificadora"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Hash y cifrado sirven finalidades diferentes: resumen frente a confidencialidad recuperable.",
+          "reference": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"
+        },
+        {
+          "id": "w22d2-q06",
+          "prompt": "¿Qué es una colisión de hash?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un fichero que cambia de nombre"
+            },
+            {
+              "id": "b",
+              "text": "Dos entradas distintas con el mismo resumen"
+            },
+            {
+              "id": "c",
+              "text": "Una clave que caduca"
+            },
+            {
+              "id": "d",
+              "text": "Una copia que se almacena fuera del sitio"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las colisiones son posibles en teoría; la resistencia criptográfica busca hacerlas inviables de encontrar.",
+          "reference": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"
+        },
+        {
+          "id": "w22d2-q07",
+          "prompt": "¿Qué debe compararse para comprobar un archivo transferido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hash de bytes originales y recibidos con el mismo algoritmo"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombres visibles"
+            },
+            {
+              "id": "c",
+              "text": "Solo fechas de creación"
+            },
+            {
+              "id": "d",
+              "text": "Solo extensiones"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La comparación requiere el mismo contenido binario y algoritmo, sin transformaciones inadvertidas.",
+          "reference": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"
+        },
+        {
+          "id": "w22d2-q08",
+          "prompt": "Un editor añade un salto de línea y cambia el hash. ¿Qué conclusión es correcta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La función hash falló"
+            },
+            {
+              "id": "b",
+              "text": "Cambió el contenido binario aunque visualmente parezca igual"
+            },
+            {
+              "id": "c",
+              "text": "Se ha confirmado ransomware"
+            },
+            {
+              "id": "d",
+              "text": "El archivo se descifró"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los saltos de línea y codificaciones son bytes que afectan el resumen.",
+          "reference": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w22d2-challenge",
+        "prompt": "Caso: el hash cambia tras abrir y guardar un CSV con otra codificación. ¿Cómo interpretar el resultado?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Es prueba definitiva de intrusión"
+          },
+          {
+            "id": "b",
+            "text": "El archivo no contiene ya datos"
+          },
+          {
+            "id": "c",
+            "text": "Hay cambio de bytes; investigar la transformación antes de atribuir ataque"
+          },
+          {
+            "id": "d",
+            "text": "El hash garantiza que nadie lo modificó"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "Un cambio detectado requiere contexto; no identifica por sí solo causa ni intención.",
+        "reference": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"
+      }
+    },
+    {
+      "dayId": "w22d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w22d3-q01",
+          "prompt": "¿Qué clave usa normalmente el firmante para generar una firma digital?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Su clave privada de firma"
+            },
+            {
+              "id": "b",
+              "text": "La clave pública del receptor"
+            },
+            {
+              "id": "c",
+              "text": "Un certificado sin clave privada"
+            },
+            {
+              "id": "d",
+              "text": "El hash público de otra persona"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La firma depende de material privado controlado por el firmante.",
+          "reference": "https://csrc.nist.gov/pubs/fips/186-5/final"
+        },
+        {
+          "id": "w22d3-q02",
+          "prompt": "¿Qué clave se usa para verificar una firma?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La contraseña de correo del receptor"
+            },
+            {
+              "id": "b",
+              "text": "La clave privada del receptor necesariamente"
+            },
+            {
+              "id": "c",
+              "text": "Una clave de disco aleatoria"
+            },
+            {
+              "id": "d",
+              "text": "La clave pública confiable del firmante"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La verificación requiere asociar correctamente la clave pública al firmante esperado.",
+          "reference": "https://csrc.nist.gov/pubs/fips/186-5/final"
+        },
+        {
+          "id": "w22d3-q03",
+          "prompt": "Si cambian los datos firmados, ¿qué se espera al verificar la firma original?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que la verificación falle"
+            },
+            {
+              "id": "b",
+              "text": "Que se descifren automáticamente"
+            },
+            {
+              "id": "c",
+              "text": "Que la firma se actualice sola"
+            },
+            {
+              "id": "d",
+              "text": "Que aumente la disponibilidad"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La firma está ligada al contenido; modificarlo rompe esa correspondencia.",
+          "reference": "https://csrc.nist.gov/pubs/fips/186-5/final"
+        },
+        {
+          "id": "w22d3-q04",
+          "prompt": "¿Una firma digital cifra automáticamente el documento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí, siempre lo vuelve secreto"
+            },
+            {
+              "id": "b",
+              "text": "Solo si el archivo es pequeño"
+            },
+            {
+              "id": "c",
+              "text": "No, el contenido puede seguir siendo legible"
+            },
+            {
+              "id": "d",
+              "text": "Solo si se guarda en PDF"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Firmar aporta autenticidad e integridad, mientras el cifrado aborda confidencialidad.",
+          "reference": "https://csrc.nist.gov/pubs/fips/186-5/final"
+        },
+        {
+          "id": "w22d3-q05",
+          "prompt": "Una firma verifica con una clave desconocida. ¿Qué falta determinar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El color de la firma"
+            },
+            {
+              "id": "b",
+              "text": "El número de páginas"
+            },
+            {
+              "id": "c",
+              "text": "La compresión del archivo"
+            },
+            {
+              "id": "d",
+              "text": "Si la clave corresponde al firmante esperado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una operación matemática válida no establece por sí sola la identidad humana del titular.",
+          "reference": "https://csrc.nist.gov/pubs/fips/186-5/final"
+        },
+        {
+          "id": "w22d3-q06",
+          "prompt": "Se roba una clave privada de firma. ¿Qué riesgo surge?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Se hacen públicas todas las contraseñas automáticamente"
+            },
+            {
+              "id": "b",
+              "text": "Se garantiza que toda firma anterior es falsa"
+            },
+            {
+              "id": "c",
+              "text": "Se elimina la necesidad de revocación"
+            },
+            {
+              "id": "d",
+              "text": "Un tercero puede generar firmas que aparenten proceder del titular"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La protección y el estado de la clave son esenciales para confiar en nuevas firmas.",
+          "reference": "https://csrc.nist.gov/pubs/fips/186-5/final"
+        },
+        {
+          "id": "w22d3-q07",
+          "prompt": "¿Por qué no compartir la clave privada de firma de un equipo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mejora siempre el no repudio"
+            },
+            {
+              "id": "b",
+              "text": "Dificulta atribuir quién generó cada firma"
+            },
+            {
+              "id": "c",
+              "text": "Permite verificar sin clave pública"
+            },
+            {
+              "id": "d",
+              "text": "Hace el documento anónimo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La atribución y responsabilidad requieren controlar uso y custodia de la clave.",
+          "reference": "https://csrc.nist.gov/pubs/fips/186-5/final"
+        },
+        {
+          "id": "w22d3-q08",
+          "prompt": "¿Qué información conviene conservar para verificar una firma más tarde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo una captura de «válido»"
+            },
+            {
+              "id": "b",
+              "text": "Solo el nombre del archivo"
+            },
+            {
+              "id": "c",
+              "text": "La clave privada publicada"
+            },
+            {
+              "id": "d",
+              "text": "Documento, firma y datos de confianza pertinentes"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La verificación posterior necesita contenido exacto y contexto de claves y confianza.",
+          "reference": "https://csrc.nist.gov/pubs/fips/186-5/final"
+        }
+      ],
+      "challenge": {
+        "id": "w22d3-challenge",
+        "prompt": "Caso: un contrato está firmado, pero su importe cambió y la verificación falla. ¿Qué afirmar?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El firmante autorizó el importe nuevo"
+          },
+          {
+            "id": "b",
+            "text": "El archivo es confidencial por tener firma"
+          },
+          {
+            "id": "c",
+            "text": "El contenido recibido no verifica con esa firma; investigar su procedencia"
+          },
+          {
+            "id": "d",
+            "text": "La firma garantiza que el cambio es legítimo"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "El fallo impide usar esa firma para validar el contenido actual y no identifica por sí solo al modificador.",
+        "reference": "https://csrc.nist.gov/pubs/fips/186-5/final"
+      }
+    },
+    {
+      "dayId": "w22d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w22d4-q01",
+          "prompt": "¿Qué vincula un certificado digital de clave pública?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una contraseña con todos los usuarios"
+            },
+            {
+              "id": "b",
+              "text": "La disponibilidad de un negocio"
+            },
+            {
+              "id": "c",
+              "text": "Una copia cifrada con su hash"
+            },
+            {
+              "id": "d",
+              "text": "Una identidad o nombre con una clave pública según su emisor"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El certificado incorpora una clave pública y datos que una autoridad firma.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5280"
+        },
+        {
+          "id": "w22d4-q02",
+          "prompt": "¿Qué papel tiene una autoridad certificadora?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conocer toda clave privada de cada servidor"
+            },
+            {
+              "id": "b",
+              "text": "Garantizar que todo sitio es honesto"
+            },
+            {
+              "id": "c",
+              "text": "Descifrar cualquier sesión automáticamente"
+            },
+            {
+              "id": "d",
+              "text": "Emitir y firmar certificados según sus políticas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La autoridad respalda la vinculación certificada dentro de un modelo de confianza.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5280"
+        },
+        {
+          "id": "w22d4-q03",
+          "prompt": "¿Por qué revisar el nombre del servicio en el certificado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para confirmar correspondencia con el destino esperado"
+            },
+            {
+              "id": "b",
+              "text": "Para medir ancho de banda"
+            },
+            {
+              "id": "c",
+              "text": "Para conocer permisos de archivos"
+            },
+            {
+              "id": "d",
+              "text": "Para verificar el contenido comercial del sitio"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un certificado válido para otro nombre no autentica el destino solicitado.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5280"
+        },
+        {
+          "id": "w22d4-q04",
+          "prompt": "¿Qué significa que un certificado esté fuera de su periodo de validez?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que todos sus datos son malware"
+            },
+            {
+              "id": "b",
+              "text": "Que la clave pública es una contraseña"
+            },
+            {
+              "id": "c",
+              "text": "No satisface esa comprobación temporal de confianza"
+            },
+            {
+              "id": "d",
+              "text": "Que el servidor no puede responder"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La validez temporal es una condición de validación, distinta de disponibilidad o intención.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5280"
+        },
+        {
+          "id": "w22d4-q05",
+          "prompt": "¿Para qué sirve una cadena de certificados?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Guardar contraseñas de los usuarios"
+            },
+            {
+              "id": "b",
+              "text": "Relacionar el certificado final con una raíz de confianza"
+            },
+            {
+              "id": "c",
+              "text": "Restaurar una copia eliminada"
+            },
+            {
+              "id": "d",
+              "text": "Comprimir la clave privada"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los emisores intermedios permiten verificar firmas hasta una autoridad de confianza.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5280"
+        },
+        {
+          "id": "w22d4-q06",
+          "prompt": "¿Qué pretende la revocación de un certificado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Retirar confianza antes de su caducidad cuando corresponde"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar automáticamente todo contenido del servidor"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar la clave pública de Internet"
+            },
+            {
+              "id": "d",
+              "text": "Aumentar su periodo de validez"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La revocación comunica que el certificado ya no debe aceptarse según el mecanismo aplicable.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5280"
+        },
+        {
+          "id": "w22d4-q07",
+          "prompt": "Un certificado autofirmado no es confiable por defecto. ¿Qué puede establecer confianza controlada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aceptar cualquier advertencia sin revisar"
+            },
+            {
+              "id": "b",
+              "text": "Publicar su clave privada"
+            },
+            {
+              "id": "c",
+              "text": "Distribuir y verificar explícitamente la confianza mediante un proceso autorizado"
+            },
+            {
+              "id": "d",
+              "text": "Ignorar todos los nombres del servicio"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La confianza necesita un ancla o verificación adecuada, no solo que exista una firma.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5280"
+        },
+        {
+          "id": "w22d4-q08",
+          "prompt": "¿Qué conclusión permite un certificado web validado correctamente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El sitio nunca estafará a nadie"
+            },
+            {
+              "id": "b",
+              "text": "La conexión se asocia al nombre validado dentro del modelo de confianza"
+            },
+            {
+              "id": "c",
+              "text": "Todos sus archivos están libres de malware"
+            },
+            {
+              "id": "d",
+              "text": "El negocio está auditado legalmente"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La validación del certificado no certifica toda conducta o contenido del sitio.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5280"
+        }
+      ],
+      "challenge": {
+        "id": "w22d4-challenge",
+        "prompt": "Caso: el certificado de ejemplo.org es válido, pero visitas pagos.ejemplo.net. ¿Qué debe resolverse?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo la velocidad de carga"
+          },
+          {
+            "id": "b",
+            "text": "Solo el color del candado"
+          },
+          {
+            "id": "c",
+            "text": "El tamaño de la página"
+          },
+          {
+            "id": "d",
+            "text": "La correspondencia del nombre solicitado con el certificado presentado"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La confianza de la cadena no sustituye comprobar que el certificado cubre el destino concreto.",
+        "reference": "https://www.rfc-editor.org/rfc/rfc5280"
+      }
+    },
+    {
+      "dayId": "w22d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w22d5-q01",
+          "prompt": "¿Qué práctica protege una clave privada de producción?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Pegarlа en el código público"
+            },
+            {
+              "id": "b",
+              "text": "Compartirla en el chat general"
+            },
+            {
+              "id": "c",
+              "text": "Almacenamiento restringido y uso controlado"
+            },
+            {
+              "id": "d",
+              "text": "Guardar solo su nombre"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La custodia de claves debe limitar quién puede extraerlas o utilizarlas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
+        },
+        {
+          "id": "w22d5-q02",
+          "prompt": "¿Qué aporta un módulo de seguridad hardware bien configurado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantía de que toda aplicación es segura"
+            },
+            {
+              "id": "b",
+              "text": "Eliminación de la autorización"
+            },
+            {
+              "id": "c",
+              "text": "Disponibilidad sin diseño de recuperación"
+            },
+            {
+              "id": "d",
+              "text": "Protección y operaciones de claves dentro de límites controlados"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El hardware especializado puede dificultar extracción, pero requiere políticas y operación correctas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
+        },
+        {
+          "id": "w22d5-q03",
+          "prompt": "¿Qué debe incluir un inventario de claves?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el color del servidor"
+            },
+            {
+              "id": "b",
+              "text": "Todas las claves en texto público"
+            },
+            {
+              "id": "c",
+              "text": "Un listado sin responsables"
+            },
+            {
+              "id": "d",
+              "text": "Propósito, dueño, ubicación, estado y periodo de uso"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El inventario permite gestionar uso, rotación, retirada y recuperación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
+        },
+        {
+          "id": "w22d5-q04",
+          "prompt": "Una clave de cifrado se pierde sin copia recuperable. ¿Qué puede ocurrir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Pérdida de acceso a los datos cifrados"
+            },
+            {
+              "id": "b",
+              "text": "Descifrado automático por la clave pública siempre"
+            },
+            {
+              "id": "c",
+              "text": "El archivo se transforma en Base64"
+            },
+            {
+              "id": "d",
+              "text": "La firma del servidor la reconstruye"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La confidencialidad fuerte también puede impedir recuperar datos si falta el material necesario.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
+        },
+        {
+          "id": "w22d5-q05",
+          "prompt": "¿Qué debe planificarse antes de rotar una clave de cifrado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cómo mantener acceso a datos anteriores y actualizar dependencias"
+            },
+            {
+              "id": "b",
+              "text": "Borrar primero toda clave antigua sin revisar"
+            },
+            {
+              "id": "c",
+              "text": "Publicar ambas claves"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar solo el nombre del secreto"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La rotación debe coordinar usuarios de la clave y recuperación de contenido existente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
+        },
+        {
+          "id": "w22d5-q06",
+          "prompt": "¿Qué acción requiere sospechar compromiso de una clave?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Esperar siempre a su fecha final"
+            },
+            {
+              "id": "b",
+              "text": "Continuar sin registrar"
+            },
+            {
+              "id": "c",
+              "text": "Añadir la clave a un archivo público"
+            },
+            {
+              "id": "d",
+              "text": "Evaluar alcance y reemplazar o revocar según su uso"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El tratamiento depende del tipo de clave y de qué operaciones pudo permitir.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
+        },
+        {
+          "id": "w22d5-q07",
+          "prompt": "¿Por qué separar permisos de administrar claves y consumir datos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para evitar toda recuperación"
+            },
+            {
+              "id": "b",
+              "text": "Para que nadie tenga responsabilidad"
+            },
+            {
+              "id": "c",
+              "text": "Reducir capacidad de una sola cuenta para abusar de ambos"
+            },
+            {
+              "id": "d",
+              "text": "Para impedir auditorías"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La separación de funciones limita combinaciones peligrosas de privilegios.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
+        },
+        {
+          "id": "w22d5-q08",
+          "prompt": "¿Qué valida un ejercicio de recuperación de claves?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que la clave puede publicarse"
+            },
+            {
+              "id": "b",
+              "text": "Que no harán falta respaldos"
+            },
+            {
+              "id": "c",
+              "text": "Que un proceso autorizado puede recuperar el material requerido"
+            },
+            {
+              "id": "d",
+              "text": "Que todo usuario puede descifrar"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La recuperación debe ser posible para autorizados sin convertir la clave en información abierta.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
+        }
+      ],
+      "challenge": {
+        "id": "w22d5-challenge",
+        "prompt": "Caso: la clave del respaldo solo está en el portátil que también se respaldará. ¿Qué debilidad existe?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La pérdida del portátil puede impedir descifrar la copia"
+          },
+          {
+            "id": "b",
+            "text": "Hay redundancia independiente garantizada"
+          },
+          {
+            "id": "c",
+            "text": "El respaldo deja de contener datos"
+          },
+          {
+            "id": "d",
+            "text": "El cifrado no necesita claves"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "Guardar la única clave junto al activo crea un fallo compartido que afecta recuperabilidad.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
+      }
+    },
+    {
+      "dayId": "w22d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w22d6-q01",
+          "prompt": "¿Qué objetivo cumple Base64?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Representar datos mediante una codificación reversible"
+            },
+            {
+              "id": "b",
+              "text": "Mantener secreto frente a quien conoce el formato"
+            },
+            {
+              "id": "c",
+              "text": "Autenticar al autor"
+            },
+            {
+              "id": "d",
+              "text": "Detectar todos los cambios maliciosos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La codificación facilita representación; no necesita una clave secreta para revertirse.",
+          "reference": "https://gchq.github.io/CyberChef/"
+        },
+        {
+          "id": "w22d6-q02",
+          "prompt": "¿Qué diferencia tokenización de cifrado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Siempre convierte texto a números binarios sin tabla"
+            },
+            {
+              "id": "b",
+              "text": "Es un hash de archivo obligatoriamente"
+            },
+            {
+              "id": "c",
+              "text": "Publica la clave privada"
+            },
+            {
+              "id": "d",
+              "text": "Sustituye un valor por un token asociado según un sistema"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La recuperación o uso del valor depende del diseño del sistema de tokenización.",
+          "reference": "https://gchq.github.io/CyberChef/"
+        },
+        {
+          "id": "w22d6-q03",
+          "prompt": "¿Qué hace el enmascaramiento de un número «****1234»?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Oculta parte del valor en esa representación"
+            },
+            {
+              "id": "b",
+              "text": "Demuestra que el original se eliminó de toda copia"
+            },
+            {
+              "id": "c",
+              "text": "Cifra con clave pública"
+            },
+            {
+              "id": "d",
+              "text": "Garantiza anonimato del conjunto"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Ocultar caracteres reduce exposición visible, pero no demuestra eliminación ni anonimización completa.",
+          "reference": "https://gchq.github.io/CyberChef/"
+        },
+        {
+          "id": "w22d6-q04",
+          "prompt": "¿Por qué usar texto sintético al comparar transformaciones?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque la codificación exige datos falsos"
+            },
+            {
+              "id": "b",
+              "text": "Porque los hashes no aceptan texto real"
+            },
+            {
+              "id": "c",
+              "text": "Evitar exponer secretos durante la práctica"
+            },
+            {
+              "id": "d",
+              "text": "Para desactivar validación de recetas"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La finalidad educativa puede cumplirse sin datos personales ni secretos operativos.",
+          "reference": "https://gchq.github.io/CyberChef/"
+        },
+        {
+          "id": "w22d6-q05",
+          "prompt": "Una receta convierte texto a Base64 y después lo revierte. ¿Qué evidencia aporta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que existe cifrado fuerte"
+            },
+            {
+              "id": "b",
+              "text": "Que nadie leyó el texto"
+            },
+            {
+              "id": "c",
+              "text": "Que el autor quedó autenticado"
+            },
+            {
+              "id": "d",
+              "text": "La reversibilidad de esa codificación"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La reversión sin clave muestra que no se obtiene confidencialidad por ese mecanismo.",
+          "reference": "https://gchq.github.io/CyberChef/"
+        },
+        {
+          "id": "w22d6-q06",
+          "prompt": "Un enlace de receta incluye la entrada. ¿Qué riesgo considerar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El enlace solo contiene colores"
+            },
+            {
+              "id": "b",
+              "text": "Todo enlace elimina la entrada"
+            },
+            {
+              "id": "c",
+              "text": "Compartir el enlace puede compartir también esos datos"
+            },
+            {
+              "id": "d",
+              "text": "La entrada se vuelve un hash automáticamente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los enlaces y parámetros pueden contener datos; deben revisarse antes de compartir.",
+          "reference": "https://gchq.github.io/CyberChef/"
+        },
+        {
+          "id": "w22d6-q07",
+          "prompt": "¿Cómo distinguir un hash de una transformación reversible en una explicación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Comparar solo longitud visual"
+            },
+            {
+              "id": "b",
+              "text": "Clasificar todo texto ilegible como cifrado"
+            },
+            {
+              "id": "c",
+              "text": "Mirar únicamente la extensión"
+            },
+            {
+              "id": "d",
+              "text": "Indicar propósito, necesidad de clave y posibilidad de recuperar entrada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El aspecto no determina las propiedades de seguridad del mecanismo.",
+          "reference": "https://gchq.github.io/CyberChef/"
+        },
+        {
+          "id": "w22d6-q08",
+          "prompt": "¿Qué debe constar para reproducir una transformación educativa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la imagen final sin receta"
+            },
+            {
+              "id": "b",
+              "text": "Una clave real de producción"
+            },
+            {
+              "id": "c",
+              "text": "Entrada sintética, operaciones, parámetros y resultado"
+            },
+            {
+              "id": "d",
+              "text": "El historial personal del navegador"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La receta y parámetros permiten comprender y repetir el resultado con datos seguros.",
+          "reference": "https://gchq.github.io/CyberChef/"
+        }
+      ],
+      "challenge": {
+        "id": "w22d6-challenge",
+        "prompt": "Caso: alguien entrega un secreto en Base64 y dice que está cifrado. ¿Qué corrección es precisa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Base64 garantiza confidencialidad si el texto es largo"
+          },
+          {
+            "id": "b",
+            "text": "Base64 se revierte sin clave; usar cifrado y gestión de claves si se necesita secreto"
+          },
+          {
+            "id": "c",
+            "text": "Añadir otra capa de Base64 resuelve todo"
+          },
+          {
+            "id": "d",
+            "text": "Cambiar la extensión convierte el dato en cifrado"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La codificación cambia representación y no ofrece la protección de un mecanismo criptográfico de confidencialidad.",
+        "reference": "https://gchq.github.io/CyberChef/"
+      }
+    },
+    {
+      "dayId": "w22d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w22d7-q01",
+          "prompt": "¿Qué caracteriza al cifrado simétrico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una clave pública para todos los procesos"
+            },
+            {
+              "id": "b",
+              "text": "La ausencia de claves"
+            },
+            {
+              "id": "c",
+              "text": "Una contraseña distinta por cada byte"
+            },
+            {
+              "id": "d",
+              "text": "Una clave secreta compartida para cifrar y descifrar"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Ambos extremos deben proteger el secreto utilizado por el mecanismo simétrico.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final",
+          "reviewOf": "w22d1-q01"
+        },
+        {
+          "id": "w22d7-q02",
+          "prompt": "¿Qué produce una función hash criptográfica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un resumen de longitud definida para el algoritmo"
+            },
+            {
+              "id": "b",
+              "text": "Un archivo cifrado recuperable con contraseña"
+            },
+            {
+              "id": "c",
+              "text": "Una copia comprimida reversible"
+            },
+            {
+              "id": "d",
+              "text": "Una clave pública de identidad"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El resumen representa contenido para comparación; no conserva una vía de descifrado.",
+          "reference": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final",
+          "reviewOf": "w22d2-q01"
+        },
+        {
+          "id": "w22d7-q03",
+          "prompt": "¿Qué clave usa normalmente el firmante para generar una firma digital?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Su clave privada de firma"
+            },
+            {
+              "id": "b",
+              "text": "La clave pública del receptor"
+            },
+            {
+              "id": "c",
+              "text": "Un certificado sin clave privada"
+            },
+            {
+              "id": "d",
+              "text": "El hash público de otra persona"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La firma depende de material privado controlado por el firmante.",
+          "reference": "https://csrc.nist.gov/pubs/fips/186-5/final",
+          "reviewOf": "w22d3-q01"
+        },
+        {
+          "id": "w22d7-q04",
+          "prompt": "¿Qué vincula un certificado digital de clave pública?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una contraseña con todos los usuarios"
+            },
+            {
+              "id": "b",
+              "text": "La disponibilidad de un negocio"
+            },
+            {
+              "id": "c",
+              "text": "Una copia cifrada con su hash"
+            },
+            {
+              "id": "d",
+              "text": "Una identidad o nombre con una clave pública según su emisor"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El certificado incorpora una clave pública y datos que una autoridad firma.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5280",
+          "reviewOf": "w22d4-q01"
+        },
+        {
+          "id": "w22d7-q05",
+          "prompt": "¿Qué práctica protege una clave privada de producción?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Pegarlа en el código público"
+            },
+            {
+              "id": "b",
+              "text": "Compartirla en el chat general"
+            },
+            {
+              "id": "c",
+              "text": "Almacenamiento restringido y uso controlado"
+            },
+            {
+              "id": "d",
+              "text": "Guardar solo su nombre"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La custodia de claves debe limitar quién puede extraerlas o utilizarlas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final",
+          "reviewOf": "w22d5-q01"
+        },
+        {
+          "id": "w22d7-q06",
+          "prompt": "¿Qué objetivo cumple Base64?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Representar datos mediante una codificación reversible"
+            },
+            {
+              "id": "b",
+              "text": "Mantener secreto frente a quien conoce el formato"
+            },
+            {
+              "id": "c",
+              "text": "Autenticar al autor"
+            },
+            {
+              "id": "d",
+              "text": "Detectar todos los cambios maliciosos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La codificación facilita representación; no necesita una clave secreta para revertirse.",
+          "reference": "https://gchq.github.io/CyberChef/",
+          "reviewOf": "w22d6-q01"
+        },
+        {
+          "id": "w22d7-q07",
+          "prompt": "¿Qué caracteriza a un par asimétrico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una clave pública y una privada relacionadas"
+            },
+            {
+              "id": "b",
+              "text": "Dos nombres para una misma contraseña pública"
+            },
+            {
+              "id": "c",
+              "text": "Un hash y una copia de seguridad"
+            },
+            {
+              "id": "d",
+              "text": "Dos certificados sin claves"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las funciones se distribuyen entre claves relacionadas con necesidades de protección distintas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final",
+          "reviewOf": "w22d1-q02"
+        },
+        {
+          "id": "w22d7-q08",
+          "prompt": "Dos archivos difieren en un byte. ¿Qué se espera normalmente de sus hashes criptográficos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El mismo resumen por tener tamaño parecido"
+            },
+            {
+              "id": "b",
+              "text": "Resúmenes distintos"
+            },
+            {
+              "id": "c",
+              "text": "Un certificado nuevo"
+            },
+            {
+              "id": "d",
+              "text": "Una contraseña de usuario nueva"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La sensibilidad a cambios permite detectar modificaciones de contenido.",
+          "reference": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final",
+          "reviewOf": "w22d2-q02"
+        },
+        {
+          "id": "w22d7-q09",
+          "prompt": "¿Qué clave se usa para verificar una firma?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La contraseña de correo del receptor"
+            },
+            {
+              "id": "b",
+              "text": "La clave privada del receptor necesariamente"
+            },
+            {
+              "id": "c",
+              "text": "Una clave de disco aleatoria"
+            },
+            {
+              "id": "d",
+              "text": "La clave pública confiable del firmante"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La verificación requiere asociar correctamente la clave pública al firmante esperado.",
+          "reference": "https://csrc.nist.gov/pubs/fips/186-5/final",
+          "reviewOf": "w22d3-q02"
+        },
+        {
+          "id": "w22d7-q10",
+          "prompt": "¿Qué papel tiene una autoridad certificadora?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conocer toda clave privada de cada servidor"
+            },
+            {
+              "id": "b",
+              "text": "Garantizar que todo sitio es honesto"
+            },
+            {
+              "id": "c",
+              "text": "Descifrar cualquier sesión automáticamente"
+            },
+            {
+              "id": "d",
+              "text": "Emitir y firmar certificados según sus políticas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La autoridad respalda la vinculación certificada dentro de un modelo de confianza.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5280",
+          "reviewOf": "w22d4-q02"
+        },
+        {
+          "id": "w22d7-q11",
+          "prompt": "¿Qué aporta un módulo de seguridad hardware bien configurado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantía de que toda aplicación es segura"
+            },
+            {
+              "id": "b",
+              "text": "Eliminación de la autorización"
+            },
+            {
+              "id": "c",
+              "text": "Disponibilidad sin diseño de recuperación"
+            },
+            {
+              "id": "d",
+              "text": "Protección y operaciones de claves dentro de límites controlados"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El hardware especializado puede dificultar extracción, pero requiere políticas y operación correctas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final",
+          "reviewOf": "w22d5-q02"
+        },
+        {
+          "id": "w22d7-q12",
+          "prompt": "¿Qué diferencia tokenización de cifrado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Siempre convierte texto a números binarios sin tabla"
+            },
+            {
+              "id": "b",
+              "text": "Es un hash de archivo obligatoriamente"
+            },
+            {
+              "id": "c",
+              "text": "Publica la clave privada"
+            },
+            {
+              "id": "d",
+              "text": "Sustituye un valor por un token asociado según un sistema"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La recuperación o uso del valor depende del diseño del sistema de tokenización.",
+          "reference": "https://gchq.github.io/CyberChef/",
+          "reviewOf": "w22d6-q02"
+        },
+        {
+          "id": "w22d7-q13",
+          "prompt": "Para cifrar grandes volúmenes de datos, ¿qué suele usarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Base64 sin secretos"
+            },
+            {
+              "id": "b",
+              "text": "Cifrado simétrico con una clave gestionada adecuadamente"
+            },
+            {
+              "id": "c",
+              "text": "Un hash irreversible como sustituto del archivo"
+            },
+            {
+              "id": "d",
+              "text": "Solo un nombre de archivo oculto"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El cifrado simétrico suele ser eficiente para proteger contenido en volumen.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final",
+          "reviewOf": "w22d1-q03"
+        },
+        {
+          "id": "w22d7-q14",
+          "prompt": "¿Qué fuente del hash esperado aporta más confianza?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El mismo sitio sospechoso sin protección"
+            },
+            {
+              "id": "b",
+              "text": "Un nombre de archivo elegido al azar"
+            },
+            {
+              "id": "c",
+              "text": "Una fuente autenticada independiente del archivo recibido"
+            },
+            {
+              "id": "d",
+              "text": "El tamaño de la carpeta"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Si un atacante sustituye archivo y resumen, la comparación sola no autentica el origen.",
+          "reference": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final",
+          "reviewOf": "w22d2-q03"
+        },
+        {
+          "id": "w22d7-q15",
+          "prompt": "Si cambian los datos firmados, ¿qué se espera al verificar la firma original?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que la verificación falle"
+            },
+            {
+              "id": "b",
+              "text": "Que se descifren automáticamente"
+            },
+            {
+              "id": "c",
+              "text": "Que la firma se actualice sola"
+            },
+            {
+              "id": "d",
+              "text": "Que aumente la disponibilidad"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La firma está ligada al contenido; modificarlo rompe esa correspondencia.",
+          "reference": "https://csrc.nist.gov/pubs/fips/186-5/final",
+          "reviewOf": "w22d3-q03"
+        },
+        {
+          "id": "w22d7-q16",
+          "prompt": "¿Por qué revisar el nombre del servicio en el certificado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para confirmar correspondencia con el destino esperado"
+            },
+            {
+              "id": "b",
+              "text": "Para medir ancho de banda"
+            },
+            {
+              "id": "c",
+              "text": "Para conocer permisos de archivos"
+            },
+            {
+              "id": "d",
+              "text": "Para verificar el contenido comercial del sitio"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un certificado válido para otro nombre no autentica el destino solicitado.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5280",
+          "reviewOf": "w22d4-q03"
+        },
+        {
+          "id": "w22d7-q17",
+          "prompt": "¿Qué debe incluir un inventario de claves?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el color del servidor"
+            },
+            {
+              "id": "b",
+              "text": "Todas las claves en texto público"
+            },
+            {
+              "id": "c",
+              "text": "Un listado sin responsables"
+            },
+            {
+              "id": "d",
+              "text": "Propósito, dueño, ubicación, estado y periodo de uso"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El inventario permite gestionar uso, rotación, retirada y recuperación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final",
+          "reviewOf": "w22d5-q03"
+        },
+        {
+          "id": "w22d7-q18",
+          "prompt": "¿Qué hace el enmascaramiento de un número «****1234»?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Oculta parte del valor en esa representación"
+            },
+            {
+              "id": "b",
+              "text": "Demuestra que el original se eliminó de toda copia"
+            },
+            {
+              "id": "c",
+              "text": "Cifra con clave pública"
+            },
+            {
+              "id": "d",
+              "text": "Garantiza anonimato del conjunto"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Ocultar caracteres reduce exposición visible, pero no demuestra eliminación ni anonimización completa.",
+          "reference": "https://gchq.github.io/CyberChef/",
+          "reviewOf": "w22d6-q03"
+        },
+        {
+          "id": "w22d7-q19",
+          "prompt": "Para que solo el receptor descifre, ¿qué debe proteger especialmente ese receptor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La clave pública publicada"
+            },
+            {
+              "id": "b",
+              "text": "El nombre del algoritmo"
+            },
+            {
+              "id": "c",
+              "text": "Su clave privada de descifrado"
+            },
+            {
+              "id": "d",
+              "text": "El formato del mensaje"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El secreto de la clave privada sostiene la confidencialidad del mecanismo asimétrico.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final",
+          "reviewOf": "w22d1-q04"
+        },
+        {
+          "id": "w22d7-q20",
+          "prompt": "¿Qué significa que un certificado esté fuera de su periodo de validez?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que todos sus datos son malware"
+            },
+            {
+              "id": "b",
+              "text": "Que la clave pública es una contraseña"
+            },
+            {
+              "id": "c",
+              "text": "No satisface esa comprobación temporal de confianza"
+            },
+            {
+              "id": "d",
+              "text": "Que el servidor no puede responder"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La validez temporal es una condición de validación, distinta de disponibilidad o intención.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5280",
+          "reviewOf": "w22d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w22d7-challenge",
+        "prompt": "Caso semanal: descargas un archivo y su hash del mismo canal comprometido; ambos coinciden. ¿Qué limitación debes reconocer?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El archivo es seguro por definición"
+          },
+          {
+            "id": "b",
+            "text": "El hash permite descifrar el archivo"
+          },
+          {
+            "id": "c",
+            "text": "La coincidencia no autentica el origen si ambos pudieron sustituirse"
+          },
+          {
+            "id": "d",
+            "text": "Toda firma del archivo sería innecesaria"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La integridad respecto a un valor solo es útil si ese valor tiene procedencia confiable.",
+        "reference": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"
+      }
+    }
+  ]
+}

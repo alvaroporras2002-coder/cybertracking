@@ -1,0 +1,2094 @@
+{
+  "week": 25,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w25d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w25d1-q01",
+          "prompt": "¿Qué representa una zona de seguridad en una arquitectura?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todos los equipos del mismo fabricante"
+            },
+            {
+              "id": "b",
+              "text": "Activos agrupados con requisitos y controles de confianza definidos"
+            },
+            {
+              "id": "c",
+              "text": "Solo una VLAN sin reglas"
+            },
+            {
+              "id": "d",
+              "text": "Una carpeta con el mismo nombre"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las zonas permiten aplicar controles coherentes a activos y flujos con necesidades relacionadas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w25d1-q02",
+          "prompt": "Una base de datos solo debe recibir conexiones de la aplicación. ¿Qué flujo autorizar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Internet → base desde cualquier origen"
+            },
+            {
+              "id": "b",
+              "text": "Invitados → base para simplificar"
+            },
+            {
+              "id": "c",
+              "text": "Aplicación → base en puertos necesarios"
+            },
+            {
+              "id": "d",
+              "text": "Toda zona → base en cualquier puerto"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La regla debe expresar origen, destino y servicio necesarios, restringiendo rutas ajenas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w25d1-q03",
+          "prompt": "¿Qué función tiene una DMZ?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hacer que servicios no necesiten parches"
+            },
+            {
+              "id": "b",
+              "text": "Dar acceso total desde Internet a la LAN"
+            },
+            {
+              "id": "c",
+              "text": "Separar servicios expuestos de redes internas sensibles"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar necesidad de autenticación"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La zona intermedia limita comunicaciones y alcance desde servicios públicamente accesibles.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w25d1-q04",
+          "prompt": "¿Por qué documentar dirección y propósito de cada flujo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para justificar reglas y verificar dependencias"
+            },
+            {
+              "id": "b",
+              "text": "Para permitir siempre respuestas sin control"
+            },
+            {
+              "id": "c",
+              "text": "Para reemplazar el inventario"
+            },
+            {
+              "id": "d",
+              "text": "Para garantizar ausencia de fallos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los flujos entendidos permiten restringir acceso sin romper funciones legítimas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w25d1-q05",
+          "prompt": "Un diagrama usa VLAN distintas, pero el router permite todo. ¿Qué conclusión corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Toda VLAN bloquea automáticamente tráfico entre zonas"
+            },
+            {
+              "id": "b",
+              "text": "La red ya aplica mínimo privilegio"
+            },
+            {
+              "id": "c",
+              "text": "La autenticación dejó de ser necesaria"
+            },
+            {
+              "id": "d",
+              "text": "La separación nominal no impone una restricción efectiva de flujo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La segmentación requiere reglas o mecanismos que controlen comunicaciones entre dominios.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w25d1-q06",
+          "prompt": "¿Qué debe ocurrir con tráfico no requerido entre zonas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Permitirse siempre para evitar tickets"
+            },
+            {
+              "id": "b",
+              "text": "Encaminarse a la base de datos"
+            },
+            {
+              "id": "c",
+              "text": "Denegarse según política y registrar lo necesario"
+            },
+            {
+              "id": "d",
+              "text": "Ignorarse sin evaluar"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Permitir solo necesidades aprobadas reduce rutas de acceso y propagación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w25d1-q07",
+          "prompt": "Un equipo de administración necesita alcanzar servidores. ¿Qué diseño limita exposición?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Zona de gestión y permisos específicos para tareas autorizadas"
+            },
+            {
+              "id": "b",
+              "text": "Gestión desde cualquier equipo de invitados"
+            },
+            {
+              "id": "c",
+              "text": "Una contraseña global publicada"
+            },
+            {
+              "id": "d",
+              "text": "Reglas abiertas para todos los puertos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Separar gestión y restringir alcance dificulta que una vía de usuario común controle infraestructura.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w25d1-q08",
+          "prompt": "¿Qué prueba confirma que invitados no llegan a nómina?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ver solo que la VLAN tiene otro número"
+            },
+            {
+              "id": "b",
+              "text": "Intento controlado del flujo no autorizado y revisión de la regla"
+            },
+            {
+              "id": "c",
+              "text": "Comprobar que Internet funciona"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar nombre de la red"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las pruebas deben ejercitar los caminos relevantes y confirmar el resultado esperado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w25d1-challenge",
+        "prompt": "Caso: una web en DMZ necesita una API interna, pero proponen permitir DMZ→LAN sin límites. ¿Qué corrección corresponde?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Aceptar cualquier puerto por estar en DMZ"
+          },
+          {
+            "id": "b",
+            "text": "Mover también nómina a Internet"
+          },
+          {
+            "id": "c",
+            "text": "Autorizar solo origen, destino y servicio de esa dependencia y comprobarlos"
+          },
+          {
+            "id": "d",
+            "text": "Eliminar el registro de conexiones"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "Una necesidad concreta no justifica abrir toda comunicación hacia la red interna.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+      }
+    },
+    {
+      "dayId": "w25d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w25d2-q01",
+          "prompt": "¿Qué función principal tiene un firewall?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Controlar tráfico de red según reglas"
+            },
+            {
+              "id": "b",
+              "text": "Determinar que toda página es legítima"
+            },
+            {
+              "id": "c",
+              "text": "Restaurar archivos corruptos"
+            },
+            {
+              "id": "d",
+              "text": "Verificar cualquier permiso de negocio"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Su función depende de tecnología y política, pero se centra en controlar comunicaciones.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w25d2-q02",
+          "prompt": "¿Qué diferencia básica hay entre IDS e IPS?",
+          "options": [
+            {
+              "id": "a",
+              "text": "IDS siempre elimina malware"
+            },
+            {
+              "id": "b",
+              "text": "IPS solo almacena respaldos"
+            },
+            {
+              "id": "c",
+              "text": "IDS detecta; IPS puede actuar en línea para bloquear"
+            },
+            {
+              "id": "d",
+              "text": "No existe diferencia operativa"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La ubicación y respuesta configurada determinan si el control observa o interrumpe tráfico.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w25d2-q03",
+          "prompt": "¿Qué tráfico examina principalmente un WAF?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Señales de temperatura del rack"
+            },
+            {
+              "id": "b",
+              "text": "Todos los archivos de una copia offline"
+            },
+            {
+              "id": "c",
+              "text": "Autenticación física de visitantes"
+            },
+            {
+              "id": "d",
+              "text": "Solicitudes y respuestas de aplicaciones web"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El WAF se orienta al protocolo y patrones de aplicaciones web.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w25d2-q04",
+          "prompt": "¿Qué aporta un proxy de salida?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantizar autorización de toda base de datos"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar la necesidad de TLS"
+            },
+            {
+              "id": "c",
+              "text": "Intermediar y aplicar políticas a conexiones de clientes"
+            },
+            {
+              "id": "d",
+              "text": "Reemplazar el sistema operativo"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El proxy puede centralizar control y visibilidad de determinadas comunicaciones.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w25d2-q05",
+          "prompt": "¿Qué significa que un firewall sea stateful?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que conoce el estado legal del negocio"
+            },
+            {
+              "id": "b",
+              "text": "Que no necesita reglas"
+            },
+            {
+              "id": "c",
+              "text": "Considera el estado de conexiones además de paquetes individuales"
+            },
+            {
+              "id": "d",
+              "text": "Que descifra cualquier tráfico automáticamente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El seguimiento de sesiones permite decidir según la relación de paquetes con conexiones conocidas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w25d2-q06",
+          "prompt": "Un IPS bloquea tráfico legítimo. ¿Qué riesgo operativo se observa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Falso positivo que afecta disponibilidad"
+            },
+            {
+              "id": "b",
+              "text": "Prueba de que no detecta ningún ataque"
+            },
+            {
+              "id": "c",
+              "text": "Pérdida obligatoria de confidencialidad"
+            },
+            {
+              "id": "d",
+              "text": "Revocación automática de certificados"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un control preventivo mal ajustado puede interrumpir actividad autorizada.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w25d2-q07",
+          "prompt": "¿Por qué revisar visibilidad sobre tráfico cifrado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El sensor puede no observar contenido protegido"
+            },
+            {
+              "id": "b",
+              "text": "Porque TLS elimina todos los ataques"
+            },
+            {
+              "id": "c",
+              "text": "Porque cifrado equivale a autorización"
+            },
+            {
+              "id": "d",
+              "text": "Porque todo sensor puede descifrar sin claves"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los controles deben conocer sus límites de inspección y respetar requisitos de protección.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w25d2-q08",
+          "prompt": "¿Qué combinación evalúa mejor un cambio de reglas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo que la consola muestre «guardado»"
+            },
+            {
+              "id": "b",
+              "text": "Pruebas de tráfico permitido y denegado más revisión de logs"
+            },
+            {
+              "id": "c",
+              "text": "Solo un ping a un equipo no relacionado"
+            },
+            {
+              "id": "d",
+              "text": "Conceder temporalmente cualquier origen"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La validación debe demostrar que la política actúa sobre los flujos previstos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w25d2-challenge",
+        "prompt": "Caso: una API sufre solicitudes HTTP abusivas y el firewall de red solo filtra puertos. ¿Qué control puede complementar protección?",
+        "options": [
+          {
+            "id": "a",
+            "text": "WAF o controles de aplicación adecuados al patrón, junto con corrección de la causa"
+          },
+          {
+            "id": "b",
+            "text": "Una regla que permita todos los puertos"
+          },
+          {
+            "id": "c",
+            "text": "Solo una UPS adicional"
+          },
+          {
+            "id": "d",
+            "text": "Solo cambiar la etiqueta del servidor"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La protección debe analizar el nivel de aplicación relevante; no basta permitir o denegar un puerto completo.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+      }
+    },
+    {
+      "dayId": "w25d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w25d3-q01",
+          "prompt": "¿Qué aporta una VPN bien configurada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Permiso automático a toda aplicación"
+            },
+            {
+              "id": "b",
+              "text": "Ausencia de malware en el cliente"
+            },
+            {
+              "id": "c",
+              "text": "Un canal protegido entre extremos del túnel"
+            },
+            {
+              "id": "d",
+              "text": "Identificación legal infalible"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La protección del canal se complementa con identidad, dispositivo y autorización.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass"
+        },
+        {
+          "id": "w25d3-q02",
+          "prompt": "¿Qué finalidad tiene un servidor de salto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eliminar toda autenticación"
+            },
+            {
+              "id": "b",
+              "text": "Publicar consolas internas"
+            },
+            {
+              "id": "c",
+              "text": "Compartir una sesión entre proveedores"
+            },
+            {
+              "id": "d",
+              "text": "Concentrar acceso administrativo controlado y observable"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un punto de gestión puede limitar rutas y facilitar trazabilidad si se protege adecuadamente.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass"
+        },
+        {
+          "id": "w25d3-q03",
+          "prompt": "¿Por qué exigir cuentas individuales en acceso remoto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para evitar toda caída de red"
+            },
+            {
+              "id": "b",
+              "text": "Para hacer público el directorio"
+            },
+            {
+              "id": "c",
+              "text": "Para no necesitar registro"
+            },
+            {
+              "id": "d",
+              "text": "Atribuir acciones y revocar acceso por persona"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las cuentas compartidas dificultan responsabilidad y gestión granular del ciclo de vida.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass"
+        },
+        {
+          "id": "w25d3-q04",
+          "prompt": "Un proveedor requiere acceso a una sola aplicación. ¿Qué autorización corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo esa aplicación y duración necesaria"
+            },
+            {
+              "id": "b",
+              "text": "Toda la LAN por usar VPN"
+            },
+            {
+              "id": "c",
+              "text": "Administrador de dominio permanente"
+            },
+            {
+              "id": "d",
+              "text": "Acceso anónimo a todas las consolas"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El cifrado del túnel no justifica ampliar el alcance más allá de la necesidad.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass"
+        },
+        {
+          "id": "w25d3-q05",
+          "prompt": "¿Qué debe incluir el registro de acceso administrativo remoto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Contraseñas completas en claro"
+            },
+            {
+              "id": "b",
+              "text": "Solo que hubo «algún acceso»"
+            },
+            {
+              "id": "c",
+              "text": "Nada por ser una conexión cifrada"
+            },
+            {
+              "id": "d",
+              "text": "Identidad, recurso, tiempo y acciones pertinentes"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La trazabilidad necesita contexto suficiente sin almacenar secretos innecesarios.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass"
+        },
+        {
+          "id": "w25d3-q06",
+          "prompt": "Un portátil remoto no cumple la configuración exigida. ¿Qué decisión puede aplicar una política contextual?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conceder siempre acceso total"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar al usuario de toda identidad"
+            },
+            {
+              "id": "c",
+              "text": "Restringir acceso o exigir remediación según riesgo"
+            },
+            {
+              "id": "d",
+              "text": "Ignorar el estado por usar contraseña"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El estado del dispositivo puede condicionar acceso junto con función y recurso.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass"
+        },
+        {
+          "id": "w25d3-q07",
+          "prompt": "¿Qué reduce el impacto de robo de una cuenta remota?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una contraseña compartida más corta"
+            },
+            {
+              "id": "b",
+              "text": "Permisos permanentes amplios"
+            },
+            {
+              "id": "c",
+              "text": "Desactivar expiración de sesiones"
+            },
+            {
+              "id": "d",
+              "text": "MFA adecuada, mínimo privilegio y monitorización"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las capas cubren tanto acceso inicial como alcance y detección de uso indebido.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass"
+        },
+        {
+          "id": "w25d3-q08",
+          "prompt": "¿Por qué probar revocación del acceso temporal?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para evitar registrar al proveedor"
+            },
+            {
+              "id": "b",
+              "text": "Para comprobar que al terminar no queda una vía utilizable"
+            },
+            {
+              "id": "c",
+              "text": "Para publicar la configuración"
+            },
+            {
+              "id": "d",
+              "text": "Para confirmar que todos tienen los mismos permisos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El ciclo de vida debe producir un cambio efectivo, no solo una fecha en un contrato.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass"
+        }
+      ],
+      "challenge": {
+        "id": "w25d3-challenge",
+        "prompt": "Caso: un técnico recibe salto controlado, pero puede abrir sesiones directas a todos los servidores desde Internet. ¿Qué falta?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Añadir otro usuario compartido"
+          },
+          {
+            "id": "b",
+            "text": "Confiar solo en el servidor de salto"
+          },
+          {
+            "id": "c",
+            "text": "Cerrar rutas alternativas y limitar la gestión al camino autorizado"
+          },
+          {
+            "id": "d",
+            "text": "Desactivar logs directos"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "Una ruta controlada pierde valor si las mismas funciones permanecen accesibles por caminos sin restricciones.",
+        "reference": "https://learn.microsoft.com/en-us/security/compass/compass"
+      }
+    },
+    {
+      "dayId": "w25d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w25d4-q01",
+          "prompt": "Una cámara IoT no necesita comunicarse con nómina. ¿Qué control resulta adecuado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Acceso total por ser un dispositivo pequeño"
+            },
+            {
+              "id": "b",
+              "text": "Cuenta administradora compartida"
+            },
+            {
+              "id": "c",
+              "text": "Separación y flujos mínimos según función"
+            },
+            {
+              "id": "d",
+              "text": "Desactivar todos los registros de red"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La función limitada del dispositivo debe reflejarse en comunicaciones y permisos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/82/r3/final"
+        },
+        {
+          "id": "w25d4-q02",
+          "prompt": "Un sistema legado no admite el agente moderno. ¿Qué opción evaluar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ignorar toda exposición"
+            },
+            {
+              "id": "b",
+              "text": "Controles compensatorios, restricción y plan de sustitución"
+            },
+            {
+              "id": "c",
+              "text": "Instalar a ciegas aunque no sea compatible"
+            },
+            {
+              "id": "d",
+              "text": "Dar más permisos para evitar errores"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las restricciones requieren una solución basada en riesgo y continuidad, con límites documentados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/82/r3/final"
+        },
+        {
+          "id": "w25d4-q03",
+          "prompt": "¿Por qué probar parches antes de aplicarlos a un sistema crítico de operación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque nunca deben parchearse"
+            },
+            {
+              "id": "b",
+              "text": "Porque los fallos de software no importan"
+            },
+            {
+              "id": "c",
+              "text": "Para eliminar al dueño del proceso"
+            },
+            {
+              "id": "d",
+              "text": "Pueden afectar seguridad física, disponibilidad y compatibilidad"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los entornos especiales pueden tener requisitos estrictos de funcionamiento y seguridad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/82/r3/final"
+        },
+        {
+          "id": "w25d4-q04",
+          "prompt": "¿Qué dato del inventario ayuda con un dispositivo embebido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Modelo, firmware, soporte, dueño y conectividad"
+            },
+            {
+              "id": "b",
+              "text": "Solo la marca del cable"
+            },
+            {
+              "id": "c",
+              "text": "Solo su ubicación estética"
+            },
+            {
+              "id": "d",
+              "text": "Únicamente el número de luces"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La gestión necesita información que permita determinar exposición y mantenimiento.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/82/r3/final"
+        },
+        {
+          "id": "w25d4-q05",
+          "prompt": "¿Qué riesgo añade una contraseña de fábrica compartida en IoT?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mejor atribución individual"
+            },
+            {
+              "id": "b",
+              "text": "Separación de funciones garantizada"
+            },
+            {
+              "id": "c",
+              "text": "Acceso no autorizado si se conoce o adivina"
+            },
+            {
+              "id": "d",
+              "text": "Reducción automática de superficie"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las credenciales conocidas o comunes debilitan la barrera de acceso.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/82/r3/final"
+        },
+        {
+          "id": "w25d4-q06",
+          "prompt": "Un dispositivo no puede cifrar su protocolo. ¿Qué debe considerarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Declararlo seguro por estar conectado por cable"
+            },
+            {
+              "id": "b",
+              "text": "Publicar su protocolo de gestión"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar toda observación de tráfico"
+            },
+            {
+              "id": "d",
+              "text": "Aislar rutas, limitar acceso y evaluar el riesgo residual"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los controles externos pueden reducir exposición sin transformar las capacidades del equipo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/82/r3/final"
+        },
+        {
+          "id": "w25d4-q07",
+          "prompt": "¿Qué cuidado exige descubrimiento activo sobre sistemas sensibles?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ejecutar cualquier escaneo por defecto"
+            },
+            {
+              "id": "b",
+              "text": "Autorización y métodos evaluados para no alterar operación"
+            },
+            {
+              "id": "c",
+              "text": "Suponer que toda prueba es inocua"
+            },
+            {
+              "id": "d",
+              "text": "Desconectar primero todos los sensores"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las técnicas de evaluación pueden afectar disponibilidad o seguridad física y requieren coordinación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/82/r3/final"
+        },
+        {
+          "id": "w25d4-q08",
+          "prompt": "¿Qué evita usar un sistema sin soporte indefinidamente por comodidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambiar su nombre en inventario"
+            },
+            {
+              "id": "b",
+              "text": "Ocultar avisos de fin de soporte"
+            },
+            {
+              "id": "c",
+              "text": "Eximirlo de revisiones para siempre"
+            },
+            {
+              "id": "d",
+              "text": "Un plan de tratamiento y retirada con responsables"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los controles temporales no sustituyen gestionar la exposición acumulada del ciclo de vida.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/82/r3/final"
+        }
+      ],
+      "challenge": {
+        "id": "w25d4-challenge",
+        "prompt": "Caso: una máquina crítica no puede detenerse hasta el fin de semana y tiene gestión expuesta. ¿Qué plan es razonable?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Restringir acceso ahora, coordinar ventana y validar cambios con operación"
+          },
+          {
+            "id": "b",
+            "text": "Parchear de inmediato sin probar ni avisar"
+          },
+          {
+            "id": "c",
+            "text": "Dejarla expuesta porque es legado"
+          },
+          {
+            "id": "d",
+            "text": "Abrir acceso para facilitar mantenimiento"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "El tratamiento debe reducir exposición respetando requisitos operativos y seguridad de las personas.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/82/r3/final"
+      }
+    },
+    {
+      "dayId": "w25d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w25d5-q01",
+          "prompt": "Dos servidores comparten una única fuente eléctrica. ¿Qué fallo común permanece?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cada servidor impedirá el fallo del otro"
+            },
+            {
+              "id": "b",
+              "text": "La pérdida de energía puede detener ambos"
+            },
+            {
+              "id": "c",
+              "text": "La redundancia elimina necesidad de energía"
+            },
+            {
+              "id": "d",
+              "text": "La fuente sustituye los respaldos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Duplicar servidores no aporta independencia frente a todos los componentes compartidos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w25d5-q02",
+          "prompt": "¿Qué pretende un balanceador con comprobaciones de salud?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Distribuir tráfico evitando instancias no disponibles según sus pruebas"
+            },
+            {
+              "id": "b",
+              "text": "Reparar automáticamente cualquier dato corrupto"
+            },
+            {
+              "id": "c",
+              "text": "Cifrar todas las copias"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar la capacidad máxima"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El balanceo ayuda a servir tráfico, pero depende de la calidad de comprobaciones y del propio diseño.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w25d5-q03",
+          "prompt": "¿Por qué probar conmutación por fallo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para demostrar que nunca ocurrirá un desastre"
+            },
+            {
+              "id": "b",
+              "text": "Para evitar cualquier documentación"
+            },
+            {
+              "id": "c",
+              "text": "Para garantizar confidencialidad de todos los datos"
+            },
+            {
+              "id": "d",
+              "text": "Verificar que servicio y dependencias continúan en condiciones previstas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La conmutación puede fallar por capacidad, configuración o dependencias no previstas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w25d5-q04",
+          "prompt": "¿Qué diferencia capacidad de redundancia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Son siempre el mismo concepto"
+            },
+            {
+              "id": "b",
+              "text": "Capacidad soporta carga; redundancia ofrece alternativas ante fallos"
+            },
+            {
+              "id": "c",
+              "text": "Más carga elimina todo fallo"
+            },
+            {
+              "id": "d",
+              "text": "La redundancia solo es almacenamiento"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un diseño puede tener capacidad suficiente y seguir dependiendo de un único componente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w25d5-q05",
+          "prompt": "¿Qué riesgo tiene usar dos enlaces del mismo recorrido físico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La diversidad queda garantizada"
+            },
+            {
+              "id": "b",
+              "text": "No necesitan monitorización"
+            },
+            {
+              "id": "c",
+              "text": "El tráfico deja de requerir cifrado"
+            },
+            {
+              "id": "d",
+              "text": "Un corte común puede afectar ambos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los componentes aparentemente duplicados pueden compartir una causa de fallo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w25d5-q06",
+          "prompt": "Un sitio secundario tiene la mitad de capacidad necesaria. ¿Qué debe evaluarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el número de servidores"
+            },
+            {
+              "id": "b",
+              "text": "Qué funciones puede sostener durante una recuperación"
+            },
+            {
+              "id": "c",
+              "text": "Asumir que la réplica aporta capacidad ilimitada"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar pruebas de carga"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La alternativa debe atender requisitos priorizados y medidos, no solo existir.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w25d5-q07",
+          "prompt": "¿Por qué una réplica no sustituye siempre una copia histórica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Puede reproducir corrupción o borrado del origen"
+            },
+            {
+              "id": "b",
+              "text": "Porque toda réplica está apagada"
+            },
+            {
+              "id": "c",
+              "text": "Porque no almacena datos"
+            },
+            {
+              "id": "d",
+              "text": "Porque elimina las claves"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La disponibilidad inmediata y la recuperación de estados anteriores cubren necesidades distintas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w25d5-q08",
+          "prompt": "¿Qué debe acompañar un diseño de alta disponibilidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una promesa de cero fallos sin pruebas"
+            },
+            {
+              "id": "b",
+              "text": "Permisos sin límites"
+            },
+            {
+              "id": "c",
+              "text": "Eliminación de todas las copias"
+            },
+            {
+              "id": "d",
+              "text": "Monitorización, mantenimiento y procedimientos de operación"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La disponibilidad depende de operación continua y comprobación, además de componentes duplicados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w25d5-challenge",
+        "prompt": "Caso: hay dos aplicaciones, pero ambas dependen de una sola base sin alternativa. ¿Qué conclusión corresponde?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La base sigue siendo un punto único de fallo del servicio"
+          },
+          {
+            "id": "b",
+            "text": "El servicio ya tolera cualquier avería"
+          },
+          {
+            "id": "c",
+            "text": "La redundancia de aplicación garantiza RPO cero"
+          },
+          {
+            "id": "d",
+            "text": "La base no influye en disponibilidad"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La cadena completa de dependencias determina dónde un fallo puede interrumpir el servicio.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+      }
+    },
+    {
+      "dayId": "w25d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w25d6-q01",
+          "prompt": "¿Qué debe definirse antes de seleccionar productos de arquitectura?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo una lista de fabricantes"
+            },
+            {
+              "id": "b",
+              "text": "La cantidad máxima de iconos"
+            },
+            {
+              "id": "c",
+              "text": "Una garantía de riesgo cero"
+            },
+            {
+              "id": "d",
+              "text": "Requisitos, activos, flujos y restricciones"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El diseño debe resolver necesidades específicas y permitir evaluar su adecuación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w25d6-q02",
+          "prompt": "¿Qué hace útil una tabla de pruebas del diseño?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo enumerar equipos comprados"
+            },
+            {
+              "id": "b",
+              "text": "Vincular cada control con escenario, resultado esperado y evidencia"
+            },
+            {
+              "id": "c",
+              "text": "Marcar todo como aprobado de antemano"
+            },
+            {
+              "id": "d",
+              "text": "Registrar únicamente el coste"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La validación debe contrastar comportamiento esperado con resultados observados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w25d6-q03",
+          "prompt": "Si una regla bloquea invitados pero también rompe pagos, ¿qué debe revisarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Permitir todo permanentemente"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar la segmentación sin análisis"
+            },
+            {
+              "id": "c",
+              "text": "Flujos y dependencias permitidos sin ampliar acceso innecesario"
+            },
+            {
+              "id": "d",
+              "text": "Ignorar el fallo por ser un control de seguridad"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La corrección debe mantener protección y función comercial necesaria.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w25d6-q04",
+          "prompt": "¿Qué documentar sobre un riesgo que el diseño no elimina?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Exposición residual, responsable y tratamiento"
+            },
+            {
+              "id": "b",
+              "text": "Que ya no existe por tener diagrama"
+            },
+            {
+              "id": "c",
+              "text": "Solo el nombre del producto"
+            },
+            {
+              "id": "d",
+              "text": "Una exclusión sin justificación"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Reconocer límites permite tomar decisiones informadas sobre el riesgo restante.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w25d6-q05",
+          "prompt": "Un nuevo proveedor necesita integrar facturación. ¿Qué cambia en el diseño?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el título del diagrama"
+            },
+            {
+              "id": "b",
+              "text": "Nada si el proveedor es conocido"
+            },
+            {
+              "id": "c",
+              "text": "Flujos, identidades, límites y pruebas de acceso"
+            },
+            {
+              "id": "d",
+              "text": "Todos los permisos deben abrirse"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La integración introduce dependencias y rutas que necesitan justificación y validación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w25d6-q06",
+          "prompt": "¿Qué prueba representa un intento de acceso indebido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Confirmar que una cuenta de ventas no administra nómina"
+            },
+            {
+              "id": "b",
+              "text": "Ver que el administrador puede hacer todo"
+            },
+            {
+              "id": "c",
+              "text": "Contar solo equipos encendidos"
+            },
+            {
+              "id": "d",
+              "text": "Comprobar una página pública"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las pruebas negativas verifican que se deniegan acciones fuera del permiso previsto.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w25d6-q07",
+          "prompt": "¿Por qué incluir responsables de operación al revisar el diseño?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conocen dependencias y deben mantener los controles"
+            },
+            {
+              "id": "b",
+              "text": "Para reemplazar toda prueba técnica"
+            },
+            {
+              "id": "c",
+              "text": "Para aceptar automáticamente cualquier coste"
+            },
+            {
+              "id": "d",
+              "text": "Para evitar documentar cambios"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La operación sostenible requiere procedimientos, responsables y compatibilidad con tareas reales.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w25d6-q08",
+          "prompt": "¿Qué propiedad tiene una decisión técnica defendible?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usa siempre el producto más caro"
+            },
+            {
+              "id": "b",
+              "text": "Oculta las alternativas consideradas"
+            },
+            {
+              "id": "c",
+              "text": "Promete que ningún usuario fallará"
+            },
+            {
+              "id": "d",
+              "text": "Relaciona requisito, alternativa elegida y limitaciones"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La justificación permite a otro revisor entender beneficios, costes y riesgos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w25d6-challenge",
+        "prompt": "Caso: el diseño bloquea toda salida de servidores, pero requiere actualizaciones verificadas. ¿Qué ajuste es adecuado?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Abrir toda salida a cualquier destino"
+          },
+          {
+            "id": "b",
+            "text": "Desactivar actualizaciones para siempre"
+          },
+          {
+            "id": "c",
+            "text": "Permitir un camino de actualización controlado y probado"
+          },
+          {
+            "id": "d",
+            "text": "Conceder navegación libre a todos"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "Los controles deben contemplar dependencias necesarias mediante rutas limitadas y revisables.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      }
+    },
+    {
+      "dayId": "w25d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w25d7-q01",
+          "prompt": "¿Qué representa una zona de seguridad en una arquitectura?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todos los equipos del mismo fabricante"
+            },
+            {
+              "id": "b",
+              "text": "Activos agrupados con requisitos y controles de confianza definidos"
+            },
+            {
+              "id": "c",
+              "text": "Solo una VLAN sin reglas"
+            },
+            {
+              "id": "d",
+              "text": "Una carpeta con el mismo nombre"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las zonas permiten aplicar controles coherentes a activos y flujos con necesidades relacionadas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final",
+          "reviewOf": "w25d1-q01"
+        },
+        {
+          "id": "w25d7-q02",
+          "prompt": "¿Qué función principal tiene un firewall?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Controlar tráfico de red según reglas"
+            },
+            {
+              "id": "b",
+              "text": "Determinar que toda página es legítima"
+            },
+            {
+              "id": "c",
+              "text": "Restaurar archivos corruptos"
+            },
+            {
+              "id": "d",
+              "text": "Verificar cualquier permiso de negocio"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Su función depende de tecnología y política, pero se centra en controlar comunicaciones.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final",
+          "reviewOf": "w25d2-q01"
+        },
+        {
+          "id": "w25d7-q03",
+          "prompt": "¿Qué aporta una VPN bien configurada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Permiso automático a toda aplicación"
+            },
+            {
+              "id": "b",
+              "text": "Ausencia de malware en el cliente"
+            },
+            {
+              "id": "c",
+              "text": "Un canal protegido entre extremos del túnel"
+            },
+            {
+              "id": "d",
+              "text": "Identificación legal infalible"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La protección del canal se complementa con identidad, dispositivo y autorización.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass",
+          "reviewOf": "w25d3-q01"
+        },
+        {
+          "id": "w25d7-q04",
+          "prompt": "Una cámara IoT no necesita comunicarse con nómina. ¿Qué control resulta adecuado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Acceso total por ser un dispositivo pequeño"
+            },
+            {
+              "id": "b",
+              "text": "Cuenta administradora compartida"
+            },
+            {
+              "id": "c",
+              "text": "Separación y flujos mínimos según función"
+            },
+            {
+              "id": "d",
+              "text": "Desactivar todos los registros de red"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La función limitada del dispositivo debe reflejarse en comunicaciones y permisos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/82/r3/final",
+          "reviewOf": "w25d4-q01"
+        },
+        {
+          "id": "w25d7-q05",
+          "prompt": "Dos servidores comparten una única fuente eléctrica. ¿Qué fallo común permanece?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cada servidor impedirá el fallo del otro"
+            },
+            {
+              "id": "b",
+              "text": "La pérdida de energía puede detener ambos"
+            },
+            {
+              "id": "c",
+              "text": "La redundancia elimina necesidad de energía"
+            },
+            {
+              "id": "d",
+              "text": "La fuente sustituye los respaldos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Duplicar servidores no aporta independencia frente a todos los componentes compartidos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final",
+          "reviewOf": "w25d5-q01"
+        },
+        {
+          "id": "w25d7-q06",
+          "prompt": "¿Qué debe definirse antes de seleccionar productos de arquitectura?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo una lista de fabricantes"
+            },
+            {
+              "id": "b",
+              "text": "La cantidad máxima de iconos"
+            },
+            {
+              "id": "c",
+              "text": "Una garantía de riesgo cero"
+            },
+            {
+              "id": "d",
+              "text": "Requisitos, activos, flujos y restricciones"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El diseño debe resolver necesidades específicas y permitir evaluar su adecuación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w25d6-q01"
+        },
+        {
+          "id": "w25d7-q07",
+          "prompt": "Una base de datos solo debe recibir conexiones de la aplicación. ¿Qué flujo autorizar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Internet → base desde cualquier origen"
+            },
+            {
+              "id": "b",
+              "text": "Invitados → base para simplificar"
+            },
+            {
+              "id": "c",
+              "text": "Aplicación → base en puertos necesarios"
+            },
+            {
+              "id": "d",
+              "text": "Toda zona → base en cualquier puerto"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La regla debe expresar origen, destino y servicio necesarios, restringiendo rutas ajenas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final",
+          "reviewOf": "w25d1-q02"
+        },
+        {
+          "id": "w25d7-q08",
+          "prompt": "¿Qué diferencia básica hay entre IDS e IPS?",
+          "options": [
+            {
+              "id": "a",
+              "text": "IDS siempre elimina malware"
+            },
+            {
+              "id": "b",
+              "text": "IPS solo almacena respaldos"
+            },
+            {
+              "id": "c",
+              "text": "IDS detecta; IPS puede actuar en línea para bloquear"
+            },
+            {
+              "id": "d",
+              "text": "No existe diferencia operativa"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La ubicación y respuesta configurada determinan si el control observa o interrumpe tráfico.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final",
+          "reviewOf": "w25d2-q02"
+        },
+        {
+          "id": "w25d7-q09",
+          "prompt": "¿Qué finalidad tiene un servidor de salto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eliminar toda autenticación"
+            },
+            {
+              "id": "b",
+              "text": "Publicar consolas internas"
+            },
+            {
+              "id": "c",
+              "text": "Compartir una sesión entre proveedores"
+            },
+            {
+              "id": "d",
+              "text": "Concentrar acceso administrativo controlado y observable"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un punto de gestión puede limitar rutas y facilitar trazabilidad si se protege adecuadamente.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass",
+          "reviewOf": "w25d3-q02"
+        },
+        {
+          "id": "w25d7-q10",
+          "prompt": "Un sistema legado no admite el agente moderno. ¿Qué opción evaluar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ignorar toda exposición"
+            },
+            {
+              "id": "b",
+              "text": "Controles compensatorios, restricción y plan de sustitución"
+            },
+            {
+              "id": "c",
+              "text": "Instalar a ciegas aunque no sea compatible"
+            },
+            {
+              "id": "d",
+              "text": "Dar más permisos para evitar errores"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las restricciones requieren una solución basada en riesgo y continuidad, con límites documentados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/82/r3/final",
+          "reviewOf": "w25d4-q02"
+        },
+        {
+          "id": "w25d7-q11",
+          "prompt": "¿Qué pretende un balanceador con comprobaciones de salud?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Distribuir tráfico evitando instancias no disponibles según sus pruebas"
+            },
+            {
+              "id": "b",
+              "text": "Reparar automáticamente cualquier dato corrupto"
+            },
+            {
+              "id": "c",
+              "text": "Cifrar todas las copias"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar la capacidad máxima"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El balanceo ayuda a servir tráfico, pero depende de la calidad de comprobaciones y del propio diseño.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final",
+          "reviewOf": "w25d5-q02"
+        },
+        {
+          "id": "w25d7-q12",
+          "prompt": "¿Qué hace útil una tabla de pruebas del diseño?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo enumerar equipos comprados"
+            },
+            {
+              "id": "b",
+              "text": "Vincular cada control con escenario, resultado esperado y evidencia"
+            },
+            {
+              "id": "c",
+              "text": "Marcar todo como aprobado de antemano"
+            },
+            {
+              "id": "d",
+              "text": "Registrar únicamente el coste"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La validación debe contrastar comportamiento esperado con resultados observados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w25d6-q02"
+        },
+        {
+          "id": "w25d7-q13",
+          "prompt": "¿Qué función tiene una DMZ?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hacer que servicios no necesiten parches"
+            },
+            {
+              "id": "b",
+              "text": "Dar acceso total desde Internet a la LAN"
+            },
+            {
+              "id": "c",
+              "text": "Separar servicios expuestos de redes internas sensibles"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar necesidad de autenticación"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La zona intermedia limita comunicaciones y alcance desde servicios públicamente accesibles.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final",
+          "reviewOf": "w25d1-q03"
+        },
+        {
+          "id": "w25d7-q14",
+          "prompt": "¿Qué tráfico examina principalmente un WAF?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Señales de temperatura del rack"
+            },
+            {
+              "id": "b",
+              "text": "Todos los archivos de una copia offline"
+            },
+            {
+              "id": "c",
+              "text": "Autenticación física de visitantes"
+            },
+            {
+              "id": "d",
+              "text": "Solicitudes y respuestas de aplicaciones web"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El WAF se orienta al protocolo y patrones de aplicaciones web.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final",
+          "reviewOf": "w25d2-q03"
+        },
+        {
+          "id": "w25d7-q15",
+          "prompt": "¿Por qué exigir cuentas individuales en acceso remoto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para evitar toda caída de red"
+            },
+            {
+              "id": "b",
+              "text": "Para hacer público el directorio"
+            },
+            {
+              "id": "c",
+              "text": "Para no necesitar registro"
+            },
+            {
+              "id": "d",
+              "text": "Atribuir acciones y revocar acceso por persona"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las cuentas compartidas dificultan responsabilidad y gestión granular del ciclo de vida.",
+          "reference": "https://learn.microsoft.com/en-us/security/compass/compass",
+          "reviewOf": "w25d3-q03"
+        },
+        {
+          "id": "w25d7-q16",
+          "prompt": "¿Por qué probar parches antes de aplicarlos a un sistema crítico de operación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque nunca deben parchearse"
+            },
+            {
+              "id": "b",
+              "text": "Porque los fallos de software no importan"
+            },
+            {
+              "id": "c",
+              "text": "Para eliminar al dueño del proceso"
+            },
+            {
+              "id": "d",
+              "text": "Pueden afectar seguridad física, disponibilidad y compatibilidad"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los entornos especiales pueden tener requisitos estrictos de funcionamiento y seguridad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/82/r3/final",
+          "reviewOf": "w25d4-q03"
+        },
+        {
+          "id": "w25d7-q17",
+          "prompt": "¿Por qué probar conmutación por fallo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para demostrar que nunca ocurrirá un desastre"
+            },
+            {
+              "id": "b",
+              "text": "Para evitar cualquier documentación"
+            },
+            {
+              "id": "c",
+              "text": "Para garantizar confidencialidad de todos los datos"
+            },
+            {
+              "id": "d",
+              "text": "Verificar que servicio y dependencias continúan en condiciones previstas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La conmutación puede fallar por capacidad, configuración o dependencias no previstas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final",
+          "reviewOf": "w25d5-q03"
+        },
+        {
+          "id": "w25d7-q18",
+          "prompt": "Si una regla bloquea invitados pero también rompe pagos, ¿qué debe revisarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Permitir todo permanentemente"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar la segmentación sin análisis"
+            },
+            {
+              "id": "c",
+              "text": "Flujos y dependencias permitidos sin ampliar acceso innecesario"
+            },
+            {
+              "id": "d",
+              "text": "Ignorar el fallo por ser un control de seguridad"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La corrección debe mantener protección y función comercial necesaria.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w25d6-q03"
+        },
+        {
+          "id": "w25d7-q19",
+          "prompt": "¿Por qué documentar dirección y propósito de cada flujo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para justificar reglas y verificar dependencias"
+            },
+            {
+              "id": "b",
+              "text": "Para permitir siempre respuestas sin control"
+            },
+            {
+              "id": "c",
+              "text": "Para reemplazar el inventario"
+            },
+            {
+              "id": "d",
+              "text": "Para garantizar ausencia de fallos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los flujos entendidos permiten restringir acceso sin romper funciones legítimas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final",
+          "reviewOf": "w25d1-q04"
+        },
+        {
+          "id": "w25d7-q20",
+          "prompt": "¿Qué dato del inventario ayuda con un dispositivo embebido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Modelo, firmware, soporte, dueño y conectividad"
+            },
+            {
+              "id": "b",
+              "text": "Solo la marca del cable"
+            },
+            {
+              "id": "c",
+              "text": "Solo su ubicación estética"
+            },
+            {
+              "id": "d",
+              "text": "Únicamente el número de luces"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La gestión necesita información que permita determinar exposición y mantenimiento.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/82/r3/final",
+          "reviewOf": "w25d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w25d7-challenge",
+        "prompt": "Caso semanal: añades teletrabajo y un proveedor nuevo al diseño aprobado. ¿Qué revisión corresponde?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Aceptar todos los accesos por VPN sin revisar"
+          },
+          {
+            "id": "b",
+            "text": "Actualizar identidades, flujos, controles, capacidad y pruebas según ambos requisitos"
+          },
+          {
+            "id": "c",
+            "text": "Cambiar solo el diagrama visual"
+          },
+          {
+            "id": "d",
+            "text": "Conservar pruebas antiguas como garantía universal"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "Los cambios de requisitos pueden alterar exposición y operación; el diseño necesita validación acorde.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      }
+    }
+  ]
+}

@@ -1,0 +1,2094 @@
+{
+  "week": 42,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w42d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w42d1-q01",
+          "prompt": "¿Qué archivo suele respaldar el hive del usuario?",
+          "options": [
+            {
+              "id": "a",
+              "text": "pagefile.sys"
+            },
+            {
+              "id": "b",
+              "text": "hosts"
+            },
+            {
+              "id": "c",
+              "text": "NTUSER.DAT"
+            },
+            {
+              "id": "d",
+              "text": "bootmgr"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "NTUSER.DAT contiene configuración específica del perfil.",
+          "reference": "https://learn.microsoft.com/en-us/windows/win32/sysinfo/registry-hives"
+        },
+        {
+          "id": "w42d1-q02",
+          "prompt": "¿Qué representa HKCU durante una sesión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todas las cuentas del dominio"
+            },
+            {
+              "id": "b",
+              "text": "Configuración del usuario actual"
+            },
+            {
+              "id": "c",
+              "text": "Solo configuración de hardware"
+            },
+            {
+              "id": "d",
+              "text": "Memoria de todos los procesos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "HKCU referencia el contexto del usuario conectado.",
+          "reference": "https://learn.microsoft.com/en-us/windows/win32/sysinfo/registry-hives"
+        },
+        {
+          "id": "w42d1-q03",
+          "prompt": "¿Qué agrupa un hive del Registro?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Claves, subclaves y valores"
+            },
+            {
+              "id": "b",
+              "text": "Solo archivos ejecutables"
+            },
+            {
+              "id": "c",
+              "text": "Solo sesiones de red"
+            },
+            {
+              "id": "d",
+              "text": "Paquetes capturados"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un hive es una unidad lógica respaldada por archivos.",
+          "reference": "https://learn.microsoft.com/en-us/windows/win32/sysinfo/registry-hives"
+        },
+        {
+          "id": "w42d1-q04",
+          "prompt": "Una clave Run contiene un comando. ¿Qué demuestra por sí sola?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ejecución exitosa comprobada"
+            },
+            {
+              "id": "b",
+              "text": "Autoría humana confirmada"
+            },
+            {
+              "id": "c",
+              "text": "Configuración de inicio persistente"
+            },
+            {
+              "id": "d",
+              "text": "Conexión externa activa"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La configuración puede existir aunque la ejecución falle o no ocurra.",
+          "reference": "https://learn.microsoft.com/en-us/windows/win32/sysinfo/registry-hives"
+        },
+        {
+          "id": "w42d1-q05",
+          "prompt": "¿Por qué adquirir logs de transacción junto al hive?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Descifran cualquier contraseña"
+            },
+            {
+              "id": "b",
+              "text": "Sustituyen el hive completo"
+            },
+            {
+              "id": "c",
+              "text": "Prueban navegación web"
+            },
+            {
+              "id": "d",
+              "text": "Pueden aportar cambios pendientes"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los logs ayudan a interpretar o recuperar estado reciente del Registro.",
+          "reference": "https://learn.microsoft.com/en-us/windows/win32/sysinfo/registry-hives"
+        },
+        {
+          "id": "w42d1-q06",
+          "prompt": "¿Dónde suelen estar SYSTEM y SOFTWARE?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Windows/Temp exclusivamente"
+            },
+            {
+              "id": "b",
+              "text": "System32/config"
+            },
+            {
+              "id": "c",
+              "text": "Perfil/Downloads"
+            },
+            {
+              "id": "d",
+              "text": "Raíz de una captura pcap"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Son archivos de hives del sistema.",
+          "reference": "https://learn.microsoft.com/en-us/windows/win32/sysinfo/registry-hives"
+        },
+        {
+          "id": "w42d1-q07",
+          "prompt": "¿Qué contexto necesitas al interpretar una clave de usuario?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Perfil y sistema de origen"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombre de herramienta"
+            },
+            {
+              "id": "c",
+              "text": "Solo extensión exportada"
+            },
+            {
+              "id": "d",
+              "text": "Solo número de capturas"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La atribución al perfil evita mezclar configuraciones de usuarios distintos.",
+          "reference": "https://learn.microsoft.com/en-us/windows/win32/sysinfo/registry-hives"
+        },
+        {
+          "id": "w42d1-q08",
+          "prompt": "¿Por qué no cargar y editar el hive original?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Impediría cualquier lectura"
+            },
+            {
+              "id": "b",
+              "text": "Convertiría todo en RAM"
+            },
+            {
+              "id": "c",
+              "text": "Cambiaría automáticamente la licencia"
+            },
+            {
+              "id": "d",
+              "text": "Podrían alterarse valores y metadatos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El análisis debe preservar el estado adquirido.",
+          "reference": "https://learn.microsoft.com/en-us/windows/win32/sysinfo/registry-hives"
+        }
+      ],
+      "challenge": {
+        "id": "w42d1-challenge",
+        "prompt": "NTUSER.DAT de Ana y SYSTEM del equipo llegan mezclados. ¿Cómo comienzas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Identificar origen, perfil y hash de cada hive"
+          },
+          {
+            "id": "b",
+            "text": "Unirlos como un único usuario"
+          },
+          {
+            "id": "c",
+            "text": "Editar ambos para sincronizar"
+          },
+          {
+            "id": "d",
+            "text": "Descartar el hive de sistema"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "El contexto de adquisición determina cómo interpretar cada archivo.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    },
+    {
+      "dayId": "w42d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w42d2-q01",
+          "prompt": "Un LNK apunta a un documento eliminado. ¿Qué puede conservar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ruta y metadatos del destino"
+            },
+            {
+              "id": "b",
+              "text": "Contenido completo garantizado"
+            },
+            {
+              "id": "c",
+              "text": "Contraseña del usuario"
+            },
+            {
+              "id": "d",
+              "text": "Todos los procesos activos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los accesos directos pueden sobrevivir a la desaparición del destino.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf"
+        },
+        {
+          "id": "w42d2-q02",
+          "prompt": "¿Qué organizan las Jump Lists?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todas las cuentas locales"
+            },
+            {
+              "id": "b",
+              "text": "Rutas de enrutamiento"
+            },
+            {
+              "id": "c",
+              "text": "Firmas de malware conocidas"
+            },
+            {
+              "id": "d",
+              "text": "Elementos asociados a aplicaciones"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Su contenido aporta contexto de interacción con aplicaciones.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf"
+        },
+        {
+          "id": "w42d2-q03",
+          "prompt": "Un acceso reciente bajo un perfil prueba sobre todo ¿qué?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Identidad física incuestionable"
+            },
+            {
+              "id": "b",
+              "text": "Actividad asociada al perfil"
+            },
+            {
+              "id": "c",
+              "text": "Lectura íntegra del documento"
+            },
+            {
+              "id": "d",
+              "text": "Exfiltración consumada"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un perfil no identifica por sí solo a la persona que lo usó.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf"
+        },
+        {
+          "id": "w42d2-q04",
+          "prompt": "¿Qué compruebas antes de comparar tiempos de un LNK?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Si son del enlace o del destino"
+            },
+            {
+              "id": "b",
+              "text": "Solo longitud del nombre"
+            },
+            {
+              "id": "c",
+              "text": "Solo color del icono"
+            },
+            {
+              "id": "d",
+              "text": "Velocidad de disco"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los tiempos de objetos distintos tienen semánticas diferentes.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf"
+        },
+        {
+          "id": "w42d2-q05",
+          "prompt": "¿Una lista de recientes vacía demuestra inactividad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí, nunca hubo uso"
+            },
+            {
+              "id": "b",
+              "text": "Sí, si el usuario existe"
+            },
+            {
+              "id": "c",
+              "text": "Solo en portátil"
+            },
+            {
+              "id": "d",
+              "text": "No, puede faltar cobertura o haberse limpiado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La ausencia de un artefacto no demuestra ausencia de actividad.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf"
+        },
+        {
+          "id": "w42d2-q06",
+          "prompt": "¿Qué riesgo tiene abrir directamente un LNK sospechoso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo muestra texto inerte"
+            },
+            {
+              "id": "b",
+              "text": "Siempre elimina el original"
+            },
+            {
+              "id": "c",
+              "text": "Puede ejecutar su destino"
+            },
+            {
+              "id": "d",
+              "text": "Solo cambia la zona horaria"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un acceso directo puede contener un destino ejecutable con argumentos.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf"
+        },
+        {
+          "id": "w42d2-q07",
+          "prompt": "¿Qué correlación refuerza el uso de un documento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "LNK, perfil y evento temporal compatible"
+            },
+            {
+              "id": "b",
+              "text": "Dos nombres parecidos"
+            },
+            {
+              "id": "c",
+              "text": "Mismo color de icono"
+            },
+            {
+              "id": "d",
+              "text": "Mismo tamaño del informe"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Fuentes independientes y tiempos compatibles fortalecen la inferencia.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf"
+        },
+        {
+          "id": "w42d2-q08",
+          "prompt": "¿Qué identifica una entrada de Jump List sin leer contenido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Resultado del análisis antivirus"
+            },
+            {
+              "id": "b",
+              "text": "Referencia a un elemento de aplicación"
+            },
+            {
+              "id": "c",
+              "text": "Texto completo del documento"
+            },
+            {
+              "id": "d",
+              "text": "Intención del usuario"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los metadatos de interacción no equivalen al contenido ni a intención.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf"
+        }
+      ],
+      "challenge": {
+        "id": "w42d2-challenge",
+        "prompt": "Un LNK referencia E:/planes.xlsx, hoy inexistente. ¿Qué informe es correcto?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El archivo nunca existió"
+          },
+          {
+            "id": "b",
+            "text": "El enlace conserva referencia al archivo; contenido no recuperado"
+          },
+          {
+            "id": "c",
+            "text": "El usuario lo envió por correo"
+          },
+          {
+            "id": "d",
+            "text": "El contenido fue leído íntegramente"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "El enlace aporta metadatos del destino sin garantizar contenido o acción humana.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    },
+    {
+      "dayId": "w42d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w42d3-q01",
+          "prompt": "Un Prefetch asociado a app.exe orienta a ¿qué?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Posible evidencia de ejecución"
+            },
+            {
+              "id": "b",
+              "text": "Autoría del ejecutable"
+            },
+            {
+              "id": "c",
+              "text": "Conexión de red demostrada"
+            },
+            {
+              "id": "d",
+              "text": "Exfiltración confirmada"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Prefetch aporta ejecución según configuración y versión del sistema.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf"
+        },
+        {
+          "id": "w42d3-q02",
+          "prompt": "No existe Prefetch de una herramienta. ¿Qué concluyes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Nunca se ejecutó"
+            },
+            {
+              "id": "b",
+              "text": "No basta para descartar ejecución"
+            },
+            {
+              "id": "c",
+              "text": "Era necesariamente portable"
+            },
+            {
+              "id": "d",
+              "text": "Fue ejecutada por administrador"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La generación y retención de artefactos tienen condiciones.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf"
+        },
+        {
+          "id": "w42d3-q03",
+          "prompt": "¿Por qué el nombre powershell.exe no basta para clasificar malware?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Siempre está firmado por atacante"
+            },
+            {
+              "id": "b",
+              "text": "Es una herramienta legítima con múltiples usos"
+            },
+            {
+              "id": "c",
+              "text": "Nunca usa red"
+            },
+            {
+              "id": "d",
+              "text": "Solo existe en servidores"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Comando, origen y contexto determinan la interpretación.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf"
+        },
+        {
+          "id": "w42d3-q04",
+          "prompt": "¿Qué describe un PID?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Identificador de proceso durante su vida"
+            },
+            {
+              "id": "b",
+              "text": "Identidad permanente del archivo"
+            },
+            {
+              "id": "c",
+              "text": "Hash del ejecutable"
+            },
+            {
+              "id": "d",
+              "text": "Usuario que lo creó siempre"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los PID pueden reutilizarse tras terminar procesos.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf"
+        },
+        {
+          "id": "w42d3-q05",
+          "prompt": "¿Qué aporta el proceso padre?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Veredicto definitivo de benignidad"
+            },
+            {
+              "id": "b",
+              "text": "Contexto de creación del hijo"
+            },
+            {
+              "id": "c",
+              "text": "Contenido completo de memoria"
+            },
+            {
+              "id": "d",
+              "text": "Persona al teclado"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La relación padre-hijo orienta hipótesis y necesita contexto adicional.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf"
+        },
+        {
+          "id": "w42d3-q06",
+          "prompt": "Un programa legítimo está en ruta inusual. ¿Qué revisas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hash, firma, ruta y comandos"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombre base"
+            },
+            {
+              "id": "c",
+              "text": "Solo icono"
+            },
+            {
+              "id": "d",
+              "text": "Solo cantidad de ventanas"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los nombres legítimos pueden copiarse o usarse con fines indebidos.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf"
+        },
+        {
+          "id": "w42d3-q07",
+          "prompt": "¿Qué evidencia distingue presencia de ejecución mejor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Evento de creación de proceso"
+            },
+            {
+              "id": "b",
+              "text": "Archivo en Descargas"
+            },
+            {
+              "id": "c",
+              "text": "Nombre en un correo"
+            },
+            {
+              "id": "d",
+              "text": "Extensión exe"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un evento de proceso registra actividad, no mera existencia.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf"
+        },
+        {
+          "id": "w42d3-q08",
+          "prompt": "¿Qué limitación tiene una captura actual de procesos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Contiene toda ejecución pasada"
+            },
+            {
+              "id": "b",
+              "text": "Demuestra ausencia histórica"
+            },
+            {
+              "id": "c",
+              "text": "Identifica siempre al operador"
+            },
+            {
+              "id": "d",
+              "text": "Puede omitir procesos ya terminados"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La instantánea refleja un momento y puede perder actividad anterior.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf"
+        }
+      ],
+      "challenge": {
+        "id": "w42d3-challenge",
+        "prompt": "Prefetch de calc.exe existe; no hay registros de red. ¿Qué está sustentado?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Comunicación externa de calc.exe"
+          },
+          {
+            "id": "b",
+            "text": "Control remoto confirmado"
+          },
+          {
+            "id": "c",
+            "text": "Ejecución en la fecha del informe"
+          },
+          {
+            "id": "d",
+            "text": "Indicio de ejecución según condiciones del artefacto"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "El artefacto de ejecución no prueba actividad de red.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    },
+    {
+      "dayId": "w42d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w42d4-q01",
+          "prompt": "Una fila de historial web registra una URL. ¿Qué no demuestra sola?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Presencia de una referencia"
+            },
+            {
+              "id": "b",
+              "text": "Que el usuario leyó toda la página"
+            },
+            {
+              "id": "c",
+              "text": "Tiempo registrado por el navegador"
+            },
+            {
+              "id": "d",
+              "text": "URL asociada al perfil"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El historial no mide atención ni comprensión humana.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf"
+        },
+        {
+          "id": "w42d4-q02",
+          "prompt": "¿Qué dato ayuda a relacionar una descarga con disco?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ruta destino y hash del archivo"
+            },
+            {
+              "id": "b",
+              "text": "Color del navegador"
+            },
+            {
+              "id": "c",
+              "text": "Resolución de pantalla"
+            },
+            {
+              "id": "d",
+              "text": "Nombre del ISP"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La ruta y contenido permiten contrastar la descarga con el artefacto.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf"
+        },
+        {
+          "id": "w42d4-q03",
+          "prompt": "¿Por qué conservar bases del navegador y archivos auxiliares?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantizan recuperar todo borrado"
+            },
+            {
+              "id": "b",
+              "text": "Revelan todas las contraseñas"
+            },
+            {
+              "id": "c",
+              "text": "Sustituyen la memoria"
+            },
+            {
+              "id": "d",
+              "text": "Pueden contener transacciones recientes"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los archivos auxiliares pueden aportar estado no consolidado.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf"
+        },
+        {
+          "id": "w42d4-q04",
+          "prompt": "Una descarga figura como interrumpida. ¿Qué evitas afirmar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Intento de descarga registrado"
+            },
+            {
+              "id": "b",
+              "text": "Necesidad de comprobar disco"
+            },
+            {
+              "id": "c",
+              "text": "Archivo completo obtenido"
+            },
+            {
+              "id": "d",
+              "text": "Existencia de un registro"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El estado de descarga afecta lo que puede inferirse del contenido local.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf"
+        },
+        {
+          "id": "w42d4-q05",
+          "prompt": "¿El modo privado garantiza ausencia de todo rastro?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí, borra registros de red"
+            },
+            {
+              "id": "b",
+              "text": "No, otras fuentes pueden registrar actividad"
+            },
+            {
+              "id": "c",
+              "text": "Sí, borra memoria del sistema"
+            },
+            {
+              "id": "d",
+              "text": "Sí, impide DNS"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La privacidad del navegador no elimina telemetría externa o del sistema.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf"
+        },
+        {
+          "id": "w42d4-q06",
+          "prompt": "¿Qué problema produce mezclar perfiles de navegador?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Atribuir actividad a cuenta equivocada"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar bytes de red"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar cifrado TLS"
+            },
+            {
+              "id": "d",
+              "text": "Aumentar ancho de banda"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Cada perfil puede tener historial y configuración propios.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf"
+        },
+        {
+          "id": "w42d4-q07",
+          "prompt": "¿Cómo tratar un dominio sospechoso hallado en historial?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Abrirlo para confirmar color"
+            },
+            {
+              "id": "b",
+              "text": "Analizarlo sin visitarlo desde el equipo habitual"
+            },
+            {
+              "id": "c",
+              "text": "Enviar credenciales de prueba"
+            },
+            {
+              "id": "d",
+              "text": "Descargar de nuevo el archivo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La investigación debe evitar provocar nueva exposición innecesaria.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf"
+        },
+        {
+          "id": "w42d4-q08",
+          "prompt": "¿Por qué validar la época temporal del navegador?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todas usan hora local en texto"
+            },
+            {
+              "id": "b",
+              "text": "La extensión fija UTC"
+            },
+            {
+              "id": "c",
+              "text": "Los tiempos carecen de zona siempre"
+            },
+            {
+              "id": "d",
+              "text": "Puede usar formato distinto al del informe"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una conversión incorrecta altera la reconstrucción de navegación.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf"
+        }
+      ],
+      "challenge": {
+        "id": "w42d4-challenge",
+        "prompt": "Historial señala descarga completa, pero no hay archivo en la ruta actual. ¿Qué haces?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Declarar que nunca descargó"
+          },
+          {
+            "id": "b",
+            "text": "Volver a descargar el sospechoso"
+          },
+          {
+            "id": "c",
+            "text": "Cambiar estado del historial"
+          },
+          {
+            "id": "d",
+            "text": "Buscar traslado, borrado y artefactos asociados"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La ausencia actual requiere examinar explicaciones compatibles con el registro previo.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    },
+    {
+      "dayId": "w42d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w42d5-q01",
+          "prompt": "¿Qué analiza Volatility en una práctica de memoria?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Historial completo del router"
+            },
+            {
+              "id": "b",
+              "text": "Imagen de memoria adquirida"
+            },
+            {
+              "id": "c",
+              "text": "Solo archivos PDF"
+            },
+            {
+              "id": "d",
+              "text": "Solo registro de correo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los plugins extraen estructuras de una captura de RAM compatible.",
+          "reference": "https://volatility3.readthedocs.io/en/latest/getting-started-windows-tutorial.html"
+        },
+        {
+          "id": "w42d5-q02",
+          "prompt": "¿Qué suele listar windows.pslist?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Procesos de la imagen"
+            },
+            {
+              "id": "b",
+              "text": "Todos los archivos borrados"
+            },
+            {
+              "id": "c",
+              "text": "Todos los dominios visitados"
+            },
+            {
+              "id": "d",
+              "text": "Usuarios de todo el dominio"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El plugin examina estructuras de procesos de Windows.",
+          "reference": "https://volatility3.readthedocs.io/en/latest/getting-started-windows-tutorial.html"
+        },
+        {
+          "id": "w42d5-q03",
+          "prompt": "¿Para qué comparar pslist y psscan?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Calcular ancho de banda"
+            },
+            {
+              "id": "b",
+              "text": "Contrastar enumeración y escaneo"
+            },
+            {
+              "id": "c",
+              "text": "Editar el Registro"
+            },
+            {
+              "id": "d",
+              "text": "Confirmar autoría humana"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Métodos distintos pueden recuperar conjuntos diferentes de estructuras.",
+          "reference": "https://volatility3.readthedocs.io/en/latest/getting-started-windows-tutorial.html"
+        },
+        {
+          "id": "w42d5-q04",
+          "prompt": "Una salida netscan relaciona conexión y PID. ¿Qué falta verificar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo extensión del informe"
+            },
+            {
+              "id": "b",
+              "text": "Solo tamaño de la captura"
+            },
+            {
+              "id": "c",
+              "text": "Color del terminal"
+            },
+            {
+              "id": "d",
+              "text": "Proceso y momento de adquisición"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La asociación necesita contexto temporal y validación del proceso.",
+          "reference": "https://volatility3.readthedocs.io/en/latest/getting-started-windows-tutorial.html"
+        },
+        {
+          "id": "w42d5-q05",
+          "prompt": "¿Por qué un proceso terminado puede aparecer en un escaneo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sigue necesariamente ejecutándose"
+            },
+            {
+              "id": "b",
+              "text": "El plugin crea procesos"
+            },
+            {
+              "id": "c",
+              "text": "Toda RAM es histórica completa"
+            },
+            {
+              "id": "d",
+              "text": "Pueden quedar estructuras residuales"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La memoria puede conservar restos después de terminar una actividad.",
+          "reference": "https://volatility3.readthedocs.io/en/latest/getting-started-windows-tutorial.html"
+        },
+        {
+          "id": "w42d5-q06",
+          "prompt": "El plugin falla por símbolos faltantes. ¿Qué respuesta procede?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Concluir que no hay procesos"
+            },
+            {
+              "id": "b",
+              "text": "Marcar equipo limpio"
+            },
+            {
+              "id": "c",
+              "text": "Borrar la imagen"
+            },
+            {
+              "id": "d",
+              "text": "Revisar compatibilidad y requisitos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un error de análisis no es un resultado negativo.",
+          "reference": "https://volatility3.readthedocs.io/en/latest/getting-started-windows-tutorial.html"
+        },
+        {
+          "id": "w42d5-q07",
+          "prompt": "¿Qué implica adquirir RAM sobre sistema vivo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La herramienta altera parte del estado"
+            },
+            {
+              "id": "b",
+              "text": "Conserva estado absolutamente inmóvil"
+            },
+            {
+              "id": "c",
+              "text": "Equivale a disco apagado"
+            },
+            {
+              "id": "d",
+              "text": "Nunca necesita permisos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Toda adquisición viva tiene efectos que deben documentarse.",
+          "reference": "https://volatility3.readthedocs.io/en/latest/getting-started-windows-tutorial.html"
+        },
+        {
+          "id": "w42d5-q08",
+          "prompt": "¿Qué dato mejora la reproducibilidad de memoria?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo captura de pantalla"
+            },
+            {
+              "id": "b",
+              "text": "Hash, comando, plugin y versión"
+            },
+            {
+              "id": "c",
+              "text": "Solo hora del informe"
+            },
+            {
+              "id": "d",
+              "text": "Solo nombre de analista"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Estos datos permiten repetir y contrastar la extracción.",
+          "reference": "https://volatility3.readthedocs.io/en/latest/getting-started-windows-tutorial.html"
+        }
+      ],
+      "challenge": {
+        "id": "w42d5-challenge",
+        "prompt": "Psscan devuelve proceso que pslist no muestra. ¿Qué interpretación procede?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Confirmar rootkit automáticamente"
+          },
+          {
+            "id": "b",
+            "text": "Ignorar todo resultado del escáner"
+          },
+          {
+            "id": "c",
+            "text": "Investigar residuo, terminación u ocultación con otras fuentes"
+          },
+          {
+            "id": "d",
+            "text": "Afirmar que sigue activo"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La diferencia genera hipótesis, no una causa única.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    },
+    {
+      "dayId": "w42d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w42d6-q01",
+          "prompt": "Disco muestra archivo a las 10:01 y proceso a las 10:02. ¿Qué inferencia requiere cautela?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Existe proximidad temporal"
+            },
+            {
+              "id": "b",
+              "text": "Hay dos fuentes disponibles"
+            },
+            {
+              "id": "c",
+              "text": "Que el archivo causó el proceso"
+            },
+            {
+              "id": "d",
+              "text": "Se requiere normalizar relojes"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La secuencia temporal por sí sola no establece causalidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w42d6-q02",
+          "prompt": "Un hash de descarga coincide con ejecutable lanzado. ¿Qué refuerza?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Vínculo de contenido entre artefactos"
+            },
+            {
+              "id": "b",
+              "text": "Identidad del atacante"
+            },
+            {
+              "id": "c",
+              "text": "Intención del usuario"
+            },
+            {
+              "id": "d",
+              "text": "Ausencia de otras copias"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La coincidencia permite relacionar bytes observados en ambas fuentes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w42d6-q03",
+          "prompt": "¿En qué caso debes mantener dos hipótesis?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una hipótesis es más breve"
+            },
+            {
+              "id": "b",
+              "text": "El informe necesita extensión"
+            },
+            {
+              "id": "c",
+              "text": "El dominio tiene nombre raro"
+            },
+            {
+              "id": "d",
+              "text": "Los datos admiten automatización o acción manual"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Alternativas plausibles requieren pruebas que permitan diferenciarlas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w42d6-q04",
+          "prompt": "Una conexión aparece en RAM pero no en la captura de red. ¿Qué compruebas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cobertura temporal y punto de captura"
+            },
+            {
+              "id": "b",
+              "text": "Que la RAM sea falsa"
+            },
+            {
+              "id": "c",
+              "text": "Que no hubo conexión"
+            },
+            {
+              "id": "d",
+              "text": "Solo DNS del analista"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Fuentes con ventanas o ubicaciones distintas pueden observar actividades diferentes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w42d6-q05",
+          "prompt": "¿Qué mejora una cronología de varios artefactos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Unificar todo como ejecución"
+            },
+            {
+              "id": "b",
+              "text": "Quitar eventos contradictorios"
+            },
+            {
+              "id": "c",
+              "text": "Identificar fuente y semántica por fila"
+            },
+            {
+              "id": "d",
+              "text": "Ordenar solo por nombre"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La trazabilidad permite revisar qué representa cada marca temporal.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w42d6-q06",
+          "prompt": "Un perfil incluye LNK pero el usuario niega usarlo. ¿Qué documentas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Artefacto observado y atribución pendiente"
+            },
+            {
+              "id": "b",
+              "text": "Mentira demostrada"
+            },
+            {
+              "id": "c",
+              "text": "Exfiltración probada"
+            },
+            {
+              "id": "d",
+              "text": "Memoria adquirida sin cambios"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los datos técnicos y las declaraciones deben conservarse sin atribución excesiva.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w42d6-q07",
+          "prompt": "¿Por qué conservar un resultado que contradice tu hipótesis?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Permite revisarla y evitar sesgo"
+            },
+            {
+              "id": "b",
+              "text": "Reduce necesidad de pruebas"
+            },
+            {
+              "id": "c",
+              "text": "Demuestra herramienta defectuosa"
+            },
+            {
+              "id": "d",
+              "text": "Obliga a cerrar inmediatamente"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una investigación sólida considera evidencia a favor y en contra.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w42d6-q08",
+          "prompt": "¿Qué conclusión combina mejor evidencia parcial?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Atacante identificado por PID"
+            },
+            {
+              "id": "b",
+              "text": "Ausencia de Prefetch prueba inocencia"
+            },
+            {
+              "id": "c",
+              "text": "Actividad compatible con ejecución; operador sin determinar"
+            },
+            {
+              "id": "d",
+              "text": "Nombre del archivo prueba malware"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La redacción debe distinguir actividad sustentada y atribución no demostrada.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        }
+      ],
+      "challenge": {
+        "id": "w42d6-challenge",
+        "prompt": "Una captura cubre 12:00–12:10 y la RAM 12:30. ¿Qué límite comunicas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Todo socket de RAM aparece en la captura"
+          },
+          {
+            "id": "b",
+            "text": "La visibilidad de red no cubre el instante de RAM"
+          },
+          {
+            "id": "c",
+            "text": "Las fuentes son simultáneas"
+          },
+          {
+            "id": "d",
+            "text": "No se puede usar ninguna fuente"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La correlación debe respetar ventanas de observación distintas.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    },
+    {
+      "dayId": "w42d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w42d7-q01",
+          "prompt": "¿Qué archivo suele respaldar el hive del usuario?",
+          "options": [
+            {
+              "id": "a",
+              "text": "pagefile.sys"
+            },
+            {
+              "id": "b",
+              "text": "hosts"
+            },
+            {
+              "id": "c",
+              "text": "NTUSER.DAT"
+            },
+            {
+              "id": "d",
+              "text": "bootmgr"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "NTUSER.DAT contiene configuración específica del perfil.",
+          "reference": "https://learn.microsoft.com/en-us/windows/win32/sysinfo/registry-hives",
+          "reviewOf": "w42d1-q01"
+        },
+        {
+          "id": "w42d7-q02",
+          "prompt": "Un LNK apunta a un documento eliminado. ¿Qué puede conservar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ruta y metadatos del destino"
+            },
+            {
+              "id": "b",
+              "text": "Contenido completo garantizado"
+            },
+            {
+              "id": "c",
+              "text": "Contraseña del usuario"
+            },
+            {
+              "id": "d",
+              "text": "Todos los procesos activos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los accesos directos pueden sobrevivir a la desaparición del destino.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf",
+          "reviewOf": "w42d2-q01"
+        },
+        {
+          "id": "w42d7-q03",
+          "prompt": "Un Prefetch asociado a app.exe orienta a ¿qué?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Posible evidencia de ejecución"
+            },
+            {
+              "id": "b",
+              "text": "Autoría del ejecutable"
+            },
+            {
+              "id": "c",
+              "text": "Conexión de red demostrada"
+            },
+            {
+              "id": "d",
+              "text": "Exfiltración confirmada"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Prefetch aporta ejecución según configuración y versión del sistema.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf",
+          "reviewOf": "w42d3-q01"
+        },
+        {
+          "id": "w42d7-q04",
+          "prompt": "Una fila de historial web registra una URL. ¿Qué no demuestra sola?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Presencia de una referencia"
+            },
+            {
+              "id": "b",
+              "text": "Que el usuario leyó toda la página"
+            },
+            {
+              "id": "c",
+              "text": "Tiempo registrado por el navegador"
+            },
+            {
+              "id": "d",
+              "text": "URL asociada al perfil"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El historial no mide atención ni comprensión humana.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf",
+          "reviewOf": "w42d4-q01"
+        },
+        {
+          "id": "w42d7-q05",
+          "prompt": "¿Qué analiza Volatility en una práctica de memoria?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Historial completo del router"
+            },
+            {
+              "id": "b",
+              "text": "Imagen de memoria adquirida"
+            },
+            {
+              "id": "c",
+              "text": "Solo archivos PDF"
+            },
+            {
+              "id": "d",
+              "text": "Solo registro de correo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los plugins extraen estructuras de una captura de RAM compatible.",
+          "reference": "https://volatility3.readthedocs.io/en/latest/getting-started-windows-tutorial.html",
+          "reviewOf": "w42d5-q01"
+        },
+        {
+          "id": "w42d7-q06",
+          "prompt": "Disco muestra archivo a las 10:01 y proceso a las 10:02. ¿Qué inferencia requiere cautela?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Existe proximidad temporal"
+            },
+            {
+              "id": "b",
+              "text": "Hay dos fuentes disponibles"
+            },
+            {
+              "id": "c",
+              "text": "Que el archivo causó el proceso"
+            },
+            {
+              "id": "d",
+              "text": "Se requiere normalizar relojes"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La secuencia temporal por sí sola no establece causalidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w42d6-q01"
+        },
+        {
+          "id": "w42d7-q07",
+          "prompt": "¿Qué representa HKCU durante una sesión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todas las cuentas del dominio"
+            },
+            {
+              "id": "b",
+              "text": "Configuración del usuario actual"
+            },
+            {
+              "id": "c",
+              "text": "Solo configuración de hardware"
+            },
+            {
+              "id": "d",
+              "text": "Memoria de todos los procesos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "HKCU referencia el contexto del usuario conectado.",
+          "reference": "https://learn.microsoft.com/en-us/windows/win32/sysinfo/registry-hives",
+          "reviewOf": "w42d1-q02"
+        },
+        {
+          "id": "w42d7-q08",
+          "prompt": "¿Qué organizan las Jump Lists?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todas las cuentas locales"
+            },
+            {
+              "id": "b",
+              "text": "Rutas de enrutamiento"
+            },
+            {
+              "id": "c",
+              "text": "Firmas de malware conocidas"
+            },
+            {
+              "id": "d",
+              "text": "Elementos asociados a aplicaciones"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Su contenido aporta contexto de interacción con aplicaciones.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf",
+          "reviewOf": "w42d2-q02"
+        },
+        {
+          "id": "w42d7-q09",
+          "prompt": "No existe Prefetch de una herramienta. ¿Qué concluyes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Nunca se ejecutó"
+            },
+            {
+              "id": "b",
+              "text": "No basta para descartar ejecución"
+            },
+            {
+              "id": "c",
+              "text": "Era necesariamente portable"
+            },
+            {
+              "id": "d",
+              "text": "Fue ejecutada por administrador"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La generación y retención de artefactos tienen condiciones.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf",
+          "reviewOf": "w42d3-q02"
+        },
+        {
+          "id": "w42d7-q10",
+          "prompt": "¿Qué dato ayuda a relacionar una descarga con disco?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ruta destino y hash del archivo"
+            },
+            {
+              "id": "b",
+              "text": "Color del navegador"
+            },
+            {
+              "id": "c",
+              "text": "Resolución de pantalla"
+            },
+            {
+              "id": "d",
+              "text": "Nombre del ISP"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La ruta y contenido permiten contrastar la descarga con el artefacto.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf",
+          "reviewOf": "w42d4-q02"
+        },
+        {
+          "id": "w42d7-q11",
+          "prompt": "¿Qué suele listar windows.pslist?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Procesos de la imagen"
+            },
+            {
+              "id": "b",
+              "text": "Todos los archivos borrados"
+            },
+            {
+              "id": "c",
+              "text": "Todos los dominios visitados"
+            },
+            {
+              "id": "d",
+              "text": "Usuarios de todo el dominio"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El plugin examina estructuras de procesos de Windows.",
+          "reference": "https://volatility3.readthedocs.io/en/latest/getting-started-windows-tutorial.html",
+          "reviewOf": "w42d5-q02"
+        },
+        {
+          "id": "w42d7-q12",
+          "prompt": "Un hash de descarga coincide con ejecutable lanzado. ¿Qué refuerza?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Vínculo de contenido entre artefactos"
+            },
+            {
+              "id": "b",
+              "text": "Identidad del atacante"
+            },
+            {
+              "id": "c",
+              "text": "Intención del usuario"
+            },
+            {
+              "id": "d",
+              "text": "Ausencia de otras copias"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La coincidencia permite relacionar bytes observados en ambas fuentes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w42d6-q02"
+        },
+        {
+          "id": "w42d7-q13",
+          "prompt": "¿Qué agrupa un hive del Registro?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Claves, subclaves y valores"
+            },
+            {
+              "id": "b",
+              "text": "Solo archivos ejecutables"
+            },
+            {
+              "id": "c",
+              "text": "Solo sesiones de red"
+            },
+            {
+              "id": "d",
+              "text": "Paquetes capturados"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un hive es una unidad lógica respaldada por archivos.",
+          "reference": "https://learn.microsoft.com/en-us/windows/win32/sysinfo/registry-hives",
+          "reviewOf": "w42d1-q03"
+        },
+        {
+          "id": "w42d7-q14",
+          "prompt": "Un acceso reciente bajo un perfil prueba sobre todo ¿qué?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Identidad física incuestionable"
+            },
+            {
+              "id": "b",
+              "text": "Actividad asociada al perfil"
+            },
+            {
+              "id": "c",
+              "text": "Lectura íntegra del documento"
+            },
+            {
+              "id": "d",
+              "text": "Exfiltración consumada"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un perfil no identifica por sí solo a la persona que lo usó.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf",
+          "reviewOf": "w42d2-q03"
+        },
+        {
+          "id": "w42d7-q15",
+          "prompt": "¿Por qué el nombre powershell.exe no basta para clasificar malware?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Siempre está firmado por atacante"
+            },
+            {
+              "id": "b",
+              "text": "Es una herramienta legítima con múltiples usos"
+            },
+            {
+              "id": "c",
+              "text": "Nunca usa red"
+            },
+            {
+              "id": "d",
+              "text": "Solo existe en servidores"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Comando, origen y contexto determinan la interpretación.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf",
+          "reviewOf": "w42d3-q03"
+        },
+        {
+          "id": "w42d7-q16",
+          "prompt": "¿Por qué conservar bases del navegador y archivos auxiliares?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantizan recuperar todo borrado"
+            },
+            {
+              "id": "b",
+              "text": "Revelan todas las contraseñas"
+            },
+            {
+              "id": "c",
+              "text": "Sustituyen la memoria"
+            },
+            {
+              "id": "d",
+              "text": "Pueden contener transacciones recientes"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los archivos auxiliares pueden aportar estado no consolidado.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf",
+          "reviewOf": "w42d4-q03"
+        },
+        {
+          "id": "w42d7-q17",
+          "prompt": "¿Para qué comparar pslist y psscan?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Calcular ancho de banda"
+            },
+            {
+              "id": "b",
+              "text": "Contrastar enumeración y escaneo"
+            },
+            {
+              "id": "c",
+              "text": "Editar el Registro"
+            },
+            {
+              "id": "d",
+              "text": "Confirmar autoría humana"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Métodos distintos pueden recuperar conjuntos diferentes de estructuras.",
+          "reference": "https://volatility3.readthedocs.io/en/latest/getting-started-windows-tutorial.html",
+          "reviewOf": "w42d5-q03"
+        },
+        {
+          "id": "w42d7-q18",
+          "prompt": "¿En qué caso debes mantener dos hipótesis?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una hipótesis es más breve"
+            },
+            {
+              "id": "b",
+              "text": "El informe necesita extensión"
+            },
+            {
+              "id": "c",
+              "text": "El dominio tiene nombre raro"
+            },
+            {
+              "id": "d",
+              "text": "Los datos admiten automatización o acción manual"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Alternativas plausibles requieren pruebas que permitan diferenciarlas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w42d6-q03"
+        },
+        {
+          "id": "w42d7-q19",
+          "prompt": "Una clave Run contiene un comando. ¿Qué demuestra por sí sola?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ejecución exitosa comprobada"
+            },
+            {
+              "id": "b",
+              "text": "Autoría humana confirmada"
+            },
+            {
+              "id": "c",
+              "text": "Configuración de inicio persistente"
+            },
+            {
+              "id": "d",
+              "text": "Conexión externa activa"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La configuración puede existir aunque la ejecución falle o no ocurra.",
+          "reference": "https://learn.microsoft.com/en-us/windows/win32/sysinfo/registry-hives",
+          "reviewOf": "w42d1-q04"
+        },
+        {
+          "id": "w42d7-q20",
+          "prompt": "Una descarga figura como interrumpida. ¿Qué evitas afirmar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Intento de descarga registrado"
+            },
+            {
+              "id": "b",
+              "text": "Necesidad de comprobar disco"
+            },
+            {
+              "id": "c",
+              "text": "Archivo completo obtenido"
+            },
+            {
+              "id": "d",
+              "text": "Existencia de un registro"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El estado de descarga afecta lo que puede inferirse del contenido local.",
+          "reference": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/IR-Guidebook-Final.pdf",
+          "reviewOf": "w42d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w42d7-challenge",
+        "prompt": "Tres artefactos indican actividad del perfil de Luis, sin evidencia del operador. ¿Qué defiendes?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Luis ejecutó personalmente todo"
+          },
+          {
+            "id": "b",
+            "text": "Actividad del perfil y atribución humana pendiente"
+          },
+          {
+            "id": "c",
+            "text": "Un tercero está identificado"
+          },
+          {
+            "id": "d",
+            "text": "Los artefactos carecen de utilidad"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La cuenta o perfil observado no equivale siempre a persona identificada.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    }
+  ]
+}

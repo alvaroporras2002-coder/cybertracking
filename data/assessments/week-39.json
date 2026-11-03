@@ -1,0 +1,2094 @@
+{
+  "week": 39,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w39d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w39d1-q01",
+          "prompt": "En https://portal.example.org/facturas/enero?id=42, ¿cuál es el host?",
+          "options": [
+            {
+              "id": "a",
+              "text": "portal.example.org"
+            },
+            {
+              "id": "b",
+              "text": "https"
+            },
+            {
+              "id": "c",
+              "text": "/facturas/enero"
+            },
+            {
+              "id": "d",
+              "text": "id=42"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El host pertenece a la autoridad de la URL; la ruta y la consulta son componentes distintos.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3986.html"
+        },
+        {
+          "id": "w39d1-q02",
+          "prompt": "¿Qué host corresponde a https://example.org@verificacion.invalid/acceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "example.org"
+            },
+            {
+              "id": "b",
+              "text": "example.org@verificacion.invalid/acceso"
+            },
+            {
+              "id": "c",
+              "text": "verificacion.invalid"
+            },
+            {
+              "id": "d",
+              "text": "https"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La parte anterior a @ puede ser información de usuario; no debe confundirse con el host de destino.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3986.html"
+        },
+        {
+          "id": "w39d1-q03",
+          "prompt": "La URL https://seguridad.example.org.login.invalid/ usa una cadena similar a una marca. ¿Qué observación es correcta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El host es example.org porque aparece antes en la cadena"
+            },
+            {
+              "id": "b",
+              "text": "El host completo termina en login.invalid; la aparición de example.org no lo convierte en ese dominio"
+            },
+            {
+              "id": "c",
+              "text": "El prefijo seguridad demuestra pertenencia a la empresa"
+            },
+            {
+              "id": "d",
+              "text": "Usar HTTPS impide que exista suplantación"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los subdominios pueden incluir palabras engañosas; debe analizarse el nombre completo y su jerarquía.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3986.html"
+        },
+        {
+          "id": "w39d1-q04",
+          "prompt": "¿Qué representa %2F en una URL cuando se interpreta como codificación porcentual?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un cifrado que exige una clave privada"
+            },
+            {
+              "id": "b",
+              "text": "Un resultado de reputación del dominio"
+            },
+            {
+              "id": "c",
+              "text": "Una firma que garantiza la integridad de la ruta"
+            },
+            {
+              "id": "d",
+              "text": "El byte que corresponde al carácter /"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La codificación porcentual representa bytes mediante dígitos hexadecimales, no un mecanismo de confianza.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3986.html"
+        },
+        {
+          "id": "w39d1-q05",
+          "prompt": "Una URL contiene ?usuario=alumno&sesion=abc. ¿Qué precaución requiere compartirla?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Suponer que una URL HTTPS no contiene información sensible"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar toda la evidencia original sin conservar copia"
+            },
+            {
+              "id": "c",
+              "text": "Revisar si los parámetros incluyen identificadores o secretos que deben minimizarse"
+            },
+            {
+              "id": "d",
+              "text": "Publicarla completa porque los parámetros no pueden ser leídos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las consultas pueden contener datos sensibles aunque el transporte utilice HTTPS.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3986.html"
+        },
+        {
+          "id": "w39d1-q06",
+          "prompt": "¿Qué componente suele introducir el símbolo # en una referencia URI?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El puerto TCP"
+            },
+            {
+              "id": "b",
+              "text": "La identidad evaluada por SPF"
+            },
+            {
+              "id": "c",
+              "text": "El fragmento"
+            },
+            {
+              "id": "d",
+              "text": "El algoritmo de cifrado de la conexión"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El fragmento identifica una parte secundaria del recurso dentro de la sintaxis URI.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3986.html"
+        },
+        {
+          "id": "w39d1-q07",
+          "prompt": "Dos enlaces usan el mismo host, pero rutas diferentes. ¿Qué debes conservar en un indicador de URL?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la última palabra del nombre del host"
+            },
+            {
+              "id": "b",
+              "text": "Solo el esquema, porque todas las rutas son equivalentes"
+            },
+            {
+              "id": "c",
+              "text": "La URL relevante completa y cualquier normalización documentada"
+            },
+            {
+              "id": "d",
+              "text": "Una ruta elegida de memoria para facilitar la escritura"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La ruta y la consulta pueden ser necesarias para distinguir recursos o comportamientos específicos.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3986.html"
+        },
+        {
+          "id": "w39d1-q08",
+          "prompt": "Debes analizar un enlace desconocido de una muestra educativa. ¿Qué primer método respeta un alcance estático?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Visitarlo desde la cuenta personal para comprobar su aspecto"
+            },
+            {
+              "id": "b",
+              "text": "Seguir todas sus redirecciones en producción"
+            },
+            {
+              "id": "c",
+              "text": "Separar sus componentes sin abrir el destino remoto"
+            },
+            {
+              "id": "d",
+              "text": "Introducir datos ficticios en el formulario remoto sin autorización"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El análisis de la cadena no requiere contactar al destino; las visitas pueden exceder el alcance autorizado.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3986.html"
+        }
+      ],
+      "challenge": {
+        "id": "w39d1-challenge",
+        "prompt": "Analiza sin navegar: https://portal.example.org@cobro.invalid/pago?cliente=42. ¿Qué dato central registrarías?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El host portal.example.org porque aparece primero"
+          },
+          {
+            "id": "b",
+            "text": "Un DMARC fail deducido de la presencia de @"
+          },
+          {
+            "id": "c",
+            "text": "Una prueba de que la página utiliza el servidor de example.org"
+          },
+          {
+            "id": "d",
+            "text": "El host cobro.invalid, la ruta /pago y la consulta cliente=42, separados de la información anterior a @"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La sintaxis permite distinguir autoridad, información de usuario, ruta y consulta.",
+        "reference": "https://www.rfc-editor.org/rfc/rfc3986.html"
+      }
+    },
+    {
+      "dayId": "w39d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w39d2-q01",
+          "prompt": "Un servicio no muestra detecciones para un hash recién observado. ¿Qué conclusión es válida?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El archivo es benigno en cualquier sistema"
+            },
+            {
+              "id": "b",
+              "text": "No hay detecciones en esa fuente en ese momento; falta contexto para un veredicto"
+            },
+            {
+              "id": "c",
+              "text": "El archivo no puede ejecutar código"
+            },
+            {
+              "id": "d",
+              "text": "No hace falta conservar la muestra ni su origen"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La falta de detecciones no demuestra seguridad y depende de la cobertura y actualización de la fuente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w39d2-q02",
+          "prompt": "Una IP tuvo mala reputación hace dos años. ¿Qué debes evaluar antes de bloquearla hoy?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo si el número de la IP parece parecido al anterior"
+            },
+            {
+              "id": "b",
+              "text": "El hecho de que una clasificación histórica nunca caduca"
+            },
+            {
+              "id": "c",
+              "text": "La fecha, el contexto actual y posibles cambios de propietario o uso"
+            },
+            {
+              "id": "d",
+              "text": "Si el mismo dominio conserva exactamente su diseño gráfico"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La infraestructura y su uso pueden cambiar; los indicadores deben contextualizarse temporalmente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w39d2-q03",
+          "prompt": "Un dominio sospechoso comparte una IP con cientos de sitios legítimos. ¿Qué limitación afecta a bloquear toda la IP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Toda coincidencia de IP prueba que los sitios pertenecen al mismo actor"
+            },
+            {
+              "id": "b",
+              "text": "Los dominios en una IP compartida dejan de poder investigarse"
+            },
+            {
+              "id": "c",
+              "text": "Bloquear una IP solo afecta al dominio que originó la alerta"
+            },
+            {
+              "id": "d",
+              "text": "El alojamiento compartido puede causar daños colaterales a servicios no relacionados"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La medida debe considerar la granularidad del indicador y los activos que comparten infraestructura.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w39d2-q04",
+          "prompt": "Tres herramientas citan el mismo reporte original. ¿Cómo valoras su aparente corroboración?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Como información posiblemente dependiente de una sola fuente original"
+            },
+            {
+              "id": "b",
+              "text": "Como tres observaciones técnicas independientes por definición"
+            },
+            {
+              "id": "c",
+              "text": "Como una atribución definitiva al autor del reporte"
+            },
+            {
+              "id": "d",
+              "text": "Como un motivo para omitir la fecha del hallazgo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Fuentes que se copian no aportan el mismo peso que observaciones independientes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w39d2-q05",
+          "prompt": "Quieres consultar la reputación de un archivo interno con datos personales. ¿Qué opción reduce exposición inicial?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Consultar un hash autorizado en lugar de subir el archivo completo, revisando la política aplicable"
+            },
+            {
+              "id": "b",
+              "text": "Subir el documento completo a cualquier servicio público"
+            },
+            {
+              "id": "c",
+              "text": "Publicar el archivo con un nombre distinto para anonimizarlo"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar la evidencia original antes de obtener autorización"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Incluso las consultas pueden revelar interés o información; deben ajustarse a la política de manejo de datos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w39d2-q06",
+          "prompt": "Una ficha de reputación cambia de desconocido a malicioso. ¿Qué información debes registrar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el nuevo color del indicador de riesgo"
+            },
+            {
+              "id": "b",
+              "text": "Fuente, momento de consulta, resultado y fundamento disponible"
+            },
+            {
+              "id": "c",
+              "text": "Una captura sin fecha para evitar que quede obsoleta"
+            },
+            {
+              "id": "d",
+              "text": "La clasificación anterior como si nunca hubiera cambiado"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El registro temporal permite interpretar cambios y revisar decisiones posteriores.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w39d2-q07",
+          "prompt": "Una detección de reputación coincide con un indicador local. ¿Qué comprobación aumenta su utilidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Asumir que cualquier coincidencia parcial de texto es suficiente"
+            },
+            {
+              "id": "b",
+              "text": "Atribuir inmediatamente el caso al mismo actor de la ficha"
+            },
+            {
+              "id": "c",
+              "text": "Borrar los registros locales para usar solo la fuente externa"
+            },
+            {
+              "id": "d",
+              "text": "Confirmar que el valor y el contexto local realmente corresponden al observado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La relación entre inteligencia externa y evidencia local debe validarse, no suponerse.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w39d2-q08",
+          "prompt": "El informe debe usar una fuente de baja confianza que aporta un dato único. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eliminar la etiqueta de confianza para que el reporte parezca uniforme"
+            },
+            {
+              "id": "b",
+              "text": "Etiquetar la confianza y buscar corroboración, separando el dato de una conclusión firme"
+            },
+            {
+              "id": "c",
+              "text": "Presentarlo como confirmado porque no hay otra fuente"
+            },
+            {
+              "id": "d",
+              "text": "Convertir la incertidumbre en un porcentaje exacto sin un modelo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La incertidumbre y la dependencia de las fuentes deben mantenerse visibles.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        }
+      ],
+      "challenge": {
+        "id": "w39d2-challenge",
+        "prompt": "Una IP compartida tuvo un reporte malicioso antiguo y hoy aloja un servicio necesario. ¿Qué decisión es defendible?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Verificar contexto y actualidad del indicador antes de proponer un bloqueo que afecte a otros servicios"
+          },
+          {
+            "id": "b",
+            "text": "Bloquear toda la IP solo por el reporte histórico"
+          },
+          {
+            "id": "c",
+            "text": "Declararla segura porque aloja un servicio necesario"
+          },
+          {
+            "id": "d",
+            "text": "Eliminar el reporte antiguo para no generar dudas"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "Las medidas necesitan contexto temporal, granularidad e impacto operativo.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    },
+    {
+      "dayId": "w39d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w39d3-q01",
+          "prompt": "Calculas SHA-256 sobre un archivo de laboratorio. ¿Qué propósito principal tiene conservar ese digest?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Demostrar que el archivo es benigno"
+            },
+            {
+              "id": "b",
+              "text": "Revelar automáticamente la contraseña del archivo"
+            },
+            {
+              "id": "c",
+              "text": "Identificar el contenido y detectar cambios al compararlo posteriormente"
+            },
+            {
+              "id": "d",
+              "text": "Atribuir el archivo a una persona concreta"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El hash ayuda a verificar integridad; la legitimidad y la atribución requieren contexto adicional.",
+          "reference": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"
+        },
+        {
+          "id": "w39d3-q02",
+          "prompt": "Un archivo con extensión .pdf tiene una cabecera de formato incompatible con PDF. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Documentar la discrepancia y examinar el tipo real en el entorno autorizado"
+            },
+            {
+              "id": "b",
+              "text": "Confiar en la extensión porque el sistema la muestra"
+            },
+            {
+              "id": "c",
+              "text": "Renombrarlo y declarar que el formato quedó reparado"
+            },
+            {
+              "id": "d",
+              "text": "Ejecutarlo para que el programa decida si es peligroso"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El nombre no garantiza el formato; deben contrastarse señales del contenido sin ejecución innecesaria.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w39d3-q03",
+          "prompt": "Dos copias producen el mismo SHA-256 bajo el mismo procedimiento. ¿Qué inferencia práctica respalda?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que proceden necesariamente del mismo usuario"
+            },
+            {
+              "id": "b",
+              "text": "Que han sido ejecutadas en los dos equipos"
+            },
+            {
+              "id": "c",
+              "text": "Que ninguna contiene código malicioso"
+            },
+            {
+              "id": "d",
+              "text": "Que los contenidos comparados coinciden con alta confianza bajo ese mecanismo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La igualdad del digest es una comprobación de contenido, no una descripción de su uso o intención.",
+          "reference": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"
+        },
+        {
+          "id": "w39d3-q04",
+          "prompt": "El hash cambia después de editar un solo byte del archivo. ¿Cómo lo interpretas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El algoritmo debe estar dañado porque solo cambió un byte"
+            },
+            {
+              "id": "b",
+              "text": "El archivo nuevo necesariamente es más malicioso"
+            },
+            {
+              "id": "c",
+              "text": "El equipo que calculó el hash está comprometido"
+            },
+            {
+              "id": "d",
+              "text": "El contenido ya no coincide con el digest anterior"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los hashes criptográficos son sensibles a cambios del contenido, aunque sean pequeños.",
+          "reference": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"
+        },
+        {
+          "id": "w39d3-q05",
+          "prompt": "¿Qué longitud tiene normalmente una representación hexadecimal completa de SHA-256?",
+          "options": [
+            {
+              "id": "a",
+              "text": "32 bits en cualquier representación"
+            },
+            {
+              "id": "b",
+              "text": "256 caracteres decimales obligatorios"
+            },
+            {
+              "id": "c",
+              "text": "16 caracteres hexadecimales"
+            },
+            {
+              "id": "d",
+              "text": "64 caracteres hexadecimales"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un digest de 256 bits requiere 64 dígitos cuando cada dígito hexadecimal representa cuatro bits.",
+          "reference": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"
+        },
+        {
+          "id": "w39d3-q06",
+          "prompt": "Debes comparar dos hashes. ¿Qué dato es indispensable además de sus cadenas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El algoritmo y qué bytes o archivo se procesaron"
+            },
+            {
+              "id": "b",
+              "text": "La marca de la pantalla usada para visualizarlos"
+            },
+            {
+              "id": "c",
+              "text": "El número de carpetas que contiene el equipo"
+            },
+            {
+              "id": "d",
+              "text": "El nombre del usuario que escribió el informe"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Digests de algoritmos distintos o calculados sobre transformaciones diferentes no son una comparación equivalente.",
+          "reference": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"
+        },
+        {
+          "id": "w39d3-q07",
+          "prompt": "Extraes un adjunto y luego normalizas su texto. ¿Qué hashes conviene distinguir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un único hash al que se le atribuyan ambas versiones"
+            },
+            {
+              "id": "b",
+              "text": "El del archivo extraído original y el de la copia transformada"
+            },
+            {
+              "id": "c",
+              "text": "Solo el nombre del archivo antes de transformarlo"
+            },
+            {
+              "id": "d",
+              "text": "El hash de otro archivo de igual tamaño"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Cada transformación puede modificar los bytes; debe conservarse la trazabilidad entre versiones.",
+          "reference": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"
+        },
+        {
+          "id": "w39d3-q08",
+          "prompt": "Una lista pública contiene un hash malicioso que coincide con una muestra. ¿Qué no demuestra esa coincidencia por sí sola?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el contenido coincide con el identificado por el digest comparado"
+            },
+            {
+              "id": "b",
+              "text": "Que la muestra se ejecutó en el equipo investigado"
+            },
+            {
+              "id": "c",
+              "text": "Que el indicador merece contrastarse con el caso"
+            },
+            {
+              "id": "d",
+              "text": "Que el algoritmo debe indicarse en el informe"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La presencia de un contenido y su ejecución son hechos diferentes.",
+          "reference": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w39d3-challenge",
+        "prompt": "La copia de un adjunto tiene un SHA-256 diferente al registrado al adquirirlo. ¿Qué haces?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Cambiar el hash registrado para que coincida sin explicar la diferencia"
+          },
+          {
+            "id": "b",
+            "text": "Concluir automáticamente que un atacante modificó el archivo"
+          },
+          {
+            "id": "c",
+            "text": "Investigar la diferencia y recuperar o identificar la versión correcta antes de afirmar integridad"
+          },
+          {
+            "id": "d",
+            "text": "Usar el nombre del archivo como prueba suficiente de igualdad"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "Una discrepancia exige aclarar el contenido y su tratamiento; no determina por sí sola la causa.",
+        "reference": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"
+      }
+    },
+    {
+      "dayId": "w39d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w39d4-q01",
+          "prompt": "En CyberChef, ¿qué describe una receta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una firma digital de confianza para cualquier archivo"
+            },
+            {
+              "id": "b",
+              "text": "Un registro de servidores autorizados para enviar correo"
+            },
+            {
+              "id": "c",
+              "text": "Una secuencia ordenada de operaciones y sus parámetros"
+            },
+            {
+              "id": "d",
+              "text": "Un informe que garantiza el origen del contenido"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La receta define cómo se transforma la entrada para producir una salida.",
+          "reference": "https://github.com/gchq/CyberChef"
+        },
+        {
+          "id": "w39d4-q02",
+          "prompt": "La cadena SG9sYQ== se procesa con From Base64 como texto UTF-8. ¿Qué salida esperas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "SG9sYQ== sin transformación por definición"
+            },
+            {
+              "id": "b",
+              "text": "Un hash de 256 bits"
+            },
+            {
+              "id": "c",
+              "text": "Hola"
+            },
+            {
+              "id": "d",
+              "text": "Un archivo ejecutable obligatorio"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La operación decodifica esa representación Base64 a los bytes del texto Hola.",
+          "reference": "https://github.com/gchq/CyberChef"
+        },
+        {
+          "id": "w39d4-q03",
+          "prompt": "Una entrada está codificada primero como URL y después como Base64. ¿Qué orden corresponde para recuperar el texto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Decodificar URL y después Base64 en todos los casos"
+            },
+            {
+              "id": "b",
+              "text": "Calcular un hash antes de intentar cualquier decodificación"
+            },
+            {
+              "id": "c",
+              "text": "Decodificar Base64 y luego la codificación URL"
+            },
+            {
+              "id": "d",
+              "text": "Cifrar la entrada con una clave aleatoria"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las transformaciones encadenadas se revierten en el orden inverso al aplicado.",
+          "reference": "https://github.com/gchq/CyberChef"
+        },
+        {
+          "id": "w39d4-q04",
+          "prompt": "Magic sugiere una decodificación automática. ¿Cómo debes usar la sugerencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Como garantía de que la salida es el contenido original verdadero"
+            },
+            {
+              "id": "b",
+              "text": "Como prueba de que la muestra es maliciosa"
+            },
+            {
+              "id": "c",
+              "text": "Como una hipótesis que se valida con la salida y el contexto"
+            },
+            {
+              "id": "d",
+              "text": "Como sustituto de registrar la receta aplicada"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La detección automática propone operaciones plausibles y puede necesitar revisión.",
+          "reference": "https://github.com/gchq/CyberChef"
+        },
+        {
+          "id": "w39d4-q05",
+          "prompt": "Una salida de CyberChef parece texto, pero contiene caracteres extraños. ¿Qué revisarías?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo si el nombre del archivo tiene suficientes letras"
+            },
+            {
+              "id": "b",
+              "text": "La codificación de caracteres y las operaciones o parámetros aplicados"
+            },
+            {
+              "id": "c",
+              "text": "La clasificación de riesgo de otro archivo distinto"
+            },
+            {
+              "id": "d",
+              "text": "La fecha de compra del ordenador"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una conversión incorrecta puede generar una salida aparentemente legible pero equivocada.",
+          "reference": "https://github.com/gchq/CyberChef"
+        },
+        {
+          "id": "w39d4-q06",
+          "prompt": "Quieres que otro analista repita una transformación. ¿Qué guardas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Únicamente una captura de la última palabra obtenida"
+            },
+            {
+              "id": "b",
+              "text": "El número de operaciones sin indicar cuáles"
+            },
+            {
+              "id": "c",
+              "text": "Una receta similar recordada después de cerrar la herramienta"
+            },
+            {
+              "id": "d",
+              "text": "La receta con parámetros y una referencia autorizada a la entrada y salida"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La reproducibilidad requiere conocer la secuencia y los datos sobre los que se ejecutó.",
+          "reference": "https://github.com/gchq/CyberChef"
+        },
+        {
+          "id": "w39d4-q07",
+          "prompt": "Compartes una URL generada por CyberChef. ¿Qué debes comprobar antes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo que comience por HTTPS para considerarla privada"
+            },
+            {
+              "id": "b",
+              "text": "Que el destinatario pueda adivinar la receta sin abrirla"
+            },
+            {
+              "id": "c",
+              "text": "Que el enlace cambie automáticamente cualquier contraseña incluida"
+            },
+            {
+              "id": "d",
+              "text": "Si incluye la entrada o datos sensibles además de la receta"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las URLs compartibles pueden contener receta y entrada; deben revisarse según la política de datos.",
+          "reference": "https://github.com/gchq/CyberChef"
+        },
+        {
+          "id": "w39d4-q08",
+          "prompt": "¿Qué diferencia hay entre decodificar Base64 y descifrar un contenido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ambas operaciones garantizan siempre confidencialidad"
+            },
+            {
+              "id": "b",
+              "text": "La decodificación revierte una representación; el descifrado requiere el algoritmo y las claves o parámetros adecuados"
+            },
+            {
+              "id": "c",
+              "text": "Base64 es un cifrado de clave pública"
+            },
+            {
+              "id": "d",
+              "text": "Una cadena codificada demuestra que el archivo es legítimo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Codificación y cifrado resuelven problemas distintos y no deben confundirse.",
+          "reference": "https://github.com/gchq/CyberChef"
+        }
+      ],
+      "challenge": {
+        "id": "w39d4-challenge",
+        "prompt": "La entrada JTJG se transforma con From Base64 y después URL Decode. ¿Qué resultado y trazabilidad esperas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El carácter /, conservando ambas operaciones y la entrada utilizada"
+          },
+          {
+            "id": "b",
+            "text": "Una clave privada, porque Base64 cifra el contenido"
+          },
+          {
+            "id": "c",
+            "text": "La cadena original sin cambios porque el orden no importa"
+          },
+          {
+            "id": "d",
+            "text": "Un veredicto automático de malware por contener una barra"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "JTJG representa %2F en Base64; la segunda operación revierte la codificación porcentual.",
+        "reference": "https://github.com/gchq/CyberChef"
+      }
+    },
+    {
+      "dayId": "w39d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w39d5-q01",
+          "prompt": "Un archivo .docm de laboratorio contiene capacidad de macros. ¿Qué conclusión inicial es correcta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Es seguro porque es un documento de oficina"
+            },
+            {
+              "id": "b",
+              "text": "Toda macro implica que el usuario ya fue comprometido"
+            },
+            {
+              "id": "c",
+              "text": "Debe ejecutarse para que el análisis estático sea válido"
+            },
+            {
+              "id": "d",
+              "text": "Puede incluir macros, pero la extensión no demuestra por sí sola comportamiento malicioso"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las capacidades del formato son parte del contexto, no un veredicto suficiente.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w39d5-q02",
+          "prompt": "Los metadatos de un documento indican autor Dirección General. ¿Qué limitación debes recordar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El autor del metadato equivale a una firma criptográfica verificada"
+            },
+            {
+              "id": "b",
+              "text": "Un campo de autor vacío demuestra malware"
+            },
+            {
+              "id": "c",
+              "text": "El campo confirma que el documento procede del equipo del director"
+            },
+            {
+              "id": "d",
+              "text": "Los metadatos pueden ser editados y no autentican a la persona indicada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los metadatos aportan pistas que deben corroborarse con otras fuentes.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w39d5-q03",
+          "prompt": "Un adjunto comprimido está protegido con contraseña. ¿Cómo afecta al análisis?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La contraseña demuestra que el remitente protege un archivo legítimo"
+            },
+            {
+              "id": "b",
+              "text": "La compresión elimina cualquier código activo"
+            },
+            {
+              "id": "c",
+              "text": "Todos los sistemas de análisis pueden inspeccionarlo siempre sin la clave"
+            },
+            {
+              "id": "d",
+              "text": "Puede limitar la inspección automática del contenido y requiere el procedimiento autorizado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El acceso al contenido y las capacidades de inspección deben describirse como límites del análisis.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w39d5-q04",
+          "prompt": "Un PDF contiene una URL. ¿Qué diferencia debe quedar clara en el informe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Toda URL incrustada demuestra una conexión saliente confirmada"
+            },
+            {
+              "id": "b",
+              "text": "Los PDF no pueden contener enlaces"
+            },
+            {
+              "id": "c",
+              "text": "La extensión PDF convierte en segura cualquier URL del archivo"
+            },
+            {
+              "id": "d",
+              "text": "La presencia de la URL no prueba que un usuario la visitara"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La evidencia estática describe contenido; la interacción requiere registros o evidencia adicionales.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w39d5-q05",
+          "prompt": "Una muestra tiene firma digital válida de un editor. ¿Qué implica para su seguridad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La firma vuelve innecesaria cualquier revisión técnica"
+            },
+            {
+              "id": "b",
+              "text": "El archivo no puede haber sido usado en un ataque"
+            },
+            {
+              "id": "c",
+              "text": "La firma aporta información sobre origen e integridad, pero no garantiza que el comportamiento sea benigno"
+            },
+            {
+              "id": "d",
+              "text": "La firma demuestra que la muestra se ejecutó en el equipo"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una firma válida no sustituye el análisis del archivo y su contexto de uso.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w39d5-q06",
+          "prompt": "El antivirus no detecta un adjunto, pero contiene una petición de habilitar contenido activo. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Habilitarlo porque la ausencia de detección demuestra seguridad"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar la petición de contenido activo del reporte"
+            },
+            {
+              "id": "c",
+              "text": "Documentar ambas señales y continuar el análisis autorizado sin habilitarlo innecesariamente"
+            },
+            {
+              "id": "d",
+              "text": "Declarar ejecución de malware sin más evidencia"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las detecciones de herramientas y las características observadas deben evaluarse en conjunto.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w39d5-q07",
+          "prompt": "Debes preservar un archivo extraído del correo antes de examinarlo. ¿Qué registro es apropiado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo un nombre nuevo elegido por el analista"
+            },
+            {
+              "id": "b",
+              "text": "Nombre de origen, relación con el mensaje, hash, fecha y ubicación de la copia de análisis"
+            },
+            {
+              "id": "c",
+              "text": "La lista de todos los documentos personales del equipo"
+            },
+            {
+              "id": "d",
+              "text": "Una captura del escritorio sin el archivo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Estos datos permiten relacionar el adjunto con la evidencia original y verificar su integridad.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w39d5-q08",
+          "prompt": "Una herramienta de análisis estático falla al abrir una muestra. ¿Qué puedes concluir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que la muestra es necesariamente inocua"
+            },
+            {
+              "id": "b",
+              "text": "Que hubo un error o limitación de la herramienta, no un veredicto de legitimidad"
+            },
+            {
+              "id": "c",
+              "text": "Que el fallo confirma ejecución de código malicioso"
+            },
+            {
+              "id": "d",
+              "text": "Que cambiar la extensión elimina el problema de seguridad"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los errores de análisis deben registrarse y no convertirse en conclusiones no sustentadas.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        }
+      ],
+      "challenge": {
+        "id": "w39d5-challenge",
+        "prompt": "Un adjunto .docm no tiene detecciones y pide habilitar macros. El laboratorio autoriza análisis estático. ¿Qué haces?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ejecutar las macros en producción para confirmar el comportamiento"
+          },
+          {
+            "id": "b",
+            "text": "Declararlo benigno por el resultado del antivirus"
+          },
+          {
+            "id": "c",
+            "text": "Subir el documento sensible a cualquier sandbox público sin autorización"
+          },
+          {
+            "id": "d",
+            "text": "Inspeccionar metadatos y artefactos permitidos sin habilitar macros, registrando los límites"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La ausencia de detecciones no elimina el riesgo ni amplía el alcance autorizado.",
+        "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+      }
+    },
+    {
+      "dayId": "w39d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w39d6-q01",
+          "prompt": "Un correo tiene un enlace aparente al portal empresarial, pero el host real es ajeno. ¿Qué indicador registras?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la marca escrita en el botón"
+            },
+            {
+              "id": "b",
+              "text": "La URL correcta del portal como si fuera la observada"
+            },
+            {
+              "id": "c",
+              "text": "El host y la URL reales, su contexto en el mensaje y la discrepancia con el texto visible"
+            },
+            {
+              "id": "d",
+              "text": "Un nombre de actor deducido del color de la página"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El indicador debe reflejar lo observado y su relación con el intento de engaño.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w39d6-q02",
+          "prompt": "Una muestra combina correo, URL y adjunto. ¿Qué estructura de informe facilita el caso integral?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Evidencias por artefacto, relaciones sustentadas, alcance y conclusión graduada"
+            },
+            {
+              "id": "b",
+              "text": "Un único puntaje sin indicar las fuentes utilizadas"
+            },
+            {
+              "id": "c",
+              "text": "Tres veredictos contradictorios sin explicar su relación"
+            },
+            {
+              "id": "d",
+              "text": "Una lista de herramientas sin observaciones"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Organizar evidencia y relaciones permite justificar el veredicto y sus límites.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w39d6-q03",
+          "prompt": "Para compartir un indicador sin activarlo accidentalmente, ¿qué práctica puede ayudar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eliminar caracteres al azar sin documentar el cambio"
+            },
+            {
+              "id": "b",
+              "text": "Reemplazar el indicador por una URL legítima distinta"
+            },
+            {
+              "id": "c",
+              "text": "Publicar el enlace activo en cualquier chat sin contexto"
+            },
+            {
+              "id": "d",
+              "text": "Usar una representación desactivada y conservar el valor original de forma controlada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La desactivación debe ser reversible y no destruir la exactitud del indicador original.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w39d6-q04",
+          "prompt": "El caso demuestra recepción de un archivo, pero no apertura. ¿Qué recomendación es proporcional?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Afirmar ejecución confirmada y borrar la evidencia"
+            },
+            {
+              "id": "b",
+              "text": "Cerrar el caso como benigno porque falta la apertura"
+            },
+            {
+              "id": "c",
+              "text": "Atribuir la actividad al usuario que recibió el mensaje"
+            },
+            {
+              "id": "d",
+              "text": "Investigar la interacción y aplicar las medidas autorizadas según el riesgo observado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La respuesta debe reflejar lo confirmado y buscar evidencia para resolver lo pendiente.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w39d6-q05",
+          "prompt": "El dominio apareció en el mensaje, pero nunca se consultó su destino. ¿Cómo se describe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Servidor de exfiltración confirmado"
+            },
+            {
+              "id": "b",
+              "text": "Dominio extraído; comportamiento remoto no comprobado"
+            },
+            {
+              "id": "c",
+              "text": "Dominio benigno porque no se visitó"
+            },
+            {
+              "id": "d",
+              "text": "Sitio eliminado permanentemente de Internet"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La extracción de una cadena no demuestra la función que desempeña la infraestructura.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w39d6-q06",
+          "prompt": "Un colega recomienda bloquear un dominio completo por una URL sospechosa. ¿Qué debes valorar antes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo que la URL tenga una consulta larga"
+            },
+            {
+              "id": "b",
+              "text": "La cantidad de imágenes del sitio como criterio único"
+            },
+            {
+              "id": "c",
+              "text": "La evidencia, el alcance, la autorización y los posibles servicios legítimos afectados"
+            },
+            {
+              "id": "d",
+              "text": "Que cualquier bloqueo es reversible sin consecuencias"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La granularidad y el impacto de una medida deben analizarse antes de aplicarla.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w39d6-q07",
+          "prompt": "Una transformación reveló una URL en una cadena codificada. ¿Qué justifica que el lector pueda verificarlo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Presentar solo la URL final sin indicar de dónde salió"
+            },
+            {
+              "id": "b",
+              "text": "Conservar entrada autorizada, receta, salida y relación con el mensaje original"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar el texto original para que ya no parezca codificado"
+            },
+            {
+              "id": "d",
+              "text": "Afirmar que toda cadena Base64 contiene un ataque"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La trazabilidad une el artefacto original con el indicador derivado.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w39d6-q08",
+          "prompt": "¿Qué frase separa adecuadamente observación e inferencia en un caso integral de phishing?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La URL ajena demuestra por sí sola quién controla el ataque"
+            },
+            {
+              "id": "b",
+              "text": "El adjunto contiene una URL ajena al negocio; su función maliciosa requiere corroboración"
+            },
+            {
+              "id": "c",
+              "text": "La ausencia de un resultado en una fuente confirma legitimidad"
+            },
+            {
+              "id": "d",
+              "text": "El nombre del archivo prueba que fue ejecutado"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El informe debe indicar qué dato existe y qué interpretación todavía necesita apoyo.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        }
+      ],
+      "challenge": {
+        "id": "w39d6-challenge",
+        "prompt": "Extraes del correo un dominio ajeno y un adjunto, pero no tienes registros de clic o ejecución. ¿Qué informe es correcto?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Confirmar ejecución y exfiltración por la sola presencia del adjunto"
+          },
+          {
+            "id": "b",
+            "text": "Cerrar como benigno porque falta telemetría"
+          },
+          {
+            "id": "c",
+            "text": "Describir los artefactos y las sospechas, y solicitar fuentes para comprobar interacción y alcance"
+          },
+          {
+            "id": "d",
+            "text": "Atribuir el caso a un actor por usar un dominio desconocido"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "Las conclusiones deben distinguir contenido observado de actividad efectivamente registrada.",
+        "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+      }
+    },
+    {
+      "dayId": "w39d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w39d7-q01",
+          "prompt": "En https://portal.example.org/facturas/enero?id=42, ¿cuál es el host?",
+          "options": [
+            {
+              "id": "a",
+              "text": "portal.example.org"
+            },
+            {
+              "id": "b",
+              "text": "https"
+            },
+            {
+              "id": "c",
+              "text": "/facturas/enero"
+            },
+            {
+              "id": "d",
+              "text": "id=42"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El host pertenece a la autoridad de la URL; la ruta y la consulta son componentes distintos.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3986.html",
+          "reviewOf": "w39d1-q01"
+        },
+        {
+          "id": "w39d7-q02",
+          "prompt": "Un servicio no muestra detecciones para un hash recién observado. ¿Qué conclusión es válida?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El archivo es benigno en cualquier sistema"
+            },
+            {
+              "id": "b",
+              "text": "No hay detecciones en esa fuente en ese momento; falta contexto para un veredicto"
+            },
+            {
+              "id": "c",
+              "text": "El archivo no puede ejecutar código"
+            },
+            {
+              "id": "d",
+              "text": "No hace falta conservar la muestra ni su origen"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La falta de detecciones no demuestra seguridad y depende de la cobertura y actualización de la fuente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w39d2-q01"
+        },
+        {
+          "id": "w39d7-q03",
+          "prompt": "Calculas SHA-256 sobre un archivo de laboratorio. ¿Qué propósito principal tiene conservar ese digest?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Demostrar que el archivo es benigno"
+            },
+            {
+              "id": "b",
+              "text": "Revelar automáticamente la contraseña del archivo"
+            },
+            {
+              "id": "c",
+              "text": "Identificar el contenido y detectar cambios al compararlo posteriormente"
+            },
+            {
+              "id": "d",
+              "text": "Atribuir el archivo a una persona concreta"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El hash ayuda a verificar integridad; la legitimidad y la atribución requieren contexto adicional.",
+          "reference": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final",
+          "reviewOf": "w39d3-q01"
+        },
+        {
+          "id": "w39d7-q04",
+          "prompt": "En CyberChef, ¿qué describe una receta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una firma digital de confianza para cualquier archivo"
+            },
+            {
+              "id": "b",
+              "text": "Un registro de servidores autorizados para enviar correo"
+            },
+            {
+              "id": "c",
+              "text": "Una secuencia ordenada de operaciones y sus parámetros"
+            },
+            {
+              "id": "d",
+              "text": "Un informe que garantiza el origen del contenido"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La receta define cómo se transforma la entrada para producir una salida.",
+          "reference": "https://github.com/gchq/CyberChef",
+          "reviewOf": "w39d4-q01"
+        },
+        {
+          "id": "w39d7-q05",
+          "prompt": "Un archivo .docm de laboratorio contiene capacidad de macros. ¿Qué conclusión inicial es correcta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Es seguro porque es un documento de oficina"
+            },
+            {
+              "id": "b",
+              "text": "Toda macro implica que el usuario ya fue comprometido"
+            },
+            {
+              "id": "c",
+              "text": "Debe ejecutarse para que el análisis estático sea válido"
+            },
+            {
+              "id": "d",
+              "text": "Puede incluir macros, pero la extensión no demuestra por sí sola comportamiento malicioso"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las capacidades del formato son parte del contexto, no un veredicto suficiente.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing",
+          "reviewOf": "w39d5-q01"
+        },
+        {
+          "id": "w39d7-q06",
+          "prompt": "Un correo tiene un enlace aparente al portal empresarial, pero el host real es ajeno. ¿Qué indicador registras?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la marca escrita en el botón"
+            },
+            {
+              "id": "b",
+              "text": "La URL correcta del portal como si fuera la observada"
+            },
+            {
+              "id": "c",
+              "text": "El host y la URL reales, su contexto en el mensaje y la discrepancia con el texto visible"
+            },
+            {
+              "id": "d",
+              "text": "Un nombre de actor deducido del color de la página"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El indicador debe reflejar lo observado y su relación con el intento de engaño.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing",
+          "reviewOf": "w39d6-q01"
+        },
+        {
+          "id": "w39d7-q07",
+          "prompt": "¿Qué host corresponde a https://example.org@verificacion.invalid/acceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "example.org"
+            },
+            {
+              "id": "b",
+              "text": "example.org@verificacion.invalid/acceso"
+            },
+            {
+              "id": "c",
+              "text": "verificacion.invalid"
+            },
+            {
+              "id": "d",
+              "text": "https"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La parte anterior a @ puede ser información de usuario; no debe confundirse con el host de destino.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3986.html",
+          "reviewOf": "w39d1-q02"
+        },
+        {
+          "id": "w39d7-q08",
+          "prompt": "Una IP tuvo mala reputación hace dos años. ¿Qué debes evaluar antes de bloquearla hoy?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo si el número de la IP parece parecido al anterior"
+            },
+            {
+              "id": "b",
+              "text": "El hecho de que una clasificación histórica nunca caduca"
+            },
+            {
+              "id": "c",
+              "text": "La fecha, el contexto actual y posibles cambios de propietario o uso"
+            },
+            {
+              "id": "d",
+              "text": "Si el mismo dominio conserva exactamente su diseño gráfico"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La infraestructura y su uso pueden cambiar; los indicadores deben contextualizarse temporalmente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w39d2-q02"
+        },
+        {
+          "id": "w39d7-q09",
+          "prompt": "Un archivo con extensión .pdf tiene una cabecera de formato incompatible con PDF. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Documentar la discrepancia y examinar el tipo real en el entorno autorizado"
+            },
+            {
+              "id": "b",
+              "text": "Confiar en la extensión porque el sistema la muestra"
+            },
+            {
+              "id": "c",
+              "text": "Renombrarlo y declarar que el formato quedó reparado"
+            },
+            {
+              "id": "d",
+              "text": "Ejecutarlo para que el programa decida si es peligroso"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El nombre no garantiza el formato; deben contrastarse señales del contenido sin ejecución innecesaria.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing",
+          "reviewOf": "w39d3-q02"
+        },
+        {
+          "id": "w39d7-q10",
+          "prompt": "La cadena SG9sYQ== se procesa con From Base64 como texto UTF-8. ¿Qué salida esperas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "SG9sYQ== sin transformación por definición"
+            },
+            {
+              "id": "b",
+              "text": "Un hash de 256 bits"
+            },
+            {
+              "id": "c",
+              "text": "Hola"
+            },
+            {
+              "id": "d",
+              "text": "Un archivo ejecutable obligatorio"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La operación decodifica esa representación Base64 a los bytes del texto Hola.",
+          "reference": "https://github.com/gchq/CyberChef",
+          "reviewOf": "w39d4-q02"
+        },
+        {
+          "id": "w39d7-q11",
+          "prompt": "Los metadatos de un documento indican autor Dirección General. ¿Qué limitación debes recordar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El autor del metadato equivale a una firma criptográfica verificada"
+            },
+            {
+              "id": "b",
+              "text": "Un campo de autor vacío demuestra malware"
+            },
+            {
+              "id": "c",
+              "text": "El campo confirma que el documento procede del equipo del director"
+            },
+            {
+              "id": "d",
+              "text": "Los metadatos pueden ser editados y no autentican a la persona indicada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los metadatos aportan pistas que deben corroborarse con otras fuentes.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing",
+          "reviewOf": "w39d5-q02"
+        },
+        {
+          "id": "w39d7-q12",
+          "prompt": "Una muestra combina correo, URL y adjunto. ¿Qué estructura de informe facilita el caso integral?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Evidencias por artefacto, relaciones sustentadas, alcance y conclusión graduada"
+            },
+            {
+              "id": "b",
+              "text": "Un único puntaje sin indicar las fuentes utilizadas"
+            },
+            {
+              "id": "c",
+              "text": "Tres veredictos contradictorios sin explicar su relación"
+            },
+            {
+              "id": "d",
+              "text": "Una lista de herramientas sin observaciones"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Organizar evidencia y relaciones permite justificar el veredicto y sus límites.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing",
+          "reviewOf": "w39d6-q02"
+        },
+        {
+          "id": "w39d7-q13",
+          "prompt": "La URL https://seguridad.example.org.login.invalid/ usa una cadena similar a una marca. ¿Qué observación es correcta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El host es example.org porque aparece antes en la cadena"
+            },
+            {
+              "id": "b",
+              "text": "El host completo termina en login.invalid; la aparición de example.org no lo convierte en ese dominio"
+            },
+            {
+              "id": "c",
+              "text": "El prefijo seguridad demuestra pertenencia a la empresa"
+            },
+            {
+              "id": "d",
+              "text": "Usar HTTPS impide que exista suplantación"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los subdominios pueden incluir palabras engañosas; debe analizarse el nombre completo y su jerarquía.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3986.html",
+          "reviewOf": "w39d1-q03"
+        },
+        {
+          "id": "w39d7-q14",
+          "prompt": "Un dominio sospechoso comparte una IP con cientos de sitios legítimos. ¿Qué limitación afecta a bloquear toda la IP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Toda coincidencia de IP prueba que los sitios pertenecen al mismo actor"
+            },
+            {
+              "id": "b",
+              "text": "Los dominios en una IP compartida dejan de poder investigarse"
+            },
+            {
+              "id": "c",
+              "text": "Bloquear una IP solo afecta al dominio que originó la alerta"
+            },
+            {
+              "id": "d",
+              "text": "El alojamiento compartido puede causar daños colaterales a servicios no relacionados"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La medida debe considerar la granularidad del indicador y los activos que comparten infraestructura.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w39d2-q03"
+        },
+        {
+          "id": "w39d7-q15",
+          "prompt": "Dos copias producen el mismo SHA-256 bajo el mismo procedimiento. ¿Qué inferencia práctica respalda?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que proceden necesariamente del mismo usuario"
+            },
+            {
+              "id": "b",
+              "text": "Que han sido ejecutadas en los dos equipos"
+            },
+            {
+              "id": "c",
+              "text": "Que ninguna contiene código malicioso"
+            },
+            {
+              "id": "d",
+              "text": "Que los contenidos comparados coinciden con alta confianza bajo ese mecanismo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La igualdad del digest es una comprobación de contenido, no una descripción de su uso o intención.",
+          "reference": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final",
+          "reviewOf": "w39d3-q03"
+        },
+        {
+          "id": "w39d7-q16",
+          "prompt": "Una entrada está codificada primero como URL y después como Base64. ¿Qué orden corresponde para recuperar el texto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Decodificar URL y después Base64 en todos los casos"
+            },
+            {
+              "id": "b",
+              "text": "Calcular un hash antes de intentar cualquier decodificación"
+            },
+            {
+              "id": "c",
+              "text": "Decodificar Base64 y luego la codificación URL"
+            },
+            {
+              "id": "d",
+              "text": "Cifrar la entrada con una clave aleatoria"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las transformaciones encadenadas se revierten en el orden inverso al aplicado.",
+          "reference": "https://github.com/gchq/CyberChef",
+          "reviewOf": "w39d4-q03"
+        },
+        {
+          "id": "w39d7-q17",
+          "prompt": "Un adjunto comprimido está protegido con contraseña. ¿Cómo afecta al análisis?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La contraseña demuestra que el remitente protege un archivo legítimo"
+            },
+            {
+              "id": "b",
+              "text": "La compresión elimina cualquier código activo"
+            },
+            {
+              "id": "c",
+              "text": "Todos los sistemas de análisis pueden inspeccionarlo siempre sin la clave"
+            },
+            {
+              "id": "d",
+              "text": "Puede limitar la inspección automática del contenido y requiere el procedimiento autorizado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El acceso al contenido y las capacidades de inspección deben describirse como límites del análisis.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing",
+          "reviewOf": "w39d5-q03"
+        },
+        {
+          "id": "w39d7-q18",
+          "prompt": "Para compartir un indicador sin activarlo accidentalmente, ¿qué práctica puede ayudar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eliminar caracteres al azar sin documentar el cambio"
+            },
+            {
+              "id": "b",
+              "text": "Reemplazar el indicador por una URL legítima distinta"
+            },
+            {
+              "id": "c",
+              "text": "Publicar el enlace activo en cualquier chat sin contexto"
+            },
+            {
+              "id": "d",
+              "text": "Usar una representación desactivada y conservar el valor original de forma controlada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La desactivación debe ser reversible y no destruir la exactitud del indicador original.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing",
+          "reviewOf": "w39d6-q03"
+        },
+        {
+          "id": "w39d7-q19",
+          "prompt": "¿Qué representa %2F en una URL cuando se interpreta como codificación porcentual?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un cifrado que exige una clave privada"
+            },
+            {
+              "id": "b",
+              "text": "Un resultado de reputación del dominio"
+            },
+            {
+              "id": "c",
+              "text": "Una firma que garantiza la integridad de la ruta"
+            },
+            {
+              "id": "d",
+              "text": "El byte que corresponde al carácter /"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La codificación porcentual representa bytes mediante dígitos hexadecimales, no un mecanismo de confianza.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3986.html",
+          "reviewOf": "w39d1-q04"
+        },
+        {
+          "id": "w39d7-q20",
+          "prompt": "Magic sugiere una decodificación automática. ¿Cómo debes usar la sugerencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Como garantía de que la salida es el contenido original verdadero"
+            },
+            {
+              "id": "b",
+              "text": "Como prueba de que la muestra es maliciosa"
+            },
+            {
+              "id": "c",
+              "text": "Como una hipótesis que se valida con la salida y el contexto"
+            },
+            {
+              "id": "d",
+              "text": "Como sustituto de registrar la receta aplicada"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La detección automática propone operaciones plausibles y puede necesitar revisión.",
+          "reference": "https://github.com/gchq/CyberChef",
+          "reviewOf": "w39d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w39d7-challenge",
+        "prompt": "Un resultado de reputación, una receta de decodificación y una cabecera respaldan tu análisis. ¿Qué entrega permite auditar el veredicto?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Valores exactos, fuente y fecha de cada dato, transformaciones y límites de la conclusión"
+          },
+          {
+            "id": "b",
+            "text": "Solo la etiqueta final malicioso"
+          },
+          {
+            "id": "c",
+            "text": "Una captura sin fecha y sin referencia al mensaje"
+          },
+          {
+            "id": "d",
+            "text": "El nombre de un grupo de amenaza sin indicar evidencia"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La trazabilidad y la confianza explícita permiten revisar el razonamiento.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    }
+  ]
+}

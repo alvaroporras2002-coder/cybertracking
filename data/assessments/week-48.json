@@ -1,0 +1,2094 @@
+{
+  "week": 48,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w48d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w48d1-q01",
+          "prompt": "Caso Alba autoriza PC-A y buzón de prueba. ¿Qué fuente queda fuera?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Teléfono personal no autorizado"
+            },
+            {
+              "id": "b",
+              "text": "Correo exportado del laboratorio"
+            },
+            {
+              "id": "c",
+              "text": "Logs de PC-A"
+            },
+            {
+              "id": "d",
+              "text": "Captura entregada por instructor"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El alcance explícito limita qué dispositivos pueden examinarse.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w48d1-q02",
+          "prompt": "Alba tiene solución oculta y dataset nuevo. ¿Qué preserva autonomía?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Registrar hipótesis antes de consultar solución"
+            },
+            {
+              "id": "b",
+              "text": "Leer primero todas las respuestas"
+            },
+            {
+              "id": "c",
+              "text": "Copiar informe ajeno"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar nombres de hallazgos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La simulación debe comprobar razonamiento independiente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w48d1-q03",
+          "prompt": "Un enlace del caso apunta fuera del laboratorio. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Visitarlo desde cuenta personal"
+            },
+            {
+              "id": "b",
+              "text": "Enviar credenciales ficticias"
+            },
+            {
+              "id": "c",
+              "text": "Mantener análisis pasivo según reglas"
+            },
+            {
+              "id": "d",
+              "text": "Escanear al propietario externo"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La autorización del laboratorio no se extiende a terceros.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w48d1-q04",
+          "prompt": "¿Qué objetivo acota Alba mejor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Determinar si adjunto produjo ejecución en PC-A"
+            },
+            {
+              "id": "b",
+              "text": "Encontrar cualquier cosa sospechosa"
+            },
+            {
+              "id": "c",
+              "text": "Identificar al atacante por nombre"
+            },
+            {
+              "id": "d",
+              "text": "Demostrar una intrusión ya asumida"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una pregunta concreta permite elegir pruebas pertinentes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w48d1-q05",
+          "prompt": "Alba no entrega RAM. ¿Qué registras al preparar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Memoria analizada sin hallazgos"
+            },
+            {
+              "id": "b",
+              "text": "Ausencia de procesos"
+            },
+            {
+              "id": "c",
+              "text": "Fuente no disponible y preguntas que limita"
+            },
+            {
+              "id": "d",
+              "text": "Ausencia de conexión"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La planificación debe reflejar datos realmente disponibles.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w48d1-q06",
+          "prompt": "¿Qué identifica los archivos recibidos de Alba?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo una carpeta caso"
+            },
+            {
+              "id": "b",
+              "text": "Inventario con IDs, origen y hashes"
+            },
+            {
+              "id": "c",
+              "text": "Solo lista de extensiones"
+            },
+            {
+              "id": "d",
+              "text": "Solo capturas del escritorio"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El inventario permite controlar fuente y reproducibilidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w48d1-q07",
+          "prompt": "Las reglas permiten solo datos suministrados. ¿Qué consulta incumple?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Buscar accesos en correo personal real"
+            },
+            {
+              "id": "b",
+              "text": "Revisar el pcap entregado"
+            },
+            {
+              "id": "c",
+              "text": "Examinar EVTX educativo"
+            },
+            {
+              "id": "d",
+              "text": "Calcular hash local"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las reglas del caso delimitan fuentes y acciones permitidas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w48d1-q08",
+          "prompt": "¿Qué anotas antes de iniciar el reloj de práctica de Alba?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Veredicto definitivo"
+            },
+            {
+              "id": "b",
+              "text": "Todos los atacantes posibles"
+            },
+            {
+              "id": "c",
+              "text": "Alcance, criterios y herramientas disponibles"
+            },
+            {
+              "id": "d",
+              "text": "Respuestas de la solución"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los criterios permiten evaluar después desempeño y límites.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        }
+      ],
+      "challenge": {
+        "id": "w48d1-challenge",
+        "prompt": "En Alba, las reglas cubren PC-A; hallas una IP externa. ¿Qué acción respeta alcance?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Escanear la IP externa"
+          },
+          {
+            "id": "b",
+            "text": "Intentar autenticarse"
+          },
+          {
+            "id": "c",
+            "text": "Analizar metadatos entregados y pedir ampliación si se necesita"
+          },
+          {
+            "id": "d",
+            "text": "Enviar un archivo de prueba"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "Un indicador no extiende automáticamente la autorización.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    },
+    {
+      "dayId": "w48d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w48d2-q01",
+          "prompt": "Alba entrega E1.eml, E2.evtx y E3.pcapng. ¿Qué falta para inventario verificable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo iconos de archivo"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombre del estudiante"
+            },
+            {
+              "id": "c",
+              "text": "Origen, hash y ventana de cada fuente"
+            },
+            {
+              "id": "d",
+              "text": "Solo idioma del sistema"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los nombres no describen integridad ni cobertura.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d2-q02",
+          "prompt": "E2 empieza a las09:00 y correo llegó08:50. ¿Qué limitación existe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Demuestra que el correo no llegó"
+            },
+            {
+              "id": "b",
+              "text": "Todos los eventos son inútiles"
+            },
+            {
+              "id": "c",
+              "text": "No cubre directamente llegada del correo"
+            },
+            {
+              "id": "d",
+              "text": "La hora del correo es falsa"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las ventanas de las fuentes deben reflejarse en la cronología.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d2-q03",
+          "prompt": "La copia E3 tiene SHA-256 distinto al manifiesto. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambiar el manifiesto"
+            },
+            {
+              "id": "b",
+              "text": "Usarla por abrir bien"
+            },
+            {
+              "id": "c",
+              "text": "Investigar discrepancia antes de concluir"
+            },
+            {
+              "id": "d",
+              "text": "Borrar el hash original"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La legibilidad no resuelve integridad inconsistente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d2-q04",
+          "prompt": "E1 Date indica08:50+02:00. ¿Qué UTC registras?",
+          "options": [
+            {
+              "id": "a",
+              "text": "10:50Z"
+            },
+            {
+              "id": "b",
+              "text": "08:50Z"
+            },
+            {
+              "id": "c",
+              "text": "07:50Z"
+            },
+            {
+              "id": "d",
+              "text": "06:50Z"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Se resta el desplazamiento de dos horas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d2-q05",
+          "prompt": "¿Qué separa una fila de inventario de una de cronología?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Son intercambiables"
+            },
+            {
+              "id": "b",
+              "text": "La primera describe fuente; la segunda un evento"
+            },
+            {
+              "id": "c",
+              "text": "La cronología reemplaza hashes"
+            },
+            {
+              "id": "d",
+              "text": "El inventario prueba ejecución"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Cada estructura responde una pregunta distinta.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d2-q06",
+          "prompt": "E2 tiene1000eventos y solo20son del periodo. ¿Qué preservas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Archivo íntegro y subconjunto documentado"
+            },
+            {
+              "id": "b",
+              "text": "Solo20 sin referencia"
+            },
+            {
+              "id": "c",
+              "text": "Solo captura del total"
+            },
+            {
+              "id": "d",
+              "text": "Solo el más grave"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El subconjunto analítico debe conservar vínculo con el original.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d2-q07",
+          "prompt": "Un nombre de usuario fue anonimizado en E2. ¿Qué documentas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Identidad real inventada"
+            },
+            {
+              "id": "b",
+              "text": "Ausencia de privacidad"
+            },
+            {
+              "id": "c",
+              "text": "Transformación y límites de correlación"
+            },
+            {
+              "id": "d",
+              "text": "Que todos los usuarios son iguales"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La transformación puede afectar relaciones entre fuentes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d2-q08",
+          "prompt": "E3 termina09:10 y el proceso aparece09:15. ¿Qué evitas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Anotar fin de captura"
+            },
+            {
+              "id": "b",
+              "text": "Negar red del proceso por ausencia en E3"
+            },
+            {
+              "id": "c",
+              "text": "Buscar otra fuente"
+            },
+            {
+              "id": "d",
+              "text": "Registrar diferencia temporal"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una captura terminada no observa actividad posterior.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        }
+      ],
+      "challenge": {
+        "id": "w48d2-challenge",
+        "prompt": "E2 empieza después del correo y E3 termina antes del proceso. ¿Qué inventario refleja la situación?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Cobertura completa por tener tres fuentes"
+          },
+          {
+            "id": "b",
+            "text": "Ausencia total de incidente"
+          },
+          {
+            "id": "c",
+            "text": "Ventanas parciales y preguntas no cubiertas"
+          },
+          {
+            "id": "d",
+            "text": "Fuentes inválidas por ser parciales"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "Los límites temporales determinan qué preguntas puede responder cada fuente.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    },
+    {
+      "dayId": "w48d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w48d3-q01",
+          "prompt": "Alba: AV alerta a09:03, usuario niega abrir adjunto. ¿Qué hipótesis mantienes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo culpabilidad del usuario"
+            },
+            {
+              "id": "b",
+              "text": "Solo fallo de AV"
+            },
+            {
+              "id": "c",
+              "text": "Ejecución, escaneo automático o descarga sin ejecución"
+            },
+            {
+              "id": "d",
+              "text": "Ninguna porque hay alerta"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La alerta necesita contexto sobre qué acción la produjo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d3-q02",
+          "prompt": "¿Qué prueba discrimina mejor ejecución del adjunto en Alba?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Proceso correlacionado con ruta y hash"
+            },
+            {
+              "id": "b",
+              "text": "Asunto urgente del correo"
+            },
+            {
+              "id": "c",
+              "text": "Color del icono"
+            },
+            {
+              "id": "d",
+              "text": "Dominio de remitente"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La evidencia de proceso puede vincular actividad con contenido específico.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d3-q03",
+          "prompt": "Alba: no hay4688 y auditoría estaba desactivada. ¿Qué concluyes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El adjunto no se ejecutó"
+            },
+            {
+              "id": "b",
+              "text": "La alerta era falsa"
+            },
+            {
+              "id": "c",
+              "text": "La fuente no resuelve ejecución"
+            },
+            {
+              "id": "d",
+              "text": "El usuario dice la verdad necesariamente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La carencia de auditoría limita la prueba negativa.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d3-q04",
+          "prompt": "Alba: archivo detectado en caché del escáner. ¿Qué alternativa cobra fuerza?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ejecución interactiva demostrada"
+            },
+            {
+              "id": "b",
+              "text": "Detección durante inspección automática"
+            },
+            {
+              "id": "c",
+              "text": "Exfiltración comprobada"
+            },
+            {
+              "id": "d",
+              "text": "Persistencia por tarea"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La ubicación y proceso del detector cambian la interpretación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d3-q05",
+          "prompt": "¿Qué consulta refuta mejor la hipótesis de un único host?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Repetir solo búsqueda de PC-A"
+            },
+            {
+              "id": "b",
+              "text": "Contar correos del usuario"
+            },
+            {
+              "id": "c",
+              "text": "Buscar indicador en otros activos cubiertos"
+            },
+            {
+              "id": "d",
+              "text": "Mirar solo primer evento"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una búsqueda de alcance debe explorar activos adicionales pertinentes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d3-q06",
+          "prompt": "Dos artefactos de Alba dan hashes distintos al mismo nombre. ¿Qué verificas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el nombre garantiza identidad"
+            },
+            {
+              "id": "b",
+              "text": "Que ambos son idénticos"
+            },
+            {
+              "id": "c",
+              "text": "Si corresponden a contenidos distintos"
+            },
+            {
+              "id": "d",
+              "text": "Que uno no existe"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los nombres compartidos no establecen coincidencia de bytes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d3-q07",
+          "prompt": "¿Qué anotación controla sesgo en Alba?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo evidencias favorables"
+            },
+            {
+              "id": "b",
+              "text": "Prueba esperada y resultado contrario"
+            },
+            {
+              "id": "c",
+              "text": "Solo respuesta del instructor"
+            },
+            {
+              "id": "d",
+              "text": "Solo opinión inicial"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Explicitar refutaciones evita seleccionar únicamente datos convenientes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d3-q08",
+          "prompt": "Alba: una consulta no devuelve el dominio con mayúsculas. ¿Qué revisas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Actividad inexistente"
+            },
+            {
+              "id": "b",
+              "text": "Ausencia de DNS"
+            },
+            {
+              "id": "c",
+              "text": "Exfiltración bloqueada"
+            },
+            {
+              "id": "d",
+              "text": "Normalización y comportamiento del campo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los detalles de búsqueda pueden producir falsos negativos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        }
+      ],
+      "challenge": {
+        "id": "w48d3-challenge",
+        "prompt": "AV alertó durante escaneo; no hay evento de ejecución porque auditoría faltaba. ¿Qué conclusión cabe?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ejecución confirmada por AV"
+          },
+          {
+            "id": "b",
+            "text": "Ejecución descartada"
+          },
+          {
+            "id": "c",
+            "text": "Detección confirmada; ejecución aún no determinada"
+          },
+          {
+            "id": "d",
+            "text": "Usuario culpable por negarlo"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La alerta tiene una explicación automática y falta telemetría discriminante.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    },
+    {
+      "dayId": "w48d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w48d4-q01",
+          "prompt": "Alba: correo06:50Z, descarga06:54Z y proceso08:55+02. ¿Cuál es la secuencia normalizada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Proceso, correo, descarga"
+            },
+            {
+              "id": "b",
+              "text": "Descarga, proceso, correo"
+            },
+            {
+              "id": "c",
+              "text": "Correo, descarga, proceso"
+            },
+            {
+              "id": "d",
+              "text": "Los tres son simultáneos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El proceso corresponde a06:55Z tras normalizar.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d4-q02",
+          "prompt": "Proceso P7 abre conexión a D7. ¿Qué dato refuerza vínculo con E3?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tupla y tiempo coincidentes"
+            },
+            {
+              "id": "b",
+              "text": "Solo puerto443"
+            },
+            {
+              "id": "c",
+              "text": "Solo mismo país"
+            },
+            {
+              "id": "d",
+              "text": "Solo apellido del usuario"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La correspondencia precisa reduce coincidencia accidental.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d4-q03",
+          "prompt": "Alba: DNS resuelve D7 a IP7 y pcap registra otra IP. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Forzar que sean iguales"
+            },
+            {
+              "id": "b",
+              "text": "Revisar respuestas, caché y tiempos"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar el DNS"
+            },
+            {
+              "id": "d",
+              "text": "Afirmar manipulación segura"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Puede haber cambios de resolución o conexiones no relacionadas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d4-q04",
+          "prompt": "El correo contiene URL7, pero no hay visita en fuentes disponibles. ¿Qué puedes decir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "URL7 fue abierta"
+            },
+            {
+              "id": "b",
+              "text": "Se robaron credenciales"
+            },
+            {
+              "id": "c",
+              "text": "URL7 fue entregada; visita no demostrada"
+            },
+            {
+              "id": "d",
+              "text": "El usuario nunca la vio"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La entrega de un enlace no prueba interacción posterior.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d4-q05",
+          "prompt": "Alba: un PID se repite al día siguiente. ¿Qué evita una falsa unión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo número de PID"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombre de usuario"
+            },
+            {
+              "id": "c",
+              "text": "Host, inicio e identificador de proceso"
+            },
+            {
+              "id": "d",
+              "text": "Solo nombre del ejecutable"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los PID pueden reutilizarse en instancias diferentes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d4-q06",
+          "prompt": "Un proxy de Alba ve petición, pero pcap tiene hueco en ese minuto. ¿Qué conservas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo pcap como verdad total"
+            },
+            {
+              "id": "b",
+              "text": "Hallazgo del proxy y límite del pcap"
+            },
+            {
+              "id": "c",
+              "text": "Solo datos que coincidan"
+            },
+            {
+              "id": "d",
+              "text": "Supuesto de falsificación"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las fuentes pueden ofrecer coberturas complementarias.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d4-q07",
+          "prompt": "¿Qué línea une fuentes sin atribuir persona?",
+          "options": [
+            {
+              "id": "a",
+              "text": "U7 estaba físicamente al teclado"
+            },
+            {
+              "id": "b",
+              "text": "El remitente controló todo"
+            },
+            {
+              "id": "c",
+              "text": "El perfil U7 ejecutó proceso según registros"
+            },
+            {
+              "id": "d",
+              "text": "El usuario confesó técnicamente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La identidad de cuenta no identifica de forma absoluta al operador.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d4-q08",
+          "prompt": "¿Qué referencia hace auditable el evento clave de Alba?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo nueve de la mañana"
+            },
+            {
+              "id": "b",
+              "text": "E2, RecordID y tiempo original"
+            },
+            {
+              "id": "c",
+              "text": "Solo captura recortada"
+            },
+            {
+              "id": "d",
+              "text": "Solo nombre genérico"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los localizadores específicos permiten contrastar la reconstrucción.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        }
+      ],
+      "challenge": {
+        "id": "w48d4-challenge",
+        "prompt": "Alba: correo08:00+02, proceso06:04Z, DNS06:05Z. ¿Qué cronología es correcta?",
+        "options": [
+          {
+            "id": "a",
+            "text": "DNS antes del correo"
+          },
+          {
+            "id": "b",
+            "text": "Proceso dos horas antes del correo"
+          },
+          {
+            "id": "c",
+            "text": "Todos a08:00Z"
+          },
+          {
+            "id": "d",
+            "text": "Correo06:00Z, proceso06:04Z, DNS06:05Z"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La normalización resuelve el aparente conflicto de horarios.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    },
+    {
+      "dayId": "w48d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w48d5-q01",
+          "prompt": "Alba confirma ejecución maliciosa en PC-A. ¿Qué propuesta contiene alcance específico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Apagar todos los equipos sin evaluar"
+            },
+            {
+              "id": "b",
+              "text": "Borrar buzones completos"
+            },
+            {
+              "id": "c",
+              "text": "Bloquear cualquier HTTPS"
+            },
+            {
+              "id": "d",
+              "text": "Aislar PC-A y evaluar identidad afectada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La medida debe relacionarse con activos y riesgos observados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w48d5-q02",
+          "prompt": "Se observaron tokens robados en Alba. ¿Qué cubre la respuesta de identidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo desconectar PC-A"
+            },
+            {
+              "id": "b",
+              "text": "Revocar sesiones y rotar credenciales pertinentes"
+            },
+            {
+              "id": "c",
+              "text": "Solo borrar el adjunto"
+            },
+            {
+              "id": "d",
+              "text": "Solo vaciar historial"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El compromiso puede persistir fuera del equipo afectado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w48d5-q03",
+          "prompt": "Alba no demuestra exfiltración. ¿Cómo recomiendas investigar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Revisar destinos, volumen y fuentes faltantes"
+            },
+            {
+              "id": "b",
+              "text": "Declararla confirmada"
+            },
+            {
+              "id": "c",
+              "text": "Descartarla por falta de alerta"
+            },
+            {
+              "id": "d",
+              "text": "Publicar datos como prueba"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La incertidumbre requiere un plan concreto de comprobación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w48d5-q04",
+          "prompt": "Una IP de Alba aloja servicio compartido. ¿Qué contención evalúas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Indicador específico y efecto operativo"
+            },
+            {
+              "id": "b",
+              "text": "Bloquear todo el proveedor permanentemente"
+            },
+            {
+              "id": "c",
+              "text": "No hacer nada siempre"
+            },
+            {
+              "id": "d",
+              "text": "Borrar la captura"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los controles amplios pueden tener efectos colaterales.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w48d5-q05",
+          "prompt": "¿Qué condición exige Alba para recuperación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo reinicio exitoso"
+            },
+            {
+              "id": "b",
+              "text": "Solo cierre del ticket"
+            },
+            {
+              "id": "c",
+              "text": "Solo nueva contraseña local"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar persistencia y validar controles y función"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La reapertura debe responder a mecanismos y riesgos encontrados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w48d5-q06",
+          "prompt": "PC-A contiene única copia de evidencia. ¿Qué precede al borrado autorizado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Preservar artefactos y documentar"
+            },
+            {
+              "id": "b",
+              "text": "Borrar para reducir tamaño"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar fechas"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar inventario"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La remediación no debe destruir innecesariamente sustento del caso.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w48d5-q07",
+          "prompt": "¿Qué distingue recomendación de acción ejecutada en Alba?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El color del texto"
+            },
+            {
+              "id": "b",
+              "text": "La longitud de la frase"
+            },
+            {
+              "id": "c",
+              "text": "El orden del informe"
+            },
+            {
+              "id": "d",
+              "text": "Estado y prueba de realización"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un plan no demuestra que el control haya sido aplicado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w48d5-q08",
+          "prompt": "El dueño del servicio rechaza aislar por impacto. ¿Qué registras?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Acción completada"
+            },
+            {
+              "id": "b",
+              "text": "Culpa del dueño"
+            },
+            {
+              "id": "c",
+              "text": "Cierre automático"
+            },
+            {
+              "id": "d",
+              "text": "Riesgo, decisión y alternativa acordada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las decisiones operativas deben dejar responsabilidad y riesgo residual visibles.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        }
+      ],
+      "challenge": {
+        "id": "w48d5-challenge",
+        "prompt": "Alba confirma PC-A e identidad U7, sin pruebas en otros equipos. ¿Qué recomiendas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Declarar toda la red comprometida"
+          },
+          {
+            "id": "b",
+            "text": "Contener ambos y buscar alcance con fuentes definidas"
+          },
+          {
+            "id": "c",
+            "text": "Cerrar tras borrar adjunto"
+          },
+          {
+            "id": "d",
+            "text": "Apagar todos los servidores"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La acción debe cubrir lo demostrado y evaluar expansión sin afirmarla.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    },
+    {
+      "dayId": "w48d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w48d6-q01",
+          "prompt": "El informe Alba afirma atacante identificado por IP. ¿Qué corriges?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Separar indicador de atribución no probada"
+            },
+            {
+              "id": "b",
+              "text": "Agregar nacionalidad supuesta"
+            },
+            {
+              "id": "c",
+              "text": "Ocultar el indicador"
+            },
+            {
+              "id": "d",
+              "text": "Declarar malware desconocido"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una IP no identifica por sí sola a una persona.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d6-q02",
+          "prompt": "¿Qué debe acompañar el hallazgo de ejecución de Alba?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo captura del icono"
+            },
+            {
+              "id": "b",
+              "text": "Artefactos, método y nivel de confianza"
+            },
+            {
+              "id": "c",
+              "text": "Solo frase ejecutado"
+            },
+            {
+              "id": "d",
+              "text": "Solo nombre del alumno"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La conclusión necesita evidencia y límites revisables.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d6-q03",
+          "prompt": "¿Qué resumen no técnico describe Alba fielmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un APT robó todo sin pruebas"
+            },
+            {
+              "id": "b",
+              "text": "Un equipo ejecutó contenido sospechoso; se evalúa alcance"
+            },
+            {
+              "id": "c",
+              "text": "No pasó nada porque abre Windows"
+            },
+            {
+              "id": "d",
+              "text": "Listado de filtros sin impacto"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La síntesis debe preservar hechos e incertidumbre.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d6-q04",
+          "prompt": "¿Qué anexo permite repetir búsquedas de Alba?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo números de página"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombre de carpeta"
+            },
+            {
+              "id": "c",
+              "text": "Solo capturas sin IDs"
+            },
+            {
+              "id": "d",
+              "text": "Consultas, rangos y fuentes identificadas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La reproducibilidad requiere condiciones de ejecución.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d6-q05",
+          "prompt": "¿Qué haces con una contradicción sin resolver al cerrar informe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eliminarla para claridad"
+            },
+            {
+              "id": "b",
+              "text": "Elegir la más alarmante"
+            },
+            {
+              "id": "c",
+              "text": "Inventar compatibilidad"
+            },
+            {
+              "id": "d",
+              "text": "Exponerla y proponer datos para resolverla"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las limitaciones son parte de una conclusión defendible.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d6-q06",
+          "prompt": "Alba tiene evidencia de entrega pero no de lectura. ¿Qué verbo usar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Se recibió"
+            },
+            {
+              "id": "b",
+              "text": "Se leyó"
+            },
+            {
+              "id": "c",
+              "text": "Se ejecutó"
+            },
+            {
+              "id": "d",
+              "text": "Se exfiltró"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La redacción debe corresponder a la actividad observada.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d6-q07",
+          "prompt": "¿Qué demuestra una recomendación medible de Alba?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo mejorar seguridad"
+            },
+            {
+              "id": "b",
+              "text": "Solo estar atentos"
+            },
+            {
+              "id": "c",
+              "text": "Qué validar, quién y criterio de éxito"
+            },
+            {
+              "id": "d",
+              "text": "Solo usar más herramientas"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las acciones deben poder ejecutarse y comprobarse.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w48d6-q08",
+          "prompt": "¿Cuándo comparar Alba con la solución del laboratorio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Después de entregar tu análisis independiente"
+            },
+            {
+              "id": "b",
+              "text": "Antes de formular hipótesis"
+            },
+            {
+              "id": "c",
+              "text": "Antes de leer el alcance"
+            },
+            {
+              "id": "d",
+              "text": "Durante cada búsqueda"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La comparación posterior identifica lagunas sin contaminar la evaluación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        }
+      ],
+      "challenge": {
+        "id": "w48d6-challenge",
+        "prompt": "Un informe Alba omite el hueco de captura y afirma sin exfiltración. ¿Qué cambias?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Mantener certeza por pocos paquetes"
+          },
+          {
+            "id": "b",
+            "text": "Exfiltración no demostrada con cobertura parcial"
+          },
+          {
+            "id": "c",
+            "text": "Borrar pcap del anexo"
+          },
+          {
+            "id": "d",
+            "text": "Afirmar filtración total"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La cobertura incompleta no permite una negativa absoluta.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    },
+    {
+      "dayId": "w48d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w48d7-q01",
+          "prompt": "Caso Alba autoriza PC-A y buzón de prueba. ¿Qué fuente queda fuera?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Teléfono personal no autorizado"
+            },
+            {
+              "id": "b",
+              "text": "Correo exportado del laboratorio"
+            },
+            {
+              "id": "c",
+              "text": "Logs de PC-A"
+            },
+            {
+              "id": "d",
+              "text": "Captura entregada por instructor"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El alcance explícito limita qué dispositivos pueden examinarse.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w48d1-q01"
+        },
+        {
+          "id": "w48d7-q02",
+          "prompt": "Alba entrega E1.eml, E2.evtx y E3.pcapng. ¿Qué falta para inventario verificable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo iconos de archivo"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombre del estudiante"
+            },
+            {
+              "id": "c",
+              "text": "Origen, hash y ventana de cada fuente"
+            },
+            {
+              "id": "d",
+              "text": "Solo idioma del sistema"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los nombres no describen integridad ni cobertura.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w48d2-q01"
+        },
+        {
+          "id": "w48d7-q03",
+          "prompt": "Alba: AV alerta a09:03, usuario niega abrir adjunto. ¿Qué hipótesis mantienes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo culpabilidad del usuario"
+            },
+            {
+              "id": "b",
+              "text": "Solo fallo de AV"
+            },
+            {
+              "id": "c",
+              "text": "Ejecución, escaneo automático o descarga sin ejecución"
+            },
+            {
+              "id": "d",
+              "text": "Ninguna porque hay alerta"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La alerta necesita contexto sobre qué acción la produjo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w48d3-q01"
+        },
+        {
+          "id": "w48d7-q04",
+          "prompt": "Alba: correo06:50Z, descarga06:54Z y proceso08:55+02. ¿Cuál es la secuencia normalizada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Proceso, correo, descarga"
+            },
+            {
+              "id": "b",
+              "text": "Descarga, proceso, correo"
+            },
+            {
+              "id": "c",
+              "text": "Correo, descarga, proceso"
+            },
+            {
+              "id": "d",
+              "text": "Los tres son simultáneos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El proceso corresponde a06:55Z tras normalizar.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w48d4-q01"
+        },
+        {
+          "id": "w48d7-q05",
+          "prompt": "Alba confirma ejecución maliciosa en PC-A. ¿Qué propuesta contiene alcance específico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Apagar todos los equipos sin evaluar"
+            },
+            {
+              "id": "b",
+              "text": "Borrar buzones completos"
+            },
+            {
+              "id": "c",
+              "text": "Bloquear cualquier HTTPS"
+            },
+            {
+              "id": "d",
+              "text": "Aislar PC-A y evaluar identidad afectada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La medida debe relacionarse con activos y riesgos observados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w48d5-q01"
+        },
+        {
+          "id": "w48d7-q06",
+          "prompt": "El informe Alba afirma atacante identificado por IP. ¿Qué corriges?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Separar indicador de atribución no probada"
+            },
+            {
+              "id": "b",
+              "text": "Agregar nacionalidad supuesta"
+            },
+            {
+              "id": "c",
+              "text": "Ocultar el indicador"
+            },
+            {
+              "id": "d",
+              "text": "Declarar malware desconocido"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una IP no identifica por sí sola a una persona.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w48d6-q01"
+        },
+        {
+          "id": "w48d7-q07",
+          "prompt": "Alba tiene solución oculta y dataset nuevo. ¿Qué preserva autonomía?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Registrar hipótesis antes de consultar solución"
+            },
+            {
+              "id": "b",
+              "text": "Leer primero todas las respuestas"
+            },
+            {
+              "id": "c",
+              "text": "Copiar informe ajeno"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar nombres de hallazgos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La simulación debe comprobar razonamiento independiente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w48d1-q02"
+        },
+        {
+          "id": "w48d7-q08",
+          "prompt": "E2 empieza a las09:00 y correo llegó08:50. ¿Qué limitación existe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Demuestra que el correo no llegó"
+            },
+            {
+              "id": "b",
+              "text": "Todos los eventos son inútiles"
+            },
+            {
+              "id": "c",
+              "text": "No cubre directamente llegada del correo"
+            },
+            {
+              "id": "d",
+              "text": "La hora del correo es falsa"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las ventanas de las fuentes deben reflejarse en la cronología.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w48d2-q02"
+        },
+        {
+          "id": "w48d7-q09",
+          "prompt": "¿Qué prueba discrimina mejor ejecución del adjunto en Alba?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Proceso correlacionado con ruta y hash"
+            },
+            {
+              "id": "b",
+              "text": "Asunto urgente del correo"
+            },
+            {
+              "id": "c",
+              "text": "Color del icono"
+            },
+            {
+              "id": "d",
+              "text": "Dominio de remitente"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La evidencia de proceso puede vincular actividad con contenido específico.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w48d3-q02"
+        },
+        {
+          "id": "w48d7-q10",
+          "prompt": "Proceso P7 abre conexión a D7. ¿Qué dato refuerza vínculo con E3?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tupla y tiempo coincidentes"
+            },
+            {
+              "id": "b",
+              "text": "Solo puerto443"
+            },
+            {
+              "id": "c",
+              "text": "Solo mismo país"
+            },
+            {
+              "id": "d",
+              "text": "Solo apellido del usuario"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La correspondencia precisa reduce coincidencia accidental.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w48d4-q02"
+        },
+        {
+          "id": "w48d7-q11",
+          "prompt": "Se observaron tokens robados en Alba. ¿Qué cubre la respuesta de identidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo desconectar PC-A"
+            },
+            {
+              "id": "b",
+              "text": "Revocar sesiones y rotar credenciales pertinentes"
+            },
+            {
+              "id": "c",
+              "text": "Solo borrar el adjunto"
+            },
+            {
+              "id": "d",
+              "text": "Solo vaciar historial"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El compromiso puede persistir fuera del equipo afectado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w48d5-q02"
+        },
+        {
+          "id": "w48d7-q12",
+          "prompt": "¿Qué debe acompañar el hallazgo de ejecución de Alba?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo captura del icono"
+            },
+            {
+              "id": "b",
+              "text": "Artefactos, método y nivel de confianza"
+            },
+            {
+              "id": "c",
+              "text": "Solo frase ejecutado"
+            },
+            {
+              "id": "d",
+              "text": "Solo nombre del alumno"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La conclusión necesita evidencia y límites revisables.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w48d6-q02"
+        },
+        {
+          "id": "w48d7-q13",
+          "prompt": "Un enlace del caso apunta fuera del laboratorio. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Visitarlo desde cuenta personal"
+            },
+            {
+              "id": "b",
+              "text": "Enviar credenciales ficticias"
+            },
+            {
+              "id": "c",
+              "text": "Mantener análisis pasivo según reglas"
+            },
+            {
+              "id": "d",
+              "text": "Escanear al propietario externo"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La autorización del laboratorio no se extiende a terceros.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w48d1-q03"
+        },
+        {
+          "id": "w48d7-q14",
+          "prompt": "La copia E3 tiene SHA-256 distinto al manifiesto. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambiar el manifiesto"
+            },
+            {
+              "id": "b",
+              "text": "Usarla por abrir bien"
+            },
+            {
+              "id": "c",
+              "text": "Investigar discrepancia antes de concluir"
+            },
+            {
+              "id": "d",
+              "text": "Borrar el hash original"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La legibilidad no resuelve integridad inconsistente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w48d2-q03"
+        },
+        {
+          "id": "w48d7-q15",
+          "prompt": "Alba: no hay4688 y auditoría estaba desactivada. ¿Qué concluyes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El adjunto no se ejecutó"
+            },
+            {
+              "id": "b",
+              "text": "La alerta era falsa"
+            },
+            {
+              "id": "c",
+              "text": "La fuente no resuelve ejecución"
+            },
+            {
+              "id": "d",
+              "text": "El usuario dice la verdad necesariamente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La carencia de auditoría limita la prueba negativa.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w48d3-q03"
+        },
+        {
+          "id": "w48d7-q16",
+          "prompt": "Alba: DNS resuelve D7 a IP7 y pcap registra otra IP. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Forzar que sean iguales"
+            },
+            {
+              "id": "b",
+              "text": "Revisar respuestas, caché y tiempos"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar el DNS"
+            },
+            {
+              "id": "d",
+              "text": "Afirmar manipulación segura"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Puede haber cambios de resolución o conexiones no relacionadas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w48d4-q03"
+        },
+        {
+          "id": "w48d7-q17",
+          "prompt": "Alba no demuestra exfiltración. ¿Cómo recomiendas investigar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Revisar destinos, volumen y fuentes faltantes"
+            },
+            {
+              "id": "b",
+              "text": "Declararla confirmada"
+            },
+            {
+              "id": "c",
+              "text": "Descartarla por falta de alerta"
+            },
+            {
+              "id": "d",
+              "text": "Publicar datos como prueba"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La incertidumbre requiere un plan concreto de comprobación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w48d5-q03"
+        },
+        {
+          "id": "w48d7-q18",
+          "prompt": "¿Qué resumen no técnico describe Alba fielmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un APT robó todo sin pruebas"
+            },
+            {
+              "id": "b",
+              "text": "Un equipo ejecutó contenido sospechoso; se evalúa alcance"
+            },
+            {
+              "id": "c",
+              "text": "No pasó nada porque abre Windows"
+            },
+            {
+              "id": "d",
+              "text": "Listado de filtros sin impacto"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La síntesis debe preservar hechos e incertidumbre.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w48d6-q03"
+        },
+        {
+          "id": "w48d7-q19",
+          "prompt": "¿Qué objetivo acota Alba mejor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Determinar si adjunto produjo ejecución en PC-A"
+            },
+            {
+              "id": "b",
+              "text": "Encontrar cualquier cosa sospechosa"
+            },
+            {
+              "id": "c",
+              "text": "Identificar al atacante por nombre"
+            },
+            {
+              "id": "d",
+              "text": "Demostrar una intrusión ya asumida"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una pregunta concreta permite elegir pruebas pertinentes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w48d1-q04"
+        },
+        {
+          "id": "w48d7-q20",
+          "prompt": "El correo contiene URL7, pero no hay visita en fuentes disponibles. ¿Qué puedes decir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "URL7 fue abierta"
+            },
+            {
+              "id": "b",
+              "text": "Se robaron credenciales"
+            },
+            {
+              "id": "c",
+              "text": "URL7 fue entregada; visita no demostrada"
+            },
+            {
+              "id": "d",
+              "text": "El usuario nunca la vio"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La entrega de un enlace no prueba interacción posterior.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w48d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w48d7-challenge",
+        "prompt": "Al revisar solución tras terminar Alba, descubres un error de zona. ¿Qué aprendizaje registras?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo bajar tu puntuación"
+          },
+          {
+            "id": "b",
+            "text": "Causa, corrección y prueba con otro caso"
+          },
+          {
+            "id": "c",
+            "text": "Copiar la solución como trabajo propio"
+          },
+          {
+            "id": "d",
+            "text": "Cambiar fechas originales"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La revisión debe producir una mejora verificable del método.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    }
+  ]
+}

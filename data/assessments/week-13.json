@@ -1,0 +1,2094 @@
+{
+  "week": 13,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w13d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w13d1-q01",
+          "prompt": "Un navegador del laboratorio usa 10.0.0.8:51432 para conectar a 192.0.2.20:443/TCP. ¿Qué representa 51432?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La dirección de la puerta de enlace"
+            },
+            {
+              "id": "b",
+              "text": "El número de proceso del servidor"
+            },
+            {
+              "id": "c",
+              "text": "La versión del certificado TLS"
+            },
+            {
+              "id": "d",
+              "text": "El puerto local usado por ese extremo de la conexión"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un puerto de transporte ayuda a distinguir conversaciones de aplicaciones; no es una dirección IP.",
+          "reference": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml"
+        },
+        {
+          "id": "w13d1-q02",
+          "prompt": "Dos programas comparten la IP de un equipo. ¿Qué dato de transporte ayuda a distinguir sus extremos de comunicación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El número de puerto junto con el protocolo"
+            },
+            {
+              "id": "b",
+              "text": "La máscara de subred por sí sola"
+            },
+            {
+              "id": "c",
+              "text": "El valor de TTL de todos los paquetes"
+            },
+            {
+              "id": "d",
+              "text": "La dirección del servidor DNS por sí sola"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una misma IP puede atender varios puertos y protocolos.",
+          "reference": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml"
+        },
+        {
+          "id": "w13d1-q03",
+          "prompt": "¿Cuál describe mejor un socket de red en el contexto de una aplicación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un extremo de comunicación asociado a direcciones y puertos según su protocolo"
+            },
+            {
+              "id": "b",
+              "text": "La traducción obligatoria de toda dirección privada"
+            },
+            {
+              "id": "c",
+              "text": "El archivo donde se guardan todos los paquetes"
+            },
+            {
+              "id": "d",
+              "text": "La contraseña compartida de una red inalámbrica"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El socket es una interfaz de comunicación usada por procesos; su contexto de transporte importa.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc9293.html"
+        },
+        {
+          "id": "w13d1-q04",
+          "prompt": "¿Qué combinación permite identificar una conversación TCP de dos extremos con mayor precisión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "IP origen, puerto origen, IP destino, puerto destino y TCP"
+            },
+            {
+              "id": "b",
+              "text": "Solo el puerto de destino"
+            },
+            {
+              "id": "c",
+              "text": "Solo la dirección MAC del router"
+            },
+            {
+              "id": "d",
+              "text": "Únicamente el tamaño del primer paquete"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La combinación de extremos y protocolo evita confundir conexiones simultáneas.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc9293.html"
+        },
+        {
+          "id": "w13d1-q05",
+          "prompt": "En un equipo, TCP/53 y UDP/53 aparecen a la vez. ¿Cuál conclusión es válida?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ambos registros son necesariamente duplicados erróneos"
+            },
+            {
+              "id": "b",
+              "text": "Los dos deben pertenecer al mismo PID"
+            },
+            {
+              "id": "c",
+              "text": "El mismo número puede existir en espacios de puertos de protocolos distintos"
+            },
+            {
+              "id": "d",
+              "text": "El sistema ha cambiado de dirección IPv4 a IPv6"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El protocolo de transporte forma parte de la identificación del extremo.",
+          "reference": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml"
+        },
+        {
+          "id": "w13d1-q06",
+          "prompt": "Ves una conexión saliente desde un puerto local alto hacia TCP/22. ¿Qué debes comprobar antes de atribuirla a SSH legítimo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el puerto alto sea siempre un servicio remoto"
+            },
+            {
+              "id": "b",
+              "text": "Que toda conexión TCP esté cifrada"
+            },
+            {
+              "id": "c",
+              "text": "Que el número 22 garantice quién administra el servidor"
+            },
+            {
+              "id": "d",
+              "text": "Proceso, destino y contexto, además del puerto"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los puertos habituales orientan; no certifican el proceso ni la legitimidad de una comunicación.",
+          "reference": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml"
+        },
+        {
+          "id": "w13d1-q07",
+          "prompt": "¿Qué diferencia existe entre el PID mostrado por una herramienta y el puerto local?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El PID identifica un proceso; el puerto identifica un extremo de transporte"
+            },
+            {
+              "id": "b",
+              "text": "El PID es una dirección IPv6 y el puerto una MAC"
+            },
+            {
+              "id": "c",
+              "text": "El PID identifica al router y el puerto al usuario"
+            },
+            {
+              "id": "d",
+              "text": "Son siempre el mismo número en formatos diferentes"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Relacionar proceso y puerto exige consultar ambos datos; no son equivalentes.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/nettcpip/get-nettcpconnection"
+        },
+        {
+          "id": "w13d1-q08",
+          "prompt": "Una tabla muestra LocalAddress 127.0.0.1 y LocalPort 8080. ¿Qué indica esa dirección de escucha?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una escucha disponible automáticamente desde toda Internet"
+            },
+            {
+              "id": "b",
+              "text": "Un enlace al bucle local IPv4 del propio equipo"
+            },
+            {
+              "id": "c",
+              "text": "Una dirección de servidor DNS público"
+            },
+            {
+              "id": "d",
+              "text": "El puerto físico número 8080 del switch"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La dirección de enlace determina desde dónde se puede alcanzar una escucha; 127.0.0.1 es local.",
+          "reference": "https://man7.org/linux/man-pages/man8/ss.8.html"
+        }
+      ],
+      "challenge": {
+        "id": "w13d1-challenge",
+        "prompt": "Caso: dos navegadores tienen la misma IP local y ambos contactan TCP/443 del mismo servidor. ¿Qué permite separar sus conexiones simultáneas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Agruparlas solo porque el puerto destino es igual"
+          },
+          {
+            "id": "b",
+            "text": "Comparar los puertos locales y el proceso propietario junto a ambos extremos"
+          },
+          {
+            "id": "c",
+            "text": "Usar el número de serie del monitor como identificador TCP"
+          },
+          {
+            "id": "d",
+            "text": "Suponer que TCP permite una sola conexión por IP"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "Los extremos y procesos permiten distinguir conversaciones que comparten dirección y servicio.",
+        "reference": "https://learn.microsoft.com/en-us/powershell/module/nettcpip/get-nettcpconnection"
+      }
+    },
+    {
+      "dayId": "w13d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w13d2-q01",
+          "prompt": "En una conexión TCP ordinaria, ¿qué secuencia inicia el establecimiento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "SYN, SYN-ACK y ACK"
+            },
+            {
+              "id": "b",
+              "text": "FIN, ACK y FIN"
+            },
+            {
+              "id": "c",
+              "text": "DNS, DHCP y ARP"
+            },
+            {
+              "id": "d",
+              "text": "GET, POST y DELETE"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El intercambio inicial sincroniza los extremos antes de transferir el flujo.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc9293.html"
+        },
+        {
+          "id": "w13d2-q02",
+          "prompt": "¿Qué aporta TCP a una aplicación que recibe un archivo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La comprobación automática de la firma del archivo"
+            },
+            {
+              "id": "b",
+              "text": "El cifrado obligatorio de cada byte"
+            },
+            {
+              "id": "c",
+              "text": "La selección automática de un nombre DNS seguro"
+            },
+            {
+              "id": "d",
+              "text": "Un flujo de bytes ordenado con mecanismos de retransmisión"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La fiabilidad de transporte no sustituye autenticación, cifrado ni validación del archivo.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc9293.html"
+        },
+        {
+          "id": "w13d2-q03",
+          "prompt": "Un segmento no recibe confirmación y vence el temporizador correspondiente. ¿Qué mecanismo puede usar TCP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Convertir los datos automáticamente en tráfico ICMP"
+            },
+            {
+              "id": "b",
+              "text": "Solicitar al usuario que cambie de VLAN"
+            },
+            {
+              "id": "c",
+              "text": "Descartar para siempre toda la conexión sin otro procedimiento"
+            },
+            {
+              "id": "d",
+              "text": "Retransmitir los datos pendientes"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "TCP emplea confirmaciones y temporizadores para detectar pérdidas y recuperar datos.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc9293.html"
+        },
+        {
+          "id": "w13d2-q04",
+          "prompt": "¿Qué permite interpretar un número de secuencia TCP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El número de usuario autenticado"
+            },
+            {
+              "id": "b",
+              "text": "El identificador del certificado del sitio"
+            },
+            {
+              "id": "c",
+              "text": "La distancia física entre los equipos"
+            },
+            {
+              "id": "d",
+              "text": "La posición de bytes dentro del flujo de ese sentido"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las secuencias permiten ordenar y confirmar partes del flujo.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc9293.html"
+        },
+        {
+          "id": "w13d2-q05",
+          "prompt": "¿Qué significa normalmente recibir FIN en un sentido de una conexión TCP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ese extremo anuncia que no enviará más datos en ese sentido"
+            },
+            {
+              "id": "b",
+              "text": "La transferencia está necesariamente cifrada"
+            },
+            {
+              "id": "c",
+              "text": "El servidor DNS rechazó el dominio"
+            },
+            {
+              "id": "d",
+              "text": "El switch eliminó su tabla MAC"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El cierre de TCP admite cerrar un sentido mientras se termina de tratar el otro.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc9293.html"
+        },
+        {
+          "id": "w13d2-q06",
+          "prompt": "Una herramienta muestra ESTABLISHED. ¿Qué demuestra ese estado por sí solo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que TCP ha establecido la conexión entre los extremos"
+            },
+            {
+              "id": "b",
+              "text": "Que las credenciales de la aplicación son válidas"
+            },
+            {
+              "id": "c",
+              "text": "Que el servidor es de confianza"
+            },
+            {
+              "id": "d",
+              "text": "Que toda solicitud HTTP tendrá éxito"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El estado de transporte no prueba el resultado ni la seguridad de la aplicación.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc9293.html"
+        },
+        {
+          "id": "w13d2-q07",
+          "prompt": "¿Para qué sirve la ventana de recepción anunciada por TCP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para comunicar cuántos datos puede aceptar el receptor"
+            },
+            {
+              "id": "b",
+              "text": "Para indicar el horario de apertura del servidor"
+            },
+            {
+              "id": "c",
+              "text": "Para elegir el algoritmo de cifrado web"
+            },
+            {
+              "id": "d",
+              "text": "Para convertir direcciones privadas en públicas"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El control de flujo busca no desbordar la capacidad del receptor.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc9293.html"
+        },
+        {
+          "id": "w13d2-q08",
+          "prompt": "Una aplicación necesita cifrar su intercambio TCP. ¿Qué debe añadir normalmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Únicamente un puerto de origen más alto"
+            },
+            {
+              "id": "b",
+              "text": "Una máscara de red más larga"
+            },
+            {
+              "id": "c",
+              "text": "Un protocolo de protección, como TLS, diseñado para ese uso"
+            },
+            {
+              "id": "d",
+              "text": "El indicador ACK en todos los paquetes"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "TCP proporciona transporte; la protección criptográfica requiere una capa apropiada.",
+          "reference": "https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security"
+        }
+      ],
+      "challenge": {
+        "id": "w13d2-challenge",
+        "prompt": "Caso: necesitas enviar un informe completo y ordenado. ¿Qué diseño de transporte cumple mejor ese requisito básico?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Usar un flujo fiable como TCP y añadir validación de aplicación y protección cuando corresponda"
+          },
+          {
+            "id": "b",
+            "text": "Usar UDP y asumir que toda entrega está garantizada"
+          },
+          {
+            "id": "c",
+            "text": "Confundir el ACK de TCP con una firma digital del archivo"
+          },
+          {
+            "id": "d",
+            "text": "Elegir TCP solo porque cifra siempre los datos"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La entrega fiable, la integridad del archivo y el cifrado son requisitos relacionados pero diferentes.",
+        "reference": "https://www.rfc-editor.org/rfc/rfc9293.html"
+      }
+    },
+    {
+      "dayId": "w13d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w13d3-q01",
+          "prompt": "¿Qué unidad de comunicación entrega UDP a las aplicaciones?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Datagramas con límites de mensaje"
+            },
+            {
+              "id": "b",
+              "text": "Un flujo continuo de bytes sin límites de mensaje"
+            },
+            {
+              "id": "c",
+              "text": "Tramas Ethernet con garantía extremo a extremo"
+            },
+            {
+              "id": "d",
+              "text": "Archivos completos firmados por el sistema"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "UDP conserva la idea de mensajes individuales.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc768.html"
+        },
+        {
+          "id": "w13d3-q02",
+          "prompt": "¿Qué garantía NO proporciona UDP por sí mismo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La presencia de un campo de puerto de destino"
+            },
+            {
+              "id": "b",
+              "text": "Entrega ordenada y recuperación automática de mensajes perdidos"
+            },
+            {
+              "id": "c",
+              "text": "La posibilidad de transmitir mensajes de aplicaciones"
+            },
+            {
+              "id": "d",
+              "text": "La inclusión de una cabecera de transporte"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una aplicación debe gestionar las garantías adicionales que necesite.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc768.html"
+        },
+        {
+          "id": "w13d3-q03",
+          "prompt": "Una llamada de voz puede tolerar perder una muestra antigua antes que esperar su retransmisión. ¿Qué decisión es razonable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Exigir que UDP nunca pierda datagramas"
+            },
+            {
+              "id": "b",
+              "text": "Considerar UDP y controles de calidad propios de la aplicación"
+            },
+            {
+              "id": "c",
+              "text": "Desactivar toda autenticación por usar voz"
+            },
+            {
+              "id": "d",
+              "text": "Concluir que TCP no admite audio en ningún caso"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El diseño considera los requisitos de latencia y pérdida; no establece prohibiciones absolutas.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc768.html"
+        },
+        {
+          "id": "w13d3-q04",
+          "prompt": "¿Qué ocurre con una respuesta UDP perdida si la aplicación no implementa recuperación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "UDP repite el mensaje hasta confirmar su recepción"
+            },
+            {
+              "id": "b",
+              "text": "UDP no solicita por sí solo que vuelva a enviarse"
+            },
+            {
+              "id": "c",
+              "text": "El servidor crea obligatoriamente una sesión TCP"
+            },
+            {
+              "id": "d",
+              "text": "El router reconstruye el contenido perdido"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las retransmisiones de una aplicación sobre UDP no son una garantía de UDP.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc768.html"
+        },
+        {
+          "id": "w13d3-q05",
+          "prompt": "Se observan datagramas UDP fuera de orden. ¿Qué debe revisar un programa que necesita secuencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La existencia de un indicador SYN de UDP"
+            },
+            {
+              "id": "b",
+              "text": "La contraseña del router como mecanismo de orden"
+            },
+            {
+              "id": "c",
+              "text": "Su mecanismo propio de numeración, detección y reordenamiento"
+            },
+            {
+              "id": "d",
+              "text": "Un supuesto estado ESTABLISHED obligatorio en UDP"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La aplicación o un protocolo superior debe gestionar el orden cuando sea necesario.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc768.html"
+        },
+        {
+          "id": "w13d3-q06",
+          "prompt": "¿Cuál es una diferencia importante al comparar UDP con TCP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "UDP no exige el establecimiento TCP de tres mensajes"
+            },
+            {
+              "id": "b",
+              "text": "UDP no utiliza nunca direcciones IP"
+            },
+            {
+              "id": "c",
+              "text": "UDP garantiza una latencia máxima universal"
+            },
+            {
+              "id": "d",
+              "text": "UDP permite demostrar que un destino es confiable"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un mecanismo más simple no implica garantías universales de rendimiento o confianza.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc768.html"
+        },
+        {
+          "id": "w13d3-q07",
+          "prompt": "Un protocolo implementa confirmaciones encima de UDP. ¿Cómo interpretas esa fiabilidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Prueba que la captura está mal identificada"
+            },
+            {
+              "id": "b",
+              "text": "Convierte toda cabecera UDP en una cabecera TCP"
+            },
+            {
+              "id": "c",
+              "text": "La aporta el protocolo superior, no UDP aisladamente"
+            },
+            {
+              "id": "d",
+              "text": "Elimina la necesidad de secuencias de aplicación"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Es posible construir funciones adicionales sobre un transporte de datagramas.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc768.html"
+        },
+        {
+          "id": "w13d3-q08",
+          "prompt": "Al elegir transporte para una consulta breve con reintentos propios, ¿qué comparación resulta útil?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo que el nombre UDP tenga menos letras"
+            },
+            {
+              "id": "b",
+              "text": "Asumir que el protocolo más rápido siempre es seguro"
+            },
+            {
+              "id": "c",
+              "text": "Necesidades de latencia, tamaño y recuperación de la aplicación"
+            },
+            {
+              "id": "d",
+              "text": "Suponer que el datagrama más pequeño siempre confirma su entrega"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El transporte se elige por requisitos, no por una etiqueta absoluta de rapidez.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc768.html"
+        }
+      ],
+      "challenge": {
+        "id": "w13d3-challenge",
+        "prompt": "Caso: un sensor de laboratorio envía muestras periódicas por UDP. ¿Qué hace falta para detectar muestras ausentes?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Esperar el establecimiento SYN-ACK de UDP"
+          },
+          {
+            "id": "b",
+            "text": "Consultar una garantía de orden automático del datagrama"
+          },
+          {
+            "id": "c",
+            "text": "Numeración y control de huecos implementados por la aplicación"
+          },
+          {
+            "id": "d",
+            "text": "Cambiar solo el color de la gráfica de recepción"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "El emisor y receptor pueden definir un mecanismo propio para identificar pérdidas.",
+        "reference": "https://www.rfc-editor.org/rfc/rfc768.html"
+      }
+    },
+    {
+      "dayId": "w13d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w13d4-q01",
+          "prompt": "¿Cuál es el puerto TCP registrado habitualmente para SSH?",
+          "options": [
+            {
+              "id": "a",
+              "text": "22"
+            },
+            {
+              "id": "b",
+              "text": "23"
+            },
+            {
+              "id": "c",
+              "text": "25"
+            },
+            {
+              "id": "d",
+              "text": "110"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Conocer el valor habitual ayuda a orientar una revisión, aunque el servicio puede configurarse en otro puerto.",
+          "reference": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml"
+        },
+        {
+          "id": "w13d4-q02",
+          "prompt": "Una tabla de servicios debe describir HTTPS de forma precisa. ¿Qué entrada es mejor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Transferencia de nombres DNS exclusivamente por UDP/443"
+            },
+            {
+              "id": "b",
+              "text": "HTTP protegido con TLS; 443 es su puerto habitual"
+            },
+            {
+              "id": "c",
+              "text": "Inicio de sesión remoto sin cifrar en TCP/23"
+            },
+            {
+              "id": "d",
+              "text": "Sincronización de relojes exclusivamente en TCP/80"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "HTTPS describe protección del intercambio HTTP; el puerto por sí solo no demuestra su seguridad.",
+          "reference": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml"
+        },
+        {
+          "id": "w13d4-q03",
+          "prompt": "Un alumno afirma que DNS solo funciona por UDP. ¿Cuál es la corrección adecuada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "DNS utiliza únicamente TCP/22"
+            },
+            {
+              "id": "b",
+              "text": "DNS sustituye la capa IP en todos los equipos"
+            },
+            {
+              "id": "c",
+              "text": "DNS puede utilizar tanto UDP como TCP, habitualmente en el puerto 53"
+            },
+            {
+              "id": "d",
+              "text": "DNS no usa nunca puertos de transporte"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "No conviene limitar el diagnóstico de DNS a un solo transporte.",
+          "reference": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml"
+        },
+        {
+          "id": "w13d4-q04",
+          "prompt": "¿Qué servicio se asocia tradicionalmente a TCP/25 entre servidores de correo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "SMTP"
+            },
+            {
+              "id": "b",
+              "text": "SSH"
+            },
+            {
+              "id": "c",
+              "text": "NTP"
+            },
+            {
+              "id": "d",
+              "text": "RDP"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "SMTP es un protocolo de transferencia de correo, diferente de la lectura de buzones.",
+          "reference": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml"
+        },
+        {
+          "id": "w13d4-q05",
+          "prompt": "Una conexión tradicional HTTP sin TLS se observa hacia su puerto registrado habitual. ¿Cuál es?",
+          "options": [
+            {
+              "id": "a",
+              "text": "TCP/22"
+            },
+            {
+              "id": "b",
+              "text": "TCP/80"
+            },
+            {
+              "id": "c",
+              "text": "UDP/123"
+            },
+            {
+              "id": "d",
+              "text": "TCP/3389"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El valor habitual orienta el análisis; la aplicación real requiere corroboración.",
+          "reference": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml"
+        },
+        {
+          "id": "w13d4-q06",
+          "prompt": "¿Cuál de estas asociaciones corresponde a sincronización horaria mediante NTP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "TCP/25"
+            },
+            {
+              "id": "b",
+              "text": "TCP/110"
+            },
+            {
+              "id": "c",
+              "text": "UDP/123"
+            },
+            {
+              "id": "d",
+              "text": "UDP/161"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "NTP se usa para la hora, no para resolver nombres o transferir correo.",
+          "reference": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml"
+        },
+        {
+          "id": "w13d4-q07",
+          "prompt": "Un equipo ofrece un servicio en un puerto no habitual. ¿Qué implica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todo puerto no habitual es necesariamente malware"
+            },
+            {
+              "id": "b",
+              "text": "Se debe identificar el servicio real; el número no basta"
+            },
+            {
+              "id": "c",
+              "text": "El firewall lo autoriza automáticamente"
+            },
+            {
+              "id": "d",
+              "text": "No puede usarse cifrado en ese puerto"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La configuración y el proceso deben contrastarse con el tráfico y el inventario.",
+          "reference": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml"
+        },
+        {
+          "id": "w13d4-q08",
+          "prompt": "Al documentar acceso remoto administrativo, ¿qué dato debe acompañar al puerto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el puerto, sin identificar los destinos autorizados"
+            },
+            {
+              "id": "b",
+              "text": "Únicamente la velocidad de la tarjeta de red"
+            },
+            {
+              "id": "c",
+              "text": "Únicamente el volumen de bytes, sin propósito ni política"
+            },
+            {
+              "id": "d",
+              "text": "Propósito, protocolo, destino autorizado y controles de acceso"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una tabla útil describe el contexto de uso, no solo memoriza números.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/security/what-is-secure-remote-access.html"
+        }
+      ],
+      "challenge": {
+        "id": "w13d4-challenge",
+        "prompt": "Caso: el inventario dice SSH en un servidor, pero observas un puerto distinto de 22. ¿Cómo lo validas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Contrastar configuración, proceso y acceso autorizado sin descartar el servicio por el número"
+          },
+          {
+            "id": "b",
+            "text": "Declarar que el sistema no puede ejecutar SSH"
+          },
+          {
+            "id": "c",
+            "text": "Permitir todos los puertos del servidor permanentemente"
+          },
+          {
+            "id": "d",
+            "text": "Concluir que cambiar el puerto sustituye la autenticación"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "El puerto registrado es una convención, no una identidad verificable del servicio.",
+        "reference": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml"
+      }
+    },
+    {
+      "dayId": "w13d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w13d5-q01",
+          "prompt": "¿Qué comando de PowerShell permite consultar conexiones TCP locales?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Get-NetTCPConnection"
+            },
+            {
+              "id": "b",
+              "text": "Get-FileHash"
+            },
+            {
+              "id": "c",
+              "text": "Get-Date"
+            },
+            {
+              "id": "d",
+              "text": "Get-ChildItem"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El cmdlet expone propiedades de las conexiones TCP actuales.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/nettcpip/get-nettcpconnection"
+        },
+        {
+          "id": "w13d5-q02",
+          "prompt": "¿Qué propiedad ayuda a enlazar una conexión de Windows con su proceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "OwningProcess"
+            },
+            {
+              "id": "b",
+              "text": "InterfaceAlias del archivo de texto"
+            },
+            {
+              "id": "c",
+              "text": "CertificateThumbprint de todos los sockets"
+            },
+            {
+              "id": "d",
+              "text": "PasswordAge del adaptador"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El PID propietario puede contrastarse con la lista de procesos.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/nettcpip/get-nettcpconnection"
+        },
+        {
+          "id": "w13d5-q03",
+          "prompt": "Necesitas distinguir escuchas de conexiones ya establecidas. ¿Qué propiedad consultas primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La extensión del ejecutable"
+            },
+            {
+              "id": "b",
+              "text": "Únicamente el puerto remoto, sin consultar la fase de la conexión"
+            },
+            {
+              "id": "c",
+              "text": "State"
+            },
+            {
+              "id": "d",
+              "text": "La fecha del documento abierto"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El estado de la conexión orienta su función y fase.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/nettcpip/get-nettcpconnection"
+        },
+        {
+          "id": "w13d5-q04",
+          "prompt": "¿Qué permite mostrar normalmente ss -lnt en Linux?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sockets TCP en escucha con puertos numéricos"
+            },
+            {
+              "id": "b",
+              "text": "Solo mensajes UDP capturados de toda la red"
+            },
+            {
+              "id": "c",
+              "text": "El contenido descifrado de HTTPS"
+            },
+            {
+              "id": "d",
+              "text": "Una lista completa de usuarios remotos autenticados"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los modificadores seleccionan escuchas TCP y salida numérica.",
+          "reference": "https://man7.org/linux/man-pages/man8/ss.8.html"
+        },
+        {
+          "id": "w13d5-q05",
+          "prompt": "¿Qué añade normalmente la opción -p de ss cuando los permisos permiten verlo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cifrado automático de la conexión"
+            },
+            {
+              "id": "b",
+              "text": "Información del proceso asociado al socket"
+            },
+            {
+              "id": "c",
+              "text": "Una prueba de acceso al servidor DNS"
+            },
+            {
+              "id": "d",
+              "text": "La contraseña de la cuenta conectada"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La visibilidad de procesos puede depender de privilegios; no implica control remoto del proceso.",
+          "reference": "https://man7.org/linux/man-pages/man8/ss.8.html"
+        },
+        {
+          "id": "w13d5-q06",
+          "prompt": "Una escucha aparece como 0.0.0.0:8080. ¿Qué significa ese enlace IPv4?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el servicio es alcanzable desde cualquier red pese al firewall"
+            },
+            {
+              "id": "b",
+              "text": "Escucha en todas las direcciones IPv4 locales aplicables"
+            },
+            {
+              "id": "c",
+              "text": "Que no existe proceso asociado"
+            },
+            {
+              "id": "d",
+              "text": "Que solo admite conexiones del bucle local"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El enlace amplio no elimina reglas de firewall, rutas u otros controles.",
+          "reference": "https://man7.org/linux/man-pages/man8/ss.8.html"
+        },
+        {
+          "id": "w13d5-q07",
+          "prompt": "Un PID conocido termina y después se reutiliza. ¿Cómo evitas una atribución histórica errónea?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Suponer que un PID identifica siempre al mismo programa"
+            },
+            {
+              "id": "b",
+              "text": "Interpretar el PID como la dirección MAC"
+            },
+            {
+              "id": "c",
+              "text": "Registrar hora y datos del proceso junto a la observación"
+            },
+            {
+              "id": "d",
+              "text": "Consultar solo el puerto un mes después"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los identificadores de proceso son temporales; la correlación necesita contexto temporal.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/nettcpip/get-nettcpconnection"
+        },
+        {
+          "id": "w13d5-q08",
+          "prompt": "Ves una conexión desconocida desde tu equipo de laboratorio. ¿Qué paso inicial es proporcionado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Finalizar todos los procesos del sistema inmediatamente"
+            },
+            {
+              "id": "b",
+              "text": "Relacionar PID, ejecutable, destino y propósito antes de intervenir"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar la captura antes de revisar"
+            },
+            {
+              "id": "d",
+              "text": "Declarar legítima la conexión solo por usar 443"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La atribución responsable combina varias evidencias y preserva el contexto.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/nettcpip/get-nettcpconnection"
+        }
+      ],
+      "challenge": {
+        "id": "w13d5-challenge",
+        "prompt": "Caso: una aplicación local escucha en 127.0.0.1:9000. Otro equipo no logra conectar. ¿Qué explicación merece comprobarse primero?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El puerto 9000 está reservado exclusivamente para UDP"
+          },
+          {
+            "id": "b",
+            "text": "El enlace al bucle local impide por diseño recibir conexiones dirigidas a otra interfaz"
+          },
+          {
+            "id": "c",
+            "text": "Todo proceso en escucha se publica automáticamente en Internet"
+          },
+          {
+            "id": "d",
+            "text": "La máscara remota cambia el significado de 127.0.0.1"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La dirección de enlace del servicio forma parte del diagnóstico de alcance.",
+        "reference": "https://man7.org/linux/man-pages/man8/ss.8.html"
+      }
+    },
+    {
+      "dayId": "w13d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w13d6-q01",
+          "prompt": "En la captura educativa aparece 10.0.0.5:53000 → 192.0.2.10:443 TCP. ¿Qué extremo recibe ese segmento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "10.0.0.5:53000"
+            },
+            {
+              "id": "b",
+              "text": "192.0.2.10:443"
+            },
+            {
+              "id": "c",
+              "text": "La dirección DNS configurada, siempre"
+            },
+            {
+              "id": "d",
+              "text": "Todo equipo con la misma máscara"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las columnas de origen y destino describen el sentido de cada paquete.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkBuildDisplayFilterSection.html"
+        },
+        {
+          "id": "w13d6-q02",
+          "prompt": "Una respuesta invierte las direcciones y los puertos respecto de una solicitud. ¿Qué debes comprobar para relacionarlas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo que tengan el mismo tamaño"
+            },
+            {
+              "id": "b",
+              "text": "Solo que el puerto de origen sea mayor"
+            },
+            {
+              "id": "c",
+              "text": "Que ambos paquetes tengan la misma dirección de destino"
+            },
+            {
+              "id": "d",
+              "text": "Protocolo, extremos y proximidad temporal"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El contexto de conversación evita agrupar paquetes no relacionados.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChStatConversations.html"
+        },
+        {
+          "id": "w13d6-q03",
+          "prompt": "¿Qué filtro de visualización selecciona tráfico TCP con puerto origen o destino 443?",
+          "options": [
+            {
+              "id": "a",
+              "text": "tcp.port = 443 como asignación de variable"
+            },
+            {
+              "id": "b",
+              "text": "tcp port 443 en cualquier campo de Wireshark"
+            },
+            {
+              "id": "c",
+              "text": "http.status == 443"
+            },
+            {
+              "id": "d",
+              "text": "tcp.port == 443"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los filtros de visualización usan campos y operadores propios; no la sintaxis de captura.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkBuildDisplayFilterSection.html"
+        },
+        {
+          "id": "w13d6-q04",
+          "prompt": "¿Qué muestra el filtro de visualización dns cuando el disector reconoce ese protocolo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todas las conexiones web cifradas descifradas"
+            },
+            {
+              "id": "b",
+              "text": "Los paquetes correspondientes a DNS presentes en la captura"
+            },
+            {
+              "id": "c",
+              "text": "Únicamente respuestas exitosas de cualquier protocolo"
+            },
+            {
+              "id": "d",
+              "text": "Una prueba de que el equipo usa un DNS autorizado"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Filtrar un protocolo no evalúa automáticamente su legitimidad.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkBuildDisplayFilterSection.html"
+        },
+        {
+          "id": "w13d6-q05",
+          "prompt": "¿Qué limitación existe si la captura comenzó después del establecimiento TCP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Puede faltar el intercambio inicial aunque la conexión sea válida"
+            },
+            {
+              "id": "b",
+              "text": "La conexión nunca pudo haber existido"
+            },
+            {
+              "id": "c",
+              "text": "Todos los segmentos siguientes son falsificados"
+            },
+            {
+              "id": "d",
+              "text": "Wireshark puede reconstruir cualquier paquete no capturado"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La ausencia de un paquete puede deberse al punto o momento de captura.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkBuildDisplayFilterSection.html"
+        },
+        {
+          "id": "w13d6-q06",
+          "prompt": "Una etiqueta de retransmisión TCP aparece una vez. ¿Qué conclusión es prudente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Confirmar inmediatamente un ataque de denegación de servicio"
+            },
+            {
+              "id": "b",
+              "text": "Investigar pérdida, captura y contexto antes de atribuir causa"
+            },
+            {
+              "id": "c",
+              "text": "Afirmar que el usuario introdujo una contraseña errónea"
+            },
+            {
+              "id": "d",
+              "text": "Concluir que el puerto está cerrado"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un indicador de análisis es una pista, no una explicación completa.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc9293.html"
+        },
+        {
+          "id": "w13d6-q07",
+          "prompt": "¿Qué dato conviene anotar junto al número de paquete en un hallazgo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el nombre de la herramienta"
+            },
+            {
+              "id": "b",
+              "text": "Únicamente la longitud del cable"
+            },
+            {
+              "id": "c",
+              "text": "La conclusión sin su procedimiento"
+            },
+            {
+              "id": "d",
+              "text": "Archivo, tiempo, filtro utilizado y explicación limitada a la evidencia"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La documentación permite reproducir la selección observada.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkTimeFormatsSection.html"
+        },
+        {
+          "id": "w13d6-q08",
+          "prompt": "Una conexión usa TCP/443 y su contenido no es visible. ¿Qué afirmación evita exagerar la evidencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La captura demuestra qué contraseña se introdujo"
+            },
+            {
+              "id": "b",
+              "text": "El puerto sugiere un uso habitual; no identifica por sí solo al programa ni revela el contenido"
+            },
+            {
+              "id": "c",
+              "text": "El puerto garantiza que no hay actividad maliciosa"
+            },
+            {
+              "id": "d",
+              "text": "Toda dirección que use 443 pertenece al mismo proveedor"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Puertos y metadatos deben interpretarse junto al contexto; no sustituyen inspección autorizada del contenido.",
+          "reference": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml"
+        }
+      ],
+      "challenge": {
+        "id": "w13d6-challenge",
+        "prompt": "Caso: la captura muestra una solicitud DNS y después una conexión TCP a la dirección devuelta. ¿Qué informe es defendible?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Describir la secuencia y los extremos con tiempos, sin afirmar por ello quién hizo clic"
+          },
+          {
+            "id": "b",
+            "text": "Afirmar que la persona escribió una contraseña concreta"
+          },
+          {
+            "id": "c",
+            "text": "Afirmar que DNS cifró el contenido de la página"
+          },
+          {
+            "id": "d",
+            "text": "Ignorar los tiempos porque todos los paquetes comparten equipo"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La correlación temporal orienta la investigación, pero no prueba toda acción humana.",
+        "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChStatConversations.html"
+      }
+    },
+    {
+      "dayId": "w13d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w13d7-q01",
+          "prompt": "Un navegador del laboratorio usa 10.0.0.8:51432 para conectar a 192.0.2.20:443/TCP. ¿Qué representa 51432?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La dirección de la puerta de enlace"
+            },
+            {
+              "id": "b",
+              "text": "El número de proceso del servidor"
+            },
+            {
+              "id": "c",
+              "text": "La versión del certificado TLS"
+            },
+            {
+              "id": "d",
+              "text": "El puerto local usado por ese extremo de la conexión"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un puerto de transporte ayuda a distinguir conversaciones de aplicaciones; no es una dirección IP.",
+          "reference": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml",
+          "reviewOf": "w13d1-q01"
+        },
+        {
+          "id": "w13d7-q02",
+          "prompt": "En una conexión TCP ordinaria, ¿qué secuencia inicia el establecimiento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "SYN, SYN-ACK y ACK"
+            },
+            {
+              "id": "b",
+              "text": "FIN, ACK y FIN"
+            },
+            {
+              "id": "c",
+              "text": "DNS, DHCP y ARP"
+            },
+            {
+              "id": "d",
+              "text": "GET, POST y DELETE"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El intercambio inicial sincroniza los extremos antes de transferir el flujo.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc9293.html",
+          "reviewOf": "w13d2-q01"
+        },
+        {
+          "id": "w13d7-q03",
+          "prompt": "¿Qué unidad de comunicación entrega UDP a las aplicaciones?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Datagramas con límites de mensaje"
+            },
+            {
+              "id": "b",
+              "text": "Un flujo continuo de bytes sin límites de mensaje"
+            },
+            {
+              "id": "c",
+              "text": "Tramas Ethernet con garantía extremo a extremo"
+            },
+            {
+              "id": "d",
+              "text": "Archivos completos firmados por el sistema"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "UDP conserva la idea de mensajes individuales.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc768.html",
+          "reviewOf": "w13d3-q01"
+        },
+        {
+          "id": "w13d7-q04",
+          "prompt": "¿Cuál es el puerto TCP registrado habitualmente para SSH?",
+          "options": [
+            {
+              "id": "a",
+              "text": "22"
+            },
+            {
+              "id": "b",
+              "text": "23"
+            },
+            {
+              "id": "c",
+              "text": "25"
+            },
+            {
+              "id": "d",
+              "text": "110"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Conocer el valor habitual ayuda a orientar una revisión, aunque el servicio puede configurarse en otro puerto.",
+          "reference": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml",
+          "reviewOf": "w13d4-q01"
+        },
+        {
+          "id": "w13d7-q05",
+          "prompt": "¿Qué comando de PowerShell permite consultar conexiones TCP locales?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Get-NetTCPConnection"
+            },
+            {
+              "id": "b",
+              "text": "Get-FileHash"
+            },
+            {
+              "id": "c",
+              "text": "Get-Date"
+            },
+            {
+              "id": "d",
+              "text": "Get-ChildItem"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El cmdlet expone propiedades de las conexiones TCP actuales.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/nettcpip/get-nettcpconnection",
+          "reviewOf": "w13d5-q01"
+        },
+        {
+          "id": "w13d7-q06",
+          "prompt": "En la captura educativa aparece 10.0.0.5:53000 → 192.0.2.10:443 TCP. ¿Qué extremo recibe ese segmento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "10.0.0.5:53000"
+            },
+            {
+              "id": "b",
+              "text": "192.0.2.10:443"
+            },
+            {
+              "id": "c",
+              "text": "La dirección DNS configurada, siempre"
+            },
+            {
+              "id": "d",
+              "text": "Todo equipo con la misma máscara"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las columnas de origen y destino describen el sentido de cada paquete.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkBuildDisplayFilterSection.html",
+          "reviewOf": "w13d6-q01"
+        },
+        {
+          "id": "w13d7-q07",
+          "prompt": "Dos programas comparten la IP de un equipo. ¿Qué dato de transporte ayuda a distinguir sus extremos de comunicación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El número de puerto junto con el protocolo"
+            },
+            {
+              "id": "b",
+              "text": "La máscara de subred por sí sola"
+            },
+            {
+              "id": "c",
+              "text": "El valor de TTL de todos los paquetes"
+            },
+            {
+              "id": "d",
+              "text": "La dirección del servidor DNS por sí sola"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una misma IP puede atender varios puertos y protocolos.",
+          "reference": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml",
+          "reviewOf": "w13d1-q02"
+        },
+        {
+          "id": "w13d7-q08",
+          "prompt": "¿Qué aporta TCP a una aplicación que recibe un archivo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La comprobación automática de la firma del archivo"
+            },
+            {
+              "id": "b",
+              "text": "El cifrado obligatorio de cada byte"
+            },
+            {
+              "id": "c",
+              "text": "La selección automática de un nombre DNS seguro"
+            },
+            {
+              "id": "d",
+              "text": "Un flujo de bytes ordenado con mecanismos de retransmisión"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La fiabilidad de transporte no sustituye autenticación, cifrado ni validación del archivo.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc9293.html",
+          "reviewOf": "w13d2-q02"
+        },
+        {
+          "id": "w13d7-q09",
+          "prompt": "¿Qué garantía NO proporciona UDP por sí mismo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La presencia de un campo de puerto de destino"
+            },
+            {
+              "id": "b",
+              "text": "Entrega ordenada y recuperación automática de mensajes perdidos"
+            },
+            {
+              "id": "c",
+              "text": "La posibilidad de transmitir mensajes de aplicaciones"
+            },
+            {
+              "id": "d",
+              "text": "La inclusión de una cabecera de transporte"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una aplicación debe gestionar las garantías adicionales que necesite.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc768.html",
+          "reviewOf": "w13d3-q02"
+        },
+        {
+          "id": "w13d7-q10",
+          "prompt": "Una tabla de servicios debe describir HTTPS de forma precisa. ¿Qué entrada es mejor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Transferencia de nombres DNS exclusivamente por UDP/443"
+            },
+            {
+              "id": "b",
+              "text": "HTTP protegido con TLS; 443 es su puerto habitual"
+            },
+            {
+              "id": "c",
+              "text": "Inicio de sesión remoto sin cifrar en TCP/23"
+            },
+            {
+              "id": "d",
+              "text": "Sincronización de relojes exclusivamente en TCP/80"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "HTTPS describe protección del intercambio HTTP; el puerto por sí solo no demuestra su seguridad.",
+          "reference": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml",
+          "reviewOf": "w13d4-q02"
+        },
+        {
+          "id": "w13d7-q11",
+          "prompt": "¿Qué propiedad ayuda a enlazar una conexión de Windows con su proceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "OwningProcess"
+            },
+            {
+              "id": "b",
+              "text": "InterfaceAlias del archivo de texto"
+            },
+            {
+              "id": "c",
+              "text": "CertificateThumbprint de todos los sockets"
+            },
+            {
+              "id": "d",
+              "text": "PasswordAge del adaptador"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El PID propietario puede contrastarse con la lista de procesos.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/nettcpip/get-nettcpconnection",
+          "reviewOf": "w13d5-q02"
+        },
+        {
+          "id": "w13d7-q12",
+          "prompt": "Una respuesta invierte las direcciones y los puertos respecto de una solicitud. ¿Qué debes comprobar para relacionarlas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo que tengan el mismo tamaño"
+            },
+            {
+              "id": "b",
+              "text": "Solo que el puerto de origen sea mayor"
+            },
+            {
+              "id": "c",
+              "text": "Que ambos paquetes tengan la misma dirección de destino"
+            },
+            {
+              "id": "d",
+              "text": "Protocolo, extremos y proximidad temporal"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El contexto de conversación evita agrupar paquetes no relacionados.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChStatConversations.html",
+          "reviewOf": "w13d6-q02"
+        },
+        {
+          "id": "w13d7-q13",
+          "prompt": "¿Cuál describe mejor un socket de red en el contexto de una aplicación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un extremo de comunicación asociado a direcciones y puertos según su protocolo"
+            },
+            {
+              "id": "b",
+              "text": "La traducción obligatoria de toda dirección privada"
+            },
+            {
+              "id": "c",
+              "text": "El archivo donde se guardan todos los paquetes"
+            },
+            {
+              "id": "d",
+              "text": "La contraseña compartida de una red inalámbrica"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El socket es una interfaz de comunicación usada por procesos; su contexto de transporte importa.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc9293.html",
+          "reviewOf": "w13d1-q03"
+        },
+        {
+          "id": "w13d7-q14",
+          "prompt": "Un segmento no recibe confirmación y vence el temporizador correspondiente. ¿Qué mecanismo puede usar TCP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Convertir los datos automáticamente en tráfico ICMP"
+            },
+            {
+              "id": "b",
+              "text": "Solicitar al usuario que cambie de VLAN"
+            },
+            {
+              "id": "c",
+              "text": "Descartar para siempre toda la conexión sin otro procedimiento"
+            },
+            {
+              "id": "d",
+              "text": "Retransmitir los datos pendientes"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "TCP emplea confirmaciones y temporizadores para detectar pérdidas y recuperar datos.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc9293.html",
+          "reviewOf": "w13d2-q03"
+        },
+        {
+          "id": "w13d7-q15",
+          "prompt": "Una llamada de voz puede tolerar perder una muestra antigua antes que esperar su retransmisión. ¿Qué decisión es razonable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Exigir que UDP nunca pierda datagramas"
+            },
+            {
+              "id": "b",
+              "text": "Considerar UDP y controles de calidad propios de la aplicación"
+            },
+            {
+              "id": "c",
+              "text": "Desactivar toda autenticación por usar voz"
+            },
+            {
+              "id": "d",
+              "text": "Concluir que TCP no admite audio en ningún caso"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El diseño considera los requisitos de latencia y pérdida; no establece prohibiciones absolutas.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc768.html",
+          "reviewOf": "w13d3-q03"
+        },
+        {
+          "id": "w13d7-q16",
+          "prompt": "Un alumno afirma que DNS solo funciona por UDP. ¿Cuál es la corrección adecuada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "DNS utiliza únicamente TCP/22"
+            },
+            {
+              "id": "b",
+              "text": "DNS sustituye la capa IP en todos los equipos"
+            },
+            {
+              "id": "c",
+              "text": "DNS puede utilizar tanto UDP como TCP, habitualmente en el puerto 53"
+            },
+            {
+              "id": "d",
+              "text": "DNS no usa nunca puertos de transporte"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "No conviene limitar el diagnóstico de DNS a un solo transporte.",
+          "reference": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml",
+          "reviewOf": "w13d4-q03"
+        },
+        {
+          "id": "w13d7-q17",
+          "prompt": "Necesitas distinguir escuchas de conexiones ya establecidas. ¿Qué propiedad consultas primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La extensión del ejecutable"
+            },
+            {
+              "id": "b",
+              "text": "Únicamente el puerto remoto, sin consultar la fase de la conexión"
+            },
+            {
+              "id": "c",
+              "text": "State"
+            },
+            {
+              "id": "d",
+              "text": "La fecha del documento abierto"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El estado de la conexión orienta su función y fase.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/nettcpip/get-nettcpconnection",
+          "reviewOf": "w13d5-q03"
+        },
+        {
+          "id": "w13d7-q18",
+          "prompt": "¿Qué filtro de visualización selecciona tráfico TCP con puerto origen o destino 443?",
+          "options": [
+            {
+              "id": "a",
+              "text": "tcp.port = 443 como asignación de variable"
+            },
+            {
+              "id": "b",
+              "text": "tcp port 443 en cualquier campo de Wireshark"
+            },
+            {
+              "id": "c",
+              "text": "http.status == 443"
+            },
+            {
+              "id": "d",
+              "text": "tcp.port == 443"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los filtros de visualización usan campos y operadores propios; no la sintaxis de captura.",
+          "reference": "https://www.wireshark.org/docs/wsug_html_chunked/ChWorkBuildDisplayFilterSection.html",
+          "reviewOf": "w13d6-q03"
+        },
+        {
+          "id": "w13d7-q19",
+          "prompt": "¿Qué combinación permite identificar una conversación TCP de dos extremos con mayor precisión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "IP origen, puerto origen, IP destino, puerto destino y TCP"
+            },
+            {
+              "id": "b",
+              "text": "Solo el puerto de destino"
+            },
+            {
+              "id": "c",
+              "text": "Solo la dirección MAC del router"
+            },
+            {
+              "id": "d",
+              "text": "Únicamente el tamaño del primer paquete"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La combinación de extremos y protocolo evita confundir conexiones simultáneas.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc9293.html",
+          "reviewOf": "w13d1-q04"
+        },
+        {
+          "id": "w13d7-q20",
+          "prompt": "¿Qué servicio se asocia tradicionalmente a TCP/25 entre servidores de correo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "SMTP"
+            },
+            {
+              "id": "b",
+              "text": "SSH"
+            },
+            {
+              "id": "c",
+              "text": "NTP"
+            },
+            {
+              "id": "d",
+              "text": "RDP"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "SMTP es un protocolo de transferencia de correo, diferente de la lectura de buzones.",
+          "reference": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml",
+          "reviewOf": "w13d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w13d7-challenge",
+        "prompt": "Caso semanal: un flujo TCP/443 aparece establecido. ¿Qué información adicional necesitas para valorar su finalidad?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ninguna: 443 demuestra legitimidad completa"
+          },
+          {
+            "id": "b",
+            "text": "Proceso, destino, contexto de uso y evidencia de la aplicación disponible de forma autorizada"
+          },
+          {
+            "id": "c",
+            "text": "Solo que el enlace físico sea Ethernet"
+          },
+          {
+            "id": "d",
+            "text": "Un puerto de origen más bajo como prueba de cifrado"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "Una conexión de transporte no demuestra por sí misma la identidad, intención o resultado de la aplicación.",
+        "reference": "https://www.rfc-editor.org/rfc/rfc9293.html"
+      }
+    }
+  ]
+}

@@ -1,0 +1,2094 @@
+{
+  "week": 43,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w43d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w43d1-q01",
+          "prompt": "En Splunk, ¿qué suele seleccionar index=lab?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usuario administrador"
+            },
+            {
+              "id": "b",
+              "text": "Formato de gráfico"
+            },
+            {
+              "id": "c",
+              "text": "Conjunto indexado de eventos"
+            },
+            {
+              "id": "d",
+              "text": "Puerto del colector"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El índice delimita dónde se buscan eventos.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+        },
+        {
+          "id": "w43d1-q02",
+          "prompt": "¿Qué describe sourcetype?",
+          "options": [
+            {
+              "id": "a",
+              "text": "IP del atacante"
+            },
+            {
+              "id": "b",
+              "text": "Formato o categoría del dato"
+            },
+            {
+              "id": "c",
+              "text": "Nombre del índice siempre"
+            },
+            {
+              "id": "d",
+              "text": "Resultado de la búsqueda"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El tipo de fuente orienta el tratamiento y extracción de campos.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+        },
+        {
+          "id": "w43d1-q03",
+          "prompt": "¿Qué representa habitualmente host en un evento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usuario conectado siempre"
+            },
+            {
+              "id": "b",
+              "text": "Host asociado a la fuente"
+            },
+            {
+              "id": "c",
+              "text": "IP de destino siempre"
+            },
+            {
+              "id": "d",
+              "text": "Servidor de licencias"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Debe verificarse cómo el entorno asigna este metadato.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+        },
+        {
+          "id": "w43d1-q04",
+          "prompt": "¿Qué campo usa normalmente Splunk para el tiempo del evento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "_raw"
+            },
+            {
+              "id": "b",
+              "text": "_time"
+            },
+            {
+              "id": "c",
+              "text": "source"
+            },
+            {
+              "id": "d",
+              "text": "sourcetype"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "_time representa el tiempo interpretado del evento.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+        },
+        {
+          "id": "w43d1-q05",
+          "prompt": "¿Qué contiene _raw?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo cantidad de resultados"
+            },
+            {
+              "id": "b",
+              "text": "Texto original del evento"
+            },
+            {
+              "id": "c",
+              "text": "Solo fecha normalizada"
+            },
+            {
+              "id": "d",
+              "text": "Configuración del dashboard"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El texto permite contrastar campos extraídos con la fuente.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+        },
+        {
+          "id": "w43d1-q06",
+          "prompt": "¿Por qué distinguir tiempo de evento y de indexación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Siempre son idénticos"
+            },
+            {
+              "id": "b",
+              "text": "Uno sustituye la zona horaria"
+            },
+            {
+              "id": "c",
+              "text": "Puede existir demora de ingestión"
+            },
+            {
+              "id": "d",
+              "text": "El índice no guarda tiempos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una llegada tardía cambia la interpretación de ventanas recientes.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+        },
+        {
+          "id": "w43d1-q07",
+          "prompt": "¿Qué indica source?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Severidad automática"
+            },
+            {
+              "id": "b",
+              "text": "Nombre de amenaza"
+            },
+            {
+              "id": "c",
+              "text": "Origen asociado al evento"
+            },
+            {
+              "id": "d",
+              "text": "Usuario investigador"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Puede ser un archivo, flujo u otro origen configurado.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+        },
+        {
+          "id": "w43d1-q08",
+          "prompt": "Falta una fuente esperada. ¿Qué revisas antes de concluir inactividad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo color de gráfica"
+            },
+            {
+              "id": "b",
+              "text": "Ingestión, índice y rango temporal"
+            },
+            {
+              "id": "c",
+              "text": "Solo número de paneles"
+            },
+            {
+              "id": "d",
+              "text": "Solo licencia del analista"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La visibilidad depende de que los datos lleguen y sean buscados.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+        }
+      ],
+      "challenge": {
+        "id": "w43d1-challenge",
+        "prompt": "Un evento muestra host=PC7, source=Security.evtx y sourcetype=WinEventLog:Security. ¿Qué afirmación es correcta?",
+        "options": [
+          {
+            "id": "a",
+            "text": "PC7 es necesariamente atacante"
+          },
+          {
+            "id": "b",
+            "text": "Security.evtx es usuario"
+          },
+          {
+            "id": "c",
+            "text": "Sourcetype indica severidad crítica"
+          },
+          {
+            "id": "d",
+            "text": "Son metadatos de origen y formato, no un veredicto"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La estructura identifica procedencia y tratamiento del dato.",
+        "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+      }
+    },
+    {
+      "dayId": "w43d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w43d2-q01",
+          "prompt": "¿Qué hace user=ana en una búsqueda sobre campos extraídos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Agrupa todos los usuarios"
+            },
+            {
+              "id": "b",
+              "text": "Renombra el usuario"
+            },
+            {
+              "id": "c",
+              "text": "Cuenta usuarios únicos"
+            },
+            {
+              "id": "d",
+              "text": "Filtra eventos con ese valor"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El predicado selecciona eventos que cumplen la condición.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+        },
+        {
+          "id": "w43d2-q02",
+          "prompt": "¿Cómo limitar a dos códigos en SPL clásico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "EventCode=4624 AND EventCode=4625"
+            },
+            {
+              "id": "b",
+              "text": "EventCode=4624 THEN 4625"
+            },
+            {
+              "id": "c",
+              "text": "(EventCode=4624 OR EventCode=4625)"
+            },
+            {
+              "id": "d",
+              "text": "EventCode=4624 PLUS 4625"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "OR permite cualquiera de los dos valores en un evento.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+        },
+        {
+          "id": "w43d2-q03",
+          "prompt": "¿Por qué usar paréntesis con varios OR y AND?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Acelerar siempre el disco"
+            },
+            {
+              "id": "b",
+              "text": "Crear un índice"
+            },
+            {
+              "id": "c",
+              "text": "Convertir texto a fecha"
+            },
+            {
+              "id": "d",
+              "text": "Explicitar la agrupación lógica"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La agrupación evita aplicar condiciones a subconjuntos incorrectos.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+        },
+        {
+          "id": "w43d2-q04",
+          "prompt": "¿Qué representa earliest=-15m en una búsqueda relativa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Quince meses atrás"
+            },
+            {
+              "id": "b",
+              "text": "Máximo quince eventos"
+            },
+            {
+              "id": "c",
+              "text": "Intervalos de quince segundos"
+            },
+            {
+              "id": "d",
+              "text": "Inicio hace quince minutos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los modificadores temporales limitan la ventana consultada.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+        },
+        {
+          "id": "w43d2-q05",
+          "prompt": "Una búsqueda de todo el año tarda mucho. ¿Qué ajuste mantiene foco del caso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Acotar índice y ventana pertinente"
+            },
+            {
+              "id": "b",
+              "text": "Quitar todos los filtros"
+            },
+            {
+              "id": "c",
+              "text": "Buscar cada índice histórico"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar solo el título"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Reducir el conjunto relevante mejora investigación y rendimiento.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+        },
+        {
+          "id": "w43d2-q06",
+          "prompt": "¿Para qué sirve buscar una frase entre comillas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Convertirla a campo numérico"
+            },
+            {
+              "id": "b",
+              "text": "Excluir todas sus palabras"
+            },
+            {
+              "id": "c",
+              "text": "Mantener términos como frase"
+            },
+            {
+              "id": "d",
+              "text": "Ordenar resultados"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La búsqueda por frase difiere de palabras independientes.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+        },
+        {
+          "id": "w43d2-q07",
+          "prompt": "¿Qué comprueba una consulta sin resultados?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No ocurrió ningún incidente"
+            },
+            {
+              "id": "b",
+              "text": "No hubo coincidencias en su alcance"
+            },
+            {
+              "id": "c",
+              "text": "El equipo estaba apagado"
+            },
+            {
+              "id": "d",
+              "text": "Toda la red está limpia"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El resultado depende de filtros, datos y cobertura temporal.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+        },
+        {
+          "id": "w43d2-q08",
+          "prompt": "¿Cómo validar un filtro nuevo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aceptar cero como prueba definitiva"
+            },
+            {
+              "id": "b",
+              "text": "Contrastar con eventos conocidos"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar el texto original"
+            },
+            {
+              "id": "d",
+              "text": "Copiar otro dashboard"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un caso conocido permite detectar campos o condiciones mal elegidos.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+        }
+      ],
+      "challenge": {
+        "id": "w43d2-challenge",
+        "prompt": "Necesitas fallos de Ana o Leo en un solo host. ¿Qué lógica evita ampliar el alcance?",
+        "options": [
+          {
+            "id": "a",
+            "text": "host=PC7 user=ana OR user=leo sin agrupar"
+          },
+          {
+            "id": "b",
+            "text": "host=PC7 user=ana user=leo"
+          },
+          {
+            "id": "c",
+            "text": "host=PC7 (user=ana OR user=leo)"
+          },
+          {
+            "id": "d",
+            "text": "host=PC7 OR user=ana OR user=leo"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La agrupación mantiene la condición del host para ambos usuarios.",
+        "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+      }
+    },
+    {
+      "dayId": "w43d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w43d3-q01",
+          "prompt": "¿Qué produce | table _time host user?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conteo por usuario"
+            },
+            {
+              "id": "b",
+              "text": "Borrado del índice"
+            },
+            {
+              "id": "c",
+              "text": "Nuevos eventos de acceso"
+            },
+            {
+              "id": "d",
+              "text": "Tabla de esos campos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Table selecciona columnas de la salida.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/table"
+        },
+        {
+          "id": "w43d3-q02",
+          "prompt": "Un campo user aparece vacío. ¿Qué conviene comprobar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el usuario no existe"
+            },
+            {
+              "id": "b",
+              "text": "Que todo acceso es anónimo"
+            },
+            {
+              "id": "c",
+              "text": "Texto original y extracción"
+            },
+            {
+              "id": "d",
+              "text": "Que el evento fue borrado"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un valor ausente puede deberse al formato o a extracción incompleta.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/table"
+        },
+        {
+          "id": "w43d3-q03",
+          "prompt": "¿Qué riesgo tiene convertir una IP a número decimal sin contexto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aumentar certeza de autoría"
+            },
+            {
+              "id": "b",
+              "text": "Perder representación útil para correlación"
+            },
+            {
+              "id": "c",
+              "text": "Completar campos faltantes"
+            },
+            {
+              "id": "d",
+              "text": "Corregir automáticamente NAT"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los tipos y formatos deben conservar significado analítico.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/table"
+        },
+        {
+          "id": "w43d3-q04",
+          "prompt": "¿Para qué sirve renombrar un campo en salida?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Editar eventos originales"
+            },
+            {
+              "id": "b",
+              "text": "Crear identidad nueva"
+            },
+            {
+              "id": "c",
+              "text": "Mejorar legibilidad sin cambiar fuente"
+            },
+            {
+              "id": "d",
+              "text": "Ajustar reloj del host"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El alias de presentación no modifica la evidencia indexada.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/table"
+        },
+        {
+          "id": "w43d3-q05",
+          "prompt": "¿Qué debe retener una tabla de hallazgos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Identificadores para volver al evento"
+            },
+            {
+              "id": "b",
+              "text": "Solo veredicto"
+            },
+            {
+              "id": "c",
+              "text": "Solo nombre del gráfico"
+            },
+            {
+              "id": "d",
+              "text": "Solo conteo total"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La tabla necesita trazabilidad hacia los datos que la sustentan.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/table"
+        },
+        {
+          "id": "w43d3-q06",
+          "prompt": "Dos fuentes usan src_ip y sourceAddress. ¿Qué haces al correlacionar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Igualarlas solo por parecido"
+            },
+            {
+              "id": "b",
+              "text": "Normalizar tras verificar su semántica"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar una fuente"
+            },
+            {
+              "id": "d",
+              "text": "Suponer que ambas son destino"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los nombres pueden ocultar significados distintos.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/table"
+        },
+        {
+          "id": "w43d3-q07",
+          "prompt": "¿Qué devuelve | fields host user en este contexto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cuenta cada combinación"
+            },
+            {
+              "id": "b",
+              "text": "Modifica el host original"
+            },
+            {
+              "id": "c",
+              "text": "Conserva esos campos para procesamiento"
+            },
+            {
+              "id": "d",
+              "text": "Crea un índice por usuario"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Fields controla qué campos pasan por la búsqueda.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/table"
+        },
+        {
+          "id": "w43d3-q08",
+          "prompt": "¿Por qué conservar eventos con user ausente al diagnosticar extracción?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Evitar ocultar fallos de cobertura"
+            },
+            {
+              "id": "b",
+              "text": "Demostrar que son benignos"
+            },
+            {
+              "id": "c",
+              "text": "Contarlos como un único atacante"
+            },
+            {
+              "id": "d",
+              "text": "Asignarles el usuario anterior"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Excluir ausentes prematuramente puede sesgar el análisis.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/table"
+        }
+      ],
+      "challenge": {
+        "id": "w43d3-challenge",
+        "prompt": "La tabla muestra user vacío en 80% de eventos. ¿Qué haces?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Asignar todos a anónimo"
+          },
+          {
+            "id": "b",
+            "text": "Inspeccionar _raw y extracción antes de atribuir"
+          },
+          {
+            "id": "c",
+            "text": "Eliminar el 80%"
+          },
+          {
+            "id": "d",
+            "text": "Declarar que no hubo usuarios"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "Los campos vacíos pueden ser un problema de normalización.",
+        "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+      }
+    },
+    {
+      "dayId": "w43d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w43d4-q01",
+          "prompt": "¿Qué calcula | stats count by user?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usuarios únicos por evento"
+            },
+            {
+              "id": "b",
+              "text": "Número de eventos por usuario"
+            },
+            {
+              "id": "c",
+              "text": "Suma de bytes por host"
+            },
+            {
+              "id": "d",
+              "text": "Hora del primer login únicamente"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Count cuenta eventos agrupados por los valores de user.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats"
+        },
+        {
+          "id": "w43d4-q02",
+          "prompt": "Hay diez eventos de Ana y uno de Leo. ¿Cuántas filas produce stats count by user?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dos"
+            },
+            {
+              "id": "b",
+              "text": "Once"
+            },
+            {
+              "id": "c",
+              "text": "Diez"
+            },
+            {
+              "id": "d",
+              "text": "Una"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Cada valor distinto del campo de agrupación genera una fila.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats"
+        },
+        {
+          "id": "w43d4-q03",
+          "prompt": "¿Qué mide dc(src_ip)?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cantidad total de bytes"
+            },
+            {
+              "id": "b",
+              "text": "Promedio de puertos"
+            },
+            {
+              "id": "c",
+              "text": "Cantidad de IP de origen distintas"
+            },
+            {
+              "id": "d",
+              "text": "Primera IP cronológica"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Distinct count cuenta valores únicos, no todos los eventos.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats"
+        },
+        {
+          "id": "w43d4-q04",
+          "prompt": "¿Por qué count no equivale siempre a número de incidentes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un incidente puede generar muchos eventos"
+            },
+            {
+              "id": "b",
+              "text": "Cada evento es siempre un incidente"
+            },
+            {
+              "id": "c",
+              "text": "El conteo elimina duplicados"
+            },
+            {
+              "id": "d",
+              "text": "Solo cuenta alertas confirmadas"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La unidad de observación son eventos, salvo modelado adicional.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats"
+        },
+        {
+          "id": "w43d4-q05",
+          "prompt": "¿Qué hace timechart span=5m count?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Muestra cinco eventos máximos"
+            },
+            {
+              "id": "b",
+              "text": "Cuenta eventos en intervalos de cinco minutos"
+            },
+            {
+              "id": "c",
+              "text": "Retiene cinco meses"
+            },
+            {
+              "id": "d",
+              "text": "Cambia reloj del origen"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Span define la granularidad temporal de la serie.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats"
+        },
+        {
+          "id": "w43d4-q06",
+          "prompt": "¿Qué agregación responde total de bytes por host?",
+          "options": [
+            {
+              "id": "a",
+              "text": "stats sum(bytes) by host"
+            },
+            {
+              "id": "b",
+              "text": "stats count by bytes"
+            },
+            {
+              "id": "c",
+              "text": "stats dc(host) by bytes"
+            },
+            {
+              "id": "d",
+              "text": "stats avg(host) by user"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Sum agrega la magnitud numérica pertinente por equipo.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats"
+        },
+        {
+          "id": "w43d4-q07",
+          "prompt": "¿Cómo pueden afectar duplicados de ingestión a count?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Reducirlo siempre a cero"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar las IP"
+            },
+            {
+              "id": "c",
+              "text": "Inflar el total observado"
+            },
+            {
+              "id": "d",
+              "text": "Garantizar incidentes diferentes"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Eventos duplicados necesitan tratarse según un identificador fiable.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats"
+        },
+        {
+          "id": "w43d4-q08",
+          "prompt": "¿Qué diferencia promedio y máximo de fallos por intervalo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ambos siempre coinciden"
+            },
+            {
+              "id": "b",
+              "text": "El máximo cuenta usuarios únicos"
+            },
+            {
+              "id": "c",
+              "text": "El promedio puede ocultar picos"
+            },
+            {
+              "id": "d",
+              "text": "El promedio revela causalidad"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las medidas resumen aspectos diferentes de la distribución.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats"
+        }
+      ],
+      "challenge": {
+        "id": "w43d4-challenge",
+        "prompt": "Hay 100 fallos de dos IP; una genera 99. ¿Qué salida preserva esa diferencia?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Conteo por src_ip"
+          },
+          {
+            "id": "b",
+            "text": "Solo dc(src_ip)"
+          },
+          {
+            "id": "c",
+            "text": "Solo primer evento"
+          },
+          {
+            "id": "d",
+            "text": "Solo promedio sin grupos"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "El agrupamiento muestra distribución que el total o el conteo único ocultan.",
+        "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+      }
+    },
+    {
+      "dayId": "w43d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w43d5-q01",
+          "prompt": "¿Qué visual responde evolución de fallos por hora?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Lista de licencias"
+            },
+            {
+              "id": "b",
+              "text": "Serie temporal"
+            },
+            {
+              "id": "c",
+              "text": "Diagrama de carpetas"
+            },
+            {
+              "id": "d",
+              "text": "Una cifra sin rango"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La pregunta temporal necesita mostrar cambio a lo largo del tiempo.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/timechart"
+        },
+        {
+          "id": "w43d5-q02",
+          "prompt": "¿Qué debe indicar un panel de conteo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo un título llamativo"
+            },
+            {
+              "id": "b",
+              "text": "Solo usuario del creador"
+            },
+            {
+              "id": "c",
+              "text": "Métrica, fuente y rango"
+            },
+            {
+              "id": "d",
+              "text": "Solo color de severidad"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El contexto evita interpretar un número fuera de su alcance.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/timechart"
+        },
+        {
+          "id": "w43d5-q03",
+          "prompt": "Una gráfica suma bytes como eventos. ¿Cuál es el problema?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El título es corto"
+            },
+            {
+              "id": "b",
+              "text": "La métrica no coincide con la pregunta"
+            },
+            {
+              "id": "c",
+              "text": "Faltan colores distintos"
+            },
+            {
+              "id": "d",
+              "text": "El dashboard tiene pocos paneles"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una visualización debe representar la unidad que afirma medir.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/timechart"
+        },
+        {
+          "id": "w43d5-q04",
+          "prompt": "¿Por qué mostrar categoría otros al limitar top usuarios?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Confirmar que son benignos"
+            },
+            {
+              "id": "b",
+              "text": "Demostrar ausencia de más usuarios"
+            },
+            {
+              "id": "c",
+              "text": "Reducir integridad del índice"
+            },
+            {
+              "id": "d",
+              "text": "Revelar datos agrupados fuera del top"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El lector necesita saber qué parte de los datos se resume.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/timechart"
+        },
+        {
+          "id": "w43d5-q05",
+          "prompt": "¿Qué evita un eje temporal con zona explícita?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Pérdida de paquetes"
+            },
+            {
+              "id": "b",
+              "text": "Confundir horarios entre analistas"
+            },
+            {
+              "id": "c",
+              "text": "Duplicación de eventos"
+            },
+            {
+              "id": "d",
+              "text": "Falta de autenticación"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La zona permite interpretar correctamente las marcas del panel.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/timechart"
+        },
+        {
+          "id": "w43d5-q06",
+          "prompt": "El panel no tiene datos del último día por ingestión rota. ¿Qué conviene mostrar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cero ataques confirmados"
+            },
+            {
+              "id": "b",
+              "text": "Mismo valor del día anterior"
+            },
+            {
+              "id": "c",
+              "text": "Advertencia de cobertura"
+            },
+            {
+              "id": "d",
+              "text": "Una tendencia descendente definitiva"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Datos ausentes no representan necesariamente actividad nula.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/timechart"
+        },
+        {
+          "id": "w43d5-q07",
+          "prompt": "¿Para qué conservar tabla junto al gráfico investigativo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Reemplazar toda consulta"
+            },
+            {
+              "id": "b",
+              "text": "Probar intención maliciosa"
+            },
+            {
+              "id": "c",
+              "text": "Corregir relojes automáticamente"
+            },
+            {
+              "id": "d",
+              "text": "Inspeccionar valores y localizar eventos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El detalle facilita contrastar la representación visual.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/timechart"
+        },
+        {
+          "id": "w43d5-q08",
+          "prompt": "¿Qué validación haces antes de presentar un dashboard?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo cambiar el tema visual"
+            },
+            {
+              "id": "b",
+              "text": "Ocultar valores pequeños"
+            },
+            {
+              "id": "c",
+              "text": "Comparar resultados con consulta base"
+            },
+            {
+              "id": "d",
+              "text": "Añadir iconos de amenaza"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La visualización debe reflejar fielmente la búsqueda subyacente.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/timechart"
+        }
+      ],
+      "challenge": {
+        "id": "w43d5-challenge",
+        "prompt": "El dashboard dice cero incidentes, pero solo cuenta alertas no revisadas. ¿Qué corriges?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Mantener incidente como sinónimo"
+          },
+          {
+            "id": "b",
+            "text": "Etiqueta a alertas y explicita estado y rango"
+          },
+          {
+            "id": "c",
+            "text": "Ocultar el rango"
+          },
+          {
+            "id": "d",
+            "text": "Añadir color verde"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "Una alerta y un incidente confirmado son unidades distintas.",
+        "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+      }
+    },
+    {
+      "dayId": "w43d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w43d6-q01",
+          "prompt": "Una consulta guardada usa últimos 15 minutos. ¿Qué limita repetirla mañana?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El índice se vuelve inmutable"
+            },
+            {
+              "id": "b",
+              "text": "La consulta cambia de idioma"
+            },
+            {
+              "id": "c",
+              "text": "La ventana se desplaza"
+            },
+            {
+              "id": "d",
+              "text": "Todos los eventos se duplican"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los rangos relativos consultan instantes diferentes en cada ejecución.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+        },
+        {
+          "id": "w43d6-q02",
+          "prompt": "¿Qué dato permite repetir exactamente una investigación temporal?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo ayer por la tarde"
+            },
+            {
+              "id": "b",
+              "text": "Solo duración aproximada"
+            },
+            {
+              "id": "c",
+              "text": "Inicio y fin absolutos con zona"
+            },
+            {
+              "id": "d",
+              "text": "Solo número de resultados"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una ventana absoluta evita depender del momento de ejecución.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+        },
+        {
+          "id": "w43d6-q03",
+          "prompt": "¿Qué debe acompañar una consulta compartida?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo captura del gráfico"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombre del autor"
+            },
+            {
+              "id": "c",
+              "text": "Objetivo, campos esperados y alcance"
+            },
+            {
+              "id": "d",
+              "text": "Solo veredicto final"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El contexto permite interpretar y adaptar la búsqueda correctamente.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+        },
+        {
+          "id": "w43d6-q04",
+          "prompt": "Cambió el esquema de campos. ¿Qué revisas en consultas anteriores?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Extracciones y nombres usados"
+            },
+            {
+              "id": "b",
+              "text": "Solo título de carpeta"
+            },
+            {
+              "id": "c",
+              "text": "Solo colores"
+            },
+            {
+              "id": "d",
+              "text": "Solo fecha de licencia"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La consulta puede dejar de seleccionar los eventos pertinentes.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+        },
+        {
+          "id": "w43d6-q05",
+          "prompt": "¿Por qué exportar resultados relevantes con sus localizadores?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantizar cobertura futura"
+            },
+            {
+              "id": "b",
+              "text": "Sustituir autorización"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar necesidad de notas"
+            },
+            {
+              "id": "d",
+              "text": "Permitir revisión aunque cambie retención"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La retención puede impedir recuperar después el conjunto original.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+        },
+        {
+          "id": "w43d6-q06",
+          "prompt": "¿Qué documenta una búsqueda negativa útil?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Consulta, rango, fuente y límites"
+            },
+            {
+              "id": "b",
+              "text": "Solo no pasó nada"
+            },
+            {
+              "id": "c",
+              "text": "Solo una captura vacía"
+            },
+            {
+              "id": "d",
+              "text": "Solo opinión del jefe"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La ausencia de coincidencias necesita alcance verificable.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+        },
+        {
+          "id": "w43d6-q07",
+          "prompt": "¿Cómo registrar una corrección de consulta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sobrescribir sin notas"
+            },
+            {
+              "id": "b",
+              "text": "Editar la fuente para que coincida"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar resultados previos"
+            },
+            {
+              "id": "d",
+              "text": "Conservar versión y razón del cambio"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El historial explica por qué cambió una conclusión.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+        },
+        {
+          "id": "w43d6-q08",
+          "prompt": "Una consulta cuenta 17 eventos y otra 19. ¿Qué comparas primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Idioma del navegador"
+            },
+            {
+              "id": "b",
+              "text": "Orden de paneles"
+            },
+            {
+              "id": "c",
+              "text": "Nombre del analista"
+            },
+            {
+              "id": "d",
+              "text": "Filtros, ventanas y manejo de duplicados"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Diferencias metodológicas pueden explicar resultados aparentemente contradictorios.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+        }
+      ],
+      "challenge": {
+        "id": "w43d6-challenge",
+        "prompt": "Un compañero no puede repetir tu resultado de hace una semana. ¿Qué dato faltante es decisivo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Tema visual"
+          },
+          {
+            "id": "b",
+            "text": "Orden de pestañas"
+          },
+          {
+            "id": "c",
+            "text": "Resolución de pantalla"
+          },
+          {
+            "id": "d",
+            "text": "Ventana absoluta y zona utilizadas"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "Los rangos relativos y cambios de datos impiden comparar resultados sin contexto.",
+        "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+      }
+    },
+    {
+      "dayId": "w43d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w43d7-q01",
+          "prompt": "En Splunk, ¿qué suele seleccionar index=lab?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usuario administrador"
+            },
+            {
+              "id": "b",
+              "text": "Formato de gráfico"
+            },
+            {
+              "id": "c",
+              "text": "Conjunto indexado de eventos"
+            },
+            {
+              "id": "d",
+              "text": "Puerto del colector"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El índice delimita dónde se buscan eventos.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search",
+          "reviewOf": "w43d1-q01"
+        },
+        {
+          "id": "w43d7-q02",
+          "prompt": "¿Qué hace user=ana en una búsqueda sobre campos extraídos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Agrupa todos los usuarios"
+            },
+            {
+              "id": "b",
+              "text": "Renombra el usuario"
+            },
+            {
+              "id": "c",
+              "text": "Cuenta usuarios únicos"
+            },
+            {
+              "id": "d",
+              "text": "Filtra eventos con ese valor"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El predicado selecciona eventos que cumplen la condición.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search",
+          "reviewOf": "w43d2-q01"
+        },
+        {
+          "id": "w43d7-q03",
+          "prompt": "¿Qué produce | table _time host user?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conteo por usuario"
+            },
+            {
+              "id": "b",
+              "text": "Borrado del índice"
+            },
+            {
+              "id": "c",
+              "text": "Nuevos eventos de acceso"
+            },
+            {
+              "id": "d",
+              "text": "Tabla de esos campos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Table selecciona columnas de la salida.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/table",
+          "reviewOf": "w43d3-q01"
+        },
+        {
+          "id": "w43d7-q04",
+          "prompt": "¿Qué calcula | stats count by user?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usuarios únicos por evento"
+            },
+            {
+              "id": "b",
+              "text": "Número de eventos por usuario"
+            },
+            {
+              "id": "c",
+              "text": "Suma de bytes por host"
+            },
+            {
+              "id": "d",
+              "text": "Hora del primer login únicamente"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Count cuenta eventos agrupados por los valores de user.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats",
+          "reviewOf": "w43d4-q01"
+        },
+        {
+          "id": "w43d7-q05",
+          "prompt": "¿Qué visual responde evolución de fallos por hora?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Lista de licencias"
+            },
+            {
+              "id": "b",
+              "text": "Serie temporal"
+            },
+            {
+              "id": "c",
+              "text": "Diagrama de carpetas"
+            },
+            {
+              "id": "d",
+              "text": "Una cifra sin rango"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La pregunta temporal necesita mostrar cambio a lo largo del tiempo.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/timechart",
+          "reviewOf": "w43d5-q01"
+        },
+        {
+          "id": "w43d7-q06",
+          "prompt": "Una consulta guardada usa últimos 15 minutos. ¿Qué limita repetirla mañana?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El índice se vuelve inmutable"
+            },
+            {
+              "id": "b",
+              "text": "La consulta cambia de idioma"
+            },
+            {
+              "id": "c",
+              "text": "La ventana se desplaza"
+            },
+            {
+              "id": "d",
+              "text": "Todos los eventos se duplican"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los rangos relativos consultan instantes diferentes en cada ejecución.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search",
+          "reviewOf": "w43d6-q01"
+        },
+        {
+          "id": "w43d7-q07",
+          "prompt": "¿Qué describe sourcetype?",
+          "options": [
+            {
+              "id": "a",
+              "text": "IP del atacante"
+            },
+            {
+              "id": "b",
+              "text": "Formato o categoría del dato"
+            },
+            {
+              "id": "c",
+              "text": "Nombre del índice siempre"
+            },
+            {
+              "id": "d",
+              "text": "Resultado de la búsqueda"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El tipo de fuente orienta el tratamiento y extracción de campos.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search",
+          "reviewOf": "w43d1-q02"
+        },
+        {
+          "id": "w43d7-q08",
+          "prompt": "¿Cómo limitar a dos códigos en SPL clásico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "EventCode=4624 AND EventCode=4625"
+            },
+            {
+              "id": "b",
+              "text": "EventCode=4624 THEN 4625"
+            },
+            {
+              "id": "c",
+              "text": "(EventCode=4624 OR EventCode=4625)"
+            },
+            {
+              "id": "d",
+              "text": "EventCode=4624 PLUS 4625"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "OR permite cualquiera de los dos valores en un evento.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search",
+          "reviewOf": "w43d2-q02"
+        },
+        {
+          "id": "w43d7-q09",
+          "prompt": "Un campo user aparece vacío. ¿Qué conviene comprobar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el usuario no existe"
+            },
+            {
+              "id": "b",
+              "text": "Que todo acceso es anónimo"
+            },
+            {
+              "id": "c",
+              "text": "Texto original y extracción"
+            },
+            {
+              "id": "d",
+              "text": "Que el evento fue borrado"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un valor ausente puede deberse al formato o a extracción incompleta.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/table",
+          "reviewOf": "w43d3-q02"
+        },
+        {
+          "id": "w43d7-q10",
+          "prompt": "Hay diez eventos de Ana y uno de Leo. ¿Cuántas filas produce stats count by user?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dos"
+            },
+            {
+              "id": "b",
+              "text": "Once"
+            },
+            {
+              "id": "c",
+              "text": "Diez"
+            },
+            {
+              "id": "d",
+              "text": "Una"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Cada valor distinto del campo de agrupación genera una fila.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats",
+          "reviewOf": "w43d4-q02"
+        },
+        {
+          "id": "w43d7-q11",
+          "prompt": "¿Qué debe indicar un panel de conteo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo un título llamativo"
+            },
+            {
+              "id": "b",
+              "text": "Solo usuario del creador"
+            },
+            {
+              "id": "c",
+              "text": "Métrica, fuente y rango"
+            },
+            {
+              "id": "d",
+              "text": "Solo color de severidad"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El contexto evita interpretar un número fuera de su alcance.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/timechart",
+          "reviewOf": "w43d5-q02"
+        },
+        {
+          "id": "w43d7-q12",
+          "prompt": "¿Qué dato permite repetir exactamente una investigación temporal?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo ayer por la tarde"
+            },
+            {
+              "id": "b",
+              "text": "Solo duración aproximada"
+            },
+            {
+              "id": "c",
+              "text": "Inicio y fin absolutos con zona"
+            },
+            {
+              "id": "d",
+              "text": "Solo número de resultados"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una ventana absoluta evita depender del momento de ejecución.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search",
+          "reviewOf": "w43d6-q02"
+        },
+        {
+          "id": "w43d7-q13",
+          "prompt": "¿Qué representa habitualmente host en un evento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usuario conectado siempre"
+            },
+            {
+              "id": "b",
+              "text": "Host asociado a la fuente"
+            },
+            {
+              "id": "c",
+              "text": "IP de destino siempre"
+            },
+            {
+              "id": "d",
+              "text": "Servidor de licencias"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Debe verificarse cómo el entorno asigna este metadato.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search",
+          "reviewOf": "w43d1-q03"
+        },
+        {
+          "id": "w43d7-q14",
+          "prompt": "¿Por qué usar paréntesis con varios OR y AND?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Acelerar siempre el disco"
+            },
+            {
+              "id": "b",
+              "text": "Crear un índice"
+            },
+            {
+              "id": "c",
+              "text": "Convertir texto a fecha"
+            },
+            {
+              "id": "d",
+              "text": "Explicitar la agrupación lógica"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La agrupación evita aplicar condiciones a subconjuntos incorrectos.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search",
+          "reviewOf": "w43d2-q03"
+        },
+        {
+          "id": "w43d7-q15",
+          "prompt": "¿Qué riesgo tiene convertir una IP a número decimal sin contexto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aumentar certeza de autoría"
+            },
+            {
+              "id": "b",
+              "text": "Perder representación útil para correlación"
+            },
+            {
+              "id": "c",
+              "text": "Completar campos faltantes"
+            },
+            {
+              "id": "d",
+              "text": "Corregir automáticamente NAT"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los tipos y formatos deben conservar significado analítico.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/table",
+          "reviewOf": "w43d3-q03"
+        },
+        {
+          "id": "w43d7-q16",
+          "prompt": "¿Qué mide dc(src_ip)?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cantidad total de bytes"
+            },
+            {
+              "id": "b",
+              "text": "Promedio de puertos"
+            },
+            {
+              "id": "c",
+              "text": "Cantidad de IP de origen distintas"
+            },
+            {
+              "id": "d",
+              "text": "Primera IP cronológica"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Distinct count cuenta valores únicos, no todos los eventos.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats",
+          "reviewOf": "w43d4-q03"
+        },
+        {
+          "id": "w43d7-q17",
+          "prompt": "Una gráfica suma bytes como eventos. ¿Cuál es el problema?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El título es corto"
+            },
+            {
+              "id": "b",
+              "text": "La métrica no coincide con la pregunta"
+            },
+            {
+              "id": "c",
+              "text": "Faltan colores distintos"
+            },
+            {
+              "id": "d",
+              "text": "El dashboard tiene pocos paneles"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una visualización debe representar la unidad que afirma medir.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/timechart",
+          "reviewOf": "w43d5-q03"
+        },
+        {
+          "id": "w43d7-q18",
+          "prompt": "¿Qué debe acompañar una consulta compartida?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo captura del gráfico"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombre del autor"
+            },
+            {
+              "id": "c",
+              "text": "Objetivo, campos esperados y alcance"
+            },
+            {
+              "id": "d",
+              "text": "Solo veredicto final"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El contexto permite interpretar y adaptar la búsqueda correctamente.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search",
+          "reviewOf": "w43d6-q03"
+        },
+        {
+          "id": "w43d7-q19",
+          "prompt": "¿Qué campo usa normalmente Splunk para el tiempo del evento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "_raw"
+            },
+            {
+              "id": "b",
+              "text": "_time"
+            },
+            {
+              "id": "c",
+              "text": "source"
+            },
+            {
+              "id": "d",
+              "text": "sourcetype"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "_time representa el tiempo interpretado del evento.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search",
+          "reviewOf": "w43d1-q04"
+        },
+        {
+          "id": "w43d7-q20",
+          "prompt": "¿Por qué count no equivale siempre a número de incidentes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un incidente puede generar muchos eventos"
+            },
+            {
+              "id": "b",
+              "text": "Cada evento es siempre un incidente"
+            },
+            {
+              "id": "c",
+              "text": "El conteo elimina duplicados"
+            },
+            {
+              "id": "d",
+              "text": "Solo cuenta alertas confirmadas"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La unidad de observación son eventos, salvo modelado adicional.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats",
+          "reviewOf": "w43d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w43d7-challenge",
+        "prompt": "En un caso nuevo obtienes cero logins, pero sí eventos de otros tipos. ¿Qué concluyes?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Nunca hubo autenticaciones"
+          },
+          {
+            "id": "b",
+            "text": "Revisar fuente, filtros y auditoría antes de descartar accesos"
+          },
+          {
+            "id": "c",
+            "text": "El sistema estuvo apagado"
+          },
+          {
+            "id": "d",
+            "text": "El SIEM garantiza cobertura total"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La disponibilidad de algunos eventos no prueba cobertura de todas las categorías.",
+        "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/search"
+      }
+    }
+  ]
+}

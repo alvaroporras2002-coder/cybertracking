@@ -1,0 +1,2094 @@
+{
+  "week": 11,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w11d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w11d1-q01",
+          "prompt": "¿Cuál es el valor decimal de 10000000 en un octeto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "100."
+            },
+            {
+              "id": "b",
+              "text": "128."
+            },
+            {
+              "id": "c",
+              "text": "64."
+            },
+            {
+              "id": "d",
+              "text": "256."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El bit más significativo de ocho bits pesa 2 elevado a 7, que es 128.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d1-q02",
+          "prompt": "¿Cómo se representa 192 en ocho bits?",
+          "options": [
+            {
+              "id": "a",
+              "text": "10100000."
+            },
+            {
+              "id": "b",
+              "text": "11100000."
+            },
+            {
+              "id": "c",
+              "text": "11000000."
+            },
+            {
+              "id": "d",
+              "text": "01100000."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "192 es 128 más 64; se activan las dos posiciones superiores.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d1-q03",
+          "prompt": "¿Qué valor decimal representa 11111111?",
+          "options": [
+            {
+              "id": "a",
+              "text": "256."
+            },
+            {
+              "id": "b",
+              "text": "255."
+            },
+            {
+              "id": "c",
+              "text": "128."
+            },
+            {
+              "id": "d",
+              "text": "254."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La suma de los ocho pesos, de 128 a 1, es 255.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d1-q04",
+          "prompt": "¿Cuál es la forma binaria de 10 con ocho bits?",
+          "options": [
+            {
+              "id": "a",
+              "text": "00001100."
+            },
+            {
+              "id": "b",
+              "text": "00010010."
+            },
+            {
+              "id": "c",
+              "text": "10000010."
+            },
+            {
+              "id": "d",
+              "text": "00001010."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "10 es 8 más 2; se conservan ceros iniciales para mostrar el octeto completo.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d1-q05",
+          "prompt": "¿Qué cambia al pasar de 00011111 a 00100000?",
+          "options": [
+            {
+              "id": "a",
+              "text": "De 30 a 31."
+            },
+            {
+              "id": "b",
+              "text": "De 63 a 64."
+            },
+            {
+              "id": "c",
+              "text": "De 15 a 16."
+            },
+            {
+              "id": "d",
+              "text": "De decimal 31 a decimal 32."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El acarreo al siguiente bit representa el incremento correcto del valor binario.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d1-q06",
+          "prompt": "¿Cuántas combinaciones diferentes permiten cinco bits?",
+          "options": [
+            {
+              "id": "a",
+              "text": "5."
+            },
+            {
+              "id": "b",
+              "text": "10."
+            },
+            {
+              "id": "c",
+              "text": "32."
+            },
+            {
+              "id": "d",
+              "text": "31."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Cada bit tiene dos estados; cinco posiciones permiten 2 elevado a 5 combinaciones.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d1-q07",
+          "prompt": "¿Por qué un octeto IPv4 no puede tener valor decimal 256?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque todo octeto debe ser menor de 128."
+            },
+            {
+              "id": "b",
+              "text": "Porque IPv4 solo permite números pares."
+            },
+            {
+              "id": "c",
+              "text": "Porque el cero está prohibido en todos los octetos."
+            },
+            {
+              "id": "d",
+              "text": "Ocho bits representan valores de 0 a 255."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El máximo de ocho bits sin signo es 2 elevado a 8 menos 1.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d1-q08",
+          "prompt": "En una operación AND, ¿qué resultado produce 10101100 AND 11110000?",
+          "options": [
+            {
+              "id": "a",
+              "text": "11111100."
+            },
+            {
+              "id": "b",
+              "text": "00001100."
+            },
+            {
+              "id": "c",
+              "text": "10100000."
+            },
+            {
+              "id": "d",
+              "text": "10101111."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "AND conserva un 1 solo cuando ambos bits de la misma posición son 1.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        }
+      ],
+      "challenge": {
+        "id": "w11d1-challenge",
+        "prompt": "Un alumno convierte 224 como 11110000. ¿Qué corrección explica la diferencia?",
+        "options": [
+          {
+            "id": "a",
+            "text": "224 es 11000000 y 11110000 vale 128."
+          },
+          {
+            "id": "b",
+            "text": "Ambas cadenas representan 224 por tener ocho bits."
+          },
+          {
+            "id": "c",
+            "text": "La conversión depende de la contraseña del equipo."
+          },
+          {
+            "id": "d",
+            "text": "224 es 11100000; 11110000 representa 240."
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "224 suma 128+64+32; añadir el siguiente bit de 16 produce 240.",
+        "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+      }
+    },
+    {
+      "dayId": "w11d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w11d2-q01",
+          "prompt": "¿Qué significa /24 en una dirección IPv4?",
+          "options": [
+            {
+              "id": "a",
+              "text": "24 equipos permitidos exactamente."
+            },
+            {
+              "id": "b",
+              "text": "24 bits para host y 8 para red."
+            },
+            {
+              "id": "c",
+              "text": "Un puerto de transporte número 24."
+            },
+            {
+              "id": "d",
+              "text": "24 bits de prefijo y 8 bits restantes."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La longitud del prefijo indica cuántos de los 32 bits identifican la red.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc4632.html"
+        },
+        {
+          "id": "w11d2-q02",
+          "prompt": "¿Qué máscara decimal corresponde a /24?",
+          "options": [
+            {
+              "id": "a",
+              "text": "255.255.0.0."
+            },
+            {
+              "id": "b",
+              "text": "255.255.255.0."
+            },
+            {
+              "id": "c",
+              "text": "255.255.255.24."
+            },
+            {
+              "id": "d",
+              "text": "255.255.255.255."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Veinticuatro unos seguidos ocupan los tres primeros octetos de la máscara.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc4632.html"
+        },
+        {
+          "id": "w11d2-q03",
+          "prompt": "¿Cuántas direcciones totales abarca un bloque /25?",
+          "options": [
+            {
+              "id": "a",
+              "text": "25."
+            },
+            {
+              "id": "b",
+              "text": "126."
+            },
+            {
+              "id": "c",
+              "text": "256."
+            },
+            {
+              "id": "d",
+              "text": "128."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Quedan siete bits: 2 elevado a 7 son 128 direcciones; no todas son hosts de una LAN ordinaria.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc4632.html"
+        },
+        {
+          "id": "w11d2-q04",
+          "prompt": "¿Qué máscara corresponde a /26?",
+          "options": [
+            {
+              "id": "a",
+              "text": "255.255.255.192."
+            },
+            {
+              "id": "b",
+              "text": "255.255.255.26."
+            },
+            {
+              "id": "c",
+              "text": "255.255.255.128."
+            },
+            {
+              "id": "d",
+              "text": "255.255.255.224."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El cuarto octeto tiene dos unos iniciales: 128 más 64, igual a 192.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc4632.html"
+        },
+        {
+          "id": "w11d2-q05",
+          "prompt": "¿Qué ocurre al aumentar el prefijo de /24 a /25 dentro del mismo bloque?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Se duplica el espacio de direcciones de cada subred."
+            },
+            {
+              "id": "b",
+              "text": "Se forman dos bloques de la mitad de tamaño."
+            },
+            {
+              "id": "c",
+              "text": "Se conserva exactamente la misma división red-host."
+            },
+            {
+              "id": "d",
+              "text": "Se eliminan las direcciones de red de ambas mitades."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un bit adicional de prefijo divide el espacio anterior en dos bloques iguales.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc4632.html"
+        },
+        {
+          "id": "w11d2-q06",
+          "prompt": "¿Qué máscara no tiene la forma de unos contiguos seguida de ceros?",
+          "options": [
+            {
+              "id": "a",
+              "text": "255.0.255.0."
+            },
+            {
+              "id": "b",
+              "text": "255.255.255.128."
+            },
+            {
+              "id": "c",
+              "text": "255.255.0.0."
+            },
+            {
+              "id": "d",
+              "text": "255.255.255.224."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "255.0.255.0 interrumpe los unos y vuelve a introducirlos, por lo que no expresa un prefijo CIDR válido.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc4632.html"
+        },
+        {
+          "id": "w11d2-q07",
+          "prompt": "¿Qué operación básica obtiene la red a partir de IPv4 y máscara?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sumar ambos valores sin límite."
+            },
+            {
+              "id": "b",
+              "text": "Multiplicar el último octeto por el puerto."
+            },
+            {
+              "id": "c",
+              "text": "AND bit a bit."
+            },
+            {
+              "id": "d",
+              "text": "Intercambiar dirección y contraseña."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "AND conserva la parte del prefijo y deja en cero los bits de host.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc4632.html"
+        },
+        {
+          "id": "w11d2-q08",
+          "prompt": "¿La longitud /27 identifica por sí sola una red concreta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí; todas las /27 son la misma red."
+            },
+            {
+              "id": "b",
+              "text": "Sí; siempre significa 192.168.0.0."
+            },
+            {
+              "id": "c",
+              "text": "No; necesita también los bits de la dirección del prefijo."
+            },
+            {
+              "id": "d",
+              "text": "No; porque CIDR solo se usa en IPv6."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La longitud describe el tamaño; la dirección identifica cuál de los bloques de ese tamaño es.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc4632.html"
+        }
+      ],
+      "challenge": {
+        "id": "w11d2-challenge",
+        "prompt": "Una ficha describe 192.168.80.40/24 como «24 hosts». ¿Qué sustitución debe hacerse?",
+        "options": [
+          {
+            "id": "a",
+            "text": "24 bits de host y 8 de red."
+          },
+          {
+            "id": "b",
+            "text": "24 puertos de aplicación para cada equipo."
+          },
+          {
+            "id": "c",
+            "text": "24 bits de prefijo, 256 direcciones totales y 254 hosts ordinarios."
+          },
+          {
+            "id": "d",
+            "text": "24 direcciones incluyendo siempre una sola de broadcast."
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La longitud CIDR expresa bits del prefijo; la capacidad se deriva de los bits restantes.",
+        "reference": "https://www.rfc-editor.org/rfc/rfc4632.html"
+      }
+    },
+    {
+      "dayId": "w11d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w11d3-q01",
+          "prompt": "¿Cuál es la red de 192.168.21.87/24?",
+          "options": [
+            {
+              "id": "a",
+              "text": "192.168.0.0/24."
+            },
+            {
+              "id": "b",
+              "text": "192.168.21.0/24."
+            },
+            {
+              "id": "c",
+              "text": "192.168.21.87/24."
+            },
+            {
+              "id": "d",
+              "text": "192.168.21.255/24."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Con /24 los tres primeros octetos son prefijo y el último se pone a cero.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1878.html"
+        },
+        {
+          "id": "w11d3-q02",
+          "prompt": "¿Cuál es el broadcast de 192.168.22.0/24?",
+          "options": [
+            {
+              "id": "a",
+              "text": "192.168.22.255."
+            },
+            {
+              "id": "b",
+              "text": "192.168.22.0."
+            },
+            {
+              "id": "c",
+              "text": "192.168.22.254."
+            },
+            {
+              "id": "d",
+              "text": "192.168.23.0."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El broadcast tiene todos los bits de host en uno, aquí el último octeto 255.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1878.html"
+        },
+        {
+          "id": "w11d3-q03",
+          "prompt": "¿Cuál es el intervalo de hosts ordinarios de 192.168.23.0/24?",
+          "options": [
+            {
+              "id": "a",
+              "text": "192.168.23.0 a 192.168.23.255."
+            },
+            {
+              "id": "b",
+              "text": "192.168.23.1 a 192.168.23.254."
+            },
+            {
+              "id": "c",
+              "text": "192.168.23.1 a 192.168.23.255."
+            },
+            {
+              "id": "d",
+              "text": "192.168.22.1 a 192.168.23.254."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Se excluyen la dirección de red y el broadcast del bloque /24.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1878.html"
+        },
+        {
+          "id": "w11d3-q04",
+          "prompt": "¿Qué /25 contiene 192.168.24.190?",
+          "options": [
+            {
+              "id": "a",
+              "text": "192.168.24.0/25."
+            },
+            {
+              "id": "b",
+              "text": "192.168.24.190/25 como red alineada."
+            },
+            {
+              "id": "c",
+              "text": "192.168.24.128/25."
+            },
+            {
+              "id": "d",
+              "text": "192.168.24.192/25."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las mitades /25 empiezan en 0 y 128; 190 cae en el intervalo 128–255.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1878.html"
+        },
+        {
+          "id": "w11d3-q05",
+          "prompt": "¿Cuál es el broadcast de 192.168.25.0/25?",
+          "options": [
+            {
+              "id": "a",
+              "text": "192.168.25.128."
+            },
+            {
+              "id": "b",
+              "text": "192.168.25.255."
+            },
+            {
+              "id": "c",
+              "text": "192.168.25.127."
+            },
+            {
+              "id": "d",
+              "text": "192.168.25.126."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El primer bloque /25 abarca 0–127 y reserva su extremo superior como broadcast.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1878.html"
+        },
+        {
+          "id": "w11d3-q06",
+          "prompt": "¿Cuál es el primer host de 192.168.26.128/25?",
+          "options": [
+            {
+              "id": "a",
+              "text": "192.168.26.128."
+            },
+            {
+              "id": "b",
+              "text": "192.168.26.129."
+            },
+            {
+              "id": "c",
+              "text": "192.168.26.127."
+            },
+            {
+              "id": "d",
+              "text": "192.168.26.0."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El primer host ordinario está una dirección después de la red.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1878.html"
+        },
+        {
+          "id": "w11d3-q07",
+          "prompt": "¿Cuántos hosts ordinarios admite una subred /25?",
+          "options": [
+            {
+              "id": "a",
+              "text": "126."
+            },
+            {
+              "id": "b",
+              "text": "128."
+            },
+            {
+              "id": "c",
+              "text": "127."
+            },
+            {
+              "id": "d",
+              "text": "254."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Sus 128 direcciones menos red y broadcast dejan 126 direcciones de host.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1878.html"
+        },
+        {
+          "id": "w11d3-q08",
+          "prompt": "En 192.168.27.0/25, ¿qué dirección no puede asignarse como host ordinario por ser el broadcast?",
+          "options": [
+            {
+              "id": "a",
+              "text": "192.168.27.127."
+            },
+            {
+              "id": "b",
+              "text": "192.168.27.1."
+            },
+            {
+              "id": "c",
+              "text": "192.168.27.64."
+            },
+            {
+              "id": "d",
+              "text": "192.168.27.126."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El bloque termina en .127; .128 pertenece al siguiente bloque /25.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1878.html"
+        }
+      ],
+      "challenge": {
+        "id": "w11d3-challenge",
+        "prompt": "Se propone asignar .128 como PC y .255 como gateway dentro de 192.168.81.128/25. ¿Qué revisión corresponde?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ambas son extremos reservados: red .128 y broadcast .255."
+          },
+          {
+            "id": "b",
+            "text": "Ambas son hosts válidos y no requieren cambios."
+          },
+          {
+            "id": "c",
+            "text": "Solo .128 es válida porque es la primera del bloque."
+          },
+          {
+            "id": "d",
+            "text": "Solo .255 es válida porque todo gateway debe acabar en 255."
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "En una LAN /25 ordinaria los hosts van de .129 a .254; las funciones no permiten usar los extremos.",
+        "reference": "https://www.rfc-editor.org/rfc/rfc1878.html"
+      }
+    },
+    {
+      "dayId": "w11d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w11d4-q01",
+          "prompt": "¿Cuántas subredes /26 caben sin solaparse dentro de una /24?",
+          "options": [
+            {
+              "id": "a",
+              "text": "2."
+            },
+            {
+              "id": "b",
+              "text": "6."
+            },
+            {
+              "id": "c",
+              "text": "4."
+            },
+            {
+              "id": "d",
+              "text": "8."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Se añaden dos bits de prefijo; 2 elevado a 2 produce cuatro subredes.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d4-q02",
+          "prompt": "¿Qué secuencia de inicios divide 192.168.30.0/24 en /26?",
+          "options": [
+            {
+              "id": "a",
+              "text": "0, 64, 128 y 192 en el último octeto."
+            },
+            {
+              "id": "b",
+              "text": "0, 26, 52 y 78 en el último octeto."
+            },
+            {
+              "id": "c",
+              "text": "0, 32, 64 y 96 solamente."
+            },
+            {
+              "id": "d",
+              "text": "1, 65, 129 y 193 como direcciones de red."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Cada bloque /26 tiene 64 direcciones y debe empezar en un múltiplo de 64.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d4-q03",
+          "prompt": "¿Qué /26 contiene 192.168.31.130?",
+          "options": [
+            {
+              "id": "a",
+              "text": "192.168.31.64/26."
+            },
+            {
+              "id": "b",
+              "text": "192.168.31.0/26."
+            },
+            {
+              "id": "c",
+              "text": "192.168.31.192/26."
+            },
+            {
+              "id": "d",
+              "text": "192.168.31.128/26."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "130 pertenece al bloque comprendido entre 128 y 191.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d4-q04",
+          "prompt": "¿Cuál es el broadcast de 192.168.32.64/26?",
+          "options": [
+            {
+              "id": "a",
+              "text": "192.168.32.127."
+            },
+            {
+              "id": "b",
+              "text": "192.168.32.128."
+            },
+            {
+              "id": "c",
+              "text": "192.168.32.126."
+            },
+            {
+              "id": "d",
+              "text": "192.168.32.255."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El bloque tiene 64 direcciones: desde 64 hasta 127 inclusive.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d4-q05",
+          "prompt": "¿Cuántas direcciones totales tiene un /27?",
+          "options": [
+            {
+              "id": "a",
+              "text": "27."
+            },
+            {
+              "id": "b",
+              "text": "30."
+            },
+            {
+              "id": "c",
+              "text": "32."
+            },
+            {
+              "id": "d",
+              "text": "64."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "32 menos 27 deja cinco bits; sus combinaciones son 32.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d4-q06",
+          "prompt": "¿Qué /27 sigue inmediatamente a 192.168.33.64/27?",
+          "options": [
+            {
+              "id": "a",
+              "text": "192.168.33.65/27."
+            },
+            {
+              "id": "b",
+              "text": "192.168.33.96/27."
+            },
+            {
+              "id": "c",
+              "text": "192.168.33.128/27."
+            },
+            {
+              "id": "d",
+              "text": "192.168.33.80/27."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los límites /27 avanzan en saltos de 32 direcciones.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d4-q07",
+          "prompt": "¿Qué par se solapa en 192.168.34.0/24?",
+          "options": [
+            {
+              "id": "a",
+              "text": "192.168.34.0/27 y 192.168.34.32/27."
+            },
+            {
+              "id": "b",
+              "text": "192.168.34.0/26 y 192.168.34.32/27."
+            },
+            {
+              "id": "c",
+              "text": "192.168.34.64/26 y 192.168.34.128/26."
+            },
+            {
+              "id": "d",
+              "text": "192.168.34.192/27 y 192.168.34.224/27."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La /26 de 0–63 incluye por completo la /27 de 32–63.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d4-q08",
+          "prompt": "¿Cuál es el rango de hosts ordinarios de 192.168.35.160/27?",
+          "options": [
+            {
+              "id": "a",
+              "text": "192.168.35.161 a 192.168.35.190."
+            },
+            {
+              "id": "b",
+              "text": "192.168.35.160 a 192.168.35.191."
+            },
+            {
+              "id": "c",
+              "text": "192.168.35.161 a 192.168.35.191."
+            },
+            {
+              "id": "d",
+              "text": "192.168.35.160 a 192.168.35.190."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El bloque abarca 160–191; se excluyen sus extremos de red y broadcast.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        }
+      ],
+      "challenge": {
+        "id": "w11d4-challenge",
+        "prompt": "El diseño ubica A en 192.168.82.64/26 y B en 192.168.82.96/27. ¿Qué problema muestra?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Son contiguas y no comparten ninguna dirección."
+          },
+          {
+            "id": "b",
+            "text": "Ambas tienen necesariamente diferente número de red global."
+          },
+          {
+            "id": "c",
+            "text": "B queda dentro del rango de A y hay solapamiento."
+          },
+          {
+            "id": "d",
+            "text": "No hay problema porque una máscara es /26 y otra /27."
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "A abarca .64–.127; B abarca .96–.127, por lo que comparten parte del espacio.",
+        "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+      }
+    },
+    {
+      "dayId": "w11d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w11d5-q01",
+          "prompt": "¿192.168.40.10/24 y 192.168.40.200/24 comparten subred?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí, ambas pertenecen a 192.168.40.0/24."
+            },
+            {
+              "id": "b",
+              "text": "No, porque sus últimos octetos son distintos."
+            },
+            {
+              "id": "c",
+              "text": "No, porque 200 siempre indica broadcast."
+            },
+            {
+              "id": "d",
+              "text": "Sí, cualquier dirección 192 comparte una subred."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La igualdad se evalúa sobre los bits de prefijo, no sobre toda la dirección.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d5-q02",
+          "prompt": "¿192.168.41.126/25 y 192.168.41.129/25 comparten subred?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No; una está en .0/25 y la otra en .128/25."
+            },
+            {
+              "id": "b",
+              "text": "Sí, porque coinciden los tres primeros octetos."
+            },
+            {
+              "id": "c",
+              "text": "Sí, porque ambas son direcciones privadas."
+            },
+            {
+              "id": "d",
+              "text": "No, porque ningún /25 admite más de un host."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El límite de la /25 divide el último octeto entre 0–127 y 128–255.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d5-q03",
+          "prompt": "¿192.168.42.65/26 y 192.168.42.126/26 comparten subred?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No, porque hay más de 50 entre ellas."
+            },
+            {
+              "id": "b",
+              "text": "Sí, porque cualquier /26 contiene 256 direcciones."
+            },
+            {
+              "id": "c",
+              "text": "Sí, ambas están en 192.168.42.64/26."
+            },
+            {
+              "id": "d",
+              "text": "No, porque 126 es siempre broadcast."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El bloque .64/26 abarca .64–.127 y ambas direcciones son hosts dentro de él.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d5-q04",
+          "prompt": "¿Qué destino comparte subred con 192.168.43.100/27?",
+          "options": [
+            {
+              "id": "a",
+              "text": "192.168.43.90."
+            },
+            {
+              "id": "b",
+              "text": "192.168.43.130."
+            },
+            {
+              "id": "c",
+              "text": "192.168.43.160."
+            },
+            {
+              "id": "d",
+              "text": "192.168.43.120."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": ".100 está en .96/27, cuyo intervalo completo es .96–.127.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d5-q05",
+          "prompt": "Dos equipos tienen la misma máscara, pero diferentes prefijos de red. ¿Qué necesitan normalmente para comunicarse entre subredes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una función de enrutamiento con rutas adecuadas."
+            },
+            {
+              "id": "b",
+              "text": "Solo cambiar el nombre del grupo de trabajo."
+            },
+            {
+              "id": "c",
+              "text": "La misma contraseña de usuario."
+            },
+            {
+              "id": "d",
+              "text": "Un archivo con extensión .route."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El enrutamiento conecta subredes; la igualdad de máscara no convierte todos sus prefijos en el mismo.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d5-q06",
+          "prompt": "¿Por qué no basta comparar los tres primeros octetos para cualquier pareja IPv4?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La longitud de prefijo puede ser diferente de /24."
+            },
+            {
+              "id": "b",
+              "text": "Porque el último octeto siempre contiene el número de router."
+            },
+            {
+              "id": "c",
+              "text": "Porque todas las direcciones privadas son /8."
+            },
+            {
+              "id": "d",
+              "text": "Porque la máscara solo sirve para DNS."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los límites de subred dependen de la máscara y pueden caer dentro de cualquier octeto.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d5-q07",
+          "prompt": "A usa 192.168.44.50/24 y B usa 192.168.44.200/25. ¿Qué problema conceptual muestra?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Pueden tener decisiones distintas sobre si el otro es local."
+            },
+            {
+              "id": "b",
+              "text": "Ambos tienen necesariamente una máscara idéntica."
+            },
+            {
+              "id": "c",
+              "text": "La diferencia convierte a B en servidor DNS."
+            },
+            {
+              "id": "d",
+              "text": "Ambas direcciones pasan a ser loopback."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "A considera toda la /24 local; B usa .128/25 y ve a A fuera de su subred.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d5-q08",
+          "prompt": "Un cálculo indica que dos hosts comparten subred. ¿Qué no garantiza ese cálculo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que coincidan los bits del prefijo calculado."
+            },
+            {
+              "id": "b",
+              "text": "Que enlace, interfaces y políticas permitan realmente el tráfico."
+            },
+            {
+              "id": "c",
+              "text": "Que se pueda describir su bloque lógico."
+            },
+            {
+              "id": "d",
+              "text": "Que se necesite validar la configuración real."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La pertenencia lógica es necesaria para ciertos recorridos locales, pero no prueba disponibilidad física o de servicio.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        }
+      ],
+      "challenge": {
+        "id": "w11d5-challenge",
+        "prompt": "A .62/26 y B .65/26 comparten switch en 192.168.83.0/24. Un alumno dice que no necesitan router por tener el mismo switch. ¿Qué corregir?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Todo switch obliga a que sus dispositivos sean de la misma subred."
+          },
+          {
+            "id": "b",
+            "text": "Están en subredes .0/26 y .64/26; el enlace compartido no elimina la necesidad de enrutamiento entre ellas."
+          },
+          {
+            "id": "c",
+            "text": "Los dos últimos octetos determinan siempre una /16."
+          },
+          {
+            "id": "d",
+            "text": ".65 es broadcast de cualquier subred /26."
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La topología física y la pertenencia IP son dimensiones distintas que deben analizarse juntas.",
+        "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+      }
+    },
+    {
+      "dayId": "w11d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w11d6-q01",
+          "prompt": "Un departamento necesita 50 PCs y un gateway en una LAN IPv4 ordinaria. ¿Qué prefijo mínimo entre estos sirve?",
+          "options": [
+            {
+              "id": "a",
+              "text": "/26."
+            },
+            {
+              "id": "b",
+              "text": "/27."
+            },
+            {
+              "id": "c",
+              "text": "/28."
+            },
+            {
+              "id": "d",
+              "text": "/29."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Se necesitan 51 hosts; /26 ofrece 62 y /27 solo 30.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d6-q02",
+          "prompt": "Un área requiere 20 PCs, un gateway y 5 futuros equipos. ¿Qué opción mínima sirve?",
+          "options": [
+            {
+              "id": "a",
+              "text": "/28."
+            },
+            {
+              "id": "b",
+              "text": "/29."
+            },
+            {
+              "id": "c",
+              "text": "/27."
+            },
+            {
+              "id": "d",
+              "text": "/30."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La necesidad total es 26; /27 ofrece 30 direcciones de host ordinarias.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d6-q03",
+          "prompt": "Un segmento necesita 28 dispositivos más un gateway y 4 de margen. ¿Por qué /27 no basta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "33 hosts requeridos superan sus 30 disponibles."
+            },
+            {
+              "id": "b",
+              "text": "/27 solo ofrece 27 direcciones totales."
+            },
+            {
+              "id": "c",
+              "text": "El gateway nunca necesita IP."
+            },
+            {
+              "id": "d",
+              "text": "El margen no puede contarse en un diseño."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Sumar requisitos e infraestructura evita elegir una subred que solo cubra los equipos actuales.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d6-q04",
+          "prompt": "Asignas A a 192.168.70.0/26. ¿Cuál es un inicio válido para B /27 sin solaparse con A?",
+          "options": [
+            {
+              "id": "a",
+              "text": "192.168.70.32/27."
+            },
+            {
+              "id": "b",
+              "text": "192.168.70.64/27."
+            },
+            {
+              "id": "c",
+              "text": "192.168.70.16/27."
+            },
+            {
+              "id": "d",
+              "text": "192.168.70.48/27."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "A ocupa 0–63; B puede empezar en el siguiente límite /27, que es 64.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d6-q05",
+          "prompt": "Tras A .0/26 y B .64/27 en 192.168.71.0/24, ¿qué /27 puede asignarse inmediatamente a C?",
+          "options": [
+            {
+              "id": "a",
+              "text": "192.168.71.80/27."
+            },
+            {
+              "id": "b",
+              "text": "192.168.71.96/27."
+            },
+            {
+              "id": "c",
+              "text": "192.168.71.32/27."
+            },
+            {
+              "id": "d",
+              "text": "192.168.71.64/27."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "A ocupa 0–63 y B 64–95; el siguiente bloque alineado comienza en 96.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d6-q06",
+          "prompt": "¿Por qué conviene asignar primero los bloques más grandes en un diseño VLSM pequeño?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque todo departamento debe recibir obligatoriamente /24."
+            },
+            {
+              "id": "b",
+              "text": "Porque elimina la necesidad de calcular broadcasts."
+            },
+            {
+              "id": "c",
+              "text": "Porque los bloques pequeños no tienen direcciones de red."
+            },
+            {
+              "id": "d",
+              "text": "Ayuda a conservar alineación y reducir fragmentación del espacio restante."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Ordenar por tamaño facilita ubicar bloques válidos sin solapamientos; después se verifican todos los rangos.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d6-q07",
+          "prompt": "¿Qué debe incluir una tabla de asignación de subredes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el nombre de cada departamento."
+            },
+            {
+              "id": "b",
+              "text": "Prefijo, rango de hosts, broadcast, gateway y capacidad requerida."
+            },
+            {
+              "id": "c",
+              "text": "La contraseña de todos los dispositivos."
+            },
+            {
+              "id": "d",
+              "text": "Una IP sin longitud de prefijo ni función."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La tabla permite revisar capacidad, pertenencia y ausencia de solapamientos.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        },
+        {
+          "id": "w11d6-q08",
+          "prompt": "¿Un /26 con 60 dispositivos y un gateway deja cuántos hosts ordinarios libres?",
+          "options": [
+            {
+              "id": "a",
+              "text": "1."
+            },
+            {
+              "id": "b",
+              "text": "2."
+            },
+            {
+              "id": "c",
+              "text": "3."
+            },
+            {
+              "id": "d",
+              "text": "4."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Hay 62 hosts ordinarios; 60 más 1 usan 61 y queda una dirección disponible.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+        }
+      ],
+      "challenge": {
+        "id": "w11d6-challenge",
+        "prompt": "Tres áreas requieren 45, 18 y 18 hosts, contando gateway y margen. ¿Qué distribución mínima cabe sin solaparse en 192.168.84.0/24?",
+        "options": [
+          {
+            "id": "a",
+            "text": ".0/26, .64/27 y .96/27."
+          },
+          {
+            "id": "b",
+            "text": ".0/27, .32/27 y .64/27."
+          },
+          {
+            "id": "c",
+            "text": ".0/26, .32/27 y .64/27."
+          },
+          {
+            "id": "d",
+            "text": ".0/25, .64/25 y .128/25."
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La primera /26 ofrece 62 hosts y cada /27 ofrece 30; sus intervalos no se superponen.",
+        "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+      }
+    },
+    {
+      "dayId": "w11d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w11d7-q01",
+          "prompt": "¿Cuál es el valor decimal de 10000000 en un octeto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "100."
+            },
+            {
+              "id": "b",
+              "text": "128."
+            },
+            {
+              "id": "c",
+              "text": "64."
+            },
+            {
+              "id": "d",
+              "text": "256."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El bit más significativo de ocho bits pesa 2 elevado a 7, que es 128.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html",
+          "reviewOf": "w11d1-q01"
+        },
+        {
+          "id": "w11d7-q02",
+          "prompt": "¿Qué significa /24 en una dirección IPv4?",
+          "options": [
+            {
+              "id": "a",
+              "text": "24 equipos permitidos exactamente."
+            },
+            {
+              "id": "b",
+              "text": "24 bits para host y 8 para red."
+            },
+            {
+              "id": "c",
+              "text": "Un puerto de transporte número 24."
+            },
+            {
+              "id": "d",
+              "text": "24 bits de prefijo y 8 bits restantes."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La longitud del prefijo indica cuántos de los 32 bits identifican la red.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc4632.html",
+          "reviewOf": "w11d2-q01"
+        },
+        {
+          "id": "w11d7-q03",
+          "prompt": "¿Cuál es la red de 192.168.21.87/24?",
+          "options": [
+            {
+              "id": "a",
+              "text": "192.168.0.0/24."
+            },
+            {
+              "id": "b",
+              "text": "192.168.21.0/24."
+            },
+            {
+              "id": "c",
+              "text": "192.168.21.87/24."
+            },
+            {
+              "id": "d",
+              "text": "192.168.21.255/24."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Con /24 los tres primeros octetos son prefijo y el último se pone a cero.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1878.html",
+          "reviewOf": "w11d3-q01"
+        },
+        {
+          "id": "w11d7-q04",
+          "prompt": "¿Cuántas subredes /26 caben sin solaparse dentro de una /24?",
+          "options": [
+            {
+              "id": "a",
+              "text": "2."
+            },
+            {
+              "id": "b",
+              "text": "6."
+            },
+            {
+              "id": "c",
+              "text": "4."
+            },
+            {
+              "id": "d",
+              "text": "8."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Se añaden dos bits de prefijo; 2 elevado a 2 produce cuatro subredes.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html",
+          "reviewOf": "w11d4-q01"
+        },
+        {
+          "id": "w11d7-q05",
+          "prompt": "¿192.168.40.10/24 y 192.168.40.200/24 comparten subred?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí, ambas pertenecen a 192.168.40.0/24."
+            },
+            {
+              "id": "b",
+              "text": "No, porque sus últimos octetos son distintos."
+            },
+            {
+              "id": "c",
+              "text": "No, porque 200 siempre indica broadcast."
+            },
+            {
+              "id": "d",
+              "text": "Sí, cualquier dirección 192 comparte una subred."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La igualdad se evalúa sobre los bits de prefijo, no sobre toda la dirección.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html",
+          "reviewOf": "w11d5-q01"
+        },
+        {
+          "id": "w11d7-q06",
+          "prompt": "Un departamento necesita 50 PCs y un gateway en una LAN IPv4 ordinaria. ¿Qué prefijo mínimo entre estos sirve?",
+          "options": [
+            {
+              "id": "a",
+              "text": "/26."
+            },
+            {
+              "id": "b",
+              "text": "/27."
+            },
+            {
+              "id": "c",
+              "text": "/28."
+            },
+            {
+              "id": "d",
+              "text": "/29."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Se necesitan 51 hosts; /26 ofrece 62 y /27 solo 30.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html",
+          "reviewOf": "w11d6-q01"
+        },
+        {
+          "id": "w11d7-q07",
+          "prompt": "¿Cómo se representa 192 en ocho bits?",
+          "options": [
+            {
+              "id": "a",
+              "text": "10100000."
+            },
+            {
+              "id": "b",
+              "text": "11100000."
+            },
+            {
+              "id": "c",
+              "text": "11000000."
+            },
+            {
+              "id": "d",
+              "text": "01100000."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "192 es 128 más 64; se activan las dos posiciones superiores.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html",
+          "reviewOf": "w11d1-q02"
+        },
+        {
+          "id": "w11d7-q08",
+          "prompt": "¿Qué máscara decimal corresponde a /24?",
+          "options": [
+            {
+              "id": "a",
+              "text": "255.255.0.0."
+            },
+            {
+              "id": "b",
+              "text": "255.255.255.0."
+            },
+            {
+              "id": "c",
+              "text": "255.255.255.24."
+            },
+            {
+              "id": "d",
+              "text": "255.255.255.255."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Veinticuatro unos seguidos ocupan los tres primeros octetos de la máscara.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc4632.html",
+          "reviewOf": "w11d2-q02"
+        },
+        {
+          "id": "w11d7-q09",
+          "prompt": "¿Cuál es el broadcast de 192.168.22.0/24?",
+          "options": [
+            {
+              "id": "a",
+              "text": "192.168.22.255."
+            },
+            {
+              "id": "b",
+              "text": "192.168.22.0."
+            },
+            {
+              "id": "c",
+              "text": "192.168.22.254."
+            },
+            {
+              "id": "d",
+              "text": "192.168.23.0."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El broadcast tiene todos los bits de host en uno, aquí el último octeto 255.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1878.html",
+          "reviewOf": "w11d3-q02"
+        },
+        {
+          "id": "w11d7-q10",
+          "prompt": "¿Qué secuencia de inicios divide 192.168.30.0/24 en /26?",
+          "options": [
+            {
+              "id": "a",
+              "text": "0, 64, 128 y 192 en el último octeto."
+            },
+            {
+              "id": "b",
+              "text": "0, 26, 52 y 78 en el último octeto."
+            },
+            {
+              "id": "c",
+              "text": "0, 32, 64 y 96 solamente."
+            },
+            {
+              "id": "d",
+              "text": "1, 65, 129 y 193 como direcciones de red."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Cada bloque /26 tiene 64 direcciones y debe empezar en un múltiplo de 64.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html",
+          "reviewOf": "w11d4-q02"
+        },
+        {
+          "id": "w11d7-q11",
+          "prompt": "¿192.168.41.126/25 y 192.168.41.129/25 comparten subred?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No; una está en .0/25 y la otra en .128/25."
+            },
+            {
+              "id": "b",
+              "text": "Sí, porque coinciden los tres primeros octetos."
+            },
+            {
+              "id": "c",
+              "text": "Sí, porque ambas son direcciones privadas."
+            },
+            {
+              "id": "d",
+              "text": "No, porque ningún /25 admite más de un host."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El límite de la /25 divide el último octeto entre 0–127 y 128–255.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html",
+          "reviewOf": "w11d5-q02"
+        },
+        {
+          "id": "w11d7-q12",
+          "prompt": "Un área requiere 20 PCs, un gateway y 5 futuros equipos. ¿Qué opción mínima sirve?",
+          "options": [
+            {
+              "id": "a",
+              "text": "/28."
+            },
+            {
+              "id": "b",
+              "text": "/29."
+            },
+            {
+              "id": "c",
+              "text": "/27."
+            },
+            {
+              "id": "d",
+              "text": "/30."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La necesidad total es 26; /27 ofrece 30 direcciones de host ordinarias.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html",
+          "reviewOf": "w11d6-q02"
+        },
+        {
+          "id": "w11d7-q13",
+          "prompt": "¿Qué valor decimal representa 11111111?",
+          "options": [
+            {
+              "id": "a",
+              "text": "256."
+            },
+            {
+              "id": "b",
+              "text": "255."
+            },
+            {
+              "id": "c",
+              "text": "128."
+            },
+            {
+              "id": "d",
+              "text": "254."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La suma de los ocho pesos, de 128 a 1, es 255.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html",
+          "reviewOf": "w11d1-q03"
+        },
+        {
+          "id": "w11d7-q14",
+          "prompt": "¿Cuántas direcciones totales abarca un bloque /25?",
+          "options": [
+            {
+              "id": "a",
+              "text": "25."
+            },
+            {
+              "id": "b",
+              "text": "126."
+            },
+            {
+              "id": "c",
+              "text": "256."
+            },
+            {
+              "id": "d",
+              "text": "128."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Quedan siete bits: 2 elevado a 7 son 128 direcciones; no todas son hosts de una LAN ordinaria.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc4632.html",
+          "reviewOf": "w11d2-q03"
+        },
+        {
+          "id": "w11d7-q15",
+          "prompt": "¿Cuál es el intervalo de hosts ordinarios de 192.168.23.0/24?",
+          "options": [
+            {
+              "id": "a",
+              "text": "192.168.23.0 a 192.168.23.255."
+            },
+            {
+              "id": "b",
+              "text": "192.168.23.1 a 192.168.23.254."
+            },
+            {
+              "id": "c",
+              "text": "192.168.23.1 a 192.168.23.255."
+            },
+            {
+              "id": "d",
+              "text": "192.168.22.1 a 192.168.23.254."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Se excluyen la dirección de red y el broadcast del bloque /24.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1878.html",
+          "reviewOf": "w11d3-q03"
+        },
+        {
+          "id": "w11d7-q16",
+          "prompt": "¿Qué /26 contiene 192.168.31.130?",
+          "options": [
+            {
+              "id": "a",
+              "text": "192.168.31.64/26."
+            },
+            {
+              "id": "b",
+              "text": "192.168.31.0/26."
+            },
+            {
+              "id": "c",
+              "text": "192.168.31.192/26."
+            },
+            {
+              "id": "d",
+              "text": "192.168.31.128/26."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "130 pertenece al bloque comprendido entre 128 y 191.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html",
+          "reviewOf": "w11d4-q03"
+        },
+        {
+          "id": "w11d7-q17",
+          "prompt": "¿192.168.42.65/26 y 192.168.42.126/26 comparten subred?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No, porque hay más de 50 entre ellas."
+            },
+            {
+              "id": "b",
+              "text": "Sí, porque cualquier /26 contiene 256 direcciones."
+            },
+            {
+              "id": "c",
+              "text": "Sí, ambas están en 192.168.42.64/26."
+            },
+            {
+              "id": "d",
+              "text": "No, porque 126 es siempre broadcast."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El bloque .64/26 abarca .64–.127 y ambas direcciones son hosts dentro de él.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html",
+          "reviewOf": "w11d5-q03"
+        },
+        {
+          "id": "w11d7-q18",
+          "prompt": "Un segmento necesita 28 dispositivos más un gateway y 4 de margen. ¿Por qué /27 no basta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "33 hosts requeridos superan sus 30 disponibles."
+            },
+            {
+              "id": "b",
+              "text": "/27 solo ofrece 27 direcciones totales."
+            },
+            {
+              "id": "c",
+              "text": "El gateway nunca necesita IP."
+            },
+            {
+              "id": "d",
+              "text": "El margen no puede contarse en un diseño."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Sumar requisitos e infraestructura evita elegir una subred que solo cubra los equipos actuales.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html",
+          "reviewOf": "w11d6-q03"
+        },
+        {
+          "id": "w11d7-q19",
+          "prompt": "¿Cuál es la forma binaria de 10 con ocho bits?",
+          "options": [
+            {
+              "id": "a",
+              "text": "00001100."
+            },
+            {
+              "id": "b",
+              "text": "00010010."
+            },
+            {
+              "id": "c",
+              "text": "10000010."
+            },
+            {
+              "id": "d",
+              "text": "00001010."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "10 es 8 más 2; se conservan ceros iniciales para mostrar el octeto completo.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html",
+          "reviewOf": "w11d1-q04"
+        },
+        {
+          "id": "w11d7-q20",
+          "prompt": "¿Cuál es el broadcast de 192.168.32.64/26?",
+          "options": [
+            {
+              "id": "a",
+              "text": "192.168.32.127."
+            },
+            {
+              "id": "b",
+              "text": "192.168.32.128."
+            },
+            {
+              "id": "c",
+              "text": "192.168.32.126."
+            },
+            {
+              "id": "d",
+              "text": "192.168.32.255."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El bloque tiene 64 direcciones: desde 64 hasta 127 inclusive.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html",
+          "reviewOf": "w11d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w11d7-challenge",
+        "prompt": "El cálculo manual para 192.168.85.175/27 da red .160, hosts .161–.190 y broadcast .191. ¿Qué debe hacer la validación?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Cambiar los valores hasta que coincidan con una salida copiada."
+          },
+          {
+            "id": "b",
+            "text": "Suponer que el último octeto siempre usa máscara /24."
+          },
+          {
+            "id": "c",
+            "text": "Contrastar esos límites y su pertenencia con un segundo método, conservando el razonamiento."
+          },
+          {
+            "id": "d",
+            "text": "Probar conectividad real a una IP ajena para validar el binario."
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "El bloque .160–.191 es un salto válido de 32; una verificación independiente confirma el cálculo sin fingir un laboratorio.",
+        "reference": "https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html"
+      }
+    }
+  ]
+}

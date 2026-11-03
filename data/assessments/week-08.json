@@ -1,0 +1,2094 @@
+{
+  "week": 8,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w08d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w08d1-q01",
+          "prompt": "¿Qué representa / en una ruta Linux?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El directorio personal de todos los usuarios."
+            },
+            {
+              "id": "b",
+              "text": "Una unidad llamada C obligatoriamente."
+            },
+            {
+              "id": "c",
+              "text": "El último archivo abierto."
+            },
+            {
+              "id": "d",
+              "text": "La raíz de la jerarquía de archivos."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La jerarquía Linux parte de /; no corresponde a una letra de unidad.",
+          "reference": "https://man7.org/linux/man-pages/man7/hier.7.html"
+        },
+        {
+          "id": "w08d1-q02",
+          "prompt": "¿Dónde suele estar el directorio personal de ana?",
+          "options": [
+            {
+              "id": "a",
+              "text": "/etc/ana"
+            },
+            {
+              "id": "b",
+              "text": "/var/root/ana"
+            },
+            {
+              "id": "c",
+              "text": "/tmp/kernel/ana"
+            },
+            {
+              "id": "d",
+              "text": "/home/ana"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "/home suele contener los directorios personales de usuarios ordinarios.",
+          "reference": "https://man7.org/linux/man-pages/man7/hier.7.html"
+        },
+        {
+          "id": "w08d1-q03",
+          "prompt": "¿Qué tipo de contenido suele encontrarse en /etc?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo archivos personales de invitados."
+            },
+            {
+              "id": "b",
+              "text": "Configuración del sistema."
+            },
+            {
+              "id": "c",
+              "text": "Únicamente memoria de procesos activos."
+            },
+            {
+              "id": "d",
+              "text": "Copias de cada descarga de internet."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "/etc se destina a configuración específica del sistema.",
+          "reference": "https://man7.org/linux/man-pages/man7/hier.7.html"
+        },
+        {
+          "id": "w08d1-q04",
+          "prompt": "¿Qué ubicación suele albergar registros variables del sistema?",
+          "options": [
+            {
+              "id": "a",
+              "text": "/home/bin"
+            },
+            {
+              "id": "b",
+              "text": "/var/log"
+            },
+            {
+              "id": "c",
+              "text": "/etc/cpu"
+            },
+            {
+              "id": "d",
+              "text": "/boot/tmp"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "/var contiene datos variables; sus registros suelen estar bajo log.",
+          "reference": "https://man7.org/linux/man-pages/man7/hier.7.html"
+        },
+        {
+          "id": "w08d1-q05",
+          "prompt": "¿Por qué no guardar la única copia de un informe en /tmp?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todos sus archivos se cifran sin clave."
+            },
+            {
+              "id": "b",
+              "text": "Sus archivos pueden eliminarse según la política del sistema."
+            },
+            {
+              "id": "c",
+              "text": "Nunca permite crear documentos de texto."
+            },
+            {
+              "id": "d",
+              "text": "Solo admite archivos ejecutables."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "/tmp es almacenamiento temporal; no debe asumirse conservación indefinida.",
+          "reference": "https://man7.org/linux/man-pages/man7/hier.7.html"
+        },
+        {
+          "id": "w08d1-q06",
+          "prompt": "Estás en /home/ana/lab. ¿A qué ruta corresponde ../notas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "/notas"
+            },
+            {
+              "id": "b",
+              "text": "/home/ana/lab/notas"
+            },
+            {
+              "id": "c",
+              "text": "/etc/notas"
+            },
+            {
+              "id": "d",
+              "text": "/home/ana/notas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": ".. selecciona el directorio padre antes de resolver notas.",
+          "reference": "https://man7.org/linux/man-pages/man7/hier.7.html"
+        },
+        {
+          "id": "w08d1-q07",
+          "prompt": "¿Qué representa ~ habitualmente en un shell para el usuario actual?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La raíz / siempre."
+            },
+            {
+              "id": "b",
+              "text": "Su directorio personal."
+            },
+            {
+              "id": "c",
+              "text": "El directorio de registros del sistema."
+            },
+            {
+              "id": "d",
+              "text": "Todos los discos conectados."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El shell expande ~ a un directorio personal según el contexto.",
+          "reference": "https://man7.org/linux/man-pages/man7/hier.7.html"
+        },
+        {
+          "id": "w08d1-q08",
+          "prompt": "¿Por qué /root no es lo mismo que /?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ambas rutas son siempre enlaces al mismo directorio."
+            },
+            {
+              "id": "b",
+              "text": "/ solo existe cuando root inicia sesión."
+            },
+            {
+              "id": "c",
+              "text": "/root es el disco temporal de cualquier usuario."
+            },
+            {
+              "id": "d",
+              "text": "/root suele ser el directorio personal de root; / es la raíz general."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El nombre de la cuenta administrativa y la raíz de la jerarquía son conceptos distintos.",
+          "reference": "https://man7.org/linux/man-pages/man7/hier.7.html"
+        }
+      ],
+      "challenge": {
+        "id": "w08d1-challenge",
+        "prompt": "Debes conservar un informe entre sesiones y revisar registros del sistema. ¿Qué mapa de rutas tiene sentido?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Informe permanente en /tmp y registros solo en /home."
+          },
+          {
+            "id": "b",
+            "text": "Todo dentro de /etc para que nunca cambie."
+          },
+          {
+            "id": "c",
+            "text": "Registros en /boot y notas personales en /proc."
+          },
+          {
+            "id": "d",
+            "text": "Informe en el directorio personal y registros normalmente en /var/log."
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La función de cada directorio orienta la ubicación y evita depender de almacenamiento temporal.",
+        "reference": "https://man7.org/linux/man-pages/man7/hier.7.html"
+      }
+    },
+    {
+      "dayId": "w08d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w08d2-q01",
+          "prompt": "¿Qué hace mkdir -p lab/notas si no existe lab?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Copia un archivo llamado notas."
+            },
+            {
+              "id": "b",
+              "text": "Crea los directorios necesarios de la ruta."
+            },
+            {
+              "id": "c",
+              "text": "Borra el directorio padre."
+            },
+            {
+              "id": "d",
+              "text": "Cambia automáticamente a notas."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "-p crea padres necesarios y permite preparar una jerarquía.",
+          "reference": "https://man7.org/linux/man-pages/man1/ls.1.html"
+        },
+        {
+          "id": "w08d2-q02",
+          "prompt": "¿Qué muestra ls -a que ls puede omitir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo procesos de administradores."
+            },
+            {
+              "id": "b",
+              "text": "Todas las contraseñas del usuario."
+            },
+            {
+              "id": "c",
+              "text": "Entradas cuyos nombres comienzan por punto."
+            },
+            {
+              "id": "d",
+              "text": "El contenido completo de cada archivo."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "-a incluye entradas ocultas por la convención de nombres que empiezan por punto.",
+          "reference": "https://man7.org/linux/man-pages/man1/ls.1.html"
+        },
+        {
+          "id": "w08d2-q03",
+          "prompt": "Existe a.txt y no existe b.txt. ¿Qué hace cp a.txt b.txt?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Crea una copia b.txt conservando a.txt."
+            },
+            {
+              "id": "b",
+              "text": "Renombra a.txt y elimina su nombre anterior."
+            },
+            {
+              "id": "c",
+              "text": "Mueve ambos archivos a /tmp."
+            },
+            {
+              "id": "d",
+              "text": "Comprime automáticamente a.txt."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "cp copia datos; el origen continúa existiendo.",
+          "reference": "https://man7.org/linux/man-pages/man1/cp.1.html"
+        },
+        {
+          "id": "w08d2-q04",
+          "prompt": "No existe b.txt. ¿Qué hace mv a.txt b.txt en la misma carpeta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mantiene obligatoriamente ambos nombres como copias."
+            },
+            {
+              "id": "b",
+              "text": "Cambia el nombre de a.txt a b.txt."
+            },
+            {
+              "id": "c",
+              "text": "Muestra el contenido de a.txt."
+            },
+            {
+              "id": "d",
+              "text": "Crea un directorio b.txt."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "mv puede mover o renombrar; no implica conservar una copia con el nombre original.",
+          "reference": "https://man7.org/linux/man-pages/man1/mv.1.html"
+        },
+        {
+          "id": "w08d2-q05",
+          "prompt": "¿Qué comando copia una carpeta lab con su contenido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "cp -r lab copia-lab"
+            },
+            {
+              "id": "b",
+              "text": "cp lab.txt copia-lab"
+            },
+            {
+              "id": "c",
+              "text": "ls -r lab copia-lab"
+            },
+            {
+              "id": "d",
+              "text": "cd lab copia-lab"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La copia de una jerarquía necesita tratamiento recursivo de directorios.",
+          "reference": "https://man7.org/linux/man-pages/man1/cp.1.html"
+        },
+        {
+          "id": "w08d2-q06",
+          "prompt": "¿Qué evita separar en dos argumentos el nombre informe final.txt?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Escribir informe,final.txt sin revisar el nombre."
+            },
+            {
+              "id": "b",
+              "text": "Escribir 'informe final.txt' entre comillas."
+            },
+            {
+              "id": "c",
+              "text": "Anteponer sudo al nombre sin comando."
+            },
+            {
+              "id": "d",
+              "text": "Quitar .txt durante la lectura."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las comillas preservan espacios dentro de un único argumento del shell.",
+          "reference": "https://man7.org/linux/man-pages/man1/ls.1.html"
+        },
+        {
+          "id": "w08d2-q07",
+          "prompt": "Desde /home/ana, cd lab falla con «No such file or directory». ¿Qué revisar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Existencia, escritura exacta y ubicación de lab."
+            },
+            {
+              "id": "b",
+              "text": "La CPU acumulada de todos los procesos."
+            },
+            {
+              "id": "c",
+              "text": "La contraseña de la impresora."
+            },
+            {
+              "id": "d",
+              "text": "La codificación de cualquier archivo CSV."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una ruta relativa se interpreta desde el directorio actual y distingue los nombres reales.",
+          "reference": "https://man7.org/linux/man-pages/man1/ls.1.html"
+        },
+        {
+          "id": "w08d2-q08",
+          "prompt": "Antes de sobrescribir una copia de prueba, ¿qué opción de cp pide confirmación si corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "cp -i"
+            },
+            {
+              "id": "b",
+              "text": "cp -a no-clobber-always"
+            },
+            {
+              "id": "c",
+              "text": "cp -x-confirm"
+            },
+            {
+              "id": "d",
+              "text": "cp --read-only"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "-i solicita confirmación antes de sobrescribir un destino existente.",
+          "reference": "https://man7.org/linux/man-pages/man1/cp.1.html"
+        }
+      ],
+      "challenge": {
+        "id": "w08d2-challenge",
+        "prompt": "En lab hay original.txt; quieres una copia respaldo.txt y después renombrar la copia a respaldo-final.txt. ¿Qué secuencia conserva el original?",
+        "options": [
+          {
+            "id": "a",
+            "text": "mv original.txt respaldo.txt; mv respaldo.txt respaldo-final.txt."
+          },
+          {
+            "id": "b",
+            "text": "cp original.txt respaldo.txt; mv original.txt respaldo-final.txt."
+          },
+          {
+            "id": "c",
+            "text": "cd original.txt; mkdir respaldo-final.txt."
+          },
+          {
+            "id": "d",
+            "text": "cp original.txt respaldo.txt; mv respaldo.txt respaldo-final.txt."
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La primera operación crea la copia; la segunda solo cambia el nombre de esa copia.",
+        "reference": "https://man7.org/linux/man-pages/man1/cp.1.html"
+      }
+    },
+    {
+      "dayId": "w08d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w08d3-q01",
+          "prompt": "¿Qué herramienta permite recorrer un archivo largo sin imprimirlo completo de una vez?",
+          "options": [
+            {
+              "id": "a",
+              "text": "less archivo.log"
+            },
+            {
+              "id": "b",
+              "text": "mkdir archivo.log"
+            },
+            {
+              "id": "c",
+              "text": "mv archivo.log"
+            },
+            {
+              "id": "d",
+              "text": "chmod archivo.log"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "less ofrece paginación y navegación del contenido.",
+          "reference": "https://man7.org/linux/man-pages/man1/less.1.html"
+        },
+        {
+          "id": "w08d3-q02",
+          "prompt": "¿Qué hace cat uno.txt dos.txt sin redirección?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Renombra ambos a un archivo único."
+            },
+            {
+              "id": "b",
+              "text": "Emite sus contenidos en el orden indicado."
+            },
+            {
+              "id": "c",
+              "text": "Busca solo archivos con extensión txt."
+            },
+            {
+              "id": "d",
+              "text": "Cambia sus permisos a lectura pública."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "cat concatena contenido hacia la salida; no mueve los archivos.",
+          "reference": "https://man7.org/linux/man-pages/man1/cat.1.html"
+        },
+        {
+          "id": "w08d3-q03",
+          "prompt": "¿Qué localiza grep -n 'ERROR' app.log?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Líneas coincidentes con sus números de línea."
+            },
+            {
+              "id": "b",
+              "text": "Archivos por su fecha de creación."
+            },
+            {
+              "id": "c",
+              "text": "Solo directorios llamados ERROR."
+            },
+            {
+              "id": "d",
+              "text": "Una lista de procesos fallidos."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "-n añade números de línea a las coincidencias del contenido.",
+          "reference": "https://man7.org/linux/man-pages/man1/grep.1.html"
+        },
+        {
+          "id": "w08d3-q04",
+          "prompt": "¿Qué efecto tiene grep -i 'alerta' datos.txt?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Invierte todas las coincidencias."
+            },
+            {
+              "id": "b",
+              "text": "Ignora diferencias de mayúsculas al comparar."
+            },
+            {
+              "id": "c",
+              "text": "Busca solo nombres de archivos."
+            },
+            {
+              "id": "d",
+              "text": "Borra las líneas coincidentes."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "-i permite encontrar variaciones como Alerta y ALERTA.",
+          "reference": "https://man7.org/linux/man-pages/man1/grep.1.html"
+        },
+        {
+          "id": "w08d3-q05",
+          "prompt": "¿Qué busca find . -type f -name '*.log'?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Líneas del archivo . que contengan log."
+            },
+            {
+              "id": "b",
+              "text": "Archivos regulares con nombre terminado en .log bajo la ruta actual."
+            },
+            {
+              "id": "c",
+              "text": "Solo procesos con nombre log."
+            },
+            {
+              "id": "d",
+              "text": "Archivos en todo el sistema sin importar la ruta."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Find recorre la jerarquía y combina tipo y patrón de nombre.",
+          "reference": "https://man7.org/linux/man-pages/man1/find.1.html"
+        },
+        {
+          "id": "w08d3-q06",
+          "prompt": "¿Por qué se escribe '*.log' entre comillas en find?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para que el patrón sea una contraseña."
+            },
+            {
+              "id": "b",
+              "text": "Para convertirlo en una ruta absoluta."
+            },
+            {
+              "id": "c",
+              "text": "Para que find reciba el patrón sin expansión previa del shell."
+            },
+            {
+              "id": "d",
+              "text": "Para activar permisos administrativos."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las comillas evitan que el shell sustituya el comodín antes de ejecutar find.",
+          "reference": "https://man7.org/linux/man-pages/man1/find.1.html"
+        },
+        {
+          "id": "w08d3-q07",
+          "prompt": "¿Qué devuelve grep -v 'DEBUG' app.log?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la primera línea DEBUG."
+            },
+            {
+              "id": "b",
+              "text": "El archivo ordenado por fecha."
+            },
+            {
+              "id": "c",
+              "text": "Los nombres de todos los directorios."
+            },
+            {
+              "id": "d",
+              "text": "Las líneas que no coinciden con DEBUG."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "-v invierte la selección de líneas coincidentes.",
+          "reference": "https://man7.org/linux/man-pages/man1/grep.1.html"
+        },
+        {
+          "id": "w08d3-q08",
+          "prompt": "Un archivo se llama errores.log pero buscas la palabra caída dentro de él. ¿Qué operación corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "find . -name caída"
+            },
+            {
+              "id": "b",
+              "text": "ls caída errores.log"
+            },
+            {
+              "id": "c",
+              "text": "grep 'caída' errores.log"
+            },
+            {
+              "id": "d",
+              "text": "cd errores.log"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Grep busca contenido; find -name compara nombres de entradas.",
+          "reference": "https://man7.org/linux/man-pages/man1/grep.1.html"
+        }
+      ],
+      "challenge": {
+        "id": "w08d3-challenge",
+        "prompt": "Hay muchos .log bajo lab y necesitas líneas ALERTA sin distinguir mayúsculas en app.log. ¿Qué pareja de herramientas corresponde a las dos búsquedas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "grep para crear directorios y mv para leer líneas."
+          },
+          {
+            "id": "b",
+            "text": "chmod para nombres y ps para contenido."
+          },
+          {
+            "id": "c",
+            "text": "find para nombres .log y grep -i para líneas en app.log."
+          },
+          {
+            "id": "d",
+            "text": "man para borrar archivos y ls para filtrar texto interno."
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "Las búsquedas por entrada de archivos y por contenido usan criterios y herramientas diferentes.",
+        "reference": "https://man7.org/linux/man-pages/man1/grep.1.html"
+      }
+    },
+    {
+      "dayId": "w08d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w08d4-q01",
+          "prompt": "En -rw-r-----, ¿qué puede hacer el propietario con el archivo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Leer y ejecutar."
+            },
+            {
+              "id": "b",
+              "text": "Solo ejecutar."
+            },
+            {
+              "id": "c",
+              "text": "Cambiar automáticamente a root."
+            },
+            {
+              "id": "d",
+              "text": "Leer y escribir."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La primera terna rw- corresponde al propietario del archivo.",
+          "reference": "https://man7.org/linux/man-pages/man1/chmod.1.html"
+        },
+        {
+          "id": "w08d4-q02",
+          "prompt": "En -rw-r-----, ¿qué acceso tienen los demás usuarios fuera del grupo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Lectura y escritura."
+            },
+            {
+              "id": "b",
+              "text": "Solo ejecución."
+            },
+            {
+              "id": "c",
+              "text": "Ninguno por esos bits."
+            },
+            {
+              "id": "d",
+              "text": "Control total por defecto."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La última terna --- no concede operaciones a otros.",
+          "reference": "https://man7.org/linux/man-pages/man1/chmod.1.html"
+        },
+        {
+          "id": "w08d4-q03",
+          "prompt": "¿Qué establece chmod 640 notas.txt?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todos rwx."
+            },
+            {
+              "id": "b",
+              "text": "Propietario rw, grupo r, otros sin acceso."
+            },
+            {
+              "id": "c",
+              "text": "Propietario r, grupo rw, otros x."
+            },
+            {
+              "id": "d",
+              "text": "Propietario sin acceso, resto rw."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los dígitos octales suman lectura 4, escritura 2 y ejecución 1.",
+          "reference": "https://man7.org/linux/man-pages/man1/chmod.1.html"
+        },
+        {
+          "id": "w08d4-q04",
+          "prompt": "¿Qué hace chmod u+x script.sh?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Quita lectura a todos."
+            },
+            {
+              "id": "b",
+              "text": "Convierte al grupo en propietario."
+            },
+            {
+              "id": "c",
+              "text": "Ejecuta el archivo como root."
+            },
+            {
+              "id": "d",
+              "text": "Añade ejecución al propietario."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "u selecciona propietario y +x añade su bit de ejecución.",
+          "reference": "https://man7.org/linux/man-pages/man1/chmod.1.html"
+        },
+        {
+          "id": "w08d4-q05",
+          "prompt": "¿Qué permite normalmente el bit x sobre un directorio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Atravesarlo o buscar entradas por nombre si los demás permisos lo permiten."
+            },
+            {
+              "id": "b",
+              "text": "Editar automáticamente cada archivo contenido."
+            },
+            {
+              "id": "c",
+              "text": "Leer todos los archivos sin sus permisos."
+            },
+            {
+              "id": "d",
+              "text": "Conceder sudo a todos sus visitantes."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "En directorios, búsqueda y recorrido difieren de ejecutar un archivo.",
+          "reference": "https://man7.org/linux/man-pages/man1/chmod.1.html"
+        },
+        {
+          "id": "w08d4-q06",
+          "prompt": "¿Por qué no resolver un fallo de acceso con chmod 777 sobre todo el laboratorio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El modo 777 bloquea todo acceso."
+            },
+            {
+              "id": "b",
+              "text": "Todos los archivos necesitan siempre ese modo."
+            },
+            {
+              "id": "c",
+              "text": "Ese comando solo cambia el nombre de la carpeta."
+            },
+            {
+              "id": "d",
+              "text": "Concede escritura y ejecución a más identidades de las necesarias."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Debe diagnosticarse la operación requerida y conceder solo los permisos necesarios.",
+          "reference": "https://man7.org/linux/man-pages/man1/chmod.1.html"
+        },
+        {
+          "id": "w08d4-q07",
+          "prompt": "¿Qué indica la columna de grupo en ls -l?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El grupo asociado al archivo para evaluar sus bits de grupo."
+            },
+            {
+              "id": "b",
+              "text": "Una lista de todos los usuarios conectados."
+            },
+            {
+              "id": "c",
+              "text": "La contraseña que permite leerlo."
+            },
+            {
+              "id": "d",
+              "text": "El grupo del último navegador abierto."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La identidad de grupo y los bits del archivo forman parte de la decisión de acceso.",
+          "reference": "https://man7.org/linux/man-pages/man1/chmod.1.html"
+        },
+        {
+          "id": "w08d4-q08",
+          "prompt": "¿Qué hace sudo comando cuando la política lo autoriza?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambia todos los archivos a permisos públicos."
+            },
+            {
+              "id": "b",
+              "text": "Convierte permanentemente cada usuario en root."
+            },
+            {
+              "id": "c",
+              "text": "Ignora cualquier política y auditoría."
+            },
+            {
+              "id": "d",
+              "text": "Ejecuta ese comando como otro usuario, por defecto root."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Sudo controla una ejecución autorizada; no concede privilegios universales permanentes.",
+          "reference": "https://man7.org/linux/man-pages/man8/sudo.8.html"
+        }
+      ],
+      "challenge": {
+        "id": "w08d4-challenge",
+        "prompt": "notas.txt tiene modo 600. Su propietario quiere compartir lectura con su grupo y mantener escritura solo para sí. ¿Qué modo encaja?",
+        "options": [
+          {
+            "id": "a",
+            "text": "640."
+          },
+          {
+            "id": "b",
+            "text": "666."
+          },
+          {
+            "id": "c",
+            "text": "777."
+          },
+          {
+            "id": "d",
+            "text": "460."
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "640 conserva rw para propietario, concede r al grupo y no concede acceso a otros.",
+        "reference": "https://man7.org/linux/man-pages/man1/chmod.1.html"
+      }
+    },
+    {
+      "dayId": "w08d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w08d5-q01",
+          "prompt": "¿Qué identifica el PID mostrado por ps?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El número de versión de Linux."
+            },
+            {
+              "id": "b",
+              "text": "Una instancia de proceso en ese momento."
+            },
+            {
+              "id": "c",
+              "text": "Un permiso de lectura del archivo."
+            },
+            {
+              "id": "d",
+              "text": "La dirección de la carpeta personal."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El PID permite referirse a una instancia; puede reutilizarse después de terminar el proceso.",
+          "reference": "https://man7.org/linux/man-pages/man1/ps.1.html"
+        },
+        {
+          "id": "w08d5-q02",
+          "prompt": "¿Qué muestra normalmente ps -ef?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo archivos ejecutables del escritorio."
+            },
+            {
+              "id": "b",
+              "text": "Una lista amplia de procesos en formato completo."
+            },
+            {
+              "id": "c",
+              "text": "Todas las contraseñas de servicios."
+            },
+            {
+              "id": "d",
+              "text": "Un historial permanente de procesos eliminados."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "ps consulta procesos existentes; sus opciones determinan selección y formato.",
+          "reference": "https://man7.org/linux/man-pages/man1/ps.1.html"
+        },
+        {
+          "id": "w08d5-q03",
+          "prompt": "¿Por qué no basta el nombre para distinguir dos procesos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Linux prohíbe procesos con nombres iguales."
+            },
+            {
+              "id": "b",
+              "text": "El nombre incluye siempre una contraseña única."
+            },
+            {
+              "id": "c",
+              "text": "Todos los procesos de un usuario tienen el mismo PID."
+            },
+            {
+              "id": "d",
+              "text": "Pueden existir varias instancias con el mismo nombre."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El PID ayuda a distinguir instancias que comparten programa o nombre.",
+          "reference": "https://man7.org/linux/man-pages/man1/ps.1.html"
+        },
+        {
+          "id": "w08d5-q04",
+          "prompt": "¿Cómo abrir el manual de ps?",
+          "options": [
+            {
+              "id": "a",
+              "text": "man ps"
+            },
+            {
+              "id": "b",
+              "text": "ps --install-man"
+            },
+            {
+              "id": "c",
+              "text": "sudo ps manual"
+            },
+            {
+              "id": "d",
+              "text": "cd man/ps"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "man consulta la página disponible para el nombre indicado.",
+          "reference": "https://man7.org/linux/man-pages/man1/man.1.html"
+        },
+        {
+          "id": "w08d5-q05",
+          "prompt": "¿Qué indica el número en chmod(1)?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La cantidad de archivos que puede cambiar."
+            },
+            {
+              "id": "b",
+              "text": "Una versión obligatoria del sistema."
+            },
+            {
+              "id": "c",
+              "text": "El primer usuario que ejecutó el programa."
+            },
+            {
+              "id": "d",
+              "text": "La sección del manual, aquí comandos de usuario."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las secciones del manual distinguen tipos de entradas y nombres repetidos.",
+          "reference": "https://man7.org/linux/man-pages/man1/man.1.html"
+        },
+        {
+          "id": "w08d5-q06",
+          "prompt": "En un sistema con systemd, ¿qué consulta el estado de ssh sin detenerlo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "systemctl stop ssh"
+            },
+            {
+              "id": "b",
+              "text": "systemctl disable --now ssh"
+            },
+            {
+              "id": "c",
+              "text": "systemctl status ssh"
+            },
+            {
+              "id": "d",
+              "text": "systemctl mask ssh"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Status consulta; stop, disable y mask son operaciones con efectos distintos.",
+          "reference": "https://www.freedesktop.org/software/systemd/man/latest/systemctl.html"
+        },
+        {
+          "id": "w08d5-q07",
+          "prompt": "Un proceso figura en ps. ¿Qué no demuestra eso por sí solo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que existe una instancia en la consulta."
+            },
+            {
+              "id": "b",
+              "text": "Que puede haber un PID asociado."
+            },
+            {
+              "id": "c",
+              "text": "Que el servicio responda correctamente a solicitudes."
+            },
+            {
+              "id": "d",
+              "text": "Que el sistema muestra información del proceso."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Presencia de proceso y disponibilidad funcional del servicio requieren comprobaciones diferentes.",
+          "reference": "https://man7.org/linux/man-pages/man1/ps.1.html"
+        },
+        {
+          "id": "w08d5-q08",
+          "prompt": "No conoces el efecto de una opción de ps. ¿Qué fuente consultar primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una opción parecida de otro programa sin contrastar."
+            },
+            {
+              "id": "b",
+              "text": "La contraseña del propietario del proceso."
+            },
+            {
+              "id": "c",
+              "text": "Su manual y la ayuda de la versión instalada."
+            },
+            {
+              "id": "d",
+              "text": "Un nombre de archivo elegido al azar."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La documentación local explica las opciones del comando realmente disponible.",
+          "reference": "https://man7.org/linux/man-pages/man1/man.1.html"
+        }
+      ],
+      "challenge": {
+        "id": "w08d5-challenge",
+        "prompt": "Un proceso de servidor aparece con PID 2150, pero sus usuarios reciben errores. ¿Qué interpretación y próximo paso es correcto?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El PID prueba que cualquier petición del servicio funciona."
+          },
+          {
+            "id": "b",
+            "text": "Hay que terminar todos los procesos sin consultar información."
+          },
+          {
+            "id": "c",
+            "text": "Existe el proceso; revisar estado, registros y prueba funcional del servicio."
+          },
+          {
+            "id": "d",
+            "text": "Cambiar permisos de todos los ejecutables a 777."
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La existencia de un proceso es una observación parcial y no garantiza disponibilidad de la aplicación.",
+        "reference": "https://man7.org/linux/man-pages/man1/ps.1.html"
+      }
+    },
+    {
+      "dayId": "w08d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w08d6-q01",
+          "prompt": "Un alumno confunde ruta absoluta y relativa en ambos sistemas. ¿Qué nuevo ejercicio muestra comprensión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Copiar una única ruta sin identificar desde dónde se ejecuta."
+            },
+            {
+              "id": "b",
+              "text": "Cambiar el tema del escritorio de ambos sistemas."
+            },
+            {
+              "id": "c",
+              "text": "Resolver la misma ruta relativa desde dos ubicaciones y explicar el cambio."
+            },
+            {
+              "id": "d",
+              "text": "Memorizar un solo nombre de carpeta."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Cambiar el directorio de partida obliga a razonar cómo se resuelve una ruta relativa.",
+          "reference": "https://man7.org/linux/man-pages/man7/hier.7.html"
+        },
+        {
+          "id": "w08d6-q02",
+          "prompt": "Se copia un archivo de prueba con cp. ¿Qué comprueba la diferencia frente a mv?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Confirmar solo que la terminal está abierta."
+            },
+            {
+              "id": "b",
+              "text": "Verificar que origen y copia existen tras cp."
+            },
+            {
+              "id": "c",
+              "text": "Cambiar los permisos del disco completo."
+            },
+            {
+              "id": "d",
+              "text": "Usar sudo para cualquier operación de lectura."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Copiar conserva el origen; mover puede cambiar su ubicación o nombre.",
+          "reference": "https://man7.org/linux/man-pages/man1/cp.1.html"
+        },
+        {
+          "id": "w08d6-q03",
+          "prompt": "La prueba pide lectura, pero el usuario usó administrador. ¿Qué debe repetirse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la captura con un título distinto."
+            },
+            {
+              "id": "b",
+              "text": "La lectura del manual sin tocar el recurso."
+            },
+            {
+              "id": "c",
+              "text": "La operación con la cuenta prevista y su contexto estándar."
+            },
+            {
+              "id": "d",
+              "text": "Toda la instalación del sistema sin causa."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El contexto administrativo no demuestra los permisos de la identidad que se quería evaluar.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+        },
+        {
+          "id": "w08d6-q04",
+          "prompt": "Un CSV de PowerShell tiene propiedades de formato. ¿Qué laguna conviene reforzar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Diferencia entre IP pública y privada."
+            },
+            {
+              "id": "b",
+              "text": "El orden alfabético de extensiones."
+            },
+            {
+              "id": "c",
+              "text": "El tamaño de los iconos de carpetas."
+            },
+            {
+              "id": "d",
+              "text": "Diferencia entre objetos de datos y presentación con Format-Table."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La exportación debe recibir objetos con propiedades útiles antes de aplicar formato visual.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/export-csv"
+        },
+        {
+          "id": "w08d6-q05",
+          "prompt": "Una búsqueda por nombre localizó informe.txt pero no probó su contenido. ¿Qué añadir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una consulta del contenido con grep u otra herramienta de lectura."
+            },
+            {
+              "id": "b",
+              "text": "Otro cambio de nombre del mismo archivo."
+            },
+            {
+              "id": "c",
+              "text": "Una elevación que cambie permisos de todos los usuarios."
+            },
+            {
+              "id": "d",
+              "text": "Una lista de procesos sin relación con el archivo."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Buscar nombres y buscar líneas son tareas distintas.",
+          "reference": "https://man7.org/linux/man-pages/man1/grep.1.html"
+        },
+        {
+          "id": "w08d6-q06",
+          "prompt": "¿Qué registro permite elegir tres lagunas reales de semanas anteriores?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el número de horas con la terminal abierta."
+            },
+            {
+              "id": "b",
+              "text": "Una lista de capítulos sin resultados."
+            },
+            {
+              "id": "c",
+              "text": "Errores observados, causa probable y nueva tarea para comprobar la corrección."
+            },
+            {
+              "id": "d",
+              "text": "Un certificado de asistencia sin pruebas."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El refuerzo debe partir de dificultades demostradas y cerrar cada una con una nueva comprobación.",
+          "reference": "https://man7.org/linux/man-pages/man7/hier.7.html"
+        },
+        {
+          "id": "w08d6-q07",
+          "prompt": "El primer intento falló y el segundo funcionó con otra ruta. ¿Qué explicación documentar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo que el segundo intento tuvo suerte."
+            },
+            {
+              "id": "b",
+              "text": "Que cualquier comando sirve desde cualquier ubicación."
+            },
+            {
+              "id": "c",
+              "text": "Que ya no hace falta conservar la sintaxis."
+            },
+            {
+              "id": "d",
+              "text": "Qué cambió, por qué afectó al resultado y cómo se comprobó el destino."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Comparar los contextos identifica la causa y hace reproducible la corrección.",
+          "reference": "https://man7.org/linux/man-pages/man7/hier.7.html"
+        },
+        {
+          "id": "w08d6-q08",
+          "prompt": "¿Qué evidencia apoya progreso tras repetir una tarea de terminal?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una tarea equivalente nueva resuelta y explicada sin copiar la solución."
+            },
+            {
+              "id": "b",
+              "text": "Repetir exactamente la salida memorizada."
+            },
+            {
+              "id": "c",
+              "text": "Borrar el error anterior del cuaderno."
+            },
+            {
+              "id": "d",
+              "text": "Declarar dominado el tema por reconocer su nombre."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La transferencia a un caso nuevo comprueba comprensión más allá de recordar una secuencia.",
+          "reference": "https://man7.org/linux/man-pages/man7/hier.7.html"
+        }
+      ],
+      "challenge": {
+        "id": "w08d6-challenge",
+        "prompt": "Tu refuerzo selecciona rutas, permisos y exportación. ¿Qué entrega demuestra más que repetir apuntes?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Tres capturas del manual sin operaciones."
+          },
+          {
+            "id": "b",
+            "text": "La misma salida antigua copiada tres veces."
+          },
+          {
+            "id": "c",
+            "text": "Una lista de contraseñas para facilitar la revisión."
+          },
+          {
+            "id": "d",
+            "text": "Tres casos nuevos con comando, resultado y explicación de cada corrección."
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "Las tareas equivalentes nuevas permiten comprobar que el aprendizaje se transfiere a otros datos.",
+        "reference": "https://man7.org/linux/man-pages/man1/man.1.html"
+      }
+    },
+    {
+      "dayId": "w08d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w08d7-q01",
+          "prompt": "¿Qué representa / en una ruta Linux?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El directorio personal de todos los usuarios."
+            },
+            {
+              "id": "b",
+              "text": "Una unidad llamada C obligatoriamente."
+            },
+            {
+              "id": "c",
+              "text": "El último archivo abierto."
+            },
+            {
+              "id": "d",
+              "text": "La raíz de la jerarquía de archivos."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La jerarquía Linux parte de /; no corresponde a una letra de unidad.",
+          "reference": "https://man7.org/linux/man-pages/man7/hier.7.html",
+          "reviewOf": "w08d1-q01"
+        },
+        {
+          "id": "w08d7-q02",
+          "prompt": "¿Qué hace mkdir -p lab/notas si no existe lab?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Copia un archivo llamado notas."
+            },
+            {
+              "id": "b",
+              "text": "Crea los directorios necesarios de la ruta."
+            },
+            {
+              "id": "c",
+              "text": "Borra el directorio padre."
+            },
+            {
+              "id": "d",
+              "text": "Cambia automáticamente a notas."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "-p crea padres necesarios y permite preparar una jerarquía.",
+          "reference": "https://man7.org/linux/man-pages/man1/ls.1.html",
+          "reviewOf": "w08d2-q01"
+        },
+        {
+          "id": "w08d7-q03",
+          "prompt": "¿Qué herramienta permite recorrer un archivo largo sin imprimirlo completo de una vez?",
+          "options": [
+            {
+              "id": "a",
+              "text": "less archivo.log"
+            },
+            {
+              "id": "b",
+              "text": "mkdir archivo.log"
+            },
+            {
+              "id": "c",
+              "text": "mv archivo.log"
+            },
+            {
+              "id": "d",
+              "text": "chmod archivo.log"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "less ofrece paginación y navegación del contenido.",
+          "reference": "https://man7.org/linux/man-pages/man1/less.1.html",
+          "reviewOf": "w08d3-q01"
+        },
+        {
+          "id": "w08d7-q04",
+          "prompt": "En -rw-r-----, ¿qué puede hacer el propietario con el archivo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Leer y ejecutar."
+            },
+            {
+              "id": "b",
+              "text": "Solo ejecutar."
+            },
+            {
+              "id": "c",
+              "text": "Cambiar automáticamente a root."
+            },
+            {
+              "id": "d",
+              "text": "Leer y escribir."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La primera terna rw- corresponde al propietario del archivo.",
+          "reference": "https://man7.org/linux/man-pages/man1/chmod.1.html",
+          "reviewOf": "w08d4-q01"
+        },
+        {
+          "id": "w08d7-q05",
+          "prompt": "¿Qué identifica el PID mostrado por ps?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El número de versión de Linux."
+            },
+            {
+              "id": "b",
+              "text": "Una instancia de proceso en ese momento."
+            },
+            {
+              "id": "c",
+              "text": "Un permiso de lectura del archivo."
+            },
+            {
+              "id": "d",
+              "text": "La dirección de la carpeta personal."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El PID permite referirse a una instancia; puede reutilizarse después de terminar el proceso.",
+          "reference": "https://man7.org/linux/man-pages/man1/ps.1.html",
+          "reviewOf": "w08d5-q01"
+        },
+        {
+          "id": "w08d7-q06",
+          "prompt": "Un alumno confunde ruta absoluta y relativa en ambos sistemas. ¿Qué nuevo ejercicio muestra comprensión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Copiar una única ruta sin identificar desde dónde se ejecuta."
+            },
+            {
+              "id": "b",
+              "text": "Cambiar el tema del escritorio de ambos sistemas."
+            },
+            {
+              "id": "c",
+              "text": "Resolver la misma ruta relativa desde dos ubicaciones y explicar el cambio."
+            },
+            {
+              "id": "d",
+              "text": "Memorizar un solo nombre de carpeta."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Cambiar el directorio de partida obliga a razonar cómo se resuelve una ruta relativa.",
+          "reference": "https://man7.org/linux/man-pages/man7/hier.7.html",
+          "reviewOf": "w08d6-q01"
+        },
+        {
+          "id": "w08d7-q07",
+          "prompt": "¿Dónde suele estar el directorio personal de ana?",
+          "options": [
+            {
+              "id": "a",
+              "text": "/etc/ana"
+            },
+            {
+              "id": "b",
+              "text": "/var/root/ana"
+            },
+            {
+              "id": "c",
+              "text": "/tmp/kernel/ana"
+            },
+            {
+              "id": "d",
+              "text": "/home/ana"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "/home suele contener los directorios personales de usuarios ordinarios.",
+          "reference": "https://man7.org/linux/man-pages/man7/hier.7.html",
+          "reviewOf": "w08d1-q02"
+        },
+        {
+          "id": "w08d7-q08",
+          "prompt": "¿Qué muestra ls -a que ls puede omitir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo procesos de administradores."
+            },
+            {
+              "id": "b",
+              "text": "Todas las contraseñas del usuario."
+            },
+            {
+              "id": "c",
+              "text": "Entradas cuyos nombres comienzan por punto."
+            },
+            {
+              "id": "d",
+              "text": "El contenido completo de cada archivo."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "-a incluye entradas ocultas por la convención de nombres que empiezan por punto.",
+          "reference": "https://man7.org/linux/man-pages/man1/ls.1.html",
+          "reviewOf": "w08d2-q02"
+        },
+        {
+          "id": "w08d7-q09",
+          "prompt": "¿Qué hace cat uno.txt dos.txt sin redirección?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Renombra ambos a un archivo único."
+            },
+            {
+              "id": "b",
+              "text": "Emite sus contenidos en el orden indicado."
+            },
+            {
+              "id": "c",
+              "text": "Busca solo archivos con extensión txt."
+            },
+            {
+              "id": "d",
+              "text": "Cambia sus permisos a lectura pública."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "cat concatena contenido hacia la salida; no mueve los archivos.",
+          "reference": "https://man7.org/linux/man-pages/man1/cat.1.html",
+          "reviewOf": "w08d3-q02"
+        },
+        {
+          "id": "w08d7-q10",
+          "prompt": "En -rw-r-----, ¿qué acceso tienen los demás usuarios fuera del grupo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Lectura y escritura."
+            },
+            {
+              "id": "b",
+              "text": "Solo ejecución."
+            },
+            {
+              "id": "c",
+              "text": "Ninguno por esos bits."
+            },
+            {
+              "id": "d",
+              "text": "Control total por defecto."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La última terna --- no concede operaciones a otros.",
+          "reference": "https://man7.org/linux/man-pages/man1/chmod.1.html",
+          "reviewOf": "w08d4-q02"
+        },
+        {
+          "id": "w08d7-q11",
+          "prompt": "¿Qué muestra normalmente ps -ef?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo archivos ejecutables del escritorio."
+            },
+            {
+              "id": "b",
+              "text": "Una lista amplia de procesos en formato completo."
+            },
+            {
+              "id": "c",
+              "text": "Todas las contraseñas de servicios."
+            },
+            {
+              "id": "d",
+              "text": "Un historial permanente de procesos eliminados."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "ps consulta procesos existentes; sus opciones determinan selección y formato.",
+          "reference": "https://man7.org/linux/man-pages/man1/ps.1.html",
+          "reviewOf": "w08d5-q02"
+        },
+        {
+          "id": "w08d7-q12",
+          "prompt": "Se copia un archivo de prueba con cp. ¿Qué comprueba la diferencia frente a mv?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Confirmar solo que la terminal está abierta."
+            },
+            {
+              "id": "b",
+              "text": "Verificar que origen y copia existen tras cp."
+            },
+            {
+              "id": "c",
+              "text": "Cambiar los permisos del disco completo."
+            },
+            {
+              "id": "d",
+              "text": "Usar sudo para cualquier operación de lectura."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Copiar conserva el origen; mover puede cambiar su ubicación o nombre.",
+          "reference": "https://man7.org/linux/man-pages/man1/cp.1.html",
+          "reviewOf": "w08d6-q02"
+        },
+        {
+          "id": "w08d7-q13",
+          "prompt": "¿Qué tipo de contenido suele encontrarse en /etc?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo archivos personales de invitados."
+            },
+            {
+              "id": "b",
+              "text": "Configuración del sistema."
+            },
+            {
+              "id": "c",
+              "text": "Únicamente memoria de procesos activos."
+            },
+            {
+              "id": "d",
+              "text": "Copias de cada descarga de internet."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "/etc se destina a configuración específica del sistema.",
+          "reference": "https://man7.org/linux/man-pages/man7/hier.7.html",
+          "reviewOf": "w08d1-q03"
+        },
+        {
+          "id": "w08d7-q14",
+          "prompt": "Existe a.txt y no existe b.txt. ¿Qué hace cp a.txt b.txt?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Crea una copia b.txt conservando a.txt."
+            },
+            {
+              "id": "b",
+              "text": "Renombra a.txt y elimina su nombre anterior."
+            },
+            {
+              "id": "c",
+              "text": "Mueve ambos archivos a /tmp."
+            },
+            {
+              "id": "d",
+              "text": "Comprime automáticamente a.txt."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "cp copia datos; el origen continúa existiendo.",
+          "reference": "https://man7.org/linux/man-pages/man1/cp.1.html",
+          "reviewOf": "w08d2-q03"
+        },
+        {
+          "id": "w08d7-q15",
+          "prompt": "¿Qué localiza grep -n 'ERROR' app.log?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Líneas coincidentes con sus números de línea."
+            },
+            {
+              "id": "b",
+              "text": "Archivos por su fecha de creación."
+            },
+            {
+              "id": "c",
+              "text": "Solo directorios llamados ERROR."
+            },
+            {
+              "id": "d",
+              "text": "Una lista de procesos fallidos."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "-n añade números de línea a las coincidencias del contenido.",
+          "reference": "https://man7.org/linux/man-pages/man1/grep.1.html",
+          "reviewOf": "w08d3-q03"
+        },
+        {
+          "id": "w08d7-q16",
+          "prompt": "¿Qué establece chmod 640 notas.txt?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todos rwx."
+            },
+            {
+              "id": "b",
+              "text": "Propietario rw, grupo r, otros sin acceso."
+            },
+            {
+              "id": "c",
+              "text": "Propietario r, grupo rw, otros x."
+            },
+            {
+              "id": "d",
+              "text": "Propietario sin acceso, resto rw."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los dígitos octales suman lectura 4, escritura 2 y ejecución 1.",
+          "reference": "https://man7.org/linux/man-pages/man1/chmod.1.html",
+          "reviewOf": "w08d4-q03"
+        },
+        {
+          "id": "w08d7-q17",
+          "prompt": "¿Por qué no basta el nombre para distinguir dos procesos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Linux prohíbe procesos con nombres iguales."
+            },
+            {
+              "id": "b",
+              "text": "El nombre incluye siempre una contraseña única."
+            },
+            {
+              "id": "c",
+              "text": "Todos los procesos de un usuario tienen el mismo PID."
+            },
+            {
+              "id": "d",
+              "text": "Pueden existir varias instancias con el mismo nombre."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El PID ayuda a distinguir instancias que comparten programa o nombre.",
+          "reference": "https://man7.org/linux/man-pages/man1/ps.1.html",
+          "reviewOf": "w08d5-q03"
+        },
+        {
+          "id": "w08d7-q18",
+          "prompt": "La prueba pide lectura, pero el usuario usó administrador. ¿Qué debe repetirse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la captura con un título distinto."
+            },
+            {
+              "id": "b",
+              "text": "La lectura del manual sin tocar el recurso."
+            },
+            {
+              "id": "c",
+              "text": "La operación con la cuenta prevista y su contexto estándar."
+            },
+            {
+              "id": "d",
+              "text": "Toda la instalación del sistema sin causa."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El contexto administrativo no demuestra los permisos de la identidad que se quería evaluar.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control",
+          "reviewOf": "w08d6-q03"
+        },
+        {
+          "id": "w08d7-q19",
+          "prompt": "¿Qué ubicación suele albergar registros variables del sistema?",
+          "options": [
+            {
+              "id": "a",
+              "text": "/home/bin"
+            },
+            {
+              "id": "b",
+              "text": "/var/log"
+            },
+            {
+              "id": "c",
+              "text": "/etc/cpu"
+            },
+            {
+              "id": "d",
+              "text": "/boot/tmp"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "/var contiene datos variables; sus registros suelen estar bajo log.",
+          "reference": "https://man7.org/linux/man-pages/man7/hier.7.html",
+          "reviewOf": "w08d1-q04"
+        },
+        {
+          "id": "w08d7-q20",
+          "prompt": "¿Qué hace chmod u+x script.sh?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Quita lectura a todos."
+            },
+            {
+              "id": "b",
+              "text": "Convierte al grupo en propietario."
+            },
+            {
+              "id": "c",
+              "text": "Ejecuta el archivo como root."
+            },
+            {
+              "id": "d",
+              "text": "Añade ejecución al propietario."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "u selecciona propietario y +x añade su bit de ejecución.",
+          "reference": "https://man7.org/linux/man-pages/man1/chmod.1.html",
+          "reviewOf": "w08d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w08d7-challenge",
+        "prompt": "En un examen de etapa se copió en vez de mover y se probó acceso como root. ¿Qué revisión es necesaria?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Aceptar ambas tareas porque se abrió una terminal."
+          },
+          {
+            "id": "b",
+            "text": "Cambiar los nombres en las capturas para aparentar la operación."
+          },
+          {
+            "id": "c",
+            "text": "Repetir con archivo nuevo, distinguir existencia del origen y usar la identidad prevista."
+          },
+          {
+            "id": "d",
+            "text": "Reinstalar Linux sin comprobar qué ocurrió."
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La evidencia debe corresponder a la operación y al contexto exigidos; este caso solo evalúa la interpretación propuesta.",
+        "reference": "https://man7.org/linux/man-pages/man1/cp.1.html"
+      }
+    }
+  ]
+}

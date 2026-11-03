@@ -1,0 +1,2094 @@
+{
+  "week": 7,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w07d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w07d1-q01",
+          "prompt": "¿Qué distingue al kernel de una distribución Linux?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El kernel es solo la tienda de aplicaciones de Ubuntu."
+            },
+            {
+              "id": "b",
+              "text": "El kernel gestiona funciones centrales; la distribución integra además herramientas y paquetes."
+            },
+            {
+              "id": "c",
+              "text": "La distribución es únicamente el fondo del escritorio."
+            },
+            {
+              "id": "d",
+              "text": "Cada paquete contiene obligatoriamente un kernel completo."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una distribución combina el núcleo con herramientas, instalador, repositorios y decisiones de mantenimiento.",
+          "reference": "https://www.debian.org/doc/manuals/debian-faq/choosing.en.html"
+        },
+        {
+          "id": "w07d1-q02",
+          "prompt": "Ubuntu y Debian usan APT. ¿Qué no debe deducirse de ello?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que ambos tienen gestión de paquetes."
+            },
+            {
+              "id": "b",
+              "text": "Que se puedan mezclar sin revisión sus repositorios y paquetes."
+            },
+            {
+              "id": "c",
+              "text": "Que ambos distribuyen software en paquetes deb."
+            },
+            {
+              "id": "d",
+              "text": "Que conviene consultar su documentación específica."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Compartir herramientas no vuelve intercambiables los repositorios ni las versiones de todas las dependencias.",
+          "reference": "https://www.debian.org/doc/manuals/debian-faq/choosing.en.html"
+        },
+        {
+          "id": "w07d1-q03",
+          "prompt": "¿Qué criterio sirve para elegir una distribución de laboratorio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el nombre más llamativo de su edición."
+            },
+            {
+              "id": "b",
+              "text": "El mayor número posible de aplicaciones preinstaladas."
+            },
+            {
+              "id": "c",
+              "text": "Que permita omitir toda actualización de seguridad."
+            },
+            {
+              "id": "d",
+              "text": "Compatibilidad con el equipo y documentación de las tareas previstas."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La elección debe corresponder al entorno disponible y al uso que se quiere practicar.",
+          "reference": "https://www.debian.org/doc/manuals/debian-faq/choosing.en.html"
+        },
+        {
+          "id": "w07d1-q04",
+          "prompt": "¿Qué es un repositorio de paquetes de una distribución?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La memoria RAM reservada al escritorio."
+            },
+            {
+              "id": "b",
+              "text": "Una carpeta que contiene siempre todas las contraseñas."
+            },
+            {
+              "id": "c",
+              "text": "Una fuente organizada de software y metadatos para el gestor."
+            },
+            {
+              "id": "d",
+              "text": "Una copia exacta de todo sitio web visitado."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El gestor consulta repositorios para localizar versiones y dependencias de software.",
+          "reference": "https://www.debian.org/doc/manuals/debian-faq/choosing.en.html"
+        },
+        {
+          "id": "w07d1-q05",
+          "prompt": "Dos distribuciones muestran escritorios distintos. ¿Qué puede seguir siendo común?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Herramientas de terminal y conceptos del sistema Linux."
+            },
+            {
+              "id": "b",
+              "text": "Todos sus archivos de configuración sin excepción."
+            },
+            {
+              "id": "c",
+              "text": "Cada número de versión de sus paquetes."
+            },
+            {
+              "id": "d",
+              "text": "La compatibilidad garantizada de cualquier instalador."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La apariencia no determina todas las herramientas o conceptos del sistema subyacente.",
+          "reference": "https://www.debian.org/doc/manuals/debian-faq/choosing.en.html"
+        },
+        {
+          "id": "w07d1-q06",
+          "prompt": "¿Para qué registra una comparación la arquitectura de la imagen?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para calcular la contraseña del primer usuario."
+            },
+            {
+              "id": "b",
+              "text": "Para elegir el idioma del navegador únicamente."
+            },
+            {
+              "id": "c",
+              "text": "Para garantizar todos los controladores de cualquier ordenador."
+            },
+            {
+              "id": "d",
+              "text": "Para comprobar si corresponde al hardware o entorno virtual disponible."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La imagen debe ser compatible con la arquitectura admitida por el anfitrión y el hipervisor.",
+          "reference": "https://www.debian.org/doc/manuals/debian-faq/choosing.en.html"
+        },
+        {
+          "id": "w07d1-q07",
+          "prompt": "¿Qué dato ayuda a decidir si una edición sirve para aprender con ayuda oficial?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cantidad de anuncios de terceros que la mencionan."
+            },
+            {
+              "id": "b",
+              "text": "Disponibilidad de documentación y mantenimiento para esa edición."
+            },
+            {
+              "id": "c",
+              "text": "Que no publique notas sobre problemas conocidos."
+            },
+            {
+              "id": "d",
+              "text": "Que exija ejecutar instrucciones desconocidas como root."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El soporte documental y el mantenimiento facilitan prácticas recuperables y correcciones fundamentadas.",
+          "reference": "https://www.debian.org/doc/manuals/debian-faq/choosing.en.html"
+        },
+        {
+          "id": "w07d1-q08",
+          "prompt": "¿Qué comparación entre dos distribuciones es más comprobable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una es siempre segura y la otra nunca lo es."
+            },
+            {
+              "id": "b",
+              "text": "La que usa más colores consume siempre menos memoria."
+            },
+            {
+              "id": "c",
+              "text": "Todas las distribuciones se instalan igual en cualquier dispositivo."
+            },
+            {
+              "id": "d",
+              "text": "Gestor de paquetes, requisitos y funciones necesarias para el curso."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Criterios observables evitan juicios absolutos que no describen la idoneidad para el laboratorio.",
+          "reference": "https://www.debian.org/doc/manuals/debian-faq/choosing.en.html"
+        }
+      ],
+      "challenge": {
+        "id": "w07d1-challenge",
+        "prompt": "Se comparan Ubuntu y Debian para una VM pequeña. El informe solo dice que Ubuntu tiene mejor aspecto. ¿Qué dato faltante permite decidir con criterio?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Recursos requeridos, mantenimiento y herramientas necesarias para las tareas."
+          },
+          {
+            "id": "b",
+            "text": "El número de letras de cada nombre."
+          },
+          {
+            "id": "c",
+            "text": "La cantidad de fondos de pantalla disponibles."
+          },
+          {
+            "id": "d",
+            "text": "La popularidad del icono en redes sociales."
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La comparación debe relacionar capacidades y requisitos con el uso previsto.",
+        "reference": "https://www.debian.org/doc/manuals/debian-faq/choosing.en.html"
+      }
+    },
+    {
+      "dayId": "w07d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w07d2-q01",
+          "prompt": "En Windows ejecutas Ubuntu dentro de VirtualBox. ¿Cuál es el invitado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Windows por tener el disco físico."
+            },
+            {
+              "id": "b",
+              "text": "Ubuntu dentro de la máquina virtual."
+            },
+            {
+              "id": "c",
+              "text": "El monitor donde se abre VirtualBox."
+            },
+            {
+              "id": "d",
+              "text": "La aplicación del navegador del anfitrión."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El invitado es el sistema que se ejecuta dentro de la máquina virtual.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/Introduction.html"
+        },
+        {
+          "id": "w07d2-q02",
+          "prompt": "Asignas 4 GB a una VM en un equipo de 8 GB. ¿Qué debes considerar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que la VM crea 4 GB de RAM física nueva."
+            },
+            {
+              "id": "b",
+              "text": "Que el anfitrión ya no necesita memoria al abrir la VM."
+            },
+            {
+              "id": "c",
+              "text": "Que cualquier asignación garantiza buen rendimiento."
+            },
+            {
+              "id": "d",
+              "text": "La memoria que necesitan también el anfitrión y otras aplicaciones."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los recursos asignados al invitado compiten con las necesidades del sistema anfitrión.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/Introduction.html"
+        },
+        {
+          "id": "w07d2-q03",
+          "prompt": "¿Qué representa normalmente el disco virtual?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un almacenamiento del invitado respaldado por archivos en el anfitrión."
+            },
+            {
+              "id": "b",
+              "text": "Un segundo disco físico que aparece por sí solo."
+            },
+            {
+              "id": "c",
+              "text": "La memoria de vídeo del monitor."
+            },
+            {
+              "id": "d",
+              "text": "Una copia automática independiente de todos los discos reales."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los discos virtuales consumen almacenamiento real y necesitan espacio y protección apropiados.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/Introduction.html"
+        },
+        {
+          "id": "w07d2-q04",
+          "prompt": "Un disco virtual crece dinámicamente. ¿Qué límite sigue siendo relevante?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la longitud del nombre de la VM."
+            },
+            {
+              "id": "b",
+              "text": "El espacio libre real del anfitrión."
+            },
+            {
+              "id": "c",
+              "text": "El número de iconos del escritorio."
+            },
+            {
+              "id": "d",
+              "text": "La velocidad del ratón del invitado."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La capacidad virtual máxima no garantiza que exista espacio físico suficiente para llenarla.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/Introduction.html"
+        },
+        {
+          "id": "w07d2-q05",
+          "prompt": "El equipo no puede sostener una VM de escritorio. ¿Qué alternativa merece evaluar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Asignar a la VM más RAM que la disponible."
+            },
+            {
+              "id": "b",
+              "text": "Sustituir el sistema principal sin copia para ahorrar tiempo."
+            },
+            {
+              "id": "c",
+              "text": "Desactivar la recuperación del anfitrión."
+            },
+            {
+              "id": "d",
+              "text": "Un entorno alojado autorizado o una instalación virtual más ligera."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La alternativa debe ajustarse a recursos y objetivos, describiendo sus límites de acceso y recuperación.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/Introduction.html"
+        },
+        {
+          "id": "w07d2-q06",
+          "prompt": "¿Por qué anotar CPU, RAM y almacenamiento asignados?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para reproducir y ajustar el laboratorio."
+            },
+            {
+              "id": "b",
+              "text": "Para que el invitado adquiera permisos en toda la red."
+            },
+            {
+              "id": "c",
+              "text": "Para eliminar la necesidad de actualizar software."
+            },
+            {
+              "id": "d",
+              "text": "Para que la VM no use recursos físicos."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La configuración de recursos afecta a la ejecución y es parte de las instrucciones de reconstrucción.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/Introduction.html"
+        },
+        {
+          "id": "w07d2-q07",
+          "prompt": "Una VM se vuelve lenta mientras el anfitrión usa casi toda la memoria. ¿Qué revisar primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La contraseña del usuario de Linux."
+            },
+            {
+              "id": "b",
+              "text": "El nombre del archivo ISO solamente."
+            },
+            {
+              "id": "c",
+              "text": "Carga conjunta y asignación de memoria disponible."
+            },
+            {
+              "id": "d",
+              "text": "Los permisos de lectura del manual."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La presión de recursos del anfitrión puede limitar al invitado aunque este esté bien instalado.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/Introduction.html"
+        },
+        {
+          "id": "w07d2-q08",
+          "prompt": "¿Qué diferencia una VM completa de una ventana de terminal?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La VM ejecuta un sistema invitado; la terminal es una interfaz de interacción."
+            },
+            {
+              "id": "b",
+              "text": "La terminal siempre incluye un sistema operativo independiente."
+            },
+            {
+              "id": "c",
+              "text": "Toda terminal reserva un disco virtual completo."
+            },
+            {
+              "id": "d",
+              "text": "La VM es únicamente un tipo de texto en pantalla."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una terminal puede conectar con distintos entornos; su ventana no prueba por sí sola que exista una VM.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/Introduction.html"
+        }
+      ],
+      "challenge": {
+        "id": "w07d2-challenge",
+        "prompt": "Un portátil de 8 GB mantiene aplicaciones de trabajo y dos VMs de 4 GB cada una. Se vuelve inestable. ¿Qué ajuste probar primero?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Asignar 8 GB adicionales a cada VM por configuración."
+          },
+          {
+            "id": "b",
+            "text": "Cambiar el nombre de las VMs para reducir consumo."
+          },
+          {
+            "id": "c",
+            "text": "Eliminar el disco de recuperación del anfitrión."
+          },
+          {
+            "id": "d",
+            "text": "Reducir carga simultánea y ajustar recursos dejando margen al anfitrión."
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "Las asignaciones no crean memoria física; el anfitrión también necesita recursos.",
+        "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/Introduction.html"
+      }
+    },
+    {
+      "dayId": "w07d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w07d3-q01",
+          "prompt": "Una VM usa NAT predeterminado sin reenvío de puertos. ¿Qué comunicación suele facilitar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cualquier conexión entrante desde internet a todos sus servicios."
+            },
+            {
+              "id": "b",
+              "text": "La publicación automática de todos los puertos del invitado."
+            },
+            {
+              "id": "c",
+              "text": "Conexiones salientes del invitado a través del anfitrión."
+            },
+            {
+              "id": "d",
+              "text": "La ausencia total de acceso a redes externas."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "NAT permite salida; las conexiones entrantes requieren configuración y controles adicionales.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/networkingdetails.html"
+        },
+        {
+          "id": "w07d3-q02",
+          "prompt": "¿Qué cambia al seleccionar adaptador puente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El invitado queda aislado de toda red física."
+            },
+            {
+              "id": "b",
+              "text": "Todos sus servicios se vuelven invisibles al resto de equipos."
+            },
+            {
+              "id": "c",
+              "text": "El disco virtual pasa a ser memoria RAM."
+            },
+            {
+              "id": "d",
+              "text": "La VM participa en la red conectada al adaptador físico."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El puente sitúa al invitado en la red física y exige revisar la exposición de sus servicios.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/networkingdetails.html"
+        },
+        {
+          "id": "w07d3-q03",
+          "prompt": "Dos VMs se conectan a una misma red interna de VirtualBox. ¿Qué se espera sin otros adaptadores?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Acceso directo desde cualquier equipo de internet."
+            },
+            {
+              "id": "b",
+              "text": "Conectividad obligatoria con el anfitrión mediante esa red interna."
+            },
+            {
+              "id": "c",
+              "text": "Comunicación entre ellas sin salida externa por esa red."
+            },
+            {
+              "id": "d",
+              "text": "Publicación automática en la red Wi-Fi de casa."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La red interna conecta invitados del mismo segmento virtual sin añadir por sí sola conectividad externa.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/networkingdetails.html"
+        },
+        {
+          "id": "w07d3-q04",
+          "prompt": "¿Qué distingue host-only de red interna en VirtualBox?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Host-only siempre publica servicios en internet."
+            },
+            {
+              "id": "b",
+              "text": "La red interna necesita siempre una interfaz física real."
+            },
+            {
+              "id": "c",
+              "text": "Host-only permite también conectar el anfitrión a ese segmento."
+            },
+            {
+              "id": "d",
+              "text": "Ambos modos proporcionan internet por defecto."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El anfitrión participa en host-only; en una red interna pura solo lo hacen las VMs conectadas.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/networkingdetails.html"
+        },
+        {
+          "id": "w07d3-q05",
+          "prompt": "Una VM tiene red interna y un segundo adaptador NAT. ¿Qué afirmación es correcta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La red interna anula siempre todos los demás adaptadores."
+            },
+            {
+              "id": "b",
+              "text": "Puede disponer de salida externa por NAT pese a usar red interna."
+            },
+            {
+              "id": "c",
+              "text": "Dos adaptadores garantizan aislamiento completo."
+            },
+            {
+              "id": "d",
+              "text": "NAT elimina la necesidad de dibujar la segunda interfaz."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El aislamiento se evalúa sobre todos los adaptadores y rutas disponibles.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/networkingdetails.html"
+        },
+        {
+          "id": "w07d3-q06",
+          "prompt": "¿Por qué un diagrama debe mostrar nombres de redes internas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El nombre establece automáticamente la contraseña root."
+            },
+            {
+              "id": "b",
+              "text": "Cada nombre concede una IP pública única."
+            },
+            {
+              "id": "c",
+              "text": "Las redes internas ignoran qué VMs están conectadas."
+            },
+            {
+              "id": "d",
+              "text": "Las VMs deben coincidir en el segmento virtual que se quiere compartir."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El segmento elegido determina qué adaptadores virtuales comparten el mismo dominio de enlace.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/networkingdetails.html"
+        },
+        {
+          "id": "w07d3-q07",
+          "prompt": "Se requiere una práctica entre dos VMs sin acceso a la red doméstica. ¿Qué diseño inicial encaja?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Puente en ambas VMs sobre la Wi-Fi doméstica."
+            },
+            {
+              "id": "b",
+              "text": "Solo un adaptador de red interna común en cada VM."
+            },
+            {
+              "id": "c",
+              "text": "NAT más todos los puertos reenviados a ambas VMs."
+            },
+            {
+              "id": "d",
+              "text": "Cualquier modo porque todos aíslan igual."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una red interna limita el segmento de práctica; deben comprobarse adaptadores adicionales y recursos compartidos.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/networkingdetails.html"
+        },
+        {
+          "id": "w07d3-q08",
+          "prompt": "NAT está activo. ¿Por qué no basta para declarar seguro todo experimento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No bloquea por sí mismo toda salida ni todos los canales compartidos."
+            },
+            {
+              "id": "b",
+              "text": "NAT impide ejecutar cualquier programa en el invitado."
+            },
+            {
+              "id": "c",
+              "text": "NAT verifica automáticamente cada comando introducido."
+            },
+            {
+              "id": "d",
+              "text": "La traducción de direcciones sustituye todos los controles de acceso."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La topología reduce ciertos accesos pero no convierte cualquier actividad en segura o autorizada.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/networkingdetails.html"
+        }
+      ],
+      "challenge": {
+        "id": "w07d3-challenge",
+        "prompt": "Dos VMs deben comunicarse solo entre sí. El diagrama muestra red interna común, pero una VM conserva puente como segundo adaptador. ¿Qué corregir?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Añadir más adaptadores puente para reforzar el aislamiento."
+          },
+          {
+            "id": "b",
+            "text": "Retirar o justificar ese adaptador adicional y revisar la conectividad total."
+          },
+          {
+            "id": "c",
+            "text": "Confiar en que el primer adaptador anula al segundo."
+          },
+          {
+            "id": "d",
+            "text": "Cambiar solo el nombre del segmento interno."
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La exposición real depende de todas las interfaces, no solo de la red dibujada como principal.",
+        "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/networkingdetails.html"
+      }
+    },
+    {
+      "dayId": "w07d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w07d4-q01",
+          "prompt": "Quieres probar Linux conservando Windows. ¿Qué opción evita sustituir el sistema principal?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Elegir borrar el disco físico de Windows."
+            },
+            {
+              "id": "b",
+              "text": "Formatear el disco principal antes de crear la VM."
+            },
+            {
+              "id": "c",
+              "text": "Instalar sobre la única partición personal sin copia."
+            },
+            {
+              "id": "d",
+              "text": "Instalar Linux en un disco virtual de una VM."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El instalador de la VM debe trabajar sobre almacenamiento virtual destinado al laboratorio.",
+          "reference": "https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox"
+        },
+        {
+          "id": "w07d4-q02",
+          "prompt": "El instalador pregunta qué disco borrar. ¿Qué debes comprobar antes de seguir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que la ventana tenga cualquier título que contenga Linux."
+            },
+            {
+              "id": "b",
+              "text": "Que el instalador tenga acceso a todos los discos del anfitrión."
+            },
+            {
+              "id": "c",
+              "text": "Que se ejecuta dentro de la VM y señala su disco virtual previsto."
+            },
+            {
+              "id": "d",
+              "text": "Que borrar todos los discos siempre afecte solo a la ISO."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La selección y el contexto del almacenamiento determinan qué datos podría afectar la instalación.",
+          "reference": "https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox"
+        },
+        {
+          "id": "w07d4-q03",
+          "prompt": "¿Qué función cumple la imagen ISO durante una instalación virtual?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Proporciona el medio de arranque o instalación del invitado."
+            },
+            {
+              "id": "b",
+              "text": "Sustituye automáticamente el disco físico del anfitrión."
+            },
+            {
+              "id": "c",
+              "text": "Es la contraseña cifrada de la VM."
+            },
+            {
+              "id": "d",
+              "text": "Almacena todos los archivos personales futuros sin disco virtual."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La ISO actúa como medio de instalación; el sistema instalado se guarda en su almacenamiento de destino.",
+          "reference": "https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox"
+        },
+        {
+          "id": "w07d4-q04",
+          "prompt": "La VM vuelve al instalador tras reiniciar. ¿Qué revisar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Orden de arranque y si la ISO sigue montada."
+            },
+            {
+              "id": "b",
+              "text": "La contraseña del navegador del anfitrión."
+            },
+            {
+              "id": "c",
+              "text": "El color del tema de Ubuntu."
+            },
+            {
+              "id": "d",
+              "text": "El formato de todas las carpetas de Windows."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Arrancar de nuevo desde el medio de instalación puede repetir el asistente aunque el disco ya esté instalado.",
+          "reference": "https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox"
+        },
+        {
+          "id": "w07d4-q05",
+          "prompt": "¿Qué dato debe quedar en la guía de reconstrucción?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo una captura del escritorio final."
+            },
+            {
+              "id": "b",
+              "text": "La contraseña personal de todos los participantes."
+            },
+            {
+              "id": "c",
+              "text": "El historial completo del navegador del anfitrión."
+            },
+            {
+              "id": "d",
+              "text": "Imagen utilizada, recursos, red y pasos de instalación."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La guía debe describir las decisiones que permiten recrear el entorno sin divulgar secretos.",
+          "reference": "https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox"
+        },
+        {
+          "id": "w07d4-q06",
+          "prompt": "Un entorno alojado se restablece al cerrar la sesión. ¿Qué preparar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Asumir que todos los cambios son permanentes."
+            },
+            {
+              "id": "b",
+              "text": "Exportación permitida de apuntes y procedimiento de reconstrucción."
+            },
+            {
+              "id": "c",
+              "text": "Guardar la única evidencia en su carpeta temporal."
+            },
+            {
+              "id": "d",
+              "text": "Usar las credenciales de otra persona para conservarlo."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La persistencia depende del entorno; es necesario documentar y conservar los resultados por medios permitidos.",
+          "reference": "https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox"
+        },
+        {
+          "id": "w07d4-q07",
+          "prompt": "¿Qué comprobación inicial demuestra que el entorno elegido es utilizable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ejecutar pruebas contra equipos ajenos."
+            },
+            {
+              "id": "b",
+              "text": "Borrar la instalación anterior sin guardar la configuración."
+            },
+            {
+              "id": "c",
+              "text": "Cambiar todos los permisos del sistema a escritura global."
+            },
+            {
+              "id": "d",
+              "text": "Iniciar sesión, abrir terminal y realizar una operación inocua de prueba."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una prueba simple permite comprobar acceso al entorno antes de prácticas más complejas.",
+          "reference": "https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox"
+        },
+        {
+          "id": "w07d4-q08",
+          "prompt": "¿Por qué preparar recuperación antes de practicar cambios?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para que los errores ya no puedan ocurrir."
+            },
+            {
+              "id": "b",
+              "text": "Para evitar leer cualquier documentación posterior."
+            },
+            {
+              "id": "c",
+              "text": "Para tener un estado o método conocido al que volver si algo falla."
+            },
+            {
+              "id": "d",
+              "text": "Para garantizar que nunca se consumirá disco físico."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La recuperación reduce el coste de errores; no evita ni detecta por sí sola todos los fallos.",
+          "reference": "https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox"
+        }
+      ],
+      "challenge": {
+        "id": "w07d4-challenge",
+        "prompt": "La guía de instalación exige conservar el sistema principal y el asistente muestra el disco físico personal. ¿Qué acción corresponde?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Continuar porque cualquier ISO protege los archivos personales."
+          },
+          {
+            "id": "b",
+            "text": "Borrar ese disco y crear la VM después."
+          },
+          {
+            "id": "c",
+            "text": "Detener ese paso y preparar el destino virtual correcto antes de instalar."
+          },
+          {
+            "id": "d",
+            "text": "Confirmar solo si el disco tiene suficiente espacio libre."
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "El destino debe estar identificado y reservado al laboratorio; la ISO no protege un disco seleccionado por error.",
+        "reference": "https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox"
+      }
+    },
+    {
+      "dayId": "w07d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w07d5-q01",
+          "prompt": "En Ubuntu, ¿qué hace sudo apt update?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Actualiza el índice de paquetes disponibles."
+            },
+            {
+              "id": "b",
+              "text": "Instala siempre todas las actualizaciones del sistema."
+            },
+            {
+              "id": "c",
+              "text": "Cambia automáticamente de distribución."
+            },
+            {
+              "id": "d",
+              "text": "Borra todos los paquetes instalados."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Update obtiene metadatos; la instalación de versiones nuevas se realiza con otras operaciones.",
+          "reference": "https://ubuntu.com/server/docs/tutorial/managing-software/"
+        },
+        {
+          "id": "w07d5-q02",
+          "prompt": "¿Qué hace normalmente sudo apt upgrade después de actualizar índices?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo cambia el nombre del equipo."
+            },
+            {
+              "id": "b",
+              "text": "Descarga una ISO y borra el disco."
+            },
+            {
+              "id": "c",
+              "text": "Muestra exclusivamente la ubicación actual."
+            },
+            {
+              "id": "d",
+              "text": "Instala las actualizaciones disponibles según las condiciones del gestor."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Upgrade aplica versiones nuevas de paquetes; conviene revisar el resumen antes de confirmar.",
+          "reference": "https://ubuntu.com/server/docs/tutorial/managing-software/"
+        },
+        {
+          "id": "w07d5-q03",
+          "prompt": "¿Por qué conviene usar repositorios oficiales para el ejercicio inicial?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hacen innecesario leer cualquier mensaje de error."
+            },
+            {
+              "id": "b",
+              "text": "Garantizan que nunca exista una vulnerabilidad."
+            },
+            {
+              "id": "c",
+              "text": "Convierten cualquier paquete en software sin privilegios."
+            },
+            {
+              "id": "d",
+              "text": "Permiten seguir el mecanismo documentado de paquetes y actualizaciones."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los repositorios de la distribución proporcionan un origen gestionado; no sustituyen una evaluación del software.",
+          "reference": "https://ubuntu.com/server/docs/tutorial/managing-software/"
+        },
+        {
+          "id": "w07d5-q04",
+          "prompt": "APT informa que no puede obtener el bloqueo porque otro gestor está activo. ¿Qué hacer primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Identificar la operación en curso y esperar o resolverla de forma controlada."
+            },
+            {
+              "id": "b",
+              "text": "Borrar inmediatamente todos los archivos de bloqueo."
+            },
+            {
+              "id": "c",
+              "text": "Reiniciar a la fuerza durante cualquier instalación."
+            },
+            {
+              "id": "d",
+              "text": "Dar permisos de escritura global a la base de paquetes."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Dos gestores concurrentes pueden interferir; el bloqueo protege la coherencia del estado de paquetes.",
+          "reference": "https://ubuntu.com/server/docs/tutorial/managing-software/"
+        },
+        {
+          "id": "w07d5-q05",
+          "prompt": "Una actualización propone quitar paquetes importantes. ¿Cuál es la respuesta adecuada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aceptar porque todo mensaje de APT es decorativo."
+            },
+            {
+              "id": "b",
+              "text": "Revisar el resumen y la documentación antes de confirmar."
+            },
+            {
+              "id": "c",
+              "text": "Cerrar la ventana y declarar que ya se instaló todo."
+            },
+            {
+              "id": "d",
+              "text": "Copiar el mensaje como contraseña de administrador."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El resumen explica cambios reales; una eliminación inesperada exige entender dependencias y alcance.",
+          "reference": "https://ubuntu.com/server/docs/tutorial/managing-software/"
+        },
+        {
+          "id": "w07d5-q06",
+          "prompt": "¿Qué distingue actualizar paquetes de cambiar de versión de la distribución?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Son operaciones con alcances y procedimientos diferentes."
+            },
+            {
+              "id": "b",
+              "text": "Siempre son exactamente el mismo comando y resultado."
+            },
+            {
+              "id": "c",
+              "text": "Actualizar un editor obliga a reinstalar Linux completo."
+            },
+            {
+              "id": "d",
+              "text": "Cambiar de versión no afecta ningún paquete."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una actualización ordinaria no debe confundirse con una migración de la edición completa del sistema.",
+          "reference": "https://ubuntu.com/server/docs/tutorial/managing-software/"
+        },
+        {
+          "id": "w07d5-q07",
+          "prompt": "¿Para qué sirve registrar la versión de un paquete antes y después?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para comprobar qué cambió en el entorno de práctica."
+            },
+            {
+              "id": "b",
+              "text": "Para ocultar si la instalación terminó con errores."
+            },
+            {
+              "id": "c",
+              "text": "Para saber la contraseña del repositorio."
+            },
+            {
+              "id": "d",
+              "text": "Para convertir una consulta en una copia de seguridad."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El registro de versiones ayuda a explicar diferencias y a reproducir el resultado.",
+          "reference": "https://ubuntu.com/server/docs/tutorial/managing-software/"
+        },
+        {
+          "id": "w07d5-q08",
+          "prompt": "El escritorio funciona, pero necesitas consultar una versión y actualizar paquetes. ¿Qué relación tiene la terminal con ello?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Es otra interfaz para ejecutar herramientas del sistema."
+            },
+            {
+              "id": "b",
+              "text": "Es un sistema operativo separado del escritorio."
+            },
+            {
+              "id": "c",
+              "text": "Solo permite operaciones gráficas sin parámetros."
+            },
+            {
+              "id": "d",
+              "text": "No puede usar el gestor de paquetes de la distribución."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Escritorio y terminal permiten interactuar con el mismo sistema mediante interfaces distintas.",
+          "reference": "https://ubuntu.com/server/docs/tutorial/managing-software/"
+        }
+      ],
+      "challenge": {
+        "id": "w07d5-challenge",
+        "prompt": "APT actualizó sus índices sin errores y ofrece paquetes nuevos. El alumno anota «todos los parches instalados». ¿Qué corrección necesita?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Update instaló también todas las futuras versiones."
+          },
+          {
+            "id": "b",
+            "text": "El equipo ya cambió necesariamente de distribución."
+          },
+          {
+            "id": "c",
+            "text": "APT solo sirve para descargar documentación."
+          },
+          {
+            "id": "d",
+            "text": "El índice está actualizado; falta ejecutar y verificar la actualización de paquetes."
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "Actualizar metadatos y aplicar nuevas versiones son pasos diferentes.",
+        "reference": "https://ubuntu.com/server/docs/tutorial/managing-software/"
+      }
+    },
+    {
+      "dayId": "w07d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w07d6-q01",
+          "prompt": "¿Qué conserva una instantánea de una VM según su tipo y configuración?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todos los datos del anfitrión y servicios externos."
+            },
+            {
+              "id": "b",
+              "text": "Un estado del invitado y de sus discos virtuales incluidos."
+            },
+            {
+              "id": "c",
+              "text": "Una copia independiente garantizada fuera del equipo."
+            },
+            {
+              "id": "d",
+              "text": "Solo una imagen del escritorio visible."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una instantánea permite volver a un estado de la VM; su alcance depende de los discos y opciones incluidos.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/working-with-vms.html"
+        },
+        {
+          "id": "w07d6-q02",
+          "prompt": "Restauras una instantánea anterior a crear notas.txt en el disco virtual normal. ¿Qué puede ocurrir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El archivo posterior deja de existir en el estado restaurado."
+            },
+            {
+              "id": "b",
+              "text": "El archivo se copia automáticamente al anfitrión."
+            },
+            {
+              "id": "c",
+              "text": "Se conserva necesariamente todo cambio posterior."
+            },
+            {
+              "id": "d",
+              "text": "Se publica una copia del archivo en internet."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Restaurar revierte cambios del disco incluido; deben conservarse previamente resultados que se quieran mantener.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/working-with-vms.html"
+        },
+        {
+          "id": "w07d6-q03",
+          "prompt": "¿Por qué una instantánea en el mismo disco físico no sustituye una copia externa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Las instantáneas nunca contienen datos del invitado."
+            },
+            {
+              "id": "b",
+              "text": "Una copia externa solo cambia el nombre de la VM."
+            },
+            {
+              "id": "c",
+              "text": "Un fallo del disco físico puede perder VM e instantáneas."
+            },
+            {
+              "id": "d",
+              "text": "El hardware físico no puede fallar si hay instantáneas."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Recuperar un estado lógico y protegerse ante la pérdida del almacenamiento son necesidades diferentes.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/working-with-vms.html"
+        },
+        {
+          "id": "w07d6-q04",
+          "prompt": "Se toma una instantánea y después se modifica un servicio en la nube. ¿Qué revierte la restauración local?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todo el estado de internet al instante anterior."
+            },
+            {
+              "id": "b",
+              "text": "Las contraseñas de todos los sistemas remotos."
+            },
+            {
+              "id": "c",
+              "text": "Cualquier mensaje enviado fuera de la VM."
+            },
+            {
+              "id": "d",
+              "text": "El estado local incluido, no necesariamente el servicio externo."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los sistemas externos no forman parte del disco o estado guardado de la VM.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/working-with-vms.html"
+        },
+        {
+          "id": "w07d6-q05",
+          "prompt": "¿Cómo comprobar una recuperación en el laboratorio con poco riesgo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Probar con la única copia de un trabajo importante."
+            },
+            {
+              "id": "b",
+              "text": "Restaurar sin anotar qué instantánea se eligió."
+            },
+            {
+              "id": "c",
+              "text": "Usar un marcador de prueba y verificar su estado antes y después."
+            },
+            {
+              "id": "d",
+              "text": "Destruir todos los estados anteriores antes de probar."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un cambio inocuo conocido permite observar si se recupera el estado esperado.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/working-with-vms.html"
+        },
+        {
+          "id": "w07d6-q06",
+          "prompt": "Una VM usa varias instantáneas y falta espacio en el anfitrión. ¿Qué hay que considerar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Las instantáneas ocupan siempre cero bytes."
+            },
+            {
+              "id": "b",
+              "text": "Borrar una instantánea equivale siempre a restaurarla."
+            },
+            {
+              "id": "c",
+              "text": "Las imágenes diferenciales y operaciones de consolidación consumen almacenamiento."
+            },
+            {
+              "id": "d",
+              "text": "La RAM del invitado reemplaza el disco físico."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las instantáneas tienen coste de espacio y su gestión requiere leer los mensajes del hipervisor.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/working-with-vms.html"
+        },
+        {
+          "id": "w07d6-q07",
+          "prompt": "¿Qué diferencia restaurar y eliminar una instantánea?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ambas siempre borran el sistema anfitrión."
+            },
+            {
+              "id": "b",
+              "text": "Eliminar es la única forma de abrir la VM."
+            },
+            {
+              "id": "c",
+              "text": "Restaurar vuelve a un estado; eliminar gestiona ese punto guardado."
+            },
+            {
+              "id": "d",
+              "text": "Restaurar crea una distribución Linux nueva."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Son operaciones distintas; no deben elegirse solo por parecer sinónimos de limpiar.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/working-with-vms.html"
+        },
+        {
+          "id": "w07d6-q08",
+          "prompt": "Un entorno alojado no ofrece instantáneas. ¿Qué equivalente conviene documentar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Prometer una restauración de memoria que no existe."
+            },
+            {
+              "id": "b",
+              "text": "Copiar todas las credenciales al cuaderno compartido."
+            },
+            {
+              "id": "c",
+              "text": "Cómo reiniciar o reconstruir el entorno y qué evidencia guardar antes."
+            },
+            {
+              "id": "d",
+              "text": "Omitir cualquier recuperación por no tener hipervisor local."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La recuperación puede ser reconstrucción; sus límites deben corresponder al entorno real.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/working-with-vms.html"
+        }
+      ],
+      "challenge": {
+        "id": "w07d6-challenge",
+        "prompt": "Antes de un cambio tomas una instantánea; después redactas un informe valioso dentro de la VM. Quieres volver atrás conservando el informe. ¿Qué secuencia elegir?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Restaurar primero y esperar que todo archivo posterior permanezca."
+          },
+          {
+            "id": "b",
+            "text": "Eliminar la instantánea pensando que equivale a volver al pasado."
+          },
+          {
+            "id": "c",
+            "text": "Cambiar la contraseña para inmovilizar el disco virtual."
+          },
+          {
+            "id": "d",
+            "text": "Guardar el informe por un medio permitido fuera del estado a revertir y luego restaurar."
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "Restaurar puede descartar cambios posteriores, por lo que hay que conservar antes los resultados necesarios.",
+        "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/working-with-vms.html"
+      }
+    },
+    {
+      "dayId": "w07d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w07d7-q01",
+          "prompt": "¿Qué distingue al kernel de una distribución Linux?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El kernel es solo la tienda de aplicaciones de Ubuntu."
+            },
+            {
+              "id": "b",
+              "text": "El kernel gestiona funciones centrales; la distribución integra además herramientas y paquetes."
+            },
+            {
+              "id": "c",
+              "text": "La distribución es únicamente el fondo del escritorio."
+            },
+            {
+              "id": "d",
+              "text": "Cada paquete contiene obligatoriamente un kernel completo."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una distribución combina el núcleo con herramientas, instalador, repositorios y decisiones de mantenimiento.",
+          "reference": "https://www.debian.org/doc/manuals/debian-faq/choosing.en.html",
+          "reviewOf": "w07d1-q01"
+        },
+        {
+          "id": "w07d7-q02",
+          "prompt": "En Windows ejecutas Ubuntu dentro de VirtualBox. ¿Cuál es el invitado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Windows por tener el disco físico."
+            },
+            {
+              "id": "b",
+              "text": "Ubuntu dentro de la máquina virtual."
+            },
+            {
+              "id": "c",
+              "text": "El monitor donde se abre VirtualBox."
+            },
+            {
+              "id": "d",
+              "text": "La aplicación del navegador del anfitrión."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El invitado es el sistema que se ejecuta dentro de la máquina virtual.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/Introduction.html",
+          "reviewOf": "w07d2-q01"
+        },
+        {
+          "id": "w07d7-q03",
+          "prompt": "Una VM usa NAT predeterminado sin reenvío de puertos. ¿Qué comunicación suele facilitar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cualquier conexión entrante desde internet a todos sus servicios."
+            },
+            {
+              "id": "b",
+              "text": "La publicación automática de todos los puertos del invitado."
+            },
+            {
+              "id": "c",
+              "text": "Conexiones salientes del invitado a través del anfitrión."
+            },
+            {
+              "id": "d",
+              "text": "La ausencia total de acceso a redes externas."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "NAT permite salida; las conexiones entrantes requieren configuración y controles adicionales.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/networkingdetails.html",
+          "reviewOf": "w07d3-q01"
+        },
+        {
+          "id": "w07d7-q04",
+          "prompt": "Quieres probar Linux conservando Windows. ¿Qué opción evita sustituir el sistema principal?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Elegir borrar el disco físico de Windows."
+            },
+            {
+              "id": "b",
+              "text": "Formatear el disco principal antes de crear la VM."
+            },
+            {
+              "id": "c",
+              "text": "Instalar sobre la única partición personal sin copia."
+            },
+            {
+              "id": "d",
+              "text": "Instalar Linux en un disco virtual de una VM."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El instalador de la VM debe trabajar sobre almacenamiento virtual destinado al laboratorio.",
+          "reference": "https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox",
+          "reviewOf": "w07d4-q01"
+        },
+        {
+          "id": "w07d7-q05",
+          "prompt": "En Ubuntu, ¿qué hace sudo apt update?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Actualiza el índice de paquetes disponibles."
+            },
+            {
+              "id": "b",
+              "text": "Instala siempre todas las actualizaciones del sistema."
+            },
+            {
+              "id": "c",
+              "text": "Cambia automáticamente de distribución."
+            },
+            {
+              "id": "d",
+              "text": "Borra todos los paquetes instalados."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Update obtiene metadatos; la instalación de versiones nuevas se realiza con otras operaciones.",
+          "reference": "https://ubuntu.com/server/docs/tutorial/managing-software/",
+          "reviewOf": "w07d5-q01"
+        },
+        {
+          "id": "w07d7-q06",
+          "prompt": "¿Qué conserva una instantánea de una VM según su tipo y configuración?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todos los datos del anfitrión y servicios externos."
+            },
+            {
+              "id": "b",
+              "text": "Un estado del invitado y de sus discos virtuales incluidos."
+            },
+            {
+              "id": "c",
+              "text": "Una copia independiente garantizada fuera del equipo."
+            },
+            {
+              "id": "d",
+              "text": "Solo una imagen del escritorio visible."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una instantánea permite volver a un estado de la VM; su alcance depende de los discos y opciones incluidos.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/working-with-vms.html",
+          "reviewOf": "w07d6-q01"
+        },
+        {
+          "id": "w07d7-q07",
+          "prompt": "Ubuntu y Debian usan APT. ¿Qué no debe deducirse de ello?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que ambos tienen gestión de paquetes."
+            },
+            {
+              "id": "b",
+              "text": "Que se puedan mezclar sin revisión sus repositorios y paquetes."
+            },
+            {
+              "id": "c",
+              "text": "Que ambos distribuyen software en paquetes deb."
+            },
+            {
+              "id": "d",
+              "text": "Que conviene consultar su documentación específica."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Compartir herramientas no vuelve intercambiables los repositorios ni las versiones de todas las dependencias.",
+          "reference": "https://www.debian.org/doc/manuals/debian-faq/choosing.en.html",
+          "reviewOf": "w07d1-q02"
+        },
+        {
+          "id": "w07d7-q08",
+          "prompt": "Asignas 4 GB a una VM en un equipo de 8 GB. ¿Qué debes considerar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que la VM crea 4 GB de RAM física nueva."
+            },
+            {
+              "id": "b",
+              "text": "Que el anfitrión ya no necesita memoria al abrir la VM."
+            },
+            {
+              "id": "c",
+              "text": "Que cualquier asignación garantiza buen rendimiento."
+            },
+            {
+              "id": "d",
+              "text": "La memoria que necesitan también el anfitrión y otras aplicaciones."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los recursos asignados al invitado compiten con las necesidades del sistema anfitrión.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/Introduction.html",
+          "reviewOf": "w07d2-q02"
+        },
+        {
+          "id": "w07d7-q09",
+          "prompt": "¿Qué cambia al seleccionar adaptador puente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El invitado queda aislado de toda red física."
+            },
+            {
+              "id": "b",
+              "text": "Todos sus servicios se vuelven invisibles al resto de equipos."
+            },
+            {
+              "id": "c",
+              "text": "El disco virtual pasa a ser memoria RAM."
+            },
+            {
+              "id": "d",
+              "text": "La VM participa en la red conectada al adaptador físico."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El puente sitúa al invitado en la red física y exige revisar la exposición de sus servicios.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/networkingdetails.html",
+          "reviewOf": "w07d3-q02"
+        },
+        {
+          "id": "w07d7-q10",
+          "prompt": "El instalador pregunta qué disco borrar. ¿Qué debes comprobar antes de seguir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que la ventana tenga cualquier título que contenga Linux."
+            },
+            {
+              "id": "b",
+              "text": "Que el instalador tenga acceso a todos los discos del anfitrión."
+            },
+            {
+              "id": "c",
+              "text": "Que se ejecuta dentro de la VM y señala su disco virtual previsto."
+            },
+            {
+              "id": "d",
+              "text": "Que borrar todos los discos siempre afecte solo a la ISO."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La selección y el contexto del almacenamiento determinan qué datos podría afectar la instalación.",
+          "reference": "https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox",
+          "reviewOf": "w07d4-q02"
+        },
+        {
+          "id": "w07d7-q11",
+          "prompt": "¿Qué hace normalmente sudo apt upgrade después de actualizar índices?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo cambia el nombre del equipo."
+            },
+            {
+              "id": "b",
+              "text": "Descarga una ISO y borra el disco."
+            },
+            {
+              "id": "c",
+              "text": "Muestra exclusivamente la ubicación actual."
+            },
+            {
+              "id": "d",
+              "text": "Instala las actualizaciones disponibles según las condiciones del gestor."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Upgrade aplica versiones nuevas de paquetes; conviene revisar el resumen antes de confirmar.",
+          "reference": "https://ubuntu.com/server/docs/tutorial/managing-software/",
+          "reviewOf": "w07d5-q02"
+        },
+        {
+          "id": "w07d7-q12",
+          "prompt": "Restauras una instantánea anterior a crear notas.txt en el disco virtual normal. ¿Qué puede ocurrir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El archivo posterior deja de existir en el estado restaurado."
+            },
+            {
+              "id": "b",
+              "text": "El archivo se copia automáticamente al anfitrión."
+            },
+            {
+              "id": "c",
+              "text": "Se conserva necesariamente todo cambio posterior."
+            },
+            {
+              "id": "d",
+              "text": "Se publica una copia del archivo en internet."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Restaurar revierte cambios del disco incluido; deben conservarse previamente resultados que se quieran mantener.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/working-with-vms.html",
+          "reviewOf": "w07d6-q02"
+        },
+        {
+          "id": "w07d7-q13",
+          "prompt": "¿Qué criterio sirve para elegir una distribución de laboratorio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el nombre más llamativo de su edición."
+            },
+            {
+              "id": "b",
+              "text": "El mayor número posible de aplicaciones preinstaladas."
+            },
+            {
+              "id": "c",
+              "text": "Que permita omitir toda actualización de seguridad."
+            },
+            {
+              "id": "d",
+              "text": "Compatibilidad con el equipo y documentación de las tareas previstas."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La elección debe corresponder al entorno disponible y al uso que se quiere practicar.",
+          "reference": "https://www.debian.org/doc/manuals/debian-faq/choosing.en.html",
+          "reviewOf": "w07d1-q03"
+        },
+        {
+          "id": "w07d7-q14",
+          "prompt": "¿Qué representa normalmente el disco virtual?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un almacenamiento del invitado respaldado por archivos en el anfitrión."
+            },
+            {
+              "id": "b",
+              "text": "Un segundo disco físico que aparece por sí solo."
+            },
+            {
+              "id": "c",
+              "text": "La memoria de vídeo del monitor."
+            },
+            {
+              "id": "d",
+              "text": "Una copia automática independiente de todos los discos reales."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los discos virtuales consumen almacenamiento real y necesitan espacio y protección apropiados.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/Introduction.html",
+          "reviewOf": "w07d2-q03"
+        },
+        {
+          "id": "w07d7-q15",
+          "prompt": "Dos VMs se conectan a una misma red interna de VirtualBox. ¿Qué se espera sin otros adaptadores?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Acceso directo desde cualquier equipo de internet."
+            },
+            {
+              "id": "b",
+              "text": "Conectividad obligatoria con el anfitrión mediante esa red interna."
+            },
+            {
+              "id": "c",
+              "text": "Comunicación entre ellas sin salida externa por esa red."
+            },
+            {
+              "id": "d",
+              "text": "Publicación automática en la red Wi-Fi de casa."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La red interna conecta invitados del mismo segmento virtual sin añadir por sí sola conectividad externa.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/networkingdetails.html",
+          "reviewOf": "w07d3-q03"
+        },
+        {
+          "id": "w07d7-q16",
+          "prompt": "¿Qué función cumple la imagen ISO durante una instalación virtual?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Proporciona el medio de arranque o instalación del invitado."
+            },
+            {
+              "id": "b",
+              "text": "Sustituye automáticamente el disco físico del anfitrión."
+            },
+            {
+              "id": "c",
+              "text": "Es la contraseña cifrada de la VM."
+            },
+            {
+              "id": "d",
+              "text": "Almacena todos los archivos personales futuros sin disco virtual."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La ISO actúa como medio de instalación; el sistema instalado se guarda en su almacenamiento de destino.",
+          "reference": "https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox",
+          "reviewOf": "w07d4-q03"
+        },
+        {
+          "id": "w07d7-q17",
+          "prompt": "¿Por qué conviene usar repositorios oficiales para el ejercicio inicial?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hacen innecesario leer cualquier mensaje de error."
+            },
+            {
+              "id": "b",
+              "text": "Garantizan que nunca exista una vulnerabilidad."
+            },
+            {
+              "id": "c",
+              "text": "Convierten cualquier paquete en software sin privilegios."
+            },
+            {
+              "id": "d",
+              "text": "Permiten seguir el mecanismo documentado de paquetes y actualizaciones."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los repositorios de la distribución proporcionan un origen gestionado; no sustituyen una evaluación del software.",
+          "reference": "https://ubuntu.com/server/docs/tutorial/managing-software/",
+          "reviewOf": "w07d5-q03"
+        },
+        {
+          "id": "w07d7-q18",
+          "prompt": "¿Por qué una instantánea en el mismo disco físico no sustituye una copia externa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Las instantáneas nunca contienen datos del invitado."
+            },
+            {
+              "id": "b",
+              "text": "Una copia externa solo cambia el nombre de la VM."
+            },
+            {
+              "id": "c",
+              "text": "Un fallo del disco físico puede perder VM e instantáneas."
+            },
+            {
+              "id": "d",
+              "text": "El hardware físico no puede fallar si hay instantáneas."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Recuperar un estado lógico y protegerse ante la pérdida del almacenamiento son necesidades diferentes.",
+          "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/working-with-vms.html",
+          "reviewOf": "w07d6-q03"
+        },
+        {
+          "id": "w07d7-q19",
+          "prompt": "¿Qué es un repositorio de paquetes de una distribución?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La memoria RAM reservada al escritorio."
+            },
+            {
+              "id": "b",
+              "text": "Una carpeta que contiene siempre todas las contraseñas."
+            },
+            {
+              "id": "c",
+              "text": "Una fuente organizada de software y metadatos para el gestor."
+            },
+            {
+              "id": "d",
+              "text": "Una copia exacta de todo sitio web visitado."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El gestor consulta repositorios para localizar versiones y dependencias de software.",
+          "reference": "https://www.debian.org/doc/manuals/debian-faq/choosing.en.html",
+          "reviewOf": "w07d1-q04"
+        },
+        {
+          "id": "w07d7-q20",
+          "prompt": "La VM vuelve al instalador tras reiniciar. ¿Qué revisar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Orden de arranque y si la ISO sigue montada."
+            },
+            {
+              "id": "b",
+              "text": "La contraseña del navegador del anfitrión."
+            },
+            {
+              "id": "c",
+              "text": "El color del tema de Ubuntu."
+            },
+            {
+              "id": "d",
+              "text": "El formato de todas las carpetas de Windows."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Arrancar de nuevo desde el medio de instalación puede repetir el asistente aunque el disco ya esté instalado.",
+          "reference": "https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox",
+          "reviewOf": "w07d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w07d7-challenge",
+        "prompt": "Otra persona debe reconstruir tu laboratorio en un equipo distinto. ¿Qué entrega demuestra aislamiento y reproducibilidad?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Versiones, recursos, adaptadores, pasos y pruebas previstas con sus límites."
+          },
+          {
+            "id": "b",
+            "text": "Una captura del escritorio y la frase funciona en mi equipo."
+          },
+          {
+            "id": "c",
+            "text": "Una contraseña compartida y ningún detalle de red."
+          },
+          {
+            "id": "d",
+            "text": "Una promesa de que NAT impide cualquier comunicación saliente."
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La guía necesita decisiones verificables sobre sistema, recursos, red y recuperación.",
+        "reference": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/networkingdetails.html"
+      }
+    }
+  ]
+}

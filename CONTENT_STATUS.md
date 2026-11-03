@@ -1,44 +1,38 @@
 # Estado del contenido de CYBERTRACK
 
-Esta entrega incluye el programa completo como material consultable y el primer bloque de evaluaciones desarrolladas. El estado de una sesión distingue **contenido disponible**, **evaluación disponible** y **requisitos superados por el alumno**.
+La versión 1.5 incorpora evaluaciones formativas en las 52 semanas y mantiene los IDs de las 364 sesiones. El estado distingue material consultable, evaluación disponible y requisitos superados por el alumno.
 
-| Bloque | Temario y recursos | Evaluaciones y retos | Estado |
-| --- | --- | --- | --- |
-| Semanas 1 a 4 | Incluidos | Bancos diarios y semanales, retos del bloque | Primer bloque desarrollado; verificar con el validador |
-| Semanas 5 a 8 | Incluidos | Pendientes | Consulta disponible |
-| Semanas 9 a 12 | Incluidos | Pendientes | Consulta disponible |
-| Semanas 13 a 16 | Incluidos | Pendientes | Consulta disponible |
-| Semanas 17 a 20 | Incluidos | Pendientes | Consulta disponible |
-| Semanas 21 a 24 | Incluidos | Pendientes | Consulta disponible |
-| Semanas 25 a 28 | Incluidos | Pendientes | Consulta disponible |
-| Semanas 29 a 32 | Incluidos | Pendientes | Consulta disponible |
-| Semanas 33 a 36 | Incluidos | Pendientes | Consulta disponible |
-| Semanas 37 a 40 | Incluidos | Pendientes | Consulta disponible |
-| Semanas 41 a 44 | Incluidos | Pendientes | Consulta disponible |
-| Semanas 45 a 48 | Incluidos | Pendientes | Consulta disponible |
-| Semanas 49 a 52 | Incluidos | Pendientes | Consulta disponible |
+| Parte | Alcance |
+| --- | --- |
+| Temario y recursos | 52 semanas, 364 sesiones |
+| Bancos diarios | Ocho preguntas por día ordinario; la aplicación selecciona seis por intento |
+| Revisión semanal | Veinte preguntas en el banco; la aplicación selecciona quince por intento |
+| Retos | Un escenario de interpretación por sesión: 364 en total |
+| Preguntas de origen | 2.576 enunciados originales de evaluación |
+| Recuperaciones de repaso | 960 entradas semanales con `reviewOf` explícito |
+| Total de entradas de pregunta | 3.536, incluyendo los repasos |
+| Recursos de origen | Conservados; no se afirma una nueva verificación de disponibilidad de todos los enlaces |
 
-## Conteos esperados
+## Procedencia del repaso
 
-- Currículo: 52 semanas, siete sesiones por semana, 364 sesiones con IDs estables del documento de origen.
-- Primer bloque: 28 sesiones y 28 retos.
-- Banco mínimo del primer bloque: 272 preguntas, resultado de cuatro semanas con ocho preguntas por día ordinario y veinte para el día de revisión.
-- Las cantidades anteriores son requisitos de contenido; el script `tools/validate-content.py` informa si los archivos de la versión los cumplen.
+Las semanas 1 a 4 conservan sus bancos y versiones anteriores. En las semanas 5 a 52, la revisión semanal recupera veinte preguntas de los seis días, conservando la referencia a su ID de origen mediante `reviewOf`. Estas recuperaciones son intencionales y no se cuentan como enunciados originales adicionales.
 
-## Qué no se debe inferir
+El validador comprueba que cada recuperación tenga una pregunta de origen de la misma semana y que coincidan su enunciado, opciones, solución, explicación y referencia. Los enunciados originales y los retos no admiten duplicados exactos.
 
-Un recurso marcado significa que el usuario declara haberlo estudiado. La prueba y el reto registran desempeño en esas actividades concretas. No verifican todos los pasos de un laboratorio externo, no inspeccionan el equipo del usuario y no garantizan preparación para un examen externo.
+## Qué acredita la aplicación
 
-Los recursos pueden reutilizar cursos o listas por capítulos. No hay 364 videos únicos verificados. Los enlaces originales se conservan con su alcance; una clase general no se presenta como un video específico de cada subtema.
+Marcar un recurso es una declaración personal de estudio. Los retos y pruebas comprueban las respuestas a sus escenarios concretos. No inspeccionan el equipo, no verifican la ejecución de todas las tareas externas y no certifican dominio profesional ni garantizan aprobar un examen externo.
 
-Los materiales de Security+ identificados como SY0-701 deben compararse con el esquema oficial de la versión que se elija presentar. No se afirma cobertura de una versión futura ni disponibilidad futura de un examen.
+Los bancos son material formativo propio, con referencias de consulta. No reproducen preguntas oficiales. En las partes de planificación de CC, Security+ y BTL1 se pide contrastar la versión y las reglas oficiales que el alumno vaya a utilizar. Las preguntas evitan afirmar precios, fechas o versiones futuras.
 
-## Cómo ampliar
+Los recursos pueden remitir a cursos o listas completas; no hay una afirmación de 364 vídeos específicos e independientemente verificados. Las portadas son ilustraciones conceptuales y no capturas ni diagramas técnicos.
 
-1. Conservar IDs del currículo y añadir el banco al archivo de semana correspondiente.
-2. Redactar preguntas y retos propios, con explicaciones y fuentes.
-3. Revisar cobertura, duplicaciones y calidad de distractores.
-4. Marcar el contenido como listo únicamente después de ejecutar el validador y probar el flujo.
-5. Conservar versiones de intentos y los registros existentes al actualizar.
+## Actualizar una evaluación
 
-El orden de desarrollo previsto continúa por bloques de cuatro semanas. El programa completo no debe declararse evaluable hasta completar todos los bancos y retos.
+1. Conservar los IDs de las sesiones y editar el archivo `data/assessments/week-NN.json` correspondiente.
+2. Mantener la versión y las preguntas históricas de los intentos guardados.
+3. Si cambia una pregunta de origen, regenerar sus recuperaciones `reviewOf` para mantener la trazabilidad.
+4. Ejecutar `python3 tools/build-assessments.py` para reconstruir el índice ligero.
+5. Ejecutar `python3 tools/validate-content.py`, `python3 tools/build-assessments.py --check` y las pruebas de JavaScript.
+
+La validación estructural y los casos de regresión se complementan con revisión pedagógica y pruebas en un navegador real.

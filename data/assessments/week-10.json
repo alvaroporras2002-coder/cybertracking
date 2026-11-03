@@ -1,0 +1,2094 @@
+{
+  "week": 10,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w10d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w10d1-q01",
+          "prompt": "¿Qué consulta arp -a en Windows?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todos los equipos existentes de internet."
+            },
+            {
+              "id": "b",
+              "text": "Los dominios del historial del navegador."
+            },
+            {
+              "id": "c",
+              "text": "Las contraseñas de cada vecino."
+            },
+            {
+              "id": "d",
+              "text": "Las entradas actuales de la caché ARP."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La caché muestra asociaciones conocidas en las interfaces, no un inventario completo de redes.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/arp"
+        },
+        {
+          "id": "w10d1-q02",
+          "prompt": "Una entrada muestra 192.168.20.1 asociado a 00-11-22-33-44-55. ¿Qué relación describe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una traducción obligatoria de nombre DNS a usuario."
+            },
+            {
+              "id": "b",
+              "text": "La contraseña cifrada del gateway."
+            },
+            {
+              "id": "c",
+              "text": "Una asociación local de dirección IPv4 y dirección de enlace."
+            },
+            {
+              "id": "d",
+              "text": "La ubicación física exacta de ese equipo."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "ARP relaciona direcciones del protocolo de red con direcciones del enlace correspondiente.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/arp"
+        },
+        {
+          "id": "w10d1-q03",
+          "prompt": "La caché ARP no contiene la IP de una impresora apagada. ¿Qué se puede concluir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que la impresora nunca existió."
+            },
+            {
+              "id": "b",
+              "text": "Que su MAC no puede consultarse jamás."
+            },
+            {
+              "id": "c",
+              "text": "Que toda la red está dañada."
+            },
+            {
+              "id": "d",
+              "text": "Solo que no hay una entrada actual para ella en esa consulta."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una caché es información parcial y temporal; la ausencia no demuestra inexistencia.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/arp"
+        },
+        {
+          "id": "w10d1-q04",
+          "prompt": "¿Por qué deben distinguirse interfaces al leer tablas de vecinos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Toda interfaz comparte necesariamente la misma subred."
+            },
+            {
+              "id": "b",
+              "text": "Solo existe una dirección MAC por edificio."
+            },
+            {
+              "id": "c",
+              "text": "Las tablas no dependen de las interfaces."
+            },
+            {
+              "id": "d",
+              "text": "Cada interfaz puede pertenecer a un enlace diferente."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El contexto del enlace determina qué vecinos y asociaciones son relevantes.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/arp"
+        },
+        {
+          "id": "w10d1-q05",
+          "prompt": "Envías tráfico a un servidor remoto a través del gateway. ¿Qué MAC suele necesitar tu equipo para el primer salto Ethernet?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La MAC remota final a través de todos los routers."
+            },
+            {
+              "id": "b",
+              "text": "La MAC del servidor DNS aunque no se consulte un nombre."
+            },
+            {
+              "id": "c",
+              "text": "La MAC del gateway local."
+            },
+            {
+              "id": "d",
+              "text": "Una MAC elegida del teclado."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El primer salto usa una dirección de enlace alcanzable localmente; no descubre por ARP la MAC remota.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc826.html"
+        },
+        {
+          "id": "w10d1-q06",
+          "prompt": "¿Qué significa que una entrada ARP sea dinámica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Fue programada para durar siempre sin cambio."
+            },
+            {
+              "id": "b",
+              "text": "Es necesariamente una dirección pública."
+            },
+            {
+              "id": "c",
+              "text": "Ha sido validada criptográficamente por DNS."
+            },
+            {
+              "id": "d",
+              "text": "Se aprendió y puede cambiar o caducar."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La información aprendida dinámicamente puede variar con la actividad y el estado de la red.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/arp"
+        },
+        {
+          "id": "w10d1-q07",
+          "prompt": "Una tabla muestra una MAC. ¿Qué afirmación excede esa evidencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hay una asociación observada en esa tabla."
+            },
+            {
+              "id": "b",
+              "text": "Es necesario considerar la interfaz de la entrada."
+            },
+            {
+              "id": "c",
+              "text": "La asociación debe interpretarse en su contexto temporal."
+            },
+            {
+              "id": "d",
+              "text": "La persona propietaria del equipo quedó identificada con certeza."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una dirección de enlace no prueba por sí sola identidad humana ni confianza del dispositivo.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/arp"
+        },
+        {
+          "id": "w10d1-q08",
+          "prompt": "¿Qué comparación ayuda a estudiar vecinos sin modificar la caché?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eliminar todas las entradas y cambiar la IP del router real."
+            },
+            {
+              "id": "b",
+              "text": "Escanear redes ajenas hasta obtener más vecinos."
+            },
+            {
+              "id": "c",
+              "text": "Consultar antes y después de una comunicación autorizada de laboratorio."
+            },
+            {
+              "id": "d",
+              "text": "Publicar la tabla personal completa con credenciales."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La observación controlada permite relacionar actividad y entradas con un alcance limitado.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/arp"
+        }
+      ],
+      "challenge": {
+        "id": "w10d1-challenge",
+        "prompt": "La tabla de vecinos contiene solo el gateway tras abrir un sitio remoto. Un alumno concluye que no existen otros PCs. ¿Qué corrección necesita?",
+        "options": [
+          {
+            "id": "a",
+            "text": "ARP enumera obligatoriamente todos los equipos existentes."
+          },
+          {
+            "id": "b",
+            "text": "La caché es parcial y el tráfico remoto usa el siguiente salto local."
+          },
+          {
+            "id": "c",
+            "text": "El gateway almacena todas las contraseñas del sitio remoto."
+          },
+          {
+            "id": "d",
+            "text": "La ausencia de entradas convierte la LAN en una WAN."
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "Una caché refleja asociaciones conocidas y no prueba el inventario completo del segmento.",
+        "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/arp"
+      }
+    },
+    {
+      "dayId": "w10d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w10d2-q01",
+          "prompt": "¿Cuál es una dirección IPv4 sintácticamente válida?",
+          "options": [
+            {
+              "id": "a",
+              "text": "192.168.4.300"
+            },
+            {
+              "id": "b",
+              "text": "192.168.4"
+            },
+            {
+              "id": "c",
+              "text": "192.168.4.25"
+            },
+            {
+              "id": "d",
+              "text": "192.168.-1.25"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La notación decimal habitual usa cuatro octetos con valores entre 0 y 255.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc791.html"
+        },
+        {
+          "id": "w10d2-q02",
+          "prompt": "¿Qué dirección pertenece al bloque privado 10.0.0.0/8?",
+          "options": [
+            {
+              "id": "a",
+              "text": "11.42.8.9"
+            },
+            {
+              "id": "b",
+              "text": "10.42.8.9"
+            },
+            {
+              "id": "c",
+              "text": "110.42.8.9"
+            },
+            {
+              "id": "d",
+              "text": "9.255.8.9"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El prefijo /8 fija el primer octeto en 10 dentro de ese bloque privado.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1918.html"
+        },
+        {
+          "id": "w10d2-q03",
+          "prompt": "¿Cuál está dentro del bloque privado 172.16.0.0/12?",
+          "options": [
+            {
+              "id": "a",
+              "text": "172.31.8.10"
+            },
+            {
+              "id": "b",
+              "text": "172.32.8.10"
+            },
+            {
+              "id": "c",
+              "text": "172.8.8.10"
+            },
+            {
+              "id": "d",
+              "text": "173.16.8.10"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Ese bloque abarca del segundo octeto 16 al 31; no todo 172 es privado.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1918.html"
+        },
+        {
+          "id": "w10d2-q04",
+          "prompt": "¿Cuál pertenece al bloque privado 192.168.0.0/16?",
+          "options": [
+            {
+              "id": "a",
+              "text": "192.169.200.5"
+            },
+            {
+              "id": "b",
+              "text": "192.167.200.5"
+            },
+            {
+              "id": "c",
+              "text": "192.168.200.5"
+            },
+            {
+              "id": "d",
+              "text": "193.168.200.5"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los dos primeros octetos deben ser 192 y 168 en ese bloque.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1918.html"
+        },
+        {
+          "id": "w10d2-q05",
+          "prompt": "¿Qué destino representa 127.0.0.1?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El gateway de cualquier LAN."
+            },
+            {
+              "id": "b",
+              "text": "El propio equipo mediante loopback."
+            },
+            {
+              "id": "c",
+              "text": "Un servidor DNS público obligatorio."
+            },
+            {
+              "id": "d",
+              "text": "El primer vecino conectado al switch."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La red 127/8 se reserva a loopback y no identifica un vecino externo.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+        },
+        {
+          "id": "w10d2-q06",
+          "prompt": "Un equipo usa 169.254.40.8. ¿Cómo se clasifica ese bloque?",
+          "options": [
+            {
+              "id": "a",
+              "text": "IPv4 de enlace local."
+            },
+            {
+              "id": "b",
+              "text": "Un bloque privado RFC 1918 de alcance empresarial."
+            },
+            {
+              "id": "c",
+              "text": "Una dirección pública global garantizada."
+            },
+            {
+              "id": "d",
+              "text": "Una dirección IPv6 abreviada."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "169.254/16 tiene alcance de enlace local y no sustituye conectividad enrutada normal.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3927.html"
+        },
+        {
+          "id": "w10d2-q07",
+          "prompt": "¿Que una dirección no sea RFC 1918 basta para declararla pública utilizable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí; cualquier otra dirección se asigna a un sitio web."
+            },
+            {
+              "id": "b",
+              "text": "Sí; incluso loopback es una IP pública remota."
+            },
+            {
+              "id": "c",
+              "text": "No; solo las direcciones con primer octeto 10 son válidas."
+            },
+            {
+              "id": "d",
+              "text": "No; existen otros bloques especiales o reservados."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La clasificación requiere considerar también loopback, enlace local, documentación y otras reservas.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc6890.html"
+        },
+        {
+          "id": "w10d2-q08",
+          "prompt": "¿Qué uso tienen 192.0.2.0/24, 198.51.100.0/24 y 203.0.113.0/24 en estos ejercicios?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Direcciones reservadas para documentación."
+            },
+            {
+              "id": "b",
+              "text": "Garantía de destinos activos para hacer ping por internet."
+            },
+            {
+              "id": "c",
+              "text": "Direcciones privadas RFC 1918 de cualquier hogar."
+            },
+            {
+              "id": "d",
+              "text": "Una lista de DNS obligatorios."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los bloques TEST-NET permiten ejemplos sin exponer direcciones reales y no deben asumirse destinos accesibles.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5737.html"
+        }
+      ],
+      "challenge": {
+        "id": "w10d2-challenge",
+        "prompt": "Clasifica 172.20.6.4, 172.40.6.4 y 127.0.0.1 sin asumir que todo 172 es privado. ¿Qué resultado es correcto?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Las dos primeras privadas; tercera gateway remoto."
+          },
+          {
+            "id": "b",
+            "text": "Primera privada RFC 1918; segunda fuera de ese bloque; tercera loopback."
+          },
+          {
+            "id": "c",
+            "text": "Todas son privadas RFC 1918."
+          },
+          {
+            "id": "d",
+            "text": "La primera es loopback y las otras son multicast."
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "172.16/12 cubre segundos octetos 16–31; loopback pertenece a otro uso especial.",
+        "reference": "https://www.rfc-editor.org/rfc/rfc1918.html"
+      }
+    },
+    {
+      "dayId": "w10d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w10d3-q01",
+          "prompt": "¿Qué dato explica qué parte de una IPv4 pertenece a la red?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el nombre del equipo."
+            },
+            {
+              "id": "b",
+              "text": "La máscara o longitud de prefijo."
+            },
+            {
+              "id": "c",
+              "text": "La contraseña Wi-Fi."
+            },
+            {
+              "id": "d",
+              "text": "El puerto del navegador."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La dirección se interpreta con su máscara para determinar el prefijo de red.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig"
+        },
+        {
+          "id": "w10d3-q02",
+          "prompt": "Un PC 192.168.60.10/24 usa gateway 192.168.60.1. ¿Qué función cumple el gateway?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Nombre de usuario de la sesión."
+            },
+            {
+              "id": "b",
+              "text": "Permiso para leer todos los archivos."
+            },
+            {
+              "id": "c",
+              "text": "Servidor de tiempo obligatorio."
+            },
+            {
+              "id": "d",
+              "text": "Siguiente salto para destinos que deban salir de la red local."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La puerta de enlace ayuda a enviar paquetes hacia otras redes según la tabla de rutas.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig"
+        },
+        {
+          "id": "w10d3-q03",
+          "prompt": "¿Qué campo revisas si las conexiones por IP funcionan pero los nombres no se resuelven?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La MAC del monitor."
+            },
+            {
+              "id": "b",
+              "text": "El tamaño de la papelera."
+            },
+            {
+              "id": "c",
+              "text": "La prioridad del teclado."
+            },
+            {
+              "id": "d",
+              "text": "Servidores DNS configurados."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La resolución de nombres depende del servicio DNS y de su configuración y alcance.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig"
+        },
+        {
+          "id": "w10d3-q04",
+          "prompt": "¿Qué comando muestra configuración TCP/IP detallada en Windows?",
+          "options": [
+            {
+              "id": "a",
+              "text": "ipconfig /all"
+            },
+            {
+              "id": "b",
+              "text": "arp -d *"
+            },
+            {
+              "id": "c",
+              "text": "route delete 0.0.0.0"
+            },
+            {
+              "id": "d",
+              "text": "ipconfig /release"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "/all consulta detalles; release y los comandos de borrado sí cambian estado.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig"
+        },
+        {
+          "id": "w10d3-q05",
+          "prompt": "Hay Ethernet, Wi-Fi y VPN en la salida. ¿Qué debes hacer antes de copiar una IP al informe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Elegir siempre la primera dirección de la lista."
+            },
+            {
+              "id": "b",
+              "text": "Usar la MAC como si fuera una IP."
+            },
+            {
+              "id": "c",
+              "text": "Mezclar gateway de una interfaz e IP de otra."
+            },
+            {
+              "id": "d",
+              "text": "Identificar qué interfaz y contexto corresponden al laboratorio."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una configuración tiene sentido dentro de una interfaz y sus rutas asociadas.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig"
+        },
+        {
+          "id": "w10d3-q06",
+          "prompt": "Una captura personal contiene nombres y direcciones internas. ¿Qué versión compartir para el ejercicio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La salida íntegra junto con la contraseña Wi-Fi."
+            },
+            {
+              "id": "b",
+              "text": "Una tabla ficticia equivalente que conserve las relaciones técnicas."
+            },
+            {
+              "id": "c",
+              "text": "Solo una lista de contraseñas sin las IP."
+            },
+            {
+              "id": "d",
+              "text": "Un valor de IP elegido sin máscara ni contexto."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los datos de ejemplo permiten explicar relaciones de red sin divulgar configuración personal.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig"
+        },
+        {
+          "id": "w10d3-q07",
+          "prompt": "Se anota IP, máscara y DNS pero falta gateway. ¿Qué queda sin documentar del caso básico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El contenido de todos los paquetes del equipo."
+            },
+            {
+              "id": "b",
+              "text": "La contraseña de cada servidor DNS."
+            },
+            {
+              "id": "c",
+              "text": "La versión del sistema de archivos."
+            },
+            {
+              "id": "d",
+              "text": "La ruta de salida predeterminada hacia otras redes."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La configuración de salida requiere conocer el siguiente salto cuando corresponde.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig"
+        },
+        {
+          "id": "w10d3-q08",
+          "prompt": "¿Qué diferencia consulta y renovación en ipconfig?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ambas opciones solo cambian colores de pantalla."
+            },
+            {
+              "id": "b",
+              "text": "/all borra siempre la caché DNS."
+            },
+            {
+              "id": "c",
+              "text": "/all muestra valores; /renew solicita renovar la configuración DHCP aplicable."
+            },
+            {
+              "id": "d",
+              "text": "/renew muestra exclusivamente los permisos NTFS."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "No debe tratarse un comando que modifica la concesión como si fuera una consulta sin efectos.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig"
+        }
+      ],
+      "challenge": {
+        "id": "w10d3-challenge",
+        "prompt": "El informe mezcla IP de Wi-Fi, gateway de una VPN y DNS de Ethernet sin indicar interfaces. ¿Qué revisión permite interpretar la configuración?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Separar cada interfaz y sus valores, identificando cuál se usa en el caso."
+          },
+          {
+            "id": "b",
+            "text": "Elegir la dirección numéricamente mayor como configuración total."
+          },
+          {
+            "id": "c",
+            "text": "Eliminar las máscaras porque las IP ya bastan."
+          },
+          {
+            "id": "d",
+            "text": "Tratar los tres adaptadores como una sola interfaz física."
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "Las direcciones, rutas y servicios configurados deben conservar su contexto de interfaz.",
+        "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig"
+      }
+    },
+    {
+      "dayId": "w10d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w10d4-q01",
+          "prompt": "¿Qué problema resuelve ARP en una LAN Ethernet IPv4?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Obtener la dirección de enlace asociada a una IP local."
+            },
+            {
+              "id": "b",
+              "text": "Elegir la contraseña más fuerte para el usuario."
+            },
+            {
+              "id": "c",
+              "text": "Resolver nombres web a direcciones IPv6."
+            },
+            {
+              "id": "d",
+              "text": "Cifrar todos los datos de aplicación."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "ARP conecta el direccionamiento IPv4 con el direccionamiento del enlace local.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc826.html"
+        },
+        {
+          "id": "w10d4-q02",
+          "prompt": "El PC necesita contactar a 192.168.7.20 en su misma subred y no tiene entrada. ¿Qué envía habitualmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una búsqueda DNS obligatoria de la MAC."
+            },
+            {
+              "id": "b",
+              "text": "Una petición HTTP al proveedor."
+            },
+            {
+              "id": "c",
+              "text": "Un mensaje de correo al switch."
+            },
+            {
+              "id": "d",
+              "text": "Una solicitud ARP de difusión en el enlace."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La solicitud ARP permite preguntar qué vecino tiene la dirección objetivo.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc826.html"
+        },
+        {
+          "id": "w10d4-q03",
+          "prompt": "¿Quién debe responder a una solicitud ARP normal por una IP que posee?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todos los sitios web de internet."
+            },
+            {
+              "id": "b",
+              "text": "Cualquier usuario con la misma contraseña."
+            },
+            {
+              "id": "c",
+              "text": "El servidor de archivos por orden alfabético."
+            },
+            {
+              "id": "d",
+              "text": "El equipo o interfaz que posee esa IP en el enlace."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La respuesta comunica la asociación del propietario del protocolo de dirección consultado.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc826.html"
+        },
+        {
+          "id": "w10d4-q04",
+          "prompt": "¿Se reenvía una difusión ARP normal a través de todos los routers de internet?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí; atraviesa cualquier router sin límite."
+            },
+            {
+              "id": "b",
+              "text": "No; su alcance es el dominio de enlace correspondiente."
+            },
+            {
+              "id": "c",
+              "text": "Solo cuando la IP contiene 192."
+            },
+            {
+              "id": "d",
+              "text": "Siempre que el paquete tenga un nombre DNS."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "ARP pertenece al enlace local; no es un mecanismo para descubrir cualquier MAC remota.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc826.html"
+        },
+        {
+          "id": "w10d4-q05",
+          "prompt": "Tu destino está fuera de la subred y hay ruta vía 192.168.7.1. ¿Para qué IP buscas la MAC del primer salto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La IP final remota a través de internet."
+            },
+            {
+              "id": "b",
+              "text": "192.168.7.1."
+            },
+            {
+              "id": "c",
+              "text": "127.0.0.1 siempre."
+            },
+            {
+              "id": "d",
+              "text": "La IP del servidor DNS sin importar la ruta."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La decisión de ruta precede a resolver el vecino que recibe la trama inicial.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc826.html"
+        },
+        {
+          "id": "w10d4-q06",
+          "prompt": "¿Qué evita hacer una nueva consulta ARP para cada paquete inmediato al mismo vecino?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usar una entrada válida en caché."
+            },
+            {
+              "id": "b",
+              "text": "Volver a instalar la tarjeta en cada envío."
+            },
+            {
+              "id": "c",
+              "text": "Cambiar cada vez el prefijo IP."
+            },
+            {
+              "id": "d",
+              "text": "Sustituir IP por una URL."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La caché conserva temporalmente asociaciones aprendidas para comunicaciones posteriores.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc826.html"
+        },
+        {
+          "id": "w10d4-q07",
+          "prompt": "Tras mover una IP a otra interfaz, ¿por qué podría fallar temporalmente una comunicación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Puede persistir una asociación antigua IP-MAC en una caché."
+            },
+            {
+              "id": "b",
+              "text": "La IP pasa a ser una contraseña inválida."
+            },
+            {
+              "id": "c",
+              "text": "DNS cambia todos los archivos a solo lectura."
+            },
+            {
+              "id": "d",
+              "text": "El cable pierde automáticamente la capacidad de enviar bits."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La asociación de enlace debe corresponder al estado actual; entradas antiguas pueden provocar envío al destino equivocado.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc826.html"
+        },
+        {
+          "id": "w10d4-q08",
+          "prompt": "¿Qué diferencia ARP de DNS?",
+          "options": [
+            {
+              "id": "a",
+              "text": "ARP y DNS siempre devuelven el mismo tipo de dirección."
+            },
+            {
+              "id": "b",
+              "text": "DNS descubre obligatoriamente la MAC de todos los servidores."
+            },
+            {
+              "id": "c",
+              "text": "ARP solo se utiliza para elegir zonas horarias."
+            },
+            {
+              "id": "d",
+              "text": "ARP relaciona IP y enlace local; DNS consulta datos asociados a nombres."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Son mecanismos con espacios de nombres, resultados y alcances distintos.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc826.html"
+        }
+      ],
+      "challenge": {
+        "id": "w10d4-challenge",
+        "prompt": "A 192.168.33.10/24 se conecta con B 192.168.33.40/24 en el mismo segmento. No hay caché ARP. ¿Qué secuencia describe el inicio?",
+        "options": [
+          {
+            "id": "a",
+            "text": "A pregunta por la IP de B en el enlace y usa la MAC aprendida para enviarle la trama."
+          },
+          {
+            "id": "b",
+            "text": "A pregunta al servidor DNS la contraseña de B."
+          },
+          {
+            "id": "c",
+            "text": "A necesita primero la MAC del proveedor remoto."
+          },
+          {
+            "id": "d",
+            "text": "A convierte la IP de B en una dirección pública con NAT obligatorio."
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "ARP resuelve la dirección de enlace del vecino seleccionado para la entrega local.",
+        "reference": "https://www.rfc-editor.org/rfc/rfc826.html"
+      }
+    },
+    {
+      "dayId": "w10d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w10d5-q01",
+          "prompt": "Un PC 192.168.8.20/24 envía a 192.168.8.30/24 en su enlace. ¿Qué recorrido básico corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Salida obligatoria al proveedor y regreso."
+            },
+            {
+              "id": "b",
+              "text": "Traducción NAT obligatoria dentro del mismo switch."
+            },
+            {
+              "id": "c",
+              "text": "Envío a loopback en vez de la red."
+            },
+            {
+              "id": "d",
+              "text": "Entrega local al vecino sin necesitar la ruta predeterminada."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La coincidencia de prefijo indica destino local bajo el supuesto del enlace compartido.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+        },
+        {
+          "id": "w10d5-q02",
+          "prompt": "El destino está en otra red. ¿Qué información usa el equipo para elegir siguiente salto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La longitud del nombre del sitio."
+            },
+            {
+              "id": "b",
+              "text": "El número de ventanas abiertas."
+            },
+            {
+              "id": "c",
+              "text": "La contraseña del usuario remoto."
+            },
+            {
+              "id": "d",
+              "text": "Su tabla de rutas."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las rutas relacionan prefijos de destino con interfaces y siguientes saltos.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/route_ws2008"
+        },
+        {
+          "id": "w10d5-q03",
+          "prompt": "¿Qué ruta representa 0.0.0.0/0?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una sola dirección de servidor local."
+            },
+            {
+              "id": "b",
+              "text": "La máscara que siempre impide todo tráfico."
+            },
+            {
+              "id": "c",
+              "text": "Una entrada ARP de difusión."
+            },
+            {
+              "id": "d",
+              "text": "La ruta predeterminada cuando no hay otra más específica aplicable."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El prefijo de longitud cero coincide con cualquier destino y se usa como alternativa general.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/route_ws2008"
+        },
+        {
+          "id": "w10d5-q04",
+          "prompt": "Coinciden una ruta /24 y otra /0 con el destino. ¿Cuál se prefiere en el criterio básico de prefijo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La /0, por ser la más corta siempre."
+            },
+            {
+              "id": "b",
+              "text": "La primera por nombre alfabético del gateway."
+            },
+            {
+              "id": "c",
+              "text": "La /24, por ser más específica."
+            },
+            {
+              "id": "d",
+              "text": "La que tenga la IP más larga escrita."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La selección básica favorece el prefijo coincidente de mayor longitud antes de comparar rutas equivalentes.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1812.html"
+        },
+        {
+          "id": "w10d5-q05",
+          "prompt": "¿Qué cambia NAT básico en los paquetes que traduce?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Los nombres legales de los usuarios."
+            },
+            {
+              "id": "b",
+              "text": "Direcciones IP según su mapeo."
+            },
+            {
+              "id": "c",
+              "text": "La extensión de todos los documentos."
+            },
+            {
+              "id": "d",
+              "text": "La longitud del cable de origen."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "NAT básico traduce direcciones entre espacios; NAPT añade identificadores de transporte.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3022.html"
+        },
+        {
+          "id": "w10d5-q06",
+          "prompt": "Varios clientes salen con una IP externa usando puertos diferentes. ¿Qué mecanismo lo describe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "ARP global de todas las aplicaciones."
+            },
+            {
+              "id": "b",
+              "text": "Una máscara /32 en cada archivo."
+            },
+            {
+              "id": "c",
+              "text": "NAPT o traducción de direcciones y puertos."
+            },
+            {
+              "id": "d",
+              "text": "Un servidor de impresión local."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los puertos permiten distinguir flujos que comparten una dirección externa traducida.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3022.html"
+        },
+        {
+          "id": "w10d5-q07",
+          "prompt": "¿NAT garantiza por sí mismo confidencialidad del contenido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No; traducir direcciones no equivale a cifrar datos."
+            },
+            {
+              "id": "b",
+              "text": "Sí; toda traducción cifra cada aplicación."
+            },
+            {
+              "id": "c",
+              "text": "Sí; una IP privada elimina la necesidad de TLS."
+            },
+            {
+              "id": "d",
+              "text": "No; porque NAT solo cambia nombres DNS."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La traducción modifica direcciones o puertos, mientras el cifrado es una función distinta.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3022.html"
+        },
+        {
+          "id": "w10d5-q08",
+          "prompt": "¿Por qué el router NAT conserva estado o mapeos de una conexión traducida?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para recordar el color de cada cable."
+            },
+            {
+              "id": "b",
+              "text": "Para relacionar respuestas externas con el flujo interno adecuado."
+            },
+            {
+              "id": "c",
+              "text": "Para sustituir el sistema operativo de los clientes."
+            },
+            {
+              "id": "d",
+              "text": "Para resolver permisos de carpetas NTFS."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La traducción de retorno necesita determinar a qué dirección y puerto internos corresponde el tráfico.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3022.html"
+        }
+      ],
+      "challenge": {
+        "id": "w10d5-challenge",
+        "prompt": "En el diagrama, PC 10.0.1.8 sale por NAT a un servidor de ejemplo 203.0.113.20. ¿Qué debe mostrar el dibujo sin confundir funciones?",
+        "options": [
+          {
+            "id": "a",
+            "text": "IP interna, gateway, mapeo traducido y destino de documentación."
+          },
+          {
+            "id": "b",
+            "text": "Una sola MAC que permanece igual por todos los enlaces de internet."
+          },
+          {
+            "id": "c",
+            "text": "DNS cambiando obligatoriamente cada puerto TCP."
+          },
+          {
+            "id": "d",
+            "text": "Una IP privada como dirección globalmente enrutable sin mediación."
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "El diagrama separa enrutamiento y traducción; el bloque externo dado se usa aquí solo como ejemplo.",
+        "reference": "https://www.rfc-editor.org/rfc/rfc3022.html"
+      }
+    },
+    {
+      "dayId": "w10d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w10d6-q01",
+          "prompt": "¿Cuántos bits tiene una dirección IPv6?",
+          "options": [
+            {
+              "id": "a",
+              "text": "32."
+            },
+            {
+              "id": "b",
+              "text": "128."
+            },
+            {
+              "id": "c",
+              "text": "48."
+            },
+            {
+              "id": "d",
+              "text": "64."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La arquitectura IPv6 define identificadores de 128 bits para sus direcciones.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc4291.html"
+        },
+        {
+          "id": "w10d6-q02",
+          "prompt": "¿Qué dirección IPv6 representa loopback?",
+          "options": [
+            {
+              "id": "a",
+              "text": "fe80::1 siempre en cualquier equipo remoto."
+            },
+            {
+              "id": "b",
+              "text": "ff02::1 como único host."
+            },
+            {
+              "id": "c",
+              "text": "::1."
+            },
+            {
+              "id": "d",
+              "text": "2001:db8::1 como loopback universal."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "::1 identifica al propio nodo y no debe usarse como dirección de un vecino remoto.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc4291.html"
+        },
+        {
+          "id": "w10d6-q03",
+          "prompt": "¿Qué indica el prefijo fe80::/10?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Direcciones de correo electrónico."
+            },
+            {
+              "id": "b",
+              "text": "Unicast de enlace local."
+            },
+            {
+              "id": "c",
+              "text": "Broadcast IPv6 global."
+            },
+            {
+              "id": "d",
+              "text": "Loopback exclusivo de todos los routers."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las direcciones link-local se utilizan en un enlace y no se reenvían a otros enlaces.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc4291.html"
+        },
+        {
+          "id": "w10d6-q04",
+          "prompt": "¿Qué consigue :: en una representación IPv6 válida?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Reemplazar cualquier secuencia de grupos arbitrarios."
+            },
+            {
+              "id": "b",
+              "text": "Separar siempre la IP de una contraseña."
+            },
+            {
+              "id": "c",
+              "text": "Abreviar una secuencia de grupos de ceros una vez."
+            },
+            {
+              "id": "d",
+              "text": "Convertir una IPv4 privada en pública."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La compresión representa grupos consecutivos de ceros y no puede repetirse ambiguamente en la misma dirección.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc4291.html"
+        },
+        {
+          "id": "w10d6-q05",
+          "prompt": "¿Qué dirección es equivalente a 2001:0db8:0000:0000:0000:0000:0000:000a?",
+          "options": [
+            {
+              "id": "a",
+              "text": "2001::db8::a."
+            },
+            {
+              "id": "b",
+              "text": "2001:db8::a."
+            },
+            {
+              "id": "c",
+              "text": "2001:db8:a::."
+            },
+            {
+              "id": "d",
+              "text": "2001:db8::10."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Se eliminan ceros iniciales y se comprime la secuencia de grupos cero; a es hexadecimal.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc4291.html"
+        },
+        {
+          "id": "w10d6-q06",
+          "prompt": "¿Qué identifica ff00::/8?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todas las redes privadas IPv4."
+            },
+            {
+              "id": "b",
+              "text": "Una única dirección del anfitrión."
+            },
+            {
+              "id": "c",
+              "text": "La ruta predeterminada de Windows."
+            },
+            {
+              "id": "d",
+              "text": "Direcciones multicast IPv6."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Multicast identifica conjuntos de interfaces; no es el broadcast de IPv4.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc4291.html"
+        },
+        {
+          "id": "w10d6-q07",
+          "prompt": "¿Qué significa que un equipo tenga doble pila?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todas sus aplicaciones usan dos contraseñas."
+            },
+            {
+              "id": "b",
+              "text": "Puede operar con IPv4 e IPv6."
+            },
+            {
+              "id": "c",
+              "text": "IPv4 queda convertido siempre en NAT64."
+            },
+            {
+              "id": "d",
+              "text": "Solo tiene dos adaptadores físicos obligatorios."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La convivencia permite ambos protocolos sin asumir que cada conexión use los dos.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc4291.html"
+        },
+        {
+          "id": "w10d6-q08",
+          "prompt": "¿Qué finalidad tiene 2001:db8::/32 en ejemplos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un servicio DNS garantizado y activo."
+            },
+            {
+              "id": "b",
+              "text": "La dirección pública real de todos los alumnos."
+            },
+            {
+              "id": "c",
+              "text": "Un prefijo de loopback para navegadores."
+            },
+            {
+              "id": "d",
+              "text": "Documentación de redes IPv6."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Es un prefijo reservado para ejemplos y no debe interpretarse como un destino público real.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3849.html"
+        }
+      ],
+      "challenge": {
+        "id": "w10d6-challenge",
+        "prompt": "Un alumno escribe 2001::db8::5 y dice que es una forma abreviada inequívoca. ¿Qué responder?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Es válida porque cualquier número de :: está permitido."
+          },
+          {
+            "id": "b",
+            "text": "Se convierte automáticamente en la IPv4 200.1.5.0."
+          },
+          {
+            "id": "c",
+            "text": "No es válida: :: no puede aparecer dos veces en una misma dirección."
+          },
+          {
+            "id": "d",
+            "text": "Solo hay que añadir una contraseña al final."
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "Dos compresiones impedirían conocer cuántos grupos de ceros corresponde expandir en cada lugar.",
+        "reference": "https://www.rfc-editor.org/rfc/rfc4291.html"
+      }
+    },
+    {
+      "dayId": "w10d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w10d7-q01",
+          "prompt": "¿Qué consulta arp -a en Windows?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todos los equipos existentes de internet."
+            },
+            {
+              "id": "b",
+              "text": "Los dominios del historial del navegador."
+            },
+            {
+              "id": "c",
+              "text": "Las contraseñas de cada vecino."
+            },
+            {
+              "id": "d",
+              "text": "Las entradas actuales de la caché ARP."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La caché muestra asociaciones conocidas en las interfaces, no un inventario completo de redes.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/arp",
+          "reviewOf": "w10d1-q01"
+        },
+        {
+          "id": "w10d7-q02",
+          "prompt": "¿Cuál es una dirección IPv4 sintácticamente válida?",
+          "options": [
+            {
+              "id": "a",
+              "text": "192.168.4.300"
+            },
+            {
+              "id": "b",
+              "text": "192.168.4"
+            },
+            {
+              "id": "c",
+              "text": "192.168.4.25"
+            },
+            {
+              "id": "d",
+              "text": "192.168.-1.25"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La notación decimal habitual usa cuatro octetos con valores entre 0 y 255.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc791.html",
+          "reviewOf": "w10d2-q01"
+        },
+        {
+          "id": "w10d7-q03",
+          "prompt": "¿Qué dato explica qué parte de una IPv4 pertenece a la red?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el nombre del equipo."
+            },
+            {
+              "id": "b",
+              "text": "La máscara o longitud de prefijo."
+            },
+            {
+              "id": "c",
+              "text": "La contraseña Wi-Fi."
+            },
+            {
+              "id": "d",
+              "text": "El puerto del navegador."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La dirección se interpreta con su máscara para determinar el prefijo de red.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig",
+          "reviewOf": "w10d3-q01"
+        },
+        {
+          "id": "w10d7-q04",
+          "prompt": "¿Qué problema resuelve ARP en una LAN Ethernet IPv4?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Obtener la dirección de enlace asociada a una IP local."
+            },
+            {
+              "id": "b",
+              "text": "Elegir la contraseña más fuerte para el usuario."
+            },
+            {
+              "id": "c",
+              "text": "Resolver nombres web a direcciones IPv6."
+            },
+            {
+              "id": "d",
+              "text": "Cifrar todos los datos de aplicación."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "ARP conecta el direccionamiento IPv4 con el direccionamiento del enlace local.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc826.html",
+          "reviewOf": "w10d4-q01"
+        },
+        {
+          "id": "w10d7-q05",
+          "prompt": "Un PC 192.168.8.20/24 envía a 192.168.8.30/24 en su enlace. ¿Qué recorrido básico corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Salida obligatoria al proveedor y regreso."
+            },
+            {
+              "id": "b",
+              "text": "Traducción NAT obligatoria dentro del mismo switch."
+            },
+            {
+              "id": "c",
+              "text": "Envío a loopback en vez de la red."
+            },
+            {
+              "id": "d",
+              "text": "Entrega local al vecino sin necesitar la ruta predeterminada."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La coincidencia de prefijo indica destino local bajo el supuesto del enlace compartido.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html",
+          "reviewOf": "w10d5-q01"
+        },
+        {
+          "id": "w10d7-q06",
+          "prompt": "¿Cuántos bits tiene una dirección IPv6?",
+          "options": [
+            {
+              "id": "a",
+              "text": "32."
+            },
+            {
+              "id": "b",
+              "text": "128."
+            },
+            {
+              "id": "c",
+              "text": "48."
+            },
+            {
+              "id": "d",
+              "text": "64."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La arquitectura IPv6 define identificadores de 128 bits para sus direcciones.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc4291.html",
+          "reviewOf": "w10d6-q01"
+        },
+        {
+          "id": "w10d7-q07",
+          "prompt": "Una entrada muestra 192.168.20.1 asociado a 00-11-22-33-44-55. ¿Qué relación describe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una traducción obligatoria de nombre DNS a usuario."
+            },
+            {
+              "id": "b",
+              "text": "La contraseña cifrada del gateway."
+            },
+            {
+              "id": "c",
+              "text": "Una asociación local de dirección IPv4 y dirección de enlace."
+            },
+            {
+              "id": "d",
+              "text": "La ubicación física exacta de ese equipo."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "ARP relaciona direcciones del protocolo de red con direcciones del enlace correspondiente.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/arp",
+          "reviewOf": "w10d1-q02"
+        },
+        {
+          "id": "w10d7-q08",
+          "prompt": "¿Qué dirección pertenece al bloque privado 10.0.0.0/8?",
+          "options": [
+            {
+              "id": "a",
+              "text": "11.42.8.9"
+            },
+            {
+              "id": "b",
+              "text": "10.42.8.9"
+            },
+            {
+              "id": "c",
+              "text": "110.42.8.9"
+            },
+            {
+              "id": "d",
+              "text": "9.255.8.9"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El prefijo /8 fija el primer octeto en 10 dentro de ese bloque privado.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1918.html",
+          "reviewOf": "w10d2-q02"
+        },
+        {
+          "id": "w10d7-q09",
+          "prompt": "Un PC 192.168.60.10/24 usa gateway 192.168.60.1. ¿Qué función cumple el gateway?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Nombre de usuario de la sesión."
+            },
+            {
+              "id": "b",
+              "text": "Permiso para leer todos los archivos."
+            },
+            {
+              "id": "c",
+              "text": "Servidor de tiempo obligatorio."
+            },
+            {
+              "id": "d",
+              "text": "Siguiente salto para destinos que deban salir de la red local."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La puerta de enlace ayuda a enviar paquetes hacia otras redes según la tabla de rutas.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig",
+          "reviewOf": "w10d3-q02"
+        },
+        {
+          "id": "w10d7-q10",
+          "prompt": "El PC necesita contactar a 192.168.7.20 en su misma subred y no tiene entrada. ¿Qué envía habitualmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una búsqueda DNS obligatoria de la MAC."
+            },
+            {
+              "id": "b",
+              "text": "Una petición HTTP al proveedor."
+            },
+            {
+              "id": "c",
+              "text": "Un mensaje de correo al switch."
+            },
+            {
+              "id": "d",
+              "text": "Una solicitud ARP de difusión en el enlace."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La solicitud ARP permite preguntar qué vecino tiene la dirección objetivo.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc826.html",
+          "reviewOf": "w10d4-q02"
+        },
+        {
+          "id": "w10d7-q11",
+          "prompt": "El destino está en otra red. ¿Qué información usa el equipo para elegir siguiente salto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La longitud del nombre del sitio."
+            },
+            {
+              "id": "b",
+              "text": "El número de ventanas abiertas."
+            },
+            {
+              "id": "c",
+              "text": "La contraseña del usuario remoto."
+            },
+            {
+              "id": "d",
+              "text": "Su tabla de rutas."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las rutas relacionan prefijos de destino con interfaces y siguientes saltos.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/route_ws2008",
+          "reviewOf": "w10d5-q02"
+        },
+        {
+          "id": "w10d7-q12",
+          "prompt": "¿Qué dirección IPv6 representa loopback?",
+          "options": [
+            {
+              "id": "a",
+              "text": "fe80::1 siempre en cualquier equipo remoto."
+            },
+            {
+              "id": "b",
+              "text": "ff02::1 como único host."
+            },
+            {
+              "id": "c",
+              "text": "::1."
+            },
+            {
+              "id": "d",
+              "text": "2001:db8::1 como loopback universal."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "::1 identifica al propio nodo y no debe usarse como dirección de un vecino remoto.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc4291.html",
+          "reviewOf": "w10d6-q02"
+        },
+        {
+          "id": "w10d7-q13",
+          "prompt": "La caché ARP no contiene la IP de una impresora apagada. ¿Qué se puede concluir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que la impresora nunca existió."
+            },
+            {
+              "id": "b",
+              "text": "Que su MAC no puede consultarse jamás."
+            },
+            {
+              "id": "c",
+              "text": "Que toda la red está dañada."
+            },
+            {
+              "id": "d",
+              "text": "Solo que no hay una entrada actual para ella en esa consulta."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una caché es información parcial y temporal; la ausencia no demuestra inexistencia.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/arp",
+          "reviewOf": "w10d1-q03"
+        },
+        {
+          "id": "w10d7-q14",
+          "prompt": "¿Cuál está dentro del bloque privado 172.16.0.0/12?",
+          "options": [
+            {
+              "id": "a",
+              "text": "172.31.8.10"
+            },
+            {
+              "id": "b",
+              "text": "172.32.8.10"
+            },
+            {
+              "id": "c",
+              "text": "172.8.8.10"
+            },
+            {
+              "id": "d",
+              "text": "173.16.8.10"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Ese bloque abarca del segundo octeto 16 al 31; no todo 172 es privado.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1918.html",
+          "reviewOf": "w10d2-q03"
+        },
+        {
+          "id": "w10d7-q15",
+          "prompt": "¿Qué campo revisas si las conexiones por IP funcionan pero los nombres no se resuelven?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La MAC del monitor."
+            },
+            {
+              "id": "b",
+              "text": "El tamaño de la papelera."
+            },
+            {
+              "id": "c",
+              "text": "La prioridad del teclado."
+            },
+            {
+              "id": "d",
+              "text": "Servidores DNS configurados."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La resolución de nombres depende del servicio DNS y de su configuración y alcance.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig",
+          "reviewOf": "w10d3-q03"
+        },
+        {
+          "id": "w10d7-q16",
+          "prompt": "¿Quién debe responder a una solicitud ARP normal por una IP que posee?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todos los sitios web de internet."
+            },
+            {
+              "id": "b",
+              "text": "Cualquier usuario con la misma contraseña."
+            },
+            {
+              "id": "c",
+              "text": "El servidor de archivos por orden alfabético."
+            },
+            {
+              "id": "d",
+              "text": "El equipo o interfaz que posee esa IP en el enlace."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La respuesta comunica la asociación del propietario del protocolo de dirección consultado.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc826.html",
+          "reviewOf": "w10d4-q03"
+        },
+        {
+          "id": "w10d7-q17",
+          "prompt": "¿Qué ruta representa 0.0.0.0/0?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una sola dirección de servidor local."
+            },
+            {
+              "id": "b",
+              "text": "La máscara que siempre impide todo tráfico."
+            },
+            {
+              "id": "c",
+              "text": "Una entrada ARP de difusión."
+            },
+            {
+              "id": "d",
+              "text": "La ruta predeterminada cuando no hay otra más específica aplicable."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El prefijo de longitud cero coincide con cualquier destino y se usa como alternativa general.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/route_ws2008",
+          "reviewOf": "w10d5-q03"
+        },
+        {
+          "id": "w10d7-q18",
+          "prompt": "¿Qué indica el prefijo fe80::/10?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Direcciones de correo electrónico."
+            },
+            {
+              "id": "b",
+              "text": "Unicast de enlace local."
+            },
+            {
+              "id": "c",
+              "text": "Broadcast IPv6 global."
+            },
+            {
+              "id": "d",
+              "text": "Loopback exclusivo de todos los routers."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las direcciones link-local se utilizan en un enlace y no se reenvían a otros enlaces.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc4291.html",
+          "reviewOf": "w10d6-q03"
+        },
+        {
+          "id": "w10d7-q19",
+          "prompt": "¿Por qué deben distinguirse interfaces al leer tablas de vecinos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Toda interfaz comparte necesariamente la misma subred."
+            },
+            {
+              "id": "b",
+              "text": "Solo existe una dirección MAC por edificio."
+            },
+            {
+              "id": "c",
+              "text": "Las tablas no dependen de las interfaces."
+            },
+            {
+              "id": "d",
+              "text": "Cada interfaz puede pertenecer a un enlace diferente."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El contexto del enlace determina qué vecinos y asociaciones son relevantes.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/arp",
+          "reviewOf": "w10d1-q04"
+        },
+        {
+          "id": "w10d7-q20",
+          "prompt": "¿Se reenvía una difusión ARP normal a través de todos los routers de internet?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí; atraviesa cualquier router sin límite."
+            },
+            {
+              "id": "b",
+              "text": "No; su alcance es el dominio de enlace correspondiente."
+            },
+            {
+              "id": "c",
+              "text": "Solo cuando la IP contiene 192."
+            },
+            {
+              "id": "d",
+              "text": "Siempre que el paquete tenga un nombre DNS."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "ARP pertenece al enlace local; no es un mecanismo para descubrir cualquier MAC remota.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc826.html",
+          "reviewOf": "w10d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w10d7-challenge",
+        "prompt": "PC 192.168.44.12/24 envía a 198.51.100.8, con ruta por defecto vía 192.168.44.1. ¿Qué par IP destino/MAC destino usa el primer salto Ethernet sin NAT local?",
+        "options": [
+          {
+            "id": "a",
+            "text": "IP del gateway y MAC del servidor final remoto."
+          },
+          {
+            "id": "b",
+            "text": "IP 198.51.100.8 y MAC del gateway 192.168.44.1."
+          },
+          {
+            "id": "c",
+            "text": "IP 127.0.0.1 y MAC de cualquier vecino."
+          },
+          {
+            "id": "d",
+            "text": "La misma MAC final en todos los enlaces del recorrido."
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "El paquete conserva el destino remoto mientras la trama inicial se entrega al siguiente salto local; el destino se da como ejemplo documental.",
+        "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+      }
+    }
+  ]
+}

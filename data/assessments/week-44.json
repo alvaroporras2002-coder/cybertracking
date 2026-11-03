@@ -1,0 +1,2094 @@
+{
+  "week": 44,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w44d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w44d1-q01",
+          "prompt": "¿Qué registra normalmente el evento Windows 4624?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Fallo de inicio"
+            },
+            {
+              "id": "b",
+              "text": "Inicio de sesión exitoso"
+            },
+            {
+              "id": "c",
+              "text": "Creación de proceso"
+            },
+            {
+              "id": "d",
+              "text": "Borrado de cuenta"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El éxito de autenticación no determina legitimidad de su uso.",
+          "reference": "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4624"
+        },
+        {
+          "id": "w44d1-q02",
+          "prompt": "¿Qué evento corresponde a un fallo de inicio de sesión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "4624"
+            },
+            {
+              "id": "b",
+              "text": "4625"
+            },
+            {
+              "id": "c",
+              "text": "4688"
+            },
+            {
+              "id": "d",
+              "text": "1102"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "4625 describe un intento fallido y contiene contexto del fallo.",
+          "reference": "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4624"
+        },
+        {
+          "id": "w44d1-q03",
+          "prompt": "En 4624, tipo 3 suele indicar ¿qué?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Inicio interactivo local"
+            },
+            {
+              "id": "b",
+              "text": "Desbloqueo de pantalla"
+            },
+            {
+              "id": "c",
+              "text": "Cambio de contraseña"
+            },
+            {
+              "id": "d",
+              "text": "Inicio de sesión de red"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El tipo distingue cómo se solicita la sesión.",
+          "reference": "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4624"
+        },
+        {
+          "id": "w44d1-q04",
+          "prompt": "¿Qué caracteriza habitualmente tipo 10?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Servicio local"
+            },
+            {
+              "id": "b",
+              "text": "Trabajo por lotes"
+            },
+            {
+              "id": "c",
+              "text": "Acceso interactivo remoto"
+            },
+            {
+              "id": "d",
+              "text": "Acceso anónimo web"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "RemoteInteractive suele corresponder a servicios de escritorio remoto.",
+          "reference": "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4624"
+        },
+        {
+          "id": "w44d1-q05",
+          "prompt": "Muchos fallos seguidos de éxito, ¿qué falta antes de confirmar intrusión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Contexto de cuenta, origen y actividad"
+            },
+            {
+              "id": "b",
+              "text": "Solo otro color de alerta"
+            },
+            {
+              "id": "c",
+              "text": "Solo contar éxitos"
+            },
+            {
+              "id": "d",
+              "text": "Solo nombre de equipo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Contraseñas antiguas o errores humanos también generan secuencias similares.",
+          "reference": "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4624"
+        },
+        {
+          "id": "w44d1-q06",
+          "prompt": "¿Qué aporta Logon ID en el equipo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Identidad global eterna"
+            },
+            {
+              "id": "b",
+              "text": "Hash de la contraseña"
+            },
+            {
+              "id": "c",
+              "text": "Correlación de eventos de sesión"
+            },
+            {
+              "id": "d",
+              "text": "IP pública asegurada"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El identificador debe usarse con contexto de host y tiempo.",
+          "reference": "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4624"
+        },
+        {
+          "id": "w44d1-q07",
+          "prompt": "Un campo IP está vacío en un login local. ¿Qué implica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Puede ser coherente con ese tipo de acceso"
+            },
+            {
+              "id": "b",
+              "text": "El registro es falso"
+            },
+            {
+              "id": "c",
+              "text": "Nunca hubo sesión"
+            },
+            {
+              "id": "d",
+              "text": "El usuario borró su IP"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "No todos los tipos de sesión tienen un origen de red.",
+          "reference": "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4624"
+        },
+        {
+          "id": "w44d1-q08",
+          "prompt": "¿Dónde consultar causas de un 4625?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo nombre de archivo"
+            },
+            {
+              "id": "b",
+              "text": "Status, SubStatus y contexto"
+            },
+            {
+              "id": "c",
+              "text": "Solo número de evento"
+            },
+            {
+              "id": "d",
+              "text": "Solo título del dashboard"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los códigos y campos ayudan a distinguir credencial, cuenta y restricciones.",
+          "reference": "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4624"
+        }
+      ],
+      "challenge": {
+        "id": "w44d1-challenge",
+        "prompt": "PC44 muestra 4625 tipo3 y luego4624 tipo3 desde servidor de copias autorizado. ¿Qué verificas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Declarar intrusión por éxito"
+          },
+          {
+            "id": "b",
+            "text": "Ignorar todo por ser servidor"
+          },
+          {
+            "id": "c",
+            "text": "Bloquear toda la red"
+          },
+          {
+            "id": "d",
+            "text": "Tarea, credenciales y actividad posterior"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La secuencia admite una tarea legítima o abuso y requiere contexto.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    },
+    {
+      "dayId": "w44d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w44d2-q01",
+          "prompt": "¿Qué evento de Sysmon describe creación de proceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Event ID 3"
+            },
+            {
+              "id": "b",
+              "text": "Event ID 22"
+            },
+            {
+              "id": "c",
+              "text": "Event ID 1"
+            },
+            {
+              "id": "d",
+              "text": "Event ID 11"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El evento 1 aporta proceso, comandos y contexto según configuración.",
+          "reference": "https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon"
+        },
+        {
+          "id": "w44d2-q02",
+          "prompt": "¿Qué ventaja tiene ProcessGuid frente a PID aislado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Identifica a la persona"
+            },
+            {
+              "id": "b",
+              "text": "Reduce confusión por reutilización de PID"
+            },
+            {
+              "id": "c",
+              "text": "Garantiza malware"
+            },
+            {
+              "id": "d",
+              "text": "Revela todos los archivos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El identificador facilita correlacionar la misma instancia de proceso.",
+          "reference": "https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon"
+        },
+        {
+          "id": "w44d2-q03",
+          "prompt": "Word inicia cmd y luego PowerShell. ¿Qué examinas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo iconos firmados"
+            },
+            {
+              "id": "b",
+              "text": "Solo número de ventanas"
+            },
+            {
+              "id": "c",
+              "text": "Solo idioma de Office"
+            },
+            {
+              "id": "d",
+              "text": "Comandos, archivo origen y contexto"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La cadena es una pista que requiere diferenciar automatización legítima y abuso.",
+          "reference": "https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon"
+        },
+        {
+          "id": "w44d2-q04",
+          "prompt": "Una línea de comandos no se registra. ¿Qué revisas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el proceso nunca tuvo argumentos"
+            },
+            {
+              "id": "b",
+              "text": "Auditoría y configuración de telemetría"
+            },
+            {
+              "id": "c",
+              "text": "Que el archivo sea benigno"
+            },
+            {
+              "id": "d",
+              "text": "Solo zona horaria"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La disponibilidad del campo depende de la fuente y políticas.",
+          "reference": "https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon"
+        },
+        {
+          "id": "w44d2-q05",
+          "prompt": "¿Qué evidencia de red puede aportar Sysmon si está configurado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Contenido TLS descifrado siempre"
+            },
+            {
+              "id": "b",
+              "text": "Conexiones asociadas a procesos"
+            },
+            {
+              "id": "c",
+              "text": "Todo tráfico de otros equipos"
+            },
+            {
+              "id": "d",
+              "text": "Todo historial del router"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La telemetría del endpoint tiene alcance y condiciones de recopilación.",
+          "reference": "https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon"
+        },
+        {
+          "id": "w44d2-q06",
+          "prompt": "¿Por qué conservar ruta completa del proceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Distinguir binarios con igual nombre"
+            },
+            {
+              "id": "b",
+              "text": "Probar intención del usuario"
+            },
+            {
+              "id": "c",
+              "text": "Evitar revisar hash"
+            },
+            {
+              "id": "d",
+              "text": "Sustituir el PID"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un nombre base puede corresponder a archivos distintos.",
+          "reference": "https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon"
+        },
+        {
+          "id": "w44d2-q07",
+          "prompt": "Un hijo aparece después de terminar el padre en otra fuente. ¿Qué compruebas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Desfase, PID y ventanas de recolección"
+            },
+            {
+              "id": "b",
+              "text": "Malware confirmado por orden"
+            },
+            {
+              "id": "c",
+              "text": "Que todo evento es inválido"
+            },
+            {
+              "id": "d",
+              "text": "Solo tamaño de ejecutable"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Relojes y reutilización de identificadores pueden crear relaciones aparentes.",
+          "reference": "https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon"
+        },
+        {
+          "id": "w44d2-q08",
+          "prompt": "¿Qué debilita concluir legitimidad por firma digital?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La firma nunca existe"
+            },
+            {
+              "id": "b",
+              "text": "Un binario firmado también puede abusarse"
+            },
+            {
+              "id": "c",
+              "text": "La firma cifra el comando"
+            },
+            {
+              "id": "d",
+              "text": "Un firmado no puede usar red"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La firma ayuda a validar procedencia, no uso autorizado.",
+          "reference": "https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon"
+        }
+      ],
+      "challenge": {
+        "id": "w44d2-challenge",
+        "prompt": "Un 4688 muestra powershell con padre winword y ruta temporal. ¿Qué siguiente paso discrimina mejor?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Concluir malware solo por nombre"
+          },
+          {
+            "id": "b",
+            "text": "Borrar Word inmediatamente"
+          },
+          {
+            "id": "c",
+            "text": "Descartar porque Windows lo incluye"
+          },
+          {
+            "id": "d",
+            "text": "Revisar comando, documento y telemetría relacionada"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La cadena requiere examinar argumentos, origen y efectos.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    },
+    {
+      "dayId": "w44d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w44d3-q01",
+          "prompt": "¿Qué muestra journalctl -u ssh.service cuando esa unidad existe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todos los archivos personales"
+            },
+            {
+              "id": "b",
+              "text": "Entradas de esa unidad"
+            },
+            {
+              "id": "c",
+              "text": "Solo conexiones TCP activas"
+            },
+            {
+              "id": "d",
+              "text": "Historial completo de contraseñas"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El filtro por unidad delimita registros del servicio.",
+          "reference": "https://www.freedesktop.org/software/systemd/man/latest/journalctl.html"
+        },
+        {
+          "id": "w44d3-q02",
+          "prompt": "¿Qué aporta --since a journalctl?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Nombre del usuario"
+            },
+            {
+              "id": "b",
+              "text": "Nivel de cifrado"
+            },
+            {
+              "id": "c",
+              "text": "Límite temporal inferior"
+            },
+            {
+              "id": "d",
+              "text": "Cantidad de discos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El filtro temporal reduce registros al intervalo investigado.",
+          "reference": "https://www.freedesktop.org/software/systemd/man/latest/journalctl.html"
+        },
+        {
+          "id": "w44d3-q03",
+          "prompt": "Un registro SSH dice Failed password. ¿Qué demuestra?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sesión establecida"
+            },
+            {
+              "id": "b",
+              "text": "Intento fallido de autenticación"
+            },
+            {
+              "id": "c",
+              "text": "Ejecución de sudo"
+            },
+            {
+              "id": "d",
+              "text": "Transferencia exitosa"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un fallo no equivale a acceso conseguido.",
+          "reference": "https://www.freedesktop.org/software/systemd/man/latest/journalctl.html"
+        },
+        {
+          "id": "w44d3-q04",
+          "prompt": "¿Qué indica una entrada de sudo con COMMAND?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Toda su salida completa"
+            },
+            {
+              "id": "b",
+              "text": "Comando solicitado bajo sudo"
+            },
+            {
+              "id": "c",
+              "text": "Éxito de cada acción interna"
+            },
+            {
+              "id": "d",
+              "text": "Persona física demostrada"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Debe distinguirse invocación del comando y sus efectos posteriores.",
+          "reference": "https://www.freedesktop.org/software/systemd/man/latest/journalctl.html"
+        },
+        {
+          "id": "w44d3-q05",
+          "prompt": "¿Por qué /var/log/auth.log no existe en todo Linux?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Distribuciones y logging difieren"
+            },
+            {
+              "id": "b",
+              "text": "Nunca se registran accesos"
+            },
+            {
+              "id": "c",
+              "text": "Solo existe en RAM siempre"
+            },
+            {
+              "id": "d",
+              "text": "SSH lo impide"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las rutas y fuentes varían entre sistemas y configuraciones.",
+          "reference": "https://www.freedesktop.org/software/systemd/man/latest/journalctl.html"
+        },
+        {
+          "id": "w44d3-q06",
+          "prompt": "Un servicio se reinicia a las 03:00. ¿Qué correlacionas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Unidad, usuario y cambios cercanos"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombre del archivo"
+            },
+            {
+              "id": "c",
+              "text": "Solo uptime actual"
+            },
+            {
+              "id": "d",
+              "text": "Solo tamaño de disco"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El reinicio puede ser mantenimiento o consecuencia de un incidente.",
+          "reference": "https://www.freedesktop.org/software/systemd/man/latest/journalctl.html"
+        },
+        {
+          "id": "w44d3-q07",
+          "prompt": "¿Qué limita consultar journalctl como usuario sin permisos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Puede no ver todos los registros"
+            },
+            {
+              "id": "b",
+              "text": "Los registros cambian de fecha"
+            },
+            {
+              "id": "c",
+              "text": "Todos los eventos se borran"
+            },
+            {
+              "id": "d",
+              "text": "No puede ver su propia sesión"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los permisos condicionan la visibilidad del journal.",
+          "reference": "https://www.freedesktop.org/software/systemd/man/latest/journalctl.html"
+        },
+        {
+          "id": "w44d3-q08",
+          "prompt": "¿Qué evita journalctl --utc al compartir tiempos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Errores de contraseña"
+            },
+            {
+              "id": "b",
+              "text": "Ambigüedad de zona de presentación"
+            },
+            {
+              "id": "c",
+              "text": "Pérdida de paquete"
+            },
+            {
+              "id": "d",
+              "text": "Rotación de logs"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Presentar en UTC facilita correlación sin modificar tiempos originales.",
+          "reference": "https://www.freedesktop.org/software/systemd/man/latest/journalctl.html"
+        }
+      ],
+      "challenge": {
+        "id": "w44d3-challenge",
+        "prompt": "SSH registra tres fallos y Accepted publickey desde IP administrativa. ¿Qué afirmas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Los fallos impidieron todo acceso"
+          },
+          {
+            "id": "b",
+            "text": "Hubo acceso exitoso registrado; autorización debe contrastarse"
+          },
+          {
+            "id": "c",
+            "text": "La clave pública prueba a la persona"
+          },
+          {
+            "id": "d",
+            "text": "Hubo exfiltración por SSH"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "El éxito de autenticación no establece por sí solo uso autorizado.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    },
+    {
+      "dayId": "w44d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w44d4-q01",
+          "prompt": "Dos fuentes comparten IP pública de salida. ¿Qué falta para atribuir a un host?",
+          "options": [
+            {
+              "id": "a",
+              "text": "NAT, puertos y tiempo"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombre del ISP"
+            },
+            {
+              "id": "c",
+              "text": "Solo dominio consultado"
+            },
+            {
+              "id": "d",
+              "text": "Solo conteo de alertas"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Varios dispositivos pueden compartir una dirección pública.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w44d4-q02",
+          "prompt": "¿Qué combinación refuerza una correlación de acceso y proceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo mismo minuto global"
+            },
+            {
+              "id": "b",
+              "text": "Host, sesión y tiempo compatible"
+            },
+            {
+              "id": "c",
+              "text": "Solo mismo color de severidad"
+            },
+            {
+              "id": "d",
+              "text": "Solo misma extensión"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Identificadores específicos reducen coincidencias accidentales.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w44d4-q03",
+          "prompt": "Ana y ANA aparecen en sistemas distintos. ¿Qué verificas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que siempre son personas distintas"
+            },
+            {
+              "id": "b",
+              "text": "Que siempre son la misma cuenta"
+            },
+            {
+              "id": "c",
+              "text": "Reglas de normalización e identidad"
+            },
+            {
+              "id": "d",
+              "text": "Solo longitud del nombre"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El significado de nombres depende de dominio y sistema.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w44d4-q04",
+          "prompt": "¿Por qué incluir dominio en una cuenta correlacionada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Acelerar el reloj"
+            },
+            {
+              "id": "b",
+              "text": "Calcular hash"
+            },
+            {
+              "id": "c",
+              "text": "Revelar contraseña"
+            },
+            {
+              "id": "d",
+              "text": "Distinguir identidades homónimas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una cuenta local y otra de dominio pueden compartir nombre.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w44d4-q05",
+          "prompt": "¿Qué riesgo tiene unir fuentes solo por PID?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambiar el usuario original"
+            },
+            {
+              "id": "b",
+              "text": "Coincidir procesos distintos"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar eventos duplicados"
+            },
+            {
+              "id": "d",
+              "text": "Garantizar causalidad"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "PID necesita host, tiempo y, si existe, identificador de instancia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w44d4-q06",
+          "prompt": "Un proxy indica destino y un endpoint un proceso. ¿Qué necesitas para unirlos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo un apellido parecido"
+            },
+            {
+              "id": "b",
+              "text": "Flujo y ventana compatibles"
+            },
+            {
+              "id": "c",
+              "text": "Solo misma severidad"
+            },
+            {
+              "id": "d",
+              "text": "Solo orden de llegada"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El enlace requiere correspondencia técnica y temporal verificable.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w44d4-q07",
+          "prompt": "Una coincidencia contradice la secuencia esperada. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Revisar fuentes y conservar contradicción"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar el evento incómodo"
+            },
+            {
+              "id": "c",
+              "text": "Reordenar tiempos sin nota"
+            },
+            {
+              "id": "d",
+              "text": "Afirmar intrusión más compleja"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las discrepancias ayudan a detectar errores o alternativas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w44d4-q08",
+          "prompt": "¿Qué frase diferencia correlación y causalidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Los eventos coinciden; vínculo causal por verificar"
+            },
+            {
+              "id": "b",
+              "text": "Mismo minuto prueba causa"
+            },
+            {
+              "id": "c",
+              "text": "Mismo usuario prueba persona"
+            },
+            {
+              "id": "d",
+              "text": "Misma IP prueba intención"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La coincidencia es evidencia parcial, no explicación definitiva.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        }
+      ],
+      "challenge": {
+        "id": "w44d4-challenge",
+        "prompt": "Proxy y endpoint coinciden por IP, pero usan zonas diferentes. ¿Qué haces antes de unirlos?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Forzar mismo minuto visual"
+          },
+          {
+            "id": "b",
+            "text": "Eliminar eventos del proxy"
+          },
+          {
+            "id": "c",
+            "text": "Normalizar tiempos y comprobar NAT"
+          },
+          {
+            "id": "d",
+            "text": "Atribuir al primer usuario"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La correspondencia exige direcciones e instantes comparables.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    },
+    {
+      "dayId": "w44d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w44d5-q01",
+          "prompt": "¿Qué necesita una regla de umbral de logins fallidos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo un número grande"
+            },
+            {
+              "id": "b",
+              "text": "Ventana, agrupación y criterio"
+            },
+            {
+              "id": "c",
+              "text": "Solo nombre de malware"
+            },
+            {
+              "id": "d",
+              "text": "Solo título de alerta"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El umbral depende de sobre qué entidad y periodo se aplica.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w44d5-q02",
+          "prompt": "Una regla alerta al sexto fallo en cinco minutos por usuario. ¿Qué caso cumple?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Seis usuarios con un fallo cada uno"
+            },
+            {
+              "id": "b",
+              "text": "Seis fallos de Ana en cuatro minutos"
+            },
+            {
+              "id": "c",
+              "text": "Cinco fallos de Ana en una hora"
+            },
+            {
+              "id": "d",
+              "text": "Un éxito de Ana"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La entidad y ventana son parte del significado de la regla.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w44d5-q03",
+          "prompt": "¿Qué es un falso positivo en una detección de ataque?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Actividad legítima alertada como sospechosa"
+            },
+            {
+              "id": "b",
+              "text": "Ataque no detectado"
+            },
+            {
+              "id": "c",
+              "text": "Evento sin fecha"
+            },
+            {
+              "id": "d",
+              "text": "Alerta aún no leída"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La revisión debe determinar si la condición representa amenaza real.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w44d5-q04",
+          "prompt": "¿Qué ejemplo benigno puede generar fallos repetidos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hash coincidente"
+            },
+            {
+              "id": "b",
+              "text": "Puerto cerrado local"
+            },
+            {
+              "id": "c",
+              "text": "Servicio con contraseña desactualizada"
+            },
+            {
+              "id": "d",
+              "text": "Ausencia de usuario"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Credenciales almacenadas antiguas pueden producir reintentos automáticos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w44d5-q05",
+          "prompt": "¿Qué prueba debe incluir una regla nueva?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Casos sospechosos y benignos conocidos"
+            },
+            {
+              "id": "b",
+              "text": "Solo el caso que la inspiró"
+            },
+            {
+              "id": "c",
+              "text": "Solo eventos vacíos"
+            },
+            {
+              "id": "d",
+              "text": "Solo horas de oficina"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La validación necesita evaluar sensibilidad y ruido.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w44d5-q06",
+          "prompt": "¿Qué riesgo tiene excluir todo un administrador de alertas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Bloquear todos sus accesos"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar su contraseña"
+            },
+            {
+              "id": "c",
+              "text": "Crear punto ciego si su cuenta se compromete"
+            },
+            {
+              "id": "d",
+              "text": "Garantizar menos incidentes"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las excepciones amplias pueden ocultar abuso relevante.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w44d5-q07",
+          "prompt": "¿Para qué medir tasa de alertas tras un ajuste?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Demostrar que todo es ataque"
+            },
+            {
+              "id": "b",
+              "text": "Evaluar efecto y carga operativa"
+            },
+            {
+              "id": "c",
+              "text": "Reemplazar revisión de casos"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar retención automáticamente"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El ajuste necesita comprobar consecuencias sobre resultados y trabajo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w44d5-q08",
+          "prompt": "¿Qué documentas al silenciar una excepción legítima?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo nombre corto"
+            },
+            {
+              "id": "b",
+              "text": "Motivo, alcance, responsable y revisión"
+            },
+            {
+              "id": "c",
+              "text": "Solo color del panel"
+            },
+            {
+              "id": "d",
+              "text": "Una exclusión permanente sin dueño"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las excepciones requieren control y revisión posterior.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        }
+      ],
+      "challenge": {
+        "id": "w44d5-challenge",
+        "prompt": "Una alerta de fuerza bruta coincide con un servicio tras rotación de contraseña. ¿Qué decisión procede?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Excluir todos los fallos futuros"
+          },
+          {
+            "id": "b",
+            "text": "Validar tarea y ajustar excepción limitada si se confirma"
+          },
+          {
+            "id": "c",
+            "text": "Cerrar sin revisar éxito posterior"
+          },
+          {
+            "id": "d",
+            "text": "Bloquear al equipo para siempre"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La explicación benigna debe comprobarse antes de ajustar detección.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    },
+    {
+      "dayId": "w44d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w44d6-q01",
+          "prompt": "Un acceso sospechoso tiene éxito y luego cambios de privilegios. ¿Qué aumenta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Certidumbre de actor extranjero"
+            },
+            {
+              "id": "b",
+              "text": "Necesidad de investigar alcance e impacto"
+            },
+            {
+              "id": "c",
+              "text": "Prueba de exfiltración"
+            },
+            {
+              "id": "d",
+              "text": "Certeza de falso positivo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La actividad posterior refuerza relevancia sin resolver toda atribución.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w44d6-q02",
+          "prompt": "¿Qué pregunta delimita alcance de una cuenta comprometida?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dónde y cuándo se utilizó"
+            },
+            {
+              "id": "b",
+              "text": "Qué tema visual usaba"
+            },
+            {
+              "id": "c",
+              "text": "Cuántos monitores tenía"
+            },
+            {
+              "id": "d",
+              "text": "Qué marca de teclado"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La investigación busca activos y acciones afectados por la identidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w44d6-q03",
+          "prompt": "¿Cuándo cerrar como actividad autorizada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tras contrastar evidencia y autorización"
+            },
+            {
+              "id": "b",
+              "text": "Cuando el usuario es conocido"
+            },
+            {
+              "id": "c",
+              "text": "Cuando hay pocos eventos"
+            },
+            {
+              "id": "d",
+              "text": "Cuando el turno termina"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El cierre debe sustentarse en comprobaciones del contexto.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w44d6-q04",
+          "prompt": "¿Qué anota una decisión de escalamiento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Evidencia, riesgo y destinatario responsable"
+            },
+            {
+              "id": "b",
+              "text": "Solo urgente"
+            },
+            {
+              "id": "c",
+              "text": "Solo captura del chat"
+            },
+            {
+              "id": "d",
+              "text": "Solo total de eventos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El siguiente equipo necesita entender causa y prioridad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w44d6-q05",
+          "prompt": "Una consulta muestra datos fuera del periodo esperado. ¿Qué revisas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo colores"
+            },
+            {
+              "id": "b",
+              "text": "Solo título del caso"
+            },
+            {
+              "id": "c",
+              "text": "Límites de tiempo y zona"
+            },
+            {
+              "id": "d",
+              "text": "Solo licencia"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Errores de ventana pueden contaminar una cronología.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w44d6-q06",
+          "prompt": "¿Qué evidencia conservar de la búsqueda de alcance?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el resultado más grave"
+            },
+            {
+              "id": "b",
+              "text": "Consultas y resultados con fuentes"
+            },
+            {
+              "id": "c",
+              "text": "Solo un resumen sin IDs"
+            },
+            {
+              "id": "d",
+              "text": "Solo eventos positivos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La revisión necesita comprobar también cómo se delimitó el impacto.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w44d6-q07",
+          "prompt": "Si falta auditoría de comandos, ¿qué comunicas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "No se ejecutó ningún comando"
+            },
+            {
+              "id": "b",
+              "text": "El equipo es seguro"
+            },
+            {
+              "id": "c",
+              "text": "No puede determinarse toda la actividad ejecutada"
+            },
+            {
+              "id": "d",
+              "text": "La cuenta no inició sesión"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La cobertura limita conclusiones negativas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w44d6-q08",
+          "prompt": "¿Qué diferencia hecho e hipótesis en el cierre?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hecho es cualquier alerta"
+            },
+            {
+              "id": "b",
+              "text": "Hipótesis no necesita datos"
+            },
+            {
+              "id": "c",
+              "text": "Hecho observado; explicación aún por contrastar"
+            },
+            {
+              "id": "d",
+              "text": "Ambos se redactan como certeza"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Separarlos evita presentar inferencias como observaciones.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        }
+      ],
+      "challenge": {
+        "id": "w44d6-challenge",
+        "prompt": "Una cuenta accedió a tres hosts, pero solo uno tiene logs completos. ¿Qué alcance reportas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo un host afectado confirmado como límite total"
+          },
+          {
+            "id": "b",
+            "text": "Tres accesos observados y cobertura desigual"
+          },
+          {
+            "id": "c",
+            "text": "Toda la organización comprometida"
+          },
+          {
+            "id": "d",
+            "text": "Los otros dos accesos no cuentan"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "El inventario debe distinguir observaciones y lagunas de visibilidad.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    },
+    {
+      "dayId": "w44d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w44d7-q01",
+          "prompt": "¿Qué registra normalmente el evento Windows 4624?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Fallo de inicio"
+            },
+            {
+              "id": "b",
+              "text": "Inicio de sesión exitoso"
+            },
+            {
+              "id": "c",
+              "text": "Creación de proceso"
+            },
+            {
+              "id": "d",
+              "text": "Borrado de cuenta"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El éxito de autenticación no determina legitimidad de su uso.",
+          "reference": "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4624",
+          "reviewOf": "w44d1-q01"
+        },
+        {
+          "id": "w44d7-q02",
+          "prompt": "¿Qué evento de Sysmon describe creación de proceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Event ID 3"
+            },
+            {
+              "id": "b",
+              "text": "Event ID 22"
+            },
+            {
+              "id": "c",
+              "text": "Event ID 1"
+            },
+            {
+              "id": "d",
+              "text": "Event ID 11"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El evento 1 aporta proceso, comandos y contexto según configuración.",
+          "reference": "https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon",
+          "reviewOf": "w44d2-q01"
+        },
+        {
+          "id": "w44d7-q03",
+          "prompt": "¿Qué muestra journalctl -u ssh.service cuando esa unidad existe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todos los archivos personales"
+            },
+            {
+              "id": "b",
+              "text": "Entradas de esa unidad"
+            },
+            {
+              "id": "c",
+              "text": "Solo conexiones TCP activas"
+            },
+            {
+              "id": "d",
+              "text": "Historial completo de contraseñas"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El filtro por unidad delimita registros del servicio.",
+          "reference": "https://www.freedesktop.org/software/systemd/man/latest/journalctl.html",
+          "reviewOf": "w44d3-q01"
+        },
+        {
+          "id": "w44d7-q04",
+          "prompt": "Dos fuentes comparten IP pública de salida. ¿Qué falta para atribuir a un host?",
+          "options": [
+            {
+              "id": "a",
+              "text": "NAT, puertos y tiempo"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombre del ISP"
+            },
+            {
+              "id": "c",
+              "text": "Solo dominio consultado"
+            },
+            {
+              "id": "d",
+              "text": "Solo conteo de alertas"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Varios dispositivos pueden compartir una dirección pública.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w44d4-q01"
+        },
+        {
+          "id": "w44d7-q05",
+          "prompt": "¿Qué necesita una regla de umbral de logins fallidos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo un número grande"
+            },
+            {
+              "id": "b",
+              "text": "Ventana, agrupación y criterio"
+            },
+            {
+              "id": "c",
+              "text": "Solo nombre de malware"
+            },
+            {
+              "id": "d",
+              "text": "Solo título de alerta"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El umbral depende de sobre qué entidad y periodo se aplica.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w44d5-q01"
+        },
+        {
+          "id": "w44d7-q06",
+          "prompt": "Un acceso sospechoso tiene éxito y luego cambios de privilegios. ¿Qué aumenta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Certidumbre de actor extranjero"
+            },
+            {
+              "id": "b",
+              "text": "Necesidad de investigar alcance e impacto"
+            },
+            {
+              "id": "c",
+              "text": "Prueba de exfiltración"
+            },
+            {
+              "id": "d",
+              "text": "Certeza de falso positivo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La actividad posterior refuerza relevancia sin resolver toda atribución.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w44d6-q01"
+        },
+        {
+          "id": "w44d7-q07",
+          "prompt": "¿Qué evento corresponde a un fallo de inicio de sesión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "4624"
+            },
+            {
+              "id": "b",
+              "text": "4625"
+            },
+            {
+              "id": "c",
+              "text": "4688"
+            },
+            {
+              "id": "d",
+              "text": "1102"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "4625 describe un intento fallido y contiene contexto del fallo.",
+          "reference": "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4624",
+          "reviewOf": "w44d1-q02"
+        },
+        {
+          "id": "w44d7-q08",
+          "prompt": "¿Qué ventaja tiene ProcessGuid frente a PID aislado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Identifica a la persona"
+            },
+            {
+              "id": "b",
+              "text": "Reduce confusión por reutilización de PID"
+            },
+            {
+              "id": "c",
+              "text": "Garantiza malware"
+            },
+            {
+              "id": "d",
+              "text": "Revela todos los archivos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El identificador facilita correlacionar la misma instancia de proceso.",
+          "reference": "https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon",
+          "reviewOf": "w44d2-q02"
+        },
+        {
+          "id": "w44d7-q09",
+          "prompt": "¿Qué aporta --since a journalctl?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Nombre del usuario"
+            },
+            {
+              "id": "b",
+              "text": "Nivel de cifrado"
+            },
+            {
+              "id": "c",
+              "text": "Límite temporal inferior"
+            },
+            {
+              "id": "d",
+              "text": "Cantidad de discos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El filtro temporal reduce registros al intervalo investigado.",
+          "reference": "https://www.freedesktop.org/software/systemd/man/latest/journalctl.html",
+          "reviewOf": "w44d3-q02"
+        },
+        {
+          "id": "w44d7-q10",
+          "prompt": "¿Qué combinación refuerza una correlación de acceso y proceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo mismo minuto global"
+            },
+            {
+              "id": "b",
+              "text": "Host, sesión y tiempo compatible"
+            },
+            {
+              "id": "c",
+              "text": "Solo mismo color de severidad"
+            },
+            {
+              "id": "d",
+              "text": "Solo misma extensión"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Identificadores específicos reducen coincidencias accidentales.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w44d4-q02"
+        },
+        {
+          "id": "w44d7-q11",
+          "prompt": "Una regla alerta al sexto fallo en cinco minutos por usuario. ¿Qué caso cumple?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Seis usuarios con un fallo cada uno"
+            },
+            {
+              "id": "b",
+              "text": "Seis fallos de Ana en cuatro minutos"
+            },
+            {
+              "id": "c",
+              "text": "Cinco fallos de Ana en una hora"
+            },
+            {
+              "id": "d",
+              "text": "Un éxito de Ana"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La entidad y ventana son parte del significado de la regla.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w44d5-q02"
+        },
+        {
+          "id": "w44d7-q12",
+          "prompt": "¿Qué pregunta delimita alcance de una cuenta comprometida?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dónde y cuándo se utilizó"
+            },
+            {
+              "id": "b",
+              "text": "Qué tema visual usaba"
+            },
+            {
+              "id": "c",
+              "text": "Cuántos monitores tenía"
+            },
+            {
+              "id": "d",
+              "text": "Qué marca de teclado"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La investigación busca activos y acciones afectados por la identidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w44d6-q02"
+        },
+        {
+          "id": "w44d7-q13",
+          "prompt": "En 4624, tipo 3 suele indicar ¿qué?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Inicio interactivo local"
+            },
+            {
+              "id": "b",
+              "text": "Desbloqueo de pantalla"
+            },
+            {
+              "id": "c",
+              "text": "Cambio de contraseña"
+            },
+            {
+              "id": "d",
+              "text": "Inicio de sesión de red"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El tipo distingue cómo se solicita la sesión.",
+          "reference": "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4624",
+          "reviewOf": "w44d1-q03"
+        },
+        {
+          "id": "w44d7-q14",
+          "prompt": "Word inicia cmd y luego PowerShell. ¿Qué examinas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo iconos firmados"
+            },
+            {
+              "id": "b",
+              "text": "Solo número de ventanas"
+            },
+            {
+              "id": "c",
+              "text": "Solo idioma de Office"
+            },
+            {
+              "id": "d",
+              "text": "Comandos, archivo origen y contexto"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La cadena es una pista que requiere diferenciar automatización legítima y abuso.",
+          "reference": "https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon",
+          "reviewOf": "w44d2-q03"
+        },
+        {
+          "id": "w44d7-q15",
+          "prompt": "Un registro SSH dice Failed password. ¿Qué demuestra?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sesión establecida"
+            },
+            {
+              "id": "b",
+              "text": "Intento fallido de autenticación"
+            },
+            {
+              "id": "c",
+              "text": "Ejecución de sudo"
+            },
+            {
+              "id": "d",
+              "text": "Transferencia exitosa"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un fallo no equivale a acceso conseguido.",
+          "reference": "https://www.freedesktop.org/software/systemd/man/latest/journalctl.html",
+          "reviewOf": "w44d3-q03"
+        },
+        {
+          "id": "w44d7-q16",
+          "prompt": "Ana y ANA aparecen en sistemas distintos. ¿Qué verificas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que siempre son personas distintas"
+            },
+            {
+              "id": "b",
+              "text": "Que siempre son la misma cuenta"
+            },
+            {
+              "id": "c",
+              "text": "Reglas de normalización e identidad"
+            },
+            {
+              "id": "d",
+              "text": "Solo longitud del nombre"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El significado de nombres depende de dominio y sistema.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w44d4-q03"
+        },
+        {
+          "id": "w44d7-q17",
+          "prompt": "¿Qué es un falso positivo en una detección de ataque?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Actividad legítima alertada como sospechosa"
+            },
+            {
+              "id": "b",
+              "text": "Ataque no detectado"
+            },
+            {
+              "id": "c",
+              "text": "Evento sin fecha"
+            },
+            {
+              "id": "d",
+              "text": "Alerta aún no leída"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La revisión debe determinar si la condición representa amenaza real.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w44d5-q03"
+        },
+        {
+          "id": "w44d7-q18",
+          "prompt": "¿Cuándo cerrar como actividad autorizada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tras contrastar evidencia y autorización"
+            },
+            {
+              "id": "b",
+              "text": "Cuando el usuario es conocido"
+            },
+            {
+              "id": "c",
+              "text": "Cuando hay pocos eventos"
+            },
+            {
+              "id": "d",
+              "text": "Cuando el turno termina"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El cierre debe sustentarse en comprobaciones del contexto.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w44d6-q03"
+        },
+        {
+          "id": "w44d7-q19",
+          "prompt": "¿Qué caracteriza habitualmente tipo 10?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Servicio local"
+            },
+            {
+              "id": "b",
+              "text": "Trabajo por lotes"
+            },
+            {
+              "id": "c",
+              "text": "Acceso interactivo remoto"
+            },
+            {
+              "id": "d",
+              "text": "Acceso anónimo web"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "RemoteInteractive suele corresponder a servicios de escritorio remoto.",
+          "reference": "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4624",
+          "reviewOf": "w44d1-q04"
+        },
+        {
+          "id": "w44d7-q20",
+          "prompt": "¿Por qué incluir dominio en una cuenta correlacionada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Acelerar el reloj"
+            },
+            {
+              "id": "b",
+              "text": "Calcular hash"
+            },
+            {
+              "id": "c",
+              "text": "Revelar contraseña"
+            },
+            {
+              "id": "d",
+              "text": "Distinguir identidades homónimas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una cuenta local y otra de dominio pueden compartir nombre.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w44d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w44d7-challenge",
+        "prompt": "Tu cierre dice sin ataque porque no hay 4688; esa auditoría estaba desactivada. ¿Qué corriges?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Mantener conclusión por ausencia"
+          },
+          {
+            "id": "b",
+            "text": "Inventar eventos equivalentes"
+          },
+          {
+            "id": "c",
+            "text": "Cambiar rango para obtener datos"
+          },
+          {
+            "id": "d",
+            "text": "Declarar que ejecución no pudo evaluarse con esa fuente"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La falta de telemetría no demuestra ausencia de actividad.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    }
+  ]
+}

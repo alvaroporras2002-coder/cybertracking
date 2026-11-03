@@ -1,0 +1,2094 @@
+{
+  "week": 47,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w47d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w47d1-q01",
+          "prompt": "DMARC pasa en un correo con enlace engañoso. ¿Qué concluyes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Autenticación no prueba contenido benigno"
+            },
+            {
+              "id": "b",
+              "text": "Correo necesariamente seguro"
+            },
+            {
+              "id": "c",
+              "text": "Enlace aprobado por DMARC"
+            },
+            {
+              "id": "d",
+              "text": "Adjunto libre de malware"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "DMARC valida aspectos de dominio, no intención ni contenido.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc7489.html"
+        },
+        {
+          "id": "w47d1-q02",
+          "prompt": "¿Qué preserva mejor un correo para analizar cabeceras?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo captura del cuerpo"
+            },
+            {
+              "id": "b",
+              "text": "Mensaje original exportado"
+            },
+            {
+              "id": "c",
+              "text": "Solo asunto copiado"
+            },
+            {
+              "id": "d",
+              "text": "Solo nombre visible"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El original conserva campos y estructura para revisión.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc7489.html"
+        },
+        {
+          "id": "w47d1-q03",
+          "prompt": "Remitente visible dice Banco y dirección usa otro dominio. ¿Qué revisas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo logotipo"
+            },
+            {
+              "id": "b",
+              "text": "Solo ortografía"
+            },
+            {
+              "id": "c",
+              "text": "Solo hora de envío"
+            },
+            {
+              "id": "d",
+              "text": "Dominio real, enlaces y contexto"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El nombre mostrado puede suplantarse y no autentica identidad.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc7489.html"
+        },
+        {
+          "id": "w47d1-q04",
+          "prompt": "¿Qué es defang de un indicador?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cifrar el correo"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar evidencia original"
+            },
+            {
+              "id": "c",
+              "text": "Presentarlo de forma no clicable"
+            },
+            {
+              "id": "d",
+              "text": "Confirmar reputación"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La representación reduce interacción accidental al compartirlo.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc7489.html"
+        },
+        {
+          "id": "w47d1-q05",
+          "prompt": "¿Qué dato distingue URL mostrada y destino?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Color del texto"
+            },
+            {
+              "id": "b",
+              "text": "Href real del enlace"
+            },
+            {
+              "id": "c",
+              "text": "Fuente tipográfica"
+            },
+            {
+              "id": "d",
+              "text": "Tamaño del asunto"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El texto visible puede diferir del destino real.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc7489.html"
+        },
+        {
+          "id": "w47d1-q06",
+          "prompt": "¿Qué evita ejecutar un adjunto en equipo cotidiano?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cualquier análisis estático"
+            },
+            {
+              "id": "b",
+              "text": "Calcular su hash"
+            },
+            {
+              "id": "c",
+              "text": "Preservar el mensaje"
+            },
+            {
+              "id": "d",
+              "text": "Exposición activa al contenido"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La inspección debe respetar entorno y autorización.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc7489.html"
+        },
+        {
+          "id": "w47d1-q07",
+          "prompt": "¿Qué debe justificar un veredicto de phishing?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo urgencia del asunto"
+            },
+            {
+              "id": "b",
+              "text": "Solo remitente desconocido"
+            },
+            {
+              "id": "c",
+              "text": "Solo una falta ortográfica"
+            },
+            {
+              "id": "d",
+              "text": "Indicadores concretos y limitaciones"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El juicio integra evidencias, no una señal aislada.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc7489.html"
+        },
+        {
+          "id": "w47d1-q08",
+          "prompt": "¿Qué evidencia demuestra mejor una competencia de correo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo video visto"
+            },
+            {
+              "id": "b",
+              "text": "Análisis nuevo con artefactos y razonamiento"
+            },
+            {
+              "id": "c",
+              "text": "Solo certificado descargado"
+            },
+            {
+              "id": "d",
+              "text": "Solo herramienta instalada"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La práctica independiente permite comprobar interpretación.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc7489.html"
+        }
+      ],
+      "challenge": {
+        "id": "w47d1-challenge",
+        "prompt": "Tu auditoría de correo solo tiene capturas de videos. ¿Qué tarea falta?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Verlos a más velocidad"
+          },
+          {
+            "id": "b",
+            "text": "Analizar mensaje nuevo con cabeceras, indicadores y veredicto"
+          },
+          {
+            "id": "c",
+            "text": "Cambiar nombres de archivos"
+          },
+          {
+            "id": "d",
+            "text": "Instalar otro navegador"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La competencia requiere desempeño verificable y explicación propia.",
+        "reference": "https://www.centri.org/certifications/blue-team-level-1"
+      }
+    },
+    {
+      "dayId": "w47d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w47d2-q01",
+          "prompt": "Un hash aparece en una fuente de inteligencia. ¿Qué evalúas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Procedencia, fecha y contexto"
+            },
+            {
+              "id": "b",
+              "text": "Solo cantidad de colores"
+            },
+            {
+              "id": "c",
+              "text": "Solo longitud del informe"
+            },
+            {
+              "id": "d",
+              "text": "Solo país del analista"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La relevancia depende de calidad y vigencia de la información.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/150/final"
+        },
+        {
+          "id": "w47d2-q02",
+          "prompt": "¿Qué diferencia indicador y atribución?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Son equivalentes"
+            },
+            {
+              "id": "b",
+              "text": "Toda IP revela organización"
+            },
+            {
+              "id": "c",
+              "text": "Todo dominio revela persona"
+            },
+            {
+              "id": "d",
+              "text": "Un indicador no identifica necesariamente al actor"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La infraestructura puede compartirse o cambiar de control.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/150/final"
+        },
+        {
+          "id": "w47d2-q03",
+          "prompt": "Dos feeds repiten el mismo reporte. ¿Cuántas fuentes independientes son necesariamente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dos siempre"
+            },
+            {
+              "id": "b",
+              "text": "No pueden contarse como dos sin verificar origen"
+            },
+            {
+              "id": "c",
+              "text": "Cero siempre"
+            },
+            {
+              "id": "d",
+              "text": "Una por cada indicador"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La repetición de una misma fuente no añade corroboración independiente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/150/final"
+        },
+        {
+          "id": "w47d2-q04",
+          "prompt": "¿Qué protege una restricción de distribución de inteligencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cómo puede compartirse la información"
+            },
+            {
+              "id": "b",
+              "text": "La validez técnica automática"
+            },
+            {
+              "id": "c",
+              "text": "La fecha exacta del ataque"
+            },
+            {
+              "id": "d",
+              "text": "La integridad del disco"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El uso debe respetar acuerdos y alcance de divulgación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/150/final"
+        },
+        {
+          "id": "w47d2-q05",
+          "prompt": "¿Qué aporta MISP a un flujo de inteligencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Adquirir RAM de cualquier host"
+            },
+            {
+              "id": "b",
+              "text": "Estructurar y compartir eventos e indicadores"
+            },
+            {
+              "id": "c",
+              "text": "Descifrar TLS universal"
+            },
+            {
+              "id": "d",
+              "text": "Certificar atribuciones"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La plataforma apoya intercambio y contexto, no veredictos automáticos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/150/final"
+        },
+        {
+          "id": "w47d2-q06",
+          "prompt": "¿Qué riesgo tiene bloquear una IP de nube por un indicador antiguo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aumentar precisión siempre"
+            },
+            {
+              "id": "b",
+              "text": "Revocar todas las credenciales"
+            },
+            {
+              "id": "c",
+              "text": "Afectar servicios legítimos actuales"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar falsos positivos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La infraestructura cambia y necesita reevaluación contextual.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/150/final"
+        },
+        {
+          "id": "w47d2-q07",
+          "prompt": "¿Cómo expresar confianza limitada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ocultar el nivel de confianza"
+            },
+            {
+              "id": "b",
+              "text": "Usar certeza en el título"
+            },
+            {
+              "id": "c",
+              "text": "Aumentar número de indicadores"
+            },
+            {
+              "id": "d",
+              "text": "Indicar qué evidencia falta y por qué"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La confianza debe reflejar calidad y límites de sustento.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/150/final"
+        },
+        {
+          "id": "w47d2-q08",
+          "prompt": "¿Qué prueba comprensión de inteligencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Copiar lista de hashes"
+            },
+            {
+              "id": "b",
+              "text": "Memorizar nombres de actores"
+            },
+            {
+              "id": "c",
+              "text": "Contar fuentes sin revisar"
+            },
+            {
+              "id": "d",
+              "text": "Aplicar información a una decisión contextual"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El valor está en apoyar decisiones verificables.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/150/final"
+        }
+      ],
+      "challenge": {
+        "id": "w47d2-challenge",
+        "prompt": "Un feed marca una IP compartida hace dos años. ¿Qué haces antes de bloquear?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Revisar actualidad, contexto y posibles servicios legítimos"
+          },
+          {
+            "id": "b",
+            "text": "Bloquear todo el proveedor"
+          },
+          {
+            "id": "c",
+            "text": "Atribuir a un actor"
+          },
+          {
+            "id": "d",
+            "text": "Aceptar el feed como certeza"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La utilidad de inteligencia depende de vigencia y especificidad.",
+        "reference": "https://www.centri.org/certifications/blue-team-level-1"
+      }
+    },
+    {
+      "dayId": "w47d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w47d3-q01",
+          "prompt": "¿Qué salida permite auditar una tarea de Autopsy?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo logo del programa"
+            },
+            {
+              "id": "b",
+              "text": "Fuente, módulo, parámetros y localizador"
+            },
+            {
+              "id": "c",
+              "text": "Solo hora de inicio"
+            },
+            {
+              "id": "d",
+              "text": "Solo número de pestañas"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La revisión necesita reproducir cómo se obtuvo el hallazgo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w47d3-q02",
+          "prompt": "Un módulo termina con errores. ¿Qué registras?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Análisis completo sin límites"
+            },
+            {
+              "id": "b",
+              "text": "Solo archivos encontrados"
+            },
+            {
+              "id": "c",
+              "text": "Errores y efecto sobre cobertura"
+            },
+            {
+              "id": "d",
+              "text": "Solo duración total"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los fallos pueden dejar fuentes sin procesar.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w47d3-q03",
+          "prompt": "¿Qué distingue repetir tarea y comprenderla?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Recordar clics exactos"
+            },
+            {
+              "id": "b",
+              "text": "Copiar respuesta final"
+            },
+            {
+              "id": "c",
+              "text": "Usar misma captura"
+            },
+            {
+              "id": "d",
+              "text": "Explicar resultado y límites con datos nuevos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La transferencia a otro caso comprueba conocimiento.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w47d3-q04",
+          "prompt": "En una imagen educativa, ¿qué proteges primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Nombre del dashboard"
+            },
+            {
+              "id": "b",
+              "text": "Color del terminal"
+            },
+            {
+              "id": "c",
+              "text": "Integridad y origen del archivo"
+            },
+            {
+              "id": "d",
+              "text": "Orden del informe"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La fiabilidad del análisis depende de su fuente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w47d3-q05",
+          "prompt": "¿Qué error implica interpretar presencia de archivo como ejecución?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Calcular hash"
+            },
+            {
+              "id": "b",
+              "text": "Registrar ruta"
+            },
+            {
+              "id": "c",
+              "text": "Conservar metadatos"
+            },
+            {
+              "id": "d",
+              "text": "Sobrepasar lo que prueba el artefacto"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Se requiere evidencia de actividad para afirmar ejecución.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w47d3-q06",
+          "prompt": "¿Por qué contrastar salida automatizada con artefacto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Descartar toda herramienta"
+            },
+            {
+              "id": "b",
+              "text": "Evitar revisar metadatos"
+            },
+            {
+              "id": "c",
+              "text": "Detectar errores de parser o interpretación"
+            },
+            {
+              "id": "d",
+              "text": "Probar autoría humana"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La automatización no elimina necesidad de validación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w47d3-q07",
+          "prompt": "¿Qué incluye evidencia de una práctica de memoria independiente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo plugin instalado"
+            },
+            {
+              "id": "b",
+              "text": "Comando, hash y explicación de salida"
+            },
+            {
+              "id": "c",
+              "text": "Solo imagen del escritorio"
+            },
+            {
+              "id": "d",
+              "text": "Solo respuesta copiada"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La evidencia debe demostrar ejecución y comprensión del análisis.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w47d3-q08",
+          "prompt": "Si el curso vigente no exige memoria en una actividad, ¿qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mapear la evidencia al objetivo real"
+            },
+            {
+              "id": "b",
+              "text": "Inventar requisito de examen"
+            },
+            {
+              "id": "c",
+              "text": "Declarar herramienta obligatoria universal"
+            },
+            {
+              "id": "d",
+              "text": "Omitir todo forense"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La cobertura se evalúa contra objetivos oficiales actuales.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        }
+      ],
+      "challenge": {
+        "id": "w47d3-challenge",
+        "prompt": "La herramienta forense etiqueta un archivo como ejecutado pero el artefacto solo muestra presencia. ¿Qué corriges?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Copiar etiqueta sin revisar"
+          },
+          {
+            "id": "b",
+            "text": "Eliminar artefacto original"
+          },
+          {
+            "id": "c",
+            "text": "Inventar evento de proceso"
+          },
+          {
+            "id": "d",
+            "text": "Verificar semántica y limitar conclusión"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La interpretación debe respetar lo que cada fuente demuestra.",
+        "reference": "https://www.centri.org/certifications/blue-team-level-1"
+      }
+    },
+    {
+      "dayId": "w47d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w47d4-q01",
+          "prompt": "Una consulta devuelve 0 por user y _raw contiene username. ¿Qué debilidad revela?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ausencia de usuarios"
+            },
+            {
+              "id": "b",
+              "text": "Índice destruido"
+            },
+            {
+              "id": "c",
+              "text": "Campo o extracción incorrectos"
+            },
+            {
+              "id": "d",
+              "text": "Ataque invisible confirmado"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Debe verificarse el esquema antes de interpretar ceros.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats"
+        },
+        {
+          "id": "w47d4-q02",
+          "prompt": "¿Qué ejercicio comprueba agrupación SIEM?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambiar título del panel"
+            },
+            {
+              "id": "b",
+              "text": "Reabrir búsqueda guardada"
+            },
+            {
+              "id": "c",
+              "text": "Contar fallos por cuenta en datos nuevos"
+            },
+            {
+              "id": "d",
+              "text": "Mirar video de stats"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El resultado requiere seleccionar, agrupar y verificar datos.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats"
+        },
+        {
+          "id": "w47d4-q03",
+          "prompt": "¿Qué valida una alerta mejor que solo ver su nombre?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Contar dashboards"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar su severidad"
+            },
+            {
+              "id": "c",
+              "text": "Copiar descripción"
+            },
+            {
+              "id": "d",
+              "text": "Reproducir condición con eventos identificados"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La condición debe corresponder a evidencia comprobable.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats"
+        },
+        {
+          "id": "w47d4-q04",
+          "prompt": "¿Qué fallo produce rango de tiempo equivocado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Excluir eventos pertinentes"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar el hash original"
+            },
+            {
+              "id": "c",
+              "text": "Crear usuarios nuevos"
+            },
+            {
+              "id": "d",
+              "text": "Convertir IPv4 en IPv6"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La ventana temporal es parte esencial del alcance.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats"
+        },
+        {
+          "id": "w47d4-q05",
+          "prompt": "¿Qué debes poder explicar de un stats count?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo nombre del comando"
+            },
+            {
+              "id": "b",
+              "text": "Unidad contada y agrupación"
+            },
+            {
+              "id": "c",
+              "text": "Solo color de salida"
+            },
+            {
+              "id": "d",
+              "text": "Solo hora del turno"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La interpretación depende de qué representa cada fila y número.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats"
+        },
+        {
+          "id": "w47d4-q06",
+          "prompt": "Dos búsquedas equivalentes dan distintos totales. ¿Qué auditas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Datos, filtros y deduplicación"
+            },
+            {
+              "id": "b",
+              "text": "Solo idioma de interfaz"
+            },
+            {
+              "id": "c",
+              "text": "Solo nombre de proyecto"
+            },
+            {
+              "id": "d",
+              "text": "Solo cantidad de paneles"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La diferencia puede provenir del método o del conjunto consultado.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats"
+        },
+        {
+          "id": "w47d4-q07",
+          "prompt": "¿Qué demuestra autonomía en una búsqueda nueva?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Pegar consulta conocida"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar nombre del índice al azar"
+            },
+            {
+              "id": "c",
+              "text": "Confiar en cero resultados"
+            },
+            {
+              "id": "d",
+              "text": "Construir y contrastar consulta sin solución"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El objetivo es resolver preguntas, no reproducir texto sin validar.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats"
+        },
+        {
+          "id": "w47d4-q08",
+          "prompt": "¿Qué debe incluir una consulta de evidencia compartida?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo enlace privado"
+            },
+            {
+              "id": "b",
+              "text": "Solo captura pequeña"
+            },
+            {
+              "id": "c",
+              "text": "Solo veredicto"
+            },
+            {
+              "id": "d",
+              "text": "Rango, fuente, propósito y resultados"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El lector necesita condiciones suficientes para revisarla.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats"
+        }
+      ],
+      "challenge": {
+        "id": "w47d4-challenge",
+        "prompt": "Una búsqueda da cero al usar un campo que el dataset no tiene. ¿Qué demuestras al corregirla?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que nunca hubo eventos"
+          },
+          {
+            "id": "b",
+            "text": "Que el SIEM elimina incidentes"
+          },
+          {
+            "id": "c",
+            "text": "Que el índice era benigno"
+          },
+          {
+            "id": "d",
+            "text": "Comprensión del esquema y validación del resultado"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La prueba debe distinguir error de consulta y resultado negativo.",
+        "reference": "https://www.centri.org/certifications/blue-team-level-1"
+      }
+    },
+    {
+      "dayId": "w47d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w47d5-q01",
+          "prompt": "Falta responsable de contener una cuenta. ¿Qué brecha hay?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Integridad del pcap"
+            },
+            {
+              "id": "b",
+              "text": "Coordinación y asignación"
+            },
+            {
+              "id": "c",
+              "text": "Conversión binaria"
+            },
+            {
+              "id": "d",
+              "text": "Extracción de registro"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una acción sin dueño puede quedar sin ejecutar.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w47d5-q02",
+          "prompt": "¿Qué prueba una práctica de respuesta completa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Decisión, acción o simulación y validación"
+            },
+            {
+              "id": "b",
+              "text": "Solo lista de comandos"
+            },
+            {
+              "id": "c",
+              "text": "Solo cronología"
+            },
+            {
+              "id": "d",
+              "text": "Solo gravedad"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La respuesta necesita comprobar efectos y pendientes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w47d5-q03",
+          "prompt": "Un compañero documentó aislamiento sin realizarlo. ¿Qué corriges?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo título del caso"
+            },
+            {
+              "id": "b",
+              "text": "Estado real y evidencia de ejecución"
+            },
+            {
+              "id": "c",
+              "text": "Solo hora del informe"
+            },
+            {
+              "id": "d",
+              "text": "Solo prioridad"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La documentación debe distinguir propuesta, simulación y acción ejecutada.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w47d5-q04",
+          "prompt": "¿Qué pregunta detecta una recuperación incompleta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "¿Qué criterio confirma operación segura?"
+            },
+            {
+              "id": "b",
+              "text": "¿Cuántas páginas tiene?"
+            },
+            {
+              "id": "c",
+              "text": "¿Qué logo usamos?"
+            },
+            {
+              "id": "d",
+              "text": "¿Quién redacta más rápido?"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Volver a funcionar no equivale a recuperar con controles validados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w47d5-q05",
+          "prompt": "¿Qué justifica compartir un indicador con otro equipo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo curiosidad"
+            },
+            {
+              "id": "b",
+              "text": "Solo popularidad del hash"
+            },
+            {
+              "id": "c",
+              "text": "Necesidad, permisos y contexto"
+            },
+            {
+              "id": "d",
+              "text": "Solo número de eventos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El intercambio debe apoyar una acción legítima y comprensible.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w47d5-q06",
+          "prompt": "¿Qué evidencia sustenta que se revocó una sesión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Registro de acción y comprobación posterior"
+            },
+            {
+              "id": "b",
+              "text": "Solo intención anotada"
+            },
+            {
+              "id": "c",
+              "text": "Solo mensaje sin fecha"
+            },
+            {
+              "id": "d",
+              "text": "Solo cambio de contraseña"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La acción y su efecto deben poder verificarse.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w47d5-q07",
+          "prompt": "¿Cómo comprobar calidad del traspaso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo contiene muchas capturas"
+            },
+            {
+              "id": "b",
+              "text": "Otro analista identifica pendientes y continúa"
+            },
+            {
+              "id": "c",
+              "text": "Solo usa términos técnicos"
+            },
+            {
+              "id": "d",
+              "text": "Solo tiene firma"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La comunicación es útil si permite tomar la siguiente acción.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w47d5-q08",
+          "prompt": "¿Qué evita afirmar erradicado sin prueba?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo confianza personal"
+            },
+            {
+              "id": "b",
+              "text": "Solo ausencia momentánea"
+            },
+            {
+              "id": "c",
+              "text": "Solo cierre de ticket"
+            },
+            {
+              "id": "d",
+              "text": "Criterios de validación explícitos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La conclusión requiere comprobaciones alineadas con el mecanismo del incidente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        }
+      ],
+      "challenge": {
+        "id": "w47d5-challenge",
+        "prompt": "Un caso propone aislar tres hosts, sin dueño ni validación. ¿Qué completas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo gravedad en rojo"
+          },
+          {
+            "id": "b",
+            "text": "Solo resumen del ataque"
+          },
+          {
+            "id": "c",
+            "text": "Responsables, condiciones y prueba de efecto"
+          },
+          {
+            "id": "d",
+            "text": "Solo más indicadores"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La respuesta necesita acciones ejecutables y verificables.",
+        "reference": "https://www.centri.org/certifications/blue-team-level-1"
+      }
+    },
+    {
+      "dayId": "w47d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w47d6-q01",
+          "prompt": "Aparece herramienta nueva en el temario vigente. ¿Qué revisas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo capturas antiguas"
+            },
+            {
+              "id": "b",
+              "text": "Solo preferencia del foro"
+            },
+            {
+              "id": "c",
+              "text": "Objetivo, actividad y evidencia exigidos"
+            },
+            {
+              "id": "d",
+              "text": "Solo nombre comercial"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El calendario general no sustituye el programa actual.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1"
+        },
+        {
+          "id": "w47d6-q02",
+          "prompt": "¿Qué evita aprender una herramienta solo por interfaz?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Relacionar funciones con preguntas analíticas"
+            },
+            {
+              "id": "b",
+              "text": "Memorizar colores"
+            },
+            {
+              "id": "c",
+              "text": "Copiar menú completo"
+            },
+            {
+              "id": "d",
+              "text": "Instalar varios temas"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las funciones deben apoyar objetivos y resultados interpretables.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1"
+        },
+        {
+          "id": "w47d6-q03",
+          "prompt": "Una versión nueva cambia un comando. ¿Qué fuente priorizas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Blog antiguo sin fecha"
+            },
+            {
+              "id": "b",
+              "text": "Captura de otro examen"
+            },
+            {
+              "id": "c",
+              "text": "Documentación oficial compatible"
+            },
+            {
+              "id": "d",
+              "text": "Comentario sin versión"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La sintaxis depende de versión y contexto.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1"
+        },
+        {
+          "id": "w47d6-q04",
+          "prompt": "¿Qué prueba una tarea benigna de entorno?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Capacidad de resolver todo examen"
+            },
+            {
+              "id": "b",
+              "text": "Acceso, entrada válida y salida esperada"
+            },
+            {
+              "id": "c",
+              "text": "Ausencia de futuras fallas"
+            },
+            {
+              "id": "d",
+              "text": "Dominio de todos los módulos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La comprobación valida solo las funciones ejercitadas.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1"
+        },
+        {
+          "id": "w47d6-q05",
+          "prompt": "¿Qué haces ante salida inesperada de herramienta adicional?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Verificar entrada, parámetros y requisitos"
+            },
+            {
+              "id": "b",
+              "text": "Inventar resultado"
+            },
+            {
+              "id": "c",
+              "text": "Asumir incidente confirmado"
+            },
+            {
+              "id": "d",
+              "text": "Desinstalar todas las herramientas"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La investigación empieza distinguiendo error de uso y resultado real.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1"
+        },
+        {
+          "id": "w47d6-q06",
+          "prompt": "¿Por qué registrar exportación y formato?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Facilitar análisis en otra herramienta"
+            },
+            {
+              "id": "b",
+              "text": "Asegurar atribución"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar necesidad de hash"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar cronología"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La interoperabilidad depende del formato y contenido conservados.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1"
+        },
+        {
+          "id": "w47d6-q07",
+          "prompt": "¿Qué evita declarar cobertura por instalación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ver el icono"
+            },
+            {
+              "id": "b",
+              "text": "Abrir ayuda"
+            },
+            {
+              "id": "c",
+              "text": "Crear acceso directo"
+            },
+            {
+              "id": "d",
+              "text": "Resolver y explicar una actividad"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Instalar una herramienta no demuestra competencia práctica.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1"
+        },
+        {
+          "id": "w47d6-q08",
+          "prompt": "¿Cuándo dar por cerrada una herramienta pendiente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tras verla en un video"
+            },
+            {
+              "id": "b",
+              "text": "Tras copiar una captura"
+            },
+            {
+              "id": "c",
+              "text": "Tras completar objetivo y revisar límites"
+            },
+            {
+              "id": "d",
+              "text": "Tras pasar una semana"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La evidencia de desempeño determina cobertura, no tiempo transcurrido.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1"
+        }
+      ],
+      "challenge": {
+        "id": "w47d6-challenge",
+        "prompt": "El temario incluye una utilidad no contemplada en tu calendario. ¿Qué haces?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Añadir práctica alineada al objetivo oficial actual"
+          },
+          {
+            "id": "b",
+            "text": "Declarar que no puede aparecer"
+          },
+          {
+            "id": "c",
+            "text": "Ignorarla por fecha"
+          },
+          {
+            "id": "d",
+            "text": "Comprar otro curso automáticamente"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La planificación debe cubrir objetivos vigentes y evidencias pendientes.",
+        "reference": "https://www.centri.org/certifications/blue-team-level-1"
+      }
+    },
+    {
+      "dayId": "w47d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w47d7-q01",
+          "prompt": "DMARC pasa en un correo con enlace engañoso. ¿Qué concluyes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Autenticación no prueba contenido benigno"
+            },
+            {
+              "id": "b",
+              "text": "Correo necesariamente seguro"
+            },
+            {
+              "id": "c",
+              "text": "Enlace aprobado por DMARC"
+            },
+            {
+              "id": "d",
+              "text": "Adjunto libre de malware"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "DMARC valida aspectos de dominio, no intención ni contenido.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc7489.html",
+          "reviewOf": "w47d1-q01"
+        },
+        {
+          "id": "w47d7-q02",
+          "prompt": "Un hash aparece en una fuente de inteligencia. ¿Qué evalúas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Procedencia, fecha y contexto"
+            },
+            {
+              "id": "b",
+              "text": "Solo cantidad de colores"
+            },
+            {
+              "id": "c",
+              "text": "Solo longitud del informe"
+            },
+            {
+              "id": "d",
+              "text": "Solo país del analista"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La relevancia depende de calidad y vigencia de la información.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/150/final",
+          "reviewOf": "w47d2-q01"
+        },
+        {
+          "id": "w47d7-q03",
+          "prompt": "¿Qué salida permite auditar una tarea de Autopsy?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo logo del programa"
+            },
+            {
+              "id": "b",
+              "text": "Fuente, módulo, parámetros y localizador"
+            },
+            {
+              "id": "c",
+              "text": "Solo hora de inicio"
+            },
+            {
+              "id": "d",
+              "text": "Solo número de pestañas"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La revisión necesita reproducir cómo se obtuvo el hallazgo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w47d3-q01"
+        },
+        {
+          "id": "w47d7-q04",
+          "prompt": "Una consulta devuelve 0 por user y _raw contiene username. ¿Qué debilidad revela?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ausencia de usuarios"
+            },
+            {
+              "id": "b",
+              "text": "Índice destruido"
+            },
+            {
+              "id": "c",
+              "text": "Campo o extracción incorrectos"
+            },
+            {
+              "id": "d",
+              "text": "Ataque invisible confirmado"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Debe verificarse el esquema antes de interpretar ceros.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats",
+          "reviewOf": "w47d4-q01"
+        },
+        {
+          "id": "w47d7-q05",
+          "prompt": "Falta responsable de contener una cuenta. ¿Qué brecha hay?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Integridad del pcap"
+            },
+            {
+              "id": "b",
+              "text": "Coordinación y asignación"
+            },
+            {
+              "id": "c",
+              "text": "Conversión binaria"
+            },
+            {
+              "id": "d",
+              "text": "Extracción de registro"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una acción sin dueño puede quedar sin ejecutar.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w47d5-q01"
+        },
+        {
+          "id": "w47d7-q06",
+          "prompt": "Aparece herramienta nueva en el temario vigente. ¿Qué revisas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo capturas antiguas"
+            },
+            {
+              "id": "b",
+              "text": "Solo preferencia del foro"
+            },
+            {
+              "id": "c",
+              "text": "Objetivo, actividad y evidencia exigidos"
+            },
+            {
+              "id": "d",
+              "text": "Solo nombre comercial"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El calendario general no sustituye el programa actual.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1",
+          "reviewOf": "w47d6-q01"
+        },
+        {
+          "id": "w47d7-q07",
+          "prompt": "¿Qué preserva mejor un correo para analizar cabeceras?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo captura del cuerpo"
+            },
+            {
+              "id": "b",
+              "text": "Mensaje original exportado"
+            },
+            {
+              "id": "c",
+              "text": "Solo asunto copiado"
+            },
+            {
+              "id": "d",
+              "text": "Solo nombre visible"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El original conserva campos y estructura para revisión.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc7489.html",
+          "reviewOf": "w47d1-q02"
+        },
+        {
+          "id": "w47d7-q08",
+          "prompt": "¿Qué diferencia indicador y atribución?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Son equivalentes"
+            },
+            {
+              "id": "b",
+              "text": "Toda IP revela organización"
+            },
+            {
+              "id": "c",
+              "text": "Todo dominio revela persona"
+            },
+            {
+              "id": "d",
+              "text": "Un indicador no identifica necesariamente al actor"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La infraestructura puede compartirse o cambiar de control.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/150/final",
+          "reviewOf": "w47d2-q02"
+        },
+        {
+          "id": "w47d7-q09",
+          "prompt": "Un módulo termina con errores. ¿Qué registras?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Análisis completo sin límites"
+            },
+            {
+              "id": "b",
+              "text": "Solo archivos encontrados"
+            },
+            {
+              "id": "c",
+              "text": "Errores y efecto sobre cobertura"
+            },
+            {
+              "id": "d",
+              "text": "Solo duración total"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los fallos pueden dejar fuentes sin procesar.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w47d3-q02"
+        },
+        {
+          "id": "w47d7-q10",
+          "prompt": "¿Qué ejercicio comprueba agrupación SIEM?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambiar título del panel"
+            },
+            {
+              "id": "b",
+              "text": "Reabrir búsqueda guardada"
+            },
+            {
+              "id": "c",
+              "text": "Contar fallos por cuenta en datos nuevos"
+            },
+            {
+              "id": "d",
+              "text": "Mirar video de stats"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El resultado requiere seleccionar, agrupar y verificar datos.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats",
+          "reviewOf": "w47d4-q02"
+        },
+        {
+          "id": "w47d7-q11",
+          "prompt": "¿Qué prueba una práctica de respuesta completa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Decisión, acción o simulación y validación"
+            },
+            {
+              "id": "b",
+              "text": "Solo lista de comandos"
+            },
+            {
+              "id": "c",
+              "text": "Solo cronología"
+            },
+            {
+              "id": "d",
+              "text": "Solo gravedad"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La respuesta necesita comprobar efectos y pendientes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w47d5-q02"
+        },
+        {
+          "id": "w47d7-q12",
+          "prompt": "¿Qué evita aprender una herramienta solo por interfaz?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Relacionar funciones con preguntas analíticas"
+            },
+            {
+              "id": "b",
+              "text": "Memorizar colores"
+            },
+            {
+              "id": "c",
+              "text": "Copiar menú completo"
+            },
+            {
+              "id": "d",
+              "text": "Instalar varios temas"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las funciones deben apoyar objetivos y resultados interpretables.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1",
+          "reviewOf": "w47d6-q02"
+        },
+        {
+          "id": "w47d7-q13",
+          "prompt": "Remitente visible dice Banco y dirección usa otro dominio. ¿Qué revisas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo logotipo"
+            },
+            {
+              "id": "b",
+              "text": "Solo ortografía"
+            },
+            {
+              "id": "c",
+              "text": "Solo hora de envío"
+            },
+            {
+              "id": "d",
+              "text": "Dominio real, enlaces y contexto"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El nombre mostrado puede suplantarse y no autentica identidad.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc7489.html",
+          "reviewOf": "w47d1-q03"
+        },
+        {
+          "id": "w47d7-q14",
+          "prompt": "Dos feeds repiten el mismo reporte. ¿Cuántas fuentes independientes son necesariamente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dos siempre"
+            },
+            {
+              "id": "b",
+              "text": "No pueden contarse como dos sin verificar origen"
+            },
+            {
+              "id": "c",
+              "text": "Cero siempre"
+            },
+            {
+              "id": "d",
+              "text": "Una por cada indicador"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La repetición de una misma fuente no añade corroboración independiente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/150/final",
+          "reviewOf": "w47d2-q03"
+        },
+        {
+          "id": "w47d7-q15",
+          "prompt": "¿Qué distingue repetir tarea y comprenderla?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Recordar clics exactos"
+            },
+            {
+              "id": "b",
+              "text": "Copiar respuesta final"
+            },
+            {
+              "id": "c",
+              "text": "Usar misma captura"
+            },
+            {
+              "id": "d",
+              "text": "Explicar resultado y límites con datos nuevos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La transferencia a otro caso comprueba conocimiento.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w47d3-q03"
+        },
+        {
+          "id": "w47d7-q16",
+          "prompt": "¿Qué valida una alerta mejor que solo ver su nombre?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Contar dashboards"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar su severidad"
+            },
+            {
+              "id": "c",
+              "text": "Copiar descripción"
+            },
+            {
+              "id": "d",
+              "text": "Reproducir condición con eventos identificados"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La condición debe corresponder a evidencia comprobable.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats",
+          "reviewOf": "w47d4-q03"
+        },
+        {
+          "id": "w47d7-q17",
+          "prompt": "Un compañero documentó aislamiento sin realizarlo. ¿Qué corriges?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo título del caso"
+            },
+            {
+              "id": "b",
+              "text": "Estado real y evidencia de ejecución"
+            },
+            {
+              "id": "c",
+              "text": "Solo hora del informe"
+            },
+            {
+              "id": "d",
+              "text": "Solo prioridad"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La documentación debe distinguir propuesta, simulación y acción ejecutada.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w47d5-q03"
+        },
+        {
+          "id": "w47d7-q18",
+          "prompt": "Una versión nueva cambia un comando. ¿Qué fuente priorizas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Blog antiguo sin fecha"
+            },
+            {
+              "id": "b",
+              "text": "Captura de otro examen"
+            },
+            {
+              "id": "c",
+              "text": "Documentación oficial compatible"
+            },
+            {
+              "id": "d",
+              "text": "Comentario sin versión"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La sintaxis depende de versión y contexto.",
+          "reference": "https://www.centri.org/certifications/blue-team-level-1",
+          "reviewOf": "w47d6-q03"
+        },
+        {
+          "id": "w47d7-q19",
+          "prompt": "¿Qué es defang de un indicador?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cifrar el correo"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar evidencia original"
+            },
+            {
+              "id": "c",
+              "text": "Presentarlo de forma no clicable"
+            },
+            {
+              "id": "d",
+              "text": "Confirmar reputación"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La representación reduce interacción accidental al compartirlo.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc7489.html",
+          "reviewOf": "w47d1-q04"
+        },
+        {
+          "id": "w47d7-q20",
+          "prompt": "¿Qué fallo produce rango de tiempo equivocado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Excluir eventos pertinentes"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar el hash original"
+            },
+            {
+              "id": "c",
+              "text": "Crear usuarios nuevos"
+            },
+            {
+              "id": "d",
+              "text": "Convertir IPv4 en IPv6"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La ventana temporal es parte esencial del alcance.",
+          "reference": "https://help.splunk.com/en/splunk-enterprise/search/spl-search-reference/9.3/search-commands/stats",
+          "reviewOf": "w47d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w47d7-challenge",
+        "prompt": "Todas las casillas de videos están marcadas, pero no resuelves un caso nuevo. ¿Qué decisión es sólida?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Declararte listo por porcentaje"
+          },
+          {
+            "id": "b",
+            "text": "Memorizar respuestas filtradas"
+          },
+          {
+            "id": "c",
+            "text": "Practicar competencias débiles antes de declarar preparación"
+          },
+          {
+            "id": "d",
+            "text": "Contar horas como única métrica"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La preparación se apoya en ejecución independiente y comprensión.",
+        "reference": "https://www.centri.org/certifications/blue-team-level-1"
+      }
+    }
+  ]
+}

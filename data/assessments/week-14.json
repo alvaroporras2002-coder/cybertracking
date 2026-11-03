@@ -1,0 +1,2094 @@
+{
+  "week": 14,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w14d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w14d1-q01",
+          "prompt": "En un diseño con invitados y servidores internos, ¿qué criterio define mejor los flujos entre zonas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La proximidad física de las mesas únicamente"
+            },
+            {
+              "id": "b",
+              "text": "La necesidad de negocio y los permisos mínimos"
+            },
+            {
+              "id": "c",
+              "text": "Permitir cualquier flujo porque ambos usan IPv4"
+            },
+            {
+              "id": "d",
+              "text": "La misma regla para invitados y administradores"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Separar zonas exige definir qué comunicaciones están justificadas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w14d1-q02",
+          "prompt": "¿Qué beneficio persigue separar usuarios, invitados y servidores?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eliminar toda necesidad de autenticación"
+            },
+            {
+              "id": "b",
+              "text": "Sustituir las actualizaciones de los equipos"
+            },
+            {
+              "id": "c",
+              "text": "Limitar exposición y movimiento entre grupos con necesidades distintas"
+            },
+            {
+              "id": "d",
+              "text": "Garantizar que ningún incidente pueda ocurrir"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La segmentación reduce el alcance de comunicaciones innecesarias, pero no es una garantía absoluta.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w14d1-q03",
+          "prompt": "Una aplicación necesita que usuarios lleguen a su servidor web. ¿Qué flujo conviene documentar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cualquier origen hacia cualquier servidor en todos los puertos"
+            },
+            {
+              "id": "b",
+              "text": "Solo las direcciones de red, sin indicar servicios ni sentido"
+            },
+            {
+              "id": "c",
+              "text": "Un permiso bidireccional a todos los puertos entre ambas zonas"
+            },
+            {
+              "id": "d",
+              "text": "Origen de usuarios, servidor concreto, servicio requerido y motivo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La matriz de flujos vincula reglas con necesidades observables.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w14d1-q04",
+          "prompt": "La red de invitados solo necesita Internet. ¿Qué acceso merece bloquearse normalmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Las respuestas a sus conexiones autorizadas sin evaluar la política"
+            },
+            {
+              "id": "b",
+              "text": "Todas las consultas DNS necesarias aunque estén autorizadas"
+            },
+            {
+              "id": "c",
+              "text": "Todo tráfico hacia el gateway que permite su navegación"
+            },
+            {
+              "id": "d",
+              "text": "El acceso no justificado desde invitados a redes administrativas internas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los invitados no deben heredar acceso interno por compartir infraestructura.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w14d1-q05",
+          "prompt": "¿Por qué una dirección IP dentro de la zona corporativa no basta para confiar en un usuario?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque todas las direcciones internas son públicas"
+            },
+            {
+              "id": "b",
+              "text": "También se necesitan identidad, estado del dispositivo y autorización"
+            },
+            {
+              "id": "c",
+              "text": "Porque los firewalls no pueden filtrar redes privadas"
+            },
+            {
+              "id": "d",
+              "text": "Porque DNS autentica automáticamente a la persona"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La localización de red no reemplaza los controles de identidad y autorización.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/security/what-is-secure-remote-access.html"
+        },
+        {
+          "id": "w14d1-q06",
+          "prompt": "¿Qué debe ocurrir cuando se añade una excepción entre dos zonas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Convertirla automáticamente en permiso permanente para toda la red"
+            },
+            {
+              "id": "b",
+              "text": "Registrar justificación, alcance, responsable y revisión"
+            },
+            {
+              "id": "c",
+              "text": "Ocultarla para que no aparezca en auditorías"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar las reglas anteriores sin analizar dependencias"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La excepción debe poder explicarse, validarse y retirarse cuando deje de ser necesaria.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w14d1-q07",
+          "prompt": "Un diagrama muestra zonas, pero no indica flujos ni controles. ¿Qué falta para revisar su seguridad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el inventario de direcciones, sin justificar comunicaciones"
+            },
+            {
+              "id": "b",
+              "text": "Las comunicaciones permitidas y el punto donde se aplica cada control"
+            },
+            {
+              "id": "c",
+              "text": "La cantidad de iconos decorativos del diagrama"
+            },
+            {
+              "id": "d",
+              "text": "Un único permiso universal entre todas las zonas"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un diagrama útil explica los límites y cómo se regulan las comunicaciones.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w14d1-q08",
+          "prompt": "¿Qué efecto esperas de una segmentación bien validada ante un equipo comprometido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Demostrar que el equipo ya no contiene malware"
+            },
+            {
+              "id": "b",
+              "text": "Recuperar automáticamente sus archivos originales"
+            },
+            {
+              "id": "c",
+              "text": "Reducir los destinos y servicios que ese equipo puede alcanzar"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar la necesidad de supervisar el resto del entorno"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La segmentación limita alcance; la respuesta al incidente requiere otras medidas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w14d1-challenge",
+        "prompt": "Caso: invitados necesitan navegar, pero intentan acceder a la base de datos interna. ¿Qué política refleja mejor su función?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Permitir servicios necesarios para navegar y bloquear el acceso interno no justificado"
+          },
+          {
+            "id": "b",
+            "text": "Permitir toda la red interna por comodidad"
+          },
+          {
+            "id": "c",
+            "text": "Bloquear también todas las respuestas de sus conexiones autorizadas"
+          },
+          {
+            "id": "d",
+            "text": "Asignar a cada visitante privilegios del administrador"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "El diseño debe separar la necesidad de Internet de los recursos internos.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+      }
+    },
+    {
+      "dayId": "w14d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w14d2-q01",
+          "prompt": "¿Qué representa una VLAN en una red Ethernet conmutada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una cuenta de usuario autenticada en el directorio"
+            },
+            {
+              "id": "b",
+              "text": "Un algoritmo de cifrado de las aplicaciones"
+            },
+            {
+              "id": "c",
+              "text": "Una separación lógica de dominio de difusión de capa 2"
+            },
+            {
+              "id": "d",
+              "text": "Una conexión TCP individual"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las VLAN separan tráfico a nivel de enlace; no son cuentas ni sesiones.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/lan-switching/inter-vlan-routing/41260-189.html"
+        },
+        {
+          "id": "w14d2-q02",
+          "prompt": "En un diseño típico, ¿qué función permite comunicar dos VLAN mediante IP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambiar únicamente el nombre mostrado del switch"
+            },
+            {
+              "id": "b",
+              "text": "Compartir la misma contraseña Wi-Fi en todos los equipos"
+            },
+            {
+              "id": "c",
+              "text": "Enviar todas las tramas como difusión sin control"
+            },
+            {
+              "id": "d",
+              "text": "Enrutamiento entre sus redes con las políticas apropiadas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La comunicación entre dominios separados requiere una función de capa 3 y reglas acordes.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/lan-switching/inter-vlan-routing/41260-189.html"
+        },
+        {
+          "id": "w14d2-q03",
+          "prompt": "¿Cuál diferencia entre VLAN y subred es correcta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ambas palabras nombran siempre el mismo objeto técnico"
+            },
+            {
+              "id": "b",
+              "text": "Una VLAN cifra obligatoriamente una subred"
+            },
+            {
+              "id": "c",
+              "text": "VLAN describe segmentación de enlace; subred describe un prefijo IP"
+            },
+            {
+              "id": "d",
+              "text": "Una subred identifica exclusivamente al usuario"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Suelen relacionarse en el diseño, pero pertenecen a conceptos diferentes.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/lan-switching/inter-vlan-routing/41260-189.html"
+        },
+        {
+          "id": "w14d2-q04",
+          "prompt": "Un puerto access está asignado a la VLAN de usuarios. ¿Cuál es su uso habitual?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Transportar obligatoriamente todas las VLAN del edificio"
+            },
+            {
+              "id": "b",
+              "text": "Conectar un dispositivo final a esa VLAN"
+            },
+            {
+              "id": "c",
+              "text": "Proporcionar cifrado TLS a cada página web"
+            },
+            {
+              "id": "d",
+              "text": "Sustituir el gateway IP del dispositivo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los puertos access se usan habitualmente para asociar dispositivos a una VLAN.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/lan-switching/inter-vlan-routing/14976-50.html"
+        },
+        {
+          "id": "w14d2-q05",
+          "prompt": "¿Para qué se utiliza normalmente un enlace troncal entre dispositivos de red?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eliminar la necesidad de identificar las VLAN"
+            },
+            {
+              "id": "b",
+              "text": "Asignar contraseñas personales a todos los clientes"
+            },
+            {
+              "id": "c",
+              "text": "Garantizar acceso ilimitado entre todas las redes"
+            },
+            {
+              "id": "d",
+              "text": "Transportar tráfico de varias VLAN autorizadas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un troncal transporta VLAN; no implica que las políticas de comunicación desaparezcan.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/lan-switching/inter-vlan-routing/14976-50.html"
+        },
+        {
+          "id": "w14d2-q06",
+          "prompt": "Un equipo se conecta por error a la VLAN de invitados. ¿Qué problema puede aparecer aunque el cable funcione?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Recibir configuración y permisos de una zona diferente"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar físicamente su dirección MAC a la del router"
+            },
+            {
+              "id": "c",
+              "text": "Descifrar automáticamente todo el tráfico corporativo"
+            },
+            {
+              "id": "d",
+              "text": "Convertir todo tráfico UDP en TCP"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El enlace físico correcto no garantiza pertenencia a la zona prevista.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/lan-switching/inter-vlan-routing/41260-189.html"
+        },
+        {
+          "id": "w14d2-q07",
+          "prompt": "Dos VLAN distintas tienen enrutamiento habilitado sin restricciones. ¿Qué evaluación es correcta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Las VLAN ya garantizan aislamiento completo de todos los servicios"
+            },
+            {
+              "id": "b",
+              "text": "La separación de difusión no basta para limitar el acceso entre ellas"
+            },
+            {
+              "id": "c",
+              "text": "No puede circular ningún paquete entre ambas"
+            },
+            {
+              "id": "d",
+              "text": "El uso de VLAN sustituye toda política de firewall"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los límites de acceso dependen también de los controles de capa 3 aplicados.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/lan-switching/inter-vlan-routing/41260-189.html"
+        },
+        {
+          "id": "w14d2-q08",
+          "prompt": "¿Qué dato debes verificar al diagnosticar un host colocado en una VLAN incorrecta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Asignación del puerto y configuración IP esperada para esa zona"
+            },
+            {
+              "id": "b",
+              "text": "Solo el historial del navegador del usuario"
+            },
+            {
+              "id": "c",
+              "text": "Solo que el cable negocie velocidad, sin revisar pertenencia lógica"
+            },
+            {
+              "id": "d",
+              "text": "El formato del documento que quiere abrir"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La pertenencia lógica y la configuración de red deben concordar con el diseño.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/lan-switching/inter-vlan-routing/41260-189.html"
+        }
+      ],
+      "challenge": {
+        "id": "w14d2-challenge",
+        "prompt": "Caso: usuarios y servidores están en VLAN diferentes y necesitan una API concreta. ¿Qué solución respeta esa separación?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Unir todas las VLAN sin restricciones"
+          },
+          {
+            "id": "b",
+            "text": "Cambiar solo el nombre de las VLAN"
+          },
+          {
+            "id": "c",
+            "text": "Asumir que asignar VLAN ya permite cualquier aplicación"
+          },
+          {
+            "id": "d",
+            "text": "Enrutamiento controlado con permiso limitado al flujo de la API"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La comunicación necesaria puede habilitarse manteniendo límites y políticas.",
+        "reference": "https://www.cisco.com/c/en/us/support/docs/lan-switching/inter-vlan-routing/41260-189.html"
+      }
+    },
+    {
+      "dayId": "w14d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w14d3-q01",
+          "prompt": "Una regla permite TCP/443 de la red de usuarios al servidor A. ¿Qué dato NO queda definido solo por el puerto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Qué proceso real escucha y si la aplicación es legítima"
+            },
+            {
+              "id": "b",
+              "text": "El protocolo TCP declarado en la regla"
+            },
+            {
+              "id": "c",
+              "text": "El puerto de destino indicado"
+            },
+            {
+              "id": "d",
+              "text": "La acción de permitir descrita"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La regla limita un flujo; el puerto no certifica la identidad o calidad de la aplicación.",
+          "reference": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml"
+        },
+        {
+          "id": "w14d3-q02",
+          "prompt": "En un motor de reglas de primera coincidencia, ¿qué efecto tiene poner permitir cualquier origen/destino antes de un bloqueo específico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La regla de bloqueo posterior siempre se ejecuta primero"
+            },
+            {
+              "id": "b",
+              "text": "La regla amplia puede impedir que se evalúe el bloqueo posterior"
+            },
+            {
+              "id": "c",
+              "text": "El firewall convierte automáticamente la regla amplia en una alerta"
+            },
+            {
+              "id": "d",
+              "text": "Solo se permite tráfico DNS"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El orden importa en un motor de primera coincidencia; hay que conocer su semántica.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w14d3-q03",
+          "prompt": "¿Qué significa una política de denegación por defecto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Permitir todo tráfico excepto los puertos más conocidos"
+            },
+            {
+              "id": "b",
+              "text": "Bloquear únicamente mensajes que ya contienen malware confirmado"
+            },
+            {
+              "id": "c",
+              "text": "Rechazar cualquier conexión incluso si una regla la permite"
+            },
+            {
+              "id": "d",
+              "text": "Bloquear el tráfico que no tenga una autorización explícita aplicable"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La política reduce permisos implícitos y debe acompañarse de excepciones justificadas.",
+          "reference": "https://csrc.nist.gov/glossary/term/deny_by_default"
+        },
+        {
+          "id": "w14d3-q04",
+          "prompt": "Necesitas permitir una aplicación a un grupo pequeño. ¿Qué regla es más acotada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cualquier origen a cualquier destino y cualquier servicio"
+            },
+            {
+              "id": "b",
+              "text": "Toda la red de invitados a todos los servidores"
+            },
+            {
+              "id": "c",
+              "text": "Orígenes del grupo hacia el servidor y puerto necesarios"
+            },
+            {
+              "id": "d",
+              "text": "Todo tráfico entrante porque la aplicación usa HTTPS"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La regla debe reflejar el alcance mínimo de la necesidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w14d3-q05",
+          "prompt": "¿Qué papel tiene el registro de una regla de bloqueo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Descifrar automáticamente cualquier conexión bloqueada"
+            },
+            {
+              "id": "b",
+              "text": "Aportar evidencia de coincidencias para diagnóstico y supervisión"
+            },
+            {
+              "id": "c",
+              "text": "Autenticar al usuario que originó cada paquete"
+            },
+            {
+              "id": "d",
+              "text": "Corregir la aplicación que intentó conectar"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los registros muestran eventos del control, no toda la intención ni una reparación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w14d3-q06",
+          "prompt": "Un firewall con seguimiento de estado permite una respuesta de una conexión autorizada. ¿Qué concepto explica esa evaluación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La legitimidad automática de cualquier puerto alto"
+            },
+            {
+              "id": "b",
+              "text": "La contraseña de la red inalámbrica"
+            },
+            {
+              "id": "c",
+              "text": "El contexto mantenido sobre el flujo y su política"
+            },
+            {
+              "id": "d",
+              "text": "La eliminación de la dirección de origen"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El estado aporta contexto para valorar tráfico relacionado; no autoriza todo flujo nuevo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w14d3-q07",
+          "prompt": "¿Qué es una regla sombreada por otra más amplia en un motor de primera coincidencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una regla que cifra siempre los paquetes"
+            },
+            {
+              "id": "b",
+              "text": "Una regla sin hora en el registro aunque sí se aplique"
+            },
+            {
+              "id": "c",
+              "text": "Una regla que puede no alcanzarse porque otra anterior ya coincide"
+            },
+            {
+              "id": "d",
+              "text": "Un permiso que funciona solo cuando se apaga el switch"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Comparar alcance y orden ayuda a detectar reglas inefectivas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w14d3-q08",
+          "prompt": "Al modificar una regla de acceso de laboratorio, ¿qué debe conservarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la regla nueva, sin conservar el estado anterior"
+            },
+            {
+              "id": "b",
+              "text": "Ningún registro para evitar ruido"
+            },
+            {
+              "id": "c",
+              "text": "Un permiso universal permanente como sustituto del control"
+            },
+            {
+              "id": "d",
+              "text": "La configuración anterior y una forma comprobable de revertir"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La reversibilidad y el registro permiten evaluar el cambio sin ampliar acceso innecesario.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w14d3-challenge",
+        "prompt": "Caso: en un firewall de primera coincidencia, una regla permite todo antes de una denegación sensible. ¿Qué debes corregir?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Orden y alcance para que la denegación se evalúe donde corresponda"
+          },
+          {
+            "id": "b",
+            "text": "Solo el texto descriptivo de la segunda regla"
+          },
+          {
+            "id": "c",
+            "text": "El tamaño del archivo de configuración sin cambiar las reglas"
+          },
+          {
+            "id": "d",
+            "text": "La marca del adaptador del servidor"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "Una política debe evaluarse según la semántica real del motor de reglas.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+      }
+    },
+    {
+      "dayId": "w14d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w14d4-q01",
+          "prompt": "Antes de probar un bloqueo en el laboratorio, ¿qué debes definir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el mensaje final que deseas obtener"
+            },
+            {
+              "id": "b",
+              "text": "Un cambio masivo de todas las reglas a la vez"
+            },
+            {
+              "id": "c",
+              "text": "La eliminación de registros antiguos como primera acción"
+            },
+            {
+              "id": "d",
+              "text": "Flujo esperado, resultado permitido y resultado que debe rechazarse"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una prueba útil compara resultados previstos, incluidos casos negativos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w14d4-q02",
+          "prompt": "¿Qué prueba negativa valida mejor una regla que solo permite al cliente A acceder a un servidor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Comprobar que un cliente B no autorizado no obtiene ese acceso"
+            },
+            {
+              "id": "b",
+              "text": "Volver a probar A repetidamente sin comparar otro origen"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar el puerto del servidor sin anotarlo"
+            },
+            {
+              "id": "d",
+              "text": "Probar desde una red de terceros sin permiso"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La restricción debe funcionar tanto para el flujo permitido como para el no autorizado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w14d4-q03",
+          "prompt": "Una conexión falla después del cambio de firewall. ¿Qué dato mejora la atribución de la causa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La sensación del usuario de que el sitio es lento"
+            },
+            {
+              "id": "b",
+              "text": "Solo el puerto que debería usar, sin comprobar registros ni tráfico"
+            },
+            {
+              "id": "c",
+              "text": "Que el equipo tenga mucha memoria libre"
+            },
+            {
+              "id": "d",
+              "text": "Registro de coincidencia, hora, extremos y prueba equivalente antes/después"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una coincidencia y una comparación controlada aportan más evidencia que la mera coincidencia temporal.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w14d4-q04",
+          "prompt": "Una prueba permitida funciona una vez. ¿Qué falta para validar toda la regla propuesta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Concluir que todos los puertos están bien filtrados"
+            },
+            {
+              "id": "b",
+              "text": "Afirmar que el servidor no contiene vulnerabilidades"
+            },
+            {
+              "id": "c",
+              "text": "Probar restricciones y condiciones relevantes, no solo el caso favorable"
+            },
+            {
+              "id": "d",
+              "text": "Borrar la configuración anterior"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un caso exitoso no demuestra todos los límites del control.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w14d4-q05",
+          "prompt": "¿Por qué conviene cambiar una variable a la vez al diagnosticar una regla?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Evita que exista tráfico TCP"
+            },
+            {
+              "id": "b",
+              "text": "Hace innecesario registrar el resultado"
+            },
+            {
+              "id": "c",
+              "text": "Garantiza que cualquier cambio sea seguro"
+            },
+            {
+              "id": "d",
+              "text": "Permite relacionar el resultado con una modificación concreta"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los cambios controlados facilitan interpretar causa y efecto.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w14d4-q06",
+          "prompt": "Un paquete no aparece en los registros del firewall que estás revisando. ¿Qué hipótesis merece comprobarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el usuario necesariamente inventó el problema"
+            },
+            {
+              "id": "b",
+              "text": "Que ningún otro dispositivo puede bloquearlo"
+            },
+            {
+              "id": "c",
+              "text": "Que todos los registros de la red son completos"
+            },
+            {
+              "id": "d",
+              "text": "Que el flujo use otra ruta o no alcance ese control"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La ausencia en un punto de observación no demuestra ausencia de tráfico en toda la red.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w14d4-q07",
+          "prompt": "La regla temporal de una práctica ya cumplió su objetivo. ¿Qué acción corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dejarla abierta indefinidamente para facilitar futuras pruebas"
+            },
+            {
+              "id": "b",
+              "text": "Ampliarla a toda la red como precaución"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar el informe de cambios"
+            },
+            {
+              "id": "d",
+              "text": "Retirarla o restaurar la configuración aprobada y validar el estado final"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las excepciones temporales deben tener un cierre verificable.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w14d4-q08",
+          "prompt": "¿Qué debe incluir la evidencia de una prueba de segmentación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo una frase que diga que todo funciona"
+            },
+            {
+              "id": "b",
+              "text": "Origen, destino, servicio, momento, resultado y referencia a la regla"
+            },
+            {
+              "id": "c",
+              "text": "Una contraseña real compartida en el informe"
+            },
+            {
+              "id": "d",
+              "text": "Una captura sin contexto ni relación con el cambio"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La evidencia debe permitir reproducir y evaluar el resultado sin exponer secretos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w14d4-challenge",
+        "prompt": "Caso: una nueva regla deja pasar al cliente autorizado. ¿Qué prueba complementaria necesitas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Probar contra una red externa sin permiso"
+          },
+          {
+            "id": "b",
+            "text": "Intentar el mismo flujo desde un origen no autorizado del laboratorio y revisar el registro"
+          },
+          {
+            "id": "c",
+            "text": "Eliminar la regla para dar por terminada la evaluación"
+          },
+          {
+            "id": "d",
+            "text": "Afirmar que todos los servicios quedaron aislados"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "Validar el permiso y el rechazo comprueba los dos lados del requisito.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+      }
+    },
+    {
+      "dayId": "w14d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w14d5-q01",
+          "prompt": "Al comparar WEP con WPA3 o WPA2 con AES correctamente configurados, ¿qué elección es razonable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usar WEP porque su nombre es más corto"
+            },
+            {
+              "id": "b",
+              "text": "Preferir mecanismos modernos compatibles y una configuración segura"
+            },
+            {
+              "id": "c",
+              "text": "Desactivar autenticación para evitar errores de clave"
+            },
+            {
+              "id": "d",
+              "text": "Considerar que el nombre de la red cifra los datos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los estándares antiguos y una configuración débil no se compensan ocultando el nombre de la red.",
+          "reference": "https://www.ftc.gov/business-guidance/blog/2019/02/cybersecurity-small-business-secure-remote-access"
+        },
+        {
+          "id": "w14d5-q02",
+          "prompt": "¿Qué diferencia básica existe entre el SSID y la clave de acceso de una red personal?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El SSID identifica la red; la clave participa en la autenticación y protección según el modo"
+            },
+            {
+              "id": "b",
+              "text": "El SSID es siempre una contraseña secreta"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar el SSID vuelve inútiles todas las claves robadas"
+            },
+            {
+              "id": "d",
+              "text": "Ambos son el mismo dato en distinto formato"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Nombrar la red no sustituye sus controles de acceso.",
+          "reference": "https://www.ftc.gov/business-guidance/blog/2019/02/cybersecurity-small-business-secure-remote-access"
+        },
+        {
+          "id": "w14d5-q03",
+          "prompt": "Una empresa publica Wi-Fi para visitantes. ¿Qué diseño es más prudente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Entregar a visitantes las cuentas de administración"
+            },
+            {
+              "id": "b",
+              "text": "Conectar invitados directamente a la VLAN de servidores"
+            },
+            {
+              "id": "c",
+              "text": "Desactivar todo registro del acceso"
+            },
+            {
+              "id": "d",
+              "text": "Separar invitados de recursos internos y permitir solo lo necesario"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El acceso de invitados debe reflejar una necesidad limitada de conectividad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        },
+        {
+          "id": "w14d5-q04",
+          "prompt": "¿Por qué una clave Wi-Fi compartida exige gestión cuando se difunde fuera del grupo autorizado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque la clave contiene la dirección MAC del router"
+            },
+            {
+              "id": "b",
+              "text": "Quienes la conocen pueden intentar acceder mientras siga siendo válida"
+            },
+            {
+              "id": "c",
+              "text": "Porque usar una clave compartida elimina el cifrado"
+            },
+            {
+              "id": "d",
+              "text": "Porque todos los dispositivos se convierten en administradores"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La divulgación de un secreto compartido afecta al control sobre sus posibles usuarios.",
+          "reference": "https://www.ftc.gov/business-guidance/blog/2019/02/cybersecurity-small-business-secure-remote-access"
+        },
+        {
+          "id": "w14d5-q05",
+          "prompt": "¿Qué aporta un modo empresarial con identidades individuales bien gestionadas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Permitir que todos reutilicen una única contraseña publicada"
+            },
+            {
+              "id": "b",
+              "text": "Facilitar atribución y revocación por usuario o dispositivo"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar la necesidad de validar al servidor de autenticación"
+            },
+            {
+              "id": "d",
+              "text": "Garantizar por sí solo que no exista malware"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las identidades separadas mejoran la gestión, aunque necesitan configuración y validación adecuadas.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/security/what-is-secure-remote-access.html"
+        },
+        {
+          "id": "w14d5-q06",
+          "prompt": "Un dispositivo anuncia una red con el mismo nombre que la corporativa. ¿Qué conclusión es válida?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cualquier punto con ese nombre pertenece a la empresa"
+            },
+            {
+              "id": "b",
+              "text": "El nombre por sí solo no demuestra que sea un punto de acceso autorizado"
+            },
+            {
+              "id": "c",
+              "text": "La coincidencia del nombre valida su certificado automáticamente"
+            },
+            {
+              "id": "d",
+              "text": "No hace falta verificar instrucciones de conexión"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La identidad del servicio requiere más pruebas que una etiqueta de red.",
+          "reference": "https://www.ftc.gov/business-guidance/blog/2019/02/cybersecurity-small-business-secure-remote-access"
+        },
+        {
+          "id": "w14d5-q07",
+          "prompt": "Además del acceso inalámbrico, ¿qué debe protegerse en un router de laboratorio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Únicamente el texto visible del SSID"
+            },
+            {
+              "id": "b",
+              "text": "Solo reducir la potencia de radio sin revisar la administración"
+            },
+            {
+              "id": "c",
+              "text": "Su administración, actualizaciones y credenciales de gestión"
+            },
+            {
+              "id": "d",
+              "text": "El nombre del navegador que abre su panel"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La seguridad incluye el plano de administración y su mantenimiento.",
+          "reference": "https://www.ftc.gov/business-guidance/blog/2019/02/cybersecurity-small-business-secure-remote-access"
+        },
+        {
+          "id": "w14d5-q08",
+          "prompt": "¿Qué permiso necesitas para probar configuraciones de una red inalámbrica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Autorización sobre el laboratorio o la red concreta y un alcance definido"
+            },
+            {
+              "id": "b",
+              "text": "Ninguno si el SSID es visible"
+            },
+            {
+              "id": "c",
+              "text": "La conexión ocasional de un visitante"
+            },
+            {
+              "id": "d",
+              "text": "Que el punto de acceso acepte conexiones de invitados"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La visibilidad pública de una red no autoriza a modificarla o analizarla sin alcance.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w14d5-challenge",
+        "prompt": "Caso: la red de invitados usa la misma clave que administración y comparte servidores internos. ¿Qué cambio priorizas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Cambiar solo el SSID, conservando el acceso interno sin restricciones"
+          },
+          {
+            "id": "b",
+            "text": "Separar acceso de invitados y administración con credenciales y flujos apropiados"
+          },
+          {
+            "id": "c",
+            "text": "Ocultar el SSID manteniendo el acceso completo"
+          },
+          {
+            "id": "d",
+            "text": "Publicar la clave en un cartel más pequeño"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "Los límites de acceso y la gestión de credenciales corrigen problemas que el nombre visible no resuelve.",
+        "reference": "https://www.ftc.gov/business-guidance/blog/2019/02/cybersecurity-small-business-secure-remote-access"
+      }
+    },
+    {
+      "dayId": "w14d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w14d6-q01",
+          "prompt": "¿Qué proporciona principalmente un túnel VPN correctamente configurado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Confianza absoluta en todo usuario conectado"
+            },
+            {
+              "id": "b",
+              "text": "Corrección automática de vulnerabilidades de cualquier endpoint"
+            },
+            {
+              "id": "c",
+              "text": "Protección del tráfico entre los extremos del túnel conforme a su protocolo"
+            },
+            {
+              "id": "d",
+              "text": "Autorización ilimitada a todas las redes internas"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El túnel protege un trayecto; el acceso y la seguridad del equipo requieren controles adicionales.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/security/what-is-secure-remote-access.html"
+        },
+        {
+          "id": "w14d6-q02",
+          "prompt": "¿Por qué se añade MFA al acceso remoto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para cambiar automáticamente el puerto de todo servidor"
+            },
+            {
+              "id": "b",
+              "text": "Para eliminar la necesidad de revocar cuentas"
+            },
+            {
+              "id": "c",
+              "text": "Para garantizar que ningún usuario pueda ser engañado"
+            },
+            {
+              "id": "d",
+              "text": "Para exigir factores adicionales a una sola contraseña"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "MFA mejora la autenticación, sin sustituir todas las defensas.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/security/what-is-secure-remote-access.html"
+        },
+        {
+          "id": "w14d6-q03",
+          "prompt": "Una persona de soporte solo necesita una aplicación interna. ¿Qué acceso remoto es más proporcionado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Acceso limitado a la aplicación y recursos autorizados"
+            },
+            {
+              "id": "b",
+              "text": "Rutas y privilegios completos de toda la organización"
+            },
+            {
+              "id": "c",
+              "text": "La misma cuenta compartida que usan los administradores"
+            },
+            {
+              "id": "d",
+              "text": "Permiso permanente sin revisión de necesidad"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El alcance remoto debe corresponder al trabajo y al mínimo privilegio.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/security/what-is-secure-remote-access.html"
+        },
+        {
+          "id": "w14d6-q04",
+          "prompt": "¿Qué distingue túnel completo de túnel dividido en una VPN?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Si la contraseña tiene mayúsculas"
+            },
+            {
+              "id": "b",
+              "text": "Qué tráfico del cliente se encamina por el túnel"
+            },
+            {
+              "id": "c",
+              "text": "Si el servidor usa una dirección privada"
+            },
+            {
+              "id": "d",
+              "text": "Si la red contiene un switch físico"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La política de rutas define qué parte de las comunicaciones utiliza la VPN.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/security/what-is-secure-remote-access.html"
+        },
+        {
+          "id": "w14d6-q05",
+          "prompt": "Se revoca la relación laboral de un usuario remoto. ¿Qué debe revisarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el nombre DNS del concentrador VPN, sin revocar identidades"
+            },
+            {
+              "id": "b",
+              "text": "Cuentas, sesiones, tokens y autorizaciones de acceso remoto"
+            },
+            {
+              "id": "c",
+              "text": "Solo la IP anterior del usuario, sin revisar sesiones ni tokens"
+            },
+            {
+              "id": "d",
+              "text": "El tráfico de otros usuarios sin cambiar su acceso"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El cierre del acceso requiere considerar credenciales y sesiones activas.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/security/what-is-secure-remote-access.html"
+        },
+        {
+          "id": "w14d6-q06",
+          "prompt": "¿Qué información resulta útil en un registro de acceso remoto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Identidad, tiempos, origen y resultado de autenticación o acceso"
+            },
+            {
+              "id": "b",
+              "text": "Contraseñas completas en texto claro"
+            },
+            {
+              "id": "c",
+              "text": "Todo contenido personal del equipo sin motivo"
+            },
+            {
+              "id": "d",
+              "text": "Solo el total de bytes agregado, sin tiempo ni identidad"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La supervisión necesita contexto y debe evitar almacenar secretos innecesarios.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/security/what-is-secure-remote-access.html"
+        },
+        {
+          "id": "w14d6-q07",
+          "prompt": "Una VPN conecta un equipo sin parches a la red. ¿Qué riesgo permanece?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El cifrado de la VPN elimina automáticamente todo malware"
+            },
+            {
+              "id": "b",
+              "text": "Las reglas internas dejan de ser necesarias"
+            },
+            {
+              "id": "c",
+              "text": "El equipo comprometido puede usar el acceso concedido"
+            },
+            {
+              "id": "d",
+              "text": "Un túnel demuestra que el usuario leyó la política"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El estado del endpoint y la segmentación siguen siendo relevantes.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/security/what-is-secure-remote-access.html"
+        },
+        {
+          "id": "w14d6-q08",
+          "prompt": "¿Qué combinación mejora un diseño remoto además del túnel?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo un puerto diferente y ninguna otra medida"
+            },
+            {
+              "id": "b",
+              "text": "Autenticación fuerte, mínimo privilegio, mantenimiento y supervisión"
+            },
+            {
+              "id": "c",
+              "text": "Una cuenta compartida para simplificar los registros"
+            },
+            {
+              "id": "d",
+              "text": "Acceso permanente de cualquier dispositivo sin revisión"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un acceso remoto seguro combina controles de identidad, dispositivo y autorización.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/security/what-is-secure-remote-access.html"
+        }
+      ],
+      "challenge": {
+        "id": "w14d6-challenge",
+        "prompt": "Caso: un proveedor pide VPN con acceso a toda la red para revisar un único servicio. ¿Qué alternativa propones?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Una cuenta administrativa compartida sin caducidad"
+          },
+          {
+            "id": "b",
+            "text": "Permitir todo y evaluar después si ocurre un incidente"
+          },
+          {
+            "id": "c",
+            "text": "Eliminar los registros para proteger su comodidad"
+          },
+          {
+            "id": "d",
+            "text": "Identidad propia, autenticación fuerte, acceso acotado y revisión temporal"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "El acceso de terceros debe limitarse por necesidad y poder supervisarse y retirarse.",
+        "reference": "https://www.cisco.com/site/us/en/learn/topics/security/what-is-secure-remote-access.html"
+      }
+    },
+    {
+      "dayId": "w14d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w14d7-q01",
+          "prompt": "En un diseño con invitados y servidores internos, ¿qué criterio define mejor los flujos entre zonas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La proximidad física de las mesas únicamente"
+            },
+            {
+              "id": "b",
+              "text": "La necesidad de negocio y los permisos mínimos"
+            },
+            {
+              "id": "c",
+              "text": "Permitir cualquier flujo porque ambos usan IPv4"
+            },
+            {
+              "id": "d",
+              "text": "La misma regla para invitados y administradores"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Separar zonas exige definir qué comunicaciones están justificadas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final",
+          "reviewOf": "w14d1-q01"
+        },
+        {
+          "id": "w14d7-q02",
+          "prompt": "¿Qué representa una VLAN en una red Ethernet conmutada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una cuenta de usuario autenticada en el directorio"
+            },
+            {
+              "id": "b",
+              "text": "Un algoritmo de cifrado de las aplicaciones"
+            },
+            {
+              "id": "c",
+              "text": "Una separación lógica de dominio de difusión de capa 2"
+            },
+            {
+              "id": "d",
+              "text": "Una conexión TCP individual"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las VLAN separan tráfico a nivel de enlace; no son cuentas ni sesiones.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/lan-switching/inter-vlan-routing/41260-189.html",
+          "reviewOf": "w14d2-q01"
+        },
+        {
+          "id": "w14d7-q03",
+          "prompt": "Una regla permite TCP/443 de la red de usuarios al servidor A. ¿Qué dato NO queda definido solo por el puerto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Qué proceso real escucha y si la aplicación es legítima"
+            },
+            {
+              "id": "b",
+              "text": "El protocolo TCP declarado en la regla"
+            },
+            {
+              "id": "c",
+              "text": "El puerto de destino indicado"
+            },
+            {
+              "id": "d",
+              "text": "La acción de permitir descrita"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La regla limita un flujo; el puerto no certifica la identidad o calidad de la aplicación.",
+          "reference": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml",
+          "reviewOf": "w14d3-q01"
+        },
+        {
+          "id": "w14d7-q04",
+          "prompt": "Antes de probar un bloqueo en el laboratorio, ¿qué debes definir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el mensaje final que deseas obtener"
+            },
+            {
+              "id": "b",
+              "text": "Un cambio masivo de todas las reglas a la vez"
+            },
+            {
+              "id": "c",
+              "text": "La eliminación de registros antiguos como primera acción"
+            },
+            {
+              "id": "d",
+              "text": "Flujo esperado, resultado permitido y resultado que debe rechazarse"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una prueba útil compara resultados previstos, incluidos casos negativos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final",
+          "reviewOf": "w14d4-q01"
+        },
+        {
+          "id": "w14d7-q05",
+          "prompt": "Al comparar WEP con WPA3 o WPA2 con AES correctamente configurados, ¿qué elección es razonable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usar WEP porque su nombre es más corto"
+            },
+            {
+              "id": "b",
+              "text": "Preferir mecanismos modernos compatibles y una configuración segura"
+            },
+            {
+              "id": "c",
+              "text": "Desactivar autenticación para evitar errores de clave"
+            },
+            {
+              "id": "d",
+              "text": "Considerar que el nombre de la red cifra los datos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los estándares antiguos y una configuración débil no se compensan ocultando el nombre de la red.",
+          "reference": "https://www.ftc.gov/business-guidance/blog/2019/02/cybersecurity-small-business-secure-remote-access",
+          "reviewOf": "w14d5-q01"
+        },
+        {
+          "id": "w14d7-q06",
+          "prompt": "¿Qué proporciona principalmente un túnel VPN correctamente configurado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Confianza absoluta en todo usuario conectado"
+            },
+            {
+              "id": "b",
+              "text": "Corrección automática de vulnerabilidades de cualquier endpoint"
+            },
+            {
+              "id": "c",
+              "text": "Protección del tráfico entre los extremos del túnel conforme a su protocolo"
+            },
+            {
+              "id": "d",
+              "text": "Autorización ilimitada a todas las redes internas"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El túnel protege un trayecto; el acceso y la seguridad del equipo requieren controles adicionales.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/security/what-is-secure-remote-access.html",
+          "reviewOf": "w14d6-q01"
+        },
+        {
+          "id": "w14d7-q07",
+          "prompt": "¿Qué beneficio persigue separar usuarios, invitados y servidores?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eliminar toda necesidad de autenticación"
+            },
+            {
+              "id": "b",
+              "text": "Sustituir las actualizaciones de los equipos"
+            },
+            {
+              "id": "c",
+              "text": "Limitar exposición y movimiento entre grupos con necesidades distintas"
+            },
+            {
+              "id": "d",
+              "text": "Garantizar que ningún incidente pueda ocurrir"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La segmentación reduce el alcance de comunicaciones innecesarias, pero no es una garantía absoluta.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final",
+          "reviewOf": "w14d1-q02"
+        },
+        {
+          "id": "w14d7-q08",
+          "prompt": "En un diseño típico, ¿qué función permite comunicar dos VLAN mediante IP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambiar únicamente el nombre mostrado del switch"
+            },
+            {
+              "id": "b",
+              "text": "Compartir la misma contraseña Wi-Fi en todos los equipos"
+            },
+            {
+              "id": "c",
+              "text": "Enviar todas las tramas como difusión sin control"
+            },
+            {
+              "id": "d",
+              "text": "Enrutamiento entre sus redes con las políticas apropiadas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La comunicación entre dominios separados requiere una función de capa 3 y reglas acordes.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/lan-switching/inter-vlan-routing/41260-189.html",
+          "reviewOf": "w14d2-q02"
+        },
+        {
+          "id": "w14d7-q09",
+          "prompt": "En un motor de reglas de primera coincidencia, ¿qué efecto tiene poner permitir cualquier origen/destino antes de un bloqueo específico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La regla de bloqueo posterior siempre se ejecuta primero"
+            },
+            {
+              "id": "b",
+              "text": "La regla amplia puede impedir que se evalúe el bloqueo posterior"
+            },
+            {
+              "id": "c",
+              "text": "El firewall convierte automáticamente la regla amplia en una alerta"
+            },
+            {
+              "id": "d",
+              "text": "Solo se permite tráfico DNS"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El orden importa en un motor de primera coincidencia; hay que conocer su semántica.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final",
+          "reviewOf": "w14d3-q02"
+        },
+        {
+          "id": "w14d7-q10",
+          "prompt": "¿Qué prueba negativa valida mejor una regla que solo permite al cliente A acceder a un servidor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Comprobar que un cliente B no autorizado no obtiene ese acceso"
+            },
+            {
+              "id": "b",
+              "text": "Volver a probar A repetidamente sin comparar otro origen"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar el puerto del servidor sin anotarlo"
+            },
+            {
+              "id": "d",
+              "text": "Probar desde una red de terceros sin permiso"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La restricción debe funcionar tanto para el flujo permitido como para el no autorizado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final",
+          "reviewOf": "w14d4-q02"
+        },
+        {
+          "id": "w14d7-q11",
+          "prompt": "¿Qué diferencia básica existe entre el SSID y la clave de acceso de una red personal?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El SSID identifica la red; la clave participa en la autenticación y protección según el modo"
+            },
+            {
+              "id": "b",
+              "text": "El SSID es siempre una contraseña secreta"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar el SSID vuelve inútiles todas las claves robadas"
+            },
+            {
+              "id": "d",
+              "text": "Ambos son el mismo dato en distinto formato"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Nombrar la red no sustituye sus controles de acceso.",
+          "reference": "https://www.ftc.gov/business-guidance/blog/2019/02/cybersecurity-small-business-secure-remote-access",
+          "reviewOf": "w14d5-q02"
+        },
+        {
+          "id": "w14d7-q12",
+          "prompt": "¿Por qué se añade MFA al acceso remoto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para cambiar automáticamente el puerto de todo servidor"
+            },
+            {
+              "id": "b",
+              "text": "Para eliminar la necesidad de revocar cuentas"
+            },
+            {
+              "id": "c",
+              "text": "Para garantizar que ningún usuario pueda ser engañado"
+            },
+            {
+              "id": "d",
+              "text": "Para exigir factores adicionales a una sola contraseña"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "MFA mejora la autenticación, sin sustituir todas las defensas.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/security/what-is-secure-remote-access.html",
+          "reviewOf": "w14d6-q02"
+        },
+        {
+          "id": "w14d7-q13",
+          "prompt": "Una aplicación necesita que usuarios lleguen a su servidor web. ¿Qué flujo conviene documentar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cualquier origen hacia cualquier servidor en todos los puertos"
+            },
+            {
+              "id": "b",
+              "text": "Solo las direcciones de red, sin indicar servicios ni sentido"
+            },
+            {
+              "id": "c",
+              "text": "Un permiso bidireccional a todos los puertos entre ambas zonas"
+            },
+            {
+              "id": "d",
+              "text": "Origen de usuarios, servidor concreto, servicio requerido y motivo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La matriz de flujos vincula reglas con necesidades observables.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final",
+          "reviewOf": "w14d1-q03"
+        },
+        {
+          "id": "w14d7-q14",
+          "prompt": "¿Cuál diferencia entre VLAN y subred es correcta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ambas palabras nombran siempre el mismo objeto técnico"
+            },
+            {
+              "id": "b",
+              "text": "Una VLAN cifra obligatoriamente una subred"
+            },
+            {
+              "id": "c",
+              "text": "VLAN describe segmentación de enlace; subred describe un prefijo IP"
+            },
+            {
+              "id": "d",
+              "text": "Una subred identifica exclusivamente al usuario"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Suelen relacionarse en el diseño, pero pertenecen a conceptos diferentes.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/lan-switching/inter-vlan-routing/41260-189.html",
+          "reviewOf": "w14d2-q03"
+        },
+        {
+          "id": "w14d7-q15",
+          "prompt": "¿Qué significa una política de denegación por defecto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Permitir todo tráfico excepto los puertos más conocidos"
+            },
+            {
+              "id": "b",
+              "text": "Bloquear únicamente mensajes que ya contienen malware confirmado"
+            },
+            {
+              "id": "c",
+              "text": "Rechazar cualquier conexión incluso si una regla la permite"
+            },
+            {
+              "id": "d",
+              "text": "Bloquear el tráfico que no tenga una autorización explícita aplicable"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La política reduce permisos implícitos y debe acompañarse de excepciones justificadas.",
+          "reference": "https://csrc.nist.gov/glossary/term/deny_by_default",
+          "reviewOf": "w14d3-q03"
+        },
+        {
+          "id": "w14d7-q16",
+          "prompt": "Una conexión falla después del cambio de firewall. ¿Qué dato mejora la atribución de la causa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La sensación del usuario de que el sitio es lento"
+            },
+            {
+              "id": "b",
+              "text": "Solo el puerto que debería usar, sin comprobar registros ni tráfico"
+            },
+            {
+              "id": "c",
+              "text": "Que el equipo tenga mucha memoria libre"
+            },
+            {
+              "id": "d",
+              "text": "Registro de coincidencia, hora, extremos y prueba equivalente antes/después"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una coincidencia y una comparación controlada aportan más evidencia que la mera coincidencia temporal.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final",
+          "reviewOf": "w14d4-q03"
+        },
+        {
+          "id": "w14d7-q17",
+          "prompt": "Una empresa publica Wi-Fi para visitantes. ¿Qué diseño es más prudente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Entregar a visitantes las cuentas de administración"
+            },
+            {
+              "id": "b",
+              "text": "Conectar invitados directamente a la VLAN de servidores"
+            },
+            {
+              "id": "c",
+              "text": "Desactivar todo registro del acceso"
+            },
+            {
+              "id": "d",
+              "text": "Separar invitados de recursos internos y permitir solo lo necesario"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El acceso de invitados debe reflejar una necesidad limitada de conectividad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final",
+          "reviewOf": "w14d5-q03"
+        },
+        {
+          "id": "w14d7-q18",
+          "prompt": "Una persona de soporte solo necesita una aplicación interna. ¿Qué acceso remoto es más proporcionado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Acceso limitado a la aplicación y recursos autorizados"
+            },
+            {
+              "id": "b",
+              "text": "Rutas y privilegios completos de toda la organización"
+            },
+            {
+              "id": "c",
+              "text": "La misma cuenta compartida que usan los administradores"
+            },
+            {
+              "id": "d",
+              "text": "Permiso permanente sin revisión de necesidad"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El alcance remoto debe corresponder al trabajo y al mínimo privilegio.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/security/what-is-secure-remote-access.html",
+          "reviewOf": "w14d6-q03"
+        },
+        {
+          "id": "w14d7-q19",
+          "prompt": "La red de invitados solo necesita Internet. ¿Qué acceso merece bloquearse normalmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Las respuestas a sus conexiones autorizadas sin evaluar la política"
+            },
+            {
+              "id": "b",
+              "text": "Todas las consultas DNS necesarias aunque estén autorizadas"
+            },
+            {
+              "id": "c",
+              "text": "Todo tráfico hacia el gateway que permite su navegación"
+            },
+            {
+              "id": "d",
+              "text": "El acceso no justificado desde invitados a redes administrativas internas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los invitados no deben heredar acceso interno por compartir infraestructura.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final",
+          "reviewOf": "w14d1-q04"
+        },
+        {
+          "id": "w14d7-q20",
+          "prompt": "Una prueba permitida funciona una vez. ¿Qué falta para validar toda la regla propuesta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Concluir que todos los puertos están bien filtrados"
+            },
+            {
+              "id": "b",
+              "text": "Afirmar que el servidor no contiene vulnerabilidades"
+            },
+            {
+              "id": "c",
+              "text": "Probar restricciones y condiciones relevantes, no solo el caso favorable"
+            },
+            {
+              "id": "d",
+              "text": "Borrar la configuración anterior"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un caso exitoso no demuestra todos los límites del control.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/41/r1/final",
+          "reviewOf": "w14d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w14d7-challenge",
+        "prompt": "Caso semanal: después de separar VLAN, los invitados aún alcanzan recursos administrativos porque el router permite todo. ¿Qué conclusión integra la evidencia?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La separación de enlace existe, pero faltan restricciones de los flujos enrutados"
+          },
+          {
+            "id": "b",
+            "text": "Las VLAN nunca separan dominios de difusión"
+          },
+          {
+            "id": "c",
+            "text": "El problema solo se resuelve cambiando cables"
+          },
+          {
+            "id": "d",
+            "text": "El acceso demuestra que todos los invitados están autenticados como administradores"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "El diseño completo combina segmentación lógica, enrutamiento y políticas de autorización.",
+        "reference": "https://www.cisco.com/c/en/us/support/docs/lan-switching/inter-vlan-routing/41260-189.html"
+      }
+    }
+  ]
+}

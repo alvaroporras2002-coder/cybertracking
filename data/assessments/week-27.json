@@ -1,0 +1,2094 @@
+{
+  "week": 27,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w27d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w27d1-q01",
+          "prompt": "Tu tabla dice «firewall seguro» sin indicar valor ni prueba. ¿Qué cambio permite usarla como comprobación de una baseline?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Anotar solo el producto instalado sin consultar sus ajustes"
+            },
+            {
+              "id": "b",
+              "text": "Sustituir el estado observado por la valoración del técnico"
+            },
+            {
+              "id": "c",
+              "text": "Marcar como conforme cualquier equipo que tenga firewall instalado"
+            },
+            {
+              "id": "d",
+              "text": "Anotar perfil aplicable, estado esperado, estado observado y método de consulta"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una comprobación necesita un criterio verificable y evidencia del estado efectivo; la presencia del producto no demuestra su configuración.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/128/upd1/final"
+        },
+        {
+          "id": "w27d1-q02",
+          "prompt": "La referencia aprobada exige bloquear una sesión tras diez minutos. Un equipo está configurado a treinta y no existe excepción. ¿Qué has detectado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una vulnerabilidad demostrada en el código del sistema operativo"
+            },
+            {
+              "id": "b",
+              "text": "Una excepción autorizada por el mero hecho de que el equipo funciona"
+            },
+            {
+              "id": "c",
+              "text": "Un incidente confirmado de robo de credenciales"
+            },
+            {
+              "id": "d",
+              "text": "Una desviación respecto a la configuración aprobada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La diferencia constituye una desviación verificable. Por sí sola no demuestra explotación ni autorización para apartarse del valor aprobado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/128/upd1/final"
+        },
+        {
+          "id": "w27d1-q03",
+          "prompt": "Dispones de una baseline para portátiles de oficina y otra para servidores de una aplicación. ¿Cuál es el primer criterio al elegir para un servidor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La baseline que tenga más opciones deshabilitadas"
+            },
+            {
+              "id": "b",
+              "text": "La función, versión y entorno del sistema al que se aplicará"
+            },
+            {
+              "id": "c",
+              "text": "La baseline con fecha más reciente aunque sea de otro producto"
+            },
+            {
+              "id": "d",
+              "text": "La baseline con menos discrepancias aunque corresponda a otra función"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los ajustes deben corresponder al sistema y a su función. Un perfil inaplicable puede interrumpir servicios sin aportar la protección buscada.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/operating-system-security/device-management/windows-security-configuration-framework/windows-security-baselines"
+        },
+        {
+          "id": "w27d1-q04",
+          "prompt": "Una política central exige el firewall activo, pero la consola de administración aún muestra un resultado antiguo. ¿Qué evidencia necesitas para declarar conforme el equipo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Consultar el estado efectivo del equipo y la aplicación reciente de la política"
+            },
+            {
+              "id": "b",
+              "text": "Guardar una captura de la política asignada como prueba suficiente"
+            },
+            {
+              "id": "c",
+              "text": "Confirmar que el administrador puede abrir la consola central"
+            },
+            {
+              "id": "d",
+              "text": "Comprobar únicamente que el equipo pertenece al grupo correcto"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Asignar una política y comprobar su efecto son pasos distintos. La evaluación requiere el valor realmente aplicado al activo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/128/upd1/final"
+        },
+        {
+          "id": "w27d1-q05",
+          "prompt": "Una aplicación antigua necesita temporalmente un ajuste menos restrictivo. ¿Qué registro convierte esa decisión en una excepción controlada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una nota que permita cualquier cambio futuro en todos los servidores"
+            },
+            {
+              "id": "b",
+              "text": "Una captura del error sin identificar quién acepta el riesgo"
+            },
+            {
+              "id": "c",
+              "text": "Activo y ajuste afectados, justificación, aprobación, compensación y fecha de revisión"
+            },
+            {
+              "id": "d",
+              "text": "Un cambio permanente de la baseline para que todos los equipos pasen"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La excepción debe tener alcance y responsable claros y revisarse. Así se diferencia una decisión aprobada de una desviación sin gestionar.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/128/upd1/final"
+        },
+        {
+          "id": "w27d1-q06",
+          "prompt": "Una plantilla concede administración local a todos los usuarios para evitar solicitudes de soporte. ¿Qué corrección reduce exposición durante el trabajo diario?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mantener administración local y acortar únicamente el bloqueo de pantalla"
+            },
+            {
+              "id": "b",
+              "text": "Usar cuentas estándar y elevar privilegios solo para tareas autorizadas"
+            },
+            {
+              "id": "c",
+              "text": "Compartir una cuenta de administrador entre todo el departamento"
+            },
+            {
+              "id": "d",
+              "text": "Sustituir las contraseñas individuales por una contraseña de equipo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los permisos elevados amplían lo que puede hacer un proceso ejecutado por el usuario. Una cuenta estándar limita ese alcance y permite autorizar la elevación necesaria.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/operating-system-security/device-management/windows-security-configuration-framework/windows-security-baselines"
+        },
+        {
+          "id": "w27d1-q07",
+          "prompt": "Dos técnicos obtienen resultados distintos al evaluar el mismo portátil con listas de referencia diferentes. ¿Qué información falta para reproducir la comparación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La versión de la consola de inventario sin identificar la referencia"
+            },
+            {
+              "id": "b",
+              "text": "Versión e identificador de la baseline y de la configuración evaluada"
+            },
+            {
+              "id": "c",
+              "text": "La lista de controles sin identificar qué revisión se utilizó"
+            },
+            {
+              "id": "d",
+              "text": "Una nota que afirme que ambas listas son equivalentes"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una comparación solo es interpretable si se conoce qué conjunto de valores se usó y qué estado del equipo se midió.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/128/upd1/final"
+        },
+        {
+          "id": "w27d1-q08",
+          "prompt": "Después de validar una imagen de referencia, una instalación cambia un servicio a inicio automático. ¿Qué medida permite descubrir esta deriva posterior?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conservar solo la captura tomada cuando se creó la imagen"
+            },
+            {
+              "id": "b",
+              "text": "Considerar conforme cualquier equipo desplegado desde esa imagen"
+            },
+            {
+              "id": "c",
+              "text": "Actualizar la referencia automáticamente con cada cambio observado"
+            },
+            {
+              "id": "d",
+              "text": "Comparar periódicamente la configuración efectiva con la referencia aprobada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La configuración cambia durante la operación. Compararla de nuevo permite detectar cambios no aprobados sin convertirlos automáticamente en el nuevo estándar.",
+          "reference": "https://www.cisecurity.org/controls/secure-configuration-of-enterprise-assets-and-software"
+        }
+      ],
+      "challenge": {
+        "id": "w27d1-challenge",
+        "prompt": "Preparas diez comprobaciones para un portátil de laboratorio. Nueve coinciden con la baseline; un servicio necesario usa una excepción aprobada hasta fin de mes. ¿Qué informe permite decidir su estado sin ocultar la diferencia?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Nueve comprobaciones conformes y una excepción identificada con alcance, aprobación y vencimiento"
+          },
+          {
+            "id": "b",
+            "text": "Diez conformes, porque una excepción implica que no existe diferencia técnica"
+          },
+          {
+            "id": "c",
+            "text": "Nueve conformes y un fallo definitivo que invalida toda excepción aprobada"
+          },
+          {
+            "id": "d",
+            "text": "Diez conformes tras cambiar la referencia a los valores actuales del equipo"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "El informe debe conservar el estado observado y distinguir conformidad de excepción. La fecha de vencimiento mantiene visible la decisión que deberá revisarse.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/128/upd1/final"
+      }
+    },
+    {
+      "dayId": "w27d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w27d2-q01",
+          "prompt": "El panel informa de un parche descargado, pero el sistema sigue ejecutando la versión vulnerable y solicita reinicio. ¿Qué concluyes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La descarga demuestra que la vulnerabilidad ya se corrigió"
+            },
+            {
+              "id": "b",
+              "text": "El reinicio solo cambia la apariencia del panel"
+            },
+            {
+              "id": "c",
+              "text": "La corrección aún no está verificada como efectiva"
+            },
+            {
+              "id": "d",
+              "text": "Basta con cerrar la alerta para completar el mantenimiento"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Descargar no equivale a instalar y activar. Se debe completar el proceso requerido y verificar el estado o versión que confirma la corrección.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+        },
+        {
+          "id": "w27d2-q02",
+          "prompt": "Un servicio de acceso remoto está activo en un portátil que no lo necesita. Antes de deshabilitarlo en el laboratorio, ¿qué debes revisar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo que su nombre no contenga la palabra seguridad"
+            },
+            {
+              "id": "b",
+              "text": "Únicamente la cantidad de memoria que utiliza en reposo"
+            },
+            {
+              "id": "c",
+              "text": "Que exista una cuenta compartida para volver a habilitarlo"
+            },
+            {
+              "id": "d",
+              "text": "Su función y dependencias y cómo recuperar su configuración anterior"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Reducir servicios innecesarios disminuye exposición, pero debe comprobarse que no sean dependencias de una función requerida y conservar una vía de reversión.",
+          "reference": "https://www.cisecurity.org/controls/secure-configuration-of-enterprise-assets-and-software"
+        },
+        {
+          "id": "w27d2-q03",
+          "prompt": "Una persona tiene una cuenta para administración y otra para correo y navegación. ¿Cuál debe usar para abrir documentos recibidos por correo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La cuenta administrativa porque tiene más permisos de antivirus"
+            },
+            {
+              "id": "b",
+              "text": "Cualquiera, siempre que ambas tengan la misma contraseña"
+            },
+            {
+              "id": "c",
+              "text": "La cuenta administrativa si el archivo parece conocido"
+            },
+            {
+              "id": "d",
+              "text": "La cuenta estándar de uso diario"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Abrir contenido con una cuenta estándar limita los privilegios disponibles para ese contenido. La cuenta elevada se reserva para tareas administrativas concretas.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/operating-system-security/device-management/windows-security-configuration-framework/windows-security-baselines"
+        },
+        {
+          "id": "w27d2-q04",
+          "prompt": "El agente de protección de un endpoint lleva seis días sin comunicar con la consola. ¿Qué interpretación es correcta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La falta de alertas demuestra que no hubo amenazas durante esos días"
+            },
+            {
+              "id": "b",
+              "text": "Su protección y visibilidad actuales requieren comprobación local y de conectividad"
+            },
+            {
+              "id": "c",
+              "text": "La instalación inicial garantiza que su estado sigue siendo saludable"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar el activo de la consola resolverá la falta de protección"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un agente sin comunicación puede dejar un vacío de supervisión. Hay que verificar su servicio, actualización y conexión antes de interpretar el silencio como seguridad.",
+          "reference": "https://www.cisecurity.org/controls/secure-configuration-of-enterprise-assets-and-software"
+        },
+        {
+          "id": "w27d2-q05",
+          "prompt": "Un administrador local intenta desactivar la protección en tiempo real y el cambio no surte efecto por una protección contra alteraciones. ¿Qué función está actuando?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El modo de auditoría que registra el intento sin bloquear el cambio"
+            },
+            {
+              "id": "b",
+              "text": "La protección de ajustes de seguridad frente a cambios no autorizados"
+            },
+            {
+              "id": "c",
+              "text": "Una política de parches que aplaza cualquier cambio hasta reiniciar"
+            },
+            {
+              "id": "d",
+              "text": "Un permiso de lectura sobre los registros que protege todos los ajustes"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La protección contra alteraciones protege determinados ajustes del producto de seguridad. No equivale al cifrado ni a una garantía de que todo el equipo sea invulnerable.",
+          "reference": "https://learn.microsoft.com/en-us/defender-endpoint/tamper-protection-overview"
+        },
+        {
+          "id": "w27d2-q06",
+          "prompt": "Una herramienta interna necesita recibir conexiones de una subred de administración. ¿Qué regla de firewall se ajusta mejor al requisito?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Permitir su puerto solo desde esa subred en los perfiles necesarios"
+            },
+            {
+              "id": "b",
+              "text": "Permitir todos los puertos entrantes desde cualquier dirección"
+            },
+            {
+              "id": "c",
+              "text": "Desactivar el firewall cuando la herramienta se esté ejecutando"
+            },
+            {
+              "id": "d",
+              "text": "Permitir la aplicación desde Internet para evitar fallos de conectividad"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Limitar origen, servicio y perfil satisface la necesidad con menor exposición. Debe probarse tanto el acceso autorizado como el rechazo desde otros orígenes.",
+          "reference": "https://www.cisecurity.org/controls/secure-configuration-of-enterprise-assets-and-software"
+        },
+        {
+          "id": "w27d2-q07",
+          "prompt": "Un sistema operativo sin soporte continúa funcionando y el antivirus está actualizado. ¿Qué riesgo sigue pendiente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Los defectos del sistema pueden quedar sin correcciones del fabricante"
+            },
+            {
+              "id": "b",
+              "text": "El antivirus convierte automáticamente cualquier sistema en soportado"
+            },
+            {
+              "id": "c",
+              "text": "La ausencia de fallos visibles demuestra que ya no necesita mantenimiento"
+            },
+            {
+              "id": "d",
+              "text": "El inventario basta para corregir defectos del sistema sin actualizarlo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una protección adicional no sustituye el soporte del sistema. Hace falta gestionar la actualización, sustitución o una excepción temporal con controles y plazo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+        },
+        {
+          "id": "w27d2-q08",
+          "prompt": "Debes cambiar la configuración de un servicio en un equipo de laboratorio. ¿Qué anotación permite una reversión concreta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Únicamente la hora en que se cerró la ventana de ajustes"
+            },
+            {
+              "id": "b",
+              "text": "La frase «se puede volver atrás» sin guardar valores"
+            },
+            {
+              "id": "c",
+              "text": "Una captura final recortada que no identifica el servicio"
+            },
+            {
+              "id": "d",
+              "text": "Valor inicial, cambio exacto, comando de restauración y prueba funcional"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La reversión depende de saber qué se modificó y cómo restaurarlo. La evidencia debe permitir comprobar además que la función del endpoint sigue operativa.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/128/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w27d2-challenge",
+        "prompt": "En un endpoint de pruebas instalas un parche, limitas una regla de firewall y compruebas que el agente de protección comunica. Tras reiniciar, una función necesaria falla. Conservaste configuración y pruebas iniciales. ¿Qué actuación produce una corrección revisable?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Abrir todos los puertos y desactivar la protección para que cualquier función vuelva a operar"
+          },
+          {
+            "id": "b",
+            "text": "Declarar éxito porque las tres acciones se ejecutaron sin error durante su instalación"
+          },
+          {
+            "id": "c",
+            "text": "Comparar el fallo con las pruebas iniciales, aislar el cambio causante y revertirlo si cumple el criterio de fallo"
+          },
+          {
+            "id": "d",
+            "text": "Borrar el registro de cambios y reinstalar sin conservar evidencia del fallo"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "El objetivo incluye seguridad y funcionamiento. La evidencia inicial y los cambios delimitados permiten corregir el ajuste responsable y documentar por qué se revierte.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/128/upd1/final"
+      }
+    },
+    {
+      "dayId": "w27d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w27d3-q01",
+          "prompt": "Una política permite correo corporativo en móviles personales y prevé borrar todo el teléfono al dejar la empresa. ¿Qué revisión protege mejor los datos laborales y la privacidad personal?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Definir separación de datos y retirada selectiva corporativa con alcance comunicado"
+            },
+            {
+              "id": "b",
+              "text": "Mantener el borrado completo sin informar porque el correo es corporativo"
+            },
+            {
+              "id": "c",
+              "text": "Renunciar a retirar los datos laborales para no afectar al propietario"
+            },
+            {
+              "id": "d",
+              "text": "Permitir que cada usuario elija qué archivos corporativos conservar"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La propiedad personal exige aclarar alcance y tratamiento de datos. La separación y retirada selectiva, cuando son compatibles, permiten gestionar el contenido laboral sin borrar indiscriminadamente el personal.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/124/r2/final"
+        },
+        {
+          "id": "w27d3-q02",
+          "prompt": "La empresa compra los teléfonos, los administra y permite uso personal limitado. ¿Cómo se describe este modelo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dispositivo corporativo con uso personal permitido, conocido como COPE"
+            },
+            {
+              "id": "b",
+              "text": "Dispositivo personal aportado por el empleado, conocido como BYOD"
+            },
+            {
+              "id": "c",
+              "text": "Dispositivo compartido sin propietario ni administración"
+            },
+            {
+              "id": "d",
+              "text": "Dispositivo de un proveedor fuera del inventario de la empresa"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La propiedad sigue siendo corporativa aunque se permita uso personal. Identificar el modelo ayuda a definir administración, privacidad y retirada.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/124/r2/final"
+        },
+        {
+          "id": "w27d3-q03",
+          "prompt": "Un teléfono inscrito en MDM incumple el requisito de versión mínima. ¿Qué decisión controla directamente su acceso al correo corporativo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambiar el nombre visible del dispositivo en el inventario"
+            },
+            {
+              "id": "b",
+              "text": "Activar únicamente la copia de seguridad de fotos personales"
+            },
+            {
+              "id": "c",
+              "text": "Evaluar el cumplimiento y bloquear o limitar acceso hasta corregir el estado"
+            },
+            {
+              "id": "d",
+              "text": "Desinstalar la consola de gestión para eliminar la alerta"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Inscripción y cumplimiento no son equivalentes. El acceso debe usar el estado de cumplimiento conforme a la política y ofrecer un proceso para corregir el incumplimiento.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/124/r2/final"
+        },
+        {
+          "id": "w27d3-q04",
+          "prompt": "Se pierde un móvil corporativo con sesión de correo abierta. ¿Qué acción reduce el acceso a servicios aunque el móvil permanezca sin conexión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Confiar solo en una orden de borrado remoto pendiente de entrega"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar únicamente el nombre del teléfono en MDM"
+            },
+            {
+              "id": "c",
+              "text": "Revocar sus sesiones o credenciales de acceso desde el servicio y gestionar bloqueo o borrado"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar únicamente el registro del dispositivo de la consola de gestión"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El borrado remoto requiere que el equipo reciba la orden. Revocar el acceso del lado del servicio reduce la dependencia de esa conexión, junto con el bloqueo y la respuesta previstos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/124/r2/final"
+        },
+        {
+          "id": "w27d3-q05",
+          "prompt": "Una oficina usa una contraseña Wi-Fi común y necesita retirar acceso a una sola persona sin cambiarla a todos. ¿Qué alternativa facilita esa gestión individual?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Autenticación empresarial con identidades o certificados individuales revocables"
+            },
+            {
+              "id": "b",
+              "text": "Ocultar el nombre de la red manteniendo la contraseña compartida"
+            },
+            {
+              "id": "c",
+              "text": "Filtrar solo las direcciones MAC que los empleados comuniquen"
+            },
+            {
+              "id": "d",
+              "text": "Publicar una contraseña compartida más larga en la intranet"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las identidades individuales permiten gestionar y revocar un acceso concreto. Ocultar el SSID o filtrar MAC no ofrece autenticación individual equivalente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/153/final"
+        },
+        {
+          "id": "w27d3-q06",
+          "prompt": "Un móvil pide aceptar un certificado desconocido al conectarse a la Wi-Fi empresarial. ¿Qué debe indicar la política?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Verificar la identidad del servidor contra la configuración aprobada antes de continuar"
+            },
+            {
+              "id": "b",
+              "text": "Aceptar siempre si el nombre de la red coincide con el habitual"
+            },
+            {
+              "id": "c",
+              "text": "Desactivar la validación de certificados para evitar nuevas preguntas"
+            },
+            {
+              "id": "d",
+              "text": "Introducir las credenciales y comprobar después si hubo un error"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un punto de acceso puede imitar el nombre de una red. Validar el servidor de autenticación ayuda a evitar entregar credenciales a un servicio no confiable.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/153/final"
+        },
+        {
+          "id": "w27d3-q07",
+          "prompt": "Los visitantes necesitan Internet sin acceso a equipos internos. ¿Qué diseño satisface ese requisito?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El mismo segmento corporativo con otro nombre de red inalámbrica"
+            },
+            {
+              "id": "b",
+              "text": "El mismo segmento corporativo con un cartel que prohíba explorar"
+            },
+            {
+              "id": "c",
+              "text": "Una contraseña Wi-Fi más corta para diferenciar a los visitantes"
+            },
+            {
+              "id": "d",
+              "text": "Red de invitados separada con reglas que impidan llegar a los recursos internos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La separación debe imponerse en la red y verificarse con reglas de acceso. Un SSID distinto por sí solo no demuestra aislamiento del tráfico.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/153/final"
+        },
+        {
+          "id": "w27d3-q08",
+          "prompt": "Un móvil modificado para eliminar restricciones del sistema solicita acceso a documentación interna. ¿Qué criterio debe evaluar la política?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La integridad del dispositivo y si cumple los requisitos de acceso corporativo"
+            },
+            {
+              "id": "b",
+              "text": "Solo que el propietario conozca la contraseña de pantalla"
+            },
+            {
+              "id": "c",
+              "text": "Solo que la aplicación de correo aún se abra correctamente"
+            },
+            {
+              "id": "d",
+              "text": "La cantidad de almacenamiento libre para documentos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Eliminar restricciones puede debilitar las garantías que exige la gestión corporativa. Que una aplicación funcione no acredita la integridad ni el cumplimiento del equipo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/124/r2/final"
+        }
+      ],
+      "challenge": {
+        "id": "w27d3-challenge",
+        "prompt": "Evalúas una política BYOD: permite móviles sin bloqueo, usa una contraseña Wi-Fi compartida y ordena borrado completo al salir de la empresa. ¿Qué propuesta aborda los tres problemas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Mantener móviles sin bloqueo, ocultar el SSID y conservar el borrado completo sin informar"
+          },
+          {
+            "id": "b",
+            "text": "Pedir consentimiento de borrado completo y mantener sin cambios el bloqueo y la contraseña compartida"
+          },
+          {
+            "id": "c",
+            "text": "Cambiar la contraseña compartida cada año y dejar el tratamiento de datos a cada usuario"
+          },
+          {
+            "id": "d",
+            "text": "Exigir bloqueo y cumplimiento, usar identidad Wi-Fi individual y definir separación y retirada de datos corporativos"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La política necesita controles de dispositivo, autenticación individual y reglas acordes con la propiedad personal. Un cambio aislado no cubre los tres riesgos del caso.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/124/r2/final"
+      }
+    },
+    {
+      "dayId": "w27d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w27d4-q01",
+          "prompt": "Un formulario valida en JavaScript que la cantidad sea positiva, pero el servidor acepta una petición manual con cantidad negativa. ¿Dónde falta aplicar la validación decisiva?",
+          "options": [
+            {
+              "id": "a",
+              "text": "En el servidor que recibe y procesa el dato"
+            },
+            {
+              "id": "b",
+              "text": "Solo en el navegador añadiendo más controles JavaScript"
+            },
+            {
+              "id": "c",
+              "text": "Solo en la página HTML definiendo un valor mínimo en el campo"
+            },
+            {
+              "id": "d",
+              "text": "Solo en el navegador mediante una extensión de validación"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El cliente se puede modificar o eludir. El servidor debe comprobar los valores antes de usarlos, aunque exista validación de interfaz.",
+          "reference": "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html"
+        },
+        {
+          "id": "w27d4-q02",
+          "prompt": "Un pedido acepta unidades enteras entre 1 y 50. El valor 500 es numérico válido, pero excede el límite comercial. ¿Qué comprobación lo rechaza?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La validación semántica del rango permitido"
+            },
+            {
+              "id": "b",
+              "text": "La comprobación de que el dato contiene solo dígitos"
+            },
+            {
+              "id": "c",
+              "text": "La comprobación de que el texto no contiene comillas"
+            },
+            {
+              "id": "d",
+              "text": "La conversión del texto a número sin comprobar sus límites"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La forma del dato puede ser correcta y su significado no serlo. El rango definido por la operación debe validarse además del formato.",
+          "reference": "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html"
+        },
+        {
+          "id": "w27d4-q03",
+          "prompt": "La firma de un instalador se valida para el editor esperado y el archivo no fue alterado tras la firma. ¿Qué conclusión sí permite?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El programa carece de vulnerabilidades por estar firmado"
+            },
+            {
+              "id": "b",
+              "text": "El programa solo puede acceder a archivos públicos"
+            },
+            {
+              "id": "c",
+              "text": "La firma sustituye la necesidad de actualizar el programa"
+            },
+            {
+              "id": "d",
+              "text": "Hay evidencia de procedencia e integridad, pero aún debe evaluarse su seguridad"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La firma acredita al firmante verificado y detecta modificaciones del contenido firmado. No garantiza que el código sea benigno ni que carezca de errores.",
+          "reference": "https://learn.microsoft.com/en-us/windows/win32/seccrypto/cryptography-tools"
+        },
+        {
+          "id": "w27d4-q04",
+          "prompt": "Una aplicación Android sin permisos especiales intenta leer datos privados de otra aplicación y el sistema lo impide. ¿Qué control explica principalmente el rechazo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La autenticación del usuario en la aplicación que intenta leer"
+            },
+            {
+              "id": "b",
+              "text": "El aislamiento entre aplicaciones y sus permisos sobre recursos"
+            },
+            {
+              "id": "c",
+              "text": "Una firma del editor que conceda acceso a los datos de todas las aplicaciones"
+            },
+            {
+              "id": "d",
+              "text": "La validación del formato del nombre del archivo solicitado"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La separación de aplicaciones limita el acceso a recursos ajenos. Esa barrera sigue necesitando permisos correctos, actualizaciones y defensa en profundidad.",
+          "reference": "https://source.android.com/docs/security/app-sandbox"
+        },
+        {
+          "id": "w27d4-q05",
+          "prompt": "Una cookie de sesión debe enviarse únicamente por una conexión HTTPS. ¿Qué atributo expresa esa restricción de transporte?",
+          "options": [
+            {
+              "id": "a",
+              "text": "HttpOnly"
+            },
+            {
+              "id": "b",
+              "text": "SameSite"
+            },
+            {
+              "id": "c",
+              "text": "Secure"
+            },
+            {
+              "id": "d",
+              "text": "Max-Age"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Secure restringe el envío de la cookie al transporte seguro del navegador. Los otros atributos regulan acceso por scripts, contexto de sitio o duración.",
+          "reference": "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html"
+        },
+        {
+          "id": "w27d4-q06",
+          "prompt": "Se quiere impedir que JavaScript de la página lea directamente la cookie de sesión. ¿Qué atributo corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Secure"
+            },
+            {
+              "id": "b",
+              "text": "Domain"
+            },
+            {
+              "id": "c",
+              "text": "HttpOnly"
+            },
+            {
+              "id": "d",
+              "text": "Expires"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "HttpOnly impide el acceso directo a la cookie mediante las API de script. No elimina por sí mismo XSS ni todas las acciones que un script malicioso podría realizar.",
+          "reference": "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html"
+        },
+        {
+          "id": "w27d4-q07",
+          "prompt": "Una aplicación quiere limitar el envío de su cookie en solicitudes iniciadas desde otros sitios para reducir CSRF. ¿Qué atributo debe estudiar con sus flujos de uso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "HttpOnly"
+            },
+            {
+              "id": "b",
+              "text": "SameSite"
+            },
+            {
+              "id": "c",
+              "text": "Path"
+            },
+            {
+              "id": "d",
+              "text": "Max-Age"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "SameSite regula el contexto de sitio en que se envían cookies. Su valor debe probarse con los flujos legítimos y complementarse con las demás defensas contra CSRF.",
+          "reference": "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html"
+        },
+        {
+          "id": "w27d4-q08",
+          "prompt": "Tras cerrar sesión, el navegador borra la cookie, pero una copia del token sigue funcionando al reenviarla. ¿Qué corrección falta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aumentar la duración de la cookie para evitar errores"
+            },
+            {
+              "id": "b",
+              "text": "Aplicar solo el atributo Secure a la misma sesión activa"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar el nombre del archivo del navegador instalado"
+            },
+            {
+              "id": "d",
+              "text": "Invalidar la sesión o token en el servidor según el mecanismo utilizado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Eliminar la copia local no revoca una credencial que el servidor sigue aceptando. El cierre de sesión debe impedir su reutilización del lado del servicio.",
+          "reference": "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html"
+        }
+      ],
+      "challenge": {
+        "id": "w27d4-challenge",
+        "prompt": "Una aplicación web usa cookie de sesión Secure, pero JavaScript puede leerla y un token copiado funciona tras cerrar sesión. ¿Qué dos correcciones responden directamente a esos hallazgos?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Añadir SameSite y ampliar el tiempo de vida del mismo token activo"
+          },
+          {
+            "id": "b",
+            "text": "Añadir HttpOnly e invalidar la sesión en el servidor al cerrar sesión"
+          },
+          {
+            "id": "c",
+            "text": "Cambiar solo Path y borrar el acceso directo del navegador"
+          },
+          {
+            "id": "d",
+            "text": "Conservar Secure y considerar suficiente borrar la cookie del navegador"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "Secure protege el transporte. HttpOnly restringe la lectura por scripts y la invalidación en servidor evita reutilizar una sesión que ya debía terminar.",
+        "reference": "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html"
+      }
+    },
+    {
+      "dayId": "w27d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w27d5-q01",
+          "prompt": "Debes diseñar un inventario que permita asignar correcciones a cada portátil. ¿Qué conjunto de datos es más útil?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo nombre del equipo y departamento sin identificador ni responsable"
+            },
+            {
+              "id": "b",
+              "text": "Identificador único, propietario responsable, sistema, ubicación y estado de soporte"
+            },
+            {
+              "id": "c",
+              "text": "Solo el importe de compra sin relación con un equipo concreto"
+            },
+            {
+              "id": "d",
+              "text": "Una lista de usuarios sin identificar sus dispositivos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El inventario debe identificar el activo y quién responde por él. Los atributos técnicos y de ciclo de vida permiten decidir y seguir su mantenimiento.",
+          "reference": "https://www.cisecurity.org/controls/inventory-and-control-of-enterprise-assets"
+        },
+        {
+          "id": "w27d5-q02",
+          "prompt": "Un descubrimiento autorizado encuentra un dispositivo que no figura en el inventario. ¿Cuál es el siguiente paso adecuado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Añadirlo como autorizado automáticamente porque responde en la red"
+            },
+            {
+              "id": "b",
+              "text": "Identificarlo y contrastar autorización y propietario antes de incorporarlo o remediarlo"
+            },
+            {
+              "id": "c",
+              "text": "Ignorarlo si su nombre parece pertenecer a una impresora"
+            },
+            {
+              "id": "d",
+              "text": "Copiar el registro de otro dispositivo para completar la lista"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Encontrar un activo no demuestra que esté autorizado. La conciliación permite gestionar equipos desconocidos sin otorgarles legitimidad automáticamente.",
+          "reference": "https://www.cisecurity.org/controls/inventory-and-control-of-enterprise-assets"
+        },
+        {
+          "id": "w27d5-q03",
+          "prompt": "Dos proveedores ofrecen equipos equivalentes, pero uno deja de recibir actualizaciones de seguridad en seis meses. ¿Qué dato debe influir en la compra?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La vida de soporte y el plan de mantenimiento y sustitución"
+            },
+            {
+              "id": "b",
+              "text": "Solo la duración de la garantía sobre daños físicos"
+            },
+            {
+              "id": "c",
+              "text": "Solo que el sistema arranque durante la demostración"
+            },
+            {
+              "id": "d",
+              "text": "Solo el número de puertos externos disponibles"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El ciclo de vida de seguridad comienza al seleccionar el activo. Un soporte demasiado corto puede generar un gasto de sustitución y exposición que la garantía física no resuelve.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+        },
+        {
+          "id": "w27d5-q04",
+          "prompt": "Un servidor muestra parches pendientes, pero su registro tiene como dueño a una persona que dejó la empresa. ¿Qué debe corregirse para poder asignar la remediación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El nombre DNS para que deje de asociarse al antiguo empleado"
+            },
+            {
+              "id": "b",
+              "text": "La fecha del último inventario sin cambiar el responsable"
+            },
+            {
+              "id": "c",
+              "text": "La etiqueta de color del servidor en el diagrama"
+            },
+            {
+              "id": "d",
+              "text": "El responsable vigente del activo y del mantenimiento"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un inventario desactualizado puede impedir que alguien responda por el riesgo. Debe mantenerse una responsabilidad vigente además de los datos técnicos.",
+          "reference": "https://www.cisecurity.org/controls/inventory-and-control-of-enterprise-assets"
+        },
+        {
+          "id": "w27d5-q05",
+          "prompt": "Un portátil con datos internos se dona a una organización externa. ¿Qué proceso corresponde antes de entregarlo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Borrar las carpetas visibles y conservar la cuenta corporativa"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar el acceso directo de la aplicación que mostraba los datos"
+            },
+            {
+              "id": "c",
+              "text": "Cerrar la sesión y confiar en que el nuevo usuario no conozca la contraseña"
+            },
+            {
+              "id": "d",
+              "text": "Sanear el medio con un método adecuado, verificar el resultado y registrar la baja"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La entrega debe impedir recuperar los datos conforme a su sensibilidad y al medio. El borrado visible de archivos o el cierre de sesión no acreditan ese resultado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/88/r2/final"
+        },
+        {
+          "id": "w27d5-q06",
+          "prompt": "Un técnico registra «borrado realizado» sin identificar el disco ni verificar el resultado. ¿Qué evidencia falta para una baja trazable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Únicamente el número total de equipos retirados sin detallar los medios"
+            },
+            {
+              "id": "b",
+              "text": "Identidad del medio, método aplicado, resultado verificado y responsable"
+            },
+            {
+              "id": "c",
+              "text": "Una captura del escritorio vacío sin datos del medio"
+            },
+            {
+              "id": "d",
+              "text": "El justificante de recogida sin vincularlo con cada disco"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La trazabilidad vincula el tratamiento a un medio concreto y demuestra su resultado. Una declaración genérica no permite comprobar qué dispositivo se saneó.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/88/r2/final"
+        },
+        {
+          "id": "w27d5-q07",
+          "prompt": "El equipo de desarrollo crea una máquina virtual temporal en la nube con acceso a datos internos. ¿Cómo debe tratarla el inventario?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Excluirla porque los activos en la nube nunca pertenecen al alcance"
+            },
+            {
+              "id": "b",
+              "text": "Esperar a que lleve un año en uso para considerarla un activo"
+            },
+            {
+              "id": "c",
+              "text": "Registrarla únicamente si expone un puerto a Internet"
+            },
+            {
+              "id": "d",
+              "text": "Registrar su identidad, dueño y ciclo de vida aunque no sea hardware físico"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los activos virtuales y de nube también necesitan responsable y protección. Su duración corta no elimina el riesgo de datos, accesos o recursos olvidados.",
+          "reference": "https://www.cisecurity.org/controls/inventory-and-control-of-enterprise-assets"
+        },
+        {
+          "id": "w27d5-q08",
+          "prompt": "Un portátil pasa de Finanzas a un nuevo empleado de Ventas. ¿Qué cambio debe acompañar la reasignación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conservar todos los accesos anteriores para evitar solicitudes de ayuda"
+            },
+            {
+              "id": "b",
+              "text": "Dar al nuevo empleado las credenciales de la persona anterior"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar solo la etiqueta física dejando intacto el registro"
+            },
+            {
+              "id": "d",
+              "text": "Actualizar custodio y accesos y preparar el equipo según el nuevo uso"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La reasignación modifica quién usa el activo y qué acceso necesita. Mantener permisos y datos del uso anterior puede exponer información innecesaria.",
+          "reference": "https://www.cisecurity.org/controls/inventory-and-control-of-enterprise-assets"
+        }
+      ],
+      "challenge": {
+        "id": "w27d5-challenge",
+        "prompt": "Retiras ocho portátiles; el inventario recoge nueve números de serie y un proveedor entrega un certificado de borrado para siete discos. ¿Qué debes hacer antes de cerrar la baja?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Cerrar nueve bajas porque el inventario representa siempre el estado físico exacto"
+          },
+          {
+            "id": "b",
+            "text": "Conciliar activos y medios, aclarar las diferencias y verificar evidencia de saneamiento de cada medio retirado"
+          },
+          {
+            "id": "c",
+            "text": "Cerrar ocho bajas y aplicar el certificado de siete discos también al octavo"
+          },
+          {
+            "id": "d",
+            "text": "Eliminar el noveno registro y entregar los equipos sin más comprobaciones"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La discrepancia impide vincular cada activo y medio con su tratamiento. Resolverla evita dar por saneado un disco sin evidencia o perder trazabilidad de un activo.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/88/r2/final"
+      }
+    },
+    {
+      "dayId": "w27d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w27d6-q01",
+          "prompt": "Vas a aplicar tres mejoras de hardening en una máquina virtual autorizada. ¿Qué debes obtener antes del primer cambio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo una captura final prevista de los ajustes deseados"
+            },
+            {
+              "id": "b",
+              "text": "Un listado de mejoras sin identificar la máquina objetivo"
+            },
+            {
+              "id": "c",
+              "text": "Estado inicial y pruebas funcionales, con una vía de restauración comprobable"
+            },
+            {
+              "id": "d",
+              "text": "La promesa de reinstalar si después algo deja de funcionar"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El estado inicial permite comparar resultados y restaurar. Las pruebas previas distinguen un fallo nuevo de un problema que ya existía.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/128/upd1/final"
+        },
+        {
+          "id": "w27d6-q02",
+          "prompt": "Cambias a la vez firewall, permisos y servicios, y la aplicación deja de funcionar. ¿Qué procedimiento habría facilitado localizar la causa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aplicar todos los ajustes disponibles antes de comprobar la aplicación"
+            },
+            {
+              "id": "b",
+              "text": "Aplicar un cambio delimitado cada vez y repetir las pruebas relevantes"
+            },
+            {
+              "id": "c",
+              "text": "Omitir los valores iniciales para evitar confundirlos con los finales"
+            },
+            {
+              "id": "d",
+              "text": "Considerar cualquier interrupción una prueba de mayor seguridad"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un cambio por etapa reduce las posibles causas de un fallo. Las pruebas documentadas permiten asociar el resultado al ajuste y decidir su reversión.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/128/upd1/final"
+        },
+        {
+          "id": "w27d6-q03",
+          "prompt": "Administras un equipo de laboratorio a distancia y vas a endurecer su firewall. ¿Qué preparación evita perder la capacidad de recuperar acceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Bloquear primero toda conexión entrante y documentar después"
+            },
+            {
+              "id": "b",
+              "text": "Desactivar el registro del firewall para simplificar la prueba"
+            },
+            {
+              "id": "c",
+              "text": "Compartir la contraseña administrativa con todos los participantes"
+            },
+            {
+              "id": "d",
+              "text": "Comprobar una vía de consola o recuperación y la regla para administración autorizada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un cambio de red puede bloquear la propia administración. Hay que disponer de recuperación y probar los accesos necesarios dentro del alcance autorizado.",
+          "reference": "https://www.cisecurity.org/controls/secure-configuration-of-enterprise-assets-and-software"
+        },
+        {
+          "id": "w27d6-q04",
+          "prompt": "Tras aplicar una política central, un ajuste local vuelve al valor anterior al reiniciar. ¿Qué debes investigar antes de repetir el cambio manual?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Si repetir el mismo cambio local en cada reinicio evita revisar la política"
+            },
+            {
+              "id": "b",
+              "text": "Si basta con fotografiar el valor antes del reinicio"
+            },
+            {
+              "id": "c",
+              "text": "Qué política efectiva administra el ajuste y su precedencia"
+            },
+            {
+              "id": "d",
+              "text": "Si el estado de la consola central basta sin consultar el valor del equipo"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La configuración efectiva puede estar controlada por otra política. Repetir cambios locales sin identificar su origen no resuelve el conflicto ni permite validar el resultado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/128/upd1/final"
+        },
+        {
+          "id": "w27d6-q05",
+          "prompt": "Reduces permisos de una carpeta compartida a un grupo de trabajo. ¿Qué combinación de pruebas valida seguridad y disponibilidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el administrador abre la carpeta con privilegios elevados"
+            },
+            {
+              "id": "b",
+              "text": "Un miembro autorizado trabaja con sus archivos y una cuenta no autorizada recibe rechazo"
+            },
+            {
+              "id": "c",
+              "text": "Solo una cuenta no autorizada recibe rechazo sin probar el trabajo necesario"
+            },
+            {
+              "id": "d",
+              "text": "Solo se comprueba que el nombre de la carpeta no cambió"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Debe mantenerse la función autorizada y bloquearse la no autorizada. Un éxito con administración no demuestra que los permisos sean correctos para los usuarios reales.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/128/upd1/final"
+        },
+        {
+          "id": "w27d6-q06",
+          "prompt": "Una mejora impide a la cuenta de servicio leer un archivo necesario y falla la prueba prevista. ¿Qué respuesta respeta el control del cambio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Restaurar permisos de control total a todos los usuarios de forma permanente"
+            },
+            {
+              "id": "b",
+              "text": "Revertir el ajuste afectado, registrar el fallo y diseñar una corrección más precisa"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar la prueba fallida del informe y conservar el ajuste"
+            },
+            {
+              "id": "d",
+              "text": "Desactivar todas las mejoras de la máquina sin identificar la causa"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un criterio de reversión protege la operación. Registrar el fallo permite ajustar permisos al requisito real sin aceptar una concesión excesiva como solución permanente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/128/upd1/final"
+        },
+        {
+          "id": "w27d6-q07",
+          "prompt": "Has cerrado un servicio que debía dejar de escuchar en el laboratorio. ¿Qué prueba valida directamente ese objetivo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Comprobar solo que se guardó el tipo de inicio deseado en la configuración"
+            },
+            {
+              "id": "b",
+              "text": "Consultar solo si disminuyó el consumo de recursos del proceso"
+            },
+            {
+              "id": "c",
+              "text": "Confirmar solo que se creó una regla nueva con el nombre del servicio"
+            },
+            {
+              "id": "d",
+              "text": "Comprobar que ya no escucha y que su puerto no acepta la conexión prevista"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La prueba debe observar el comportamiento que se pretendía cambiar. Además deben comprobarse las funciones necesarias que pudieran depender del servicio.",
+          "reference": "https://www.cisecurity.org/controls/secure-configuration-of-enterprise-assets-and-software"
+        },
+        {
+          "id": "w27d6-q08",
+          "prompt": "El informe muestra menos servicios expuestos y funcionamiento correcto después de las mejoras. ¿Qué conclusión expresa el límite del resultado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El equipo ya no puede ser comprometido desde ninguna vía"
+            },
+            {
+              "id": "b",
+              "text": "Las pruebas funcionales sustituyen futuras actualizaciones"
+            },
+            {
+              "id": "c",
+              "text": "La ausencia de alertas permite eliminar el registro de cambios"
+            },
+            {
+              "id": "d",
+              "text": "Se redujo la exposición comprobada, pero quedan riesgos que requieren mantenimiento y seguimiento"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El hardening reduce riesgos concretos en el alcance medido. No prueba ausencia de todas las vulnerabilidades ni elimina la necesidad de supervisión y mantenimiento.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/128/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w27d6-challenge",
+        "prompt": "En una VM autorizada debes quitar un servicio innecesario, limitar administración a una subred y retirar privilegios diarios. ¿Qué secuencia deja una práctica reproducible?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Aplicar las tres mejoras, guardar solo la captura final y asumir que cualquier fallo ya existía"
+          },
+          {
+            "id": "b",
+            "text": "Guardar estado y recuperación, aplicar cada mejora con pruebas y registrar resultados antes y después"
+          },
+          {
+            "id": "c",
+            "text": "Guardar una copia, cambiar todo y comprobar solo que el administrador aún puede iniciar sesión"
+          },
+          {
+            "id": "d",
+            "text": "Cambiar primero los privilegios de todas las cuentas y preparar después una vía de recuperación"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La secuencia conserva evidencia y recuperación, y relaciona cada mejora con su resultado. Las pruebas deben cubrir tanto la protección buscada como las funciones autorizadas.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/128/upd1/final"
+      }
+    },
+    {
+      "dayId": "w27d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w27d7-q01",
+          "prompt": "Tu tabla dice «firewall seguro» sin indicar valor ni prueba. ¿Qué cambio permite usarla como comprobación de una baseline?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Anotar solo el producto instalado sin consultar sus ajustes"
+            },
+            {
+              "id": "b",
+              "text": "Sustituir el estado observado por la valoración del técnico"
+            },
+            {
+              "id": "c",
+              "text": "Marcar como conforme cualquier equipo que tenga firewall instalado"
+            },
+            {
+              "id": "d",
+              "text": "Anotar perfil aplicable, estado esperado, estado observado y método de consulta"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una comprobación necesita un criterio verificable y evidencia del estado efectivo; la presencia del producto no demuestra su configuración.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/128/upd1/final",
+          "reviewOf": "w27d1-q01"
+        },
+        {
+          "id": "w27d7-q02",
+          "prompt": "El panel informa de un parche descargado, pero el sistema sigue ejecutando la versión vulnerable y solicita reinicio. ¿Qué concluyes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La descarga demuestra que la vulnerabilidad ya se corrigió"
+            },
+            {
+              "id": "b",
+              "text": "El reinicio solo cambia la apariencia del panel"
+            },
+            {
+              "id": "c",
+              "text": "La corrección aún no está verificada como efectiva"
+            },
+            {
+              "id": "d",
+              "text": "Basta con cerrar la alerta para completar el mantenimiento"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Descargar no equivale a instalar y activar. Se debe completar el proceso requerido y verificar el estado o versión que confirma la corrección.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final",
+          "reviewOf": "w27d2-q01"
+        },
+        {
+          "id": "w27d7-q03",
+          "prompt": "Una política permite correo corporativo en móviles personales y prevé borrar todo el teléfono al dejar la empresa. ¿Qué revisión protege mejor los datos laborales y la privacidad personal?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Definir separación de datos y retirada selectiva corporativa con alcance comunicado"
+            },
+            {
+              "id": "b",
+              "text": "Mantener el borrado completo sin informar porque el correo es corporativo"
+            },
+            {
+              "id": "c",
+              "text": "Renunciar a retirar los datos laborales para no afectar al propietario"
+            },
+            {
+              "id": "d",
+              "text": "Permitir que cada usuario elija qué archivos corporativos conservar"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La propiedad personal exige aclarar alcance y tratamiento de datos. La separación y retirada selectiva, cuando son compatibles, permiten gestionar el contenido laboral sin borrar indiscriminadamente el personal.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/124/r2/final",
+          "reviewOf": "w27d3-q01"
+        },
+        {
+          "id": "w27d7-q04",
+          "prompt": "Un formulario valida en JavaScript que la cantidad sea positiva, pero el servidor acepta una petición manual con cantidad negativa. ¿Dónde falta aplicar la validación decisiva?",
+          "options": [
+            {
+              "id": "a",
+              "text": "En el servidor que recibe y procesa el dato"
+            },
+            {
+              "id": "b",
+              "text": "Solo en el navegador añadiendo más controles JavaScript"
+            },
+            {
+              "id": "c",
+              "text": "Solo en la página HTML definiendo un valor mínimo en el campo"
+            },
+            {
+              "id": "d",
+              "text": "Solo en el navegador mediante una extensión de validación"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El cliente se puede modificar o eludir. El servidor debe comprobar los valores antes de usarlos, aunque exista validación de interfaz.",
+          "reference": "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html",
+          "reviewOf": "w27d4-q01"
+        },
+        {
+          "id": "w27d7-q05",
+          "prompt": "Debes diseñar un inventario que permita asignar correcciones a cada portátil. ¿Qué conjunto de datos es más útil?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo nombre del equipo y departamento sin identificador ni responsable"
+            },
+            {
+              "id": "b",
+              "text": "Identificador único, propietario responsable, sistema, ubicación y estado de soporte"
+            },
+            {
+              "id": "c",
+              "text": "Solo el importe de compra sin relación con un equipo concreto"
+            },
+            {
+              "id": "d",
+              "text": "Una lista de usuarios sin identificar sus dispositivos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El inventario debe identificar el activo y quién responde por él. Los atributos técnicos y de ciclo de vida permiten decidir y seguir su mantenimiento.",
+          "reference": "https://www.cisecurity.org/controls/inventory-and-control-of-enterprise-assets",
+          "reviewOf": "w27d5-q01"
+        },
+        {
+          "id": "w27d7-q06",
+          "prompt": "Vas a aplicar tres mejoras de hardening en una máquina virtual autorizada. ¿Qué debes obtener antes del primer cambio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo una captura final prevista de los ajustes deseados"
+            },
+            {
+              "id": "b",
+              "text": "Un listado de mejoras sin identificar la máquina objetivo"
+            },
+            {
+              "id": "c",
+              "text": "Estado inicial y pruebas funcionales, con una vía de restauración comprobable"
+            },
+            {
+              "id": "d",
+              "text": "La promesa de reinstalar si después algo deja de funcionar"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El estado inicial permite comparar resultados y restaurar. Las pruebas previas distinguen un fallo nuevo de un problema que ya existía.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/128/upd1/final",
+          "reviewOf": "w27d6-q01"
+        },
+        {
+          "id": "w27d7-q07",
+          "prompt": "La referencia aprobada exige bloquear una sesión tras diez minutos. Un equipo está configurado a treinta y no existe excepción. ¿Qué has detectado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una vulnerabilidad demostrada en el código del sistema operativo"
+            },
+            {
+              "id": "b",
+              "text": "Una excepción autorizada por el mero hecho de que el equipo funciona"
+            },
+            {
+              "id": "c",
+              "text": "Un incidente confirmado de robo de credenciales"
+            },
+            {
+              "id": "d",
+              "text": "Una desviación respecto a la configuración aprobada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La diferencia constituye una desviación verificable. Por sí sola no demuestra explotación ni autorización para apartarse del valor aprobado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/128/upd1/final",
+          "reviewOf": "w27d1-q02"
+        },
+        {
+          "id": "w27d7-q08",
+          "prompt": "Un servicio de acceso remoto está activo en un portátil que no lo necesita. Antes de deshabilitarlo en el laboratorio, ¿qué debes revisar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo que su nombre no contenga la palabra seguridad"
+            },
+            {
+              "id": "b",
+              "text": "Únicamente la cantidad de memoria que utiliza en reposo"
+            },
+            {
+              "id": "c",
+              "text": "Que exista una cuenta compartida para volver a habilitarlo"
+            },
+            {
+              "id": "d",
+              "text": "Su función y dependencias y cómo recuperar su configuración anterior"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Reducir servicios innecesarios disminuye exposición, pero debe comprobarse que no sean dependencias de una función requerida y conservar una vía de reversión.",
+          "reference": "https://www.cisecurity.org/controls/secure-configuration-of-enterprise-assets-and-software",
+          "reviewOf": "w27d2-q02"
+        },
+        {
+          "id": "w27d7-q09",
+          "prompt": "La empresa compra los teléfonos, los administra y permite uso personal limitado. ¿Cómo se describe este modelo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dispositivo corporativo con uso personal permitido, conocido como COPE"
+            },
+            {
+              "id": "b",
+              "text": "Dispositivo personal aportado por el empleado, conocido como BYOD"
+            },
+            {
+              "id": "c",
+              "text": "Dispositivo compartido sin propietario ni administración"
+            },
+            {
+              "id": "d",
+              "text": "Dispositivo de un proveedor fuera del inventario de la empresa"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La propiedad sigue siendo corporativa aunque se permita uso personal. Identificar el modelo ayuda a definir administración, privacidad y retirada.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/124/r2/final",
+          "reviewOf": "w27d3-q02"
+        },
+        {
+          "id": "w27d7-q10",
+          "prompt": "Un pedido acepta unidades enteras entre 1 y 50. El valor 500 es numérico válido, pero excede el límite comercial. ¿Qué comprobación lo rechaza?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La validación semántica del rango permitido"
+            },
+            {
+              "id": "b",
+              "text": "La comprobación de que el dato contiene solo dígitos"
+            },
+            {
+              "id": "c",
+              "text": "La comprobación de que el texto no contiene comillas"
+            },
+            {
+              "id": "d",
+              "text": "La conversión del texto a número sin comprobar sus límites"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La forma del dato puede ser correcta y su significado no serlo. El rango definido por la operación debe validarse además del formato.",
+          "reference": "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html",
+          "reviewOf": "w27d4-q02"
+        },
+        {
+          "id": "w27d7-q11",
+          "prompt": "Un descubrimiento autorizado encuentra un dispositivo que no figura en el inventario. ¿Cuál es el siguiente paso adecuado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Añadirlo como autorizado automáticamente porque responde en la red"
+            },
+            {
+              "id": "b",
+              "text": "Identificarlo y contrastar autorización y propietario antes de incorporarlo o remediarlo"
+            },
+            {
+              "id": "c",
+              "text": "Ignorarlo si su nombre parece pertenecer a una impresora"
+            },
+            {
+              "id": "d",
+              "text": "Copiar el registro de otro dispositivo para completar la lista"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Encontrar un activo no demuestra que esté autorizado. La conciliación permite gestionar equipos desconocidos sin otorgarles legitimidad automáticamente.",
+          "reference": "https://www.cisecurity.org/controls/inventory-and-control-of-enterprise-assets",
+          "reviewOf": "w27d5-q02"
+        },
+        {
+          "id": "w27d7-q12",
+          "prompt": "Cambias a la vez firewall, permisos y servicios, y la aplicación deja de funcionar. ¿Qué procedimiento habría facilitado localizar la causa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aplicar todos los ajustes disponibles antes de comprobar la aplicación"
+            },
+            {
+              "id": "b",
+              "text": "Aplicar un cambio delimitado cada vez y repetir las pruebas relevantes"
+            },
+            {
+              "id": "c",
+              "text": "Omitir los valores iniciales para evitar confundirlos con los finales"
+            },
+            {
+              "id": "d",
+              "text": "Considerar cualquier interrupción una prueba de mayor seguridad"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un cambio por etapa reduce las posibles causas de un fallo. Las pruebas documentadas permiten asociar el resultado al ajuste y decidir su reversión.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/128/upd1/final",
+          "reviewOf": "w27d6-q02"
+        },
+        {
+          "id": "w27d7-q13",
+          "prompt": "Dispones de una baseline para portátiles de oficina y otra para servidores de una aplicación. ¿Cuál es el primer criterio al elegir para un servidor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La baseline que tenga más opciones deshabilitadas"
+            },
+            {
+              "id": "b",
+              "text": "La función, versión y entorno del sistema al que se aplicará"
+            },
+            {
+              "id": "c",
+              "text": "La baseline con fecha más reciente aunque sea de otro producto"
+            },
+            {
+              "id": "d",
+              "text": "La baseline con menos discrepancias aunque corresponda a otra función"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los ajustes deben corresponder al sistema y a su función. Un perfil inaplicable puede interrumpir servicios sin aportar la protección buscada.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/operating-system-security/device-management/windows-security-configuration-framework/windows-security-baselines",
+          "reviewOf": "w27d1-q03"
+        },
+        {
+          "id": "w27d7-q14",
+          "prompt": "Una persona tiene una cuenta para administración y otra para correo y navegación. ¿Cuál debe usar para abrir documentos recibidos por correo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La cuenta administrativa porque tiene más permisos de antivirus"
+            },
+            {
+              "id": "b",
+              "text": "Cualquiera, siempre que ambas tengan la misma contraseña"
+            },
+            {
+              "id": "c",
+              "text": "La cuenta administrativa si el archivo parece conocido"
+            },
+            {
+              "id": "d",
+              "text": "La cuenta estándar de uso diario"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Abrir contenido con una cuenta estándar limita los privilegios disponibles para ese contenido. La cuenta elevada se reserva para tareas administrativas concretas.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/operating-system-security/device-management/windows-security-configuration-framework/windows-security-baselines",
+          "reviewOf": "w27d2-q03"
+        },
+        {
+          "id": "w27d7-q15",
+          "prompt": "Un teléfono inscrito en MDM incumple el requisito de versión mínima. ¿Qué decisión controla directamente su acceso al correo corporativo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambiar el nombre visible del dispositivo en el inventario"
+            },
+            {
+              "id": "b",
+              "text": "Activar únicamente la copia de seguridad de fotos personales"
+            },
+            {
+              "id": "c",
+              "text": "Evaluar el cumplimiento y bloquear o limitar acceso hasta corregir el estado"
+            },
+            {
+              "id": "d",
+              "text": "Desinstalar la consola de gestión para eliminar la alerta"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Inscripción y cumplimiento no son equivalentes. El acceso debe usar el estado de cumplimiento conforme a la política y ofrecer un proceso para corregir el incumplimiento.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/124/r2/final",
+          "reviewOf": "w27d3-q03"
+        },
+        {
+          "id": "w27d7-q16",
+          "prompt": "La firma de un instalador se valida para el editor esperado y el archivo no fue alterado tras la firma. ¿Qué conclusión sí permite?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El programa carece de vulnerabilidades por estar firmado"
+            },
+            {
+              "id": "b",
+              "text": "El programa solo puede acceder a archivos públicos"
+            },
+            {
+              "id": "c",
+              "text": "La firma sustituye la necesidad de actualizar el programa"
+            },
+            {
+              "id": "d",
+              "text": "Hay evidencia de procedencia e integridad, pero aún debe evaluarse su seguridad"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La firma acredita al firmante verificado y detecta modificaciones del contenido firmado. No garantiza que el código sea benigno ni que carezca de errores.",
+          "reference": "https://learn.microsoft.com/en-us/windows/win32/seccrypto/cryptography-tools",
+          "reviewOf": "w27d4-q03"
+        },
+        {
+          "id": "w27d7-q17",
+          "prompt": "Dos proveedores ofrecen equipos equivalentes, pero uno deja de recibir actualizaciones de seguridad en seis meses. ¿Qué dato debe influir en la compra?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La vida de soporte y el plan de mantenimiento y sustitución"
+            },
+            {
+              "id": "b",
+              "text": "Solo la duración de la garantía sobre daños físicos"
+            },
+            {
+              "id": "c",
+              "text": "Solo que el sistema arranque durante la demostración"
+            },
+            {
+              "id": "d",
+              "text": "Solo el número de puertos externos disponibles"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El ciclo de vida de seguridad comienza al seleccionar el activo. Un soporte demasiado corto puede generar un gasto de sustitución y exposición que la garantía física no resuelve.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final",
+          "reviewOf": "w27d5-q03"
+        },
+        {
+          "id": "w27d7-q18",
+          "prompt": "Administras un equipo de laboratorio a distancia y vas a endurecer su firewall. ¿Qué preparación evita perder la capacidad de recuperar acceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Bloquear primero toda conexión entrante y documentar después"
+            },
+            {
+              "id": "b",
+              "text": "Desactivar el registro del firewall para simplificar la prueba"
+            },
+            {
+              "id": "c",
+              "text": "Compartir la contraseña administrativa con todos los participantes"
+            },
+            {
+              "id": "d",
+              "text": "Comprobar una vía de consola o recuperación y la regla para administración autorizada"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un cambio de red puede bloquear la propia administración. Hay que disponer de recuperación y probar los accesos necesarios dentro del alcance autorizado.",
+          "reference": "https://www.cisecurity.org/controls/secure-configuration-of-enterprise-assets-and-software",
+          "reviewOf": "w27d6-q03"
+        },
+        {
+          "id": "w27d7-q19",
+          "prompt": "Una política central exige el firewall activo, pero la consola de administración aún muestra un resultado antiguo. ¿Qué evidencia necesitas para declarar conforme el equipo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Consultar el estado efectivo del equipo y la aplicación reciente de la política"
+            },
+            {
+              "id": "b",
+              "text": "Guardar una captura de la política asignada como prueba suficiente"
+            },
+            {
+              "id": "c",
+              "text": "Confirmar que el administrador puede abrir la consola central"
+            },
+            {
+              "id": "d",
+              "text": "Comprobar únicamente que el equipo pertenece al grupo correcto"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Asignar una política y comprobar su efecto son pasos distintos. La evaluación requiere el valor realmente aplicado al activo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/128/upd1/final",
+          "reviewOf": "w27d1-q04"
+        },
+        {
+          "id": "w27d7-q20",
+          "prompt": "Una aplicación Android sin permisos especiales intenta leer datos privados de otra aplicación y el sistema lo impide. ¿Qué control explica principalmente el rechazo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La autenticación del usuario en la aplicación que intenta leer"
+            },
+            {
+              "id": "b",
+              "text": "El aislamiento entre aplicaciones y sus permisos sobre recursos"
+            },
+            {
+              "id": "c",
+              "text": "Una firma del editor que conceda acceso a los datos de todas las aplicaciones"
+            },
+            {
+              "id": "d",
+              "text": "La validación del formato del nombre del archivo solicitado"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La separación de aplicaciones limita el acceso a recursos ajenos. Esa barrera sigue necesitando permisos correctos, actualizaciones y defensa en profundidad.",
+          "reference": "https://source.android.com/docs/security/app-sandbox",
+          "reviewOf": "w27d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w27d7-challenge",
+        "prompt": "Tu evaluación final reduce de cinco a dos servicios expuestos y mantiene la aplicación operativa. Sigue pendiente sustituir un sistema sin soporte bajo una excepción con plazo. ¿Qué conclusión sustenta el avance?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Mejora verificada en el alcance probado, con riesgo residual de soporte, responsable y fecha de resolución documentados"
+          },
+          {
+            "id": "b",
+            "text": "Seguridad completa porque todos los servicios expuestos restantes son necesarios"
+          },
+          {
+            "id": "c",
+            "text": "Fracaso total de las mejoras porque cualquier riesgo residual elimina sus beneficios"
+          },
+          {
+            "id": "d",
+            "text": "Conformidad permanente porque la excepción evita tener que sustituir el sistema"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La comparación acredita una mejora concreta y la prueba funcional respalda disponibilidad. La excepción no corrige la falta de soporte y debe mantenerse como riesgo pendiente con seguimiento.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+      }
+    }
+  ]
+}

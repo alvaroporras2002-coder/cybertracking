@@ -1,0 +1,2094 @@
+{
+  "week": 38,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w38d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w38d1-q01",
+          "prompt": "En un mensaje original, ¿qué separa normalmente las cabeceras del cuerpo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La primera dirección encontrada en el texto"
+            },
+            {
+              "id": "b",
+              "text": "Una línea vacía después del bloque de cabeceras"
+            },
+            {
+              "id": "c",
+              "text": "El nombre del archivo adjunto"
+            },
+            {
+              "id": "d",
+              "text": "La presencia de una firma DKIM"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El formato del mensaje distingue las cabeceras del cuerpo mediante una línea vacía.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5322.html"
+        },
+        {
+          "id": "w38d1-q02",
+          "prompt": "Un correo contiene texto simple, HTML y un archivo. ¿Qué estructura permite representar esas partes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tres registros SPF independientes para el mismo mensaje"
+            },
+            {
+              "id": "b",
+              "text": "Una sola cabecera Subject con todo el contenido"
+            },
+            {
+              "id": "c",
+              "text": "Un registro DNS por cada párrafo"
+            },
+            {
+              "id": "d",
+              "text": "Una estructura MIME con tipos y límites de partes"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "MIME describe tipos de contenido y permite organizar distintas partes del mensaje.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc2045.html"
+        },
+        {
+          "id": "w38d1-q03",
+          "prompt": "El campo Content-Transfer-Encoding indica Base64. ¿Qué puedes inferir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el contenido está cifrado con una clave secreta"
+            },
+            {
+              "id": "b",
+              "text": "Que el adjunto ha sido verificado como legítimo"
+            },
+            {
+              "id": "c",
+              "text": "Que el mensaje es malicioso por definición"
+            },
+            {
+              "id": "d",
+              "text": "Que hay una codificación de transporte que puede decodificarse"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La codificación Base64 no aporta confidencialidad ni un veredicto de seguridad.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc2045.html"
+        },
+        {
+          "id": "w38d1-q04",
+          "prompt": "La vista HTML muestra un botón de acceso. ¿Qué conviene comparar durante el análisis estático?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el color del botón y el nombre de la marca"
+            },
+            {
+              "id": "b",
+              "text": "La resolución de la imagen del encabezado"
+            },
+            {
+              "id": "c",
+              "text": "El texto presentado y el destino real del enlace"
+            },
+            {
+              "id": "d",
+              "text": "Únicamente la firma de despedida del remitente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La apariencia del enlace puede diferir del destino incluido en el HTML.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5322.html"
+        },
+        {
+          "id": "w38d1-q05",
+          "prompt": "Un adjunto se llama factura.pdf.exe. ¿Qué precaución es apropiada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aceptar que es PDF porque esa palabra aparece primero"
+            },
+            {
+              "id": "b",
+              "text": "Tratar el nombre como una pista y verificar el tipo real sin ejecutarlo"
+            },
+            {
+              "id": "c",
+              "text": "Abrirlo en el equipo principal para descubrir su tipo"
+            },
+            {
+              "id": "d",
+              "text": "Suponer que el correo convierte el archivo en un formato seguro"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El nombre o la extensión no garantizan el tipo ni la seguridad del archivo.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w38d1-q06",
+          "prompt": "¿Para qué conservarías Message-ID en un análisis de correo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para demostrar por sí solo que el remitente es legítimo"
+            },
+            {
+              "id": "b",
+              "text": "Para identificar una contraseña del usuario"
+            },
+            {
+              "id": "c",
+              "text": "Para correlacionar el mensaje con trazas y otras evidencias"
+            },
+            {
+              "id": "d",
+              "text": "Para saber automáticamente si hubo ejecución de malware"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Message-ID es útil para búsquedas y correlación, pero no autentica por sí solo al emisor.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5322.html"
+        },
+        {
+          "id": "w38d1-q07",
+          "prompt": "La captura del correo no muestra cabeceras completas. ¿Qué adquisición resulta más útil?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una fotografía del asunto con el remitente recortado"
+            },
+            {
+              "id": "b",
+              "text": "Una transcripción manual que omita los adjuntos"
+            },
+            {
+              "id": "c",
+              "text": "Solo la URL que aparece al pasar el cursor"
+            },
+            {
+              "id": "d",
+              "text": "El mensaje original en un formato que preserve cabeceras y partes"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El mensaje original permite inspeccionar estructura, rutas e identificadores que una captura puede omitir.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5322.html"
+        },
+        {
+          "id": "w38d1-q08",
+          "prompt": "Dos partes de un mensaje muestran texto diferente: una es text/plain y otra text/html. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eliminar la parte HTML porque nunca contiene información útil"
+            },
+            {
+              "id": "b",
+              "text": "Examinar ambas representaciones y documentar la diferencia"
+            },
+            {
+              "id": "c",
+              "text": "Asumir que la parte más corta es siempre la auténtica"
+            },
+            {
+              "id": "d",
+              "text": "Concluir que cualquier diferencia confirma suplantación"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las representaciones pueden diferir; el análisis debe describir qué ve el usuario y qué contiene cada parte.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc2045.html"
+        }
+      ],
+      "challenge": {
+        "id": "w38d1-challenge",
+        "prompt": "Un .eml contiene multipart/mixed, una parte HTML y un adjunto codificado en Base64. ¿Cómo lo examinas primero?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Interpretar Base64 como cifrado que impide cualquier inspección"
+          },
+          {
+            "id": "b",
+            "text": "Abrir el adjunto directamente porque MIME ya comprobó su seguridad"
+          },
+          {
+            "id": "c",
+            "text": "Preservar el original, separar sus partes con una herramienta autorizada e inspeccionar destinos y metadatos sin ejecutar el adjunto"
+          },
+          {
+            "id": "d",
+            "text": "Analizar solo el texto visible del correo"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La estructura MIME permite organizar la inspección, pero no certifica seguridad del contenido.",
+        "reference": "https://www.rfc-editor.org/rfc/rfc2045.html"
+      }
+    },
+    {
+      "dayId": "w38d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w38d2-q01",
+          "prompt": "Un mensaje muestra el nombre Banco Central pero la dirección es ayuda@ejemplo.invalid. ¿Qué elemento puede elegirse libremente como apariencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El resultado SPF calculado por tu servidor confiable"
+            },
+            {
+              "id": "b",
+              "text": "El nombre para mostrar del remitente"
+            },
+            {
+              "id": "c",
+              "text": "La clave pública DKIM publicada por otro dominio"
+            },
+            {
+              "id": "d",
+              "text": "La política de recepción de tu organización"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El nombre visible no equivale a una identidad autenticada.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5322.html"
+        },
+        {
+          "id": "w38d2-q02",
+          "prompt": "¿Qué propósito tiene Reply-To cuando aparece en un mensaje?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Definir qué IP está autorizada por SPF"
+            },
+            {
+              "id": "b",
+              "text": "Registrar todos los servidores SMTP que lo transportaron"
+            },
+            {
+              "id": "c",
+              "text": "Reemplazar siempre el dominio que firma DKIM"
+            },
+            {
+              "id": "d",
+              "text": "Indicar una dirección propuesta para las respuestas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Reply-To puede dirigir las respuestas a una identidad distinta de From.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5322.html"
+        },
+        {
+          "id": "w38d2-q03",
+          "prompt": "El From visible pertenece a una empresa y Reply-To apunta a un servicio desconocido. ¿Cómo interpretas la discrepancia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Como prueba suficiente de que existe malware adjunto"
+            },
+            {
+              "id": "b",
+              "text": "Como un resultado DKIM fallido automático"
+            },
+            {
+              "id": "c",
+              "text": "Como garantía de que la empresa usa un proveedor autorizado"
+            },
+            {
+              "id": "d",
+              "text": "Como un dato que requiere contexto y validación"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las discrepancias pueden ser legítimas o sospechosas; deben investigarse según el caso.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5322.html"
+        },
+        {
+          "id": "w38d2-q04",
+          "prompt": "¿Qué identidad refleja normalmente Return-Path en el mensaje entregado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El nombre visible que el usuario ve junto al asunto"
+            },
+            {
+              "id": "b",
+              "text": "El último destinatario de la lista de distribución"
+            },
+            {
+              "id": "c",
+              "text": "El dominio del certificado HTTPS del enlace del cuerpo"
+            },
+            {
+              "id": "d",
+              "text": "La dirección de retorno del sobre SMTP utilizada para notificaciones de entrega"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El remitente del sobre y el From del contenido son identidades distintas.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5322.html"
+        },
+        {
+          "id": "w38d2-q05",
+          "prompt": "Una cadena Received contiene varios saltos. ¿Qué orientación ayuda a reconstruir el transporte?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Confiar en todas las líneas porque comparten el mismo nombre de cabecera"
+            },
+            {
+              "id": "b",
+              "text": "Tomar la primera IP del cuerpo como el servidor de origen"
+            },
+            {
+              "id": "c",
+              "text": "Leer los saltos cronológicamente desde los inferiores, comprobando la frontera de confianza"
+            },
+            {
+              "id": "d",
+              "text": "Usar el orden alfabético de los nombres de host"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los servidores suelen anteponer Received; las entradas fuera de tu frontera confiable pueden ser falsificadas.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5322.html"
+        },
+        {
+          "id": "w38d2-q06",
+          "prompt": "Un atacante añade su propia línea Authentication-Results al correo. ¿Cuál debes tomar como evidencia de tu evaluación local?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cualquiera que aparezca más cerca del Subject"
+            },
+            {
+              "id": "b",
+              "text": "La que declare más verificaciones pass sin importar su origen"
+            },
+            {
+              "id": "c",
+              "text": "La que tenga el nombre de host más largo"
+            },
+            {
+              "id": "d",
+              "text": "La generada por los sistemas receptores de confianza de tu organización"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los resultados de autenticación deben interpretarse dentro de una frontera de confianza conocida.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc8601.html"
+        },
+        {
+          "id": "w38d2-q07",
+          "prompt": "Dos correos comparten un Message-ID. ¿Qué conclusión requiere cautela?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el identificador puede servir para buscar trazas relacionadas"
+            },
+            {
+              "id": "b",
+              "text": "Que conviene conservar ambos mensajes originales"
+            },
+            {
+              "id": "c",
+              "text": "Que necesariamente los envió la misma persona autorizada"
+            },
+            {
+              "id": "d",
+              "text": "Que es útil comparar sus cabeceras y rutas"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los identificadores pueden copiarse o manipularse; no autentican a una persona.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5322.html"
+        },
+        {
+          "id": "w38d2-q08",
+          "prompt": "Un mensaje fue reenviado por un intermediario. ¿Qué efecto debes considerar al comparar sus identidades y ruta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El reenvío vuelve auténtico cualquier From del mensaje"
+            },
+            {
+              "id": "b",
+              "text": "El reenvío puede introducir nuevos saltos y afectar verificaciones basadas en el emisor SMTP"
+            },
+            {
+              "id": "c",
+              "text": "Toda firma DKIM desaparece necesariamente"
+            },
+            {
+              "id": "d",
+              "text": "Reply-To pasa automáticamente a ser el criterio de SPF"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El transporte intermedio puede cambiar el contexto de evaluación sin resolver por sí solo la legitimidad del contenido.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5322.html"
+        }
+      ],
+      "challenge": {
+        "id": "w38d2-challenge",
+        "prompt": "From muestra ventas@example.org, Reply-To apunta a cobros@example.net y el usuario esperaba una factura. ¿Qué documentas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Un SPF fail deducido únicamente de Reply-To"
+          },
+          {
+            "id": "b",
+            "text": "La discrepancia entre identidades y la necesidad de validar el cambio por un canal conocido"
+          },
+          {
+            "id": "c",
+            "text": "Un compromiso confirmado de example.org sin más fuentes"
+          },
+          {
+            "id": "d",
+            "text": "La legitimidad automática porque el asunto coincide con una factura esperada"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "Las identidades del mensaje tienen funciones distintas y sus diferencias requieren contexto.",
+        "reference": "https://www.rfc-editor.org/rfc/rfc5322.html"
+      }
+    },
+    {
+      "dayId": "w38d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w38d3-q01",
+          "prompt": "SPF devuelve pass para rebotes.example.org. ¿Qué validó principalmente ese resultado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el servidor emisor estaba autorizado para la identidad SMTP evaluada"
+            },
+            {
+              "id": "b",
+              "text": "Que todo el texto del cuerpo fue firmado criptográficamente"
+            },
+            {
+              "id": "c",
+              "text": "Que la persona indicada en From es quien escribió el mensaje"
+            },
+            {
+              "id": "d",
+              "text": "Que todos los enlaces del correo pertenecen a un negocio legítimo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "SPF comprueba autorización de servidores para identidades del sobre SMTP, no la seguridad del contenido.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc9989.html"
+        },
+        {
+          "id": "w38d3-q02",
+          "prompt": "Una firma DKIM válida contiene d=proveedor.example. ¿Qué aporta esa comprobación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Confirma que el usuario de From no fue comprometido"
+            },
+            {
+              "id": "b",
+              "text": "Demuestra que se cifró el mensaje para el destinatario"
+            },
+            {
+              "id": "c",
+              "text": "Vincula una firma válida con ese dominio firmante y los elementos cubiertos"
+            },
+            {
+              "id": "d",
+              "text": "Prueba que todo adjunto fue analizado en un sandbox"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "DKIM autentica la firma de un dominio sobre las partes cubiertas, no la intención del mensaje.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc9989.html"
+        },
+        {
+          "id": "w38d3-q03",
+          "prompt": "Para superar DMARC, ¿qué combinación básica es suficiente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "SPF y DKIM fallidos cuando Reply-To coincide con From"
+            },
+            {
+              "id": "b",
+              "text": "Al menos un mecanismo SPF o DKIM válido cuya identidad esté alineada con el dominio de autor"
+            },
+            {
+              "id": "c",
+              "text": "Cualquier DKIM pass aunque el dominio no esté alineado"
+            },
+            {
+              "id": "d",
+              "text": "Un registro MX válido sin verificar SPF ni DKIM"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "DMARC combina autenticación y alineación con el dominio de autor; no exige que ambos mecanismos pasen.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc9989.html"
+        },
+        {
+          "id": "w38d3-q04",
+          "prompt": "From es usuario@example.org, SPF pasa para example.net y DKIM falla. Sin otra identidad alineada, ¿qué resultado DMARC corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Pass, porque cualquier SPF pass basta"
+            },
+            {
+              "id": "b",
+              "text": "Fail, porque el único mecanismo válido no está alineado"
+            },
+            {
+              "id": "c",
+              "text": "Pass, porque ambos nombres empiezan por example"
+            },
+            {
+              "id": "d",
+              "text": "Indeterminado porque Reply-To no se indicó"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La coincidencia de una palabra en dominios distintos no constituye alineación.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc9989.html"
+        },
+        {
+          "id": "w38d3-q05",
+          "prompt": "From usa example.org y DKIM pasa con d=example.org, mientras SPF falla. ¿Puede DMARC pasar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí, si la firma válida aporta la alineación requerida"
+            },
+            {
+              "id": "b",
+              "text": "No, DMARC siempre exige que SPF y DKIM pasen simultáneamente"
+            },
+            {
+              "id": "c",
+              "text": "Solo si el adjunto no supera un tamaño concreto"
+            },
+            {
+              "id": "d",
+              "text": "No, porque DKIM verifica únicamente el destinatario"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un DKIM pass alineado puede satisfacer DMARC aunque SPF no pase.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc9989.html"
+        },
+        {
+          "id": "w38d3-q06",
+          "prompt": "Un mensaje pasa DMARC pero solicita credenciales en un dominio ajeno. ¿Qué conclusión es correcta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El pass obliga a considerar legítimos todos sus enlaces"
+            },
+            {
+              "id": "b",
+              "text": "La autenticación del dominio no garantiza que la solicitud sea segura"
+            },
+            {
+              "id": "c",
+              "text": "DMARC demuestra que ninguna cuenta del remitente fue comprometida"
+            },
+            {
+              "id": "d",
+              "text": "El análisis del contenido deja de ser necesario"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un dominio autorizado o una cuenta comprometida también puede enviar contenido dañino.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc9989.html"
+        },
+        {
+          "id": "w38d3-q07",
+          "prompt": "En una política DMARC, p=none indica principalmente…",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que SPF y DKIM deben desactivarse"
+            },
+            {
+              "id": "b",
+              "text": "Que todos los mensajes pasan DMARC"
+            },
+            {
+              "id": "c",
+              "text": "Que el propietario no expresa preferencia de tratamiento por fallo mediante esa política"
+            },
+            {
+              "id": "d",
+              "text": "Que el receptor debe rechazar los mensajes que fallen"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La ausencia de una preferencia de cuarentena o rechazo no transforma un fallo en pass.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc9989.html"
+        },
+        {
+          "id": "w38d3-q08",
+          "prompt": "El dominio publica p=reject y un mensaje falla DMARC. ¿Qué detalle conserva el analista?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que la publicación demuestra que el correo nunca llegó a ningún buzón"
+            },
+            {
+              "id": "b",
+              "text": "Que la política acredita que todo mensaje del dominio es benigno"
+            },
+            {
+              "id": "c",
+              "text": "Que ya no hace falta revisar trazas de entrega"
+            },
+            {
+              "id": "d",
+              "text": "La política publicada, el resultado y la disposición real aplicada por el receptor"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La política expresa una preferencia; el análisis debe comprobar qué tratamiento ocurrió realmente.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc9989.html"
+        }
+      ],
+      "challenge": {
+        "id": "w38d3-challenge",
+        "prompt": "From es usuario@example.org, SPF pasa para bounces.example.net y DKIM pasa con d=example.org. ¿Qué evaluación es defendible?",
+        "options": [
+          {
+            "id": "a",
+            "text": "DMARC falla siempre porque SPF usa otro dominio"
+          },
+          {
+            "id": "b",
+            "text": "SPF pasa y por eso toda solicitud del correo es segura"
+          },
+          {
+            "id": "c",
+            "text": "DKIM solo autentica la cuenta del destinatario"
+          },
+          {
+            "id": "d",
+            "text": "DMARC puede pasar por el DKIM alineado; todavía debe analizarse la seguridad del contenido"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "Un mecanismo válido y alineado puede satisfacer DMARC sin convertir el mensaje en benigno.",
+        "reference": "https://www.rfc-editor.org/rfc/rfc9989.html"
+      }
+    },
+    {
+      "dayId": "w38d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w38d4-q01",
+          "prompt": "Un mensaje pide cambiar hoy la cuenta bancaria de un proveedor. ¿Cómo validas la solicitud?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mediante un canal independiente previamente conocido y el procedimiento de cambios"
+            },
+            {
+              "id": "b",
+              "text": "Respondiendo únicamente al Reply-To del mensaje"
+            },
+            {
+              "id": "c",
+              "text": "Llamando solo al número nuevo incluido en el correo"
+            },
+            {
+              "id": "d",
+              "text": "Aceptando el cambio si el logotipo se ve correcto"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una verificación independiente reduce el riesgo de seguir datos de contacto controlados por el atacante.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w38d4-q02",
+          "prompt": "La cuenta real de un compañero envía una petición inusual de códigos MFA. ¿Qué debes considerar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el uso de su cuenta real descarta ingeniería social"
+            },
+            {
+              "id": "b",
+              "text": "Que MFA autoriza compartir los códigos con compañeros"
+            },
+            {
+              "id": "c",
+              "text": "Que el nombre en la libreta de contactos sustituye la validación"
+            },
+            {
+              "id": "d",
+              "text": "Que una cuenta legítima puede estar comprometida y el contexto sigue siendo relevante"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La identidad aparente y la autenticación no garantizan que la solicitud sea adecuada.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w38d4-q03",
+          "prompt": "Un correo sospechoso tiene ortografía impecable. ¿Cómo influye en el veredicto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Demuestra que no se trata de phishing"
+            },
+            {
+              "id": "b",
+              "text": "Permite ignorar diferencias en Reply-To"
+            },
+            {
+              "id": "c",
+              "text": "Garantiza que se utilizó una plantilla corporativa autorizada"
+            },
+            {
+              "id": "d",
+              "text": "No elimina el riesgo; deben evaluarse solicitud, enlaces e identidad"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los atacantes pueden producir mensajes bien redactados; el análisis requiere señales más amplias.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w38d4-q04",
+          "prompt": "Un aviso externo del cliente de correo aparece en una factura. ¿Qué permite concluir por sí solo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el adjunto contiene necesariamente malware"
+            },
+            {
+              "id": "b",
+              "text": "Que el proveedor es falso por definición"
+            },
+            {
+              "id": "c",
+              "text": "Que el mensaje fue clasificado como externo según la configuración local"
+            },
+            {
+              "id": "d",
+              "text": "Que el mensaje pasó DMARC con alineación estricta"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una etiqueta de procedencia no determina por sí sola la malicia del contenido.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w38d4-q05",
+          "prompt": "El mensaje amenaza con cerrar tu cuenta en diez minutos si entregas la contraseña. ¿Qué conducta es apropiada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Introducir la contraseña para evitar el supuesto cierre"
+            },
+            {
+              "id": "b",
+              "text": "Responder con el código temporal pero no con la contraseña"
+            },
+            {
+              "id": "c",
+              "text": "Reenviar la amenaza a una cuenta personal para probarla"
+            },
+            {
+              "id": "d",
+              "text": "Reportarlo por el canal establecido y verificar el estado desde el acceso conocido"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La urgencia y la solicitud de secretos requieren verificación, no una respuesta impulsiva.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w38d4-q06",
+          "prompt": "El remitente cita un proyecto público real de tu empresa. ¿Qué valor tiene ese detalle?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Confirma que conoce personalmente al destinatario"
+            },
+            {
+              "id": "b",
+              "text": "Sustituye la comprobación de enlaces y autorizaciones"
+            },
+            {
+              "id": "c",
+              "text": "Aporta contexto, pero puede haberse obtenido de fuentes públicas"
+            },
+            {
+              "id": "d",
+              "text": "Prueba que el correo procede del servidor empresarial"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El conocimiento de información pública puede utilizarse para hacer creíble una suplantación.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w38d4-q07",
+          "prompt": "Un colaborador espera un contrato, pero recibe una actualización de pago no solicitada. ¿Qué comparación ayuda?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La solicitud concreta frente al proceso y la conversación esperados"
+            },
+            {
+              "id": "b",
+              "text": "Solo que el archivo incluya la palabra contrato"
+            },
+            {
+              "id": "c",
+              "text": "La cantidad de veces que aparece el nombre del destinatario"
+            },
+            {
+              "id": "d",
+              "text": "El tamaño total del mensaje frente al de otros correos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El contexto de negocio permite detectar desviaciones aunque el tema general resulte familiar.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w38d4-q08",
+          "prompt": "¿Qué redacción comunica adecuadamente el contexto de un correo dudoso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solicita una transferencia fuera del proceso habitual; falta validar al solicitante por canal independiente"
+            },
+            {
+              "id": "b",
+              "text": "La petición demuestra quién es el atacante"
+            },
+            {
+              "id": "c",
+              "text": "El contexto no importa si el antivirus no detecta archivos"
+            },
+            {
+              "id": "d",
+              "text": "El remitente es seguro porque conoce el cargo del usuario"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La descripción identifica hechos y la validación pendiente sin atribuciones no sustentadas.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        }
+      ],
+      "challenge": {
+        "id": "w38d4-challenge",
+        "prompt": "Un supuesto director solicita por correo comprar tarjetas regalo y mantenerlo en secreto. ¿Cuál es el siguiente paso prudente?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Verificar la solicitud por el canal corporativo previamente conocido y reportar la posible suplantación"
+          },
+          {
+            "id": "b",
+            "text": "Usar el teléfono nuevo incluido en el mismo mensaje como única comprobación"
+          },
+          {
+            "id": "c",
+            "text": "Cumplir si la firma contiene el cargo correcto"
+          },
+          {
+            "id": "d",
+            "text": "Enviar primero una tarjeta para comprobar que la solicitud funciona"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La urgencia, el secreto y el proceso inusual requieren verificación independiente.",
+        "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+      }
+    },
+    {
+      "dayId": "w38d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w38d5-q01",
+          "prompt": "Una herramienta permite analizar un archivo .eml. ¿Qué entrada preserva mejor la evidencia de origen?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un texto reescrito de memoria sin cabeceras"
+            },
+            {
+              "id": "b",
+              "text": "Una captura que excluya los adjuntos y la ruta"
+            },
+            {
+              "id": "c",
+              "text": "Un correo reenviado que sustituya todas las cabeceras originales"
+            },
+            {
+              "id": "d",
+              "text": "Una copia del mensaje original conservando intacto el original adquirido"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Trabajar sobre una copia protege la evidencia y mantiene la estructura necesaria para el análisis.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w38d5-q02",
+          "prompt": "Antes de ejecutar una función que consulta URLs del correo, ¿qué debes comprobar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Únicamente que la interfaz use HTTPS"
+            },
+            {
+              "id": "b",
+              "text": "Que el asunto del mensaje sea corto"
+            },
+            {
+              "id": "c",
+              "text": "Que la URL tenga un nombre conocido"
+            },
+            {
+              "id": "d",
+              "text": "Si genera tráfico externo y si ese comportamiento está autorizado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Algunas funciones de análisis pueden comunicarse con destinos o servicios externos y exponer información.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w38d5-q03",
+          "prompt": "La herramienta extrae varias URLs del cuerpo. ¿Qué registro es más útil?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el texto visible del botón principal"
+            },
+            {
+              "id": "b",
+              "text": "Una URL simplificada que omita todos los parámetros sin anotarlo"
+            },
+            {
+              "id": "c",
+              "text": "El destino exacto, la ubicación en el mensaje y la transformación aplicada"
+            },
+            {
+              "id": "d",
+              "text": "La primera palabra de cada dominio"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La trazabilidad exige conservar el indicador y explicar cualquier normalización o decodificación.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w38d5-q04",
+          "prompt": "Un resultado automático indica phishing. ¿Cuál es tu responsabilidad al redactar el caso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Copiar el veredicto sin consultar cabeceras ni contenido"
+            },
+            {
+              "id": "b",
+              "text": "Revisar los datos que lo sustentan y explicar las limitaciones"
+            },
+            {
+              "id": "c",
+              "text": "Suponer que el resultado demuestra ejecución en el equipo"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar el resultado cuando no coincida con una intuición"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La herramienta ayuda al análisis, pero su clasificación no reemplaza una justificación basada en evidencia.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w38d5-q05",
+          "prompt": "Buscas quién recibió un mensaje dentro de la organización. ¿Qué dato y fuente son apropiados?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El nombre del archivo adjunto y una lista pública de empleados"
+            },
+            {
+              "id": "b",
+              "text": "Solo el Reply-To y el historial del navegador del analista"
+            },
+            {
+              "id": "c",
+              "text": "Una captura del remitente sin acceso a los registros"
+            },
+            {
+              "id": "d",
+              "text": "Message-ID y las trazas de entrega disponibles para el periodo relevante"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las trazas de correo permiten investigar distribución y entrega dentro de su cobertura.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w38d5-q06",
+          "prompt": "El analizador muestra un archivo adjunto codificado. ¿Qué procedimiento es más seguro para empezar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Abrirlo con la aplicación asociada en el equipo principal"
+            },
+            {
+              "id": "b",
+              "text": "Extraer y examinar metadatos o hashes dentro del entorno autorizado sin ejecutarlo"
+            },
+            {
+              "id": "c",
+              "text": "Habilitar macros para comprobar si el contenido es convincente"
+            },
+            {
+              "id": "d",
+              "text": "Cambiarle la extensión para que el sistema lo considere confiable"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La inspección estática reduce la necesidad de ejecutar contenido potencialmente peligroso.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w38d5-q07",
+          "prompt": "Para que otro alumno reproduzca tu análisis de correo, ¿qué adjuntas al informe permitido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Credenciales de acceso al laboratorio junto al archivo"
+            },
+            {
+              "id": "b",
+              "text": "Campos observados, pasos de la herramienta y referencias a la muestra educativa"
+            },
+            {
+              "id": "c",
+              "text": "Solo una captura del veredicto final"
+            },
+            {
+              "id": "d",
+              "text": "Un enlace público a un mensaje que contiene datos de clientes"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El procedimiento debe ser reproducible respetando los permisos y la privacidad de la evidencia.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w38d5-q08",
+          "prompt": "Una captura del analizador omite si la muestra era original o reenviada. ¿Qué falta documentar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La resolución de la pantalla del analista"
+            },
+            {
+              "id": "b",
+              "text": "La procedencia y las transformaciones que podrían haber afectado sus cabeceras"
+            },
+            {
+              "id": "c",
+              "text": "El número de botones disponibles en la herramienta"
+            },
+            {
+              "id": "d",
+              "text": "El idioma elegido en el sistema operativo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La cadena de tratamiento ayuda a interpretar cambios en ruta y autenticación.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        }
+      ],
+      "challenge": {
+        "id": "w38d5-challenge",
+        "prompt": "Una herramienta ofrece abrir automáticamente todos los enlaces de un correo sospechoso. El laboratorio solo autoriza inspección estática. ¿Qué eliges?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Activar la navegación automática para enriquecer el informe"
+          },
+          {
+            "id": "b",
+            "text": "Extraer los destinos sin navegar y documentar que no se comprobó su comportamiento remoto"
+          },
+          {
+            "id": "c",
+            "text": "Abrirlos desde un equipo personal para no modificar el laboratorio"
+          },
+          {
+            "id": "d",
+            "text": "Declarar los destinos benignos si no se visitaron"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "El método debe respetar el alcance y distinguir datos extraídos de comportamiento observado.",
+        "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+      }
+    },
+    {
+      "dayId": "w38d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w38d6-q01",
+          "prompt": "El correo pasa autenticación, pero cambia de forma inesperada el beneficiario de un pago. ¿Qué veredicto provisional es más sólido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Correo benigno confirmado por haber pasado autenticación"
+            },
+            {
+              "id": "b",
+              "text": "Malware ejecutado confirmado por el cambio de beneficiario"
+            },
+            {
+              "id": "c",
+              "text": "Solicitud sospechosa pendiente de validación independiente del cambio"
+            },
+            {
+              "id": "d",
+              "text": "Correo imposible de analizar porque SPF pasó"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El contenido y el proceso de negocio deben evaluarse aunque el dominio esté autenticado.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w38d6-q02",
+          "prompt": "Un mensaje reenviado falla SPF, pero conserva una firma DKIM alineada válida. ¿Qué afirmación evita un falso indicio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cualquier reenvío convierte en maliciosa la identidad de From"
+            },
+            {
+              "id": "b",
+              "text": "DKIM válido demuestra que el usuario no pudo ser comprometido"
+            },
+            {
+              "id": "c",
+              "text": "El fallo SPF aislado no determina que el mensaje sea phishing"
+            },
+            {
+              "id": "d",
+              "text": "La firma DKIM elimina la necesidad de examinar el cuerpo"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El reenvío puede afectar SPF; la autenticación debe interpretarse junto con alineación y contexto.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w38d6-q03",
+          "prompt": "Las trazas muestran entrega del mensaje y un clic. ¿Qué debes investigar antes de afirmar ejecución de un adjunto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo si el usuario recuerda el asunto"
+            },
+            {
+              "id": "b",
+              "text": "Telemetría del endpoint y procesos o acciones asociados al artefacto"
+            },
+            {
+              "id": "c",
+              "text": "La longitud del nombre del remitente"
+            },
+            {
+              "id": "d",
+              "text": "La presencia de un icono de archivo en el cliente"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Entregar, hacer clic y ejecutar son eventos diferentes que necesitan fuentes específicas.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w38d6-q04",
+          "prompt": "Un indicador tiene dos detecciones en un servicio público y careces de contexto adicional. ¿Qué conclusión corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Es una señal para investigar; deben registrarse fuente, fecha y límites"
+            },
+            {
+              "id": "b",
+              "text": "Dos detecciones prueban compromiso de todos los destinatarios"
+            },
+            {
+              "id": "c",
+              "text": "La falta de unanimidad demuestra que el indicador es seguro"
+            },
+            {
+              "id": "d",
+              "text": "El conteo sustituye la revisión del mensaje y del entorno"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los resultados de reputación aportan contexto, no una prueba completa de compromiso local.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w38d6-q05",
+          "prompt": "Un mensaje usa un dominio parecido a tu empresa, pero diferente en una letra. ¿Qué evidencias combinarías?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dominio exacto, destino de los enlaces y naturaleza de la solicitud"
+            },
+            {
+              "id": "b",
+              "text": "Solo el nombre visible y la firma de despedida"
+            },
+            {
+              "id": "c",
+              "text": "La existencia de un certificado HTTPS como prueba de legitimidad"
+            },
+            {
+              "id": "d",
+              "text": "Únicamente que el correo llegó durante el horario de oficina"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La suplantación debe sustentarse con la identidad real y el contexto del contenido.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w38d6-q06",
+          "prompt": "Se confirma que un mensaje malicioso llegó a varios buzones. ¿Qué propuesta de respuesta es más apropiada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Borrar únicamente la copia del primer usuario y cerrar todo el caso"
+            },
+            {
+              "id": "b",
+              "text": "Escalar y coordinar búsqueda y retirada autorizada, además de investigar interacciones"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar todas las contraseñas de la empresa sin evaluar alcance"
+            },
+            {
+              "id": "d",
+              "text": "Publicar las direcciones de los destinatarios en un foro"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La respuesta debe considerar el alcance y seguir los permisos y procedimientos del equipo.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w38d6-q07",
+          "prompt": "El informe dice se comprometió la cuenta, pero solo hay un correo recibido. ¿Qué corrección requiere?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambiar el asunto del ticket para que parezca menos grave"
+            },
+            {
+              "id": "b",
+              "text": "Conservar la afirmación porque es la peor posibilidad"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar los registros del mensaje para evitar dudas"
+            },
+            {
+              "id": "d",
+              "text": "Separar la recepción confirmada de la hipótesis de compromiso pendiente de evidencia"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las conclusiones deben corresponder al tipo de actividad demostrado por las fuentes.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        },
+        {
+          "id": "w38d6-q08",
+          "prompt": "Tu veredicto del caso sin guía requiere tres evidencias. ¿Qué conjunto aporta fuentes complementarias?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tres capturas del mismo contador del analizador"
+            },
+            {
+              "id": "b",
+              "text": "Cabeceras originales, destino real de enlaces y trazas de interacción pertinentes"
+            },
+            {
+              "id": "c",
+              "text": "Nombre visible, logotipo y firma gráfica del mensaje"
+            },
+            {
+              "id": "d",
+              "text": "Tres servicios que repiten un mismo reporte sin citar el origen"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La combinación de fuentes diferentes reduce la dependencia de una señal única.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+        }
+      ],
+      "challenge": {
+        "id": "w38d6-challenge",
+        "prompt": "Hay un correo malicioso entregado, un clic confirmado y ninguna telemetría de procesos. ¿Qué escribes en el caso?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ejecución de malware confirmada por equivalencia con el clic"
+          },
+          {
+            "id": "b",
+            "text": "Ausencia de compromiso demostrada por falta de procesos disponibles"
+          },
+          {
+            "id": "c",
+            "text": "Autenticación inválida deducida del clic"
+          },
+          {
+            "id": "d",
+            "text": "Entrega y clic confirmados; ejecución no comprobada y pendiente de revisar el endpoint"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "El informe debe diferenciar hechos observados, hipótesis y cobertura faltante.",
+        "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing"
+      }
+    },
+    {
+      "dayId": "w38d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w38d7-q01",
+          "prompt": "En un mensaje original, ¿qué separa normalmente las cabeceras del cuerpo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La primera dirección encontrada en el texto"
+            },
+            {
+              "id": "b",
+              "text": "Una línea vacía después del bloque de cabeceras"
+            },
+            {
+              "id": "c",
+              "text": "El nombre del archivo adjunto"
+            },
+            {
+              "id": "d",
+              "text": "La presencia de una firma DKIM"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El formato del mensaje distingue las cabeceras del cuerpo mediante una línea vacía.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5322.html",
+          "reviewOf": "w38d1-q01"
+        },
+        {
+          "id": "w38d7-q02",
+          "prompt": "Un mensaje muestra el nombre Banco Central pero la dirección es ayuda@ejemplo.invalid. ¿Qué elemento puede elegirse libremente como apariencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El resultado SPF calculado por tu servidor confiable"
+            },
+            {
+              "id": "b",
+              "text": "El nombre para mostrar del remitente"
+            },
+            {
+              "id": "c",
+              "text": "La clave pública DKIM publicada por otro dominio"
+            },
+            {
+              "id": "d",
+              "text": "La política de recepción de tu organización"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El nombre visible no equivale a una identidad autenticada.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5322.html",
+          "reviewOf": "w38d2-q01"
+        },
+        {
+          "id": "w38d7-q03",
+          "prompt": "SPF devuelve pass para rebotes.example.org. ¿Qué validó principalmente ese resultado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el servidor emisor estaba autorizado para la identidad SMTP evaluada"
+            },
+            {
+              "id": "b",
+              "text": "Que todo el texto del cuerpo fue firmado criptográficamente"
+            },
+            {
+              "id": "c",
+              "text": "Que la persona indicada en From es quien escribió el mensaje"
+            },
+            {
+              "id": "d",
+              "text": "Que todos los enlaces del correo pertenecen a un negocio legítimo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "SPF comprueba autorización de servidores para identidades del sobre SMTP, no la seguridad del contenido.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc9989.html",
+          "reviewOf": "w38d3-q01"
+        },
+        {
+          "id": "w38d7-q04",
+          "prompt": "Un mensaje pide cambiar hoy la cuenta bancaria de un proveedor. ¿Cómo validas la solicitud?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mediante un canal independiente previamente conocido y el procedimiento de cambios"
+            },
+            {
+              "id": "b",
+              "text": "Respondiendo únicamente al Reply-To del mensaje"
+            },
+            {
+              "id": "c",
+              "text": "Llamando solo al número nuevo incluido en el correo"
+            },
+            {
+              "id": "d",
+              "text": "Aceptando el cambio si el logotipo se ve correcto"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una verificación independiente reduce el riesgo de seguir datos de contacto controlados por el atacante.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing",
+          "reviewOf": "w38d4-q01"
+        },
+        {
+          "id": "w38d7-q05",
+          "prompt": "Una herramienta permite analizar un archivo .eml. ¿Qué entrada preserva mejor la evidencia de origen?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un texto reescrito de memoria sin cabeceras"
+            },
+            {
+              "id": "b",
+              "text": "Una captura que excluya los adjuntos y la ruta"
+            },
+            {
+              "id": "c",
+              "text": "Un correo reenviado que sustituya todas las cabeceras originales"
+            },
+            {
+              "id": "d",
+              "text": "Una copia del mensaje original conservando intacto el original adquirido"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Trabajar sobre una copia protege la evidencia y mantiene la estructura necesaria para el análisis.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing",
+          "reviewOf": "w38d5-q01"
+        },
+        {
+          "id": "w38d7-q06",
+          "prompt": "El correo pasa autenticación, pero cambia de forma inesperada el beneficiario de un pago. ¿Qué veredicto provisional es más sólido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Correo benigno confirmado por haber pasado autenticación"
+            },
+            {
+              "id": "b",
+              "text": "Malware ejecutado confirmado por el cambio de beneficiario"
+            },
+            {
+              "id": "c",
+              "text": "Solicitud sospechosa pendiente de validación independiente del cambio"
+            },
+            {
+              "id": "d",
+              "text": "Correo imposible de analizar porque SPF pasó"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El contenido y el proceso de negocio deben evaluarse aunque el dominio esté autenticado.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing",
+          "reviewOf": "w38d6-q01"
+        },
+        {
+          "id": "w38d7-q07",
+          "prompt": "Un correo contiene texto simple, HTML y un archivo. ¿Qué estructura permite representar esas partes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tres registros SPF independientes para el mismo mensaje"
+            },
+            {
+              "id": "b",
+              "text": "Una sola cabecera Subject con todo el contenido"
+            },
+            {
+              "id": "c",
+              "text": "Un registro DNS por cada párrafo"
+            },
+            {
+              "id": "d",
+              "text": "Una estructura MIME con tipos y límites de partes"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "MIME describe tipos de contenido y permite organizar distintas partes del mensaje.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc2045.html",
+          "reviewOf": "w38d1-q02"
+        },
+        {
+          "id": "w38d7-q08",
+          "prompt": "¿Qué propósito tiene Reply-To cuando aparece en un mensaje?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Definir qué IP está autorizada por SPF"
+            },
+            {
+              "id": "b",
+              "text": "Registrar todos los servidores SMTP que lo transportaron"
+            },
+            {
+              "id": "c",
+              "text": "Reemplazar siempre el dominio que firma DKIM"
+            },
+            {
+              "id": "d",
+              "text": "Indicar una dirección propuesta para las respuestas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Reply-To puede dirigir las respuestas a una identidad distinta de From.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5322.html",
+          "reviewOf": "w38d2-q02"
+        },
+        {
+          "id": "w38d7-q09",
+          "prompt": "Una firma DKIM válida contiene d=proveedor.example. ¿Qué aporta esa comprobación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Confirma que el usuario de From no fue comprometido"
+            },
+            {
+              "id": "b",
+              "text": "Demuestra que se cifró el mensaje para el destinatario"
+            },
+            {
+              "id": "c",
+              "text": "Vincula una firma válida con ese dominio firmante y los elementos cubiertos"
+            },
+            {
+              "id": "d",
+              "text": "Prueba que todo adjunto fue analizado en un sandbox"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "DKIM autentica la firma de un dominio sobre las partes cubiertas, no la intención del mensaje.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc9989.html",
+          "reviewOf": "w38d3-q02"
+        },
+        {
+          "id": "w38d7-q10",
+          "prompt": "La cuenta real de un compañero envía una petición inusual de códigos MFA. ¿Qué debes considerar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el uso de su cuenta real descarta ingeniería social"
+            },
+            {
+              "id": "b",
+              "text": "Que MFA autoriza compartir los códigos con compañeros"
+            },
+            {
+              "id": "c",
+              "text": "Que el nombre en la libreta de contactos sustituye la validación"
+            },
+            {
+              "id": "d",
+              "text": "Que una cuenta legítima puede estar comprometida y el contexto sigue siendo relevante"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La identidad aparente y la autenticación no garantizan que la solicitud sea adecuada.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing",
+          "reviewOf": "w38d4-q02"
+        },
+        {
+          "id": "w38d7-q11",
+          "prompt": "Antes de ejecutar una función que consulta URLs del correo, ¿qué debes comprobar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Únicamente que la interfaz use HTTPS"
+            },
+            {
+              "id": "b",
+              "text": "Que el asunto del mensaje sea corto"
+            },
+            {
+              "id": "c",
+              "text": "Que la URL tenga un nombre conocido"
+            },
+            {
+              "id": "d",
+              "text": "Si genera tráfico externo y si ese comportamiento está autorizado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Algunas funciones de análisis pueden comunicarse con destinos o servicios externos y exponer información.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing",
+          "reviewOf": "w38d5-q02"
+        },
+        {
+          "id": "w38d7-q12",
+          "prompt": "Un mensaje reenviado falla SPF, pero conserva una firma DKIM alineada válida. ¿Qué afirmación evita un falso indicio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cualquier reenvío convierte en maliciosa la identidad de From"
+            },
+            {
+              "id": "b",
+              "text": "DKIM válido demuestra que el usuario no pudo ser comprometido"
+            },
+            {
+              "id": "c",
+              "text": "El fallo SPF aislado no determina que el mensaje sea phishing"
+            },
+            {
+              "id": "d",
+              "text": "La firma DKIM elimina la necesidad de examinar el cuerpo"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El reenvío puede afectar SPF; la autenticación debe interpretarse junto con alineación y contexto.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing",
+          "reviewOf": "w38d6-q02"
+        },
+        {
+          "id": "w38d7-q13",
+          "prompt": "El campo Content-Transfer-Encoding indica Base64. ¿Qué puedes inferir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el contenido está cifrado con una clave secreta"
+            },
+            {
+              "id": "b",
+              "text": "Que el adjunto ha sido verificado como legítimo"
+            },
+            {
+              "id": "c",
+              "text": "Que el mensaje es malicioso por definición"
+            },
+            {
+              "id": "d",
+              "text": "Que hay una codificación de transporte que puede decodificarse"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La codificación Base64 no aporta confidencialidad ni un veredicto de seguridad.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc2045.html",
+          "reviewOf": "w38d1-q03"
+        },
+        {
+          "id": "w38d7-q14",
+          "prompt": "El From visible pertenece a una empresa y Reply-To apunta a un servicio desconocido. ¿Cómo interpretas la discrepancia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Como prueba suficiente de que existe malware adjunto"
+            },
+            {
+              "id": "b",
+              "text": "Como un resultado DKIM fallido automático"
+            },
+            {
+              "id": "c",
+              "text": "Como garantía de que la empresa usa un proveedor autorizado"
+            },
+            {
+              "id": "d",
+              "text": "Como un dato que requiere contexto y validación"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las discrepancias pueden ser legítimas o sospechosas; deben investigarse según el caso.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5322.html",
+          "reviewOf": "w38d2-q03"
+        },
+        {
+          "id": "w38d7-q15",
+          "prompt": "Para superar DMARC, ¿qué combinación básica es suficiente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "SPF y DKIM fallidos cuando Reply-To coincide con From"
+            },
+            {
+              "id": "b",
+              "text": "Al menos un mecanismo SPF o DKIM válido cuya identidad esté alineada con el dominio de autor"
+            },
+            {
+              "id": "c",
+              "text": "Cualquier DKIM pass aunque el dominio no esté alineado"
+            },
+            {
+              "id": "d",
+              "text": "Un registro MX válido sin verificar SPF ni DKIM"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "DMARC combina autenticación y alineación con el dominio de autor; no exige que ambos mecanismos pasen.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc9989.html",
+          "reviewOf": "w38d3-q03"
+        },
+        {
+          "id": "w38d7-q16",
+          "prompt": "Un correo sospechoso tiene ortografía impecable. ¿Cómo influye en el veredicto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Demuestra que no se trata de phishing"
+            },
+            {
+              "id": "b",
+              "text": "Permite ignorar diferencias en Reply-To"
+            },
+            {
+              "id": "c",
+              "text": "Garantiza que se utilizó una plantilla corporativa autorizada"
+            },
+            {
+              "id": "d",
+              "text": "No elimina el riesgo; deben evaluarse solicitud, enlaces e identidad"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los atacantes pueden producir mensajes bien redactados; el análisis requiere señales más amplias.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing",
+          "reviewOf": "w38d4-q03"
+        },
+        {
+          "id": "w38d7-q17",
+          "prompt": "La herramienta extrae varias URLs del cuerpo. ¿Qué registro es más útil?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el texto visible del botón principal"
+            },
+            {
+              "id": "b",
+              "text": "Una URL simplificada que omita todos los parámetros sin anotarlo"
+            },
+            {
+              "id": "c",
+              "text": "El destino exacto, la ubicación en el mensaje y la transformación aplicada"
+            },
+            {
+              "id": "d",
+              "text": "La primera palabra de cada dominio"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La trazabilidad exige conservar el indicador y explicar cualquier normalización o decodificación.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing",
+          "reviewOf": "w38d5-q03"
+        },
+        {
+          "id": "w38d7-q18",
+          "prompt": "Las trazas muestran entrega del mensaje y un clic. ¿Qué debes investigar antes de afirmar ejecución de un adjunto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo si el usuario recuerda el asunto"
+            },
+            {
+              "id": "b",
+              "text": "Telemetría del endpoint y procesos o acciones asociados al artefacto"
+            },
+            {
+              "id": "c",
+              "text": "La longitud del nombre del remitente"
+            },
+            {
+              "id": "d",
+              "text": "La presencia de un icono de archivo en el cliente"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Entregar, hacer clic y ejecutar son eventos diferentes que necesitan fuentes específicas.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing",
+          "reviewOf": "w38d6-q03"
+        },
+        {
+          "id": "w38d7-q19",
+          "prompt": "La vista HTML muestra un botón de acceso. ¿Qué conviene comparar durante el análisis estático?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el color del botón y el nombre de la marca"
+            },
+            {
+              "id": "b",
+              "text": "La resolución de la imagen del encabezado"
+            },
+            {
+              "id": "c",
+              "text": "El texto presentado y el destino real del enlace"
+            },
+            {
+              "id": "d",
+              "text": "Únicamente la firma de despedida del remitente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La apariencia del enlace puede diferir del destino incluido en el HTML.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5322.html",
+          "reviewOf": "w38d1-q04"
+        },
+        {
+          "id": "w38d7-q20",
+          "prompt": "Un aviso externo del cliente de correo aparece en una factura. ¿Qué permite concluir por sí solo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que el adjunto contiene necesariamente malware"
+            },
+            {
+              "id": "b",
+              "text": "Que el proveedor es falso por definición"
+            },
+            {
+              "id": "c",
+              "text": "Que el mensaje fue clasificado como externo según la configuración local"
+            },
+            {
+              "id": "d",
+              "text": "Que el mensaje pasó DMARC con alineación estricta"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una etiqueta de procedencia no determina por sí sola la malicia del contenido.",
+          "reference": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing",
+          "reviewOf": "w38d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w38d7-challenge",
+        "prompt": "Un correo bien redactado falla SPF tras un reenvío y solicita una transferencia no habitual. ¿Qué integra mejor el análisis?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Evaluar DKIM y alineación, ruta confiable y solicitud de negocio, validando el pago por canal independiente"
+          },
+          {
+            "id": "b",
+            "text": "Clasificarlo solo por la ortografía correcta"
+          },
+          {
+            "id": "c",
+            "text": "Confirmar phishing únicamente por el fallo SPF"
+          },
+          {
+            "id": "d",
+            "text": "Aprobar el pago si aparece un logotipo conocido"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "Ni la forma del texto ni un único resultado de autenticación bastan para resolver el caso.",
+        "reference": "https://www.rfc-editor.org/rfc/rfc9989.html"
+      }
+    }
+  ]
+}

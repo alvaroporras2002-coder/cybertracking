@@ -1,0 +1,2094 @@
+{
+  "week": 31,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w31d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w31d1-q01",
+          "prompt": "¿Qué debe definir un playbook de cuenta comprometida antes de un incidente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Roles, criterios de activación y acciones autorizadas"
+            },
+            {
+              "id": "b",
+              "text": "La culpabilidad de cualquier usuario alertado"
+            },
+            {
+              "id": "c",
+              "text": "Una contraseña universal de emergencia pública"
+            },
+            {
+              "id": "d",
+              "text": "Un único paso de borrar toda cuenta"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Preparación establece responsabilidades y coordinación; las decisiones dependen del caso y del impacto.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d1-q02",
+          "prompt": "¿Por qué incluir un contacto alternativo fuera del correo corporativo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El canal alternativo elimina necesidad de verificar interlocutores"
+            },
+            {
+              "id": "b",
+              "text": "Cualquier canal externo permite compartir secretos sin controles"
+            },
+            {
+              "id": "c",
+              "text": "El correo puede estar indisponible o bajo control adversario"
+            },
+            {
+              "id": "d",
+              "text": "Usar correo corporativo siempre garantiza independencia del incidente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La preparación de comunicaciones contempla canales afectados y verificación de participantes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d1-q03",
+          "prompt": "¿Qué criterio ayuda a decidir quién puede aislar un servidor crítico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La severidad técnica sin considerar criticidad ni autoridad"
+            },
+            {
+              "id": "b",
+              "text": "Autoridad delegada y consecuencias previstas en el procedimiento"
+            },
+            {
+              "id": "c",
+              "text": "Que el analista tenga credenciales, aunque no autorización"
+            },
+            {
+              "id": "d",
+              "text": "Una preferencia del proveedor sin aprobación organizativa"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las acciones de contención deben alinearse con responsabilidades y continuidad operativa.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d1-q04",
+          "prompt": "¿Qué comprueba un ejercicio de mesa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que todos los controles técnicos resisten cualquier ataque"
+            },
+            {
+              "id": "b",
+              "text": "Comprensión de roles, decisiones y dependencias ante un escenario"
+            },
+            {
+              "id": "c",
+              "text": "Que no habrá necesidad de ejercicios posteriores"
+            },
+            {
+              "id": "d",
+              "text": "Que los indicadores del escenario son maliciosos en todo entorno"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El ejercicio revela vacíos de procedimiento y comunicación sin afirmar eficacia absoluta de toda tecnología.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d1-q05",
+          "prompt": "¿Qué información necesita una lista de contactos de respuesta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo nombres sin medio operativo ni suplencia"
+            },
+            {
+              "id": "b",
+              "text": "Solo una cuenta compartida para todo el equipo"
+            },
+            {
+              "id": "c",
+              "text": "Solo contactos del proveedor sin responsables internos"
+            },
+            {
+              "id": "d",
+              "text": "Función, medio verificado y suplente actualizado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La disponibilidad de responsables y suplentes reduce demoras durante decisiones urgentes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d1-q06",
+          "prompt": "¿Cómo preparar preservación de evidencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Esperar a que se borren logs para decidir"
+            },
+            {
+              "id": "b",
+              "text": "Definir fuentes, responsables, almacenamiento y registro de transferencias"
+            },
+            {
+              "id": "c",
+              "text": "Permitir edición de originales por cualquiera"
+            },
+            {
+              "id": "d",
+              "text": "Guardar únicamente capturas sin contexto"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La preparación evita perder artefactos volátiles o con retención breve y mejora trazabilidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w31d1-q07",
+          "prompt": "Un proveedor gestiona el IdP. ¿Qué dependencia debe incluir el playbook?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la dirección pública del portal sin contacto operativo"
+            },
+            {
+              "id": "b",
+              "text": "Canal y autoridad para solicitar revocación y consultar eventos"
+            },
+            {
+              "id": "c",
+              "text": "Solo la política de contraseña, ignorando sesiones y coordinación"
+            },
+            {
+              "id": "d",
+              "text": "Una cuenta administrativa compartida sin proceso de autorización"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La capacidad de respuesta depende también de servicios externos y de los acuerdos operativos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d1-q08",
+          "prompt": "¿Qué hace útil un criterio de escalamiento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usa solo el número de caracteres de la alerta"
+            },
+            {
+              "id": "b",
+              "text": "Escala todo sin contexto al mismo destinatario"
+            },
+            {
+              "id": "c",
+              "text": "Prohíbe documentar incertidumbres"
+            },
+            {
+              "id": "d",
+              "text": "Relaciona impacto, alcance y necesidad de autoridad adicional"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los criterios permiten priorizar coordinación y decisiones, con información suficiente para quien recibe el caso.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        }
+      ],
+      "challenge": {
+        "id": "w31d1-challenge",
+        "prompt": "La guardia detecta una cuenta comprometida a medianoche, pero el dueño del servicio no responde. ¿Qué preparación resolvería la demora?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Matriz de autoridad y suplentes con acciones urgentes predefinidas"
+          },
+          {
+            "id": "b",
+            "text": "Una lista de todos los empleados sin función"
+          },
+          {
+            "id": "c",
+            "text": "Una prohibición de documentar dudas"
+          },
+          {
+            "id": "d",
+            "text": "Acceso administrativo compartido entre visitantes"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "El playbook debe permitir decisiones oportunas dentro de responsabilidades y consecuencias conocidas.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    },
+    {
+      "dayId": "w31d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w31d2-q01",
+          "prompt": "Una alerta de inicio de sesión imposible aparece tras cambiar la VPN. ¿Qué validas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que toda geolocalización es exacta"
+            },
+            {
+              "id": "b",
+              "text": "Solo el país mostrado en el mapa"
+            },
+            {
+              "id": "c",
+              "text": "Que los usuarios jamás viajan"
+            },
+            {
+              "id": "d",
+              "text": "Origen de IP, uso de VPN y sesiones antes de confirmar compromiso"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La ubicación derivada de IP es contextual y puede verse afectada por intermediarios.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d2-q02",
+          "prompt": "¿Qué evidencia apoya acceso no autorizado después de robo de credenciales?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sesión anómala corroborada con actividad y confirmación contextual"
+            },
+            {
+              "id": "b",
+              "text": "Un fallo de contraseña aislado"
+            },
+            {
+              "id": "c",
+              "text": "Un nombre de usuario largo"
+            },
+            {
+              "id": "d",
+              "text": "Una alerta antigua de otro equipo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una hipótesis necesita datos de autenticación y acciones relacionadas; una señal aislada puede tener otras causas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d2-q03",
+          "prompt": "¿Qué significa determinar el alcance del incidente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Elegir el título del informe"
+            },
+            {
+              "id": "b",
+              "text": "Contar todos los activos de la empresa como comprometidos"
+            },
+            {
+              "id": "c",
+              "text": "Buscar solo el primer indicador descubierto"
+            },
+            {
+              "id": "d",
+              "text": "Identificar entidades, sistemas, datos e intervalo potencialmente afectados"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El alcance guía acciones y se actualiza cuando aparecen evidencias nuevas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d2-q04",
+          "prompt": "¿Qué pregunta ayuda a refutar una hipótesis de exfiltración?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Si el volumen alto por sí solo confirma el contenido extraído"
+            },
+            {
+              "id": "b",
+              "text": "Si todo dominio desconocido pertenece necesariamente al atacante"
+            },
+            {
+              "id": "c",
+              "text": "Si existen destinos, volumen y acceso a datos compatibles o explicaciones alternativas"
+            },
+            {
+              "id": "d",
+              "text": "Si la ausencia en una fuente sin cobertura descarta cualquier transferencia"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Buscar evidencia contraria reduce sesgo de confirmación y delimita lo que puede concluirse.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d2-q05",
+          "prompt": "Un usuario confirma que inició sesión, pero no reconoce una regla de reenvío nueva. ¿Qué investigas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cerrar el caso porque reconoce un acceso"
+            },
+            {
+              "id": "b",
+              "text": "Declarar que toda regla es maliciosa"
+            },
+            {
+              "id": "c",
+              "text": "Auditoría del buzón y sesiones que crearon la regla"
+            },
+            {
+              "id": "d",
+              "text": "Restablecer el monitor del usuario"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las acciones específicas pueden revelar abuso aunque parte de la actividad sea legítima.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d2-q06",
+          "prompt": "¿Qué diferencia hay entre severidad técnica de una alerta y prioridad del caso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La prioridad incorpora impacto y contexto del negocio"
+            },
+            {
+              "id": "b",
+              "text": "La prioridad siempre copia la severidad de la herramienta"
+            },
+            {
+              "id": "c",
+              "text": "Solo el volumen de logs determina prioridad"
+            },
+            {
+              "id": "d",
+              "text": "La severidad técnica demuestra culpabilidad de un usuario"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un evento en un activo crítico puede requerir atención distinta del mismo evento en un laboratorio.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d2-q07",
+          "prompt": "¿Qué riesgo hay al buscar únicamente el hash inicial?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Encontrar demasiadas fechas válidas"
+            },
+            {
+              "id": "b",
+              "text": "Impedir registrar la consulta"
+            },
+            {
+              "id": "c",
+              "text": "Convertir logs en archivos binarios"
+            },
+            {
+              "id": "d",
+              "text": "Perder variantes o comportamientos relacionados sin ese hash"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los indicadores concretos pueden variar; la investigación debe incluir comportamiento y alcance pertinentes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d2-q08",
+          "prompt": "Una consulta no devuelve resultados en una fuente sin cobertura del activo. ¿Cómo se registra?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Actividad descartada definitivamente"
+            },
+            {
+              "id": "b",
+              "text": "No evaluable con esa fuente por falta de cobertura"
+            },
+            {
+              "id": "c",
+              "text": "Usuario exonerado por toda acción"
+            },
+            {
+              "id": "d",
+              "text": "Evidencia de borrado confirmada"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una limitación de visibilidad debe distinguirse de un resultado negativo con cobertura válida.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        }
+      ],
+      "challenge": {
+        "id": "w31d2-challenge",
+        "prompt": "Un inicio de sesión extranjero coincide con la VPN aprobada; después aparecen 40 descargas no habituales. ¿Qué haces?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Investigar descargas y sesión en contexto, sin cerrar por la explicación geográfica"
+          },
+          {
+            "id": "b",
+            "text": "Cerrar todo porque existe VPN"
+          },
+          {
+            "id": "c",
+            "text": "Confirmar robo solo por el país"
+          },
+          {
+            "id": "d",
+            "text": "Eliminar logs para reducir ruido"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "Una explicación benigna de una señal no explica automáticamente otras acciones del caso.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    },
+    {
+      "dayId": "w31d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w31d3-q01",
+          "prompt": "¿Qué objetivo tiene aislar un endpoint comprometido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantizar eliminación de toda persistencia"
+            },
+            {
+              "id": "b",
+              "text": "Limitar comunicación y propagación mientras se investiga"
+            },
+            {
+              "id": "c",
+              "text": "Reconstruir automáticamente el disco"
+            },
+            {
+              "id": "d",
+              "text": "Atribuir al actor por su dirección IP"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El aislamiento es contención; erradicación y validación siguen siendo necesarias.",
+          "reference": "https://learn.microsoft.com/en-us/defender-endpoint/respond-machine-alerts"
+        },
+        {
+          "id": "w31d3-q02",
+          "prompt": "¿Qué consecuencia puede tener apagar un equipo antes de adquirir memoria?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conservar automáticamente todas las conexiones"
+            },
+            {
+              "id": "b",
+              "text": "Aumentar integridad del contenido RAM"
+            },
+            {
+              "id": "c",
+              "text": "Probar que no había malware"
+            },
+            {
+              "id": "d",
+              "text": "Perder evidencia volátil"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La memoria y otros estados volátiles pueden perderse al apagar; la decisión considera riesgos y necesidades.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w31d3-q03",
+          "prompt": "Una cuenta cloud está comprometida. ¿Por qué cambiar solo la contraseña puede ser insuficiente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todas las sesiones dejan de existir siempre"
+            },
+            {
+              "id": "b",
+              "text": "La contraseña no participa nunca en autenticación"
+            },
+            {
+              "id": "c",
+              "text": "El cambio borra toda auditoría por definición"
+            },
+            {
+              "id": "d",
+              "text": "Pueden persistir sesiones, tokens o accesos adicionales"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Contener exige considerar mecanismos de sesión, aplicaciones autorizadas y persistencia vinculada a identidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d3-q04",
+          "prompt": "¿Qué acción es más selectiva para detener un destino confirmado de mando y control?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Bloquear todo Internet sin comprobar impacto ni alternativas"
+            },
+            {
+              "id": "b",
+              "text": "Bloquear el destino validado y vigilar alternativas"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar resolución DNS histórica como sustituto de bloqueo"
+            },
+            {
+              "id": "d",
+              "text": "Permitir toda comunicación hasta conocer la atribución"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La contención acotada reduce impacto, pero requiere vigilar cambios y evaluar legitimidad del destino.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d3-q05",
+          "prompt": "¿Qué debe acompañar una acción urgente de bloqueo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo un mensaje informal sin fecha"
+            },
+            {
+              "id": "b",
+              "text": "Borrado del evento original"
+            },
+            {
+              "id": "c",
+              "text": "Motivo, responsable, hora, alcance y criterio de revisión"
+            },
+            {
+              "id": "d",
+              "text": "Afirmación de que no podrá revertirse"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El registro permite coordinar, evaluar efecto y revertir cuando corresponda.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d3-q06",
+          "prompt": "¿Qué distingue contención de erradicación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Contención demuestra atribución"
+            },
+            {
+              "id": "b",
+              "text": "Erradicación consiste solo en enviar un aviso"
+            },
+            {
+              "id": "c",
+              "text": "Ambas son únicamente restaurar una copia"
+            },
+            {
+              "id": "d",
+              "text": "Contención limita daño; erradicación elimina causas o mecanismos adversarios"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los objetivos son distintos aunque las actividades puedan coordinarse o repetirse.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d3-q07",
+          "prompt": "Un bloqueo amplio afecta un servicio médico. ¿Qué pesa en la decisión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo que el indicador sea reciente"
+            },
+            {
+              "id": "b",
+              "text": "Solo reducir el número de tickets"
+            },
+            {
+              "id": "c",
+              "text": "Riesgo del ataque, continuidad y alternativas con autoridad responsable"
+            },
+            {
+              "id": "d",
+              "text": "La preferencia del fabricante del navegador"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La respuesta debe integrar consecuencias operativas y de seguridad, sin automatismos ciegos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d3-q08",
+          "prompt": "¿Qué evita avisar al posible intruso mediante un canal comprometido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Enviar todas las hipótesis al buzón sospechoso"
+            },
+            {
+              "id": "b",
+              "text": "Usar comunicación verificada fuera del canal afectado"
+            },
+            {
+              "id": "c",
+              "text": "Añadir al usuario a todos los chats abiertos"
+            },
+            {
+              "id": "d",
+              "text": "Publicar credenciales de respuesta en el portal"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El plan de comunicación debe considerar vigilancia adversaria y proteger decisiones sensibles.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        }
+      ],
+      "challenge": {
+        "id": "w31d3-challenge",
+        "prompt": "Un servidor cifra archivos y atiende una operación crítica. ¿Qué decisión de contención es defendible?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Apagarlo siempre sin documentar consecuencias"
+          },
+          {
+            "id": "b",
+            "text": "Esperar al informe final aunque siga cifrando"
+          },
+          {
+            "id": "c",
+            "text": "Publicar claves de respuesta para pedir ayuda"
+          },
+          {
+            "id": "d",
+            "text": "Coordinar la acción que limite daño evaluando aislamiento, continuidad y evidencia volátil"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La urgencia exige actuar con autoridad y ponderar efectos, sin convertir una técnica en regla universal.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    },
+    {
+      "dayId": "w31d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w31d4-q01",
+          "prompt": "Se eliminó un archivo malicioso, pero la tarea programada que lo descarga persiste. ¿Qué falta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eliminar o corregir el mecanismo de persistencia validado"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar solo el nombre del incidente"
+            },
+            {
+              "id": "c",
+              "text": "Subir el umbral de alertas"
+            },
+            {
+              "id": "d",
+              "text": "Reiniciar la impresora"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Erradicar requiere abordar causas y persistencia, no únicamente el artefacto visible.",
+          "reference": "https://attack.mitre.org/techniques/T1053/005/"
+        },
+        {
+          "id": "w31d4-q02",
+          "prompt": "¿Cuál es un criterio de recuperación verificable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Servicio funcional, controles restablecidos y ausencia de señales definidas durante observación"
+            },
+            {
+              "id": "b",
+              "text": "El usuario dice que el escritorio se ve normal"
+            },
+            {
+              "id": "c",
+              "text": "Han transcurrido diez minutos sin mirar logs"
+            },
+            {
+              "id": "d",
+              "text": "Se eliminó la primera alerta del panel"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La recuperación exige criterios técnicos y operativos medibles ajustados al caso.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d4-q03",
+          "prompt": "¿Por qué verificar una copia antes de restaurarla?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Puede estar dañada o contener el compromiso"
+            },
+            {
+              "id": "b",
+              "text": "Toda copia es segura por definición"
+            },
+            {
+              "id": "c",
+              "text": "La restauración prueba que la copia estaba limpia"
+            },
+            {
+              "id": "d",
+              "text": "El hash de la copia revela al atacante"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La integridad y antigüedad no bastan para garantizar ausencia de persistencia; hay que evaluar su adecuación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w31d4-q04",
+          "prompt": "¿Qué debe preceder a reconectar un equipo reconstruido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Deshabilitar toda auditoría para ahorrar carga"
+            },
+            {
+              "id": "b",
+              "text": "Aplicar correcciones necesarias y comprobar configuración y monitoreo"
+            },
+            {
+              "id": "c",
+              "text": "Restaurar credenciales sospechosas sin cambios"
+            },
+            {
+              "id": "d",
+              "text": "Excluirlo del inventario definitivamente"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Reponer el sistema sin cerrar la vía de entrada puede permitir recurrencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d4-q05",
+          "prompt": "¿Qué utilidad tiene aumentar supervisión tras recuperación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Demostrar que el caso nunca existió"
+            },
+            {
+              "id": "b",
+              "text": "Sustituir todas las pruebas funcionales"
+            },
+            {
+              "id": "c",
+              "text": "Detectar recurrencia y validar estabilidad de controles"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar obligaciones de documentación"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La observación posterior aporta evidencia sobre seguridad y operación tras devolver el servicio.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d4-q06",
+          "prompt": "¿Quién debe participar en validar que un servicio crítico puede volver?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo quien abrió el ticket"
+            },
+            {
+              "id": "b",
+              "text": "Responsables técnicos y del negocio según el plan"
+            },
+            {
+              "id": "c",
+              "text": "Cualquier usuario externo"
+            },
+            {
+              "id": "d",
+              "text": "El primer proveedor que responda publicidad"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El éxito incluye funcionamiento esperado y riesgo aceptado por responsables con autoridad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d4-q07",
+          "prompt": "¿Qué recoge una revisión posterior al incidente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo quien abrió el ticket, aunque no tenga autoridad sobre servicio"
+            },
+            {
+              "id": "b",
+              "text": "Causas, respuesta, carencias y mejoras con responsables"
+            },
+            {
+              "id": "c",
+              "text": "Solo el proveedor, sin validar requisitos del negocio"
+            },
+            {
+              "id": "d",
+              "text": "Cualquier usuario que vea la pantalla de inicio"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La mejora requiere acciones concretas y seguimiento, además de registrar qué funcionó.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d4-q08",
+          "prompt": "Una vulnerabilidad fue explotada y el parche sigue pendiente. ¿Qué debes evaluar al recuperar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Si controles compensatorios y riesgo permiten operar hasta corregirla"
+            },
+            {
+              "id": "b",
+              "text": "Si borrar el malware elimina la vulnerabilidad"
+            },
+            {
+              "id": "c",
+              "text": "Si ocultar el puerto en el informe basta"
+            },
+            {
+              "id": "d",
+              "text": "Si restaurar reinicia la fecha de exposición"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La vía de entrada permanece aunque se retire el artefacto; la decisión necesita tratamiento explícito.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        }
+      ],
+      "challenge": {
+        "id": "w31d4-challenge",
+        "prompt": "Tras restaurar el equipo, reaparece la misma tarea que descarga un ejecutable. ¿Qué indica?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La persistencia o la fuente de reinfección no se resolvió adecuadamente"
+          },
+          {
+            "id": "b",
+            "text": "La recuperación fue correcta porque arranca"
+          },
+          {
+            "id": "c",
+            "text": "El hash de la copia certifica ausencia de malware"
+          },
+          {
+            "id": "d",
+            "text": "Todo monitoreo debe apagarse"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La recurrencia obliga a revisar causa, copia y mecanismos de persistencia antes de otra recuperación.",
+        "reference": "https://attack.mitre.org/techniques/T1053/005/"
+      }
+    },
+    {
+      "dayId": "w31d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w31d5-q01",
+          "prompt": "¿Qué aporta un hash SHA-256 al registrar un artefacto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Demuestra autoría humana del archivo"
+            },
+            {
+              "id": "b",
+              "text": "Prueba que el contenido es benigno"
+            },
+            {
+              "id": "c",
+              "text": "Sustituye toda cadena de custodia"
+            },
+            {
+              "id": "d",
+              "text": "Permite comprobar si sus bytes cambiaron respecto al valor registrado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El hash ayuda a verificar integridad, pero necesita procedencia y registro de manejo.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash"
+        },
+        {
+          "id": "w31d5-q02",
+          "prompt": "¿Qué debe registrar una transferencia de evidencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el nombre del archivo, sin personas ni hora"
+            },
+            {
+              "id": "b",
+              "text": "Solo el hash, omitiendo quién recibió el soporte"
+            },
+            {
+              "id": "c",
+              "text": "Solo la conclusión del analista, sin detalle de transferencia"
+            },
+            {
+              "id": "d",
+              "text": "Quién entrega, quién recibe, cuándo, qué y con qué propósito"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La cadena de custodia documenta posesión y manejo para mantener trazabilidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w31d5-q03",
+          "prompt": "¿Por qué analizar una copia de trabajo preservando el original?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hace innecesario verificar hashes"
+            },
+            {
+              "id": "b",
+              "text": "Cambia automáticamente la zona horaria"
+            },
+            {
+              "id": "c",
+              "text": "Evita toda necesidad de documentar comandos"
+            },
+            {
+              "id": "d",
+              "text": "Reduce alteraciones del artefacto original"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La separación conserva una referencia estable y permite repetir análisis con controles de integridad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w31d5-q04",
+          "prompt": "Un hash cambia tras descomprimir un archivo. ¿Qué comparación sería correcta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Esperar el mismo hash entre comprimido y extraído"
+            },
+            {
+              "id": "b",
+              "text": "Declarar falsificación solo por ser distintos"
+            },
+            {
+              "id": "c",
+              "text": "Comparar cada objeto con su propio hash y documentar la transformación"
+            },
+            {
+              "id": "d",
+              "text": "Usar el nombre como prueba de igualdad"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Contenedor y contenido tienen bytes diferentes; deben identificarse y registrarse como artefactos relacionados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w31d5-q05",
+          "prompt": "¿Qué tiempo debe anotarse al recolectar un log?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hora de adquisición con zona y datos sobre el tiempo del origen"
+            },
+            {
+              "id": "b",
+              "text": "Solo la hora de apertura del informe"
+            },
+            {
+              "id": "c",
+              "text": "La hora local sin fecha"
+            },
+            {
+              "id": "d",
+              "text": "La fecha de compra del equipo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La procedencia temporal permite interpretar tanto la recolección como los sucesos contenidos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w31d5-q06",
+          "prompt": "¿Qué límite tiene una captura de pantalla de un evento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Siempre contiene toda la metadata original"
+            },
+            {
+              "id": "b",
+              "text": "Puede omitir campos y no reemplaza necesariamente el registro exportado"
+            },
+            {
+              "id": "c",
+              "text": "Prueba por sí sola integridad del sistema"
+            },
+            {
+              "id": "d",
+              "text": "Permite reconstruir cualquier paquete cifrado"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las capturas ilustran hallazgos; para análisis reproducible suele requerirse el artefacto y su contexto.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w31d5-q07",
+          "prompt": "¿Cómo evitar que datos sensibles se propaguen en el informe compartido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Editar el único original sin guardar cambios"
+            },
+            {
+              "id": "b",
+              "text": "Publicar todas las credenciales halladas"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar nombres y olvidar su relación con el caso"
+            },
+            {
+              "id": "d",
+              "text": "Separar evidencia íntegra protegida y extractos minimizados trazables"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La protección y minimización deben mantener trazabilidad sin divulgar información innecesaria.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w31d5-q08",
+          "prompt": "¿Qué relación existe entre hash e integridad del contenido antes de la adquisición?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El hash no prueba que el archivo no hubiera sido alterado previamente"
+            },
+            {
+              "id": "b",
+              "text": "El hash reconstruye automáticamente la versión original"
+            },
+            {
+              "id": "c",
+              "text": "SHA-256 identifica al último editor"
+            },
+            {
+              "id": "d",
+              "text": "Un hash convierte cualquier dato en evidencia auténtica"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El valor prueba igualdad respecto al objeto registrado; autenticidad previa requiere otras fuentes y controles.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        }
+      ],
+      "challenge": {
+        "id": "w31d5-challenge",
+        "prompt": "Recibes un ZIP y su documento extraído con hashes distintos. ¿Cómo preservas trazabilidad?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Cambiar el hash del documento para igualarlo"
+          },
+          {
+            "id": "b",
+            "text": "Registrar ambos objetos, hashes y pasos de extracción"
+          },
+          {
+            "id": "c",
+            "text": "Descartar el ZIP y toda información de origen"
+          },
+          {
+            "id": "d",
+            "text": "Concluir manipulación por la diferencia"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "Objetos transformados necesitan identidad propia y relación documentada, sin esperar igualdad de bytes.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    },
+    {
+      "dayId": "w31d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w31d6-q01",
+          "prompt": "Los tiempos normalizados son acceso 09:01Z, regla de correo 09:03Z y envío 09:05Z. ¿Qué sostiene la cronología?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La regla causó necesariamente todos los envíos"
+            },
+            {
+              "id": "b",
+              "text": "El acceso fue legítimo por ocurrir primero"
+            },
+            {
+              "id": "c",
+              "text": "El envío demuestra quién escribió la regla"
+            },
+            {
+              "id": "d",
+              "text": "La regla se creó después del acceso y antes del envío registrado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El orden temporal establece secuencia; causalidad e identidad requieren datos adicionales.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d6-q02",
+          "prompt": "Una sesión sospechosa accedió a dos buzones. ¿Qué alcance inicial es defendible?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Toda la organización está confirmada comprometida"
+            },
+            {
+              "id": "b",
+              "text": "Solo el primer buzón porque abrió el caso"
+            },
+            {
+              "id": "c",
+              "text": "Ninguno hasta identificar al actor externo"
+            },
+            {
+              "id": "d",
+              "text": "Al menos esos buzones, ampliando búsqueda de sesiones y acciones relacionadas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El alcance debe partir de evidencia y ampliarse sistemáticamente sin exagerar ni ignorar entidades confirmadas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d6-q03",
+          "prompt": "¿Qué orden prioriza una filtración activa de credenciales?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Escribir primero un informe final de cien páginas"
+            },
+            {
+              "id": "b",
+              "text": "Contener acceso, preservar evidencia pertinente y evaluar alcance coordinadamente"
+            },
+            {
+              "id": "c",
+              "text": "Borrar todo sin anotar acciones"
+            },
+            {
+              "id": "d",
+              "text": "Esperar a conocer la nacionalidad del atacante"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La respuesta busca limitar daño y conservar capacidad de investigación, ajustada a urgencia y roles.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d6-q04",
+          "prompt": "¿Qué debilidad tiene una cronología basada solo en recepción de alertas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Siempre adelanta los sucesos exactamente un día"
+            },
+            {
+              "id": "b",
+              "text": "Confunde tiempo de detección con tiempo de actividad"
+            },
+            {
+              "id": "c",
+              "text": "Elimina toda diferencia entre usuarios"
+            },
+            {
+              "id": "d",
+              "text": "Prueba que no hubo eventos no alertados"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Alertas pueden llegar tarde; la reconstrucción necesita tiempos de eventos y cobertura.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/92/final"
+        },
+        {
+          "id": "w31d6-q05",
+          "prompt": "¿Qué afirmación cabe en un resumen ejecutivo responsable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El atacante robó todo aunque no hay evidencia"
+            },
+            {
+              "id": "b",
+              "text": "El riesgo desapareció porque se cambió una contraseña"
+            },
+            {
+              "id": "c",
+              "text": "El SIEM garantiza que no hubo otras acciones"
+            },
+            {
+              "id": "d",
+              "text": "Se confirmó acceso no autorizado; la exposición de datos sigue en evaluación"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El resumen comunica hechos, impacto conocido e incertidumbres de forma comprensible.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d6-q06",
+          "prompt": "Un origen faltó durante quince minutos del incidente. ¿Cómo presentas ese intervalo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Laguna de visibilidad con fuentes alternativas investigadas"
+            },
+            {
+              "id": "b",
+              "text": "Quince minutos de inactividad confirmada"
+            },
+            {
+              "id": "c",
+              "text": "Intervalo irrelevante que se omite"
+            },
+            {
+              "id": "d",
+              "text": "Prueba directa de borrado por el atacante"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El vacío afecta confianza y alcance; no debe ocultarse ni convertirse en afirmación no sustentada.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d6-q07",
+          "prompt": "¿Cómo verificar que una acción de contención funcionó?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Confiar solo en que el botón fue pulsado"
+            },
+            {
+              "id": "b",
+              "text": "Cerrar al enviarse el correo de solicitud"
+            },
+            {
+              "id": "c",
+              "text": "Comprobar estado resultante y telemetría de accesos posteriores"
+            },
+            {
+              "id": "d",
+              "text": "Borrar alertas para comprobar que no vuelven"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La intención de ejecutar no es evidencia de efecto; conviene validar cambios y resultados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w31d6-q08",
+          "prompt": "¿Qué mejora concreta debe salir del caso si faltaban logs del IdP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Escribir que hay que mejorar sin acción"
+            },
+            {
+              "id": "b",
+              "text": "Asignar responsable, cobertura y verificación para recolectarlos"
+            },
+            {
+              "id": "c",
+              "text": "Excluir identidad de futuras investigaciones"
+            },
+            {
+              "id": "d",
+              "text": "Reducir el período de retención restante"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La mejora se vuelve comprobable cuando tiene alcance, dueño y criterio de aceptación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        }
+      ],
+      "challenge": {
+        "id": "w31d6-challenge",
+        "prompt": "VPN y correo señalan acceso sospechoso, pero EDR quedó sin cobertura. ¿Qué informe es correcto?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Afirmar que EDR demuestra equipo limpio"
+          },
+          {
+            "id": "b",
+            "text": "Atribuir a un grupo por el proveedor de VPN"
+          },
+          {
+            "id": "c",
+            "text": "Ocultar la laguna hasta cerrar el caso"
+          },
+          {
+            "id": "d",
+            "text": "Confirmar lo respaldado por VPN/correo y declarar límite sobre actividad del endpoint"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "Los hallazgos deben ajustarse a las fuentes disponibles y mantener explícito lo que falta comprobar.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    },
+    {
+      "dayId": "w31d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w31d7-q01",
+          "prompt": "¿Qué debe definir un playbook de cuenta comprometida antes de un incidente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Roles, criterios de activación y acciones autorizadas"
+            },
+            {
+              "id": "b",
+              "text": "La culpabilidad de cualquier usuario alertado"
+            },
+            {
+              "id": "c",
+              "text": "Una contraseña universal de emergencia pública"
+            },
+            {
+              "id": "d",
+              "text": "Un único paso de borrar toda cuenta"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Preparación establece responsabilidades y coordinación; las decisiones dependen del caso y del impacto.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w31d1-q01"
+        },
+        {
+          "id": "w31d7-q02",
+          "prompt": "Una alerta de inicio de sesión imposible aparece tras cambiar la VPN. ¿Qué validas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que toda geolocalización es exacta"
+            },
+            {
+              "id": "b",
+              "text": "Solo el país mostrado en el mapa"
+            },
+            {
+              "id": "c",
+              "text": "Que los usuarios jamás viajan"
+            },
+            {
+              "id": "d",
+              "text": "Origen de IP, uso de VPN y sesiones antes de confirmar compromiso"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La ubicación derivada de IP es contextual y puede verse afectada por intermediarios.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w31d2-q01"
+        },
+        {
+          "id": "w31d7-q03",
+          "prompt": "¿Qué objetivo tiene aislar un endpoint comprometido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantizar eliminación de toda persistencia"
+            },
+            {
+              "id": "b",
+              "text": "Limitar comunicación y propagación mientras se investiga"
+            },
+            {
+              "id": "c",
+              "text": "Reconstruir automáticamente el disco"
+            },
+            {
+              "id": "d",
+              "text": "Atribuir al actor por su dirección IP"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El aislamiento es contención; erradicación y validación siguen siendo necesarias.",
+          "reference": "https://learn.microsoft.com/en-us/defender-endpoint/respond-machine-alerts",
+          "reviewOf": "w31d3-q01"
+        },
+        {
+          "id": "w31d7-q04",
+          "prompt": "Se eliminó un archivo malicioso, pero la tarea programada que lo descarga persiste. ¿Qué falta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eliminar o corregir el mecanismo de persistencia validado"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar solo el nombre del incidente"
+            },
+            {
+              "id": "c",
+              "text": "Subir el umbral de alertas"
+            },
+            {
+              "id": "d",
+              "text": "Reiniciar la impresora"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Erradicar requiere abordar causas y persistencia, no únicamente el artefacto visible.",
+          "reference": "https://attack.mitre.org/techniques/T1053/005/",
+          "reviewOf": "w31d4-q01"
+        },
+        {
+          "id": "w31d7-q05",
+          "prompt": "¿Qué aporta un hash SHA-256 al registrar un artefacto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Demuestra autoría humana del archivo"
+            },
+            {
+              "id": "b",
+              "text": "Prueba que el contenido es benigno"
+            },
+            {
+              "id": "c",
+              "text": "Sustituye toda cadena de custodia"
+            },
+            {
+              "id": "d",
+              "text": "Permite comprobar si sus bytes cambiaron respecto al valor registrado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El hash ayuda a verificar integridad, pero necesita procedencia y registro de manejo.",
+          "reference": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash",
+          "reviewOf": "w31d5-q01"
+        },
+        {
+          "id": "w31d7-q06",
+          "prompt": "Los tiempos normalizados son acceso 09:01Z, regla de correo 09:03Z y envío 09:05Z. ¿Qué sostiene la cronología?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La regla causó necesariamente todos los envíos"
+            },
+            {
+              "id": "b",
+              "text": "El acceso fue legítimo por ocurrir primero"
+            },
+            {
+              "id": "c",
+              "text": "El envío demuestra quién escribió la regla"
+            },
+            {
+              "id": "d",
+              "text": "La regla se creó después del acceso y antes del envío registrado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El orden temporal establece secuencia; causalidad e identidad requieren datos adicionales.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w31d6-q01"
+        },
+        {
+          "id": "w31d7-q07",
+          "prompt": "¿Por qué incluir un contacto alternativo fuera del correo corporativo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El canal alternativo elimina necesidad de verificar interlocutores"
+            },
+            {
+              "id": "b",
+              "text": "Cualquier canal externo permite compartir secretos sin controles"
+            },
+            {
+              "id": "c",
+              "text": "El correo puede estar indisponible o bajo control adversario"
+            },
+            {
+              "id": "d",
+              "text": "Usar correo corporativo siempre garantiza independencia del incidente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La preparación de comunicaciones contempla canales afectados y verificación de participantes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w31d1-q02"
+        },
+        {
+          "id": "w31d7-q08",
+          "prompt": "¿Qué evidencia apoya acceso no autorizado después de robo de credenciales?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sesión anómala corroborada con actividad y confirmación contextual"
+            },
+            {
+              "id": "b",
+              "text": "Un fallo de contraseña aislado"
+            },
+            {
+              "id": "c",
+              "text": "Un nombre de usuario largo"
+            },
+            {
+              "id": "d",
+              "text": "Una alerta antigua de otro equipo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una hipótesis necesita datos de autenticación y acciones relacionadas; una señal aislada puede tener otras causas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w31d2-q02"
+        },
+        {
+          "id": "w31d7-q09",
+          "prompt": "¿Qué consecuencia puede tener apagar un equipo antes de adquirir memoria?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conservar automáticamente todas las conexiones"
+            },
+            {
+              "id": "b",
+              "text": "Aumentar integridad del contenido RAM"
+            },
+            {
+              "id": "c",
+              "text": "Probar que no había malware"
+            },
+            {
+              "id": "d",
+              "text": "Perder evidencia volátil"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La memoria y otros estados volátiles pueden perderse al apagar; la decisión considera riesgos y necesidades.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w31d3-q02"
+        },
+        {
+          "id": "w31d7-q10",
+          "prompt": "¿Cuál es un criterio de recuperación verificable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Servicio funcional, controles restablecidos y ausencia de señales definidas durante observación"
+            },
+            {
+              "id": "b",
+              "text": "El usuario dice que el escritorio se ve normal"
+            },
+            {
+              "id": "c",
+              "text": "Han transcurrido diez minutos sin mirar logs"
+            },
+            {
+              "id": "d",
+              "text": "Se eliminó la primera alerta del panel"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La recuperación exige criterios técnicos y operativos medibles ajustados al caso.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w31d4-q02"
+        },
+        {
+          "id": "w31d7-q11",
+          "prompt": "¿Qué debe registrar una transferencia de evidencia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el nombre del archivo, sin personas ni hora"
+            },
+            {
+              "id": "b",
+              "text": "Solo el hash, omitiendo quién recibió el soporte"
+            },
+            {
+              "id": "c",
+              "text": "Solo la conclusión del analista, sin detalle de transferencia"
+            },
+            {
+              "id": "d",
+              "text": "Quién entrega, quién recibe, cuándo, qué y con qué propósito"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La cadena de custodia documenta posesión y manejo para mantener trazabilidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w31d5-q02"
+        },
+        {
+          "id": "w31d7-q12",
+          "prompt": "Una sesión sospechosa accedió a dos buzones. ¿Qué alcance inicial es defendible?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Toda la organización está confirmada comprometida"
+            },
+            {
+              "id": "b",
+              "text": "Solo el primer buzón porque abrió el caso"
+            },
+            {
+              "id": "c",
+              "text": "Ninguno hasta identificar al actor externo"
+            },
+            {
+              "id": "d",
+              "text": "Al menos esos buzones, ampliando búsqueda de sesiones y acciones relacionadas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El alcance debe partir de evidencia y ampliarse sistemáticamente sin exagerar ni ignorar entidades confirmadas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w31d6-q02"
+        },
+        {
+          "id": "w31d7-q13",
+          "prompt": "¿Qué criterio ayuda a decidir quién puede aislar un servidor crítico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La severidad técnica sin considerar criticidad ni autoridad"
+            },
+            {
+              "id": "b",
+              "text": "Autoridad delegada y consecuencias previstas en el procedimiento"
+            },
+            {
+              "id": "c",
+              "text": "Que el analista tenga credenciales, aunque no autorización"
+            },
+            {
+              "id": "d",
+              "text": "Una preferencia del proveedor sin aprobación organizativa"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las acciones de contención deben alinearse con responsabilidades y continuidad operativa.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w31d1-q03"
+        },
+        {
+          "id": "w31d7-q14",
+          "prompt": "¿Qué significa determinar el alcance del incidente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Elegir el título del informe"
+            },
+            {
+              "id": "b",
+              "text": "Contar todos los activos de la empresa como comprometidos"
+            },
+            {
+              "id": "c",
+              "text": "Buscar solo el primer indicador descubierto"
+            },
+            {
+              "id": "d",
+              "text": "Identificar entidades, sistemas, datos e intervalo potencialmente afectados"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El alcance guía acciones y se actualiza cuando aparecen evidencias nuevas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w31d2-q03"
+        },
+        {
+          "id": "w31d7-q15",
+          "prompt": "Una cuenta cloud está comprometida. ¿Por qué cambiar solo la contraseña puede ser insuficiente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todas las sesiones dejan de existir siempre"
+            },
+            {
+              "id": "b",
+              "text": "La contraseña no participa nunca en autenticación"
+            },
+            {
+              "id": "c",
+              "text": "El cambio borra toda auditoría por definición"
+            },
+            {
+              "id": "d",
+              "text": "Pueden persistir sesiones, tokens o accesos adicionales"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Contener exige considerar mecanismos de sesión, aplicaciones autorizadas y persistencia vinculada a identidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w31d3-q03"
+        },
+        {
+          "id": "w31d7-q16",
+          "prompt": "¿Por qué verificar una copia antes de restaurarla?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Puede estar dañada o contener el compromiso"
+            },
+            {
+              "id": "b",
+              "text": "Toda copia es segura por definición"
+            },
+            {
+              "id": "c",
+              "text": "La restauración prueba que la copia estaba limpia"
+            },
+            {
+              "id": "d",
+              "text": "El hash de la copia revela al atacante"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La integridad y antigüedad no bastan para garantizar ausencia de persistencia; hay que evaluar su adecuación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final",
+          "reviewOf": "w31d4-q03"
+        },
+        {
+          "id": "w31d7-q17",
+          "prompt": "¿Por qué analizar una copia de trabajo preservando el original?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hace innecesario verificar hashes"
+            },
+            {
+              "id": "b",
+              "text": "Cambia automáticamente la zona horaria"
+            },
+            {
+              "id": "c",
+              "text": "Evita toda necesidad de documentar comandos"
+            },
+            {
+              "id": "d",
+              "text": "Reduce alteraciones del artefacto original"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La separación conserva una referencia estable y permite repetir análisis con controles de integridad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w31d5-q03"
+        },
+        {
+          "id": "w31d7-q18",
+          "prompt": "¿Qué orden prioriza una filtración activa de credenciales?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Escribir primero un informe final de cien páginas"
+            },
+            {
+              "id": "b",
+              "text": "Contener acceso, preservar evidencia pertinente y evaluar alcance coordinadamente"
+            },
+            {
+              "id": "c",
+              "text": "Borrar todo sin anotar acciones"
+            },
+            {
+              "id": "d",
+              "text": "Esperar a conocer la nacionalidad del atacante"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La respuesta busca limitar daño y conservar capacidad de investigación, ajustada a urgencia y roles.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w31d6-q03"
+        },
+        {
+          "id": "w31d7-q19",
+          "prompt": "¿Qué comprueba un ejercicio de mesa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que todos los controles técnicos resisten cualquier ataque"
+            },
+            {
+              "id": "b",
+              "text": "Comprensión de roles, decisiones y dependencias ante un escenario"
+            },
+            {
+              "id": "c",
+              "text": "Que no habrá necesidad de ejercicios posteriores"
+            },
+            {
+              "id": "d",
+              "text": "Que los indicadores del escenario son maliciosos en todo entorno"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El ejercicio revela vacíos de procedimiento y comunicación sin afirmar eficacia absoluta de toda tecnología.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w31d1-q04"
+        },
+        {
+          "id": "w31d7-q20",
+          "prompt": "¿Qué debe preceder a reconectar un equipo reconstruido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Deshabilitar toda auditoría para ahorrar carga"
+            },
+            {
+              "id": "b",
+              "text": "Aplicar correcciones necesarias y comprobar configuración y monitoreo"
+            },
+            {
+              "id": "c",
+              "text": "Restaurar credenciales sospechosas sin cambios"
+            },
+            {
+              "id": "d",
+              "text": "Excluirlo del inventario definitivamente"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Reponer el sistema sin cerrar la vía de entrada puede permitir recurrencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w31d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w31d7-challenge",
+        "prompt": "Dirección pide cien palabras sobre un incidente aún abierto. ¿Qué información priorizas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Todos los eventos sin interpretación"
+          },
+          {
+            "id": "b",
+            "text": "Hechos, impacto conocido, contención, incertidumbres y siguiente decisión"
+          },
+          {
+            "id": "c",
+            "text": "Una atribución fuerte para evitar dudas"
+          },
+          {
+            "id": "d",
+            "text": "Solo los nombres de herramientas usadas"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "Un resumen breve debe permitir decisiones y conservar los límites de la evidencia.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    }
+  ]
+}

@@ -1,0 +1,2094 @@
+{
+  "week": 41,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w41d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w41d1-q01",
+          "prompt": "En un equipo encendido, ¿qué fuente suele perderse al apagarlo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Imagen del disco"
+            },
+            {
+              "id": "b",
+              "text": "Documento guardado"
+            },
+            {
+              "id": "c",
+              "text": "RAM"
+            },
+            {
+              "id": "d",
+              "text": "Copia externa"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La memoria volátil requiere alimentación para conservar su estado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d1-q02",
+          "prompt": "Un caso autoriza examinar un portátil. ¿Qué amplía indebidamente el alcance?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Copiar el móvil personal ajeno"
+            },
+            {
+              "id": "b",
+              "text": "Registrar el serial"
+            },
+            {
+              "id": "c",
+              "text": "Adquirir su disco"
+            },
+            {
+              "id": "d",
+              "text": "Anotar la hora"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La autorización debe delimitar dispositivos y fuentes examinables.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d1-q03",
+          "prompt": "¿Qué describe una adquisición lógica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Recoger archivos seleccionados"
+            },
+            {
+              "id": "b",
+              "text": "Copiar cada sector"
+            },
+            {
+              "id": "c",
+              "text": "Clonar chips físicos"
+            },
+            {
+              "id": "d",
+              "text": "Obtener solo RAM"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La adquisición lógica selecciona datos accesibles por el sistema.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d1-q04",
+          "prompt": "¿Qué fuente recoge conexiones activas con mayor oportunidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Estado del sistema vivo"
+            },
+            {
+              "id": "b",
+              "text": "Factura del equipo"
+            },
+            {
+              "id": "c",
+              "text": "Disco apagado únicamente"
+            },
+            {
+              "id": "d",
+              "text": "Manual del fabricante"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las conexiones pueden desaparecer al finalizar procesos o apagar.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d1-q05",
+          "prompt": "¿Por qué registrar herramientas usadas sobre un sistema vivo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Pueden modificar su estado"
+            },
+            {
+              "id": "b",
+              "text": "Garantizan ausencia de cambios"
+            },
+            {
+              "id": "c",
+              "text": "Sustituyen la autorización"
+            },
+            {
+              "id": "d",
+              "text": "Evitan calcular hashes"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La propia recolección produce cambios que deben documentarse.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d1-q06",
+          "prompt": "Un servidor crítico requiere intervención. ¿Qué decide la prioridad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo tamaño del disco"
+            },
+            {
+              "id": "b",
+              "text": "Volatilidad y riesgo operativo"
+            },
+            {
+              "id": "c",
+              "text": "Solo antigüedad del equipo"
+            },
+            {
+              "id": "d",
+              "text": "Orden alfabético de archivos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Preservar evidencia exige considerar pérdida y continuidad operativa.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d1-q07",
+          "prompt": "¿Qué diferencia fuente y conclusión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ambas son opiniones"
+            },
+            {
+              "id": "b",
+              "text": "El registro es fuente; su interpretación, conclusión"
+            },
+            {
+              "id": "c",
+              "text": "La conclusión reemplaza al registro"
+            },
+            {
+              "id": "d",
+              "text": "Solo capturas son fuentes"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El análisis debe conservar el vínculo con datos originales.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d1-q08",
+          "prompt": "Una captura empieza después del incidente. ¿Qué límite tiene?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Demuestra ausencia anterior"
+            },
+            {
+              "id": "b",
+              "text": "Contiene todo el disco"
+            },
+            {
+              "id": "c",
+              "text": "No cubre actividad anterior"
+            },
+            {
+              "id": "d",
+              "text": "Identifica siempre al atacante"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La cobertura temporal limita lo que puede inferirse.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        }
+      ],
+      "challenge": {
+        "id": "w41d1-challenge",
+        "prompt": "Portátil encendido con proceso sospechoso y disco estable. ¿Qué plan preserva mejor datos fugaces?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Apagar y después buscar RAM"
+          },
+          {
+            "id": "b",
+            "text": "Reinstalar antes de copiar"
+          },
+          {
+            "id": "c",
+            "text": "Ejecutar el adjunto para observarlo"
+          },
+          {
+            "id": "d",
+            "text": "Recoger memoria autorizada y documentar antes de apagar"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La RAM puede perderse al apagar; la adquisición viva requiere registrar cambios.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    },
+    {
+      "dayId": "w41d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w41d2-q01",
+          "prompt": "Dos copias tienen SHA-256 diferente. ¿Qué concluyes primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Son del mismo autor"
+            },
+            {
+              "id": "b",
+              "text": "Ambas contienen malware"
+            },
+            {
+              "id": "c",
+              "text": "Sus bytes no coinciden"
+            },
+            {
+              "id": "d",
+              "text": "Una está cifrada"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un cambio del hash exige investigar la diferencia entre contenidos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d2-q02",
+          "prompt": "¿Por qué examinar una copia de trabajo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Preservar la evidencia original"
+            },
+            {
+              "id": "b",
+              "text": "Aumentar permisos"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar metadatos"
+            },
+            {
+              "id": "d",
+              "text": "Omitir custodia"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La copia permite análisis sin experimentar sobre el original.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d2-q03",
+          "prompt": "¿Qué debe acompañar un hash registrado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo color del icono"
+            },
+            {
+              "id": "b",
+              "text": "Solo tamaño visible"
+            },
+            {
+              "id": "c",
+              "text": "Nombre del analista sin archivo"
+            },
+            {
+              "id": "d",
+              "text": "Algoritmo y archivo identificado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Sin algoritmo y objeto no puede repetirse la comparación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d2-q04",
+          "prompt": "¿Un SHA-256 coincidente demuestra quién creó un archivo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí, identifica al propietario"
+            },
+            {
+              "id": "b",
+              "text": "Sí, revela su contraseña"
+            },
+            {
+              "id": "c",
+              "text": "No, verifica coincidencia de contenido"
+            },
+            {
+              "id": "d",
+              "text": "Solo si es ejecutable"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La integridad de bytes no establece autoría ni intención.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d2-q05",
+          "prompt": "Renombras una copia sin tocar su contenido. ¿Qué esperas del SHA-256 del archivo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El mismo valor"
+            },
+            {
+              "id": "b",
+              "text": "Un valor aleatorio"
+            },
+            {
+              "id": "c",
+              "text": "El hash del nombre"
+            },
+            {
+              "id": "d",
+              "text": "Un valor siempre nulo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El cálculo del archivo depende de sus bytes, no del nombre externo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d2-q06",
+          "prompt": "¿Qué comparación verifica una transferencia forense?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Número de carpetas visibles"
+            },
+            {
+              "id": "b",
+              "text": "Hora del correo"
+            },
+            {
+              "id": "c",
+              "text": "Extensión del archivo"
+            },
+            {
+              "id": "d",
+              "text": "Hash antes y después"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La comparación de contenido detecta alteraciones durante la transferencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d2-q07",
+          "prompt": "¿Qué haces si el hash de trabajo deja de coincidir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conservar el cambio y regenerar copia documentada"
+            },
+            {
+              "id": "b",
+              "text": "Actualizar el hash original en silencio"
+            },
+            {
+              "id": "c",
+              "text": "Borrar el registro inicial"
+            },
+            {
+              "id": "d",
+              "text": "Declarar íntegro por tamaño"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Debe investigarse y registrarse la discrepancia sin reescribir antecedentes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d2-q08",
+          "prompt": "¿Cifrar una evidencia reemplaza verificar su integridad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí, cualquier cifrado basta"
+            },
+            {
+              "id": "b",
+              "text": "Sí, si cambia la extensión"
+            },
+            {
+              "id": "c",
+              "text": "No, son controles distintos"
+            },
+            {
+              "id": "d",
+              "text": "Solo para archivos pequeños"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El cifrado protege confidencialidad; los hashes permiten comprobar contenido.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        }
+      ],
+      "challenge": {
+        "id": "w41d2-challenge",
+        "prompt": "Recibes imagen E41 y hash de origen distinto del calculado. ¿Qué respuesta es defendible?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Cambiar el valor recibido"
+          },
+          {
+            "id": "b",
+            "text": "Usarla porque abre bien"
+          },
+          {
+            "id": "c",
+            "text": "Detener uso y revisar transferencia conservando ambos valores"
+          },
+          {
+            "id": "d",
+            "text": "Renombrarla para corregir hash"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "Una imagen legible no resuelve una discrepancia de integridad.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    },
+    {
+      "dayId": "w41d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w41d3-q01",
+          "prompt": "¿Qué dato identifica inequívocamente un disco en custodia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Nombre comercial solamente"
+            },
+            {
+              "id": "b",
+              "text": "Color de escritorio"
+            },
+            {
+              "id": "c",
+              "text": "ID de evidencia y serial"
+            },
+            {
+              "id": "d",
+              "text": "Nombre de carpeta común"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La identificación evita confundir objetos en transferencias posteriores.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d3-q02",
+          "prompt": "¿Qué se registra al entregar una imagen?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo que llegó"
+            },
+            {
+              "id": "b",
+              "text": "Solo su extensión"
+            },
+            {
+              "id": "c",
+              "text": "Quién entrega, recibe, cuándo y por qué"
+            },
+            {
+              "id": "d",
+              "text": "Solo el software del receptor"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La custodia documenta cada cambio de control y su finalidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d3-q03",
+          "prompt": "Falta una firma de recepción. ¿Qué corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Inventar la firma"
+            },
+            {
+              "id": "b",
+              "text": "Suprimir la transferencia"
+            },
+            {
+              "id": "c",
+              "text": "Registrar y aclarar la brecha"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar la fecha inicial"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las lagunas deben exponerse y resolverse con información verificable.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d3-q04",
+          "prompt": "¿Qué acceso necesita quedar documentado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Apertura autorizada de evidencia"
+            },
+            {
+              "id": "b",
+              "text": "Solo accesos sospechosos"
+            },
+            {
+              "id": "c",
+              "text": "Solo la primera copia"
+            },
+            {
+              "id": "d",
+              "text": "Solo acciones del jefe"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El seguimiento incluye manipulaciones legítimas, no únicamente incidentes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d3-q05",
+          "prompt": "Una bolsa tiene sello roto. ¿Qué haces al recibirla?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Reponer sello sin anotarlo"
+            },
+            {
+              "id": "b",
+              "text": "Documentar estado y notificar"
+            },
+            {
+              "id": "c",
+              "text": "Desechar el inventario"
+            },
+            {
+              "id": "d",
+              "text": "Asumir contaminación demostrada"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El estado observado es un hecho; sus causas requieren investigación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d3-q06",
+          "prompt": "¿Qué protege un repositorio con acceso restringido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Autenticidad automática del autor"
+            },
+            {
+              "id": "b",
+              "text": "Disponibilidad eterna"
+            },
+            {
+              "id": "c",
+              "text": "Interpretación correcta"
+            },
+            {
+              "id": "d",
+              "text": "Control de manipulación de evidencia"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Limitar y registrar accesos reduce cambios no autorizados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d3-q07",
+          "prompt": "¿Qué distingue custodia e integridad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Son el mismo registro"
+            },
+            {
+              "id": "b",
+              "text": "Custodia sigue control; hash compara bytes"
+            },
+            {
+              "id": "c",
+              "text": "Custodia descifra archivos"
+            },
+            {
+              "id": "d",
+              "text": "Hash identifica al transportista"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Son controles complementarios con propósitos diferentes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d3-q08",
+          "prompt": "¿Por qué registrar la zona horaria de una entrega?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Reducir tamaño de imagen"
+            },
+            {
+              "id": "b",
+              "text": "Modificar hora original"
+            },
+            {
+              "id": "c",
+              "text": "Validar el nombre de archivo"
+            },
+            {
+              "id": "d",
+              "text": "Evitar ambigüedad temporal"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una fecha sin zona puede ordenar incorrectamente transferencias.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        }
+      ],
+      "challenge": {
+        "id": "w41d3-challenge",
+        "prompt": "Un mensajero entregó un disco sin hora ni receptor anotados. ¿Qué completas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Firma retroactiva inventada"
+          },
+          {
+            "id": "b",
+            "text": "Fecha aproximada como cierta"
+          },
+          {
+            "id": "c",
+            "text": "Brecha, datos confirmados y responsables consultados"
+          },
+          {
+            "id": "d",
+            "text": "Solo nuevo nombre del disco"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La custodia debe reflejar incertidumbres y aclaraciones verificadas.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    },
+    {
+      "dayId": "w41d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w41d4-q01",
+          "prompt": "¿Para qué sirve un bloqueador de escritura en adquisición de disco?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Descifrar cualquier volumen"
+            },
+            {
+              "id": "b",
+              "text": "Reparar sectores dañados"
+            },
+            {
+              "id": "c",
+              "text": "Evitar escrituras al medio fuente"
+            },
+            {
+              "id": "d",
+              "text": "Acelerar toda lectura"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El bloqueo protege el original frente a escrituras del equipo examinador.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d4-q02",
+          "prompt": "¿Qué incluye una imagen física frente a una copia de documentos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo archivos abiertos"
+            },
+            {
+              "id": "b",
+              "text": "Espacio no asignado accesible"
+            },
+            {
+              "id": "c",
+              "text": "Solo nombres de usuarios"
+            },
+            {
+              "id": "d",
+              "text": "Solo historial web"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La imagen física conserva sectores que una copia lógica puede omitir.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d4-q03",
+          "prompt": "¿Qué montaje inicial protege una imagen educativa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo lectura"
+            },
+            {
+              "id": "b",
+              "text": "Lectura y escritura"
+            },
+            {
+              "id": "c",
+              "text": "Como disco de arranque"
+            },
+            {
+              "id": "d",
+              "text": "Con reparación automática"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El montaje de solo lectura reduce alteraciones durante el examen.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d4-q04",
+          "prompt": "El medio muestra errores de lectura. ¿Qué debe registrarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo tiempo total"
+            },
+            {
+              "id": "b",
+              "text": "Sectores afectados y comportamiento de herramienta"
+            },
+            {
+              "id": "c",
+              "text": "Solo archivos recuperados"
+            },
+            {
+              "id": "d",
+              "text": "Solo memoria instalada"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los errores afectan completitud y deben figurar en los límites.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d4-q05",
+          "prompt": "¿Por qué documentar versión de herramienta de imagen?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Facilitar reproducción del procedimiento"
+            },
+            {
+              "id": "b",
+              "text": "Probar autoría del malware"
+            },
+            {
+              "id": "c",
+              "text": "Evitar hash de salida"
+            },
+            {
+              "id": "d",
+              "text": "Sustituir el serial"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las versiones pueden producir formatos y resultados diferentes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d4-q06",
+          "prompt": "¿Qué riesgo implica ejecutar chkdsk sobre el original?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Crear memoria histórica"
+            },
+            {
+              "id": "b",
+              "text": "Modificar estructuras del sistema de archivos"
+            },
+            {
+              "id": "c",
+              "text": "Garantizar recuperación sin cambios"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar necesidad de imagen"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La reparación puede alterar metadatos y datos que se desean preservar.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d4-q07",
+          "prompt": "Una imagen está comprimida en un contenedor forense. ¿Qué verificas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que tenga el mismo tamaño externo"
+            },
+            {
+              "id": "b",
+              "text": "Que su nombre termine en exe"
+            },
+            {
+              "id": "c",
+              "text": "Integridad y contenido con herramienta compatible"
+            },
+            {
+              "id": "d",
+              "text": "Que sea ejecutable"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El tamaño del contenedor puede diferir sin cambiar datos adquiridos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d4-q08",
+          "prompt": "¿Qué debes confirmar antes de iniciar adquisición autorizada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo resolución de pantalla"
+            },
+            {
+              "id": "b",
+              "text": "Solo cantidad de usuarios"
+            },
+            {
+              "id": "c",
+              "text": "Solo nombre del informe"
+            },
+            {
+              "id": "d",
+              "text": "Origen y destino correctos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Confundir origen y destino puede sobrescribir evidencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        }
+      ],
+      "challenge": {
+        "id": "w41d4-challenge",
+        "prompt": "El programa propone reparar automáticamente la imagen al montarla. ¿Qué decides?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Aceptar y reemplazar el original"
+          },
+          {
+            "id": "b",
+            "text": "Reparar antes de calcular hash"
+          },
+          {
+            "id": "c",
+            "text": "Arrancarla como sistema habitual"
+          },
+          {
+            "id": "d",
+            "text": "Cancelar reparación y montar copia en solo lectura"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "Una reparación cambia evidencia y debe evitarse durante la preservación inicial.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    },
+    {
+      "dayId": "w41d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w41d5-q01",
+          "prompt": "Un archivo aparece en espacio no asignado. ¿Qué indica prudentemente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sigue abierto ahora"
+            },
+            {
+              "id": "b",
+              "text": "Tiene propietario demostrado"
+            },
+            {
+              "id": "c",
+              "text": "Puede ser residuo de datos previos"
+            },
+            {
+              "id": "d",
+              "text": "Fue borrado por el sospechoso"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La ubicación permite recuperación parcial, no atribución automática.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d5-q02",
+          "prompt": "¿Qué aporta la ruta de un artefacto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Identidad humana definitiva"
+            },
+            {
+              "id": "b",
+              "text": "Hora de ejecución segura"
+            },
+            {
+              "id": "c",
+              "text": "Contexto de ubicación y perfil"
+            },
+            {
+              "id": "d",
+              "text": "Contenido de RAM"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La ruta orienta el análisis, pero requiere correlación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d5-q03",
+          "prompt": "¿Qué diferencia extensión y firma de archivo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La extensión prueba siempre contenido"
+            },
+            {
+              "id": "b",
+              "text": "La firma inspecciona bytes del formato"
+            },
+            {
+              "id": "c",
+              "text": "Ambas son nombres externos"
+            },
+            {
+              "id": "d",
+              "text": "La firma revela autor"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una extensión puede cambiarse sin transformar el formato interno.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d5-q04",
+          "prompt": "Un archivo tiene tamaño cero. ¿Qué conviene revisar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Asumir que nunca existió"
+            },
+            {
+              "id": "b",
+              "text": "Declarar malware vacío"
+            },
+            {
+              "id": "c",
+              "text": "Metadatos y fuentes relacionadas"
+            },
+            {
+              "id": "d",
+              "text": "Concluir que se ejecutó"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un archivo vacío puede conservar contexto útil aunque carezca de contenido.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d5-q05",
+          "prompt": "¿Qué dato permite reencontrar un hallazgo en una imagen?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo captura recortada"
+            },
+            {
+              "id": "b",
+              "text": "Ruta, identificador y herramienta"
+            },
+            {
+              "id": "c",
+              "text": "Solo opinión del analista"
+            },
+            {
+              "id": "d",
+              "text": "Solo color de selección"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un localizador preciso permite revisar la evidencia subyacente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d5-q06",
+          "prompt": "¿Que un archivo exista demuestra que se ejecutó?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí, por su extensión"
+            },
+            {
+              "id": "b",
+              "text": "Sí, si es grande"
+            },
+            {
+              "id": "c",
+              "text": "No, hace falta evidencia adicional"
+            },
+            {
+              "id": "d",
+              "text": "Sí, si está descargado"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Presencia y ejecución son afirmaciones distintas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d5-q07",
+          "prompt": "Dos archivos se llaman informe.pdf. ¿Cómo los distingues?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo extensión"
+            },
+            {
+              "id": "b",
+              "text": "Solo nombre base"
+            },
+            {
+              "id": "c",
+              "text": "Ruta y hash"
+            },
+            {
+              "id": "d",
+              "text": "Solo aplicación asociada"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Archivos homónimos pueden tener ubicaciones y contenidos diferentes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        },
+        {
+          "id": "w41d5-q08",
+          "prompt": "¿Qué afirmación respeta un artefacto parcialmente recuperado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Se conoce todo el documento"
+            },
+            {
+              "id": "b",
+              "text": "Su ausencia prueba limpieza"
+            },
+            {
+              "id": "c",
+              "text": "Se observan estos fragmentos"
+            },
+            {
+              "id": "d",
+              "text": "Su dueño es el atacante"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La conclusión debe limitarse a lo recuperado y verificable.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+        }
+      ],
+      "challenge": {
+        "id": "w41d5-challenge",
+        "prompt": "Recuperas un fragmento con un dominio y ningún registro de ejecución. ¿Qué conclusión cabe?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El equipo contactó el dominio"
+          },
+          {
+            "id": "b",
+            "text": "El usuario robó datos"
+          },
+          {
+            "id": "c",
+            "text": "El dominio aparece en el fragmento; ejecución no establecida"
+          },
+          {
+            "id": "d",
+            "text": "El dominio controló el sistema"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "El contenido recuperado demuestra presencia de texto, no actividad de red.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    },
+    {
+      "dayId": "w41d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w41d6-q01",
+          "prompt": "09:00 con UTC-03:00 equivale a ¿qué hora UTC?",
+          "options": [
+            {
+              "id": "a",
+              "text": "06:00Z"
+            },
+            {
+              "id": "b",
+              "text": "09:00Z"
+            },
+            {
+              "id": "c",
+              "text": "12:00Z"
+            },
+            {
+              "id": "d",
+              "text": "03:00Z"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Para UTC se resta el desplazamiento local, aquí negativo.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html"
+        },
+        {
+          "id": "w41d6-q02",
+          "prompt": "¿Qué conserva una cronología normalizada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo hora redondeada"
+            },
+            {
+              "id": "b",
+              "text": "Solo orden supuesto"
+            },
+            {
+              "id": "c",
+              "text": "Solo captura final"
+            },
+            {
+              "id": "d",
+              "text": "Hora original, zona y conversión"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Conservar origen permite auditar la conversión temporal.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html"
+        },
+        {
+          "id": "w41d6-q03",
+          "prompt": "Dos eventos comparten segundo. ¿Qué no puede asumirse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Posible proximidad temporal"
+            },
+            {
+              "id": "b",
+              "text": "Necesidad de correlación"
+            },
+            {
+              "id": "c",
+              "text": "Resolución limitada"
+            },
+            {
+              "id": "d",
+              "text": "Orden causal exacto"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La precisión del reloj puede impedir ordenar eventos muy cercanos.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html"
+        },
+        {
+          "id": "w41d6-q04",
+          "prompt": "Un endpoint tiene reloj cinco minutos adelantado. ¿Qué haces?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Anotar desfase y ajustar análisis"
+            },
+            {
+              "id": "b",
+              "text": "Modificar registros originales"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar todos sus eventos"
+            },
+            {
+              "id": "d",
+              "text": "Ignorar hora de adquisición"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La corrección analítica se documenta sin alterar la fuente.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html"
+        },
+        {
+          "id": "w41d6-q05",
+          "prompt": "¿Qué significa Z al final de una marca RFC 3339?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hora local desconocida"
+            },
+            {
+              "id": "b",
+              "text": "Zona del analista"
+            },
+            {
+              "id": "c",
+              "text": "UTC"
+            },
+            {
+              "id": "d",
+              "text": "Tiempo de ejecución"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Z expresa desplazamiento cero respecto de UTC.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html"
+        },
+        {
+          "id": "w41d6-q06",
+          "prompt": "Un archivo creado antes de descargarse, ¿qué examinas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Atribución inmediata"
+            },
+            {
+              "id": "b",
+              "text": "Semántica del campo y reloj"
+            },
+            {
+              "id": "c",
+              "text": "Solo nombre del archivo"
+            },
+            {
+              "id": "d",
+              "text": "Culpa del usuario"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Copias, metadatos y relojes pueden producir secuencias aparentes engañosas.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html"
+        },
+        {
+          "id": "w41d6-q07",
+          "prompt": "¿Qué aporta citar el evento que origina una fila temporal?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Certidumbre de intención"
+            },
+            {
+              "id": "b",
+              "text": "Identificación del atacante"
+            },
+            {
+              "id": "c",
+              "text": "Cobertura total del equipo"
+            },
+            {
+              "id": "d",
+              "text": "Trazabilidad de la afirmación"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La referencia enlaza interpretación y dato verificable.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html"
+        },
+        {
+          "id": "w41d6-q08",
+          "prompt": "¿Qué representa 2026-05-02T00:30:00+02:00 en UTC?",
+          "options": [
+            {
+              "id": "a",
+              "text": "2026-05-02T02:30:00Z"
+            },
+            {
+              "id": "b",
+              "text": "2026-05-02T00:30:00Z"
+            },
+            {
+              "id": "c",
+              "text": "2026-05-01T22:30:00Z"
+            },
+            {
+              "id": "d",
+              "text": "2026-05-01T23:30:00Z"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Restar dos horas cambia también el día.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html"
+        }
+      ],
+      "challenge": {
+        "id": "w41d6-challenge",
+        "prompt": "Registro A indica 10:00 UTC y B 11:00 UTC+01:00. ¿Cómo relacionarlos?",
+        "options": [
+          {
+            "id": "a",
+            "text": "B sucedió una hora después"
+          },
+          {
+            "id": "b",
+            "text": "A sucedió una hora después"
+          },
+          {
+            "id": "c",
+            "text": "B carece de tiempo válido"
+          },
+          {
+            "id": "d",
+            "text": "Mismo instante, conservar ambas marcas originales"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "Normalizar zonas evita inventar diferencias cronológicas.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    },
+    {
+      "dayId": "w41d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w41d7-q01",
+          "prompt": "En un equipo encendido, ¿qué fuente suele perderse al apagarlo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Imagen del disco"
+            },
+            {
+              "id": "b",
+              "text": "Documento guardado"
+            },
+            {
+              "id": "c",
+              "text": "RAM"
+            },
+            {
+              "id": "d",
+              "text": "Copia externa"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La memoria volátil requiere alimentación para conservar su estado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w41d1-q01"
+        },
+        {
+          "id": "w41d7-q02",
+          "prompt": "Dos copias tienen SHA-256 diferente. ¿Qué concluyes primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Son del mismo autor"
+            },
+            {
+              "id": "b",
+              "text": "Ambas contienen malware"
+            },
+            {
+              "id": "c",
+              "text": "Sus bytes no coinciden"
+            },
+            {
+              "id": "d",
+              "text": "Una está cifrada"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un cambio del hash exige investigar la diferencia entre contenidos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w41d2-q01"
+        },
+        {
+          "id": "w41d7-q03",
+          "prompt": "¿Qué dato identifica inequívocamente un disco en custodia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Nombre comercial solamente"
+            },
+            {
+              "id": "b",
+              "text": "Color de escritorio"
+            },
+            {
+              "id": "c",
+              "text": "ID de evidencia y serial"
+            },
+            {
+              "id": "d",
+              "text": "Nombre de carpeta común"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La identificación evita confundir objetos en transferencias posteriores.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w41d3-q01"
+        },
+        {
+          "id": "w41d7-q04",
+          "prompt": "¿Para qué sirve un bloqueador de escritura en adquisición de disco?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Descifrar cualquier volumen"
+            },
+            {
+              "id": "b",
+              "text": "Reparar sectores dañados"
+            },
+            {
+              "id": "c",
+              "text": "Evitar escrituras al medio fuente"
+            },
+            {
+              "id": "d",
+              "text": "Acelerar toda lectura"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El bloqueo protege el original frente a escrituras del equipo examinador.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w41d4-q01"
+        },
+        {
+          "id": "w41d7-q05",
+          "prompt": "Un archivo aparece en espacio no asignado. ¿Qué indica prudentemente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sigue abierto ahora"
+            },
+            {
+              "id": "b",
+              "text": "Tiene propietario demostrado"
+            },
+            {
+              "id": "c",
+              "text": "Puede ser residuo de datos previos"
+            },
+            {
+              "id": "d",
+              "text": "Fue borrado por el sospechoso"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La ubicación permite recuperación parcial, no atribución automática.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w41d5-q01"
+        },
+        {
+          "id": "w41d7-q06",
+          "prompt": "09:00 con UTC-03:00 equivale a ¿qué hora UTC?",
+          "options": [
+            {
+              "id": "a",
+              "text": "06:00Z"
+            },
+            {
+              "id": "b",
+              "text": "09:00Z"
+            },
+            {
+              "id": "c",
+              "text": "12:00Z"
+            },
+            {
+              "id": "d",
+              "text": "03:00Z"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Para UTC se resta el desplazamiento local, aquí negativo.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html",
+          "reviewOf": "w41d6-q01"
+        },
+        {
+          "id": "w41d7-q07",
+          "prompt": "Un caso autoriza examinar un portátil. ¿Qué amplía indebidamente el alcance?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Copiar el móvil personal ajeno"
+            },
+            {
+              "id": "b",
+              "text": "Registrar el serial"
+            },
+            {
+              "id": "c",
+              "text": "Adquirir su disco"
+            },
+            {
+              "id": "d",
+              "text": "Anotar la hora"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La autorización debe delimitar dispositivos y fuentes examinables.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w41d1-q02"
+        },
+        {
+          "id": "w41d7-q08",
+          "prompt": "¿Por qué examinar una copia de trabajo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Preservar la evidencia original"
+            },
+            {
+              "id": "b",
+              "text": "Aumentar permisos"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar metadatos"
+            },
+            {
+              "id": "d",
+              "text": "Omitir custodia"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La copia permite análisis sin experimentar sobre el original.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w41d2-q02"
+        },
+        {
+          "id": "w41d7-q09",
+          "prompt": "¿Qué se registra al entregar una imagen?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo que llegó"
+            },
+            {
+              "id": "b",
+              "text": "Solo su extensión"
+            },
+            {
+              "id": "c",
+              "text": "Quién entrega, recibe, cuándo y por qué"
+            },
+            {
+              "id": "d",
+              "text": "Solo el software del receptor"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La custodia documenta cada cambio de control y su finalidad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w41d3-q02"
+        },
+        {
+          "id": "w41d7-q10",
+          "prompt": "¿Qué incluye una imagen física frente a una copia de documentos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo archivos abiertos"
+            },
+            {
+              "id": "b",
+              "text": "Espacio no asignado accesible"
+            },
+            {
+              "id": "c",
+              "text": "Solo nombres de usuarios"
+            },
+            {
+              "id": "d",
+              "text": "Solo historial web"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La imagen física conserva sectores que una copia lógica puede omitir.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w41d4-q02"
+        },
+        {
+          "id": "w41d7-q11",
+          "prompt": "¿Qué aporta la ruta de un artefacto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Identidad humana definitiva"
+            },
+            {
+              "id": "b",
+              "text": "Hora de ejecución segura"
+            },
+            {
+              "id": "c",
+              "text": "Contexto de ubicación y perfil"
+            },
+            {
+              "id": "d",
+              "text": "Contenido de RAM"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La ruta orienta el análisis, pero requiere correlación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w41d5-q02"
+        },
+        {
+          "id": "w41d7-q12",
+          "prompt": "¿Qué conserva una cronología normalizada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo hora redondeada"
+            },
+            {
+              "id": "b",
+              "text": "Solo orden supuesto"
+            },
+            {
+              "id": "c",
+              "text": "Solo captura final"
+            },
+            {
+              "id": "d",
+              "text": "Hora original, zona y conversión"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Conservar origen permite auditar la conversión temporal.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html",
+          "reviewOf": "w41d6-q02"
+        },
+        {
+          "id": "w41d7-q13",
+          "prompt": "¿Qué describe una adquisición lógica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Recoger archivos seleccionados"
+            },
+            {
+              "id": "b",
+              "text": "Copiar cada sector"
+            },
+            {
+              "id": "c",
+              "text": "Clonar chips físicos"
+            },
+            {
+              "id": "d",
+              "text": "Obtener solo RAM"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La adquisición lógica selecciona datos accesibles por el sistema.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w41d1-q03"
+        },
+        {
+          "id": "w41d7-q14",
+          "prompt": "¿Qué debe acompañar un hash registrado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo color del icono"
+            },
+            {
+              "id": "b",
+              "text": "Solo tamaño visible"
+            },
+            {
+              "id": "c",
+              "text": "Nombre del analista sin archivo"
+            },
+            {
+              "id": "d",
+              "text": "Algoritmo y archivo identificado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Sin algoritmo y objeto no puede repetirse la comparación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w41d2-q03"
+        },
+        {
+          "id": "w41d7-q15",
+          "prompt": "Falta una firma de recepción. ¿Qué corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Inventar la firma"
+            },
+            {
+              "id": "b",
+              "text": "Suprimir la transferencia"
+            },
+            {
+              "id": "c",
+              "text": "Registrar y aclarar la brecha"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar la fecha inicial"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las lagunas deben exponerse y resolverse con información verificable.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w41d3-q03"
+        },
+        {
+          "id": "w41d7-q16",
+          "prompt": "¿Qué montaje inicial protege una imagen educativa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo lectura"
+            },
+            {
+              "id": "b",
+              "text": "Lectura y escritura"
+            },
+            {
+              "id": "c",
+              "text": "Como disco de arranque"
+            },
+            {
+              "id": "d",
+              "text": "Con reparación automática"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El montaje de solo lectura reduce alteraciones durante el examen.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w41d4-q03"
+        },
+        {
+          "id": "w41d7-q17",
+          "prompt": "¿Qué diferencia extensión y firma de archivo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La extensión prueba siempre contenido"
+            },
+            {
+              "id": "b",
+              "text": "La firma inspecciona bytes del formato"
+            },
+            {
+              "id": "c",
+              "text": "Ambas son nombres externos"
+            },
+            {
+              "id": "d",
+              "text": "La firma revela autor"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una extensión puede cambiarse sin transformar el formato interno.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w41d5-q03"
+        },
+        {
+          "id": "w41d7-q18",
+          "prompt": "Dos eventos comparten segundo. ¿Qué no puede asumirse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Posible proximidad temporal"
+            },
+            {
+              "id": "b",
+              "text": "Necesidad de correlación"
+            },
+            {
+              "id": "c",
+              "text": "Resolución limitada"
+            },
+            {
+              "id": "d",
+              "text": "Orden causal exacto"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La precisión del reloj puede impedir ordenar eventos muy cercanos.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc3339.html",
+          "reviewOf": "w41d6-q03"
+        },
+        {
+          "id": "w41d7-q19",
+          "prompt": "¿Qué fuente recoge conexiones activas con mayor oportunidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Estado del sistema vivo"
+            },
+            {
+              "id": "b",
+              "text": "Factura del equipo"
+            },
+            {
+              "id": "c",
+              "text": "Disco apagado únicamente"
+            },
+            {
+              "id": "d",
+              "text": "Manual del fabricante"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las conexiones pueden desaparecer al finalizar procesos o apagar.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w41d1-q04"
+        },
+        {
+          "id": "w41d7-q20",
+          "prompt": "El medio muestra errores de lectura. ¿Qué debe registrarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo tiempo total"
+            },
+            {
+              "id": "b",
+              "text": "Sectores afectados y comportamiento de herramienta"
+            },
+            {
+              "id": "c",
+              "text": "Solo archivos recuperados"
+            },
+            {
+              "id": "d",
+              "text": "Solo memoria instalada"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los errores afectan completitud y deben figurar en los límites.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/86/final",
+          "reviewOf": "w41d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w41d7-challenge",
+        "prompt": "Tu informe tiene cinco conclusiones y ninguna cita de artefacto. ¿Qué revisión permite validarlo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Añadir localizadores, hashes, método y límites"
+          },
+          {
+            "id": "b",
+            "text": "Añadir solo más capturas decorativas"
+          },
+          {
+            "id": "c",
+            "text": "Eliminar incertidumbres"
+          },
+          {
+            "id": "d",
+            "text": "Ordenar por gravedad sin evidencia"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La revisión requiere reproducir y contrastar los fundamentos de cada conclusión.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/86/final"
+      }
+    }
+  ]
+}

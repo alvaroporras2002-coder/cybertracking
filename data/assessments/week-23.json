@@ -1,0 +1,2094 @@
+{
+  "week": 23,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w23d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w23d1-q01",
+          "prompt": "Un empleado abusa deliberadamente de permisos para vender datos. ¿Qué actor describe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usuario externo sin credenciales"
+            },
+            {
+              "id": "b",
+              "text": "Fallo natural"
+            },
+            {
+              "id": "c",
+              "text": "Interno malicioso"
+            },
+            {
+              "id": "d",
+              "text": "Proveedor de continuidad"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El actor interno posee acceso legítimo que puede utilizar de forma indebida.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w23d1-q02",
+          "prompt": "Una persona borra datos por error. ¿Qué clase de origen debe contemplarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ataque estatal demostrado"
+            },
+            {
+              "id": "b",
+              "text": "Actividad criminal confirmada"
+            },
+            {
+              "id": "c",
+              "text": "Fallo de cifrado obligatorio"
+            },
+            {
+              "id": "d",
+              "text": "Amenaza humana accidental"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "No toda amenaza humana implica intención; los errores también pueden causar daño.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w23d1-q03",
+          "prompt": "Un grupo exige dinero para devolver acceso a archivos. ¿Qué motivación sugiere?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mantenimiento programado"
+            },
+            {
+              "id": "b",
+              "text": "Disponibilidad del proveedor"
+            },
+            {
+              "id": "c",
+              "text": "Beneficio económico"
+            },
+            {
+              "id": "d",
+              "text": "Cumplimiento de retención"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La exigencia de pago apoya una motivación económica sin identificar por sí sola al grupo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w23d1-q04",
+          "prompt": "¿Qué factor distingue capacidad de motivación de un actor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Capacidad son medios y habilidades; motivación es su finalidad"
+            },
+            {
+              "id": "b",
+              "text": "Capacidad es el daño ya probado"
+            },
+            {
+              "id": "c",
+              "text": "Motivación es la versión del software"
+            },
+            {
+              "id": "d",
+              "text": "Ambas son únicamente el país de origen"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un deseo de causar daño no implica disponer de los recursos para realizarlo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w23d1-q05",
+          "prompt": "Un actor busca documentos estratégicos durante meses. ¿Qué hipótesis encaja sin atribuir identidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Error de usuario confirmado"
+            },
+            {
+              "id": "b",
+              "text": "Respaldo rutinario demostrado"
+            },
+            {
+              "id": "c",
+              "text": "Publicidad autorizada"
+            },
+            {
+              "id": "d",
+              "text": "Espionaje como posible finalidad"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El comportamiento puede orientar una hipótesis de objetivo, pero no basta para atribuir actor concreto.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w23d1-q06",
+          "prompt": "¿Qué afirmación sobre actores estatales es prudente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La atribución requiere múltiples evidencias y análisis"
+            },
+            {
+              "id": "b",
+              "text": "Toda IP extranjera demuestra patrocinio estatal"
+            },
+            {
+              "id": "c",
+              "text": "Toda herramienta avanzada es exclusiva de un país"
+            },
+            {
+              "id": "d",
+              "text": "Una firma de malware identifica siempre al autor"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Infraestructura y herramientas pueden compartirse o usarse para engañar.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w23d1-q07",
+          "prompt": "¿Por qué evaluar recursos de un adversario?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Determinan automáticamente su identidad"
+            },
+            {
+              "id": "b",
+              "text": "Sustituyen la evaluación del activo"
+            },
+            {
+              "id": "c",
+              "text": "Influyen en técnicas viables y persistencia posible"
+            },
+            {
+              "id": "d",
+              "text": "Prueban que el ataque tendrá éxito"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Capacidad y oportunidades ayudan a estimar escenarios sin convertirlos en certezas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w23d1-q08",
+          "prompt": "Un proveedor tiene acceso remoto legítimo. ¿Qué debe considerarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todo proveedor es malicioso"
+            },
+            {
+              "id": "b",
+              "text": "El contrato elimina cualquier riesgo técnico"
+            },
+            {
+              "id": "c",
+              "text": "Su cuenta puede introducir riesgo si se compromete o abusa"
+            },
+            {
+              "id": "d",
+              "text": "Su acceso no necesita controles"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La relación legítima crea una vía que requiere permisos, supervisión y gestión de terceros.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w23d1-challenge",
+        "prompt": "Caso: hay robo de diseños y una IP extranjera; no hay más datos. ¿Qué conclusión es defendible?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Existe indicio de acceso y posible espionaje; la atribución sigue abierta"
+          },
+          {
+            "id": "b",
+            "text": "Es un Estado identificado por geolocalización"
+          },
+          {
+            "id": "c",
+            "text": "Es imposible que sea un interno"
+          },
+          {
+            "id": "d",
+            "text": "La IP prueba la motivación económica"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "El objetivo aparente y el origen de una conexión no bastan para identificar autor o patrocinador.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+      }
+    },
+    {
+      "dayId": "w23d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w23d2-q01",
+          "prompt": "Un SMS pide abrir un enlace y validar una cuenta urgentemente. ¿Qué variante puede ser?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Vishing exclusivamente"
+            },
+            {
+              "id": "b",
+              "text": "Ataque de memoria"
+            },
+            {
+              "id": "c",
+              "text": "Smishing"
+            },
+            {
+              "id": "d",
+              "text": "Réplica de datos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El canal SMS caracteriza esta modalidad de ingeniería social.",
+          "reference": "https://attack.mitre.org/techniques/T1566/"
+        },
+        {
+          "id": "w23d2-q02",
+          "prompt": "Una llamada suplanta a soporte y solicita el código de acceso. ¿Qué técnica encaja?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Inyección SQL"
+            },
+            {
+              "id": "b",
+              "text": "Vishing"
+            },
+            {
+              "id": "c",
+              "text": "Denegación distribuida"
+            },
+            {
+              "id": "d",
+              "text": "Sincronización de identidad"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El engaño por voz pretende que la víctima entregue información o realice acciones.",
+          "reference": "https://attack.mitre.org/techniques/T1566/"
+        },
+        {
+          "id": "w23d2-q03",
+          "prompt": "Un correo personalizado cita tu proyecto real para pedir una transferencia. ¿Qué sugiere?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantía de remitente legítimo"
+            },
+            {
+              "id": "b",
+              "text": "Actualización automática"
+            },
+            {
+              "id": "c",
+              "text": "Error de almacenamiento"
+            },
+            {
+              "id": "d",
+              "text": "Spearphishing dirigido"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La información contextual puede aumentar credibilidad sin demostrar autenticidad.",
+          "reference": "https://attack.mitre.org/techniques/T1566/"
+        },
+        {
+          "id": "w23d2-q04",
+          "prompt": "¿Qué acción verifica mejor una orden urgente de cambiar una cuenta bancaria?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Responder al mismo correo preguntando si es real"
+            },
+            {
+              "id": "b",
+              "text": "Llamar solo al teléfono nuevo incluido"
+            },
+            {
+              "id": "c",
+              "text": "Confiar en el logotipo"
+            },
+            {
+              "id": "d",
+              "text": "Confirmar por un canal conocido independiente"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La comprobación debe salir del canal controlado por el posible impostor.",
+          "reference": "https://attack.mitre.org/techniques/T1566/"
+        },
+        {
+          "id": "w23d2-q05",
+          "prompt": "Un mensaje exige saltarse aprobación porque «lo pide dirección». ¿Qué presión utiliza?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Autoridad y urgencia"
+            },
+            {
+              "id": "b",
+              "text": "Redundancia y disponibilidad"
+            },
+            {
+              "id": "c",
+              "text": "Hash y sal"
+            },
+            {
+              "id": "d",
+              "text": "Segmentación y contención"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El atacante puede invocar jerarquía y tiempo para reducir revisión crítica.",
+          "reference": "https://attack.mitre.org/techniques/T1566/"
+        },
+        {
+          "id": "w23d2-q06",
+          "prompt": "Un código QR conduce a un inicio de sesión inesperado. ¿Qué conviene evaluar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la calidad visual del QR"
+            },
+            {
+              "id": "b",
+              "text": "Si el QR elimina la necesidad de TLS"
+            },
+            {
+              "id": "c",
+              "text": "Si el papel parece profesional"
+            },
+            {
+              "id": "d",
+              "text": "Destino real y necesidad antes de introducir credenciales"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El QR es otra forma de entregar un enlace y puede ocultar el destino al primer vistazo.",
+          "reference": "https://attack.mitre.org/techniques/T1566/"
+        },
+        {
+          "id": "w23d2-q07",
+          "prompt": "¿Un mensaje sin faltas de ortografía queda libre de phishing?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí; los atacantes siempre escriben mal"
+            },
+            {
+              "id": "b",
+              "text": "No; hay que verificar contexto, remitente y acción solicitada"
+            },
+            {
+              "id": "c",
+              "text": "Sí, si incluye tu nombre"
+            },
+            {
+              "id": "d",
+              "text": "Solo si tiene un adjunto PDF"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La calidad de redacción no autentica origen ni legitimidad de la petición.",
+          "reference": "https://attack.mitre.org/techniques/T1566/"
+        },
+        {
+          "id": "w23d2-q08",
+          "prompt": "Tras pulsar un enlace sospechoso sin introducir datos, ¿qué corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Asegurar que no existe riesgo alguno"
+            },
+            {
+              "id": "b",
+              "text": "Reportar hechos y seguir el procedimiento de evaluación"
+            },
+            {
+              "id": "c",
+              "text": "Declarar automáticamente toda la empresa comprometida"
+            },
+            {
+              "id": "d",
+              "text": "Borrar evidencia del mensaje"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El impacto depende de lo ocurrido; el reporte permite evaluar sin inventar alcance.",
+          "reference": "https://attack.mitre.org/techniques/T1566/"
+        }
+      ],
+      "challenge": {
+        "id": "w23d2-challenge",
+        "prompt": "Caso: un supuesto técnico llama, conoce tu nombre y pide aprobar un push para «cancelar un ataque». ¿Qué haces?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Rechazar y verificar con soporte por contacto establecido"
+          },
+          {
+            "id": "b",
+            "text": "Aprobar porque conoce tu nombre"
+          },
+          {
+            "id": "c",
+            "text": "Leer también códigos de recuperación"
+          },
+          {
+            "id": "d",
+            "text": "Desactivar los registros"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "El conocimiento de datos personales no valida identidad; aprobar podría autorizar acceso del atacante.",
+        "reference": "https://attack.mitre.org/techniques/T1566/"
+      }
+    },
+    {
+      "dayId": "w23d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w23d3-q01",
+          "prompt": "¿Qué es superficie de ataque de un negocio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo vulnerabilidades ya explotadas"
+            },
+            {
+              "id": "b",
+              "text": "Puntos y vías donde puede interactuar un adversario"
+            },
+            {
+              "id": "c",
+              "text": "Solo el edificio principal"
+            },
+            {
+              "id": "d",
+              "text": "Solo los archivos cifrados"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Incluye servicios, identidades, interfaces físicas y relaciones que exponen oportunidades.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w23d3-q02",
+          "prompt": "Un servicio de administración queda accesible desde Internet. ¿Qué cambia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Se vuelve seguro por ser visible"
+            },
+            {
+              "id": "b",
+              "text": "Deja de necesitar autenticación"
+            },
+            {
+              "id": "c",
+              "text": "Se convierte en copia de respaldo"
+            },
+            {
+              "id": "d",
+              "text": "Aumenta su exposición a orígenes externos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La accesibilidad amplía quién puede intentar interactuar y exige controles adecuados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w23d3-q03",
+          "prompt": "¿Por qué inventariar cuentas además de dispositivos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Las cuentas son siempre vulnerabilidades"
+            },
+            {
+              "id": "b",
+              "text": "El hardware deja de importar"
+            },
+            {
+              "id": "c",
+              "text": "Todas las cuentas tienen el mismo impacto"
+            },
+            {
+              "id": "d",
+              "text": "Las identidades y credenciales también son vías de acceso"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una superficie incluye interfaces de identidad y no solo puertos de red.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w23d3-q04",
+          "prompt": "Un formulario acepta archivos. ¿Qué entrada debe reflejar el mapa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Carga de contenido y procesamiento posterior"
+            },
+            {
+              "id": "b",
+              "text": "Solo el nombre comercial del sitio"
+            },
+            {
+              "id": "c",
+              "text": "Únicamente el cable del servidor"
+            },
+            {
+              "id": "d",
+              "text": "Solo las imágenes públicas"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La entrada puede alcanzar parsers, almacenamiento y aplicaciones con diferentes riesgos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w23d3-q05",
+          "prompt": "¿Qué efecto tiene retirar un servicio innecesario?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Reduce una vía de exposición si se elimina correctamente"
+            },
+            {
+              "id": "b",
+              "text": "Garantiza que no quedan vulnerabilidades"
+            },
+            {
+              "id": "c",
+              "text": "Aumenta todos los permisos"
+            },
+            {
+              "id": "d",
+              "text": "Sustituye los respaldos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Reducir funcionalidades expuestas puede disminuir oportunidades, pero no elimina todo riesgo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w23d3-q06",
+          "prompt": "Una API usa claves guardadas en una aplicación móvil. ¿Qué analizar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Acceso que conceden y posibilidad de extracción o abuso"
+            },
+            {
+              "id": "b",
+              "text": "Solo la cantidad de iconos"
+            },
+            {
+              "id": "c",
+              "text": "Asumir que en móvil todo secreto es inaccesible"
+            },
+            {
+              "id": "d",
+              "text": "Ignorarla si no tiene página web"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las aplicaciones cliente pueden exponer credenciales y rutas hacia servicios.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w23d3-q07",
+          "prompt": "¿Qué relación de terceros conviene incluir en un diagrama de superficie?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Soporte remoto del proveedor y recursos alcanzables"
+            },
+            {
+              "id": "b",
+              "text": "Solo contratos sin acceso técnico"
+            },
+            {
+              "id": "c",
+              "text": "Solo proveedores de mobiliario"
+            },
+            {
+              "id": "d",
+              "text": "Solo páginas de publicidad"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los flujos y accesos de terceros pueden cruzar límites de confianza.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w23d3-q08",
+          "prompt": "¿Qué distingue vulnerabilidad de superficie expuesta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Toda interfaz expuesta demuestra un fallo explotable"
+            },
+            {
+              "id": "b",
+              "text": "Solo los fallos cuentan como interfaces"
+            },
+            {
+              "id": "c",
+              "text": "La superficie es una vía; la vulnerabilidad es una debilidad"
+            },
+            {
+              "id": "d",
+              "text": "Son sinónimos exactos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una vía autorizada puede estar bien protegida, aunque deba evaluarse.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w23d3-challenge",
+        "prompt": "Caso: una tienda dibuja solo su web y omite correo, VPN y cuentas SaaS. ¿Qué mejora necesita?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Añadir identidades, accesos remotos y servicios de terceros"
+          },
+          {
+            "id": "b",
+            "text": "Quitar la web para simplificar"
+          },
+          {
+            "id": "c",
+            "text": "Marcar todo como ataque confirmado"
+          },
+          {
+            "id": "d",
+            "text": "Dibujar únicamente el router"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "El mapa debe representar las rutas relevantes hacia activos y no limitarse al escaparate público.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+      }
+    },
+    {
+      "dayId": "w23d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w23d4-q01",
+          "prompt": "Una actualización legítima distribuye código alterado por un atacante. ¿Qué riesgo ilustra?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Compromiso de cadena de suministro"
+            },
+            {
+              "id": "b",
+              "text": "Error exclusivo del usuario final"
+            },
+            {
+              "id": "c",
+              "text": "Denegación física de acceso"
+            },
+            {
+              "id": "d",
+              "text": "Pérdida de retención documental"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El componente confiado puede introducir riesgo a través de su fabricación o distribución.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        },
+        {
+          "id": "w23d4-q02",
+          "prompt": "¿Qué aporta inventariar dependencias de una aplicación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantizar que todo componente es inocuo"
+            },
+            {
+              "id": "b",
+              "text": "Localizar componentes afectados por avisos y cambios"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar el código de terceros"
+            },
+            {
+              "id": "d",
+              "text": "Sustituir revisión de configuración"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Conocer componentes y versiones permite determinar exposición y planificar acciones.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        },
+        {
+          "id": "w23d4-q03",
+          "prompt": "Una dependencia ya no recibe mantenimiento. ¿Qué debe evaluarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que será segura por no cambiar"
+            },
+            {
+              "id": "b",
+              "text": "Que no necesita inventario"
+            },
+            {
+              "id": "c",
+              "text": "Vulnerabilidades, sustitución y controles durante la transición"
+            },
+            {
+              "id": "d",
+              "text": "Que toda versión antigua es malware"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La falta de soporte dificulta corregir fallos y exige un plan basado en riesgo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        },
+        {
+          "id": "w23d4-q04",
+          "prompt": "¿Qué demuestra validar una firma de un paquete del proveedor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ausencia absoluta de código malicioso"
+            },
+            {
+              "id": "b",
+              "text": "Que el proveedor nunca será comprometido"
+            },
+            {
+              "id": "c",
+              "text": "Compatibilidad con toda aplicación"
+            },
+            {
+              "id": "d",
+              "text": "Correspondencia con la clave confiable y contenido firmado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La firma ayuda con origen e integridad, pero no sustituye evaluar seguridad del contenido.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        },
+        {
+          "id": "w23d4-q05",
+          "prompt": "¿Por qué limitar acceso remoto de un proveedor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque todo proveedor es atacante"
+            },
+            {
+              "id": "b",
+              "text": "Para eliminar la necesidad del contrato"
+            },
+            {
+              "id": "c",
+              "text": "Para evitar todo registro"
+            },
+            {
+              "id": "d",
+              "text": "Reducir impacto de compromiso o abuso de su identidad"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un tercero autorizado debe recibir únicamente alcance y duración necesarios.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        },
+        {
+          "id": "w23d4-q06",
+          "prompt": "¿Qué requisito contractual facilita responder a un incidente de proveedor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Canales y plazos de notificación, responsabilidades y acceso a evidencia"
+            },
+            {
+              "id": "b",
+              "text": "Solo un logotipo actualizado"
+            },
+            {
+              "id": "c",
+              "text": "Una promesa de riesgo cero"
+            },
+            {
+              "id": "d",
+              "text": "La prohibición de documentar fallos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La coordinación y visibilidad deben acordarse antes de necesitar respuesta urgente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        },
+        {
+          "id": "w23d4-q07",
+          "prompt": "Una biblioteca transitiva introduce un fallo. ¿Qué significa transitiva?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Llega mediante otra dependencia usada por la aplicación"
+            },
+            {
+              "id": "b",
+              "text": "Solo existe durante una conexión VPN"
+            },
+            {
+              "id": "c",
+              "text": "Fue creada por un usuario interno"
+            },
+            {
+              "id": "d",
+              "text": "No puede afectar al producto final"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los componentes indirectos también forman parte de la cadena utilizada.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        },
+        {
+          "id": "w23d4-q08",
+          "prompt": "¿Qué aporta probar actualizaciones por etapas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Detectar incompatibilidades y limitar impacto de cambios"
+            },
+            {
+              "id": "b",
+              "text": "Garantizar que nunca habrá ataque de suministro"
+            },
+            {
+              "id": "c",
+              "text": "Sustituir verificar procedencia"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar la necesidad de reversión"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La implantación controlada reduce impacto operativo, complementando controles de integridad y procedencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w23d4-challenge",
+        "prompt": "Caso: un proveedor comprometido dispone de acceso administrativo permanente a todos los servidores. ¿Qué reduce el alcance futuro?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Confiar solo en su reputación"
+          },
+          {
+            "id": "b",
+            "text": "Compartir una nueva cuenta global entre proveedores"
+          },
+          {
+            "id": "c",
+            "text": "Acceso de tercero limitado, temporal y monitorizado, con respuesta acordada"
+          },
+          {
+            "id": "d",
+            "text": "Eliminar la revisión de accesos"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "Los controles del cliente deben limitar consecuencias aun cuando falle la seguridad del tercero.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+      }
+    },
+    {
+      "dayId": "w23d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w23d5-q01",
+          "prompt": "¿Qué control responde directamente a adivinación repetida de contraseñas en línea?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo cifrado de copias"
+            },
+            {
+              "id": "b",
+              "text": "Limitación de intentos y autenticación reforzada"
+            },
+            {
+              "id": "c",
+              "text": "Una retención más larga de facturas"
+            },
+            {
+              "id": "d",
+              "text": "Un bloqueo físico del almacén"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Reducir intentos y exigir factores adecuados dificulta esa vía de acceso.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w23d5-q02",
+          "prompt": "¿Qué control limita propagación desde un equipo de invitados?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Copiar permisos administrativos"
+            },
+            {
+              "id": "b",
+              "text": "Segmentación con reglas de flujo"
+            },
+            {
+              "id": "c",
+              "text": "Añadir más cuentas compartidas"
+            },
+            {
+              "id": "d",
+              "text": "Usar únicamente nombres distintos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La separación efectiva restringe comunicaciones hacia zonas sensibles.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w23d5-q03",
+          "prompt": "¿Qué medida reduce explotación de una vulnerabilidad con corrección disponible?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Renombrar el proceso vulnerable"
+            },
+            {
+              "id": "b",
+              "text": "Aplicar parche validado y comprobar su efecto"
+            },
+            {
+              "id": "c",
+              "text": "Ampliar permisos del servicio"
+            },
+            {
+              "id": "d",
+              "text": "Conservar la versión por costumbre"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La corrección aborda la debilidad; necesita despliegue y validación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w23d5-q04",
+          "prompt": "¿Qué defensa aborda phishing de credenciales además de formación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Autenticación resistente al phishing cuando sea viable"
+            },
+            {
+              "id": "b",
+              "text": "Preguntas secretas adicionales únicamente"
+            },
+            {
+              "id": "c",
+              "text": "Compartir contraseñas para verificarlas"
+            },
+            {
+              "id": "d",
+              "text": "Desactivar alertas de acceso"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los mecanismos vinculados al verificador reducen dependencia de detectar engaños visuales.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w23d5-q05",
+          "prompt": "Una aplicación pública no necesita administración desde Internet. ¿Qué control encaja?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Restringir la interfaz administrativa a una ruta autorizada"
+            },
+            {
+              "id": "b",
+              "text": "Publicar la interfaz con contraseña compartida"
+            },
+            {
+              "id": "c",
+              "text": "Ocultarla solo cambiando el título"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar todo registro del servidor"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Reducir exposición de gestión limita oportunidades de interacción no autorizada.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w23d5-q06",
+          "prompt": "¿Qué medida dificulta que un usuario ejecute software no autorizado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dar administración local a todos"
+            },
+            {
+              "id": "b",
+              "text": "Solo conservar más respaldos"
+            },
+            {
+              "id": "c",
+              "text": "Usar cuentas anónimas"
+            },
+            {
+              "id": "d",
+              "text": "Control de aplicaciones con política y validación"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La política de ejecución limita programas permitidos y requiere gestionar necesidades legítimas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w23d5-q07",
+          "prompt": "¿Qué protege frente a divulgación por un permiso público de almacenamiento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo aumentar capacidad de disco"
+            },
+            {
+              "id": "b",
+              "text": "Solo actualizar la página de inicio"
+            },
+            {
+              "id": "c",
+              "text": "Revisar y corregir acceso y compartición del recurso"
+            },
+            {
+              "id": "d",
+              "text": "Cifrar otra base no relacionada"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El control debe actuar sobre la autorización que expone ese contenido.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w23d5-q08",
+          "prompt": "¿Por qué combinar prevención y detección en una vía de ataque?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque detección elimina necesidad de permisos"
+            },
+            {
+              "id": "b",
+              "text": "Porque toda alerta bloquea ataques automáticamente"
+            },
+            {
+              "id": "c",
+              "text": "Una barrera puede fallar y se necesita observar y responder"
+            },
+            {
+              "id": "d",
+              "text": "Porque más logs siempre sustituyen respuesta"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las capas cubren fallos y consecuencias distintas de un escenario.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w23d5-challenge",
+        "prompt": "Caso: un correo roba una contraseña, pero MFA bloquea entrada; luego llegan pushes inesperados. ¿Qué plan corresponde?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Aprobar uno para tranquilizar al atacante"
+          },
+          {
+            "id": "b",
+            "text": "Suponer que el riesgo terminó"
+          },
+          {
+            "id": "c",
+            "text": "Rechazar pushes, reportar y gestionar credencial expuesta"
+          },
+          {
+            "id": "d",
+            "text": "Publicar la contraseña como evidencia"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "El bloqueo inicial no elimina la credencial expuesta ni los intentos posteriores de eludir protección.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      }
+    },
+    {
+      "dayId": "w23d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w23d6-q01",
+          "prompt": "Los logs muestran correo recibido, archivo abierto y proceso nuevo. ¿Qué puede construirse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una atribución estatal definitiva"
+            },
+            {
+              "id": "b",
+              "text": "Una prueba de exfiltración sin tráfico"
+            },
+            {
+              "id": "c",
+              "text": "Una garantía de causalidad"
+            },
+            {
+              "id": "d",
+              "text": "Una secuencia temporal de observaciones"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Ordenar eventos ayuda a formular hipótesis; correlación temporal no prueba todos los vínculos causales.",
+          "reference": "https://attack.mitre.org/"
+        },
+        {
+          "id": "w23d6-q02",
+          "prompt": "¿Qué diferencia una técnica ATT&CK de un nombre de actor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Siempre equivale a un país"
+            },
+            {
+              "id": "b",
+              "text": "Solo se aplica a malware"
+            },
+            {
+              "id": "c",
+              "text": "Describe un comportamiento, no identifica por sí sola al responsable"
+            },
+            {
+              "id": "d",
+              "text": "Es un certificado de atribución"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Múltiples actores pueden compartir técnicas y herramientas.",
+          "reference": "https://attack.mitre.org/"
+        },
+        {
+          "id": "w23d6-q03",
+          "prompt": "Un proceso se conecta a un dominio nuevo. ¿Qué información falta para valorar su finalidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Contexto del proceso, destino, contenido y patrón de comunicación"
+            },
+            {
+              "id": "b",
+              "text": "Solo el nombre del analista"
+            },
+            {
+              "id": "c",
+              "text": "Suponer que todo dominio nuevo es atacante"
+            },
+            {
+              "id": "d",
+              "text": "Solo la edad del portátil"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una conexión es una observación que necesita contexto antes de atribuir intención.",
+          "reference": "https://attack.mitre.org/"
+        },
+        {
+          "id": "w23d6-q04",
+          "prompt": "¿Qué debe indicar una hipótesis de campaña responsable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Evidencia favorable, límites y datos pendientes"
+            },
+            {
+              "id": "b",
+              "text": "Solo una conclusión contundente"
+            },
+            {
+              "id": "c",
+              "text": "Una identidad elegida por popularidad"
+            },
+            {
+              "id": "d",
+              "text": "La eliminación de alternativas"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La hipótesis debe poder contrastarse y reconocer incertidumbre.",
+          "reference": "https://attack.mitre.org/"
+        },
+        {
+          "id": "w23d6-q05",
+          "prompt": "Hay un intervalo sin logs. ¿Qué implica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Prueba ausencia de actividad"
+            },
+            {
+              "id": "b",
+              "text": "Confirma borrado malicioso siempre"
+            },
+            {
+              "id": "c",
+              "text": "Permite inventar eventos probables"
+            },
+            {
+              "id": "d",
+              "text": "Limita lo que puede afirmarse sobre ese periodo"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las lagunas de observación impiden concluir que no pasó nada.",
+          "reference": "https://attack.mitre.org/"
+        },
+        {
+          "id": "w23d6-q06",
+          "prompt": "¿Qué dato ayuda a contrastar ejecución tras un adjunto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el asunto del correo"
+            },
+            {
+              "id": "b",
+              "text": "La ubicación del icono"
+            },
+            {
+              "id": "c",
+              "text": "Relación entre proceso padre, archivo y eventos de ejecución"
+            },
+            {
+              "id": "d",
+              "text": "Una etiqueta «sospechoso» sin evidencia"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La telemetría de ejecución puede fortalecer o debilitar la hipótesis de un vínculo.",
+          "reference": "https://attack.mitre.org/"
+        },
+        {
+          "id": "w23d6-q07",
+          "prompt": "¿Qué evita confundir acceso inicial con exfiltración?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Exigir evidencia específica de transferencia o acceso a datos"
+            },
+            {
+              "id": "b",
+              "text": "Suponer que toda entrada roba todos los datos"
+            },
+            {
+              "id": "c",
+              "text": "Dar el mismo nombre a todas las etapas"
+            },
+            {
+              "id": "d",
+              "text": "Omitir el tráfico de salida"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las etapas y objetivos requieren observaciones diferentes para respaldar conclusiones.",
+          "reference": "https://attack.mitre.org/"
+        },
+        {
+          "id": "w23d6-q08",
+          "prompt": "Una explicación alternativa legítima encaja con los logs. ¿Qué debe hacerse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ocultarla para simplificar"
+            },
+            {
+              "id": "b",
+              "text": "Declarar cerrado el caso por intuición"
+            },
+            {
+              "id": "c",
+              "text": "Borrar los logs ambiguos"
+            },
+            {
+              "id": "d",
+              "text": "Compararla y buscar evidencia discriminante"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Considerar alternativas reduce errores de interpretación y conclusiones prematuras.",
+          "reference": "https://attack.mitre.org/"
+        }
+      ],
+      "challenge": {
+        "id": "w23d6-challenge",
+        "prompt": "Caso: un adjunto y una conexión externa coinciden, pero falta telemetría de procesos. ¿Qué conclusión es válida?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Exfiltración total confirmada"
+          },
+          {
+            "id": "b",
+            "text": "Usuario culpable demostrado"
+          },
+          {
+            "id": "c",
+            "text": "Posible relación que requiere confirmar ejecución y contexto de red"
+          },
+          {
+            "id": "d",
+            "text": "Campaña atribuida por el asunto del correo"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La coincidencia orienta investigación, pero no llena la evidencia que falta sobre ejecución y transferencia.",
+        "reference": "https://attack.mitre.org/"
+      }
+    },
+    {
+      "dayId": "w23d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w23d7-q01",
+          "prompt": "Un empleado abusa deliberadamente de permisos para vender datos. ¿Qué actor describe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Usuario externo sin credenciales"
+            },
+            {
+              "id": "b",
+              "text": "Fallo natural"
+            },
+            {
+              "id": "c",
+              "text": "Interno malicioso"
+            },
+            {
+              "id": "d",
+              "text": "Proveedor de continuidad"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El actor interno posee acceso legítimo que puede utilizar de forma indebida.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w23d1-q01"
+        },
+        {
+          "id": "w23d7-q02",
+          "prompt": "Un SMS pide abrir un enlace y validar una cuenta urgentemente. ¿Qué variante puede ser?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Vishing exclusivamente"
+            },
+            {
+              "id": "b",
+              "text": "Ataque de memoria"
+            },
+            {
+              "id": "c",
+              "text": "Smishing"
+            },
+            {
+              "id": "d",
+              "text": "Réplica de datos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El canal SMS caracteriza esta modalidad de ingeniería social.",
+          "reference": "https://attack.mitre.org/techniques/T1566/",
+          "reviewOf": "w23d2-q01"
+        },
+        {
+          "id": "w23d7-q03",
+          "prompt": "¿Qué es superficie de ataque de un negocio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo vulnerabilidades ya explotadas"
+            },
+            {
+              "id": "b",
+              "text": "Puntos y vías donde puede interactuar un adversario"
+            },
+            {
+              "id": "c",
+              "text": "Solo el edificio principal"
+            },
+            {
+              "id": "d",
+              "text": "Solo los archivos cifrados"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Incluye servicios, identidades, interfaces físicas y relaciones que exponen oportunidades.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w23d3-q01"
+        },
+        {
+          "id": "w23d7-q04",
+          "prompt": "Una actualización legítima distribuye código alterado por un atacante. ¿Qué riesgo ilustra?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Compromiso de cadena de suministro"
+            },
+            {
+              "id": "b",
+              "text": "Error exclusivo del usuario final"
+            },
+            {
+              "id": "c",
+              "text": "Denegación física de acceso"
+            },
+            {
+              "id": "d",
+              "text": "Pérdida de retención documental"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El componente confiado puede introducir riesgo a través de su fabricación o distribución.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final",
+          "reviewOf": "w23d4-q01"
+        },
+        {
+          "id": "w23d7-q05",
+          "prompt": "¿Qué control responde directamente a adivinación repetida de contraseñas en línea?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo cifrado de copias"
+            },
+            {
+              "id": "b",
+              "text": "Limitación de intentos y autenticación reforzada"
+            },
+            {
+              "id": "c",
+              "text": "Una retención más larga de facturas"
+            },
+            {
+              "id": "d",
+              "text": "Un bloqueo físico del almacén"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Reducir intentos y exigir factores adecuados dificulta esa vía de acceso.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w23d5-q01"
+        },
+        {
+          "id": "w23d7-q06",
+          "prompt": "Los logs muestran correo recibido, archivo abierto y proceso nuevo. ¿Qué puede construirse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una atribución estatal definitiva"
+            },
+            {
+              "id": "b",
+              "text": "Una prueba de exfiltración sin tráfico"
+            },
+            {
+              "id": "c",
+              "text": "Una garantía de causalidad"
+            },
+            {
+              "id": "d",
+              "text": "Una secuencia temporal de observaciones"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Ordenar eventos ayuda a formular hipótesis; correlación temporal no prueba todos los vínculos causales.",
+          "reference": "https://attack.mitre.org/",
+          "reviewOf": "w23d6-q01"
+        },
+        {
+          "id": "w23d7-q07",
+          "prompt": "Una persona borra datos por error. ¿Qué clase de origen debe contemplarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ataque estatal demostrado"
+            },
+            {
+              "id": "b",
+              "text": "Actividad criminal confirmada"
+            },
+            {
+              "id": "c",
+              "text": "Fallo de cifrado obligatorio"
+            },
+            {
+              "id": "d",
+              "text": "Amenaza humana accidental"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "No toda amenaza humana implica intención; los errores también pueden causar daño.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w23d1-q02"
+        },
+        {
+          "id": "w23d7-q08",
+          "prompt": "Una llamada suplanta a soporte y solicita el código de acceso. ¿Qué técnica encaja?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Inyección SQL"
+            },
+            {
+              "id": "b",
+              "text": "Vishing"
+            },
+            {
+              "id": "c",
+              "text": "Denegación distribuida"
+            },
+            {
+              "id": "d",
+              "text": "Sincronización de identidad"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El engaño por voz pretende que la víctima entregue información o realice acciones.",
+          "reference": "https://attack.mitre.org/techniques/T1566/",
+          "reviewOf": "w23d2-q02"
+        },
+        {
+          "id": "w23d7-q09",
+          "prompt": "Un servicio de administración queda accesible desde Internet. ¿Qué cambia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Se vuelve seguro por ser visible"
+            },
+            {
+              "id": "b",
+              "text": "Deja de necesitar autenticación"
+            },
+            {
+              "id": "c",
+              "text": "Se convierte en copia de respaldo"
+            },
+            {
+              "id": "d",
+              "text": "Aumenta su exposición a orígenes externos"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La accesibilidad amplía quién puede intentar interactuar y exige controles adecuados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w23d3-q02"
+        },
+        {
+          "id": "w23d7-q10",
+          "prompt": "¿Qué aporta inventariar dependencias de una aplicación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantizar que todo componente es inocuo"
+            },
+            {
+              "id": "b",
+              "text": "Localizar componentes afectados por avisos y cambios"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar el código de terceros"
+            },
+            {
+              "id": "d",
+              "text": "Sustituir revisión de configuración"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Conocer componentes y versiones permite determinar exposición y planificar acciones.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final",
+          "reviewOf": "w23d4-q02"
+        },
+        {
+          "id": "w23d7-q11",
+          "prompt": "¿Qué control limita propagación desde un equipo de invitados?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Copiar permisos administrativos"
+            },
+            {
+              "id": "b",
+              "text": "Segmentación con reglas de flujo"
+            },
+            {
+              "id": "c",
+              "text": "Añadir más cuentas compartidas"
+            },
+            {
+              "id": "d",
+              "text": "Usar únicamente nombres distintos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La separación efectiva restringe comunicaciones hacia zonas sensibles.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w23d5-q02"
+        },
+        {
+          "id": "w23d7-q12",
+          "prompt": "¿Qué diferencia una técnica ATT&CK de un nombre de actor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Siempre equivale a un país"
+            },
+            {
+              "id": "b",
+              "text": "Solo se aplica a malware"
+            },
+            {
+              "id": "c",
+              "text": "Describe un comportamiento, no identifica por sí sola al responsable"
+            },
+            {
+              "id": "d",
+              "text": "Es un certificado de atribución"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Múltiples actores pueden compartir técnicas y herramientas.",
+          "reference": "https://attack.mitre.org/",
+          "reviewOf": "w23d6-q02"
+        },
+        {
+          "id": "w23d7-q13",
+          "prompt": "Un grupo exige dinero para devolver acceso a archivos. ¿Qué motivación sugiere?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mantenimiento programado"
+            },
+            {
+              "id": "b",
+              "text": "Disponibilidad del proveedor"
+            },
+            {
+              "id": "c",
+              "text": "Beneficio económico"
+            },
+            {
+              "id": "d",
+              "text": "Cumplimiento de retención"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La exigencia de pago apoya una motivación económica sin identificar por sí sola al grupo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w23d1-q03"
+        },
+        {
+          "id": "w23d7-q14",
+          "prompt": "Un correo personalizado cita tu proyecto real para pedir una transferencia. ¿Qué sugiere?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantía de remitente legítimo"
+            },
+            {
+              "id": "b",
+              "text": "Actualización automática"
+            },
+            {
+              "id": "c",
+              "text": "Error de almacenamiento"
+            },
+            {
+              "id": "d",
+              "text": "Spearphishing dirigido"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La información contextual puede aumentar credibilidad sin demostrar autenticidad.",
+          "reference": "https://attack.mitre.org/techniques/T1566/",
+          "reviewOf": "w23d2-q03"
+        },
+        {
+          "id": "w23d7-q15",
+          "prompt": "¿Por qué inventariar cuentas además de dispositivos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Las cuentas son siempre vulnerabilidades"
+            },
+            {
+              "id": "b",
+              "text": "El hardware deja de importar"
+            },
+            {
+              "id": "c",
+              "text": "Todas las cuentas tienen el mismo impacto"
+            },
+            {
+              "id": "d",
+              "text": "Las identidades y credenciales también son vías de acceso"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una superficie incluye interfaces de identidad y no solo puertos de red.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w23d3-q03"
+        },
+        {
+          "id": "w23d7-q16",
+          "prompt": "Una dependencia ya no recibe mantenimiento. ¿Qué debe evaluarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que será segura por no cambiar"
+            },
+            {
+              "id": "b",
+              "text": "Que no necesita inventario"
+            },
+            {
+              "id": "c",
+              "text": "Vulnerabilidades, sustitución y controles durante la transición"
+            },
+            {
+              "id": "d",
+              "text": "Que toda versión antigua es malware"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La falta de soporte dificulta corregir fallos y exige un plan basado en riesgo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final",
+          "reviewOf": "w23d4-q03"
+        },
+        {
+          "id": "w23d7-q17",
+          "prompt": "¿Qué medida reduce explotación de una vulnerabilidad con corrección disponible?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Renombrar el proceso vulnerable"
+            },
+            {
+              "id": "b",
+              "text": "Aplicar parche validado y comprobar su efecto"
+            },
+            {
+              "id": "c",
+              "text": "Ampliar permisos del servicio"
+            },
+            {
+              "id": "d",
+              "text": "Conservar la versión por costumbre"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La corrección aborda la debilidad; necesita despliegue y validación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w23d5-q03"
+        },
+        {
+          "id": "w23d7-q18",
+          "prompt": "Un proceso se conecta a un dominio nuevo. ¿Qué información falta para valorar su finalidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Contexto del proceso, destino, contenido y patrón de comunicación"
+            },
+            {
+              "id": "b",
+              "text": "Solo el nombre del analista"
+            },
+            {
+              "id": "c",
+              "text": "Suponer que todo dominio nuevo es atacante"
+            },
+            {
+              "id": "d",
+              "text": "Solo la edad del portátil"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una conexión es una observación que necesita contexto antes de atribuir intención.",
+          "reference": "https://attack.mitre.org/",
+          "reviewOf": "w23d6-q03"
+        },
+        {
+          "id": "w23d7-q19",
+          "prompt": "¿Qué factor distingue capacidad de motivación de un actor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Capacidad son medios y habilidades; motivación es su finalidad"
+            },
+            {
+              "id": "b",
+              "text": "Capacidad es el daño ya probado"
+            },
+            {
+              "id": "c",
+              "text": "Motivación es la versión del software"
+            },
+            {
+              "id": "d",
+              "text": "Ambas son únicamente el país de origen"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un deseo de causar daño no implica disponer de los recursos para realizarlo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w23d1-q04"
+        },
+        {
+          "id": "w23d7-q20",
+          "prompt": "¿Qué demuestra validar una firma de un paquete del proveedor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ausencia absoluta de código malicioso"
+            },
+            {
+              "id": "b",
+              "text": "Que el proveedor nunca será comprometido"
+            },
+            {
+              "id": "c",
+              "text": "Compatibilidad con toda aplicación"
+            },
+            {
+              "id": "d",
+              "text": "Correspondencia con la clave confiable y contenido firmado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La firma ayuda con origen e integridad, pero no sustituye evaluar seguridad del contenido.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final",
+          "reviewOf": "w23d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w23d7-challenge",
+        "prompt": "Caso semanal: un proveedor entrega una actualización firmada y después aparece una conexión inusual. ¿Qué conclusión evita un salto lógico?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Toda actualización firmada es inocua"
+          },
+          {
+            "id": "b",
+            "text": "La conexión identifica al Estado autor"
+          },
+          {
+            "id": "c",
+            "text": "La firma demuestra que el usuario autorizó exfiltración"
+          },
+          {
+            "id": "d",
+            "text": "La firma no prueba inocuidad; correlacionar ejecución y tráfico antes de atribuir compromiso"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "Integridad y procedencia no bastan para decidir intención o impacto del comportamiento observado.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+      }
+    }
+  ]
+}

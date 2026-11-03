@@ -1,0 +1,2094 @@
+{
+  "week": 17,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w17d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w17d1-q01",
+          "prompt": "Una nómina se publica sin permiso y conserva sus valores. ¿Qué propiedad se vulneró directamente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Integridad"
+            },
+            {
+              "id": "b",
+              "text": "Confidencialidad"
+            },
+            {
+              "id": "c",
+              "text": "Disponibilidad"
+            },
+            {
+              "id": "d",
+              "text": "Tolerancia a fallos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La divulgación a personas no autorizadas afecta la confidencialidad aunque los valores permanezcan iguales.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w17d1-q02",
+          "prompt": "El importe de una factura cambia sin autorización. ¿Qué objetivo falló?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Confidencialidad"
+            },
+            {
+              "id": "b",
+              "text": "Disponibilidad"
+            },
+            {
+              "id": "c",
+              "text": "Integridad"
+            },
+            {
+              "id": "d",
+              "text": "Redundancia"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La integridad protege los datos frente a cambios no autorizados o incorrectos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w17d1-q03",
+          "prompt": "Un servicio conserva sus datos pero no atiende pedidos durante tres horas. ¿Qué propiedad sufrió?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Integridad"
+            },
+            {
+              "id": "b",
+              "text": "Disponibilidad"
+            },
+            {
+              "id": "c",
+              "text": "Confidencialidad"
+            },
+            {
+              "id": "d",
+              "text": "Autenticidad del autor"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La disponibilidad exige acceso oportuno al servicio por usuarios autorizados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w17d1-q04",
+          "prompt": "Una copia de seguridad se envía a un proveedor sin cifrado. ¿Qué exposición principal añade?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Alteración inevitable de cada archivo"
+            },
+            {
+              "id": "b",
+              "text": "Caída automática del servidor"
+            },
+            {
+              "id": "c",
+              "text": "Lectura no autorizada durante el traslado"
+            },
+            {
+              "id": "d",
+              "text": "Pérdida obligatoria de versiones"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El transporte desprotegido permite divulgar información; no implica por sí solo corrupción o interrupción.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w17d1-q05",
+          "prompt": "Un hash de archivo difiere del valor obtenido por un canal confiable. ¿Qué debe investigarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Quién pudo leer el archivo"
+            },
+            {
+              "id": "b",
+              "text": "Un cambio en el contenido"
+            },
+            {
+              "id": "c",
+              "text": "La duración del servicio"
+            },
+            {
+              "id": "d",
+              "text": "El número de usuarios autorizados"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los hashes permiten comparar contenido, pero no muestran quién lo leyó ni por qué cambió.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w17d1-q06",
+          "prompt": "Una clínica bloquea todo acceso a expedientes para evitar filtraciones. ¿Qué equilibrio debe revisar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Integridad y longitud de nombres"
+            },
+            {
+              "id": "b",
+              "text": "Disponibilidad y publicidad de datos"
+            },
+            {
+              "id": "c",
+              "text": "Confidencialidad y disponibilidad para personal autorizado"
+            },
+            {
+              "id": "d",
+              "text": "Confidencialidad y acceso anónimo"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un control debe proteger información sin impedir el uso legítimo necesario para la misión.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w17d1-q07",
+          "prompt": "Un registro firmado mantiene valores correctos, pero una persona autorizada los usa fuera de finalidad. ¿Qué conclusión es válida?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La firma hace público todo el registro"
+            },
+            {
+              "id": "b",
+              "text": "La autorización elimina la privacidad"
+            },
+            {
+              "id": "c",
+              "text": "La firma garantiza disponibilidad permanente"
+            },
+            {
+              "id": "d",
+              "text": "La integridad técnica no garantiza un uso apropiado"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los controles de integridad y las reglas de uso cubren problemas distintos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w17d1-q08",
+          "prompt": "Una inundación destruye el único disco de pedidos. ¿Qué control apoya mejor la disponibilidad posterior?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambiar el nombre del disco"
+            },
+            {
+              "id": "b",
+              "text": "Ocultar la carpeta en el explorador"
+            },
+            {
+              "id": "c",
+              "text": "Respaldo probado en otra ubicación"
+            },
+            {
+              "id": "d",
+              "text": "Revisar solo permisos de lectura"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una copia separada y recuperable ayuda a restablecer datos tras perder el soporte original.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w17d1-challenge",
+        "prompt": "Caso: el portal cae, se restaura sin cambios y luego aparecen historiales en un foro. ¿Cómo clasificar ambos hechos?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Caída: disponibilidad; publicación: confidencialidad"
+          },
+          {
+            "id": "b",
+            "text": "Caída: integridad; publicación: disponibilidad"
+          },
+          {
+            "id": "c",
+            "text": "Ambos: integridad exclusivamente"
+          },
+          {
+            "id": "d",
+            "text": "Ambos: autenticación exclusivamente"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "Una interrupción y una divulgación afectan propiedades distintas; pueden existir en un mismo incidente.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      }
+    },
+    {
+      "dayId": "w17d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w17d2-q01",
+          "prompt": "En «el servidor sin parche permite robo de contratos», ¿qué elemento es la vulnerabilidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Los contratos del negocio"
+            },
+            {
+              "id": "b",
+              "text": "El atacante externo"
+            },
+            {
+              "id": "c",
+              "text": "El coste de recuperación"
+            },
+            {
+              "id": "d",
+              "text": "El software sin parche"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La debilidad explotable es la falta del parche; activo, amenaza e impacto son elementos diferentes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w17d2-q02",
+          "prompt": "¿Qué es el activo en una cadena de riesgo de pérdida de expedientes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La información y el servicio que depende de ella"
+            },
+            {
+              "id": "b",
+              "text": "La ausencia de cifrado"
+            },
+            {
+              "id": "c",
+              "text": "El ladrón de equipos"
+            },
+            {
+              "id": "d",
+              "text": "La probabilidad anual"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un activo tiene valor para la organización; no necesita ser solo un dispositivo físico.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w17d2-q03",
+          "prompt": "¿Cuál describe una amenaza sin confundirla con una debilidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una inundación que puede dañar el centro"
+            },
+            {
+              "id": "b",
+              "text": "Un sótano sin drenaje"
+            },
+            {
+              "id": "c",
+              "text": "Un inventario desactualizado"
+            },
+            {
+              "id": "d",
+              "text": "Un permiso demasiado amplio"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La amenaza es una fuente o circunstancia capaz de causar daño; las otras opciones son debilidades.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w17d2-q04",
+          "prompt": "Un portátil expuesto contiene solo datos sintéticos. ¿Qué cambia respecto a uno con clientes reales?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Desaparece toda vulnerabilidad física"
+            },
+            {
+              "id": "b",
+              "text": "El robo deja de ser una amenaza"
+            },
+            {
+              "id": "c",
+              "text": "La probabilidad se vuelve exactamente cero"
+            },
+            {
+              "id": "d",
+              "text": "El impacto de una divulgación puede ser menor"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El valor y sensibilidad del activo modifican las consecuencias sin eliminar la posibilidad de pérdida.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w17d2-q05",
+          "prompt": "¿Cuál es una cadena de riesgo completa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Corte eléctrico + falta de UPS → interrupción de ventas"
+            },
+            {
+              "id": "b",
+              "text": "Servidor → impresora → usuario"
+            },
+            {
+              "id": "c",
+              "text": "MFA → cifrado → copia"
+            },
+            {
+              "id": "d",
+              "text": "Impacto → impacto → impacto"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La cadena conecta amenaza, debilidad y consecuencia sobre una actividad o activo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w17d2-q06",
+          "prompt": "Dos sucursales tienen el mismo software vulnerable, pero solo una lo expone a Internet. ¿Qué debe compararse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo longitud del nombre del servidor"
+            },
+            {
+              "id": "b",
+              "text": "Solo fecha de compra del monitor"
+            },
+            {
+              "id": "c",
+              "text": "Exposición y probabilidad de explotación"
+            },
+            {
+              "id": "d",
+              "text": "Solo cantidad de carpetas"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La misma debilidad puede generar riesgos distintos según rutas de acceso y contexto.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w17d2-q07",
+          "prompt": "Un equipo confunde «riesgo» con «falta de parche». ¿Qué falta añadir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el número de versión del parche"
+            },
+            {
+              "id": "b",
+              "text": "Solo la marca del portátil"
+            },
+            {
+              "id": "c",
+              "text": "Una garantía de ataque seguro"
+            },
+            {
+              "id": "d",
+              "text": "Amenaza, probabilidad e impacto en el contexto"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una vulnerabilidad es una debilidad; el riesgo considera su posible explotación y consecuencias.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w17d2-q08",
+          "prompt": "Un error de un empleado borra pedidos. ¿Qué demuestra sobre las amenazas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Siempre requieren intención criminal"
+            },
+            {
+              "id": "b",
+              "text": "Solo afectan información pública"
+            },
+            {
+              "id": "c",
+              "text": "También pueden ser accidentales"
+            },
+            {
+              "id": "d",
+              "text": "Se limitan a conexiones externas"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La evaluación contempla errores humanos, fenómenos naturales y acciones deliberadas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w17d2-challenge",
+        "prompt": "Caso: una tienda depende de un único router viejo; un fallo detiene pagos. ¿Cuál formula mejor el riesgo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El router es el impacto y los cobros la amenaza"
+          },
+          {
+            "id": "b",
+            "text": "La antigüedad demuestra robo de datos"
+          },
+          {
+            "id": "c",
+            "text": "Fallo del router sin reemplazo → interrupción de cobros"
+          },
+          {
+            "id": "d",
+            "text": "El inventario elimina la probabilidad de fallo"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La formulación permite vincular un evento con una debilidad de continuidad y una consecuencia comercial.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+      }
+    },
+    {
+      "dayId": "w17d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w17d3-q01",
+          "prompt": "Una regla bloquea conexiones entrantes no autorizadas. ¿Cuál es su función principal?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Detectiva"
+            },
+            {
+              "id": "b",
+              "text": "Correctiva"
+            },
+            {
+              "id": "c",
+              "text": "Preventiva"
+            },
+            {
+              "id": "d",
+              "text": "De recuperación exclusivamente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El bloqueo intenta impedir que la acción no autorizada ocurra.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w17d3-q02",
+          "prompt": "Una alerta informa de una cuenta usada fuera de horario. ¿Qué función cumple primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Preventiva por sí sola"
+            },
+            {
+              "id": "b",
+              "text": "Correctiva por sí sola"
+            },
+            {
+              "id": "c",
+              "text": "Detectiva"
+            },
+            {
+              "id": "d",
+              "text": "De destrucción segura"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Detectar una condición no significa que se haya bloqueado o corregido.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w17d3-q03",
+          "prompt": "Después de corrupción, se restaura una base desde una copia válida. ¿Qué función predomina?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Disuasoria exclusivamente"
+            },
+            {
+              "id": "b",
+              "text": "Correctiva y de recuperación"
+            },
+            {
+              "id": "c",
+              "text": "De identificación de personas"
+            },
+            {
+              "id": "d",
+              "text": "De clasificación documental"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Restaurar corrige consecuencias y recupera el estado operativo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w17d3-q04",
+          "prompt": "Una política exige aprobación para pagos grandes. ¿Qué categoría describe el documento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Administrativa o de gestión"
+            },
+            {
+              "id": "b",
+              "text": "Física"
+            },
+            {
+              "id": "c",
+              "text": "Criptográfica"
+            },
+            {
+              "id": "d",
+              "text": "Ambiental"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La política fija responsabilidades y procedimientos; una aplicación puede implementar su cumplimiento.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w17d3-q05",
+          "prompt": "Un torno limita la entrada a una sala técnica. ¿Qué categoría corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo administrativa"
+            },
+            {
+              "id": "b",
+              "text": "Solo de auditoría lógica"
+            },
+            {
+              "id": "c",
+              "text": "Física"
+            },
+            {
+              "id": "d",
+              "text": "De codificación"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Actúa sobre el acceso material a una zona, aunque pueda conectarse a sistemas digitales.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w17d3-q06",
+          "prompt": "Un aviso de videovigilancia busca desalentar intrusiones. ¿Qué función se pretende?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Restauración automática"
+            },
+            {
+              "id": "b",
+              "text": "Disuasoria"
+            },
+            {
+              "id": "c",
+              "text": "Cifrado de sesiones"
+            },
+            {
+              "id": "d",
+              "text": "Parcheo de software"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El aviso comunica una consecuencia para reducir la intención de realizar la acción.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w17d3-q07",
+          "prompt": "La cámara registra una intrusión pero nadie revisa avisos. ¿Qué limitación es relevante?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La cámara se convierte en una copia de seguridad"
+            },
+            {
+              "id": "b",
+              "text": "La grabación evita cualquier entrada"
+            },
+            {
+              "id": "c",
+              "text": "La señalización reemplaza la respuesta"
+            },
+            {
+              "id": "d",
+              "text": "La detección necesita revisión y respuesta"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un mecanismo de detección pierde utilidad operativa si su evidencia no desencadena acciones.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w17d3-q08",
+          "prompt": "Un sistema heredado no admite MFA y se restringe mediante salto controlado y monitorizado. ¿Qué representa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una eliminación demostrada del riesgo"
+            },
+            {
+              "id": "b",
+              "text": "Un control compensatorio que requiere evaluar suficiencia"
+            },
+            {
+              "id": "c",
+              "text": "Un permiso para ignorar el sistema"
+            },
+            {
+              "id": "d",
+              "text": "Un mecanismo de clasificación de activos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un control alternativo puede reducir riesgo cuando el preferido no es viable, con límites documentados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w17d3-challenge",
+        "prompt": "Caso: una oficina usa cerradura, alarma y procedimiento de reparación. ¿Qué clasificación es más útil?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Los tres controles son únicamente cifrado"
+          },
+          {
+            "id": "b",
+            "text": "Prevenir entrada, detectar intrusión y corregir daños"
+          },
+          {
+            "id": "c",
+            "text": "Solo la alarma es un control"
+          },
+          {
+            "id": "d",
+            "text": "La cerradura garantiza recuperación de datos"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "Clasificar por función ayuda a ver qué fase cubre cada mecanismo y dónde faltan capacidades.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      }
+    },
+    {
+      "dayId": "w17d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w17d4-q01",
+          "prompt": "¿Qué diseño refleja mejor defensa en profundidad para correo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Filtro, MFA, mínimos permisos y recuperación probada"
+            },
+            {
+              "id": "b",
+              "text": "Cuatro filtros idénticos sin otras medidas"
+            },
+            {
+              "id": "c",
+              "text": "Una contraseña compartida muy larga"
+            },
+            {
+              "id": "d",
+              "text": "Solo bloquear todos los adjuntos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las capas abordan rutas y consecuencias distintas en vez de depender de una sola barrera.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w17d4-q02",
+          "prompt": "Dos copias están en discos conectados al mismo equipo. ¿Qué fallo compartido importa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cada disco exige distinta clasificación"
+            },
+            {
+              "id": "b",
+              "text": "Una copia siempre vuelve público el original"
+            },
+            {
+              "id": "c",
+              "text": "Un ransomware puede alcanzar ambas"
+            },
+            {
+              "id": "d",
+              "text": "Los discos impiden errores humanos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La separación lógica y administrativa limita que un evento afecte todas las copias.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w17d4-q03",
+          "prompt": "¿Por qué segmentar la red de cajas respecto al Wi-Fi de clientes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Reducir rutas de movimiento entre zonas"
+            },
+            {
+              "id": "b",
+              "text": "Garantizar que ninguna caja falle"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar el mantenimiento de aplicaciones"
+            },
+            {
+              "id": "d",
+              "text": "Reemplazar identidades de usuarios"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La segmentación limita comunicaciones y el alcance de una intrusión; necesita reglas verificadas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w17d4-q04",
+          "prompt": "Si un atacante obtiene una contraseña, ¿qué capa puede reducir el acceso inmediato?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una segunda copia del mismo secreto"
+            },
+            {
+              "id": "b",
+              "text": "Un segundo factor independiente"
+            },
+            {
+              "id": "c",
+              "text": "Un nombre de usuario más corto"
+            },
+            {
+              "id": "d",
+              "text": "Un aviso de bienvenida"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un factor distinto puede mantener una barrera cuando se compromete un secreto de conocimiento.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w17d4-q05",
+          "prompt": "¿Cuál es una señal de capas poco independientes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Se prueban con escenarios diferentes"
+            },
+            {
+              "id": "b",
+              "text": "Todas dependen de la misma cuenta administradora"
+            },
+            {
+              "id": "c",
+              "text": "Una controla acceso y otra recuperación"
+            },
+            {
+              "id": "d",
+              "text": "Tienen responsables y registros"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una credencial común puede crear una vía única de fallo para varios mecanismos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w17d4-q06",
+          "prompt": "Una tienda instala antivirus pero todos trabajan como administradores. ¿Qué capa falta fortalecer?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La estética de la consola"
+            },
+            {
+              "id": "b",
+              "text": "El orden del inventario por color"
+            },
+            {
+              "id": "c",
+              "text": "Mínimo privilegio de usuarios"
+            },
+            {
+              "id": "d",
+              "text": "El número de iconos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Limitar privilegios reduce el alcance de acciones maliciosas y errores incluso si falla la detección.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w17d4-q07",
+          "prompt": "¿Qué prueba evalúa una capa de contención?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Contar mensajes de bienvenida"
+            },
+            {
+              "id": "b",
+              "text": "Revisar que el logotipo aparece"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar la fecha del diagrama"
+            },
+            {
+              "id": "d",
+              "text": "Verificar que un equipo de invitados no alcanza la base de ventas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una prueba de flujo permitido o denegado contrasta la separación con el diseño esperado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w17d4-q08",
+          "prompt": "Una solución añade cinco productos pero nadie recibe alertas. ¿Qué mejora aporta una capa operativa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un sexto panel sin responsable"
+            },
+            {
+              "id": "b",
+              "text": "Renombrar todas las reglas"
+            },
+            {
+              "id": "c",
+              "text": "Responsable, canal de aviso y procedimiento de respuesta"
+            },
+            {
+              "id": "d",
+              "text": "Desactivar eventos duplicados sin revisarlos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La arquitectura necesita personas y procesos que usen las señales generadas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w17d4-challenge",
+        "prompt": "Caso: todas las defensas y respaldos usan una misma cuenta comprometida. ¿Qué cambio reduce el fallo común?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Duplicar el nombre de la cuenta"
+          },
+          {
+            "id": "b",
+            "text": "Separar privilegios y proteger copias con acceso independiente"
+          },
+          {
+            "id": "c",
+            "text": "Conservar la cuenta por comodidad"
+          },
+          {
+            "id": "d",
+            "text": "Añadir copias bajo los mismos permisos"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "Las capas deben evitar que una sola credencial permita desactivar protección y destruir recuperación.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      }
+    },
+    {
+      "dayId": "w17d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w17d5-q01",
+          "prompt": "Un laboratorio autoriza dos máquinas virtuales. Aparece una IP vecina. ¿Qué corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Analizarla porque responde a ping"
+            },
+            {
+              "id": "b",
+              "text": "Suponer permiso por cercanía"
+            },
+            {
+              "id": "c",
+              "text": "Usarla si no tiene contraseña"
+            },
+            {
+              "id": "d",
+              "text": "Mantenerla fuera hasta ampliar autorización"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La accesibilidad técnica no determina el alcance autorizado de una evaluación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+        },
+        {
+          "id": "w17d5-q02",
+          "prompt": "¿Qué dato debe figurar en reglas de un ejercicio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la herramienta favorita"
+            },
+            {
+              "id": "b",
+              "text": "Sistemas, técnicas, horario y contacto de parada"
+            },
+            {
+              "id": "c",
+              "text": "Solo la velocidad de Internet"
+            },
+            {
+              "id": "d",
+              "text": "La contraseña personal del instructor"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las reglas deben concretar límites y coordinación para evitar impactos fuera del ejercicio.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+        },
+        {
+          "id": "w17d5-q03",
+          "prompt": "Un archivo de práctica contiene clientes reales. ¿Qué acción protege mejor su privacidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Publicarlo con un nombre distinto"
+            },
+            {
+              "id": "b",
+              "text": "Compartirlo solo por comodidad"
+            },
+            {
+              "id": "c",
+              "text": "Sustituirlo por datos sintéticos aprobados"
+            },
+            {
+              "id": "d",
+              "text": "Quitar únicamente el nombre del archivo"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los datos sintéticos evitan exponer información personal innecesaria para aprender.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+        },
+        {
+          "id": "w17d5-q04",
+          "prompt": "¿Qué evidencia conviene incluir en un informe educativo público?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tokens de sesión completos"
+            },
+            {
+              "id": "b",
+              "text": "Capturas saneadas y datos mínimos necesarios"
+            },
+            {
+              "id": "c",
+              "text": "Contraseñas del laboratorio compartido"
+            },
+            {
+              "id": "d",
+              "text": "Copias íntegras de expedientes"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La evidencia debe permitir comprender el resultado sin divulgar secretos ni datos innecesarios.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+        },
+        {
+          "id": "w17d5-q05",
+          "prompt": "Durante una prueba autorizada el servicio se vuelve inestable. ¿Qué regla debe aplicarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Continuar hasta confirmar un fallo total"
+            },
+            {
+              "id": "b",
+              "text": "Borrar los registros para reducir ruido"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar objetivos sin comunicar"
+            },
+            {
+              "id": "d",
+              "text": "Detener según criterio acordado y avisar al contacto"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los criterios de parada y escalamiento reducen daños y mantienen coordinación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+        },
+        {
+          "id": "w17d5-q06",
+          "prompt": "¿Quién puede autorizar una prueba sobre un recurso empresarial?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cualquier compañero interesado"
+            },
+            {
+              "id": "b",
+              "text": "Un visitante con acceso Wi-Fi"
+            },
+            {
+              "id": "c",
+              "text": "La persona con autoridad sobre ese recurso"
+            },
+            {
+              "id": "d",
+              "text": "Quien conoce su dirección IP"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La autorización debe proceder de quien tenga autoridad para permitir el trabajo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+        },
+        {
+          "id": "w17d5-q07",
+          "prompt": "Un hallazgo incluye una clave privada expuesta. ¿Cómo comunicarlo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "En un chat público con la clave"
+            },
+            {
+              "id": "b",
+              "text": "En la portada del informe general"
+            },
+            {
+              "id": "c",
+              "text": "Por un canal acordado con acceso restringido"
+            },
+            {
+              "id": "d",
+              "text": "Mediante una captura sin ocultar secretos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La comunicación responsable limita la propagación del material sensible y facilita su corrección.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+        },
+        {
+          "id": "w17d5-q08",
+          "prompt": "¿Qué diferencia un permiso escrito de una suposición?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantiza que nunca habrá errores"
+            },
+            {
+              "id": "b",
+              "text": "Convierte datos personales en públicos"
+            },
+            {
+              "id": "c",
+              "text": "Autoriza todos los proveedores relacionados"
+            },
+            {
+              "id": "d",
+              "text": "Define explícitamente actividades y límites acordados"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un alcance concreto da una base verificable para decidir qué acciones están permitidas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+        }
+      ],
+      "challenge": {
+        "id": "w17d5-challenge",
+        "prompt": "Caso: el permiso cubre una VM hasta las 18:00 y a las 18:05 queda una prueba pendiente. ¿Qué decisión respeta el alcance?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Terminar porque empezó antes de las 18:00"
+          },
+          {
+            "id": "b",
+            "text": "Cambiar el reloj de la VM"
+          },
+          {
+            "id": "c",
+            "text": "Parar y solicitar una extensión antes de reanudar"
+          },
+          {
+            "id": "d",
+            "text": "Continuar si no se detecta daño"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "El límite temporal forma parte de la autorización, igual que los sistemas y técnicas incluidos.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/115/final"
+      }
+    },
+    {
+      "dayId": "w17d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w17d6-q01",
+          "prompt": "¿Qué permite una columna de dueño en el registro de riesgos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Probar que el riesgo desapareció"
+            },
+            {
+              "id": "b",
+              "text": "Asignar responsabilidad por seguimiento y decisiones"
+            },
+            {
+              "id": "c",
+              "text": "Calcular automáticamente la probabilidad"
+            },
+            {
+              "id": "d",
+              "text": "Sustituir la descripción del activo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un responsable identificable facilita decidir tratamiento y revisar su avance.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w17d6-q02",
+          "prompt": "En una escala acordada riesgo=probabilidad×impacto, A=4×5 y B=2×3. ¿Cuál puntúa más?",
+          "options": [
+            {
+              "id": "a",
+              "text": "B con 6"
+            },
+            {
+              "id": "b",
+              "text": "Empatan con 9"
+            },
+            {
+              "id": "c",
+              "text": "A con 20"
+            },
+            {
+              "id": "d",
+              "text": "No se puede multiplicar en este modelo"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Con el modelo declarado se obtiene 20 frente a 6; las escalas requieren criterios compartidos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w17d6-q03",
+          "prompt": "¿Qué es el riesgo residual?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El riesgo antes de todo control"
+            },
+            {
+              "id": "b",
+              "text": "El que queda tras aplicar controles"
+            },
+            {
+              "id": "c",
+              "text": "El valor de todos los activos"
+            },
+            {
+              "id": "d",
+              "text": "La lista de controles sin probar"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los controles reducen riesgo, pero la exposición restante debe evaluarse y gestionarse.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w17d6-q04",
+          "prompt": "Un riesgo se acepta formalmente por un mes. ¿Qué debe registrarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Responsable, justificación y fecha de revisión"
+            },
+            {
+              "id": "b",
+              "text": "Solo la palabra cerrado"
+            },
+            {
+              "id": "c",
+              "text": "Una garantía de que no ocurrirá"
+            },
+            {
+              "id": "d",
+              "text": "La eliminación de toda evidencia"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La aceptación es una decisión documentada con límites, no prueba de ausencia de riesgo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w17d6-q05",
+          "prompt": "¿Qué cambio exige revisar una estimación de riesgo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambiar el color de una hoja"
+            },
+            {
+              "id": "b",
+              "text": "Publicar en Internet un servicio antes interno"
+            },
+            {
+              "id": "c",
+              "text": "Ordenar filas alfabéticamente"
+            },
+            {
+              "id": "d",
+              "text": "Renombrar un documento sin cambiar contenido"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La nueva exposición altera las condiciones consideradas en probabilidad e impacto.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w17d6-q06",
+          "prompt": "¿Qué distingue mitigar de evitar un riesgo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ambos significan comprar un seguro"
+            },
+            {
+              "id": "b",
+              "text": "Mitigar siempre elimina todo impacto"
+            },
+            {
+              "id": "c",
+              "text": "Mitigar reduce exposición; evitar elimina la actividad que lo origina"
+            },
+            {
+              "id": "d",
+              "text": "Evitar significa no documentarlo"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las respuestas al riesgo modifican el escenario de formas diferentes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w17d6-q07",
+          "prompt": "Un seguro cubre parte de pérdidas por interrupción. ¿Qué respuesta representa principalmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Transferir parte de la consecuencia financiera"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar las vulnerabilidades técnicas"
+            },
+            {
+              "id": "c",
+              "text": "Garantizar continuidad sin respaldos"
+            },
+            {
+              "id": "d",
+              "text": "Aceptar todo acceso no autorizado"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La cobertura transfiere ciertas consecuencias contractuales; no impide el incidente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w17d6-q08",
+          "prompt": "¿Qué entrada es más verificable en un plan de tratamiento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mejorar seguridad cuando sea posible"
+            },
+            {
+              "id": "b",
+              "text": "Vigilar un poco más los equipos"
+            },
+            {
+              "id": "c",
+              "text": "Aplicar actualización: responsable Ana, plazo viernes, prueba de versión"
+            },
+            {
+              "id": "d",
+              "text": "Cerrar todos los riesgos este año"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una acción con dueño, fecha y criterio de validación permite seguir su cumplimiento.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w17d6-challenge",
+        "prompt": "Caso: riesgo A afecta cobros diarios y tiene explotación probable; B afecta un equipo aislado de pruebas. ¿Qué prioridad es defendible?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ordenar solo por antigüedad de los equipos"
+          },
+          {
+            "id": "b",
+            "text": "Atender B por ser más fácil"
+          },
+          {
+            "id": "c",
+            "text": "Atender A primero y documentar contexto y controles"
+          },
+          {
+            "id": "d",
+            "text": "Declarar ambos idénticos por tener fallos"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La priorización considera probabilidad, impacto y contexto, no únicamente la existencia de una debilidad.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+      }
+    },
+    {
+      "dayId": "w17d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w17d7-q01",
+          "prompt": "Una nómina se publica sin permiso y conserva sus valores. ¿Qué propiedad se vulneró directamente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Integridad"
+            },
+            {
+              "id": "b",
+              "text": "Confidencialidad"
+            },
+            {
+              "id": "c",
+              "text": "Disponibilidad"
+            },
+            {
+              "id": "d",
+              "text": "Tolerancia a fallos"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La divulgación a personas no autorizadas afecta la confidencialidad aunque los valores permanezcan iguales.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w17d1-q01"
+        },
+        {
+          "id": "w17d7-q02",
+          "prompt": "En «el servidor sin parche permite robo de contratos», ¿qué elemento es la vulnerabilidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Los contratos del negocio"
+            },
+            {
+              "id": "b",
+              "text": "El atacante externo"
+            },
+            {
+              "id": "c",
+              "text": "El coste de recuperación"
+            },
+            {
+              "id": "d",
+              "text": "El software sin parche"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La debilidad explotable es la falta del parche; activo, amenaza e impacto son elementos diferentes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w17d2-q01"
+        },
+        {
+          "id": "w17d7-q03",
+          "prompt": "Una regla bloquea conexiones entrantes no autorizadas. ¿Cuál es su función principal?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Detectiva"
+            },
+            {
+              "id": "b",
+              "text": "Correctiva"
+            },
+            {
+              "id": "c",
+              "text": "Preventiva"
+            },
+            {
+              "id": "d",
+              "text": "De recuperación exclusivamente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El bloqueo intenta impedir que la acción no autorizada ocurra.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w17d3-q01"
+        },
+        {
+          "id": "w17d7-q04",
+          "prompt": "¿Qué diseño refleja mejor defensa en profundidad para correo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Filtro, MFA, mínimos permisos y recuperación probada"
+            },
+            {
+              "id": "b",
+              "text": "Cuatro filtros idénticos sin otras medidas"
+            },
+            {
+              "id": "c",
+              "text": "Una contraseña compartida muy larga"
+            },
+            {
+              "id": "d",
+              "text": "Solo bloquear todos los adjuntos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las capas abordan rutas y consecuencias distintas en vez de depender de una sola barrera.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w17d4-q01"
+        },
+        {
+          "id": "w17d7-q05",
+          "prompt": "Un laboratorio autoriza dos máquinas virtuales. Aparece una IP vecina. ¿Qué corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Analizarla porque responde a ping"
+            },
+            {
+              "id": "b",
+              "text": "Suponer permiso por cercanía"
+            },
+            {
+              "id": "c",
+              "text": "Usarla si no tiene contraseña"
+            },
+            {
+              "id": "d",
+              "text": "Mantenerla fuera hasta ampliar autorización"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La accesibilidad técnica no determina el alcance autorizado de una evaluación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final",
+          "reviewOf": "w17d5-q01"
+        },
+        {
+          "id": "w17d7-q06",
+          "prompt": "¿Qué permite una columna de dueño en el registro de riesgos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Probar que el riesgo desapareció"
+            },
+            {
+              "id": "b",
+              "text": "Asignar responsabilidad por seguimiento y decisiones"
+            },
+            {
+              "id": "c",
+              "text": "Calcular automáticamente la probabilidad"
+            },
+            {
+              "id": "d",
+              "text": "Sustituir la descripción del activo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un responsable identificable facilita decidir tratamiento y revisar su avance.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w17d6-q01"
+        },
+        {
+          "id": "w17d7-q07",
+          "prompt": "El importe de una factura cambia sin autorización. ¿Qué objetivo falló?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Confidencialidad"
+            },
+            {
+              "id": "b",
+              "text": "Disponibilidad"
+            },
+            {
+              "id": "c",
+              "text": "Integridad"
+            },
+            {
+              "id": "d",
+              "text": "Redundancia"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La integridad protege los datos frente a cambios no autorizados o incorrectos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w17d1-q02"
+        },
+        {
+          "id": "w17d7-q08",
+          "prompt": "¿Qué es el activo en una cadena de riesgo de pérdida de expedientes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La información y el servicio que depende de ella"
+            },
+            {
+              "id": "b",
+              "text": "La ausencia de cifrado"
+            },
+            {
+              "id": "c",
+              "text": "El ladrón de equipos"
+            },
+            {
+              "id": "d",
+              "text": "La probabilidad anual"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un activo tiene valor para la organización; no necesita ser solo un dispositivo físico.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w17d2-q02"
+        },
+        {
+          "id": "w17d7-q09",
+          "prompt": "Una alerta informa de una cuenta usada fuera de horario. ¿Qué función cumple primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Preventiva por sí sola"
+            },
+            {
+              "id": "b",
+              "text": "Correctiva por sí sola"
+            },
+            {
+              "id": "c",
+              "text": "Detectiva"
+            },
+            {
+              "id": "d",
+              "text": "De destrucción segura"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Detectar una condición no significa que se haya bloqueado o corregido.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w17d3-q02"
+        },
+        {
+          "id": "w17d7-q10",
+          "prompt": "Dos copias están en discos conectados al mismo equipo. ¿Qué fallo compartido importa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cada disco exige distinta clasificación"
+            },
+            {
+              "id": "b",
+              "text": "Una copia siempre vuelve público el original"
+            },
+            {
+              "id": "c",
+              "text": "Un ransomware puede alcanzar ambas"
+            },
+            {
+              "id": "d",
+              "text": "Los discos impiden errores humanos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La separación lógica y administrativa limita que un evento afecte todas las copias.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w17d4-q02"
+        },
+        {
+          "id": "w17d7-q11",
+          "prompt": "¿Qué dato debe figurar en reglas de un ejercicio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la herramienta favorita"
+            },
+            {
+              "id": "b",
+              "text": "Sistemas, técnicas, horario y contacto de parada"
+            },
+            {
+              "id": "c",
+              "text": "Solo la velocidad de Internet"
+            },
+            {
+              "id": "d",
+              "text": "La contraseña personal del instructor"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las reglas deben concretar límites y coordinación para evitar impactos fuera del ejercicio.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final",
+          "reviewOf": "w17d5-q02"
+        },
+        {
+          "id": "w17d7-q12",
+          "prompt": "En una escala acordada riesgo=probabilidad×impacto, A=4×5 y B=2×3. ¿Cuál puntúa más?",
+          "options": [
+            {
+              "id": "a",
+              "text": "B con 6"
+            },
+            {
+              "id": "b",
+              "text": "Empatan con 9"
+            },
+            {
+              "id": "c",
+              "text": "A con 20"
+            },
+            {
+              "id": "d",
+              "text": "No se puede multiplicar en este modelo"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Con el modelo declarado se obtiene 20 frente a 6; las escalas requieren criterios compartidos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w17d6-q02"
+        },
+        {
+          "id": "w17d7-q13",
+          "prompt": "Un servicio conserva sus datos pero no atiende pedidos durante tres horas. ¿Qué propiedad sufrió?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Integridad"
+            },
+            {
+              "id": "b",
+              "text": "Disponibilidad"
+            },
+            {
+              "id": "c",
+              "text": "Confidencialidad"
+            },
+            {
+              "id": "d",
+              "text": "Autenticidad del autor"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La disponibilidad exige acceso oportuno al servicio por usuarios autorizados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w17d1-q03"
+        },
+        {
+          "id": "w17d7-q14",
+          "prompt": "¿Cuál describe una amenaza sin confundirla con una debilidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una inundación que puede dañar el centro"
+            },
+            {
+              "id": "b",
+              "text": "Un sótano sin drenaje"
+            },
+            {
+              "id": "c",
+              "text": "Un inventario desactualizado"
+            },
+            {
+              "id": "d",
+              "text": "Un permiso demasiado amplio"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La amenaza es una fuente o circunstancia capaz de causar daño; las otras opciones son debilidades.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w17d2-q03"
+        },
+        {
+          "id": "w17d7-q15",
+          "prompt": "Después de corrupción, se restaura una base desde una copia válida. ¿Qué función predomina?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Disuasoria exclusivamente"
+            },
+            {
+              "id": "b",
+              "text": "Correctiva y de recuperación"
+            },
+            {
+              "id": "c",
+              "text": "De identificación de personas"
+            },
+            {
+              "id": "d",
+              "text": "De clasificación documental"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Restaurar corrige consecuencias y recupera el estado operativo.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w17d3-q03"
+        },
+        {
+          "id": "w17d7-q16",
+          "prompt": "¿Por qué segmentar la red de cajas respecto al Wi-Fi de clientes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Reducir rutas de movimiento entre zonas"
+            },
+            {
+              "id": "b",
+              "text": "Garantizar que ninguna caja falle"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar el mantenimiento de aplicaciones"
+            },
+            {
+              "id": "d",
+              "text": "Reemplazar identidades de usuarios"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La segmentación limita comunicaciones y el alcance de una intrusión; necesita reglas verificadas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w17d4-q03"
+        },
+        {
+          "id": "w17d7-q17",
+          "prompt": "Un archivo de práctica contiene clientes reales. ¿Qué acción protege mejor su privacidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Publicarlo con un nombre distinto"
+            },
+            {
+              "id": "b",
+              "text": "Compartirlo solo por comodidad"
+            },
+            {
+              "id": "c",
+              "text": "Sustituirlo por datos sintéticos aprobados"
+            },
+            {
+              "id": "d",
+              "text": "Quitar únicamente el nombre del archivo"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los datos sintéticos evitan exponer información personal innecesaria para aprender.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/115/final",
+          "reviewOf": "w17d5-q03"
+        },
+        {
+          "id": "w17d7-q18",
+          "prompt": "¿Qué es el riesgo residual?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El riesgo antes de todo control"
+            },
+            {
+              "id": "b",
+              "text": "El que queda tras aplicar controles"
+            },
+            {
+              "id": "c",
+              "text": "El valor de todos los activos"
+            },
+            {
+              "id": "d",
+              "text": "La lista de controles sin probar"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los controles reducen riesgo, pero la exposición restante debe evaluarse y gestionarse.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w17d6-q03"
+        },
+        {
+          "id": "w17d7-q19",
+          "prompt": "Una copia de seguridad se envía a un proveedor sin cifrado. ¿Qué exposición principal añade?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Alteración inevitable de cada archivo"
+            },
+            {
+              "id": "b",
+              "text": "Caída automática del servidor"
+            },
+            {
+              "id": "c",
+              "text": "Lectura no autorizada durante el traslado"
+            },
+            {
+              "id": "d",
+              "text": "Pérdida obligatoria de versiones"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El transporte desprotegido permite divulgar información; no implica por sí solo corrupción o interrupción.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w17d1-q04"
+        },
+        {
+          "id": "w17d7-q20",
+          "prompt": "Si un atacante obtiene una contraseña, ¿qué capa puede reducir el acceso inmediato?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una segunda copia del mismo secreto"
+            },
+            {
+              "id": "b",
+              "text": "Un segundo factor independiente"
+            },
+            {
+              "id": "c",
+              "text": "Un nombre de usuario más corto"
+            },
+            {
+              "id": "d",
+              "text": "Un aviso de bienvenida"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un factor distinto puede mantener una barrera cuando se compromete un secreto de conocimiento.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w17d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w17d7-challenge",
+        "prompt": "Caso semanal: un servidor sin parche almacena ventas y está expuesto; existe respaldo probado. ¿Qué conclusión conserva la distinción riesgo-vulnerabilidad?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El parche pendiente es debilidad; exposición e impacto determinan riesgo restante"
+          },
+          {
+            "id": "b",
+            "text": "El respaldo hace imposible cualquier ataque"
+          },
+          {
+            "id": "c",
+            "text": "El servidor es la amenaza y el parche el impacto"
+          },
+          {
+            "id": "d",
+            "text": "La misma debilidad siempre tiene igual riesgo"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La recuperación reduce ciertas consecuencias, pero no elimina la posibilidad de explotación ni divulgación.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+      }
+    }
+  ]
+}

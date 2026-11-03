@@ -1,0 +1,2094 @@
+{
+  "week": 9,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w09d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w09d1-q01",
+          "prompt": "Varios equipos comparten impresora dentro de una oficina. ¿Qué clasificación describe ese alcance local?",
+          "options": [
+            {
+              "id": "a",
+              "text": "WAN intercontinental."
+            },
+            {
+              "id": "b",
+              "text": "LAN."
+            },
+            {
+              "id": "c",
+              "text": "Internet completo."
+            },
+            {
+              "id": "d",
+              "text": "Una red exclusivamente móvil."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "LAN describe una red de alcance local, aunque pueda conectarse además a otras redes.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/small-business/networking-basics.html"
+        },
+        {
+          "id": "w09d1-q02",
+          "prompt": "Dos sucursales de ciudades diferentes se conectan mediante un proveedor. ¿Qué concepto describe esa unión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo un cable de consola."
+            },
+            {
+              "id": "b",
+              "text": "Una única conexión de teclado."
+            },
+            {
+              "id": "c",
+              "text": "Una carpeta compartida local."
+            },
+            {
+              "id": "d",
+              "text": "WAN."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una WAN interconecta ubicaciones o redes en un alcance más amplio.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/small-business/networking-basics.html"
+        },
+        {
+          "id": "w09d1-q03",
+          "prompt": "Un portátil accede a la red local por Wi-Fi. ¿Qué término describe ese acceso inalámbrico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un enlace de fibra directo al portátil."
+            },
+            {
+              "id": "b",
+              "text": "Un proceso sin red."
+            },
+            {
+              "id": "c",
+              "text": "WLAN."
+            },
+            {
+              "id": "d",
+              "text": "Una red solo de almacenamiento USB."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "WLAN es una red local que utiliza un medio inalámbrico.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/small-business/networking-basics.html"
+        },
+        {
+          "id": "w09d1-q04",
+          "prompt": "En una aplicación web, el navegador solicita una página y un servidor la responde. ¿Quién actúa como cliente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El servidor que responde siempre."
+            },
+            {
+              "id": "b",
+              "text": "El cable que transporta los bits."
+            },
+            {
+              "id": "c",
+              "text": "El switch por tener más puertos."
+            },
+            {
+              "id": "d",
+              "text": "El navegador que inicia la solicitud."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Cliente y servidor describen funciones en una interacción, no el tamaño del dispositivo.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/small-business/networking-basics.html"
+        },
+        {
+          "id": "w09d1-q05",
+          "prompt": "¿Qué distingue una red local de la conexión a internet?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sin internet ningún equipo local puede comunicarse."
+            },
+            {
+              "id": "b",
+              "text": "Toda LAN tiene obligatoriamente direcciones públicas."
+            },
+            {
+              "id": "c",
+              "text": "La red local puede funcionar entre sus equipos aunque falle internet."
+            },
+            {
+              "id": "d",
+              "text": "LAN e internet siempre son el mismo conjunto de equipos."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Recursos locales pueden seguir accesibles sin conectividad a redes externas.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/small-business/networking-basics.html"
+        },
+        {
+          "id": "w09d1-q06",
+          "prompt": "Un equipo comparte archivos y también usa un servidor web. ¿Qué roles puede tener?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo cliente en cualquier protocolo."
+            },
+            {
+              "id": "b",
+              "text": "Solo servidor mientras esté encendido."
+            },
+            {
+              "id": "c",
+              "text": "Ningún rol si usa Ethernet."
+            },
+            {
+              "id": "d",
+              "text": "Servidor en una interacción y cliente en otra."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un dispositivo puede desempeñar distintos roles según el servicio y la comunicación.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/small-business/networking-basics.html"
+        },
+        {
+          "id": "w09d1-q07",
+          "prompt": "¿Qué recurso compartido muestra una utilidad práctica de una red?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una contraseña idéntica para todos los usuarios."
+            },
+            {
+              "id": "b",
+              "text": "Un archivo guardado solo en una memoria desconectada."
+            },
+            {
+              "id": "c",
+              "text": "Una impresora accesible a varios equipos autorizados."
+            },
+            {
+              "id": "d",
+              "text": "El brillo individual de un monitor."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una red permite compartir servicios y recursos mediante reglas de acceso.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/small-business/networking-basics.html"
+        },
+        {
+          "id": "w09d1-q08",
+          "prompt": "¿Qué dato ayuda a clasificar cinco ejemplos de redes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Únicamente el color de los cables."
+            },
+            {
+              "id": "b",
+              "text": "Solo la marca de los portátiles."
+            },
+            {
+              "id": "c",
+              "text": "Alcance, medio de conexión y participantes."
+            },
+            {
+              "id": "d",
+              "text": "El número de letras del SSID."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los criterios describen dimensiones distintas; una red puede ser local e inalámbrica a la vez.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/small-business/networking-basics.html"
+        }
+      ],
+      "challenge": {
+        "id": "w09d1-challenge",
+        "prompt": "Una oficina mantiene impresión local, pero no abre sitios externos. ¿Qué clasificación del resultado es más precisa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "No existe ninguna red porque falló internet."
+          },
+          {
+            "id": "b",
+            "text": "La LAN tiene una función operativa y existe un problema pendiente de salida o servicio externo."
+          },
+          {
+            "id": "c",
+            "text": "La impresora demostró acceso completo a toda WAN."
+          },
+          {
+            "id": "d",
+            "text": "La WLAN y la WAN son siempre idénticas."
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "Una función local puede funcionar sin que la conectividad externa esté disponible.",
+        "reference": "https://www.cisco.com/site/us/en/learn/topics/small-business/networking-basics.html"
+      }
+    },
+    {
+      "dayId": "w09d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w09d2-q01",
+          "prompt": "¿Qué equipo conecta normalmente varios dispositivos Ethernet dentro de una misma LAN?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un módem sin puertos de red local."
+            },
+            {
+              "id": "b",
+              "text": "Un lector de tarjetas."
+            },
+            {
+              "id": "c",
+              "text": "Un adaptador de audio."
+            },
+            {
+              "id": "d",
+              "text": "Un switch."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El switch reenvía tramas entre puertos de la red local.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/small-business/networking-basics.html"
+        },
+        {
+          "id": "w09d2-q02",
+          "prompt": "¿Qué función principal realiza un router?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mostrar cada documento impreso."
+            },
+            {
+              "id": "b",
+              "text": "Reenviar paquetes entre redes según rutas."
+            },
+            {
+              "id": "c",
+              "text": "Traducir obligatoriamente todos los nombres DNS."
+            },
+            {
+              "id": "d",
+              "text": "Guardar contraseñas de cada navegador."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El enrutamiento conecta redes; otras funciones pueden coexistir en el mismo aparato.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/small-business/networking-basics.html"
+        },
+        {
+          "id": "w09d2-q03",
+          "prompt": "¿Qué aporta un punto de acceso inalámbrico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un servicio de correo obligatorio."
+            },
+            {
+              "id": "b",
+              "text": "Una dirección pública para cada archivo."
+            },
+            {
+              "id": "c",
+              "text": "Una copia del disco de cada cliente."
+            },
+            {
+              "id": "d",
+              "text": "Conexión Wi-Fi al segmento de red al que está integrado."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El punto de acceso enlaza clientes inalámbricos con una red.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/small-business/networking-basics.html"
+        },
+        {
+          "id": "w09d2-q04",
+          "prompt": "Un aparato doméstico combina router, switch y Wi-Fi. ¿Qué conclusión es correcta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todos esos términos describen siempre una sola función."
+            },
+            {
+              "id": "b",
+              "text": "Los dispositivos conectados no forman una LAN."
+            },
+            {
+              "id": "c",
+              "text": "No puede comunicarse con ninguna otra red."
+            },
+            {
+              "id": "d",
+              "text": "Un mismo equipo físico reúne varias funciones."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los nombres funcionales no obligan a tener una caja separada para cada función.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/small-business/networking-basics.html"
+        },
+        {
+          "id": "w09d2-q05",
+          "prompt": "¿En qué información se basa normalmente un switch Ethernet de capa 2 para reenviar una trama unicast conocida?",
+          "options": [
+            {
+              "id": "a",
+              "text": "En el nombre legal del usuario."
+            },
+            {
+              "id": "b",
+              "text": "En la contraseña del sitio web."
+            },
+            {
+              "id": "c",
+              "text": "En la dirección MAC de destino y su tabla."
+            },
+            {
+              "id": "d",
+              "text": "En el tipo de documento abierto."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El switch aprende asociaciones entre MAC y puerto; el router usa decisiones de red IP.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/networking/what-is-network-switching.html"
+        },
+        {
+          "id": "w09d2-q06",
+          "prompt": "¿Qué papel cumple un módem cuando la conexión del proveedor lo requiere?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Asignar permisos NTFS a documentos."
+            },
+            {
+              "id": "b",
+              "text": "Reemplazar todos los switches internos."
+            },
+            {
+              "id": "c",
+              "text": "Adaptar la comunicación al medio de acceso del proveedor."
+            },
+            {
+              "id": "d",
+              "text": "Garantizar cifrado de cada aplicación."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La terminación o adaptación del acceso del proveedor es distinta de conmutar la LAN.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/small-business/networking-basics.html"
+        },
+        {
+          "id": "w09d2-q07",
+          "prompt": "Un portátil ve Wi-Fi pero el enlace del router al proveedor está caído. ¿Qué puede seguir funcionando?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Toda conexión remota a internet necesariamente."
+            },
+            {
+              "id": "b",
+              "text": "El enlace inalámbrico y servicios locales disponibles."
+            },
+            {
+              "id": "c",
+              "text": "Ningún intercambio dentro de la LAN."
+            },
+            {
+              "id": "d",
+              "text": "Solo los archivos de equipos apagados."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Tener asociación inalámbrica no garantiza salida a internet.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/small-business/networking-basics.html"
+        },
+        {
+          "id": "w09d2-q08",
+          "prompt": "En un diagrama, ¿dónde ubicarías la unión entre LAN de oficina y red del proveedor?",
+          "options": [
+            {
+              "id": "a",
+              "text": "En el archivo de texto del cliente."
+            },
+            {
+              "id": "b",
+              "text": "En el router de borde o dispositivo que realiza esa función."
+            },
+            {
+              "id": "c",
+              "text": "En cada teclado de usuario."
+            },
+            {
+              "id": "d",
+              "text": "En el proceso de edición de documentos."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El borde conecta redes y ayuda a explicar por dónde sale el tráfico remoto.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/small-business/networking-basics.html"
+        }
+      ],
+      "challenge": {
+        "id": "w09d2-challenge",
+        "prompt": "El diagrama tiene PC por cable al switch, portátil por Wi-Fi al AP y router hacia otra red. ¿Qué elemento conecta el portátil al segmento local?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El servidor DNS por su nombre."
+          },
+          {
+            "id": "b",
+            "text": "El archivo HTML del navegador."
+          },
+          {
+            "id": "c",
+            "text": "La impresora compartida."
+          },
+          {
+            "id": "d",
+            "text": "El punto de acceso."
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "El AP proporciona la conexión inalámbrica; el router cumple la función de conectar redes.",
+        "reference": "https://www.cisco.com/site/us/en/learn/topics/small-business/networking-basics.html"
+      }
+    },
+    {
+      "dayId": "w09d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w09d3-q01",
+          "prompt": "¿Qué medio transporta la señal mediante luz?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Par trenzado de cobre."
+            },
+            {
+              "id": "b",
+              "text": "Fibra óptica."
+            },
+            {
+              "id": "c",
+              "text": "Cable coaxial eléctrico."
+            },
+            {
+              "id": "d",
+              "text": "Radio Wi-Fi."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La fibra guía señales ópticas y tiene propiedades distintas de medios eléctricos o radioeléctricos.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/networking/optical-networking.html"
+        },
+        {
+          "id": "w09d3-q02",
+          "prompt": "Un cable de cobre pasa cerca de equipos con interferencia electromagnética intensa. ¿Qué alternativa merece evaluar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un nombre de red más corto."
+            },
+            {
+              "id": "b",
+              "text": "Una contraseña Wi-Fi más larga."
+            },
+            {
+              "id": "c",
+              "text": "Fibra con transceptores compatibles."
+            },
+            {
+              "id": "d",
+              "text": "Un archivo de configuración sin extensión."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La transmisión óptica no usa señal eléctrica en el tramo de fibra y evita ese tipo de acoplamiento.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/networking/optical-networking.html"
+        },
+        {
+          "id": "w09d3-q03",
+          "prompt": "¿Por qué no elegir un enlace solo por la velocidad anunciada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La distancia nunca afecta medios físicos."
+            },
+            {
+              "id": "b",
+              "text": "Todo conector sirve con cualquier medio."
+            },
+            {
+              "id": "c",
+              "text": "También importan distancia, entorno, interfaces y requisitos reales."
+            },
+            {
+              "id": "d",
+              "text": "La radio es idéntica al cobre en toda instalación."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El diseño necesita compatibilidad y condiciones de uso, no una única cifra de capacidad.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/networking/optical-networking.html"
+        },
+        {
+          "id": "w09d3-q04",
+          "prompt": "Un dispositivo solo tiene un puerto Ethernet de cobre. ¿Puede enchufarse directamente una fibra a ese puerto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí, porque todos los conectores de red son iguales."
+            },
+            {
+              "id": "b",
+              "text": "Sí, si se cambia únicamente la IP del dispositivo."
+            },
+            {
+              "id": "c",
+              "text": "No, porque la fibra no transporta redes IP."
+            },
+            {
+              "id": "d",
+              "text": "No; hacen falta interfaces o conversión compatibles."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El medio y la interfaz física deben corresponder; IP puede viajar sobre diferentes tecnologías.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/networking/optical-networking.html"
+        },
+        {
+          "id": "w09d3-q05",
+          "prompt": "¿Qué caracteriza a radio como medio de acceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Exige siempre un cable por cada cliente."
+            },
+            {
+              "id": "b",
+              "text": "Nunca cambia su calidad con obstáculos."
+            },
+            {
+              "id": "c",
+              "text": "Impide toda interferencia por definición."
+            },
+            {
+              "id": "d",
+              "text": "El canal se propaga por el entorno y puede compartir espectro con otras fuentes."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Cobertura, obstáculos e interferencia condicionan un enlace inalámbrico.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/networking/optical-networking.html"
+        },
+        {
+          "id": "w09d3-q06",
+          "prompt": "Para unir edificios separados, ¿qué criterio hace relevante la fibra?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que no necesite ningún equipo en los extremos."
+            },
+            {
+              "id": "b",
+              "text": "Distancia y separación eléctrica entre ubicaciones."
+            },
+            {
+              "id": "c",
+              "text": "Que todos sus conectores sean idénticos."
+            },
+            {
+              "id": "d",
+              "text": "Que pueda enrollarse sin límite de curvatura."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La selección óptica también exige revisar transceptores, instalación y límites físicos.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/networking/optical-networking.html"
+        },
+        {
+          "id": "w09d3-q07",
+          "prompt": "Un enlace no levanta tras cambiar un transceptor. ¿Qué revisar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo las contraseñas de los usuarios finales."
+            },
+            {
+              "id": "b",
+              "text": "Los nombres de los archivos compartidos."
+            },
+            {
+              "id": "c",
+              "text": "El idioma del escritorio del cliente."
+            },
+            {
+              "id": "d",
+              "text": "Compatibilidad de interfaz, tipo de fibra y extremos."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un fallo físico requiere comprobar que los componentes del enlace son compatibles.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/networking/optical-networking.html"
+        },
+        {
+          "id": "w09d3-q08",
+          "prompt": "¿Qué comparación expresa correctamente el alcance de un medio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Depende del estándar y componentes concretos del enlace."
+            },
+            {
+              "id": "b",
+              "text": "Todo cable de cobre permite cualquier distancia."
+            },
+            {
+              "id": "c",
+              "text": "Toda fibra ofrece la misma distancia y capacidad."
+            },
+            {
+              "id": "d",
+              "text": "Wi-Fi siempre supera cualquier obstáculo sin pérdida."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "No existe una distancia universal válida para cualquier cable o tecnología.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/networking/optical-networking.html"
+        }
+      ],
+      "challenge": {
+        "id": "w09d3-challenge",
+        "prompt": "Se necesita unir dos armarios mediante un recorrido largo junto a maquinaria eléctrica. ¿Qué comparación técnica presentar?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Distancia, interferencia, tipo de fibra o cobre e interfaces compatibles."
+          },
+          {
+            "id": "b",
+            "text": "Solo elegir el cable más barato sin revisar el entorno."
+          },
+          {
+            "id": "c",
+            "text": "Suponer que cualquier conector conecta cualquier medio."
+          },
+          {
+            "id": "d",
+            "text": "Elegir radio porque los obstáculos nunca afectan su señal."
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La decisión debe considerar las condiciones reales del enlace y los componentes de sus extremos.",
+        "reference": "https://www.cisco.com/site/us/en/learn/topics/networking/optical-networking.html"
+      }
+    },
+    {
+      "dayId": "w09d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w09d4-q01",
+          "prompt": "¿En qué capa del modelo TCP/IP se ubica IP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aplicación."
+            },
+            {
+              "id": "b",
+              "text": "Presentación visual del navegador."
+            },
+            {
+              "id": "c",
+              "text": "Internet o red."
+            },
+            {
+              "id": "d",
+              "text": "Solo medio físico."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "IP direcciona y transporta datagramas entre redes.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+        },
+        {
+          "id": "w09d4-q02",
+          "prompt": "¿Qué función pertenece al transporte?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Elegir el color de cada cable."
+            },
+            {
+              "id": "b",
+              "text": "Asignar nombres a carpetas locales."
+            },
+            {
+              "id": "c",
+              "text": "Comunicación entre extremos para aplicaciones mediante protocolos como TCP y UDP."
+            },
+            {
+              "id": "d",
+              "text": "Definir la intensidad de luz de una fibra."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La capa de transporte sirve a las aplicaciones sobre la comunicación IP.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+        },
+        {
+          "id": "w09d4-q03",
+          "prompt": "¿Qué función corresponde al enlace?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Resolver siempre nombres de dominio globales."
+            },
+            {
+              "id": "b",
+              "text": "Garantizar todos los pagos de una web."
+            },
+            {
+              "id": "c",
+              "text": "Entregar tramas dentro del segmento directamente conectado."
+            },
+            {
+              "id": "d",
+              "text": "Administrar cuentas del sistema operativo."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El enlace trata la comunicación con vecinos del medio local.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+        },
+        {
+          "id": "w09d4-q04",
+          "prompt": "¿Qué describe encapsulación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Añadir información de protocolos al pasar datos hacia capas inferiores."
+            },
+            {
+              "id": "b",
+              "text": "Eliminar necesariamente todos los encabezados antes de transmitir."
+            },
+            {
+              "id": "c",
+              "text": "Convertir todo dato en una contraseña."
+            },
+            {
+              "id": "d",
+              "text": "Reemplazar el contenido por un nombre DNS."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Cada capa utiliza su información para transportar los datos de la capa superior.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+        },
+        {
+          "id": "w09d4-q05",
+          "prompt": "Al recibir una trama, ¿qué describe desencapsulación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Enviar siempre el mismo mensaje a todos los usuarios."
+            },
+            {
+              "id": "b",
+              "text": "Interpretar y retirar la información de cada capa para entregar los datos hacia arriba."
+            },
+            {
+              "id": "c",
+              "text": "Reinstalar automáticamente el protocolo IP."
+            },
+            {
+              "id": "d",
+              "text": "Cambiar toda dirección privada a pública."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El receptor procesa la estructura por capas hasta llegar a la aplicación correspondiente.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+        },
+        {
+          "id": "w09d4-q06",
+          "prompt": "¿Qué se asocia al protocolo HTTP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Funciones de aplicación."
+            },
+            {
+              "id": "b",
+              "text": "Señal eléctrica del par de cobre."
+            },
+            {
+              "id": "c",
+              "text": "Conmutación por MAC solamente."
+            },
+            {
+              "id": "d",
+              "text": "La creación física de un conector."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los protocolos de aplicación definen intercambios utilizados por programas y servicios.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+        },
+        {
+          "id": "w09d4-q07",
+          "prompt": "¿Qué precaución es correcta al comparar OSI y TCP/IP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ambos modelos tienen obligatoriamente idénticas capas."
+            },
+            {
+              "id": "b",
+              "text": "Sus agrupaciones de capas no se corresponden siempre una a una."
+            },
+            {
+              "id": "c",
+              "text": "TCP/IP solo modela cables y conectores."
+            },
+            {
+              "id": "d",
+              "text": "OSI es una lista de contraseñas de protocolos."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Son modelos conceptuales con distintas divisiones; sirven para ubicar funciones y diagnosticar.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+        },
+        {
+          "id": "w09d4-q08",
+          "prompt": "Un cable desconectado impide recibir cualquier trama. ¿Qué parte revisarías antes que HTTP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La sintaxis de la URL exclusivamente."
+            },
+            {
+              "id": "b",
+              "text": "El medio y el enlace físico."
+            },
+            {
+              "id": "c",
+              "text": "El contenido HTML de todas las páginas."
+            },
+            {
+              "id": "d",
+              "text": "La contraseña de una aplicación remota."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una dependencia inferior fallida puede impedir llegar siquiera a las funciones superiores.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+        }
+      ],
+      "challenge": {
+        "id": "w09d4-challenge",
+        "prompt": "Una página web usa TCP sobre IP sobre Ethernet. ¿Qué orden describe la encapsulación hacia el cable?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Trama Ethernet, aplicación, IP y contraseña."
+          },
+          {
+            "id": "b",
+            "text": "Datos de aplicación, transporte, paquete IP y trama Ethernet."
+          },
+          {
+            "id": "c",
+            "text": "IP, cable, aplicación y luego teclado."
+          },
+          {
+            "id": "d",
+            "text": "Solo HTTP porque las otras capas desaparecen."
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "Las capas inferiores transportan las unidades de las superiores mediante su propia información de protocolo.",
+        "reference": "https://www.rfc-editor.org/rfc/rfc1122.html"
+      }
+    },
+    {
+      "dayId": "w09d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w09d5-q01",
+          "prompt": "Una conexión ofrece 100 Mb/s y tarda 80 ms en responder una prueba. ¿Qué mide 80 ms?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Retardo o latencia de esa prueba."
+            },
+            {
+              "id": "b",
+              "text": "Capacidad máxima en bits por segundo."
+            },
+            {
+              "id": "c",
+              "text": "Cantidad total de usuarios."
+            },
+            {
+              "id": "d",
+              "text": "Porcentaje de paquetes perdidos."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Capacidad y demora son métricas distintas; la metodología define si el retardo es de ida o ida y vuelta.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5481.html"
+        },
+        {
+          "id": "w09d5-q02",
+          "prompt": "Se envían 200 paquetes de prueba y se pierden 4. ¿Cuál es la pérdida observada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "2 %."
+            },
+            {
+              "id": "b",
+              "text": "4 %."
+            },
+            {
+              "id": "c",
+              "text": "20 %."
+            },
+            {
+              "id": "d",
+              "text": "0,2 %."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "4 dividido por 200 equivale a 0,02; el resultado describe esa muestra.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc7680.html"
+        },
+        {
+          "id": "w09d5-q03",
+          "prompt": "Una videollamada alterna retardos de 20, 25, 180 y 30 ms. ¿Qué propiedad destaca?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Variación del retardo o jitter."
+            },
+            {
+              "id": "b",
+              "text": "Una IP estática obligatoria."
+            },
+            {
+              "id": "c",
+              "text": "El tamaño del disco virtual."
+            },
+            {
+              "id": "d",
+              "text": "Una resolución DNS correcta por definición."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La variabilidad del retardo afecta a flujos en tiempo real aunque su capacidad media sea suficiente.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5481.html"
+        },
+        {
+          "id": "w09d5-q04",
+          "prompt": "Aumenta la capacidad contratada, pero la distancia y la ruta no cambian. ¿Qué no puede prometerse solo con ese aumento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que pueda variar el caudal disponible."
+            },
+            {
+              "id": "b",
+              "text": "Que capacidad y retardo sean conceptos diferentes."
+            },
+            {
+              "id": "c",
+              "text": "Que sigan siendo útiles mediciones de retardo."
+            },
+            {
+              "id": "d",
+              "text": "Que la latencia se reduzca en la misma proporción."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Más capacidad no implica automáticamente reducir la demora de propagación o procesamiento.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5481.html"
+        },
+        {
+          "id": "w09d5-q05",
+          "prompt": "Un archivo de 80 megabits cruza un enlace ideal de 20 megabits/s sin sobrecarga. ¿Qué tiempo mínimo teórico resulta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "0,25 segundos."
+            },
+            {
+              "id": "b",
+              "text": "4 segundos."
+            },
+            {
+              "id": "c",
+              "text": "20 segundos."
+            },
+            {
+              "id": "d",
+              "text": "80 segundos."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Tiempo es cantidad de bits dividida por tasa; en redes reales hay sobrecarga y otras limitaciones.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5481.html"
+        },
+        {
+          "id": "w09d5-q06",
+          "prompt": "Una medición da buen caudal, pero una conversación tiene cortes y pérdida. ¿Qué interpretación encaja?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un buen caudal elimina cualquier pérdida posible."
+            },
+            {
+              "id": "b",
+              "text": "La pérdida demuestra que el cable no transporta IP."
+            },
+            {
+              "id": "c",
+              "text": "El caudal por sí solo no garantiza calidad de un flujo interactivo."
+            },
+            {
+              "id": "d",
+              "text": "Todos los problemas interactivos son de DNS."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La calidad depende también de pérdida, demora y variabilidad, según la aplicación.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5481.html"
+        },
+        {
+          "id": "w09d5-q07",
+          "prompt": "Dos pruebas de red se comparan con destinos y horas distintos. ¿Qué límite señalar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El resultado mayor siempre prueba un cable mejor."
+            },
+            {
+              "id": "b",
+              "text": "Todas las horas y destinos generan igual tráfico."
+            },
+            {
+              "id": "c",
+              "text": "Una sola prueba describe permanentemente toda internet."
+            },
+            {
+              "id": "d",
+              "text": "Las condiciones distintas pueden impedir atribuir la diferencia a un único cambio."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las métricas dependen del trayecto, carga, momento y método utilizados.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5481.html"
+        },
+        {
+          "id": "w09d5-q08",
+          "prompt": "¿Qué unidad expresa una tasa de transmisión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Milisegundos solamente."
+            },
+            {
+              "id": "b",
+              "text": "Megabits por segundo."
+            },
+            {
+              "id": "c",
+              "text": "Porcentaje sin tiempo ni datos."
+            },
+            {
+              "id": "d",
+              "text": "Número de puertos del switch."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las tasas describen cantidad de datos por unidad de tiempo; el retardo usa unidades temporales.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5481.html"
+        }
+      ],
+      "challenge": {
+        "id": "w09d5-challenge",
+        "prompt": "Enlace A: 300 Mb/s, retardo 150 ms y gran variación; B: 80 Mb/s, retardo 25 ms estable. Para una llamada con capacidad suficiente en ambos, ¿qué argumento favorece B?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Menor demora y variación, relevantes para interacción en tiempo real."
+          },
+          {
+            "id": "b",
+            "text": "Todo flujo exige siempre la mayor cifra de Mb/s disponible."
+          },
+          {
+            "id": "c",
+            "text": "La capacidad menor demuestra ausencia de pérdida automáticamente."
+          },
+          {
+            "id": "d",
+            "text": "El retardo se mide en el mismo valor que la capacidad."
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La aplicación determina qué métricas importan; suficiente capacidad no elimina los efectos de demora y variación.",
+        "reference": "https://www.rfc-editor.org/rfc/rfc5481.html"
+      }
+    },
+    {
+      "dayId": "w09d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w09d6-q01",
+          "prompt": "Dos PCs de una simulación usan 192.168.50.10/24 y 192.168.50.20/24 en el mismo switch. ¿Qué permite la comunicación local básica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un servidor DNS obligatorio para usar directamente las IP."
+            },
+            {
+              "id": "b",
+              "text": "Enlace activo y configuración de IP sin conflictos dentro de esa red."
+            },
+            {
+              "id": "c",
+              "text": "Una dirección pública distinta para cada archivo."
+            },
+            {
+              "id": "d",
+              "text": "Un módem obligatorio entre ambos PCs."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los equipos del mismo segmento y subred pueden comunicarse sin resolver nombres ni salir a internet.",
+          "reference": "https://contenthub.netacad.com/courses/itn-dl/_common/10.4.4-packet-tracer---build-a-switch-and-router-network---physical-mode.pdf"
+        },
+        {
+          "id": "w09d6-q02",
+          "prompt": "La simulación muestra un enlace físico caído. ¿Qué revisar primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El contenido de la página web remota."
+            },
+            {
+              "id": "b",
+              "text": "Puertos, conexión y estado de interfaces."
+            },
+            {
+              "id": "c",
+              "text": "La contraseña de correo de los PCs."
+            },
+            {
+              "id": "d",
+              "text": "El número de líneas del informe."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Antes de interpretar capas superiores debe existir un enlace operativo.",
+          "reference": "https://contenthub.netacad.com/courses/itn-dl/_common/10.4.4-packet-tracer---build-a-switch-and-router-network---physical-mode.pdf"
+        },
+        {
+          "id": "w09d6-q03",
+          "prompt": "¿Qué aporta el modo de simulación de Packet Tracer?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Observar secuencia y detalles de los intercambios modelados."
+            },
+            {
+              "id": "b",
+              "text": "Garantizar que cualquier red física real se comporte idéntica."
+            },
+            {
+              "id": "c",
+              "text": "Sustituir toda comprobación de configuración."
+            },
+            {
+              "id": "d",
+              "text": "Instalar automáticamente los dispositivos reales."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una simulación permite estudiar el modelo, pero sus resultados tienen límites respecto al equipo real.",
+          "reference": "https://contenthub.netacad.com/courses/itn-dl/_common/10.4.4-packet-tracer---build-a-switch-and-router-network---physical-mode.pdf"
+        },
+        {
+          "id": "w09d6-q04",
+          "prompt": "¿Qué información debe acompañar un diagrama de red básica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la forma y color de los iconos."
+            },
+            {
+              "id": "b",
+              "text": "Las contraseñas personales de cada participante."
+            },
+            {
+              "id": "c",
+              "text": "Una única cifra de velocidad sin topología."
+            },
+            {
+              "id": "d",
+              "text": "Direcciones, interfaces, conexiones y resultado esperado."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El diagrama debe permitir seguir el recorrido y reproducir la configuración relevante.",
+          "reference": "https://contenthub.netacad.com/courses/itn-dl/_common/10.4.4-packet-tracer---build-a-switch-and-router-network---physical-mode.pdf"
+        },
+        {
+          "id": "w09d6-q05",
+          "prompt": "En el diagrama A y B tienen la misma IP. ¿Qué defecto identificar antes de probar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una red automáticamente más rápida."
+            },
+            {
+              "id": "b",
+              "text": "Un conflicto de direcciones en el mismo segmento."
+            },
+            {
+              "id": "c",
+              "text": "Una ruta redundante garantizada."
+            },
+            {
+              "id": "d",
+              "text": "Un método normal para distinguir clientes."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las interfaces que comparten subred necesitan direcciones adecuadas y no duplicadas.",
+          "reference": "https://contenthub.netacad.com/courses/itn-dl/_common/10.4.4-packet-tracer---build-a-switch-and-router-network---physical-mode.pdf"
+        },
+        {
+          "id": "w09d6-q06",
+          "prompt": "El primer ping falla y los posteriores responden. ¿Qué debe hacerse antes de declarar una avería permanente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Borrar toda la topología sin ver los eventos."
+            },
+            {
+              "id": "b",
+              "text": "Declarar que todos los pings futuros fallarán."
+            },
+            {
+              "id": "c",
+              "text": "Examinar eventos y repetir de forma controlada, incluida la resolución de vecinos."
+            },
+            {
+              "id": "d",
+              "text": "Afirmar que el fallo inicial prueba intrusión."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El establecimiento inicial de información de enlace puede afectar una prueba; la causa debe observarse.",
+          "reference": "https://contenthub.netacad.com/courses/itn-dl/_common/10.4.4-packet-tracer---build-a-switch-and-router-network---physical-mode.pdf"
+        },
+        {
+          "id": "w09d6-q07",
+          "prompt": "No puedes ejecutar Packet Tracer. ¿Qué alternativa evalúa el mismo razonamiento básico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Entregar una captura ajena como si fuera propia."
+            },
+            {
+              "id": "b",
+              "text": "Resolver un diagrama con tabla de direcciones y secuencia de comunicación."
+            },
+            {
+              "id": "c",
+              "text": "Afirmar que se ejecutó una simulación no realizada."
+            },
+            {
+              "id": "d",
+              "text": "Contar únicamente cuántos routers existen en internet."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La interpretación de un caso documentado puede evaluar conceptos sin fingir una comprobación práctica.",
+          "reference": "https://contenthub.netacad.com/courses/itn-dl/_common/10.4.4-packet-tracer---build-a-switch-and-router-network---physical-mode.pdf"
+        },
+        {
+          "id": "w09d6-q08",
+          "prompt": "Una prueba responde entre dos PCs. ¿Qué conclusión es proporcionada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hubo conectividad para esa prueba y configuración."
+            },
+            {
+              "id": "b",
+              "text": "Todos los servicios de internet están disponibles."
+            },
+            {
+              "id": "c",
+              "text": "El sistema completo está libre de vulnerabilidades."
+            },
+            {
+              "id": "d",
+              "text": "Nunca podrá fallar otro protocolo."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La evidencia de una prueba es concreta; no debe extenderse a servicios o condiciones no comprobados.",
+          "reference": "https://contenthub.netacad.com/courses/itn-dl/_common/10.4.4-packet-tracer---build-a-switch-and-router-network---physical-mode.pdf"
+        }
+      ],
+      "challenge": {
+        "id": "w09d6-challenge",
+        "prompt": "En una topología simulada, ambos PCs comparten IP y no intercambian de forma fiable. ¿Qué cambio inicial y validación encajan?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Cambiar solo el nombre de los iconos y declarar resuelto."
+          },
+          {
+            "id": "b",
+            "text": "Asignar IP únicas de la subred y repetir la prueba observando eventos."
+          },
+          {
+            "id": "c",
+            "text": "Añadir DNS sin corregir la duplicidad."
+          },
+          {
+            "id": "d",
+            "text": "Eliminar el switch porque dos equipos nunca pueden compartirlo."
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La configuración de direcciones debe corregirse antes de atribuir el fallo a servicios superiores.",
+        "reference": "https://contenthub.netacad.com/courses/itn-dl/_common/10.4.4-packet-tracer---build-a-switch-and-router-network---physical-mode.pdf"
+      }
+    },
+    {
+      "dayId": "w09d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w09d7-q01",
+          "prompt": "Varios equipos comparten impresora dentro de una oficina. ¿Qué clasificación describe ese alcance local?",
+          "options": [
+            {
+              "id": "a",
+              "text": "WAN intercontinental."
+            },
+            {
+              "id": "b",
+              "text": "LAN."
+            },
+            {
+              "id": "c",
+              "text": "Internet completo."
+            },
+            {
+              "id": "d",
+              "text": "Una red exclusivamente móvil."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "LAN describe una red de alcance local, aunque pueda conectarse además a otras redes.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/small-business/networking-basics.html",
+          "reviewOf": "w09d1-q01"
+        },
+        {
+          "id": "w09d7-q02",
+          "prompt": "¿Qué equipo conecta normalmente varios dispositivos Ethernet dentro de una misma LAN?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un módem sin puertos de red local."
+            },
+            {
+              "id": "b",
+              "text": "Un lector de tarjetas."
+            },
+            {
+              "id": "c",
+              "text": "Un adaptador de audio."
+            },
+            {
+              "id": "d",
+              "text": "Un switch."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El switch reenvía tramas entre puertos de la red local.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/small-business/networking-basics.html",
+          "reviewOf": "w09d2-q01"
+        },
+        {
+          "id": "w09d7-q03",
+          "prompt": "¿Qué medio transporta la señal mediante luz?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Par trenzado de cobre."
+            },
+            {
+              "id": "b",
+              "text": "Fibra óptica."
+            },
+            {
+              "id": "c",
+              "text": "Cable coaxial eléctrico."
+            },
+            {
+              "id": "d",
+              "text": "Radio Wi-Fi."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La fibra guía señales ópticas y tiene propiedades distintas de medios eléctricos o radioeléctricos.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/networking/optical-networking.html",
+          "reviewOf": "w09d3-q01"
+        },
+        {
+          "id": "w09d7-q04",
+          "prompt": "¿En qué capa del modelo TCP/IP se ubica IP?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aplicación."
+            },
+            {
+              "id": "b",
+              "text": "Presentación visual del navegador."
+            },
+            {
+              "id": "c",
+              "text": "Internet o red."
+            },
+            {
+              "id": "d",
+              "text": "Solo medio físico."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "IP direcciona y transporta datagramas entre redes.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html",
+          "reviewOf": "w09d4-q01"
+        },
+        {
+          "id": "w09d7-q05",
+          "prompt": "Una conexión ofrece 100 Mb/s y tarda 80 ms en responder una prueba. ¿Qué mide 80 ms?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Retardo o latencia de esa prueba."
+            },
+            {
+              "id": "b",
+              "text": "Capacidad máxima en bits por segundo."
+            },
+            {
+              "id": "c",
+              "text": "Cantidad total de usuarios."
+            },
+            {
+              "id": "d",
+              "text": "Porcentaje de paquetes perdidos."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Capacidad y demora son métricas distintas; la metodología define si el retardo es de ida o ida y vuelta.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5481.html",
+          "reviewOf": "w09d5-q01"
+        },
+        {
+          "id": "w09d7-q06",
+          "prompt": "Dos PCs de una simulación usan 192.168.50.10/24 y 192.168.50.20/24 en el mismo switch. ¿Qué permite la comunicación local básica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un servidor DNS obligatorio para usar directamente las IP."
+            },
+            {
+              "id": "b",
+              "text": "Enlace activo y configuración de IP sin conflictos dentro de esa red."
+            },
+            {
+              "id": "c",
+              "text": "Una dirección pública distinta para cada archivo."
+            },
+            {
+              "id": "d",
+              "text": "Un módem obligatorio entre ambos PCs."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los equipos del mismo segmento y subred pueden comunicarse sin resolver nombres ni salir a internet.",
+          "reference": "https://contenthub.netacad.com/courses/itn-dl/_common/10.4.4-packet-tracer---build-a-switch-and-router-network---physical-mode.pdf",
+          "reviewOf": "w09d6-q01"
+        },
+        {
+          "id": "w09d7-q07",
+          "prompt": "Dos sucursales de ciudades diferentes se conectan mediante un proveedor. ¿Qué concepto describe esa unión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo un cable de consola."
+            },
+            {
+              "id": "b",
+              "text": "Una única conexión de teclado."
+            },
+            {
+              "id": "c",
+              "text": "Una carpeta compartida local."
+            },
+            {
+              "id": "d",
+              "text": "WAN."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una WAN interconecta ubicaciones o redes en un alcance más amplio.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/small-business/networking-basics.html",
+          "reviewOf": "w09d1-q02"
+        },
+        {
+          "id": "w09d7-q08",
+          "prompt": "¿Qué función principal realiza un router?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mostrar cada documento impreso."
+            },
+            {
+              "id": "b",
+              "text": "Reenviar paquetes entre redes según rutas."
+            },
+            {
+              "id": "c",
+              "text": "Traducir obligatoriamente todos los nombres DNS."
+            },
+            {
+              "id": "d",
+              "text": "Guardar contraseñas de cada navegador."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El enrutamiento conecta redes; otras funciones pueden coexistir en el mismo aparato.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/small-business/networking-basics.html",
+          "reviewOf": "w09d2-q02"
+        },
+        {
+          "id": "w09d7-q09",
+          "prompt": "Un cable de cobre pasa cerca de equipos con interferencia electromagnética intensa. ¿Qué alternativa merece evaluar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un nombre de red más corto."
+            },
+            {
+              "id": "b",
+              "text": "Una contraseña Wi-Fi más larga."
+            },
+            {
+              "id": "c",
+              "text": "Fibra con transceptores compatibles."
+            },
+            {
+              "id": "d",
+              "text": "Un archivo de configuración sin extensión."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La transmisión óptica no usa señal eléctrica en el tramo de fibra y evita ese tipo de acoplamiento.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/networking/optical-networking.html",
+          "reviewOf": "w09d3-q02"
+        },
+        {
+          "id": "w09d7-q10",
+          "prompt": "¿Qué función pertenece al transporte?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Elegir el color de cada cable."
+            },
+            {
+              "id": "b",
+              "text": "Asignar nombres a carpetas locales."
+            },
+            {
+              "id": "c",
+              "text": "Comunicación entre extremos para aplicaciones mediante protocolos como TCP y UDP."
+            },
+            {
+              "id": "d",
+              "text": "Definir la intensidad de luz de una fibra."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La capa de transporte sirve a las aplicaciones sobre la comunicación IP.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html",
+          "reviewOf": "w09d4-q02"
+        },
+        {
+          "id": "w09d7-q11",
+          "prompt": "Se envían 200 paquetes de prueba y se pierden 4. ¿Cuál es la pérdida observada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "2 %."
+            },
+            {
+              "id": "b",
+              "text": "4 %."
+            },
+            {
+              "id": "c",
+              "text": "20 %."
+            },
+            {
+              "id": "d",
+              "text": "0,2 %."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "4 dividido por 200 equivale a 0,02; el resultado describe esa muestra.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc7680.html",
+          "reviewOf": "w09d5-q02"
+        },
+        {
+          "id": "w09d7-q12",
+          "prompt": "La simulación muestra un enlace físico caído. ¿Qué revisar primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El contenido de la página web remota."
+            },
+            {
+              "id": "b",
+              "text": "Puertos, conexión y estado de interfaces."
+            },
+            {
+              "id": "c",
+              "text": "La contraseña de correo de los PCs."
+            },
+            {
+              "id": "d",
+              "text": "El número de líneas del informe."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Antes de interpretar capas superiores debe existir un enlace operativo.",
+          "reference": "https://contenthub.netacad.com/courses/itn-dl/_common/10.4.4-packet-tracer---build-a-switch-and-router-network---physical-mode.pdf",
+          "reviewOf": "w09d6-q02"
+        },
+        {
+          "id": "w09d7-q13",
+          "prompt": "Un portátil accede a la red local por Wi-Fi. ¿Qué término describe ese acceso inalámbrico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un enlace de fibra directo al portátil."
+            },
+            {
+              "id": "b",
+              "text": "Un proceso sin red."
+            },
+            {
+              "id": "c",
+              "text": "WLAN."
+            },
+            {
+              "id": "d",
+              "text": "Una red solo de almacenamiento USB."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "WLAN es una red local que utiliza un medio inalámbrico.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/small-business/networking-basics.html",
+          "reviewOf": "w09d1-q03"
+        },
+        {
+          "id": "w09d7-q14",
+          "prompt": "¿Qué aporta un punto de acceso inalámbrico?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Un servicio de correo obligatorio."
+            },
+            {
+              "id": "b",
+              "text": "Una dirección pública para cada archivo."
+            },
+            {
+              "id": "c",
+              "text": "Una copia del disco de cada cliente."
+            },
+            {
+              "id": "d",
+              "text": "Conexión Wi-Fi al segmento de red al que está integrado."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El punto de acceso enlaza clientes inalámbricos con una red.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/small-business/networking-basics.html",
+          "reviewOf": "w09d2-q03"
+        },
+        {
+          "id": "w09d7-q15",
+          "prompt": "¿Por qué no elegir un enlace solo por la velocidad anunciada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La distancia nunca afecta medios físicos."
+            },
+            {
+              "id": "b",
+              "text": "Todo conector sirve con cualquier medio."
+            },
+            {
+              "id": "c",
+              "text": "También importan distancia, entorno, interfaces y requisitos reales."
+            },
+            {
+              "id": "d",
+              "text": "La radio es idéntica al cobre en toda instalación."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El diseño necesita compatibilidad y condiciones de uso, no una única cifra de capacidad.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/networking/optical-networking.html",
+          "reviewOf": "w09d3-q03"
+        },
+        {
+          "id": "w09d7-q16",
+          "prompt": "¿Qué función corresponde al enlace?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Resolver siempre nombres de dominio globales."
+            },
+            {
+              "id": "b",
+              "text": "Garantizar todos los pagos de una web."
+            },
+            {
+              "id": "c",
+              "text": "Entregar tramas dentro del segmento directamente conectado."
+            },
+            {
+              "id": "d",
+              "text": "Administrar cuentas del sistema operativo."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El enlace trata la comunicación con vecinos del medio local.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html",
+          "reviewOf": "w09d4-q03"
+        },
+        {
+          "id": "w09d7-q17",
+          "prompt": "Una videollamada alterna retardos de 20, 25, 180 y 30 ms. ¿Qué propiedad destaca?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Variación del retardo o jitter."
+            },
+            {
+              "id": "b",
+              "text": "Una IP estática obligatoria."
+            },
+            {
+              "id": "c",
+              "text": "El tamaño del disco virtual."
+            },
+            {
+              "id": "d",
+              "text": "Una resolución DNS correcta por definición."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La variabilidad del retardo afecta a flujos en tiempo real aunque su capacidad media sea suficiente.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc5481.html",
+          "reviewOf": "w09d5-q03"
+        },
+        {
+          "id": "w09d7-q18",
+          "prompt": "¿Qué aporta el modo de simulación de Packet Tracer?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Observar secuencia y detalles de los intercambios modelados."
+            },
+            {
+              "id": "b",
+              "text": "Garantizar que cualquier red física real se comporte idéntica."
+            },
+            {
+              "id": "c",
+              "text": "Sustituir toda comprobación de configuración."
+            },
+            {
+              "id": "d",
+              "text": "Instalar automáticamente los dispositivos reales."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una simulación permite estudiar el modelo, pero sus resultados tienen límites respecto al equipo real.",
+          "reference": "https://contenthub.netacad.com/courses/itn-dl/_common/10.4.4-packet-tracer---build-a-switch-and-router-network---physical-mode.pdf",
+          "reviewOf": "w09d6-q03"
+        },
+        {
+          "id": "w09d7-q19",
+          "prompt": "En una aplicación web, el navegador solicita una página y un servidor la responde. ¿Quién actúa como cliente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El servidor que responde siempre."
+            },
+            {
+              "id": "b",
+              "text": "El cable que transporta los bits."
+            },
+            {
+              "id": "c",
+              "text": "El switch por tener más puertos."
+            },
+            {
+              "id": "d",
+              "text": "El navegador que inicia la solicitud."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Cliente y servidor describen funciones en una interacción, no el tamaño del dispositivo.",
+          "reference": "https://www.cisco.com/site/us/en/learn/topics/small-business/networking-basics.html",
+          "reviewOf": "w09d1-q04"
+        },
+        {
+          "id": "w09d7-q20",
+          "prompt": "¿Qué describe encapsulación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Añadir información de protocolos al pasar datos hacia capas inferiores."
+            },
+            {
+              "id": "b",
+              "text": "Eliminar necesariamente todos los encabezados antes de transmitir."
+            },
+            {
+              "id": "c",
+              "text": "Convertir todo dato en una contraseña."
+            },
+            {
+              "id": "d",
+              "text": "Reemplazar el contenido por un nombre DNS."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Cada capa utiliza su información para transportar los datos de la capa superior.",
+          "reference": "https://www.rfc-editor.org/rfc/rfc1122.html",
+          "reviewOf": "w09d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w09d7-challenge",
+        "prompt": "Un alumno explica un mensaje entre dos PCs del mismo switch pasando primero por el módem del proveedor. ¿Qué corrección principal necesita?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Todo mensaje debe ir a internet antes de llegar a un vecino."
+          },
+          {
+            "id": "b",
+            "text": "El intercambio local puede permanecer en la LAN sin cruzar la conexión del proveedor."
+          },
+          {
+            "id": "c",
+            "text": "Un switch solo conecta impresoras y nunca PCs."
+          },
+          {
+            "id": "d",
+            "text": "El módem contiene obligatoriamente todas las tablas MAC de la LAN."
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "El recorrido depende del destino y la topología; un vecino local no necesita el trayecto de salida a internet.",
+        "reference": "https://www.cisco.com/site/us/en/learn/topics/networking/what-is-network-switching.html"
+      }
+    }
+  ]
+}

@@ -1,0 +1,2094 @@
+{
+  "week": 5,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w05d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w05d1-q01",
+          "prompt": "Ana inicia sesión y recibe «acceso denegado» al abrir Nóminas. ¿Qué etapa funcionó y cuál impidió la lectura?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Falló la autenticación; la autorización aceptó la contraseña."
+            },
+            {
+              "id": "b",
+              "text": "La sesión no existe porque ningún recurso se abrió."
+            },
+            {
+              "id": "c",
+              "text": "Funcionó la autenticación; falló la autorización al recurso."
+            },
+            {
+              "id": "d",
+              "text": "El archivo autenticó a Ana pero no al equipo."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Iniciar sesión comprueba la identidad; los permisos del archivo deciden qué puede hacer esa identidad.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+        },
+        {
+          "id": "w05d1-q02",
+          "prompt": "¿Qué elemento identifica de forma única a una cuenta de seguridad de Windows aunque cambie su nombre visible?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El nombre mostrado en la pantalla de bienvenida."
+            },
+            {
+              "id": "b",
+              "text": "La contraseña que eligió el usuario."
+            },
+            {
+              "id": "c",
+              "text": "Su identificador de seguridad, SID."
+            },
+            {
+              "id": "d",
+              "text": "La ruta del último documento abierto."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los permisos se asocian a identificadores de seguridad; el nombre puede cambiar sin crear una identidad nueva.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+        },
+        {
+          "id": "w05d1-q03",
+          "prompt": "Dos personas usan la misma cuenta «recepcion». ¿Qué problema aparece al investigar quién modificó un documento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El registro atribuye la operación a la cuenta compartida."
+            },
+            {
+              "id": "b",
+              "text": "El registro siempre conserva el nombre legal de cada persona."
+            },
+            {
+              "id": "c",
+              "text": "Cada documento crea automáticamente una cuenta individual."
+            },
+            {
+              "id": "d",
+              "text": "La contraseña distingue a ambas personas aunque sea la misma."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La identidad de la cuenta, por sí sola, no distingue a personas que comparten credenciales.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+        },
+        {
+          "id": "w05d1-q04",
+          "prompt": "¿Cuál es una credencial y no un recurso autorizado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La carpeta Informes con permiso de lectura."
+            },
+            {
+              "id": "b",
+              "text": "La contraseña presentada al iniciar sesión."
+            },
+            {
+              "id": "c",
+              "text": "La impresora disponible para recepción."
+            },
+            {
+              "id": "d",
+              "text": "El buzón que la cuenta puede consultar."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La credencial demuestra identidad; carpetas, impresoras y buzones son recursos cuyo uso se autoriza después.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+        },
+        {
+          "id": "w05d1-q05",
+          "prompt": "Una cuenta local llamada lucia existe en PC-A y otra con igual nombre en PC-B. ¿Qué se puede afirmar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Son la misma identidad y comparten contraseña."
+            },
+            {
+              "id": "b",
+              "text": "Obtienen los mismos permisos en cualquier equipo."
+            },
+            {
+              "id": "c",
+              "text": "Son identidades distintas aunque coincida el nombre."
+            },
+            {
+              "id": "d",
+              "text": "La segunda cuenta sustituye automáticamente a la primera."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las cuentas locales pertenecen a su equipo y tienen identificadores propios; un nombre coincidente no las unifica.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+        },
+        {
+          "id": "w05d1-q06",
+          "prompt": "Pedro bloquea Windows y deja sus aplicaciones abiertas. ¿Qué describe mejor ese estado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La cuenta y sus permisos fueron eliminados."
+            },
+            {
+              "id": "b",
+              "text": "Todas las credenciales de todos los servicios fueron revocadas."
+            },
+            {
+              "id": "c",
+              "text": "Los archivos abiertos se hicieron públicos."
+            },
+            {
+              "id": "d",
+              "text": "La sesión sigue abierta, pero requiere desbloqueo para usarla."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Bloquear protege el acceso interactivo a la sesión; no equivale a cerrarla ni a dar de baja la cuenta.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+        },
+        {
+          "id": "w05d1-q07",
+          "prompt": "En un inventario de identidades, ¿qué fila permite revisar acceso con precisión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cuenta mlopez; recurso Facturas; permiso lectura; responsable Contabilidad."
+            },
+            {
+              "id": "b",
+              "text": "Nombre Marta; equipo moderno; contraseña compleja; turno mañana."
+            },
+            {
+              "id": "c",
+              "text": "Cuenta mlopez; recursos todos; permisos habituales; responsable cualquiera."
+            },
+            {
+              "id": "d",
+              "text": "Usuario frecuente; carpeta grande; acceso rápido; revisión pendiente."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Relacionar cuenta, recurso, operación y responsable hace comprobable la autorización.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+        },
+        {
+          "id": "w05d1-q08",
+          "prompt": "Una aplicación se ejecuta con una cuenta de servicio. ¿Qué debe inventariarse además de las cuentas humanas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La identidad de servicio y los recursos a los que accede."
+            },
+            {
+              "id": "b",
+              "text": "Solo la identidad de la persona que instaló la aplicación."
+            },
+            {
+              "id": "c",
+              "text": "Únicamente la marca del programa que utiliza la cuenta."
+            },
+            {
+              "id": "d",
+              "text": "Solo las cuentas que muestran escritorio al iniciar sesión."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los servicios también actúan como identidades de seguridad y pueden disponer de permisos relevantes.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+        }
+      ],
+      "challenge": {
+        "id": "w05d1-challenge",
+        "prompt": "Tres identidades usan un equipo: alumna, soporte y servicio de copia. La carpeta Ejercicios solo admite a Alumna en lectura. ¿Qué matriz documenta correctamente la intención?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Las tres: modificar Ejercicios por estar en el mismo equipo."
+          },
+          {
+            "id": "b",
+            "text": "Alumna: leer Ejercicios; soporte y servicio: sin concesión por esa carpeta."
+          },
+          {
+            "id": "c",
+            "text": "Servicio: administrar permisos porque su nombre incluye copia."
+          },
+          {
+            "id": "d",
+            "text": "Soporte: lectura automática de cualquier dato por ser una persona técnica."
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La autorización se describe por identidad, recurso y operación; compartir equipo no concede acceso.",
+        "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+      }
+    },
+    {
+      "dayId": "w05d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w05d2-q01",
+          "prompt": "Una usuaria redacta documentos y navega. ¿Qué cuenta basta normalmente para esas tareas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una cuenta estándar."
+            },
+            {
+              "id": "b",
+              "text": "Una cuenta de administrador elevada permanentemente."
+            },
+            {
+              "id": "c",
+              "text": "La cuenta SYSTEM para todo el escritorio."
+            },
+            {
+              "id": "d",
+              "text": "Una cuenta de invitado con permisos sobre todas las carpetas."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las tareas de uso ordinario no suelen necesitar el token completo de administrador.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/security/user-account-control/how-user-account-control-works"
+        },
+        {
+          "id": "w05d2-q02",
+          "prompt": "Al instalar un controlador aparece UAC. ¿Qué indica esa solicitud?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El controlador ya ha superado una auditoría de seguridad completa."
+            },
+            {
+              "id": "b",
+              "text": "La contraseña de la cuenta estándar se ha cambiado."
+            },
+            {
+              "id": "c",
+              "text": "La operación solicita un contexto con privilegios administrativos."
+            },
+            {
+              "id": "d",
+              "text": "Todos los procesos existentes ya se ejecutan elevados."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "UAC media la elevación; aceptar una solicitud no certifica que el software sea confiable.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/security/user-account-control/how-user-account-control-works"
+        },
+        {
+          "id": "w05d2-q03",
+          "prompt": "Un miembro de Administradores abre PowerShell normalmente con UAC activo. ¿Qué debe asumir sobre esa ventana?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Siempre tiene todos los privilegios porque pertenece al grupo."
+            },
+            {
+              "id": "b",
+              "text": "Puede estar usando un token estándar hasta elevarla."
+            },
+            {
+              "id": "c",
+              "text": "No puede leer ningún archivo hasta desactivar UAC."
+            },
+            {
+              "id": "d",
+              "text": "Se ejecuta automáticamente como la cuenta SYSTEM."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "UAC permite iniciar aplicaciones con un token filtrado y elevar solo las operaciones autorizadas.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/security/user-account-control/how-user-account-control-works"
+        },
+        {
+          "id": "w05d2-q04",
+          "prompt": "Un proceso elevado abre otro proceso normalmente. ¿Qué riesgo introduce mantener toda la sesión elevada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Los archivos nuevos pierden toda identidad de propietario."
+            },
+            {
+              "id": "b",
+              "text": "Se impide que cualquier programa escriba en disco."
+            },
+            {
+              "id": "c",
+              "text": "Más código puede ejecutarse con los permisos ampliados de ese contexto."
+            },
+            {
+              "id": "d",
+              "text": "Se elimina la necesidad de comprobar el editor del software."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El contexto de seguridad de los procesos determina los recursos que puede afectar el código.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/security/user-account-control/how-user-account-control-works"
+        },
+        {
+          "id": "w05d2-q05",
+          "prompt": "Una aplicación de notas solicita elevación sin explicar por qué. ¿Qué decisión tiene sentido antes de aceptarla?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aceptar porque toda aplicación de escritorio requiere elevación."
+            },
+            {
+              "id": "b",
+              "text": "Desactivar UAC para que no vuelva a preguntar."
+            },
+            {
+              "id": "c",
+              "text": "Cambiar todos los permisos del perfil a Control total para Todos."
+            },
+            {
+              "id": "d",
+              "text": "Comprobar editor, origen y necesidad concreta de permisos."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una solicitud inesperada requiere comprobar la tarea y la procedencia antes de conceder privilegios.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/security/user-account-control/how-user-account-control-works"
+        },
+        {
+          "id": "w05d2-q06",
+          "prompt": "¿Qué tarea suele requerir elevación en Windows?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Leer un documento propio en Documentos."
+            },
+            {
+              "id": "b",
+              "text": "Cambiar una regla del firewall que afecta al equipo."
+            },
+            {
+              "id": "c",
+              "text": "Cambiar el tamaño de una ventana de usuario."
+            },
+            {
+              "id": "d",
+              "text": "Guardar notas en una carpeta propia con permiso de escritura."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La configuración de seguridad del sistema afecta a otros usuarios y normalmente necesita privilegios administrativos.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/security/user-account-control/how-user-account-control-works"
+        },
+        {
+          "id": "w05d2-q07",
+          "prompt": "Una cuenta estándar recibe un aviso para introducir credenciales administrativas. ¿Qué se está autorizando?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La conversión permanente de la cuenta estándar en administradora."
+            },
+            {
+              "id": "b",
+              "text": "El acceso anónimo de cualquier usuario al equipo."
+            },
+            {
+              "id": "c",
+              "text": "Una operación elevada con una identidad administrativa válida."
+            },
+            {
+              "id": "d",
+              "text": "La eliminación de todas las restricciones de archivos existentes."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La elevación habilita la tarea solicitada; no debe interpretarse como un cambio permanente de pertenencia a grupos.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/security/user-account-control/how-user-account-control-works"
+        },
+        {
+          "id": "w05d2-q08",
+          "prompt": "¿Qué diseño aplica mínimo privilegio al soporte de un equipo personal?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cuenta administrativa compartida para todas las tareas."
+            },
+            {
+              "id": "b",
+              "text": "Cuenta estándar para uso diario y elevación limitada a tareas justificadas."
+            },
+            {
+              "id": "c",
+              "text": "Dar Control total en el disco a cada aplicación instalada."
+            },
+            {
+              "id": "d",
+              "text": "Mantener UAC desactivado y confiar en el nombre de cada archivo."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Separar el uso ordinario de las operaciones administrativas reduce el alcance de errores o código malicioso.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/security/user-account-control/how-user-account-control-works"
+        }
+      ],
+      "challenge": {
+        "id": "w05d2-challenge",
+        "prompt": "Una cuenta estándar debe instalar un controlador verificado y luego escribir apuntes. ¿Qué secuencia reduce privilegios manteniendo ambas tareas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Elevar el editor de apuntes y todas las ventanas posteriores."
+          },
+          {
+            "id": "b",
+            "text": "Autorizar la instalación elevada y redactar con el contexto estándar."
+          },
+          {
+            "id": "c",
+            "text": "Añadir la cuenta a Administradores y conservarla allí."
+          },
+          {
+            "id": "d",
+            "text": "Dar escritura a Todos sobre la carpeta de controladores."
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La elevación se limita a la operación que necesita cambios del sistema; los apuntes no requieren ese alcance.",
+        "reference": "https://learn.microsoft.com/en-us/windows-server/security/user-account-control/how-user-account-control-works"
+      }
+    },
+    {
+      "dayId": "w05d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w05d3-q01",
+          "prompt": "Recepción solo necesita consultar citas; Contabilidad modifica facturas. ¿Qué diseño de roles encaja?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Control total de ambas carpetas para los dos departamentos."
+            },
+            {
+              "id": "b",
+              "text": "Una cuenta compartida con todos los permisos para ambos puestos."
+            },
+            {
+              "id": "c",
+              "text": "Permisos individuales sin registrar a qué puesto corresponden."
+            },
+            {
+              "id": "d",
+              "text": "Lectura de Citas para Recepción y modificación de Facturas para Contabilidad."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los roles deben reflejar las operaciones que cada puesto necesita sobre cada recurso.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+        },
+        {
+          "id": "w05d3-q02",
+          "prompt": "Llegan diez personas nuevas a Contabilidad. ¿Qué simplifica mantener permisos coherentes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Copiar archivos contables a diez carpetas públicas."
+            },
+            {
+              "id": "b",
+              "text": "Asignarlas al grupo Contabilidad que ya tiene los permisos aprobados."
+            },
+            {
+              "id": "c",
+              "text": "Convertir cada cuenta en administradora del equipo."
+            },
+            {
+              "id": "d",
+              "text": "Usar la contraseña de la responsable del área."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La asignación mediante grupos centraliza el acceso del puesto y facilita futuras revisiones.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+        },
+        {
+          "id": "w05d3-q03",
+          "prompt": "Una empleada pasa de Recepción a Contabilidad. ¿Qué revisión evita acumular privilegios?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conservar siempre ambos roles por si necesita volver."
+            },
+            {
+              "id": "b",
+              "text": "Borrar su cuenta sin transferir documentos necesarios."
+            },
+            {
+              "id": "c",
+              "text": "Conceder acceso global para no repetir cambios de grupo."
+            },
+            {
+              "id": "d",
+              "text": "Retirar los accesos del puesto anterior y conceder los del nuevo."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un cambio de función exige revisar permisos previos, no solo añadir los nuevos.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+        },
+        {
+          "id": "w05d3-q04",
+          "prompt": "Un usuario pertenece a Lectores y Editores. Ambas entradas NTFS solo permiten acceso. ¿Cómo se combinan?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Windows elige al azar uno de los dos grupos."
+            },
+            {
+              "id": "b",
+              "text": "Se conserva siempre únicamente el permiso más bajo."
+            },
+            {
+              "id": "c",
+              "text": "Se acumulan los permisos permitidos aplicables de ambos grupos."
+            },
+            {
+              "id": "d",
+              "text": "Los grupos se anulan y el usuario queda sin acceso."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Las entradas permitidas se acumulan; las denegaciones y su orden requieren un análisis adicional.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+        },
+        {
+          "id": "w05d3-q05",
+          "prompt": "El rol Administrador de cuentas puede crear usuarios pero no necesita leer facturas. ¿Qué principio refleja?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conceder siempre lectura de todos los datos a cualquier administrador."
+            },
+            {
+              "id": "b",
+              "text": "Separar facultades administrativas de acceso a datos del negocio."
+            },
+            {
+              "id": "c",
+              "text": "Usar el nombre del rol como sustituto de una ACL."
+            },
+            {
+              "id": "d",
+              "text": "Otorgar escritura solo a quienes no tienen cuenta."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una función administrativa concreta no justifica acceso indiscriminado a los datos.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+        },
+        {
+          "id": "w05d3-q06",
+          "prompt": "¿Qué pregunta ayuda más a aprobar un rol nuevo «Auditor temporal»?",
+          "options": [
+            {
+              "id": "a",
+              "text": "¿Cuál es la contraseña que usa el auditor fuera de la empresa?"
+            },
+            {
+              "id": "b",
+              "text": "¿Qué grupo tiene el nombre más parecido a Auditor?"
+            },
+            {
+              "id": "c",
+              "text": "¿Cuántos permisos podemos conceder sin documentarlos?"
+            },
+            {
+              "id": "d",
+              "text": "¿Qué recursos, operaciones y plazo necesita para su revisión?"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El alcance y la duración permiten asignar privilegios proporcionados a la tarea.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+        },
+        {
+          "id": "w05d3-q07",
+          "prompt": "Una carpeta permite escritura al grupo Todos por un arreglo antiguo. Se crea un grupo restringido. ¿Qué falta revisar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El color del icono del nuevo grupo en el listado."
+            },
+            {
+              "id": "b",
+              "text": "El nombre del archivo más reciente de la carpeta."
+            },
+            {
+              "id": "c",
+              "text": "La cantidad de letras del nombre del grupo restringido."
+            },
+            {
+              "id": "d",
+              "text": "La entrada amplia que todavía concede escritura a Todos."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Añadir un grupo limitado no elimina permisos concedidos por otras entradas aplicables.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+        },
+        {
+          "id": "w05d3-q08",
+          "prompt": "¿Qué evidencia muestra una revisión real de pertenencia a roles?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Lista de miembros contrastada con puestos y aprobación del responsable."
+            },
+            {
+              "id": "b",
+              "text": "Solo una captura que muestra que el grupo existe."
+            },
+            {
+              "id": "c",
+              "text": "Una lista de contraseñas de todas las personas del grupo."
+            },
+            {
+              "id": "d",
+              "text": "Un recuento de archivos sin relacionarlo con usuarios."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La revisión necesita comparar las personas y sus funciones con los accesos vigentes.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+        }
+      ],
+      "challenge": {
+        "id": "w05d3-challenge",
+        "prompt": "Recepción lee Agenda; Contabilidad modifica Facturas; una auditora consulta Facturas durante dos días. ¿Cómo modelar el acceso de la auditora?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Miembro permanente de Contabilidad con todos sus permisos."
+          },
+          {
+            "id": "b",
+            "text": "Cuenta compartida de la responsable de Contabilidad."
+          },
+          {
+            "id": "c",
+            "text": "Control total sobre Agenda y Facturas hasta el siguiente año."
+          },
+          {
+            "id": "d",
+            "text": "Rol temporal de lectura de Facturas con revisión al vencimiento."
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "El alcance de consulta y el plazo son distintos de los permisos de edición del puesto contable.",
+        "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+      }
+    },
+    {
+      "dayId": "w05d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w05d4-q01",
+          "prompt": "En una carpeta NTFS, un grupo tiene Lectura pero no Escritura. ¿Qué operación debería fallar por esos permisos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Abrir un archivo de texto para leerlo."
+            },
+            {
+              "id": "b",
+              "text": "Consultar el contenido permitido de la carpeta."
+            },
+            {
+              "id": "c",
+              "text": "Leer los atributos permitidos de un archivo."
+            },
+            {
+              "id": "d",
+              "text": "Guardar cambios en un archivo existente."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Leer no autoriza modificar; la prueba debe comprobar ambas operaciones por separado.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+        },
+        {
+          "id": "w05d4-q02",
+          "prompt": "Una subcarpeta muestra permisos heredados de su carpeta padre. ¿Qué significa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Copia la contraseña del propietario de la carpeta padre."
+            },
+            {
+              "id": "b",
+              "text": "Se convierte en una carpeta compartida por internet."
+            },
+            {
+              "id": "c",
+              "text": "Recibe las entradas del padre marcadas como heredables."
+            },
+            {
+              "id": "d",
+              "text": "Sus permisos nunca pueden revisarse ni modificarse."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La herencia propaga entradas de acceso dentro de la jerarquía y reduce la configuración repetida.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+        },
+        {
+          "id": "w05d4-q03",
+          "prompt": "¿Qué permiso de archivo permite que un programa pueda iniciarse cuando el resto de controles lo permite?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ejecución."
+            },
+            {
+              "id": "b",
+              "text": "Solo escritura de atributos."
+            },
+            {
+              "id": "c",
+              "text": "Únicamente lectura del nombre."
+            },
+            {
+              "id": "d",
+              "text": "Cambio de propietario."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La ejecución es una operación diferente de leer o modificar datos.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+        },
+        {
+          "id": "w05d4-q04",
+          "prompt": "Quieres una carpeta de prueba que solo el grupo Laboratorio pueda modificar. ¿Qué configuración revisarías primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todas las entradas efectivas, incluidas las heredadas para otros grupos."
+            },
+            {
+              "id": "b",
+              "text": "Solo que el nombre de la carpeta contenga Laboratorio."
+            },
+            {
+              "id": "c",
+              "text": "Únicamente que la carpeta tenga algún propietario."
+            },
+            {
+              "id": "d",
+              "text": "Solo la hora de creación de los archivos nuevos."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una entrada amplia heredada puede mantener acceso aunque se añada un permiso específico.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+        },
+        {
+          "id": "w05d4-q05",
+          "prompt": "Un archivo tiene una ACL que concede acceso a unos grupos y no menciona a una cuenta ni a sus grupos. ¿Qué ocurre normalmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La cuenta recibe automáticamente Control total."
+            },
+            {
+              "id": "b",
+              "text": "La cuenta no obtiene acceso por esa ACL."
+            },
+            {
+              "id": "c",
+              "text": "La ausencia se interpreta como permiso de escritura."
+            },
+            {
+              "id": "d",
+              "text": "Windows pide al propietario su contraseña en cada lectura."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Con una DACL presente, el acceso debe quedar concedido por entradas aplicables; la falta de concesión lo impide.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+        },
+        {
+          "id": "w05d4-q06",
+          "prompt": "Un usuario puede editar contenido pero no debe administrar permisos. ¿Qué sería excesivo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conceder Control total cuando bastaría Modificar."
+            },
+            {
+              "id": "b",
+              "text": "Conceder Modificar sobre los documentos de su tarea."
+            },
+            {
+              "id": "c",
+              "text": "Conceder Lectura para consultar una guía publicada."
+            },
+            {
+              "id": "d",
+              "text": "Usar un grupo para asignar las operaciones requeridas."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Control total incluye facultades adicionales sobre el objeto, como administrar permisos.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+        },
+        {
+          "id": "w05d4-q07",
+          "prompt": "Se desactiva la herencia y se elige convertir permisos heredados en explícitos. ¿Qué debe comprobarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que todas las entradas heredadas desaparecieron necesariamente."
+            },
+            {
+              "id": "b",
+              "text": "Que las entradas convertidas conservan solo el acceso deseado."
+            },
+            {
+              "id": "c",
+              "text": "Que los nombres de todos los archivos cambiaron."
+            },
+            {
+              "id": "d",
+              "text": "Que la carpeta se volvió cifrada automáticamente."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Convertir mantiene entradas como explícitas; no implica por sí solo eliminar accesos amplios.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+        },
+        {
+          "id": "w05d4-q08",
+          "prompt": "Para probar una ACL sin afectar documentos reales, ¿qué recurso conviene preparar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una carpeta de laboratorio con archivos prescindibles y permisos anotados."
+            },
+            {
+              "id": "b",
+              "text": "La carpeta del sistema con denegación para todas las cuentas."
+            },
+            {
+              "id": "c",
+              "text": "La única copia de documentos personales importantes."
+            },
+            {
+              "id": "d",
+              "text": "La raíz del disco con herencia eliminada sin registrar el estado."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un recurso de prueba permite observar operaciones y recuperar la configuración sin afectar datos necesarios.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+        }
+      ],
+      "challenge": {
+        "id": "w05d4-challenge",
+        "prompt": "En Pruebas, Laboratorio tiene Modificar y Todos hereda Modificar del padre. Se esperaba que solo Laboratorio escribiera. ¿Qué cambio debe evaluarse?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Añadir otra concesión Modificar a Laboratorio y conservar Todos."
+          },
+          {
+            "id": "b",
+            "text": "Cambiar Pruebas a otro nombre conservando la misma ACL."
+          },
+          {
+            "id": "c",
+            "text": "Crear un archivo vacío y asumir que sus permisos son exclusivos."
+          },
+          {
+            "id": "d",
+            "text": "Retirar o limitar la concesión amplia heredada y volver a probar las identidades."
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La entrada de Todos mantiene la escritura para otras identidades; una concesión más específica no la elimina.",
+        "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+      }
+    },
+    {
+      "dayId": "w05d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w05d5-q01",
+          "prompt": "Una captura muestra «Lectura» para el grupo A. El usuario también pertenece al grupo B con Modificar. ¿Qué falta para predecir su acceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Considerar todas sus pertenencias y las entradas aplicables."
+            },
+            {
+              "id": "b",
+              "text": "Tomar la primera captura como prueba de acceso de solo lectura."
+            },
+            {
+              "id": "c",
+              "text": "Cambiar la contraseña para invalidar el permiso Modificar."
+            },
+            {
+              "id": "d",
+              "text": "Ignorar los grupos porque solo cuentan permisos individuales."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El acceso efectivo considera la identidad y sus grupos, además de las entradas correspondientes.",
+          "reference": "https://learn.microsoft.com/en-us/windows/win32/secauthz/dacls-and-aces"
+        },
+        {
+          "id": "w05d5-q02",
+          "prompt": "Se debe demostrar que una cuenta de laboratorio no escribe en una carpeta. ¿Qué prueba aporta evidencia directa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Abrir la carpeta como administrador y asumir el mismo resultado."
+            },
+            {
+              "id": "b",
+              "text": "Ver que el nombre de la cuenta no aparece en el escritorio."
+            },
+            {
+              "id": "c",
+              "text": "Intentar crear un archivo desechable con esa cuenta y registrar el resultado."
+            },
+            {
+              "id": "d",
+              "text": "Comprobar que el archivo original sigue teniendo igual nombre."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una operación concreta bajo la identidad prevista permite comparar permiso esperado y observado.",
+          "reference": "https://learn.microsoft.com/en-us/windows/win32/secauthz/dacls-and-aces"
+        },
+        {
+          "id": "w05d5-q03",
+          "prompt": "La lectura funciona como administrador pero falla como cuenta estándar. ¿Qué conclusión es válida?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El archivo está dañado porque dos cuentas reciben resultados distintos."
+            },
+            {
+              "id": "b",
+              "text": "La cuenta estándar ha autenticado como el administrador."
+            },
+            {
+              "id": "c",
+              "text": "La prueba administrativa no demuestra el acceso de la cuenta estándar."
+            },
+            {
+              "id": "d",
+              "text": "El permiso de lectura depende únicamente de la extensión."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Cada prueba debe usar la identidad y el contexto de seguridad que se pretende evaluar.",
+          "reference": "https://learn.microsoft.com/en-us/windows/win32/secauthz/dacls-and-aces"
+        },
+        {
+          "id": "w05d5-q04",
+          "prompt": "Una carpeta muestra una denegación explícita de escritura al usuario y una concesión heredada al grupo. ¿Qué conviene analizar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo sumar todas las palabras «Permitir» del listado."
+            },
+            {
+              "id": "b",
+              "text": "La ACL completa y el orden de las entradas aplicables."
+            },
+            {
+              "id": "c",
+              "text": "Ignorar la denegación porque el grupo es más grande."
+            },
+            {
+              "id": "d",
+              "text": "Suponer que el propietario del archivo decide cada operación manualmente."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Las denegaciones y la precedencia de las entradas impiden reducir toda ACL a una simple suma.",
+          "reference": "https://learn.microsoft.com/en-us/windows/win32/secauthz/dacls-and-aces"
+        },
+        {
+          "id": "w05d5-q05",
+          "prompt": "Tras cambiar grupos, una sesión existente sigue mostrando comportamiento antiguo. ¿Qué comprobación ayuda?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Iniciar una sesión nueva de prueba y revisar el token y los grupos."
+            },
+            {
+              "id": "b",
+              "text": "Reescribir el contenido del archivo para cambiar su dueño."
+            },
+            {
+              "id": "c",
+              "text": "Conceder Control total a Todos y finalizar la revisión."
+            },
+            {
+              "id": "d",
+              "text": "Borrar el registro de la prueba que mostró el fallo."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las pertenencias presentes en el token de una sesión pueden requerir renovarlo; se debe comprobar con una nueva sesión.",
+          "reference": "https://learn.microsoft.com/en-us/windows/win32/secauthz/dacls-and-aces"
+        },
+        {
+          "id": "w05d5-q06",
+          "prompt": "¿Qué registro hace reproducible una validación de acceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo la frase «los permisos parecen correctos»."
+            },
+            {
+              "id": "b",
+              "text": "Únicamente el tamaño total del disco y la fecha."
+            },
+            {
+              "id": "c",
+              "text": "Cuenta, ruta, operación, resultado esperado y resultado observado."
+            },
+            {
+              "id": "d",
+              "text": "La contraseña usada junto con una captura de pantalla."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La identidad, el objeto y la operación permiten a otra persona repetir la comprobación sin revelar credenciales.",
+          "reference": "https://learn.microsoft.com/en-us/windows/win32/secauthz/dacls-and-aces"
+        },
+        {
+          "id": "w05d5-q07",
+          "prompt": "Un alumno puede leer pero no borrar un archivo. ¿Qué demuestra ese resultado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Las operaciones de lectura y eliminación tienen autorizaciones distintas."
+            },
+            {
+              "id": "b",
+              "text": "Todo el acceso al archivo está fallando."
+            },
+            {
+              "id": "c",
+              "text": "El archivo es invisible para su propietario."
+            },
+            {
+              "id": "d",
+              "text": "La contraseña es válida solo para extensiones de texto."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Probar lectura no sustituye una prueba de eliminación o escritura; cada operación necesita el permiso correspondiente.",
+          "reference": "https://learn.microsoft.com/en-us/windows/win32/secauthz/dacls-and-aces"
+        },
+        {
+          "id": "w05d5-q08",
+          "prompt": "El permiso esperado es lectura, pero la cuenta guarda cambios correctamente. ¿Cuál es el siguiente paso razonable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Registrar éxito porque la autenticación funcionó."
+            },
+            {
+              "id": "b",
+              "text": "Revisar concesiones adicionales y corregir la diferencia antes de repetir la prueba."
+            },
+            {
+              "id": "c",
+              "text": "Cambiar la extensión del archivo y declarar resuelto el acceso."
+            },
+            {
+              "id": "d",
+              "text": "Repetir solo con administrador para evitar resultados distintos."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Un resultado más permisivo que el diseño también es un fallo de control y exige explicar su origen.",
+          "reference": "https://learn.microsoft.com/en-us/windows/win32/secauthz/dacls-and-aces"
+        }
+      ],
+      "challenge": {
+        "id": "w05d5-challenge",
+        "prompt": "El informe anota: cuenta invitada de laboratorio, lectura permitida, creación denegada. La intención era solo lectura. ¿Qué conclusión permite la evidencia?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Se verificaron automáticamente todas las carpetas del equipo."
+          },
+          {
+            "id": "b",
+            "text": "La cuenta jamás podrá eliminar archivos en ningún recurso."
+          },
+          {
+            "id": "c",
+            "text": "Ambas operaciones probadas coinciden con el diseño, dentro de esa ruta y sesión."
+          },
+          {
+            "id": "d",
+            "text": "El sistema ha quedado libre de cualquier problema de permisos."
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La interpretación debe limitarse a las operaciones, el recurso y la identidad que realmente se probaron.",
+        "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+      }
+    },
+    {
+      "dayId": "w05d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w05d6-q01",
+          "prompt": "En una baja se deshabilita la cuenta central. ¿Por qué se revisan también las sesiones de aplicaciones?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Deshabilitar una cuenta borra de inmediato todos los archivos locales."
+            },
+            {
+              "id": "b",
+              "text": "Una sesión de aplicación nunca puede sobrevivir a una contraseña."
+            },
+            {
+              "id": "c",
+              "text": "Todas las aplicaciones comparten exactamente el mismo cierre de sesión."
+            },
+            {
+              "id": "d",
+              "text": "Algunas aplicaciones mantienen sus propios tokens de sesión."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una aplicación puede emitir y gestionar su propia sesión; la baja debe tratar ese acceso además del inicio central.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity/users/users-revoke-access"
+        },
+        {
+          "id": "w05d6-q02",
+          "prompt": "El responsable elimina a una persona de un grupo, pero conserva una concesión directa en Facturas. ¿Qué falta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Crear otro grupo con el mismo nombre que la persona."
+            },
+            {
+              "id": "b",
+              "text": "Cambiar únicamente la fecha del archivo de facturas."
+            },
+            {
+              "id": "c",
+              "text": "Añadir a la persona al grupo Lectores para anular cualquier escritura."
+            },
+            {
+              "id": "d",
+              "text": "Revocar también la entrada directa que ya no está justificada."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Retirar una vía de acceso no elimina concesiones independientes.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity/users/users-revoke-access"
+        },
+        {
+          "id": "w05d6-q03",
+          "prompt": "Una lista de baja solo dice «TI lo hará». ¿Qué dato vuelve comprobable cada acción?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Responsable, plazo y evidencia de cierre por recurso."
+            },
+            {
+              "id": "b",
+              "text": "Una contraseña común que todo TI conozca."
+            },
+            {
+              "id": "c",
+              "text": "El número de caracteres del nombre del empleado."
+            },
+            {
+              "id": "d",
+              "text": "La promesa de revisar todo cuando alguien lo solicite."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La responsabilidad y la evidencia permiten verificar que cada acceso se retiró en el momento previsto.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity/users/users-revoke-access"
+        },
+        {
+          "id": "w05d6-q04",
+          "prompt": "Se cambia la contraseña de un empleado que sale. ¿Qué afirmación sería demasiado fuerte?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todas las sesiones de todos los servicios ya terminaron."
+            },
+            {
+              "id": "b",
+              "text": "Se cambió un mecanismo de autenticación de la cuenta."
+            },
+            {
+              "id": "c",
+              "text": "Es necesario comprobar las sesiones activas relevantes."
+            },
+            {
+              "id": "d",
+              "text": "Puede haber aplicaciones con gestión de sesión propia."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Cambiar contraseña no garantiza revocar de inmediato todos los tokens o sesiones de aplicaciones.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity/users/users-revoke-access"
+        },
+        {
+          "id": "w05d6-q05",
+          "prompt": "Una persona que sale conocía una clave compartida usada por un servicio. ¿Qué debe coordinarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eliminar el servicio sin identificar a su responsable."
+            },
+            {
+              "id": "b",
+              "text": "Mantener la clave indefinidamente porque no es una cuenta personal."
+            },
+            {
+              "id": "c",
+              "text": "Rotación de esa clave y actualización controlada del servicio autorizado."
+            },
+            {
+              "id": "d",
+              "text": "Copiar la clave al documento público de la baja."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una credencial conocida puede seguir dando acceso; su rotación debe preservar el servicio legítimo sin divulgarla.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity/users/users-revoke-access"
+        },
+        {
+          "id": "w05d6-q06",
+          "prompt": "Un portátil desconectado conserva documentos descargados. ¿Qué límite tiene revocar acceso en la nube?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Impide físicamente encender cualquier dispositivo desconectado."
+            },
+            {
+              "id": "b",
+              "text": "Cifra automáticamente todos los archivos del portátil."
+            },
+            {
+              "id": "c",
+              "text": "No garantiza eliminar inmediatamente las copias locales sin conexión."
+            },
+            {
+              "id": "d",
+              "text": "Destruye toda copia en papel creada por el usuario."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La revocación de servicios no equivale a recuperar datos ya almacenados fuera de línea.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity/users/users-revoke-access"
+        },
+        {
+          "id": "w05d6-q07",
+          "prompt": "¿Por qué identificar al propietario de un flujo automatizado antes de borrar una cuenta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para dejar todos sus permisos activos sin fecha final."
+            },
+            {
+              "id": "b",
+              "text": "Para convertir todas las cuentas humanas en servicios."
+            },
+            {
+              "id": "c",
+              "text": "Para transferir dependencias y evitar interrupciones de procesos autorizados."
+            },
+            {
+              "id": "d",
+              "text": "Para copiar su contraseña a cada empleado del área."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La baja debe retirar acceso personal y conservar funciones de negocio mediante identidades y responsables apropiados.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity/users/users-revoke-access"
+        },
+        {
+          "id": "w05d6-q08",
+          "prompt": "¿Qué revisión final detecta una baja incompleta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Comprobar solo que la persona ya no aparece en el organigrama."
+            },
+            {
+              "id": "b",
+              "text": "Revisar únicamente la antigüedad de su equipo."
+            },
+            {
+              "id": "c",
+              "text": "Confirmar que el nombre de su carpeta cambió a Archivado."
+            },
+            {
+              "id": "d",
+              "text": "Contrastar el inventario de accesos con cuentas, sesiones y permisos revocados."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La verificación debe cubrir cada vía de acceso inventariada y dejar constancia de las excepciones pendientes.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity/users/users-revoke-access"
+        }
+      ],
+      "challenge": {
+        "id": "w05d6-challenge",
+        "prompt": "Se bloqueó el inicio central de una baja, pero una aplicación conserva sesión y otra tiene cuenta local independiente. ¿Cómo cerrar la lista?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Marcar todo cerrado porque el directorio central ya bloquea la cuenta."
+          },
+          {
+            "id": "b",
+            "text": "Cambiar el nombre visible en el directorio central y esperar."
+          },
+          {
+            "id": "c",
+            "text": "Asignar a sus responsables la revocación de sesión y la baja local, y verificar ambas."
+          },
+          {
+            "id": "d",
+            "text": "Añadir una denegación en una carpeta ajena a las aplicaciones."
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "Las aplicaciones pueden mantener sesiones y mecanismos de autenticación independientes que exigen acciones específicas.",
+        "reference": "https://learn.microsoft.com/en-us/entra/identity/users/users-revoke-access"
+      }
+    },
+    {
+      "dayId": "w05d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w05d7-q01",
+          "prompt": "Ana inicia sesión y recibe «acceso denegado» al abrir Nóminas. ¿Qué etapa funcionó y cuál impidió la lectura?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Falló la autenticación; la autorización aceptó la contraseña."
+            },
+            {
+              "id": "b",
+              "text": "La sesión no existe porque ningún recurso se abrió."
+            },
+            {
+              "id": "c",
+              "text": "Funcionó la autenticación; falló la autorización al recurso."
+            },
+            {
+              "id": "d",
+              "text": "El archivo autenticó a Ana pero no al equipo."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Iniciar sesión comprueba la identidad; los permisos del archivo deciden qué puede hacer esa identidad.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control",
+          "reviewOf": "w05d1-q01"
+        },
+        {
+          "id": "w05d7-q02",
+          "prompt": "Una usuaria redacta documentos y navega. ¿Qué cuenta basta normalmente para esas tareas?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Una cuenta estándar."
+            },
+            {
+              "id": "b",
+              "text": "Una cuenta de administrador elevada permanentemente."
+            },
+            {
+              "id": "c",
+              "text": "La cuenta SYSTEM para todo el escritorio."
+            },
+            {
+              "id": "d",
+              "text": "Una cuenta de invitado con permisos sobre todas las carpetas."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las tareas de uso ordinario no suelen necesitar el token completo de administrador.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/security/user-account-control/how-user-account-control-works",
+          "reviewOf": "w05d2-q01"
+        },
+        {
+          "id": "w05d7-q03",
+          "prompt": "Recepción solo necesita consultar citas; Contabilidad modifica facturas. ¿Qué diseño de roles encaja?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Control total de ambas carpetas para los dos departamentos."
+            },
+            {
+              "id": "b",
+              "text": "Una cuenta compartida con todos los permisos para ambos puestos."
+            },
+            {
+              "id": "c",
+              "text": "Permisos individuales sin registrar a qué puesto corresponden."
+            },
+            {
+              "id": "d",
+              "text": "Lectura de Citas para Recepción y modificación de Facturas para Contabilidad."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los roles deben reflejar las operaciones que cada puesto necesita sobre cada recurso.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control",
+          "reviewOf": "w05d3-q01"
+        },
+        {
+          "id": "w05d7-q04",
+          "prompt": "En una carpeta NTFS, un grupo tiene Lectura pero no Escritura. ¿Qué operación debería fallar por esos permisos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Abrir un archivo de texto para leerlo."
+            },
+            {
+              "id": "b",
+              "text": "Consultar el contenido permitido de la carpeta."
+            },
+            {
+              "id": "c",
+              "text": "Leer los atributos permitidos de un archivo."
+            },
+            {
+              "id": "d",
+              "text": "Guardar cambios en un archivo existente."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Leer no autoriza modificar; la prueba debe comprobar ambas operaciones por separado.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control",
+          "reviewOf": "w05d4-q01"
+        },
+        {
+          "id": "w05d7-q05",
+          "prompt": "Una captura muestra «Lectura» para el grupo A. El usuario también pertenece al grupo B con Modificar. ¿Qué falta para predecir su acceso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Considerar todas sus pertenencias y las entradas aplicables."
+            },
+            {
+              "id": "b",
+              "text": "Tomar la primera captura como prueba de acceso de solo lectura."
+            },
+            {
+              "id": "c",
+              "text": "Cambiar la contraseña para invalidar el permiso Modificar."
+            },
+            {
+              "id": "d",
+              "text": "Ignorar los grupos porque solo cuentan permisos individuales."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El acceso efectivo considera la identidad y sus grupos, además de las entradas correspondientes.",
+          "reference": "https://learn.microsoft.com/en-us/windows/win32/secauthz/dacls-and-aces",
+          "reviewOf": "w05d5-q01"
+        },
+        {
+          "id": "w05d7-q06",
+          "prompt": "En una baja se deshabilita la cuenta central. ¿Por qué se revisan también las sesiones de aplicaciones?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Deshabilitar una cuenta borra de inmediato todos los archivos locales."
+            },
+            {
+              "id": "b",
+              "text": "Una sesión de aplicación nunca puede sobrevivir a una contraseña."
+            },
+            {
+              "id": "c",
+              "text": "Todas las aplicaciones comparten exactamente el mismo cierre de sesión."
+            },
+            {
+              "id": "d",
+              "text": "Algunas aplicaciones mantienen sus propios tokens de sesión."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una aplicación puede emitir y gestionar su propia sesión; la baja debe tratar ese acceso además del inicio central.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity/users/users-revoke-access",
+          "reviewOf": "w05d6-q01"
+        },
+        {
+          "id": "w05d7-q07",
+          "prompt": "¿Qué elemento identifica de forma única a una cuenta de seguridad de Windows aunque cambie su nombre visible?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El nombre mostrado en la pantalla de bienvenida."
+            },
+            {
+              "id": "b",
+              "text": "La contraseña que eligió el usuario."
+            },
+            {
+              "id": "c",
+              "text": "Su identificador de seguridad, SID."
+            },
+            {
+              "id": "d",
+              "text": "La ruta del último documento abierto."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los permisos se asocian a identificadores de seguridad; el nombre puede cambiar sin crear una identidad nueva.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control",
+          "reviewOf": "w05d1-q02"
+        },
+        {
+          "id": "w05d7-q08",
+          "prompt": "Al instalar un controlador aparece UAC. ¿Qué indica esa solicitud?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El controlador ya ha superado una auditoría de seguridad completa."
+            },
+            {
+              "id": "b",
+              "text": "La contraseña de la cuenta estándar se ha cambiado."
+            },
+            {
+              "id": "c",
+              "text": "La operación solicita un contexto con privilegios administrativos."
+            },
+            {
+              "id": "d",
+              "text": "Todos los procesos existentes ya se ejecutan elevados."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "UAC media la elevación; aceptar una solicitud no certifica que el software sea confiable.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/security/user-account-control/how-user-account-control-works",
+          "reviewOf": "w05d2-q02"
+        },
+        {
+          "id": "w05d7-q09",
+          "prompt": "Llegan diez personas nuevas a Contabilidad. ¿Qué simplifica mantener permisos coherentes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Copiar archivos contables a diez carpetas públicas."
+            },
+            {
+              "id": "b",
+              "text": "Asignarlas al grupo Contabilidad que ya tiene los permisos aprobados."
+            },
+            {
+              "id": "c",
+              "text": "Convertir cada cuenta en administradora del equipo."
+            },
+            {
+              "id": "d",
+              "text": "Usar la contraseña de la responsable del área."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La asignación mediante grupos centraliza el acceso del puesto y facilita futuras revisiones.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control",
+          "reviewOf": "w05d3-q02"
+        },
+        {
+          "id": "w05d7-q10",
+          "prompt": "Una subcarpeta muestra permisos heredados de su carpeta padre. ¿Qué significa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Copia la contraseña del propietario de la carpeta padre."
+            },
+            {
+              "id": "b",
+              "text": "Se convierte en una carpeta compartida por internet."
+            },
+            {
+              "id": "c",
+              "text": "Recibe las entradas del padre marcadas como heredables."
+            },
+            {
+              "id": "d",
+              "text": "Sus permisos nunca pueden revisarse ni modificarse."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La herencia propaga entradas de acceso dentro de la jerarquía y reduce la configuración repetida.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control",
+          "reviewOf": "w05d4-q02"
+        },
+        {
+          "id": "w05d7-q11",
+          "prompt": "Se debe demostrar que una cuenta de laboratorio no escribe en una carpeta. ¿Qué prueba aporta evidencia directa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Abrir la carpeta como administrador y asumir el mismo resultado."
+            },
+            {
+              "id": "b",
+              "text": "Ver que el nombre de la cuenta no aparece en el escritorio."
+            },
+            {
+              "id": "c",
+              "text": "Intentar crear un archivo desechable con esa cuenta y registrar el resultado."
+            },
+            {
+              "id": "d",
+              "text": "Comprobar que el archivo original sigue teniendo igual nombre."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una operación concreta bajo la identidad prevista permite comparar permiso esperado y observado.",
+          "reference": "https://learn.microsoft.com/en-us/windows/win32/secauthz/dacls-and-aces",
+          "reviewOf": "w05d5-q02"
+        },
+        {
+          "id": "w05d7-q12",
+          "prompt": "El responsable elimina a una persona de un grupo, pero conserva una concesión directa en Facturas. ¿Qué falta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Crear otro grupo con el mismo nombre que la persona."
+            },
+            {
+              "id": "b",
+              "text": "Cambiar únicamente la fecha del archivo de facturas."
+            },
+            {
+              "id": "c",
+              "text": "Añadir a la persona al grupo Lectores para anular cualquier escritura."
+            },
+            {
+              "id": "d",
+              "text": "Revocar también la entrada directa que ya no está justificada."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Retirar una vía de acceso no elimina concesiones independientes.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity/users/users-revoke-access",
+          "reviewOf": "w05d6-q02"
+        },
+        {
+          "id": "w05d7-q13",
+          "prompt": "Dos personas usan la misma cuenta «recepcion». ¿Qué problema aparece al investigar quién modificó un documento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El registro atribuye la operación a la cuenta compartida."
+            },
+            {
+              "id": "b",
+              "text": "El registro siempre conserva el nombre legal de cada persona."
+            },
+            {
+              "id": "c",
+              "text": "Cada documento crea automáticamente una cuenta individual."
+            },
+            {
+              "id": "d",
+              "text": "La contraseña distingue a ambas personas aunque sea la misma."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La identidad de la cuenta, por sí sola, no distingue a personas que comparten credenciales.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control",
+          "reviewOf": "w05d1-q03"
+        },
+        {
+          "id": "w05d7-q14",
+          "prompt": "Un miembro de Administradores abre PowerShell normalmente con UAC activo. ¿Qué debe asumir sobre esa ventana?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Siempre tiene todos los privilegios porque pertenece al grupo."
+            },
+            {
+              "id": "b",
+              "text": "Puede estar usando un token estándar hasta elevarla."
+            },
+            {
+              "id": "c",
+              "text": "No puede leer ningún archivo hasta desactivar UAC."
+            },
+            {
+              "id": "d",
+              "text": "Se ejecuta automáticamente como la cuenta SYSTEM."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "UAC permite iniciar aplicaciones con un token filtrado y elevar solo las operaciones autorizadas.",
+          "reference": "https://learn.microsoft.com/en-us/windows-server/security/user-account-control/how-user-account-control-works",
+          "reviewOf": "w05d2-q03"
+        },
+        {
+          "id": "w05d7-q15",
+          "prompt": "Una empleada pasa de Recepción a Contabilidad. ¿Qué revisión evita acumular privilegios?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Conservar siempre ambos roles por si necesita volver."
+            },
+            {
+              "id": "b",
+              "text": "Borrar su cuenta sin transferir documentos necesarios."
+            },
+            {
+              "id": "c",
+              "text": "Conceder acceso global para no repetir cambios de grupo."
+            },
+            {
+              "id": "d",
+              "text": "Retirar los accesos del puesto anterior y conceder los del nuevo."
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Un cambio de función exige revisar permisos previos, no solo añadir los nuevos.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control",
+          "reviewOf": "w05d3-q03"
+        },
+        {
+          "id": "w05d7-q16",
+          "prompt": "¿Qué permiso de archivo permite que un programa pueda iniciarse cuando el resto de controles lo permite?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ejecución."
+            },
+            {
+              "id": "b",
+              "text": "Solo escritura de atributos."
+            },
+            {
+              "id": "c",
+              "text": "Únicamente lectura del nombre."
+            },
+            {
+              "id": "d",
+              "text": "Cambio de propietario."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La ejecución es una operación diferente de leer o modificar datos.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control",
+          "reviewOf": "w05d4-q03"
+        },
+        {
+          "id": "w05d7-q17",
+          "prompt": "La lectura funciona como administrador pero falla como cuenta estándar. ¿Qué conclusión es válida?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El archivo está dañado porque dos cuentas reciben resultados distintos."
+            },
+            {
+              "id": "b",
+              "text": "La cuenta estándar ha autenticado como el administrador."
+            },
+            {
+              "id": "c",
+              "text": "La prueba administrativa no demuestra el acceso de la cuenta estándar."
+            },
+            {
+              "id": "d",
+              "text": "El permiso de lectura depende únicamente de la extensión."
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Cada prueba debe usar la identidad y el contexto de seguridad que se pretende evaluar.",
+          "reference": "https://learn.microsoft.com/en-us/windows/win32/secauthz/dacls-and-aces",
+          "reviewOf": "w05d5-q03"
+        },
+        {
+          "id": "w05d7-q18",
+          "prompt": "Una lista de baja solo dice «TI lo hará». ¿Qué dato vuelve comprobable cada acción?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Responsable, plazo y evidencia de cierre por recurso."
+            },
+            {
+              "id": "b",
+              "text": "Una contraseña común que todo TI conozca."
+            },
+            {
+              "id": "c",
+              "text": "El número de caracteres del nombre del empleado."
+            },
+            {
+              "id": "d",
+              "text": "La promesa de revisar todo cuando alguien lo solicite."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La responsabilidad y la evidencia permiten verificar que cada acceso se retiró en el momento previsto.",
+          "reference": "https://learn.microsoft.com/en-us/entra/identity/users/users-revoke-access",
+          "reviewOf": "w05d6-q03"
+        },
+        {
+          "id": "w05d7-q19",
+          "prompt": "¿Cuál es una credencial y no un recurso autorizado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La carpeta Informes con permiso de lectura."
+            },
+            {
+              "id": "b",
+              "text": "La contraseña presentada al iniciar sesión."
+            },
+            {
+              "id": "c",
+              "text": "La impresora disponible para recepción."
+            },
+            {
+              "id": "d",
+              "text": "El buzón que la cuenta puede consultar."
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La credencial demuestra identidad; carpetas, impresoras y buzones son recursos cuyo uso se autoriza después.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control",
+          "reviewOf": "w05d1-q04"
+        },
+        {
+          "id": "w05d7-q20",
+          "prompt": "Quieres una carpeta de prueba que solo el grupo Laboratorio pueda modificar. ¿Qué configuración revisarías primero?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todas las entradas efectivas, incluidas las heredadas para otros grupos."
+            },
+            {
+              "id": "b",
+              "text": "Solo que el nombre de la carpeta contenga Laboratorio."
+            },
+            {
+              "id": "c",
+              "text": "Únicamente que la carpeta tenga algún propietario."
+            },
+            {
+              "id": "d",
+              "text": "Solo la hora de creación de los archivos nuevos."
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una entrada amplia heredada puede mantener acceso aunque se añada un permiso específico.",
+          "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control",
+          "reviewOf": "w05d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w05d7-challenge",
+        "prompt": "Una cuenta accede al portal pero recibe denegación al editar informes. Tras añadirla al rol correcto, se prueba en sesión nueva y puede editar. ¿Qué explica el caso?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La primera contraseña era incorrecta aunque el portal abrió la sesión."
+          },
+          {
+            "id": "b",
+            "text": "El archivo convirtió a la cuenta en administradora local."
+          },
+          {
+            "id": "c",
+            "text": "La nueva sesión eliminó la necesidad de permisos sobre el informe."
+          },
+          {
+            "id": "d",
+            "text": "La identidad se autenticaba; la autorización de edición cambió con el rol."
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "Autenticación y autorización son decisiones diferentes; el cambio de rol afecta a la segunda.",
+        "reference": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+      }
+    }
+  ]
+}

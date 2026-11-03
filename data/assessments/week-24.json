@@ -1,0 +1,2094 @@
+{
+  "week": 24,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w24d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w24d1-q01",
+          "prompt": "Un servicio expone una consola con contraseña por defecto. ¿Qué clase de debilidad predomina?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Fallo físico del procesador"
+            },
+            {
+              "id": "b",
+              "text": "Daño ambiental"
+            },
+            {
+              "id": "c",
+              "text": "Disponibilidad contractual"
+            },
+            {
+              "id": "d",
+              "text": "Configuración insegura"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La exposición se debe a parámetros y credenciales inadecuados para la operación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w24d1-q02",
+          "prompt": "Un sistema sin soporte ya no recibe correcciones. ¿Qué riesgo añade?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Seguridad automática por estabilidad"
+            },
+            {
+              "id": "b",
+              "text": "Persistencia de fallos sin una vía normal de parcheo"
+            },
+            {
+              "id": "c",
+              "text": "Ausencia de superficie de ataque"
+            },
+            {
+              "id": "d",
+              "text": "Garantía de compatibilidad futura"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El fin de soporte obliga a evaluar sustitución y medidas temporales.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w24d1-q03",
+          "prompt": "Un programa procesa entradas sin comprobar límites de memoria. ¿Qué tipo de problema puede originar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Pérdida de energía"
+            },
+            {
+              "id": "b",
+              "text": "Corrupción de memoria"
+            },
+            {
+              "id": "c",
+              "text": "Exceso de retención legal"
+            },
+            {
+              "id": "d",
+              "text": "Desgaste de una credencial física"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una operación fuera de los límites previstos puede alterar memoria y afectar ejecución.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w24d1-q04",
+          "prompt": "Una carpeta sensible es legible por todos los usuarios. ¿Qué debilidad describe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Permisos excesivos"
+            },
+            {
+              "id": "b",
+              "text": "Una colisión de hash"
+            },
+            {
+              "id": "c",
+              "text": "Un fallo de respaldo exclusivamente"
+            },
+            {
+              "id": "d",
+              "text": "Una avería de ventilación"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El acceso concedido excede la necesidad de quienes pueden leerla.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w24d1-q05",
+          "prompt": "Una biblioteca vulnerable llega dentro de otro paquete. ¿Qué debe revisarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el nombre del paquete principal"
+            },
+            {
+              "id": "b",
+              "text": "Únicamente el número de usuarios"
+            },
+            {
+              "id": "c",
+              "text": "Solo el tamaño del instalador"
+            },
+            {
+              "id": "d",
+              "text": "Dependencias directas e indirectas afectadas"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Las dependencias transitivas también pueden introducir vulnerabilidades utilizables.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w24d1-q06",
+          "prompt": "Un equipo conserva firmware vulnerable. ¿Qué capa requiere seguimiento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo las contraseñas del navegador"
+            },
+            {
+              "id": "b",
+              "text": "Solo el formato del inventario"
+            },
+            {
+              "id": "c",
+              "text": "Únicamente el etiquetado de datos"
+            },
+            {
+              "id": "d",
+              "text": "Firmware y soporte del fabricante"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El mantenimiento de seguridad incluye componentes que no son aplicaciones comunes.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w24d1-q07",
+          "prompt": "¿Qué diferencia un hallazgo de configuración de explotación confirmada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ambos son siempre equivalentes"
+            },
+            {
+              "id": "b",
+              "text": "Describe una debilidad, no demuestra que se haya abusado de ella"
+            },
+            {
+              "id": "c",
+              "text": "El hallazgo identifica al atacante"
+            },
+            {
+              "id": "d",
+              "text": "La configuración no puede causar riesgo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Se necesita evidencia adicional para afirmar actividad maliciosa y su alcance.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        },
+        {
+          "id": "w24d1-q08",
+          "prompt": "¿Por qué comprobar la versión real antes de declarar un equipo vulnerable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La aplicabilidad depende del producto y estado exactos"
+            },
+            {
+              "id": "b",
+              "text": "Porque toda versión nueva es invulnerable"
+            },
+            {
+              "id": "c",
+              "text": "Porque solo importa la fecha del aviso"
+            },
+            {
+              "id": "d",
+              "text": "Porque el nombre del equipo identifica sus parches"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un identificador superficial puede ser insuficiente o estar desactualizado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w24d1-challenge",
+        "prompt": "Caso: un informe dice «aplicación antigua» sin versión ni exposición. ¿Qué falta para priorizar?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Declarar compromiso automáticamente"
+          },
+          {
+            "id": "b",
+            "text": "Confirmar componente, estado, vulnerabilidad aplicable y contexto del activo"
+          },
+          {
+            "id": "c",
+            "text": "Cerrar porque funciona correctamente"
+          },
+          {
+            "id": "d",
+            "text": "Ordenar solo por antigüedad"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La edad puede orientar revisión, pero no sustituye evidencia de debilidad ni análisis del riesgo.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+      }
+    },
+    {
+      "dayId": "w24d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w24d2-q01",
+          "prompt": "¿Qué defensa principal evita mezclar datos con órdenes SQL?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Concatenar entradas tras cambiar el nombre del campo"
+            },
+            {
+              "id": "b",
+              "text": "Consultas parametrizadas correctamente usadas"
+            },
+            {
+              "id": "c",
+              "text": "Ocultar el formulario en el navegador"
+            },
+            {
+              "id": "d",
+              "text": "Dar más permisos a la base"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Separar parámetros de la estructura de consulta evita interpretar datos como instrucciones.",
+          "reference": "https://owasp.org/www-project-top-ten/"
+        },
+        {
+          "id": "w24d2-q02",
+          "prompt": "¿Qué busca la codificación de salida apropiada al contexto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cifrar todo tráfico de red"
+            },
+            {
+              "id": "b",
+              "text": "Corregir cualquier permiso del servidor"
+            },
+            {
+              "id": "c",
+              "text": "Aumentar la velocidad de la base"
+            },
+            {
+              "id": "d",
+              "text": "Evitar que datos se interpreten como contenido ejecutable"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "En XSS importa cómo se incorpora información en HTML, atributos, scripts u otros contextos.",
+          "reference": "https://owasp.org/www-project-top-ten/"
+        },
+        {
+          "id": "w24d2-q03",
+          "prompt": "¿Por qué validar solo en el navegador no es suficiente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque JavaScript nunca valida formatos"
+            },
+            {
+              "id": "b",
+              "text": "Porque TLS elimina datos manipulados"
+            },
+            {
+              "id": "c",
+              "text": "Porque todo dato del cliente es correcto"
+            },
+            {
+              "id": "d",
+              "text": "El cliente puede eludirse y el servidor debe validar"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El servidor no debe confiar en que se ejecutaron controles del cliente.",
+          "reference": "https://owasp.org/www-project-top-ten/"
+        },
+        {
+          "id": "w24d2-q04",
+          "prompt": "Una API permite cambiar el identificador y leer expedientes ajenos. ¿Qué control falta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo ocultar el identificador en la interfaz"
+            },
+            {
+              "id": "b",
+              "text": "Solo aumentar longitud de contraseñas"
+            },
+            {
+              "id": "c",
+              "text": "Autorización por objeto en el servidor"
+            },
+            {
+              "id": "d",
+              "text": "Solo comprimir respuestas"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Cada acceso debe comprobar que el solicitante tiene derecho al objeto concreto.",
+          "reference": "https://owasp.org/www-project-top-ten/"
+        },
+        {
+          "id": "w24d2-q05",
+          "prompt": "¿Qué reduce errores de memoria en desarrollo nuevo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dar privilegios al proceso"
+            },
+            {
+              "id": "b",
+              "text": "Lenguajes y componentes con garantías de seguridad de memoria cuando sean adecuados"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar controles de límites"
+            },
+            {
+              "id": "d",
+              "text": "Confiar solo en el tamaño de pruebas"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La elección de tecnologías y comprobaciones puede reducir clases de errores de memoria.",
+          "reference": "https://owasp.org/www-project-top-ten/"
+        },
+        {
+          "id": "w24d2-q06",
+          "prompt": "¿Un WAF sustituye corregir una vulnerabilidad de aplicación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí; elimina todo defecto del código"
+            },
+            {
+              "id": "b",
+              "text": "Sí; siempre conoce la lógica de negocio"
+            },
+            {
+              "id": "c",
+              "text": "No; puede complementar mitigación con límites"
+            },
+            {
+              "id": "d",
+              "text": "Solo si no hay registros"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El filtrado externo no repara la causa ni cubre necesariamente todas las vías.",
+          "reference": "https://owasp.org/www-project-top-ten/"
+        },
+        {
+          "id": "w24d2-q07",
+          "prompt": "¿Qué principio limita impacto de inyección en una cuenta de base de datos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cuenta administradora compartida"
+            },
+            {
+              "id": "b",
+              "text": "Acceso de escritura a todas las bases"
+            },
+            {
+              "id": "c",
+              "text": "Desactivar auditoría"
+            },
+            {
+              "id": "d",
+              "text": "Permisos mínimos para las operaciones necesarias"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Si ocurre una explotación, los derechos limitados reducen acciones posibles.",
+          "reference": "https://owasp.org/www-project-top-ten/"
+        },
+        {
+          "id": "w24d2-q08",
+          "prompt": "Una cookie HttpOnly está activa. ¿Qué protege específicamente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Impide todo XSS en la aplicación"
+            },
+            {
+              "id": "b",
+              "text": "Dificulta que scripts del navegador lean esa cookie"
+            },
+            {
+              "id": "c",
+              "text": "Cifra la base de datos"
+            },
+            {
+              "id": "d",
+              "text": "Reemplaza autorización por objeto"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "HttpOnly protege una vía de lectura de cookies; otras consecuencias de XSS siguen siendo posibles.",
+          "reference": "https://owasp.org/www-project-top-ten/"
+        }
+      ],
+      "challenge": {
+        "id": "w24d2-challenge",
+        "prompt": "Caso: la web oculta el botón «borrar», pero la API acepta borrados de cualquier usuario. ¿Qué corrección corresponde?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Verificar autorización en el servidor para cada acción y recurso"
+          },
+          {
+            "id": "b",
+            "text": "Ocultar también la URL en el navegador"
+          },
+          {
+            "id": "c",
+            "text": "Cambiar solo el texto del botón"
+          },
+          {
+            "id": "d",
+            "text": "Añadir una imagen de candado"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "Los controles de interfaz no establecen seguridad si el servidor acepta solicitudes no autorizadas.",
+        "reference": "https://owasp.org/www-project-top-ten/"
+      }
+    },
+    {
+      "dayId": "w24d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w24d3-q01",
+          "prompt": "Un programa cifra archivos y exige pago. ¿Qué comportamiento caracteriza?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Respaldo con retención"
+            },
+            {
+              "id": "b",
+              "text": "Clasificación documental"
+            },
+            {
+              "id": "c",
+              "text": "Ransomware"
+            },
+            {
+              "id": "d",
+              "text": "Compresión autorizada"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El cifrado extorsivo afecta disponibilidad y puede coexistir con robo de datos.",
+          "reference": "https://attack.mitre.org/"
+        },
+        {
+          "id": "w24d3-q02",
+          "prompt": "Una aplicación recopila pulsaciones sin autorización. ¿Qué función maliciosa describe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Espionaje mediante keylogging"
+            },
+            {
+              "id": "b",
+              "text": "Balanceo de carga"
+            },
+            {
+              "id": "c",
+              "text": "Cifrado de respaldo"
+            },
+            {
+              "id": "d",
+              "text": "Validación de certificados"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Registrar pulsaciones puede capturar información sensible y credenciales.",
+          "reference": "https://attack.mitre.org/"
+        },
+        {
+          "id": "w24d3-q03",
+          "prompt": "Un instalador aparenta ser legítimo, pero introduce un programa malicioso. ¿Qué concepto encaja?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Control compensatorio"
+            },
+            {
+              "id": "b",
+              "text": "Replica de respaldo"
+            },
+            {
+              "id": "c",
+              "text": "Autoridad certificadora"
+            },
+            {
+              "id": "d",
+              "text": "Troyano"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El engaño sobre la función del programa es característico de un troyano.",
+          "reference": "https://attack.mitre.org/"
+        },
+        {
+          "id": "w24d3-q04",
+          "prompt": "¿Qué significa persistencia en una intrusión?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mantener acceso o ejecución tras reinicios o cambios"
+            },
+            {
+              "id": "b",
+              "text": "Transferir datos a máxima velocidad"
+            },
+            {
+              "id": "c",
+              "text": "Cifrar exclusivamente documentos"
+            },
+            {
+              "id": "d",
+              "text": "Encontrar el país del atacante"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los mecanismos de persistencia buscan conservar presencia en el entorno.",
+          "reference": "https://attack.mitre.org/"
+        },
+        {
+          "id": "w24d3-q05",
+          "prompt": "Una tarea programada desconocida ejecuta un binario al iniciar sesión. ¿Qué puede indicar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Confirmación automática de ransomware"
+            },
+            {
+              "id": "b",
+              "text": "Una copia necesariamente legítima"
+            },
+            {
+              "id": "c",
+              "text": "Un posible mecanismo de persistencia que debe validarse"
+            },
+            {
+              "id": "d",
+              "text": "Una firma digital válida"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La configuración puede ser maliciosa o legítima; importan origen, ruta y contexto.",
+          "reference": "https://attack.mitre.org/"
+        },
+        {
+          "id": "w24d3-q06",
+          "prompt": "¿Un único antivirus sin alertas prueba ausencia de malware?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Sí; cualquier malware siempre se detecta"
+            },
+            {
+              "id": "b",
+              "text": "Sí, si el icono está verde"
+            },
+            {
+              "id": "c",
+              "text": "No; la cobertura y visibilidad tienen límites"
+            },
+            {
+              "id": "d",
+              "text": "Solo cuando el equipo es antiguo"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La ausencia de detección no equivale a demostrar que no existe actividad maliciosa.",
+          "reference": "https://attack.mitre.org/"
+        },
+        {
+          "id": "w24d3-q07",
+          "prompt": "Una herramienta de administración remota aparece en un equipo. ¿Qué determina su legitimidad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo que sea un producto conocido"
+            },
+            {
+              "id": "b",
+              "text": "Autorización, contexto y uso observado"
+            },
+            {
+              "id": "c",
+              "text": "Solo que esté firmada"
+            },
+            {
+              "id": "d",
+              "text": "Solo su tamaño"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Herramientas legítimas pueden utilizarse indebidamente o instalarse sin autorización.",
+          "reference": "https://attack.mitre.org/"
+        },
+        {
+          "id": "w24d3-q08",
+          "prompt": "¿Qué reduce ejecutar adjuntos maliciosos con alcance amplio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Permisos administrativos para todos"
+            },
+            {
+              "id": "b",
+              "text": "Desactivar revisión de archivos"
+            },
+            {
+              "id": "c",
+              "text": "Mínimo privilegio y controles de ejecución"
+            },
+            {
+              "id": "d",
+              "text": "Compartir sesiones entre empleados"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La restricción de acciones y ejecución limita oportunidades e impacto, sin garantizar bloqueo total.",
+          "reference": "https://attack.mitre.org/"
+        }
+      ],
+      "challenge": {
+        "id": "w24d3-challenge",
+        "prompt": "Caso: un equipo muestra nota de rescate y ficheros cifrados. ¿Qué respuesta inicial es prudente?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Seguir contención acordada, preservar evidencia y evaluar alcance y recuperación"
+          },
+          {
+            "id": "b",
+            "text": "Pagar automáticamente y borrar logs"
+          },
+          {
+            "id": "c",
+            "text": "Conectar todos los respaldos sin evaluar"
+          },
+          {
+            "id": "d",
+            "text": "Asumir que solo importa descifrar"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La respuesta debe limitar propagación y considerar datos, evidencia y capacidad real de restauración.",
+        "reference": "https://attack.mitre.org/"
+      }
+    },
+    {
+      "dayId": "w24d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w24d4-q01",
+          "prompt": "Muchos intentos de una contraseña común contra cuentas distintas sugieren ¿qué técnica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Prueba de integridad de archivo"
+            },
+            {
+              "id": "b",
+              "text": "Renovación de certificados"
+            },
+            {
+              "id": "c",
+              "text": "Balanceo de carga"
+            },
+            {
+              "id": "d",
+              "text": "Password spraying"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El reparto por cuentas intenta evitar límites de intentos por usuario.",
+          "reference": "https://attack.mitre.org/"
+        },
+        {
+          "id": "w24d4-q02",
+          "prompt": "Probar pares de usuario y contraseña filtrados de otro servicio describe ¿qué?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Credential stuffing"
+            },
+            {
+              "id": "b",
+              "text": "Hash de archivos"
+            },
+            {
+              "id": "c",
+              "text": "Validación de certificados"
+            },
+            {
+              "id": "d",
+              "text": "Retención de identidad"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El ataque aprovecha reutilización de credenciales expuestas previamente.",
+          "reference": "https://attack.mitre.org/"
+        },
+        {
+          "id": "w24d4-q03",
+          "prompt": "Reutilizar un mensaje de autenticación capturado describe ¿qué?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Segmentación"
+            },
+            {
+              "id": "b",
+              "text": "Tokenización"
+            },
+            {
+              "id": "c",
+              "text": "Restauración incremental"
+            },
+            {
+              "id": "d",
+              "text": "Ataque de repetición"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La resistencia a repetición exige mecanismos que acrediten frescura del intercambio.",
+          "reference": "https://attack.mitre.org/"
+        },
+        {
+          "id": "w24d4-q04",
+          "prompt": "Un nombre legítimo resuelve a un destino inesperado. ¿Qué debe investigarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Configuración DNS, caché y otras causas de redirección"
+            },
+            {
+              "id": "b",
+              "text": "Confirmar inmediatamente un país atacante"
+            },
+            {
+              "id": "c",
+              "text": "Borrar la base de datos"
+            },
+            {
+              "id": "d",
+              "text": "Suponer que todo certificado es inválido"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un síntoma DNS puede tener causas maliciosas o errores de configuración.",
+          "reference": "https://attack.mitre.org/"
+        },
+        {
+          "id": "w24d4-q05",
+          "prompt": "Un servicio no responde bajo tráfico elevado. ¿Qué hipótesis debe distinguirse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Robo de claves confirmado siempre"
+            },
+            {
+              "id": "b",
+              "text": "Un error de retención exclusivamente"
+            },
+            {
+              "id": "c",
+              "text": "Denegación de servicio frente a carga legítima o fallo"
+            },
+            {
+              "id": "d",
+              "text": "Una firma digital caducada obligatoriamente"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La indisponibilidad no revela por sí sola si el tráfico es deliberadamente hostil.",
+          "reference": "https://attack.mitre.org/"
+        },
+        {
+          "id": "w24d4-q06",
+          "prompt": "¿Qué control dificulta repetir mensajes antiguos de autenticación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Desafíos o valores únicos verificados adecuadamente"
+            },
+            {
+              "id": "b",
+              "text": "Guardar contraseñas en logs"
+            },
+            {
+              "id": "c",
+              "text": "Aceptar indefinidamente el mismo código"
+            },
+            {
+              "id": "d",
+              "text": "Ampliar permisos de cuentas"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La frescura de la respuesta evita que una grabación anterior sea válida otra vez.",
+          "reference": "https://attack.mitre.org/"
+        },
+        {
+          "id": "w24d4-q07",
+          "prompt": "Un empleado usa la misma contraseña en varios sitios. ¿Qué exposición aumenta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Acceso mediante credenciales filtradas en otro servicio"
+            },
+            {
+              "id": "b",
+              "text": "Pérdida automática de todos los respaldos"
+            },
+            {
+              "id": "c",
+              "text": "Revocación de certificados"
+            },
+            {
+              "id": "d",
+              "text": "Error de sincronización horaria"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La reutilización permite trasladar el compromiso de un servicio a otro.",
+          "reference": "https://attack.mitre.org/"
+        },
+        {
+          "id": "w24d4-q08",
+          "prompt": "¿Qué dato ayuda a distinguir un ataque distribuido de un único origen?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el nombre del navegador"
+            },
+            {
+              "id": "b",
+              "text": "Patrones de múltiples fuentes y comportamiento de solicitudes"
+            },
+            {
+              "id": "c",
+              "text": "Únicamente el tamaño del logotipo"
+            },
+            {
+              "id": "d",
+              "text": "Solo la edad del servidor"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La distribución se evalúa con telemetría de fuentes y solicitudes, considerando intermediarios y limitaciones.",
+          "reference": "https://attack.mitre.org/"
+        }
+      ],
+      "challenge": {
+        "id": "w24d4-challenge",
+        "prompt": "Caso: fallan accesos a 300 cuentas con una misma contraseña; no hay éxitos visibles. ¿Qué conclusión es válida?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Compromiso confirmado de las 300 cuentas"
+          },
+          {
+            "id": "b",
+            "text": "Posible spraying; revisar cobertura y aplicar respuesta según evidencia"
+          },
+          {
+            "id": "c",
+            "text": "Es benigno por no ver éxitos"
+          },
+          {
+            "id": "d",
+            "text": "Es credential stuffing demostrado sin pares filtrados"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "El patrón orienta técnica probable; el resultado y alcance requieren más comprobaciones.",
+        "reference": "https://attack.mitre.org/"
+      }
+    },
+    {
+      "dayId": "w24d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w24d5-q01",
+          "prompt": "¿Qué diferencia indicador de confirmación de compromiso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todo indicador prueba un ataque"
+            },
+            {
+              "id": "b",
+              "text": "La confirmación no necesita evidencia"
+            },
+            {
+              "id": "c",
+              "text": "Un indicador solo existe en antivirus"
+            },
+            {
+              "id": "d",
+              "text": "Un indicador orienta investigación; requiere contexto para concluir"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los síntomas pueden tener causas diversas y deben correlacionarse.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w24d5-q02",
+          "prompt": "Un pico de CPU aparece durante una copia programada. ¿Qué demuestra?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Toda CPU alta es criptominería"
+            },
+            {
+              "id": "b",
+              "text": "El consumo alto puede tener una explicación legítima"
+            },
+            {
+              "id": "c",
+              "text": "La copia está cifrada con una clave robada"
+            },
+            {
+              "id": "d",
+              "text": "El equipo no necesita registros"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La coincidencia con actividad prevista ayuda a contrastar hipótesis sin descartar otras evidencias.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w24d5-q03",
+          "prompt": "¿Qué registro aporta contexto a un acceso anómalo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo un conteo global sin detalles"
+            },
+            {
+              "id": "b",
+              "text": "Una etiqueta «malo»"
+            },
+            {
+              "id": "c",
+              "text": "Cuenta, origen, hora, dispositivo y acción posterior"
+            },
+            {
+              "id": "d",
+              "text": "La opinión de un usuario sin hechos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El contexto permite determinar si la observación difiere de uso autorizado y su posible impacto.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w24d5-q04",
+          "prompt": "Una cuenta crea un administrador fuera del cambio aprobado. ¿Qué corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Investigar autorización y correlacionar acciones relacionadas"
+            },
+            {
+              "id": "b",
+              "text": "Asumir que toda creación es legítima"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar la evidencia para evitar alarma"
+            },
+            {
+              "id": "d",
+              "text": "Afirmar una atribución sin más datos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los cambios sensibles fuera de proceso requieren evaluar quién, cómo y por qué.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w24d5-q05",
+          "prompt": "Un dominio aparece en una lista de indicadores antigua. ¿Qué comprobar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Aceptar el listado como prueba universal"
+            },
+            {
+              "id": "b",
+              "text": "Bloquear toda conexión sin evaluar impacto"
+            },
+            {
+              "id": "c",
+              "text": "Vigencia, contexto y relación con actividad observada"
+            },
+            {
+              "id": "d",
+              "text": "Publicar datos privados de los usuarios"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Los indicadores pueden quedar obsoletos o corresponder a infraestructura compartida.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w24d5-q06",
+          "prompt": "¿Qué limita la conclusión cuando un sensor estaba apagado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La falta de visibilidad sobre ese periodo"
+            },
+            {
+              "id": "b",
+              "text": "La certeza de ausencia de actividad"
+            },
+            {
+              "id": "c",
+              "text": "La garantía de que nadie accedió"
+            },
+            {
+              "id": "d",
+              "text": "La prueba de borrado de datos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una laguna de telemetría debe explicitarse en las conclusiones.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w24d5-q07",
+          "prompt": "¿Por qué correlacionar creación de procesos y conexiones?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantiza identificar al autor humano"
+            },
+            {
+              "id": "b",
+              "text": "Puede aclarar qué programa originó una comunicación"
+            },
+            {
+              "id": "c",
+              "text": "Elimina la necesidad de revisar permisos"
+            },
+            {
+              "id": "d",
+              "text": "Convierte todo tráfico externo en malicioso"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Vincular observaciones aumenta contexto sin resolver automáticamente todas las hipótesis.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w24d5-q08",
+          "prompt": "¿Cómo expresar una conclusión con evidencia incompleta?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Presentarla como certeza para simplificar"
+            },
+            {
+              "id": "b",
+              "text": "Indicar nivel de confianza, hechos y comprobaciones pendientes"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar hechos que no encajan"
+            },
+            {
+              "id": "d",
+              "text": "Inventar el tramo no registrado"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La claridad sobre límites evita decisiones apoyadas en un alcance no demostrado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        }
+      ],
+      "challenge": {
+        "id": "w24d5-challenge",
+        "prompt": "Caso: una IP aparece en una alerta y pertenece a una VPN usada por empleados. ¿Qué paso reduce falsos positivos?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Declarar benigno todo acceso desde esa IP"
+          },
+          {
+            "id": "b",
+            "text": "Confirmar ataque solo por el aviso"
+          },
+          {
+            "id": "c",
+            "text": "Eliminar registros de la VPN"
+          },
+          {
+            "id": "d",
+            "text": "Contrastar usuario, dispositivo, sesión y actividad del recurso"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "Las direcciones compartidas o intermediarias requieren contexto de identidad y comportamiento.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    },
+    {
+      "dayId": "w24d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w24d6-q01",
+          "prompt": "¿Qué mitiga directamente una vulnerabilidad de software corregida por fabricante?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Renombrar el ejecutable"
+            },
+            {
+              "id": "b",
+              "text": "Aumentar privilegios"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar el inventario"
+            },
+            {
+              "id": "d",
+              "text": "Parche probado e instalado con validación"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La corrección debe aplicarse al componente afectado y comprobarse.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w24d6-q02",
+          "prompt": "¿Qué busca aislar un equipo comprometido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantizar eliminación de malware"
+            },
+            {
+              "id": "b",
+              "text": "Reemplazar toda investigación"
+            },
+            {
+              "id": "c",
+              "text": "Restaurar automáticamente los datos"
+            },
+            {
+              "id": "d",
+              "text": "Limitar comunicaciones y propagación según el plan"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El aislamiento contiene; después siguen análisis y recuperación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w24d6-q03",
+          "prompt": "¿Qué reduce ejecutar una aplicación vulnerable con cuenta privilegiada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Compartir su contraseña"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar registros de ejecución"
+            },
+            {
+              "id": "c",
+              "text": "Retirar privilegios innecesarios de esa cuenta"
+            },
+            {
+              "id": "d",
+              "text": "Autorizar acceso global"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El mínimo privilegio limita consecuencias, aunque no corrige el fallo de aplicación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w24d6-q04",
+          "prompt": "¿Qué control compensatorio puede reducir exposición hasta parchear?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Declarar el sistema corregido sin cambios"
+            },
+            {
+              "id": "b",
+              "text": "Restringir la función o ruta vulnerable con comprobación"
+            },
+            {
+              "id": "c",
+              "text": "Abrirlo a más usuarios"
+            },
+            {
+              "id": "d",
+              "text": "Excluirlo del inventario"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una medida temporal requiere verificar alcance y mantener seguimiento de la corrección definitiva.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w24d6-q05",
+          "prompt": "¿Qué debe incluir un cambio de segmentación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo nombres nuevos de subredes"
+            },
+            {
+              "id": "b",
+              "text": "Flujos permitidos, denegados y pruebas de operación"
+            },
+            {
+              "id": "c",
+              "text": "Cualquier regla amplia para evitar incidencias"
+            },
+            {
+              "id": "d",
+              "text": "La eliminación del dueño del servicio"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La restricción debe reducir exposición sin romper dependencias necesarias.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w24d6-q06",
+          "prompt": "¿Por qué preparar reversión antes de una mitigación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para deshacer siempre toda seguridad"
+            },
+            {
+              "id": "b",
+              "text": "Para no documentar el cambio"
+            },
+            {
+              "id": "c",
+              "text": "Puede fallar funcionalidad y necesitar recuperación controlada"
+            },
+            {
+              "id": "d",
+              "text": "Para evitar probarlo"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La reversión reduce el riesgo operativo de un cambio incorrecto.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w24d6-q07",
+          "prompt": "¿Qué valida haber retirado un permiso de borrado excesivo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo una captura de solicitud"
+            },
+            {
+              "id": "b",
+              "text": "Prueba con la identidad afectada y revisión de derechos efectivos"
+            },
+            {
+              "id": "c",
+              "text": "Cambiar el nombre de grupo"
+            },
+            {
+              "id": "d",
+              "text": "Revisar el permiso de otro usuario"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La comprobación debe representar el acceso real del sujeto sobre el recurso.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w24d6-q08",
+          "prompt": "¿Qué criterio combina seguridad y continuidad tras aplicar un parche?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Fallo corregido y funciones críticas operativas"
+            },
+            {
+              "id": "b",
+              "text": "Solo que el instalador terminó"
+            },
+            {
+              "id": "c",
+              "text": "Solo que no hay quejas el primer minuto"
+            },
+            {
+              "id": "d",
+              "text": "Solo que el antivirus está activo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El éxito incluye eliminar la exposición prevista y mantener el servicio requerido.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w24d6-challenge",
+        "prompt": "Caso: un servidor expuesto tiene fallo crítico, pero solo puede parchearse esta noche. ¿Qué plan es razonable?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Esperar sin cambios por existir una ventana futura"
+          },
+          {
+            "id": "b",
+            "text": "Reducir exposición de inmediato, programar parche y verificar después"
+          },
+          {
+            "id": "c",
+            "text": "Cerrar el hallazgo porque se aprobó el cambio"
+          },
+          {
+            "id": "d",
+            "text": "Abrir todos los puertos para probar"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La mitigación temporal limita el intervalo de exposición y no sustituye la corrección validada.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      }
+    },
+    {
+      "dayId": "w24d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w24d7-q01",
+          "prompt": "Un servicio expone una consola con contraseña por defecto. ¿Qué clase de debilidad predomina?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Fallo físico del procesador"
+            },
+            {
+              "id": "b",
+              "text": "Daño ambiental"
+            },
+            {
+              "id": "c",
+              "text": "Disponibilidad contractual"
+            },
+            {
+              "id": "d",
+              "text": "Configuración insegura"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La exposición se debe a parámetros y credenciales inadecuados para la operación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w24d1-q01"
+        },
+        {
+          "id": "w24d7-q02",
+          "prompt": "¿Qué defensa principal evita mezclar datos con órdenes SQL?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Concatenar entradas tras cambiar el nombre del campo"
+            },
+            {
+              "id": "b",
+              "text": "Consultas parametrizadas correctamente usadas"
+            },
+            {
+              "id": "c",
+              "text": "Ocultar el formulario en el navegador"
+            },
+            {
+              "id": "d",
+              "text": "Dar más permisos a la base"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Separar parámetros de la estructura de consulta evita interpretar datos como instrucciones.",
+          "reference": "https://owasp.org/www-project-top-ten/",
+          "reviewOf": "w24d2-q01"
+        },
+        {
+          "id": "w24d7-q03",
+          "prompt": "Un programa cifra archivos y exige pago. ¿Qué comportamiento caracteriza?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Respaldo con retención"
+            },
+            {
+              "id": "b",
+              "text": "Clasificación documental"
+            },
+            {
+              "id": "c",
+              "text": "Ransomware"
+            },
+            {
+              "id": "d",
+              "text": "Compresión autorizada"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El cifrado extorsivo afecta disponibilidad y puede coexistir con robo de datos.",
+          "reference": "https://attack.mitre.org/",
+          "reviewOf": "w24d3-q01"
+        },
+        {
+          "id": "w24d7-q04",
+          "prompt": "Muchos intentos de una contraseña común contra cuentas distintas sugieren ¿qué técnica?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Prueba de integridad de archivo"
+            },
+            {
+              "id": "b",
+              "text": "Renovación de certificados"
+            },
+            {
+              "id": "c",
+              "text": "Balanceo de carga"
+            },
+            {
+              "id": "d",
+              "text": "Password spraying"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El reparto por cuentas intenta evitar límites de intentos por usuario.",
+          "reference": "https://attack.mitre.org/",
+          "reviewOf": "w24d4-q01"
+        },
+        {
+          "id": "w24d7-q05",
+          "prompt": "¿Qué diferencia indicador de confirmación de compromiso?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Todo indicador prueba un ataque"
+            },
+            {
+              "id": "b",
+              "text": "La confirmación no necesita evidencia"
+            },
+            {
+              "id": "c",
+              "text": "Un indicador solo existe en antivirus"
+            },
+            {
+              "id": "d",
+              "text": "Un indicador orienta investigación; requiere contexto para concluir"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los síntomas pueden tener causas diversas y deben correlacionarse.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w24d5-q01"
+        },
+        {
+          "id": "w24d7-q06",
+          "prompt": "¿Qué mitiga directamente una vulnerabilidad de software corregida por fabricante?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Renombrar el ejecutable"
+            },
+            {
+              "id": "b",
+              "text": "Aumentar privilegios"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar el inventario"
+            },
+            {
+              "id": "d",
+              "text": "Parche probado e instalado con validación"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La corrección debe aplicarse al componente afectado y comprobarse.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w24d6-q01"
+        },
+        {
+          "id": "w24d7-q07",
+          "prompt": "Un sistema sin soporte ya no recibe correcciones. ¿Qué riesgo añade?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Seguridad automática por estabilidad"
+            },
+            {
+              "id": "b",
+              "text": "Persistencia de fallos sin una vía normal de parcheo"
+            },
+            {
+              "id": "c",
+              "text": "Ausencia de superficie de ataque"
+            },
+            {
+              "id": "d",
+              "text": "Garantía de compatibilidad futura"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "El fin de soporte obliga a evaluar sustitución y medidas temporales.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w24d1-q02"
+        },
+        {
+          "id": "w24d7-q08",
+          "prompt": "¿Qué busca la codificación de salida apropiada al contexto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cifrar todo tráfico de red"
+            },
+            {
+              "id": "b",
+              "text": "Corregir cualquier permiso del servidor"
+            },
+            {
+              "id": "c",
+              "text": "Aumentar la velocidad de la base"
+            },
+            {
+              "id": "d",
+              "text": "Evitar que datos se interpreten como contenido ejecutable"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "En XSS importa cómo se incorpora información en HTML, atributos, scripts u otros contextos.",
+          "reference": "https://owasp.org/www-project-top-ten/",
+          "reviewOf": "w24d2-q02"
+        },
+        {
+          "id": "w24d7-q09",
+          "prompt": "Una aplicación recopila pulsaciones sin autorización. ¿Qué función maliciosa describe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Espionaje mediante keylogging"
+            },
+            {
+              "id": "b",
+              "text": "Balanceo de carga"
+            },
+            {
+              "id": "c",
+              "text": "Cifrado de respaldo"
+            },
+            {
+              "id": "d",
+              "text": "Validación de certificados"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Registrar pulsaciones puede capturar información sensible y credenciales.",
+          "reference": "https://attack.mitre.org/",
+          "reviewOf": "w24d3-q02"
+        },
+        {
+          "id": "w24d7-q10",
+          "prompt": "Probar pares de usuario y contraseña filtrados de otro servicio describe ¿qué?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Credential stuffing"
+            },
+            {
+              "id": "b",
+              "text": "Hash de archivos"
+            },
+            {
+              "id": "c",
+              "text": "Validación de certificados"
+            },
+            {
+              "id": "d",
+              "text": "Retención de identidad"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El ataque aprovecha reutilización de credenciales expuestas previamente.",
+          "reference": "https://attack.mitre.org/",
+          "reviewOf": "w24d4-q02"
+        },
+        {
+          "id": "w24d7-q11",
+          "prompt": "Un pico de CPU aparece durante una copia programada. ¿Qué demuestra?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Toda CPU alta es criptominería"
+            },
+            {
+              "id": "b",
+              "text": "El consumo alto puede tener una explicación legítima"
+            },
+            {
+              "id": "c",
+              "text": "La copia está cifrada con una clave robada"
+            },
+            {
+              "id": "d",
+              "text": "El equipo no necesita registros"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La coincidencia con actividad prevista ayuda a contrastar hipótesis sin descartar otras evidencias.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w24d5-q02"
+        },
+        {
+          "id": "w24d7-q12",
+          "prompt": "¿Qué busca aislar un equipo comprometido?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantizar eliminación de malware"
+            },
+            {
+              "id": "b",
+              "text": "Reemplazar toda investigación"
+            },
+            {
+              "id": "c",
+              "text": "Restaurar automáticamente los datos"
+            },
+            {
+              "id": "d",
+              "text": "Limitar comunicaciones y propagación según el plan"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El aislamiento contiene; después siguen análisis y recuperación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w24d6-q02"
+        },
+        {
+          "id": "w24d7-q13",
+          "prompt": "Un programa procesa entradas sin comprobar límites de memoria. ¿Qué tipo de problema puede originar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Pérdida de energía"
+            },
+            {
+              "id": "b",
+              "text": "Corrupción de memoria"
+            },
+            {
+              "id": "c",
+              "text": "Exceso de retención legal"
+            },
+            {
+              "id": "d",
+              "text": "Desgaste de una credencial física"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una operación fuera de los límites previstos puede alterar memoria y afectar ejecución.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w24d1-q03"
+        },
+        {
+          "id": "w24d7-q14",
+          "prompt": "¿Por qué validar solo en el navegador no es suficiente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque JavaScript nunca valida formatos"
+            },
+            {
+              "id": "b",
+              "text": "Porque TLS elimina datos manipulados"
+            },
+            {
+              "id": "c",
+              "text": "Porque todo dato del cliente es correcto"
+            },
+            {
+              "id": "d",
+              "text": "El cliente puede eludirse y el servidor debe validar"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El servidor no debe confiar en que se ejecutaron controles del cliente.",
+          "reference": "https://owasp.org/www-project-top-ten/",
+          "reviewOf": "w24d2-q03"
+        },
+        {
+          "id": "w24d7-q15",
+          "prompt": "Un instalador aparenta ser legítimo, pero introduce un programa malicioso. ¿Qué concepto encaja?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Control compensatorio"
+            },
+            {
+              "id": "b",
+              "text": "Replica de respaldo"
+            },
+            {
+              "id": "c",
+              "text": "Autoridad certificadora"
+            },
+            {
+              "id": "d",
+              "text": "Troyano"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El engaño sobre la función del programa es característico de un troyano.",
+          "reference": "https://attack.mitre.org/",
+          "reviewOf": "w24d3-q03"
+        },
+        {
+          "id": "w24d7-q16",
+          "prompt": "Reutilizar un mensaje de autenticación capturado describe ¿qué?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Segmentación"
+            },
+            {
+              "id": "b",
+              "text": "Tokenización"
+            },
+            {
+              "id": "c",
+              "text": "Restauración incremental"
+            },
+            {
+              "id": "d",
+              "text": "Ataque de repetición"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La resistencia a repetición exige mecanismos que acrediten frescura del intercambio.",
+          "reference": "https://attack.mitre.org/",
+          "reviewOf": "w24d4-q03"
+        },
+        {
+          "id": "w24d7-q17",
+          "prompt": "¿Qué registro aporta contexto a un acceso anómalo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo un conteo global sin detalles"
+            },
+            {
+              "id": "b",
+              "text": "Una etiqueta «malo»"
+            },
+            {
+              "id": "c",
+              "text": "Cuenta, origen, hora, dispositivo y acción posterior"
+            },
+            {
+              "id": "d",
+              "text": "La opinión de un usuario sin hechos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El contexto permite determinar si la observación difiere de uso autorizado y su posible impacto.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w24d5-q03"
+        },
+        {
+          "id": "w24d7-q18",
+          "prompt": "¿Qué reduce ejecutar una aplicación vulnerable con cuenta privilegiada?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Compartir su contraseña"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar registros de ejecución"
+            },
+            {
+              "id": "c",
+              "text": "Retirar privilegios innecesarios de esa cuenta"
+            },
+            {
+              "id": "d",
+              "text": "Autorizar acceso global"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El mínimo privilegio limita consecuencias, aunque no corrige el fallo de aplicación.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w24d6-q03"
+        },
+        {
+          "id": "w24d7-q19",
+          "prompt": "Una carpeta sensible es legible por todos los usuarios. ¿Qué debilidad describe?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Permisos excesivos"
+            },
+            {
+              "id": "b",
+              "text": "Una colisión de hash"
+            },
+            {
+              "id": "c",
+              "text": "Un fallo de respaldo exclusivamente"
+            },
+            {
+              "id": "d",
+              "text": "Una avería de ventilación"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El acceso concedido excede la necesidad de quienes pueden leerla.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+          "reviewOf": "w24d1-q04"
+        },
+        {
+          "id": "w24d7-q20",
+          "prompt": "Un nombre legítimo resuelve a un destino inesperado. ¿Qué debe investigarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Configuración DNS, caché y otras causas de redirección"
+            },
+            {
+              "id": "b",
+              "text": "Confirmar inmediatamente un país atacante"
+            },
+            {
+              "id": "c",
+              "text": "Borrar la base de datos"
+            },
+            {
+              "id": "d",
+              "text": "Suponer que todo certificado es inválido"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Un síntoma DNS puede tener causas maliciosas o errores de configuración.",
+          "reference": "https://attack.mitre.org/",
+          "reviewOf": "w24d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w24d7-challenge",
+        "prompt": "Caso semanal: un equipo consume CPU, crea una tarea no aprobada y conecta a un dominio nuevo. ¿Qué conclusión respeta la evidencia?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La CPU sola confirma ransomware"
+          },
+          {
+            "id": "b",
+            "text": "El dominio identifica al autor"
+          },
+          {
+            "id": "c",
+            "text": "La ausencia de nota de rescate prueba que es benigno"
+          },
+          {
+            "id": "d",
+            "text": "Hay señales correlacionadas que justifican investigación y contención proporcional"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "Varias señales refuerzan una hipótesis, pero la clasificación exacta y el alcance requieren análisis.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    }
+  ]
+}

@@ -1,0 +1,2094 @@
+{
+  "week": 19,
+  "version": "1.5.0",
+  "reviewPolicy": "La revisión semanal recupera veinte preguntas de los seis días, con referencias reviewOf explícitas.",
+  "days": [
+    {
+      "dayId": "w19d1",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w19d1-q01",
+          "prompt": "¿Qué hace verificable una tarea de actualización?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo marcar «hecho»"
+            },
+            {
+              "id": "b",
+              "text": "Solo la fecha de compra"
+            },
+            {
+              "id": "c",
+              "text": "Versión inicial, cambio aplicado y comprobación posterior"
+            },
+            {
+              "id": "d",
+              "text": "Un recordatorio sin resultado"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La evidencia debe mostrar el estado y permitir comprobar que la acción produjo el resultado esperado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w19d1-q02",
+          "prompt": "¿Por qué mantener un inventario de software?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantizar que ningún programa tiene fallos"
+            },
+            {
+              "id": "b",
+              "text": "Reemplazar las copias de seguridad"
+            },
+            {
+              "id": "c",
+              "text": "Evitar toda autorización"
+            },
+            {
+              "id": "d",
+              "text": "Identificar versiones, soporte y responsables de mantenimiento"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Sin inventario resulta difícil determinar qué activos necesitan actualización o revisión.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w19d1-q03",
+          "prompt": "Un parche está instalado pero pendiente de reinicio. ¿Qué debe registrar mantenimiento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que todo riesgo está eliminado"
+            },
+            {
+              "id": "b",
+              "text": "Que la instalación nunca ocurrió"
+            },
+            {
+              "id": "c",
+              "text": "Que no necesita seguimiento"
+            },
+            {
+              "id": "d",
+              "text": "El estado pendiente y la validación tras reiniciar"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La instalación puede no hacer efectiva la corrección hasta completar sus requisitos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w19d1-q04",
+          "prompt": "¿Qué dato de log facilita correlacionar sucesos de varios equipos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Marcas temporales consistentes y zona horaria conocida"
+            },
+            {
+              "id": "b",
+              "text": "Solo el color de la consola"
+            },
+            {
+              "id": "c",
+              "text": "Nombres de archivo muy cortos"
+            },
+            {
+              "id": "d",
+              "text": "El icono del usuario"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La consistencia temporal permite ordenar eventos de distintas fuentes con menos ambigüedad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w19d1-q05",
+          "prompt": "¿Por qué restringir cambios en registros de seguridad?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para hacerlos públicos"
+            },
+            {
+              "id": "b",
+              "text": "Para impedir su análisis autorizado"
+            },
+            {
+              "id": "c",
+              "text": "Para reemplazar el cifrado del disco"
+            },
+            {
+              "id": "d",
+              "text": "Preservar evidencia y detectar manipulación"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Los registros pierden fiabilidad si quien realiza una acción puede alterarlos sin control.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w19d1-q06",
+          "prompt": "Un servidor deja de enviar logs. ¿Qué debe comprobarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que no hubo eventos necesariamente"
+            },
+            {
+              "id": "b",
+              "text": "Solo la contraseña del usuario final"
+            },
+            {
+              "id": "c",
+              "text": "Que todos los riesgos están aceptados"
+            },
+            {
+              "id": "d",
+              "text": "Salud de la recolección, conectividad y configuración"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La ausencia de registros puede ser fallo de telemetría y no ausencia de actividad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w19d1-q07",
+          "prompt": "¿Cuál es una tarea de mantenimiento con resultado observable?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Verificar copia completada y restaurar un archivo de prueba"
+            },
+            {
+              "id": "b",
+              "text": "Abrir la consola sin revisar mensajes"
+            },
+            {
+              "id": "c",
+              "text": "Borrar todas las alertas antiguas"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar el tema visual"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La comprobación de recuperación aporta más evidencia que la mera presencia de una consola.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w19d1-q08",
+          "prompt": "¿Por qué probar un cambio antes de extenderlo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Para evitar documentar aprobaciones"
+            },
+            {
+              "id": "b",
+              "text": "Para demostrar ausencia total de fallos futuros"
+            },
+            {
+              "id": "c",
+              "text": "Para omitir respaldo"
+            },
+            {
+              "id": "d",
+              "text": "Detectar incompatibilidades y preparar reversión"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una implantación controlada reduce impactos operativos inesperados sin garantizar perfección.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w19d1-challenge",
+        "prompt": "Caso: cinco equipos figuran actualizados pero dos no reportan desde hace un mes. ¿Qué conclusión es prudente?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Todos están protegidos por el promedio"
+          },
+          {
+            "id": "b",
+            "text": "Los dos están comprometidos con certeza"
+          },
+          {
+            "id": "c",
+            "text": "El estado de esos dos es incierto y debe verificarse"
+          },
+          {
+            "id": "d",
+            "text": "No hace falta inventario"
+          }
+        ],
+        "correct": [
+          "c"
+        ],
+        "explanation": "La antigüedad de la evidencia limita la confianza en el estado operativo informado.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      }
+    },
+    {
+      "dayId": "w19d2",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w19d2-q01",
+          "prompt": "¿Quién debe orientar la clasificación de una base de clientes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo quien imprime etiquetas"
+            },
+            {
+              "id": "b",
+              "text": "Cualquier usuario externo"
+            },
+            {
+              "id": "c",
+              "text": "Solo el fabricante del disco"
+            },
+            {
+              "id": "d",
+              "text": "El dueño de la información con criterios de negocio"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El dueño conoce el valor, finalidad y obligaciones de protección del contenido.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w19d2-q02",
+          "prompt": "¿Qué dato suele requerir mayor restricción que un folleto publicado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Horario público de apertura"
+            },
+            {
+              "id": "b",
+              "text": "Dirección pública de una tienda"
+            },
+            {
+              "id": "c",
+              "text": "Catálogo promocional aprobado"
+            },
+            {
+              "id": "d",
+              "text": "Información personal de clientes"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La sensibilidad y posible daño de divulgación guían el nivel de protección.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w19d2-q03",
+          "prompt": "¿Para qué sirve una etiqueta «confidencial»?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Orientar reglas de acceso, uso y manejo"
+            },
+            {
+              "id": "b",
+              "text": "Cifrar automáticamente todo archivo"
+            },
+            {
+              "id": "c",
+              "text": "Impedir cualquier copia por sí sola"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar la necesidad de permisos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La etiqueta comunica requisitos; deben implementarse controles que los hagan efectivos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w19d2-q04",
+          "prompt": "¿Qué debe justificar un plazo de retención?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La capacidad sobrante del disco únicamente"
+            },
+            {
+              "id": "b",
+              "text": "Necesidades de negocio y requisitos aplicables"
+            },
+            {
+              "id": "c",
+              "text": "El deseo de guardar todo para siempre"
+            },
+            {
+              "id": "d",
+              "text": "El tamaño del nombre del fichero"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Retener más tiempo también aumenta exposición; el plazo requiere una finalidad y criterios definidos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w19d2-q05",
+          "prompt": "Una copia de un informe sensible se exporta a CSV. ¿Cómo tratarla?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Según la sensibilidad de su contenido"
+            },
+            {
+              "id": "b",
+              "text": "Como pública por cambiar de formato"
+            },
+            {
+              "id": "c",
+              "text": "Como temporal sin controles"
+            },
+            {
+              "id": "d",
+              "text": "Como libre de datos personales"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El formato no elimina la clasificación ni los riesgos del contenido.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w19d2-q06",
+          "prompt": "¿Qué significa minimizar datos en un ejercicio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Guardar más campos por si acaso"
+            },
+            {
+              "id": "b",
+              "text": "Usar solo campos necesarios para la finalidad"
+            },
+            {
+              "id": "c",
+              "text": "Copiar todos los clientes reales"
+            },
+            {
+              "id": "d",
+              "text": "Cambiar únicamente la extensión"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Reducir información innecesaria limita exposición y facilita un manejo proporcional.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w19d2-q07",
+          "prompt": "Una combinación de datos públicos identifica a una persona. ¿Qué debe evaluarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo clasificación individual de cada columna"
+            },
+            {
+              "id": "b",
+              "text": "Sensibilidad del conjunto y posibilidad de identificación"
+            },
+            {
+              "id": "c",
+              "text": "Solo fecha de descarga"
+            },
+            {
+              "id": "d",
+              "text": "Solo tamaño del archivo"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La agregación puede aumentar la sensibilidad aunque cada dato parezca inocuo por separado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        },
+        {
+          "id": "w19d2-q08",
+          "prompt": "¿Qué debe ocurrir al finalizar retención aprobada sin otra obligación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mover todo a una carpeta pública"
+            },
+            {
+              "id": "b",
+              "text": "Conservar indefinidamente sin dueño"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar mediante un proceso adecuado y verificable"
+            },
+            {
+              "id": "d",
+              "text": "Quitar solo la etiqueta"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La disposición final forma parte del ciclo de vida y debe evitar recuperación no autorizada.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w19d2-challenge",
+        "prompt": "Caso: ventas clasifica un CSV como público porque «solo tiene correos y compras». ¿Qué revisión corresponde?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Evaluar datos personales, finalidad y acceso antes de compartir"
+          },
+          {
+            "id": "b",
+            "text": "Aprobarlo por no contener contraseñas"
+          },
+          {
+            "id": "c",
+            "text": "Publicarlo si ocupa pocos megabytes"
+          },
+          {
+            "id": "d",
+            "text": "Cambiar su nombre a catálogo"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La sensibilidad no se limita a secretos técnicos; contactos e historial de compras pueden identificar personas.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+      }
+    },
+    {
+      "dayId": "w19d3",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w19d3-q01",
+          "prompt": "¿Qué demuestra una restauración exitosa que no demuestra un aviso «backup completo»?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que nadie accederá a la copia"
+            },
+            {
+              "id": "b",
+              "text": "Que jamás habrá pérdida de datos"
+            },
+            {
+              "id": "c",
+              "text": "Que los datos pueden recuperarse y utilizarse"
+            },
+            {
+              "id": "d",
+              "text": "Que no existen fallos de hardware"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La prueba comprueba recuperabilidad, no solo que se ejecutó una tarea de copia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w19d3-q02",
+          "prompt": "¿Qué aporta conservar versiones de respaldos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Recuperar un estado anterior a corrupción detectada tarde"
+            },
+            {
+              "id": "b",
+              "text": "Garantizar disponibilidad instantánea"
+            },
+            {
+              "id": "c",
+              "text": "Reemplazar permisos de acceso"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar la clasificación"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Varias generaciones ofrecen alternativas cuando la última copia ya contiene el problema.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w19d3-q03",
+          "prompt": "Un respaldo diario se hace a medianoche y se pierden datos a las 18:00. ¿Qué pérdida temporal podría existir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hasta 18 horas desde la última copia válida"
+            },
+            {
+              "id": "b",
+              "text": "Exactamente cero horas"
+            },
+            {
+              "id": "c",
+              "text": "Siempre 24 meses"
+            },
+            {
+              "id": "d",
+              "text": "Solo un minuto por definición"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La pérdida depende del punto recuperable más reciente y del momento del incidente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w19d3-q04",
+          "prompt": "¿Por qué separar una copia del entorno de producción?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hacer pública la información"
+            },
+            {
+              "id": "b",
+              "text": "Evitar pruebas de recuperación"
+            },
+            {
+              "id": "c",
+              "text": "Eliminar responsabilidades"
+            },
+            {
+              "id": "d",
+              "text": "Reducir fallos compartidos y propagación de daños"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una copia sometida a los mismos permisos o desastre puede fallar junto al original.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w19d3-q05",
+          "prompt": "¿Qué debe registrarse al medir una restauración?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el tamaño del icono"
+            },
+            {
+              "id": "b",
+              "text": "Solo el nombre del operador"
+            },
+            {
+              "id": "c",
+              "text": "Únicamente la velocidad contratada de Internet"
+            },
+            {
+              "id": "d",
+              "text": "Punto recuperado, tiempo y validación de contenido"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Estos datos permiten comparar la recuperación con objetivos de tiempo y pérdida tolerable.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w19d3-q06",
+          "prompt": "¿Por qué probar recuperación de claves de respaldo cifrado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque el cifrado siempre modifica fechas"
+            },
+            {
+              "id": "b",
+              "text": "Porque las claves deben publicarse"
+            },
+            {
+              "id": "c",
+              "text": "Sin claves disponibles la copia puede ser inutilizable"
+            },
+            {
+              "id": "d",
+              "text": "Porque sustituye la copia de datos"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La recuperabilidad exige tanto datos como materiales y procedimientos para descifrarlos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w19d3-q07",
+          "prompt": "Una carpeta sincronizada replica un borrado inmediatamente. ¿Qué limitación muestra?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La sincronización siempre conserva todo para siempre"
+            },
+            {
+              "id": "b",
+              "text": "El borrado solo afecta metadatos"
+            },
+            {
+              "id": "c",
+              "text": "Toda réplica es una copia inmutable"
+            },
+            {
+              "id": "d",
+              "text": "La sincronización sola puede no ofrecer recuperación histórica"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La réplica de cambios puede propagar errores; se necesitan versiones o copias con retención adecuada.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w19d3-q08",
+          "prompt": "¿Qué prueba evita confiar en una copia incompleta de una aplicación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Restaurar datos y dependencias y validar funciones críticas"
+            },
+            {
+              "id": "b",
+              "text": "Abrir únicamente una carpeta vacía"
+            },
+            {
+              "id": "c",
+              "text": "Comparar solo nombres de servidores"
+            },
+            {
+              "id": "d",
+              "text": "Apagar la auditoría durante una semana"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Recuperar archivos no garantiza que el servicio y sus dependencias funcionen correctamente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w19d3-challenge",
+        "prompt": "Caso: se restaura en 40 minutos, pero faltan pedidos de las últimas 6 horas. ¿Qué resultados deben reportarse?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo «prueba aprobada»"
+          },
+          {
+            "id": "b",
+            "text": "Tiempo de recuperación y pérdida temporal de datos por separado"
+          },
+          {
+            "id": "c",
+            "text": "Solo velocidad de copia"
+          },
+          {
+            "id": "d",
+            "text": "Que no hubo pérdida porque el servidor funciona"
+          }
+        ],
+        "correct": [
+          "b"
+        ],
+        "explanation": "La rapidez de restauración y el punto de recuperación miden aspectos diferentes del resultado.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+      }
+    },
+    {
+      "dayId": "w19d4",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w19d4-q01",
+          "prompt": "¿Qué pretende un BIA?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Listar únicamente versiones de antivirus"
+            },
+            {
+              "id": "b",
+              "text": "Calcular hashes de cada archivo"
+            },
+            {
+              "id": "c",
+              "text": "Analizar impacto de interrupciones y priorizar recuperación"
+            },
+            {
+              "id": "d",
+              "text": "Asignar contraseñas"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El análisis de impacto vincula procesos, dependencias y efectos de una interrupción.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w19d4-q02",
+          "prompt": "¿Qué expresa RTO?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cantidad máxima de datos retenidos"
+            },
+            {
+              "id": "b",
+              "text": "Periodo de validez de contraseña"
+            },
+            {
+              "id": "c",
+              "text": "Probabilidad de ataque"
+            },
+            {
+              "id": "d",
+              "text": "Tiempo objetivo para restablecer el servicio tras interrupción"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "RTO orienta cuánto tiempo puede tardar la recuperación operativa.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w19d4-q03",
+          "prompt": "¿Qué expresa RPO?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Número de servidores activos"
+            },
+            {
+              "id": "b",
+              "text": "Tiempo de cambio de contraseña"
+            },
+            {
+              "id": "c",
+              "text": "Punto temporal de datos al que se necesita recuperar"
+            },
+            {
+              "id": "d",
+              "text": "Duración máxima de un contrato"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "RPO refleja pérdida de datos tolerable medida respecto al incidente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w19d4-q04",
+          "prompt": "Un sistema admite perder 15 minutos de datos. ¿Qué objetivo corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "RTO de 15 meses"
+            },
+            {
+              "id": "b",
+              "text": "Retención de 15 años"
+            },
+            {
+              "id": "c",
+              "text": "RPO de 15 minutos"
+            },
+            {
+              "id": "d",
+              "text": "Disponibilidad de 15 usuarios"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La tolerancia a pérdida de datos define el punto recuperable requerido.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w19d4-q05",
+          "prompt": "¿Qué ejemplo pertenece a continuidad de negocio?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cambiar solo el logotipo"
+            },
+            {
+              "id": "b",
+              "text": "Eliminar la aprobación de accesos"
+            },
+            {
+              "id": "c",
+              "text": "Publicar la clave de recuperación"
+            },
+            {
+              "id": "d",
+              "text": "Operar pedidos por procedimiento alternativo durante una caída"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La continuidad busca mantener funciones esenciales, incluso mediante alternativas temporales.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w19d4-q06",
+          "prompt": "¿Qué dependencia puede frustrar recuperar una aplicación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "El color del diagrama"
+            },
+            {
+              "id": "b",
+              "text": "Un servicio de identidad no disponible"
+            },
+            {
+              "id": "c",
+              "text": "El orden alfabético del inventario"
+            },
+            {
+              "id": "d",
+              "text": "La longitud del título del informe"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La aplicación puede depender de identidad, red, claves, datos y otros servicios para funcionar.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w19d4-q07",
+          "prompt": "Un objetivo de RTO de una hora tarda tres en pruebas. ¿Qué se concluye?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La capacidad probada no satisface el objetivo"
+            },
+            {
+              "id": "b",
+              "text": "El objetivo se cumplió porque arrancó"
+            },
+            {
+              "id": "c",
+              "text": "El RPO debe ser tres horas automáticamente"
+            },
+            {
+              "id": "d",
+              "text": "La retención compensa el retraso"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "El resultado exige mejorar capacidad, revisar diseño o acordar objetivos realistas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        },
+        {
+          "id": "w19d4-q08",
+          "prompt": "¿Por qué involucrar al negocio al fijar objetivos de recuperación?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La tolerancia al impacto determina necesidades y costes"
+            },
+            {
+              "id": "b",
+              "text": "Para prometer siempre pérdida cero"
+            },
+            {
+              "id": "c",
+              "text": "Para sustituir las pruebas técnicas"
+            },
+            {
+              "id": "d",
+              "text": "Para omitir dependencias"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Los objetivos deben responder a procesos y consecuencias, y ser técnicamente alcanzables.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+        }
+      ],
+      "challenge": {
+        "id": "w19d4-challenge",
+        "prompt": "Caso: facturación necesita RTO 2 h y RPO 1 h; se recupera en 90 min con datos de hace 3 h. ¿Qué falló?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Se cumplió RPO, pero no RTO"
+          },
+          {
+            "id": "b",
+            "text": "Se cumplieron ambos"
+          },
+          {
+            "id": "c",
+            "text": "Ambos son el mismo objetivo"
+          },
+          {
+            "id": "d",
+            "text": "Se cumplió RTO, pero no RPO"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "El servicio volvió antes de dos horas, pero la pérdida potencial excedió una hora.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+      }
+    },
+    {
+      "dayId": "w19d5",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w19d5-q01",
+          "prompt": "Una aplicación registra un inicio de sesión normal. ¿Cómo se clasifica inicialmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Incidente confirmado"
+            },
+            {
+              "id": "b",
+              "text": "Brecha confirmada"
+            },
+            {
+              "id": "c",
+              "text": "Evento"
+            },
+            {
+              "id": "d",
+              "text": "Desastre"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un suceso observable no implica automáticamente un problema de seguridad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w19d5-q02",
+          "prompt": "Una regla marca un inicio desde ubicación inusual. ¿Qué representa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Prueba concluyente de robo"
+            },
+            {
+              "id": "b",
+              "text": "Alerta que requiere análisis"
+            },
+            {
+              "id": "c",
+              "text": "Confirmación de malware"
+            },
+            {
+              "id": "d",
+              "text": "Garantía de ataque"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una alerta señala una condición para investigar; puede tener causas legítimas o maliciosas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w19d5-q03",
+          "prompt": "¿Qué dato ayuda a escalar una alerta con contexto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el color del aviso"
+            },
+            {
+              "id": "b",
+              "text": "Una conclusión sin evidencia"
+            },
+            {
+              "id": "c",
+              "text": "Toda la base de clientes"
+            },
+            {
+              "id": "d",
+              "text": "Cuenta, recurso, hora, observación e impacto posible"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El escalamiento útil aporta hechos mínimos para evaluar alcance y urgencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w19d5-q04",
+          "prompt": "Un usuario reporta haber entregado su contraseña a un sitio falso. ¿Qué prioridad corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Esperar a que haya fraude demostrado"
+            },
+            {
+              "id": "b",
+              "text": "Publicar la contraseña para advertir"
+            },
+            {
+              "id": "c",
+              "text": "Activar respuesta acordada y proteger la cuenta"
+            },
+            {
+              "id": "d",
+              "text": "Borrar todo el historial sin documentar"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La exposición creíble de credenciales requiere respuesta rápida sin esperar daño adicional.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w19d5-q05",
+          "prompt": "¿Por qué conservar los registros iniciales?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantizan atribución inmediata"
+            },
+            {
+              "id": "b",
+              "text": "Permiten reconstruir hechos y apoyar decisiones"
+            },
+            {
+              "id": "c",
+              "text": "Implican que no hacen falta copias"
+            },
+            {
+              "id": "d",
+              "text": "Reemplazan todo análisis"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "La evidencia inicial puede perderse o cambiar; su preservación facilita investigación posterior.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w19d5-q06",
+          "prompt": "¿Qué distingue una hipótesis de un hecho observado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "La hipótesis siempre es falsa"
+            },
+            {
+              "id": "b",
+              "text": "La hipótesis es una explicación que aún necesita contraste"
+            },
+            {
+              "id": "c",
+              "text": "El hecho incluye cualquier sospecha"
+            },
+            {
+              "id": "d",
+              "text": "No hay diferencia"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Separar observación e inferencia evita afirmar más de lo que prueba la evidencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w19d5-q07",
+          "prompt": "¿Quién debe recibir una comunicación de incidente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Toda persona de Internet"
+            },
+            {
+              "id": "b",
+              "text": "Solo el proveedor del monitor"
+            },
+            {
+              "id": "c",
+              "text": "Los contactos definidos según función y necesidad"
+            },
+            {
+              "id": "d",
+              "text": "Cualquier contacto sugerido por el mensaje sospechoso"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un canal establecido facilita coordinación y evita divulgar información innecesaria.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        },
+        {
+          "id": "w19d5-q08",
+          "prompt": "Una medida de contención puede detener producción. ¿Qué debe considerarse?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo rapidez de hacer clic"
+            },
+            {
+              "id": "b",
+              "text": "Autoridad, urgencia, impacto y procedimiento de respuesta"
+            },
+            {
+              "id": "c",
+              "text": "Solo popularidad de la herramienta"
+            },
+            {
+              "id": "d",
+              "text": "Excluir siempre al dueño del servicio"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Contener requiere equilibrar daño del incidente y consecuencias operativas con responsables adecuados.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+        }
+      ],
+      "challenge": {
+        "id": "w19d5-challenge",
+        "prompt": "Caso: 200 fallos de acceso preceden un éxito inusual. ¿Qué decisión está mejor respaldada?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Afirmar que todos los usuarios fueron comprometidos"
+          },
+          {
+            "id": "b",
+            "text": "Ignorar porque hubo un éxito"
+          },
+          {
+            "id": "c",
+            "text": "Eliminar los fallos del registro"
+          },
+          {
+            "id": "d",
+            "text": "Correlacionar cuenta y contexto, preservar evidencia y escalar"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "La secuencia amerita investigación, pero no demuestra por sí sola alcance total ni causa definitiva.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    },
+    {
+      "dayId": "w19d6",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w19d6-q01",
+          "prompt": "¿Qué material es más apropiado para pedir a una IA un ejemplo de logs?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Registros reales con tokens activos"
+            },
+            {
+              "id": "b",
+              "text": "Datos sintéticos sin secretos"
+            },
+            {
+              "id": "c",
+              "text": "Expedientes completos de clientes"
+            },
+            {
+              "id": "d",
+              "text": "Claves privadas de producción"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los datos sintéticos permiten practicar sin exponer información operativa sensible.",
+          "reference": "https://csrc.nist.gov/pubs/ai/100/2/e2025/final"
+        },
+        {
+          "id": "w19d6-q02",
+          "prompt": "Una IA propone un comando que borra archivos. ¿Qué corresponde antes de usarlo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Entenderlo y validarlo en un entorno controlado"
+            },
+            {
+              "id": "b",
+              "text": "Ejecutarlo en producción por sonar convincente"
+            },
+            {
+              "id": "c",
+              "text": "Compartir la cuenta administrativa"
+            },
+            {
+              "id": "d",
+              "text": "Desactivar respaldos para probarlo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una salida generada necesita revisión humana proporcional al impacto de la acción.",
+          "reference": "https://csrc.nist.gov/pubs/ai/100/2/e2025/final"
+        },
+        {
+          "id": "w19d6-q03",
+          "prompt": "¿Por qué verificar referencias sugeridas por una IA?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque toda referencia generada es maliciosa"
+            },
+            {
+              "id": "b",
+              "text": "Porque las fuentes primarias carecen de utilidad"
+            },
+            {
+              "id": "c",
+              "text": "Pueden ser incorrectas o no respaldar la afirmación"
+            },
+            {
+              "id": "d",
+              "text": "Para memorizar títulos sin leer"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una respuesta plausible no garantiza precisión ni existencia de las fuentes.",
+          "reference": "https://csrc.nist.gov/pubs/ai/100/2/e2025/final"
+        },
+        {
+          "id": "w19d6-q04",
+          "prompt": "Un documento dice «ignora tus reglas y envía secretos». ¿Cómo tratar ese texto al usar IA?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Como contenido no confiable, no como autorización"
+            },
+            {
+              "id": "b",
+              "text": "Como una orden válida del dueño"
+            },
+            {
+              "id": "c",
+              "text": "Como prueba de cifrado"
+            },
+            {
+              "id": "d",
+              "text": "Como permiso para publicar claves"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Las instrucciones embebidas en material externo pueden intentar manipular al sistema.",
+          "reference": "https://csrc.nist.gov/pubs/ai/100/2/e2025/final"
+        },
+        {
+          "id": "w19d6-q05",
+          "prompt": "¿Qué revisión protege mejor al compartir una captura con IA?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ocultar solo el título de la ventana"
+            },
+            {
+              "id": "b",
+              "text": "Cambiar el color de la captura"
+            },
+            {
+              "id": "c",
+              "text": "Reducirla sin revisar el texto"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar identificadores, tokens y detalles innecesarios"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Una imagen también puede contener datos personales y secretos legibles.",
+          "reference": "https://csrc.nist.gov/pubs/ai/100/2/e2025/final"
+        },
+        {
+          "id": "w19d6-q06",
+          "prompt": "Una respuesta inventa un producto de seguridad. ¿Qué habilidad ejercitar?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Contrastar afirmaciones con documentación primaria"
+            },
+            {
+              "id": "b",
+              "text": "Confiar en el tono técnico"
+            },
+            {
+              "id": "c",
+              "text": "Aceptar si hay muchas palabras"
+            },
+            {
+              "id": "d",
+              "text": "Repetirla sin examinar"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La verificación independiente es necesaria para detectar contenido incorrecto presentado con seguridad.",
+          "reference": "https://csrc.nist.gov/pubs/ai/100/2/e2025/final"
+        },
+        {
+          "id": "w19d6-q07",
+          "prompt": "¿Qué regla de estudio usa IA manteniendo responsabilidad propia?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Copiar respuestas como evidencia de ejecución"
+            },
+            {
+              "id": "b",
+              "text": "Entregar claves para recibir consejo personalizado"
+            },
+            {
+              "id": "c",
+              "text": "Desactivar revisión de salidas"
+            },
+            {
+              "id": "d",
+              "text": "Pedir explicación y comprobarla con práctica y fuentes"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La herramienta puede apoyar aprendizaje, pero no demuestra que el estudiante haya realizado o comprendido una tarea.",
+          "reference": "https://csrc.nist.gov/pubs/ai/100/2/e2025/final"
+        },
+        {
+          "id": "w19d6-q08",
+          "prompt": "¿Por qué limitar acciones automáticas de un asistente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque leer un texto siempre borra datos"
+            },
+            {
+              "id": "b",
+              "text": "Una salida errónea o manipulada puede causar cambios reales"
+            },
+            {
+              "id": "c",
+              "text": "Porque todos los modelos tienen privilegios administrativos"
+            },
+            {
+              "id": "d",
+              "text": "Porque un prompt equivale a una firma legal"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Permisos limitados y revisión reducen el impacto de instrucciones o resultados no confiables.",
+          "reference": "https://csrc.nist.gov/pubs/ai/100/2/e2025/final"
+        }
+      ],
+      "challenge": {
+        "id": "w19d6-challenge",
+        "prompt": "Caso: para analizar un error se propone subir un log con correos y una clave API. ¿Qué alternativa es apropiada?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Crear una muestra mínima saneada y rotar la clave si ya se expuso"
+          },
+          {
+            "id": "b",
+            "text": "Subirlo completo por ser una herramienta educativa"
+          },
+          {
+            "id": "c",
+            "text": "Ocultar solo la fecha"
+          },
+          {
+            "id": "d",
+            "text": "Pedir que no recuerde el secreto y enviarlo"
+          }
+        ],
+        "correct": [
+          "a"
+        ],
+        "explanation": "La finalidad educativa no justifica divulgar secretos; el saneamiento debe preceder al intercambio.",
+        "reference": "https://csrc.nist.gov/pubs/ai/100/2/e2025/final"
+      }
+    },
+    {
+      "dayId": "w19d7",
+      "version": "1.5.0",
+      "questions": [
+        {
+          "id": "w19d7-q01",
+          "prompt": "¿Qué hace verificable una tarea de actualización?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo marcar «hecho»"
+            },
+            {
+              "id": "b",
+              "text": "Solo la fecha de compra"
+            },
+            {
+              "id": "c",
+              "text": "Versión inicial, cambio aplicado y comprobación posterior"
+            },
+            {
+              "id": "d",
+              "text": "Un recordatorio sin resultado"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La evidencia debe mostrar el estado y permitir comprobar que la acción produjo el resultado esperado.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w19d1-q01"
+        },
+        {
+          "id": "w19d7-q02",
+          "prompt": "¿Quién debe orientar la clasificación de una base de clientes?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo quien imprime etiquetas"
+            },
+            {
+              "id": "b",
+              "text": "Cualquier usuario externo"
+            },
+            {
+              "id": "c",
+              "text": "Solo el fabricante del disco"
+            },
+            {
+              "id": "d",
+              "text": "El dueño de la información con criterios de negocio"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El dueño conoce el valor, finalidad y obligaciones de protección del contenido.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w19d2-q01"
+        },
+        {
+          "id": "w19d7-q03",
+          "prompt": "¿Qué demuestra una restauración exitosa que no demuestra un aviso «backup completo»?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que nadie accederá a la copia"
+            },
+            {
+              "id": "b",
+              "text": "Que jamás habrá pérdida de datos"
+            },
+            {
+              "id": "c",
+              "text": "Que los datos pueden recuperarse y utilizarse"
+            },
+            {
+              "id": "d",
+              "text": "Que no existen fallos de hardware"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La prueba comprueba recuperabilidad, no solo que se ejecutó una tarea de copia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final",
+          "reviewOf": "w19d3-q01"
+        },
+        {
+          "id": "w19d7-q04",
+          "prompt": "¿Qué pretende un BIA?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Listar únicamente versiones de antivirus"
+            },
+            {
+              "id": "b",
+              "text": "Calcular hashes de cada archivo"
+            },
+            {
+              "id": "c",
+              "text": "Analizar impacto de interrupciones y priorizar recuperación"
+            },
+            {
+              "id": "d",
+              "text": "Asignar contraseñas"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "El análisis de impacto vincula procesos, dependencias y efectos de una interrupción.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final",
+          "reviewOf": "w19d4-q01"
+        },
+        {
+          "id": "w19d7-q05",
+          "prompt": "Una aplicación registra un inicio de sesión normal. ¿Cómo se clasifica inicialmente?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Incidente confirmado"
+            },
+            {
+              "id": "b",
+              "text": "Brecha confirmada"
+            },
+            {
+              "id": "c",
+              "text": "Evento"
+            },
+            {
+              "id": "d",
+              "text": "Desastre"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Un suceso observable no implica automáticamente un problema de seguridad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w19d5-q01"
+        },
+        {
+          "id": "w19d7-q06",
+          "prompt": "¿Qué material es más apropiado para pedir a una IA un ejemplo de logs?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Registros reales con tokens activos"
+            },
+            {
+              "id": "b",
+              "text": "Datos sintéticos sin secretos"
+            },
+            {
+              "id": "c",
+              "text": "Expedientes completos de clientes"
+            },
+            {
+              "id": "d",
+              "text": "Claves privadas de producción"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Los datos sintéticos permiten practicar sin exponer información operativa sensible.",
+          "reference": "https://csrc.nist.gov/pubs/ai/100/2/e2025/final",
+          "reviewOf": "w19d6-q01"
+        },
+        {
+          "id": "w19d7-q07",
+          "prompt": "¿Por qué mantener un inventario de software?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Garantizar que ningún programa tiene fallos"
+            },
+            {
+              "id": "b",
+              "text": "Reemplazar las copias de seguridad"
+            },
+            {
+              "id": "c",
+              "text": "Evitar toda autorización"
+            },
+            {
+              "id": "d",
+              "text": "Identificar versiones, soporte y responsables de mantenimiento"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "Sin inventario resulta difícil determinar qué activos necesitan actualización o revisión.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w19d1-q02"
+        },
+        {
+          "id": "w19d7-q08",
+          "prompt": "¿Qué dato suele requerir mayor restricción que un folleto publicado?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Horario público de apertura"
+            },
+            {
+              "id": "b",
+              "text": "Dirección pública de una tienda"
+            },
+            {
+              "id": "c",
+              "text": "Catálogo promocional aprobado"
+            },
+            {
+              "id": "d",
+              "text": "Información personal de clientes"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La sensibilidad y posible daño de divulgación guían el nivel de protección.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w19d2-q02"
+        },
+        {
+          "id": "w19d7-q09",
+          "prompt": "¿Qué aporta conservar versiones de respaldos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Recuperar un estado anterior a corrupción detectada tarde"
+            },
+            {
+              "id": "b",
+              "text": "Garantizar disponibilidad instantánea"
+            },
+            {
+              "id": "c",
+              "text": "Reemplazar permisos de acceso"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar la clasificación"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Varias generaciones ofrecen alternativas cuando la última copia ya contiene el problema.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final",
+          "reviewOf": "w19d3-q02"
+        },
+        {
+          "id": "w19d7-q10",
+          "prompt": "¿Qué expresa RTO?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Cantidad máxima de datos retenidos"
+            },
+            {
+              "id": "b",
+              "text": "Periodo de validez de contraseña"
+            },
+            {
+              "id": "c",
+              "text": "Probabilidad de ataque"
+            },
+            {
+              "id": "d",
+              "text": "Tiempo objetivo para restablecer el servicio tras interrupción"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "RTO orienta cuánto tiempo puede tardar la recuperación operativa.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final",
+          "reviewOf": "w19d4-q02"
+        },
+        {
+          "id": "w19d7-q11",
+          "prompt": "Una regla marca un inicio desde ubicación inusual. ¿Qué representa?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Prueba concluyente de robo"
+            },
+            {
+              "id": "b",
+              "text": "Alerta que requiere análisis"
+            },
+            {
+              "id": "c",
+              "text": "Confirmación de malware"
+            },
+            {
+              "id": "d",
+              "text": "Garantía de ataque"
+            }
+          ],
+          "correct": [
+            "b"
+          ],
+          "explanation": "Una alerta señala una condición para investigar; puede tener causas legítimas o maliciosas.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w19d5-q02"
+        },
+        {
+          "id": "w19d7-q12",
+          "prompt": "Una IA propone un comando que borra archivos. ¿Qué corresponde antes de usarlo?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Entenderlo y validarlo en un entorno controlado"
+            },
+            {
+              "id": "b",
+              "text": "Ejecutarlo en producción por sonar convincente"
+            },
+            {
+              "id": "c",
+              "text": "Compartir la cuenta administrativa"
+            },
+            {
+              "id": "d",
+              "text": "Desactivar respaldos para probarlo"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "Una salida generada necesita revisión humana proporcional al impacto de la acción.",
+          "reference": "https://csrc.nist.gov/pubs/ai/100/2/e2025/final",
+          "reviewOf": "w19d6-q02"
+        },
+        {
+          "id": "w19d7-q13",
+          "prompt": "Un parche está instalado pero pendiente de reinicio. ¿Qué debe registrar mantenimiento?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Que todo riesgo está eliminado"
+            },
+            {
+              "id": "b",
+              "text": "Que la instalación nunca ocurrió"
+            },
+            {
+              "id": "c",
+              "text": "Que no necesita seguimiento"
+            },
+            {
+              "id": "d",
+              "text": "El estado pendiente y la validación tras reiniciar"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "La instalación puede no hacer efectiva la corrección hasta completar sus requisitos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w19d1-q03"
+        },
+        {
+          "id": "w19d7-q14",
+          "prompt": "¿Para qué sirve una etiqueta «confidencial»?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Orientar reglas de acceso, uso y manejo"
+            },
+            {
+              "id": "b",
+              "text": "Cifrar automáticamente todo archivo"
+            },
+            {
+              "id": "c",
+              "text": "Impedir cualquier copia por sí sola"
+            },
+            {
+              "id": "d",
+              "text": "Eliminar la necesidad de permisos"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La etiqueta comunica requisitos; deben implementarse controles que los hagan efectivos.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w19d2-q03"
+        },
+        {
+          "id": "w19d7-q15",
+          "prompt": "Un respaldo diario se hace a medianoche y se pierden datos a las 18:00. ¿Qué pérdida temporal podría existir?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hasta 18 horas desde la última copia válida"
+            },
+            {
+              "id": "b",
+              "text": "Exactamente cero horas"
+            },
+            {
+              "id": "c",
+              "text": "Siempre 24 meses"
+            },
+            {
+              "id": "d",
+              "text": "Solo un minuto por definición"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La pérdida depende del punto recuperable más reciente y del momento del incidente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final",
+          "reviewOf": "w19d3-q03"
+        },
+        {
+          "id": "w19d7-q16",
+          "prompt": "¿Qué expresa RPO?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Número de servidores activos"
+            },
+            {
+              "id": "b",
+              "text": "Tiempo de cambio de contraseña"
+            },
+            {
+              "id": "c",
+              "text": "Punto temporal de datos al que se necesita recuperar"
+            },
+            {
+              "id": "d",
+              "text": "Duración máxima de un contrato"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "RPO refleja pérdida de datos tolerable medida respecto al incidente.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final",
+          "reviewOf": "w19d4-q03"
+        },
+        {
+          "id": "w19d7-q17",
+          "prompt": "¿Qué dato ayuda a escalar una alerta con contexto?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Solo el color del aviso"
+            },
+            {
+              "id": "b",
+              "text": "Una conclusión sin evidencia"
+            },
+            {
+              "id": "c",
+              "text": "Toda la base de clientes"
+            },
+            {
+              "id": "d",
+              "text": "Cuenta, recurso, hora, observación e impacto posible"
+            }
+          ],
+          "correct": [
+            "d"
+          ],
+          "explanation": "El escalamiento útil aporta hechos mínimos para evaluar alcance y urgencia.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+          "reviewOf": "w19d5-q03"
+        },
+        {
+          "id": "w19d7-q18",
+          "prompt": "¿Por qué verificar referencias sugeridas por una IA?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Porque toda referencia generada es maliciosa"
+            },
+            {
+              "id": "b",
+              "text": "Porque las fuentes primarias carecen de utilidad"
+            },
+            {
+              "id": "c",
+              "text": "Pueden ser incorrectas o no respaldar la afirmación"
+            },
+            {
+              "id": "d",
+              "text": "Para memorizar títulos sin leer"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "Una respuesta plausible no garantiza precisión ni existencia de las fuentes.",
+          "reference": "https://csrc.nist.gov/pubs/ai/100/2/e2025/final",
+          "reviewOf": "w19d6-q03"
+        },
+        {
+          "id": "w19d7-q19",
+          "prompt": "¿Qué dato de log facilita correlacionar sucesos de varios equipos?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Marcas temporales consistentes y zona horaria conocida"
+            },
+            {
+              "id": "b",
+              "text": "Solo el color de la consola"
+            },
+            {
+              "id": "c",
+              "text": "Nombres de archivo muy cortos"
+            },
+            {
+              "id": "d",
+              "text": "El icono del usuario"
+            }
+          ],
+          "correct": [
+            "a"
+          ],
+          "explanation": "La consistencia temporal permite ordenar eventos de distintas fuentes con menos ambigüedad.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+          "reviewOf": "w19d1-q04"
+        },
+        {
+          "id": "w19d7-q20",
+          "prompt": "Un sistema admite perder 15 minutos de datos. ¿Qué objetivo corresponde?",
+          "options": [
+            {
+              "id": "a",
+              "text": "RTO de 15 meses"
+            },
+            {
+              "id": "b",
+              "text": "Retención de 15 años"
+            },
+            {
+              "id": "c",
+              "text": "RPO de 15 minutos"
+            },
+            {
+              "id": "d",
+              "text": "Disponibilidad de 15 usuarios"
+            }
+          ],
+          "correct": [
+            "c"
+          ],
+          "explanation": "La tolerancia a pérdida de datos define el punto recuperable requerido.",
+          "reference": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final",
+          "reviewOf": "w19d4-q04"
+        }
+      ],
+      "challenge": {
+        "id": "w19d7-challenge",
+        "prompt": "Caso semanal: se pierde un portátil de ventas con sesión activa y copia remota. ¿Qué plan integra respuesta y recuperación?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Restaurar archivos y asumir que no hubo exposición"
+          },
+          {
+            "id": "b",
+            "text": "Borrar los logs antes de investigar"
+          },
+          {
+            "id": "c",
+            "text": "Esperar una semana para confirmar robo"
+          },
+          {
+            "id": "d",
+            "text": "Reportar, evaluar exposición, revocar accesos pertinentes y restaurar datos verificados"
+          }
+        ],
+        "correct": [
+          "d"
+        ],
+        "explanation": "Recuperar disponibilidad no resuelve por sí solo el riesgo de credenciales o datos expuestos.",
+        "reference": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      }
+    }
+  ]
+}

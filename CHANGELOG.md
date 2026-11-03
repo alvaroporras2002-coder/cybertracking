@@ -1,5 +1,14 @@
 # Registro de cambios
 
+## 1.2.0 — Diseño editorial
+
+- Times New Roman como tipografía principal en la interfaz, controles y gráficos.
+- Fondos de papel, tinta y colores discretos; bordes finos y temas claro y oscuro.
+- Inicio centrado en la sesión pendiente y la semana actual; textos y encabezados más breves.
+- Eliminados eslóganes y textos repetidos; el método de estudio queda disponible como ayuda desplegable.
+- Se mantienen todas las funciones y los controles, incluidos gráficos, animaciones, pruebas, notas, evidencias, temporizador y respaldos.
+- El contenido, los módulos de lógica, los IDs de sesiones y el formato de los datos permanecen compatibles con la versión anterior.
+
 ## 1.1.0 — Espacio de aprendizaje y métricas
 
 - Nueva interfaz para escritorio y móvil, con navegación azul tinta, superficies claras y temas claro y oscuro completos.

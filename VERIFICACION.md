@@ -1,6 +1,6 @@
 # Verificación de la entrega
 
-Fecha: 3 de noviembre de 2026. Versión 1.1.0.
+Fecha: 3 de noviembre de 2026. Versión 1.2.0.
 
 ## Comprobaciones ejecutadas
 
@@ -13,6 +13,7 @@ Fecha: 3 de noviembre de 2026. Versión 1.1.0.
 - Métricas: ventanas de 7/30 días, medianoche local, fechas inválidas o futuras, duplicados, ausencia de actividad, intentos y compatibilidad con respaldos sin fecha de intento. Diez pruebas también comprobadas con `TZ=America/Los_Angeles`.
 - Escena isométrica: SVG válido, IDs únicos y ausencia de scripts.
 - Movimiento: revisión de sintaxis y ciclo de vida simulado para pausa por visibilidad, preferencia de movimiento reducido, contadores y retirada de listeners.
+- Rediseño editorial: comparación con la versión 1.1 de controles, formularios y navegación; módulos de lógica y contenido conservados. Se actualizaron dos textos esperados por las pruebas de interfaz.
 
 ## Límites de la comprobación
 

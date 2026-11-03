@@ -83,7 +83,7 @@ route('#day/w01d1/quiz','Comenzar prueba');
 route('#day/w01d1/notes','Tu cuaderno de laboratorio');
 route('#notes','Tu cuaderno está listo');
 route('#progress','Camino de certificaciones');
-route('#settings','Protege tu recorrido');
+route('#settings','id="backup-import"');
 route('#day/w52d7/learn','Estás explorando una sesión futura');
 route('#day/w52d7/quiz','Evaluación pendiente de desarrollo');
 route('#day/unknown/learn','Sesión no encontrada');

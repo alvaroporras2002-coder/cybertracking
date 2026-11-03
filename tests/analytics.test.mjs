@@ -97,7 +97,7 @@ test('render escapes curriculum labels, exposes ranges and keeps empty chart hon
   assert.match(html, /aria-label="Minutos de estudio por día/);
   const empty = renderAnalytics({}, Array.from({ length: 364 }, (_, index) => ({ id: `d${index}`, resources: [] })), { now });
   assert.match(empty, /0 de 364 sesiones superadas/);
-  assert.match(empty, /Tu primera evaluación abre el gráfico/);
+  assert.match(empty, /Envía una prueba para ver tus resultados\./);
   assert.ok(!empty.includes('<polyline'));
 });
 

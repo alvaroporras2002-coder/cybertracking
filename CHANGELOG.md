@@ -1,5 +1,14 @@
 # Registro de cambios
 
+## 1.4.0 — Un espacio claro y portadas por semana
+
+- Nuevo logotipo y tipografía adaptable del sistema; sustituye Times New Roman.
+- Apariencia clara única, también al cargar preferencias antiguas o importar respaldos con tema oscuro.
+- Retirados los botones de tema y movimiento y el bloque inferior de perfil/estado de la barra lateral.
+- Animaciones activas desde el inicio, ondas al pulsar y respuesta visual de navegación, conservando la preferencia de movimiento reducido del sistema.
+- Cincuenta y dos portadas distintas, una por semana, con escenas específicas del temario. Las seis imágenes del mapa general se conservan.
+- Las notas, pruebas, evidencias, gráficas, temporizador y respaldos mantienen su funcionamiento y formato.
+
 ## 1.3.0 — Aula de cristal
 
 - Paneles de vidrio translúcido, fondos suaves, reflejos y esquinas redondeadas en tarjetas y controles.

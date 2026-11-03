@@ -2,9 +2,9 @@
 
 Plataforma personal para estudiar ciberseguridad desde cero. Contiene las **52 semanas y 364 sesiones** del programa, con una página de inicio, ruta, aula, notas, seguimiento, temporizador y respaldos locales.
 
-La versión 1.3 combina Times New Roman con paneles de vidrio translúcido, fondos suaves, reflejos y esquinas redondeadas. Incluye temas claro y oscuro, una escena isométrica, formas fluidas, partículas y tipografía cinética. El movimiento puede desactivarse y respeta la preferencia del sistema. Se conservan todas las funciones de la versión anterior.
+La versión 1.4 utiliza tipografía adaptable del sistema, un nuevo logotipo y una apariencia clara de vidrio translúcido con esquinas redondeadas. Las animaciones, partículas y respuestas al pulsar están activas desde el inicio y respetan el movimiento reducido del sistema. Se retiraron los selectores de tema y movimiento y el bloque inferior de perfil de la barra lateral.
 
-Seis imágenes generadas para este proyecto identifican las etapas del programa en el inicio, las semanas, el mapa y el aula. Son ilustraciones conceptuales: las tareas, los temas y las explicaciones se mantienen como texto accesible. Las imágenes se sirven desde el repositorio; la página no llama a una API de IA. Consulta [la descripción y los prompts](assets/images/README.md).
+Cincuenta y dos portadas generadas para este proyecto identifican cada semana con una escena diferente. El inicio y el aula muestran la portada de la semana correspondiente; el mapa general conserva sus seis imágenes de etapa. Son ilustraciones conceptuales: las tareas, los temas y las explicaciones se mantienen como texto accesible. Las imágenes se sirven desde el repositorio; la página no llama a una API de IA. Consulta [las portadas y sus prompts](assets/images/weeks/README.md) y [las imágenes de etapa](assets/images/README.md).
 
 El inicio y la sección Progreso muestran actividad de estudio a 7/30 días, sesiones superadas, resultados de pruebas, un calendario de actividad y el mapa de etapas. Utilizan registros reales; cuando no hay actividad explican qué falta registrar. La distribución del programa representa la cantidad de sesiones de cada etapa, no una medición de habilidades.
 
@@ -47,6 +47,8 @@ También puedes abrir [GUIA_GITHUB.html](GUIA_GITHUB.html), que explica cómo su
 | `assets/css/editorial.css` | Tema editorial minimalista, cargado después de los estilos base |
 | `assets/css/glass.css` | Acabado de vidrio, esquinas redondeadas y portadas; cargado al final |
 | `assets/images/stage-01.webp` a `stage-06.webp` | Imágenes de las seis etapas del programa |
+| `assets/images/weeks/week-01.webp` a `week-52.webp` | Portadas distintas de las 52 semanas |
+| `assets/illustrations/brand.svg` | Logotipo usado en la navegación y el icono del sitio |
 | `assets/illustrations/lab.svg` | Ilustración isométrica del laboratorio |
 | `assets/js/app.js` | Conexión de pantallas y acciones |
 | `assets/js/router.js` | Navegación entre secciones |

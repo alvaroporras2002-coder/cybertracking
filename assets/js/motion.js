@@ -19,12 +19,57 @@ export function initMotion({ enabled = true } = {}) {
   let points = [], currentRoot = null, pointerCleanup = null, destroyed = false;
   const counters = new Map();
   const entrances = new Set();
+  const interactions = new Set();
+  const ripples = new Set();
   function active() { return desired && !media.matches && !document.hidden && !destroyed; }
   function finishCounters() {
     for (const [element, record] of counters) { cancel(record.frame); element.textContent = record.final; }
     counters.clear();
   }
   function stopEntrances() { for (const animation of entrances) animation.cancel(); entrances.clear(); }
+  function stopInteractions() {
+    for (const animation of interactions) animation.cancel();
+    interactions.clear();
+    for (const ripple of ripples) ripple.remove();
+    ripples.clear();
+  }
+  function interactionTarget(event) {
+    if (event.target?.closest?.('input,textarea,select,[contenteditable="true"],[role="textbox"]')) return null;
+    const target = event.target?.closest?.('button,a,summary');
+    return target && !target.disabled && target.getAttribute('aria-disabled') !== 'true' ? target : null;
+  }
+  function animateInteraction(element, frames, options, complete = () => {}) {
+    if (typeof element.animate !== 'function') { complete(); return; }
+    const animation = element.animate(frames, options);
+    interactions.add(animation);
+    const cleanup = () => { interactions.delete(animation); complete(); };
+    animation.onfinish = cleanup;
+    animation.oncancel = cleanup;
+  }
+  function press(event) {
+    if (!active() || (event.button !== undefined && event.button !== 0)) return;
+    const target = interactionTarget(event);
+    if (!target || target.matches?.('input')) return;
+    animateInteraction(target,
+      [{ transform: 'scale(1)' }, { transform: 'scale(.97)' }, { transform: 'scale(1)' }],
+      { duration: 270, easing: 'cubic-bezier(.2,.8,.25,1)' });
+  }
+  function click(event) {
+    if (!active()) return;
+    const target = interactionTarget(event); if (!target) return;
+    const rect = target.getBoundingClientRect();
+    const x = event.detail === 0 ? rect.left + rect.width / 2 : event.clientX;
+    const y = event.detail === 0 ? rect.top + rect.height / 2 : event.clientY;
+    if (!Number.isFinite(x) || !Number.isFinite(y)) return;
+    const ripple = document.createElement('span');
+    ripple.className = 'interaction-ripple'; ripple.setAttribute('aria-hidden', 'true');
+    ripple.style.left = `${x - 32}px`; ripple.style.top = `${y - 32}px`;
+    document.body.append(ripple); ripples.add(ripple);
+    animateInteraction(ripple,
+      [{ opacity: .8, transform: 'scale(.2)' }, { opacity: 0, transform: 'scale(1.7)' }],
+      { duration: 580, easing: 'cubic-bezier(.2,.75,.25,1)' },
+      () => { ripples.delete(ripple); ripple.remove(); });
+  }
   function resize() {
     if (!canvas || !ctx) return;
     width = window.innerWidth; height = window.innerHeight;
@@ -44,12 +89,11 @@ export function initMotion({ enabled = true } = {}) {
     frame = raf(draw); if (time - last < 1000 / 30) return;
     const delta = Math.min(time - last || 33, 60); last = time;
     ctx.clearRect(0, 0, width, height);
-    const light = document.documentElement.dataset.theme === 'light';
-    const colors = light ? ['105,91,212', '27,153,170', '211,111,109'] : ['165,151,255', '92,216,216', '245,163,151'];
+    const colors = ['105,91,212', '27,153,170', '211,111,109'];
     for (const p of points) {
       p.x += p.vx * delta; p.y += p.vy * delta;
       if (p.y < -5) p.y = height + 5; if (p.x < -5) p.x = width + 5; if (p.x > width + 5) p.x = -5;
-      const opacity = (light ? .18 : .27) + Math.sin(time / 1900 + p.phase) * .07;
+      const opacity = .18 + Math.sin(time / 1900 + p.phase) * .07;
       ctx.beginPath(); ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(${colors[p.color]},${opacity})`; ctx.fill();
     }
@@ -57,7 +101,7 @@ export function initMotion({ enabled = true } = {}) {
       const a = points[i], b = points[j], distance = Math.hypot(a.x - b.x, a.y - b.y);
       if (distance > 130) continue;
       ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
-      ctx.strokeStyle = `rgba(${colors[0]},${(1 - distance / 130) * (light ? .09 : .12)})`;
+      ctx.strokeStyle = `rgba(${colors[0]},${(1 - distance / 130) * .09})`;
       ctx.lineWidth = .65; ctx.stroke();
     }
   }
@@ -113,21 +157,23 @@ export function initMotion({ enabled = true } = {}) {
     document.documentElement.dataset.visibility = document.hidden ? 'hidden' : 'visible';
     if (canvas) canvas.hidden = !desired || media.matches;
     if (active() && ctx) { last = 0; frame = raf(draw); }
-    else { ctx?.clearRect(0, 0, width, height); finishCounters(); stopEntrances(); pointerCleanup?.(); pointerCleanup = null; }
+    else { ctx?.clearRect(0, 0, width, height); finishCounters(); stopEntrances(); stopInteractions(); pointerCleanup?.(); pointerCleanup = null; }
   }
   const visibility = () => { sync(); if (!document.hidden) attachTilt(currentRoot); };
   const mediaChange = () => { sync(); if (active()) refresh(currentRoot); };
   const onResize = () => { resize(); sync(); attachTilt(currentRoot); };
   resize(); sync();
   window.addEventListener('resize', onResize, { passive: true }); document.addEventListener('visibilitychange', visibility);
+  document.addEventListener('pointerdown', press, { passive: true }); document.addEventListener('click', click, { passive: true });
   const removeMedia = listenMedia(media, mediaChange), removePointer = listenMedia(pointer, mediaChange);
   return {
     update(value) { const next = Boolean(value); if (destroyed || next === desired) return; desired = next; sync(); if (active()) refresh(currentRoot); },
     refresh,
     destroy() {
-      destroyed = true; cancel(frame); finishCounters(); stopEntrances(); pointerCleanup?.();
+      destroyed = true; cancel(frame); finishCounters(); stopEntrances(); stopInteractions(); pointerCleanup?.();
       document.documentElement.dataset.motion = 'off';
       window.removeEventListener('resize', onResize); document.removeEventListener('visibilitychange', visibility);
+      document.removeEventListener('pointerdown', press); document.removeEventListener('click', click);
       removeMedia(); removePointer();
       ctx?.clearRect(0, 0, width, height);
     }

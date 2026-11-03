@@ -21,8 +21,12 @@ const root = process.cwd();
 const originalStorage = await import(pathToFileURL(path.join(root, 'assets/js/storage.js')));
 const originalAssessment = await import(pathToFileURL(path.join(root, 'assets/js/assessments.js')));
 let state = originalStorage.createDefaultState();
+state.preferences.theme = 'dark';
+state.preferences.motion = false;
+state.profile.name = 'Legacy learner';
 let failSaves = false;
 const events = new Map();
+const motionCalls = [];
 class Element {
   constructor(id) { this.id=id; this.dataset={}; this.innerHTML=''; this.textContent=''; this.value=''; this.hidden=true; this.className=''; this.classList={toggle(){},remove(){},add(){}}; }
   addEventListener(type, fn) { events.set(this.id+':'+type, fn); }
@@ -36,7 +40,8 @@ const doc = {
   addEventListener(type, fn) { events.set('document:'+type, fn); },
 };
 const browserWindow = {addEventListener(type,fn){events.set('window:'+type,fn);},scrollTo(){}};
-const context=vm.createContext({console,URL,Blob,FormData,crypto:webcrypto,structuredClone,Date,Map,Set,Math,JSON,Promise,
+class MockFormData extends Map { constructor(form){super(Object.entries(form.values||{}));} }
+const context=vm.createContext({console,URL,Blob,FormData:MockFormData,crypto:webcrypto,structuredClone,Date,Map,Set,Math,JSON,Promise,
   document:doc,window:browserWindow,location:{hash:'#home'},navigator:{},
   setTimeout:(fn,ms)=>{const t=setTimeout(fn,ms);t.unref?.();return t;},clearTimeout,
   scrollTo(){},scrollY:0,confirm(){return false;},prompt(){return null;},
@@ -51,23 +56,27 @@ const storageApi={...originalStorage,
 const mocked = new Map([
   ['storage.js',storageApi],
   ['timer.js',{getTimerMs:()=>0,startTimer:async()=>{},pauseTimer:async()=>{},logTimer:async()=>{},initTimer:()=>()=>{}}],
-  ['motion.js',{initMotion:()=>({update(){},destroy(){}})}],
+  ['motion.js',{initMotion:options=>{motionCalls.push(options.enabled);return {update(value){motionCalls.push(value);},destroy(){}};}}],
 ]);
 const cache=new Map();
 async function moduleFor(filename){
-  filename=path.resolve(filename); if(cache.has(filename))return cache.get(filename);
+  filename=path.resolve(String(filename).split(/[?#]/,1)[0]); if(cache.has(filename))return cache.get(filename);
   const name=path.basename(filename); let module;
   if(mocked.has(name)){
     const api=mocked.get(name);module=new vm.SyntheticModule(Object.keys(api),function(){for(const [k,v]of Object.entries(api))this.setExport(k,v);},{context,identifier:filename});
   }else{
     module=new vm.SourceTextModule(await fs.readFile(filename,'utf8'),{context,identifier:filename,initializeImportMeta(meta){meta.url=pathToFileURL(filename).href;}});
   }
-  cache.set(filename,module);await module.link((specifier,ref)=>moduleFor(path.resolve(path.dirname(ref.identifier),specifier)));return module;
+  cache.set(filename,module);await module.link((specifier,ref)=>moduleFor(path.resolve(path.dirname(ref.identifier),specifier.split(/[?#]/,1)[0])));return module;
 }
 await (await moduleFor(path.join(root,'assets/js/app.js'))).evaluate();
 for(let i=0;i<100&&!events.has('window:hashchange');i++)await new Promise(resolve=>setTimeout(resolve,5));
 assert.ok(events.has('window:hashchange'),'app boot must initialize router');
 assert.ok(!elements.get('main-content').innerHTML.includes('No pudimos abrir'),'app boot must not show failure fallback');
+assert.equal(doc.documentElement.dataset.theme,'light','legacy dark preference must render the single light theme');
+assert.ok(motionCalls.length>0&&motionCalls.every(value=>value===true),'motion must start enabled despite a legacy disabled preference');
+assert.equal(state.profile.name,'Legacy learner','appearance changes must preserve the saved profile');
+assert.ok(!events.has('theme-toggle:click')&&!events.has('motion-toggle:click'),'removed appearance controls must not bind handlers');
 let routes=0;
 function route(hash, expected){
   context.location.hash=hash;events.get('window:hashchange')();
@@ -83,10 +92,25 @@ route('#day/w01d1/quiz','Comenzar prueba');
 route('#day/w01d1/notes','Tu cuaderno de laboratorio');
 route('#notes','Tu cuaderno está listo');
 route('#progress','Camino de certificaciones');
-route('#settings','id="backup-import"');
+const settingsMarkup=route('#settings','id="backup-import"');
+assert.ok(!settingsMarkup.includes('name="theme"')&&!settingsMarkup.includes('name="motion"'),'settings must not expose removed appearance controls');
+await events.get('document:submit')({target:{id:'settings-form',dataset:{},values:{name:'Saved learner',weeklyMinutes:'900'}},preventDefault(){}});
+assert.equal(state.profile.weeklyMinutes,900,'profile settings must save without removed appearance fields');
+assert.equal(state.preferences.theme,'light');
+assert.equal(state.preferences.motion,true);
 route('#day/w52d7/learn','Estás explorando una sesión futura');
 route('#day/w52d7/quiz','Evaluación pendiente de desarrollo');
 route('#day/unknown/learn','Sesión no encontrada');
+route('#path','SEMANA 01');
+const covers=new Set();
+for(let page=1;page<=7;page++){
+  if(page>1){const target={disabled:false,dataset:{action:'page',n:String(page)}};await events.get('document:click')({target:{closest(selector){return selector==='.skip-link'?null:target;}},preventDefault(){}});}
+  const markup=elements.get('main-content').innerHTML;
+  for(const match of markup.matchAll(/class="stage-cover" src="([^"]+)"/g))covers.add(match[1]);
+}
+assert.equal(covers.size,52,'all 52 weekly cards must use distinct image paths');
+assert.ok(covers.has('./assets/images/weeks/week-01.webp')&&covers.has('./assets/images/weeks/week-52.webp'));
+assert.ok(route('#day/w52d7/learn','Resultado esperado').includes('./assets/images/weeks/week-52.webp'),'lesson art must match its week');
 const curriculum=JSON.parse(await fs.readFile(path.join(root,'data/curriculum.json'),'utf8'));
 const first=curriculum.weeks[0].days[0];
 const bank=JSON.parse(await fs.readFile(path.join(root,'data/assessments/week-01.json'),'utf8')).days[0];

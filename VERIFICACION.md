@@ -1,10 +1,10 @@
 # Verificación de la entrega
 
-Fecha: 3 de noviembre de 2026. Versión 1.3.0.
+Fecha: 3 de noviembre de 2026. Versión 1.4.0.
 
 ## Comprobaciones ejecutadas
 
-- `node --test tests/*.test.mjs`: **23 pruebas correctas, 0 fallos**.
+- `node --test tests/*.test.mjs`: **26 pruebas correctas, 0 fallos**.
 - `python3 tools/validate-content.py`: **52 semanas, 364 sesiones, 272 preguntas y 28 retos**; estructura y referencias internas correctas.
 - Correspondencia de los IDs con el HTML de origen: correcta.
 - Sintaxis de los módulos JavaScript y rutas de archivos del HTML: correctas.
@@ -15,6 +15,9 @@ Fecha: 3 de noviembre de 2026. Versión 1.3.0.
 - Movimiento: revisión de sintaxis y ciclo de vida simulado para pausa por visibilidad, preferencia de movimiento reducido, contadores y retirada de listeners.
 - Rediseño editorial: comparación con la versión 1.1 de controles, formularios y navegación; módulos de lógica y contenido conservados. Se actualizaron dos textos esperados por las pruebas de interfaz.
 - Rediseño de vidrio: se conservan controles y manejadores. Seis imágenes WebP inspeccionadas visualmente y verificadas; dimensiones declaradas, carga diferida en el programa y rutas locales comprobadas. Estilos de vidrio, fondo alternativo y esquinas redondeadas revisados estáticamente.
+- Versión clara: comprobaciones de preferencias antiguas oscuras, perfil y guardado sin selectores de apariencia, paginación con 52 portadas diferentes y correspondencia entre aula y semana.
+- Interacciones: tres pruebas nuevas sobre clic/teclado, campos editables, ausencia de manejadores duplicados, movimiento reducido, visibilidad, limpieza y alternativa sin Web Animations.
+- Imágenes semanales: 52 archivos WebP válidos de 1024 × 683 píxeles, hashes únicos, prompts documentados y revisión visual de las escenas.
 
 ## Límites de la comprobación
 

@@ -1,5 +1,10 @@
 # Registro de cambios
 
+## 1.6.1 — Miniaturas de video
+
+- Los recursos enlazados a un video de YouTube muestran su miniatura antes de reproducirlo; las lecturas y listas sin un video concreto conservan su tarjeta de texto.
+- Pulsar la miniatura abre el reproductor en el mismo espacio. Si una imagen no carga, se mantiene el botón de reproducción y el enlace original.
+
 ## 1.6.0 — Continuidad y navegación
 
 - Borradores locales para los formularios de perfil, certificación, dudas, evidencias, tiempo manual y fuentes alternativas. Los envíos correctos eliminan su borrador en la misma operación de guardado.

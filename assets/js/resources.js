@@ -4,17 +4,43 @@ export function safeUrl(value) {
   try { const u = new URL(value); return u.protocol === 'https:' ? u.href : null; } catch { return null; }
 }
 
+function youtubeResource(value) {
+  try {
+    const u = new URL(value);
+    if (u.protocol !== 'https:' || u.username || u.password || u.port) return null;
+    const host = u.hostname.replace(/^www\./, '');
+    const videoPattern = /^[A-Za-z0-9_-]{11}$/;
+    let id = null;
+    if (host === 'youtu.be') id = u.pathname.match(/^\/([A-Za-z0-9_-]{11})\/?$/)?.[1];
+    else if (['youtube.com', 'm.youtube.com'].includes(host)) {
+      if (/^\/watch\/?$/.test(u.pathname)) id = u.searchParams.get('v');
+      else id = u.pathname.match(/^\/(?:embed|shorts|live)\/([A-Za-z0-9_-]{11})\/?$/)?.[1];
+    } else if (host === 'youtube-nocookie.com') id = u.pathname.match(/^\/embed\/([A-Za-z0-9_-]{11})\/?$/)?.[1];
+    else return null;
+    if (id && videoPattern.test(id) && !/^\/embed\/videoseries\/?$/.test(u.pathname)) return { videoId: id, listId: null };
+    // A playlist has no single video poster. Keep its existing playback action
+    // without inventing a thumbnail for an unrelated lesson.
+    const list = u.searchParams.get('list');
+    const listPath = /^\/(?:playlist|watch|embed\/videoseries)\/?$/.test(u.pathname);
+    return host !== 'youtu.be' && listPath && list && /^[A-Za-z0-9_-]+$/.test(list)
+      ? { videoId: null, listId: list } : null;
+  } catch { return null; }
+}
+
+/** A real, provider-hosted poster is available only for a specific video. */
+export function videoThumbnailUrl(value) {
+  const id = youtubeResource(value)?.videoId;
+  return id ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg` : null;
+}
+
 export function embedUrl(value) {
   try {
+    const youtube = youtubeResource(value);
+    if (youtube?.videoId) return `https://www.youtube-nocookie.com/embed/${youtube.videoId}`;
+    if (youtube?.listId) return `https://www.youtube-nocookie.com/embed/videoseries?list=${encodeURIComponent(youtube.listId)}`;
     const u = new URL(value);
     if (!safeUrl(value)) return null;
     const host = u.hostname.replace(/^www\./, '');
-    if (['youtube.com', 'm.youtube.com', 'youtu.be'].includes(host)) {
-      const id = host === 'youtu.be' ? u.pathname.slice(1) : u.searchParams.get('v');
-      const list = u.searchParams.get('list');
-      if (id && /^[\w-]{11}$/.test(id)) return `https://www.youtube-nocookie.com/embed/${id}`;
-      if (list && /^[\w-]+$/.test(list)) return `https://www.youtube-nocookie.com/embed/videoseries?list=${encodeURIComponent(list)}`;
-    }
     if (host === 'vimeo.com' && /^\/\d+$/.test(u.pathname)) return `https://player.vimeo.com/video/${u.pathname.slice(1)}`;
     return null;
   } catch { return null; }

@@ -194,6 +194,14 @@ assert.equal(elements.get('day-notes'),draftField);assert.equal(draftField.value
 failSaves=false;await route('#home','Abrir siguiente sesión');assert.equal(state.days.w01d1.notes,'Recover this unsaved note');
 // Resource checks and timer controls must not replace the resource view or its player.
 await route('#day/w01d1/resources','He estudiado este recurso');
+const resourceMarkup=elements.get('main-content').innerHTML;
+assert.equal((resourceMarkup.match(/class="resource-video-preview"/g)||[]).length,1,'only the directly linked video gets a thumbnail, not the two reading resources');
+assert.ok(resourceMarkup.includes('https://i.ytimg.com/vi/y2kg3MOk1sY/hqdefault.jpg'),'the preview must use the attached video ID');
+assert.ok(!resourceMarkup.includes('<iframe'),'previews must not load a player until requested');
+let brokenPreviewRemoved=false;
+events.get('document:error')({target:{hasAttribute:name=>name==='data-video-thumbnail',closest:()=>({remove(){brokenPreviewRemoved=true;}})}});
+assert.ok(brokenPreviewRemoved,'an unavailable thumbnail must disappear while playback links remain available');
+assert.equal(elements.get('main-content').innerHTML,resourceMarkup,'a failed image must not rebuild the study screen');
 const clickAction=async(action,extra={})=>{const target={disabled:false,dataset:{action,...extra}};await events.get('document:click')({target:{closest(selector){return selector==='.skip-link'?null:target;}},preventDefault(){}});};
 await clickAction('embed',{url:'https://www.youtube.com/watch?v=abcdefghijk',resource:'0'});
 const slot=elements.get('video-slot-0'),frame=slot.frame,screenWrites=elements.get('main-content').writes;

@@ -1,0 +1,965 @@
+{
+  "version": "2.0.0",
+  "week": 9,
+  "title": "Fundamentos de redes",
+  "overview": "Una red permite intercambiar información entre equipos mediante enlaces y reglas. Empezarás dibujando dispositivos y flujos antes de estudiar direcciones. Compararás redes locales, conexiones entre sedes y acceso inalámbrico, y distinguirás las funciones que un aparato doméstico puede reunir en una sola caja. Después usarás modelos por capas para ordenar preguntas y métricas para describir calidad. El laboratorio puede realizarse en un simulador o sobre papel; ninguna actividad requiere explorar redes ajenas ni cambiar un router de producción.",
+  "objectives": [
+    "Distinguir alcance de red y papel de cliente o servidor.",
+    "Relacionar dispositivos y medios con su función.",
+    "Describir una comunicación y sus límites de rendimiento."
+  ],
+  "sources": [
+    {
+      "id": "w09s1",
+      "title": "Switches y routers: funciones de red",
+      "url": "https://www.cisco.com/site/us/en/learn/topics/small-business/network-switch-vs-router.html"
+    },
+    {
+      "id": "w09s2",
+      "title": "Cómo funciona un switch",
+      "url": "https://www.cisco.com/site/us/en/learn/topics/small-business/network-switch-how.html"
+    },
+    {
+      "id": "w09s3",
+      "title": "Inicio de Cisco Packet Tracer",
+      "url": "https://www.netacad.com/courses/getting-started-cisco-packet-tracer/1000"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w09d1",
+      "title": "Qué es una red",
+      "lead": "Una red conecta sistemas para intercambiar datos siguiendo protocolos.",
+      "sections": [
+        {
+          "explanation": [
+            "Una red conecta sistemas para intercambiar datos siguiendo protocolos. Una LAN suele abarcar un entorno local, como una vivienda u oficina; una WAN enlaza redes a mayor escala. Una WLAN utiliza comunicación inalámbrica en el ámbito local. Estas etiquetas describen alcance y medio, pero no determinan por sí solas la confianza de los participantes ni garantizan acceso a internet. Una red local puede funcionar sin conexión externa.",
+            "Cliente y servidor describen papeles en una comunicación. El cliente inicia una solicitud de una función y el servidor la atiende. Un mismo equipo puede actuar como cliente en una conversación y servidor en otra. Dibuja origen, destino y servicio antes de asumir que el dispositivo más grande es siempre el servidor. Compartir una red tampoco implica poder leer cualquier recurso: hacen falta conectividad, un servicio disponible y autorización para la acción solicitada."
+          ],
+          "analogy": "Una oficina puede intercambiar documentos internamente aunque su mensajería hacia otras ciudades esté interrumpida.",
+          "keyPoints": [
+            "LAN: Comunicación dentro de un entorno local.",
+            "WAN: Conexión entre redes de mayor alcance.",
+            "WLAN: Acceso inalámbrico en una red local."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Alcance, medio y función",
+            "items": [
+              {
+                "label": "LAN",
+                "detail": "Comunicación dentro de un entorno local."
+              },
+              {
+                "label": "WAN",
+                "detail": "Conexión entre redes de mayor alcance."
+              },
+              {
+                "label": "WLAN",
+                "detail": "Acceso inalámbrico en una red local."
+              },
+              {
+                "label": "Cliente y servidor",
+                "detail": "Papeles de solicitud y prestación de una función."
+              }
+            ],
+            "caption": "Compartir una red tampoco implica poder leer cualquier recurso: hacen falta conectividad, un servicio disponible y autorización para la acción solicitada."
+          },
+          "topic": "LAN, WAN, WLAN y cliente-servidor"
+        }
+      ],
+      "workedExample": {
+        "title": "Imprimir sin internet",
+        "scenario": "Dos equipos autorizados de una oficina se comunican con una impresora local mientras falla la salida a internet.",
+        "steps": [
+          {
+            "action": "Identificar el destino",
+            "reason": "La impresión permanece dentro de la red local.",
+            "result": "El destino no requiere atravesar la WAN."
+          },
+          {
+            "action": "Separar conectividades",
+            "reason": "Fallar internet no demuestra que la LAN esté caída.",
+            "result": "Se comprueba el acceso al servicio local."
+          },
+          {
+            "action": "Mantener los permisos",
+            "reason": "La conectividad no sustituye autorización.",
+            "result": "Solo usuarios permitidos utilizan la impresora."
+          }
+        ],
+        "result": "Una LAN puede mantener funciones internas aunque no disponga de conexión externa.",
+        "visual": {
+          "type": "flow",
+          "title": "Imprimir sin internet · secuencia",
+          "items": [
+            {
+              "label": "Identificar el destino",
+              "detail": "El destino no requiere atravesar la WAN."
+            },
+            {
+              "label": "Separar conectividades",
+              "detail": "Se comprueba el acceso al servicio local."
+            },
+            {
+              "label": "Mantener los permisos",
+              "detail": "Solo usuarios permitidos utilizan la impresora."
+            }
+          ],
+          "caption": "Una LAN puede mantener funciones internas aunque no disponga de conexión externa."
+        }
+      },
+      "practice": {
+        "task": "Dibuja una vivienda con dos equipos, impresora y salida a internet.",
+        "steps": [
+          "Marca LAN, WLAN y enlace externo.",
+          "Elige una solicitud y sus papeles.",
+          "Explica una tarea que podría funcionar sin internet."
+        ],
+        "expected": "Un mapa funcional que no confunde red local e internet."
+      },
+      "check": {
+        "question": "¿Puede existir una LAN sin internet?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Sí; puede intercambiar datos localmente."
+          },
+          {
+            "id": "b",
+            "text": "No; son exactamente lo mismo."
+          },
+          {
+            "id": "c",
+            "text": "Solo si no tiene impresoras."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La comunicación local y la salida hacia redes externas son capacidades diferentes."
+      },
+      "mistakes": [
+        {
+          "myth": "Cliente y servidor son siempre tipos fijos de hardware.",
+          "correction": "Son papeles en una comunicación; un equipo puede desempeñar ambos en tareas distintas."
+        }
+      ],
+      "recap": [
+        "LAN: Comunicación dentro de un entorno local.",
+        "WAN: Conexión entre redes de mayor alcance.",
+        "WLAN: Acceso inalámbrico en una red local."
+      ],
+      "glossary": [
+        {
+          "term": "LAN",
+          "definition": "Red de alcance local."
+        },
+        {
+          "term": "WAN",
+          "definition": "Red que conecta entornos de mayor alcance."
+        },
+        {
+          "term": "Protocolo",
+          "definition": "Reglas que permiten una comunicación."
+        }
+      ]
+    },
+    {
+      "dayId": "w09d2",
+      "title": "Dispositivos",
+      "lead": "Un switch conecta dispositivos dentro de una red de enlace y utiliza información como direcciones MAC para reenviar tramas.",
+      "sections": [
+        {
+          "explanation": [
+            "Un switch conecta dispositivos dentro de una red de enlace y utiliza información como direcciones MAC para reenviar tramas. Un router toma decisiones de encaminamiento entre redes IP. Un punto de acceso permite que equipos inalámbricos se integren a una red, mientras un módem u otro equipo de terminación adapta la conexión al medio del proveedor. Son funciones diferentes aunque un aparato doméstico reúna varias.",
+            "Dibujar las funciones evita errores de diagnóstico. Tener buena señal Wi-Fi confirma parte del enlace inalámbrico, pero no demuestra que el router tenga ruta al destino o que el proveedor funcione. Un switch tampoco decide siempre por sí solo todas las políticas entre redes; existen equipos con múltiples capacidades y configuraciones. Para comenzar identifica el papel que se está usando en el caso, no únicamente el nombre comercial del aparato. Nunca cambies una configuración real sin autorización y una copia de referencia."
+          ],
+          "analogy": "Una misma estación puede reunir vestíbulo, conexiones internas y salida interurbana, pero cada función resuelve una parte del trayecto.",
+          "keyPoints": [
+            "Switch: Conecta y reenvía dentro del segmento de enlace.",
+            "Router: Encamina paquetes entre redes IP.",
+            "Punto de acceso: Proporciona acceso inalámbrico a la red."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Funciones que pueden compartir una caja",
+            "items": [
+              {
+                "label": "Switch",
+                "detail": "Conecta y reenvía dentro del segmento de enlace."
+              },
+              {
+                "label": "Router",
+                "detail": "Encamina paquetes entre redes IP."
+              },
+              {
+                "label": "Punto de acceso",
+                "detail": "Proporciona acceso inalámbrico a la red."
+              },
+              {
+                "label": "Módem o terminación",
+                "detail": "Adapta el enlace del proveedor al entorno del usuario."
+              }
+            ],
+            "caption": "Nunca cambies una configuración real sin autorización y una copia de referencia."
+          },
+          "topic": "Switch, router, módem y punto de acceso"
+        }
+      ],
+      "workedExample": {
+        "title": "Wi-Fi conectado sin navegación",
+        "scenario": "Un portátil muestra señal inalámbrica, pero no carga una página de práctica.",
+        "steps": [
+          {
+            "action": "Identificar qué confirma la señal",
+            "reason": "La asociación inalámbrica es solo una parte.",
+            "result": "El portátil se conecta al punto de acceso."
+          },
+          {
+            "action": "Separar funciones",
+            "reason": "El router y la salida externa aún requieren comprobación.",
+            "result": "Se dibujan los siguientes tramos."
+          },
+          {
+            "action": "Elegir una prueba pertinente",
+            "reason": "No se culpa al punto de acceso por toda falla.",
+            "result": "Se investiga configuración IP y servicio de destino."
+          }
+        ],
+        "result": "La señal Wi-Fi no demuestra conectividad completa hasta una aplicación remota.",
+        "visual": {
+          "type": "flow",
+          "title": "Wi-Fi conectado sin navegación · secuencia",
+          "items": [
+            {
+              "label": "Identificar qué confirma la señal",
+              "detail": "El portátil se conecta al punto de acceso."
+            },
+            {
+              "label": "Separar funciones",
+              "detail": "Se dibujan los siguientes tramos."
+            },
+            {
+              "label": "Elegir una prueba pertinente",
+              "detail": "Se investiga configuración IP y servicio de destino."
+            }
+          ],
+          "caption": "La señal Wi-Fi no demuestra conectividad completa hasta una aplicación remota."
+        }
+      },
+      "practice": {
+        "task": "Identifica las funciones de un equipo doméstico mediante su documentación.",
+        "steps": [
+          "Distingue radio, conmutación y enrutamiento.",
+          "Añade el enlace del proveedor.",
+          "Describe qué parte confirma una conexión Wi-Fi."
+        ],
+        "expected": "Un diagrama de funciones sin modificar el dispositivo."
+      },
+      "check": {
+        "question": "¿Qué función conecta redes IP diferentes?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Un archivo CSV."
+          },
+          {
+            "id": "b",
+            "text": "Un router."
+          },
+          {
+            "id": "c",
+            "text": "Una extensión de archivo."
+          }
+        ],
+        "correct": "b",
+        "explanation": "El encaminamiento evalúa rutas para enviar paquetes entre redes, según la configuración disponible."
+      },
+      "mistakes": [
+        {
+          "myth": "Si el icono Wi-Fi está conectado, internet funciona.",
+          "correction": "Solo demuestra una parte del acceso; dirección, rutas, DNS y aplicación pueden fallar por separado."
+        }
+      ],
+      "recap": [
+        "Switch: Conecta y reenvía dentro del segmento de enlace.",
+        "Router: Encamina paquetes entre redes IP.",
+        "Punto de acceso: Proporciona acceso inalámbrico a la red."
+      ],
+      "glossary": [
+        {
+          "term": "Trama",
+          "definition": "Unidad de datos del nivel de enlace."
+        },
+        {
+          "term": "Router",
+          "definition": "Equipo o función que encamina paquetes entre redes."
+        }
+      ]
+    },
+    {
+      "dayId": "w09d3",
+      "title": "Medios",
+      "lead": "El medio transporta señales entre dispositivos.",
+      "sections": [
+        {
+          "explanation": [
+            "El medio transporta señales entre dispositivos. El cobre utiliza señales eléctricas, la fibra señales ópticas y la radio ondas electromagnéticas. Cada opción tiene requisitos de distancia, equipos, entorno e instalación. Un conector parecido no garantiza compatibilidad: el cable, la interfaz y la configuración deben corresponder al estándar utilizado. Tampoco la forma física de un puerto demuestra la velocidad realmente negociada en ese enlace.",
+            "Para investigar un enlace observa conexión, estado e información de la interfaz antes de reemplazar piezas al azar. Un cable dañado o una interferencia pueden producir pérdidas, pero una aplicación lenta no prueba automáticamente ese fallo. En Wi-Fi, paredes, distancia y uso compartido del medio pueden influir. No mires directamente fuentes ópticas ni manipules instalaciones de fibra sin formación y autorización. Las prácticas iniciales pueden usar diagramas y documentación para comparar medios sin intervenir el cableado del lugar de trabajo."
+          ],
+          "analogy": "El medio es la carretera por la que viaja la señal; su tipo no determina por sí solo la velocidad de todo el recorrido.",
+          "keyPoints": [
+            "Cobre: Señales eléctricas e interfaces compatibles.",
+            "Fibra: Señales ópticas y equipos de terminación adecuados.",
+            "Radio: Comunicación inalámbrica condicionada por el entorno."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Tres medios de transmisión",
+            "items": [
+              {
+                "label": "Cobre",
+                "detail": "Señales eléctricas e interfaces compatibles."
+              },
+              {
+                "label": "Fibra",
+                "detail": "Señales ópticas y equipos de terminación adecuados."
+              },
+              {
+                "label": "Radio",
+                "detail": "Comunicación inalámbrica condicionada por el entorno."
+              }
+            ],
+            "caption": "Las prácticas iniciales pueden usar diagramas y documentación para comparar medios sin intervenir el cableado del lugar de trabajo."
+          },
+          "topic": "Cobre, fibra, radio y conectores"
+        }
+      ],
+      "workedExample": {
+        "title": "Un enlace negocia una velocidad menor",
+        "scenario": "Un equipo de práctica informa una velocidad de enlace inferior a la esperada.",
+        "steps": [
+          {
+            "action": "Comprobar el dato",
+            "reason": "La velocidad observada debe distinguirse del plan de internet.",
+            "result": "Se registra la información de la interfaz."
+          },
+          {
+            "action": "Revisar compatibilidad",
+            "reason": "Cable y puertos participan en el enlace.",
+            "result": "Se comparan sus especificaciones oficiales."
+          },
+          {
+            "action": "Probar una sustitución autorizada",
+            "reason": "Una variable permite aprender del resultado.",
+            "result": "Se usa un cable conocido y se vuelve a medir."
+          }
+        ],
+        "result": "La prueba ayuda a localizar una restricción del enlace sin generalizar sobre toda la red.",
+        "visual": {
+          "type": "flow",
+          "title": "Un enlace negocia una velocidad menor · secuencia",
+          "items": [
+            {
+              "label": "Comprobar el dato",
+              "detail": "Se registra la información de la interfaz."
+            },
+            {
+              "label": "Revisar compatibilidad",
+              "detail": "Se comparan sus especificaciones oficiales."
+            },
+            {
+              "label": "Probar una sustitución autorizada",
+              "detail": "Se usa un cable conocido y se vuelve a medir."
+            }
+          ],
+          "caption": "La prueba ayuda a localizar una restricción del enlace sin generalizar sobre toda la red."
+        }
+      },
+      "practice": {
+        "task": "Compara cobre, fibra y radio para tres situaciones ficticias.",
+        "steps": [
+          "Indica distancia y entorno.",
+          "Identifica equipos compatibles.",
+          "Explica una limitación de cada elección."
+        ],
+        "expected": "Una selección razonada sin promesas universales de velocidad."
+      },
+      "check": {
+        "question": "¿Un puerto con la misma forma garantiza la misma capacidad?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Sí, siempre."
+          },
+          {
+            "id": "b",
+            "text": "Solo cuando es nuevo."
+          },
+          {
+            "id": "c",
+            "text": "No; debes comprobar estándar, interfaz y enlace negociado."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La compatibilidad y el rendimiento dependen de especificaciones y condiciones, no únicamente de la forma."
+      },
+      "mistakes": [
+        {
+          "myth": "La fibra elimina cualquier problema de red.",
+          "correction": "El medio es una parte; equipos, rutas y aplicaciones conservan sus propias limitaciones."
+        }
+      ],
+      "recap": [
+        "Cobre: Señales eléctricas e interfaces compatibles.",
+        "Fibra: Señales ópticas y equipos de terminación adecuados.",
+        "Radio: Comunicación inalámbrica condicionada por el entorno."
+      ],
+      "glossary": [
+        {
+          "term": "Medio",
+          "definition": "Canal físico o inalámbrico que transporta señales."
+        },
+        {
+          "term": "Enlace negociado",
+          "definition": "Condiciones de comunicación establecidas entre interfaces."
+        }
+      ]
+    },
+    {
+      "dayId": "w09d4",
+      "title": "Modelos",
+      "lead": "Los modelos por capas organizan funciones de comunicación para poder estudiarlas y diagnosticar problemas.",
+      "sections": [
+        {
+          "explanation": [
+            "Los modelos por capas organizan funciones de comunicación para poder estudiarlas y diagnosticar problemas. OSI utiliza siete capas como referencia; el conjunto TCP/IP agrupa funciones de otra manera. No necesitas forzar una correspondencia perfecta para cada producto. La idea práctica es separar aplicación, transporte, direccionamiento y entrega por el enlace, reconociendo qué información pertenece a cada responsabilidad.",
+            "La encapsulación añade información de control alrededor de datos para que otras funciones puedan transportarlos. Un mensaje de aplicación puede viajar dentro de segmentos TCP, paquetes IP y tramas de enlace. En el receptor se interpreta la información pertinente para recuperar los datos. Un router puede cambiar la trama utilizada en el siguiente enlace sin convertir la dirección IP remota en una MAC que viaje por toda internet. Los modelos son mapas para razonar, no una prueba de que cada dispositivo real tenga siete módulos físicos separados."
+          ],
+          "analogy": "Un documento viaja dentro de un sobre, y ese sobre puede entrar en un contenedor de transporte diferente en cada tramo.",
+          "keyPoints": [
+            "Aplicación: Datos que solicita o presenta el servicio.",
+            "Transporte: Comunicación entre extremos mediante TCP o UDP.",
+            "IP: Direccionamiento y encaminamiento entre redes."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Encapsulación simplificada",
+            "items": [
+              {
+                "label": "Aplicación",
+                "detail": "Datos que solicita o presenta el servicio."
+              },
+              {
+                "label": "Transporte",
+                "detail": "Comunicación entre extremos mediante TCP o UDP."
+              },
+              {
+                "label": "IP",
+                "detail": "Direccionamiento y encaminamiento entre redes."
+              },
+              {
+                "label": "Enlace",
+                "detail": "Entrega de tramas en el tramo local."
+              }
+            ],
+            "caption": "Los modelos son mapas para razonar, no una prueba de que cada dispositivo real tenga siete módulos físicos separados."
+          },
+          "topic": "OSI, TCP/IP y encapsulación"
+        }
+      ],
+      "workedExample": {
+        "title": "Una página que requiere varias funciones",
+        "scenario": "Un navegador solicita una página de un servidor ficticio.",
+        "steps": [
+          {
+            "action": "Identificar la aplicación",
+            "reason": "La solicitud tiene un significado para el servicio.",
+            "result": "Se reconoce la tarea web."
+          },
+          {
+            "action": "Situar transporte e IP",
+            "reason": "Las funciones añaden información diferente.",
+            "result": "Se separan puertos y direcciones IP."
+          },
+          {
+            "action": "Situar el enlace",
+            "reason": "La entrega inmediata usa el medio y sus direcciones.",
+            "result": "Se identifica el siguiente tramo local."
+          }
+        ],
+        "result": "Una conversación se entiende mejor al separar responsabilidades que al memorizar únicamente capas.",
+        "visual": {
+          "type": "flow",
+          "title": "Una página que requiere varias funciones · secuencia",
+          "items": [
+            {
+              "label": "Identificar la aplicación",
+              "detail": "Se reconoce la tarea web."
+            },
+            {
+              "label": "Situar transporte e IP",
+              "detail": "Se separan puertos y direcciones IP."
+            },
+            {
+              "label": "Situar el enlace",
+              "detail": "Se identifica el siguiente tramo local."
+            }
+          ],
+          "caption": "Una conversación se entiende mejor al separar responsabilidades que al memorizar únicamente capas."
+        }
+      },
+      "practice": {
+        "task": "Dibuja datos de aplicación dentro de transporte, IP y enlace.",
+        "steps": [
+          "Etiqueta qué identifica cada nivel.",
+          "Indica qué cambia al pasar por un router.",
+          "Explica por qué el modelo es una simplificación."
+        ],
+        "expected": "Un esquema de encapsulación con límites reconocidos."
+      },
+      "check": {
+        "question": "¿Qué información identifica redes y permite encaminamiento IP?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La dirección IP y el prefijo correspondiente."
+          },
+          {
+            "id": "b",
+            "text": "Solo el nombre de la carpeta."
+          },
+          {
+            "id": "c",
+            "text": "La extensión del navegador."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La información IP pertenece a una función distinta de los puertos y de las direcciones del enlace."
+      },
+      "mistakes": [
+        {
+          "myth": "OSI exige siete aparatos físicos diferentes.",
+          "correction": "Es un modelo de funciones; un equipo real puede integrar varias de ellas."
+        }
+      ],
+      "recap": [
+        "Aplicación: Datos que solicita o presenta el servicio.",
+        "Transporte: Comunicación entre extremos mediante TCP o UDP.",
+        "IP: Direccionamiento y encaminamiento entre redes."
+      ],
+      "glossary": [
+        {
+          "term": "Encapsulación",
+          "definition": "Incorporación de datos dentro de unidades con información de control."
+        },
+        {
+          "term": "Capa",
+          "definition": "Agrupación de responsabilidades de comunicación."
+        }
+      ]
+    },
+    {
+      "dayId": "w09d5",
+      "title": "Rendimiento",
+      "lead": "El ancho de banda describe una capacidad de transferencia; la latencia, el tiempo de demora; la pérdida, datos que no llegan según la medición; y el jitter, la variación de demora entre entregas.",
+      "sections": [
+        {
+          "explanation": [
+            "El ancho de banda describe una capacidad de transferencia; la latencia, el tiempo de demora; la pérdida, datos que no llegan según la medición; y el jitter, la variación de demora entre entregas. Estas métricas responden preguntas distintas. Una descarga grande puede aprovechar capacidad alta, mientras una conversación de voz puede resultar incómoda con demora variable aunque no necesite transferir muchos megabytes por segundo.",
+            "Define primero la tarea y cómo medirla. No confundas Mbps con MB/s ni una prueba de velocidad aislada con la experiencia de todas las aplicaciones. El destino, la ruta, el medio compartido y el momento influyen. En ejemplos de voz o juego, un pico breve de demora puede importar más que el promedio. Registra unidades, duración y condiciones y evita prometer una causa a partir de una sola cifra. Una comparación útil mantiene el mismo método y explicita los cambios de contexto."
+          ],
+          "analogy": "Una carretera ancha mueve muchos vehículos, pero un viaje aún puede sufrir demora, pérdidas de conexión y tiempos variables.",
+          "keyPoints": [
+            "Ancho de banda: ¿Cuántos datos puede transportar el enlace por tiempo?",
+            "Latencia: ¿Cuánto tarda la entrega o respuesta medida?",
+            "Pérdida: ¿Qué proporción no llegó en la prueba?"
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Cuatro preguntas de rendimiento",
+            "items": [
+              {
+                "label": "Ancho de banda",
+                "detail": "¿Cuántos datos puede transportar el enlace por tiempo?"
+              },
+              {
+                "label": "Latencia",
+                "detail": "¿Cuánto tarda la entrega o respuesta medida?"
+              },
+              {
+                "label": "Pérdida",
+                "detail": "¿Qué proporción no llegó en la prueba?"
+              },
+              {
+                "label": "Jitter",
+                "detail": "¿Cuánto varía la demora entre entregas?"
+              }
+            ],
+            "caption": "Una comparación útil mantiene el mismo método y explicita los cambios de contexto."
+          },
+          "topic": "Ancho de banda, latencia, pérdida y jitter"
+        }
+      ],
+      "workedExample": {
+        "title": "Video fluido y llamada entrecortada",
+        "scenario": "Un caso ficticio muestra descargas rápidas, pero voz irregular durante periodos concretos.",
+        "steps": [
+          {
+            "action": "Separar las necesidades",
+            "reason": "La voz es sensible al tiempo de entrega.",
+            "result": "Una descarga rápida no descarta problemas temporales."
+          },
+          {
+            "action": "Examinar variación y pérdida",
+            "reason": "El promedio de capacidad es insuficiente.",
+            "result": "Se buscan muestras durante el síntoma."
+          },
+          {
+            "action": "Comparar condiciones",
+            "reason": "Los datos deben referirse al mismo intervalo.",
+            "result": "Se registra tarea, destino y momento de cada prueba."
+          }
+        ],
+        "result": "El caso requiere métricas temporales y de pérdida, no solo capacidad de descarga.",
+        "visual": {
+          "type": "flow",
+          "title": "Video fluido y llamada entrecortada · secuencia",
+          "items": [
+            {
+              "label": "Separar las necesidades",
+              "detail": "Una descarga rápida no descarta problemas temporales."
+            },
+            {
+              "label": "Examinar variación y pérdida",
+              "detail": "Se buscan muestras durante el síntoma."
+            },
+            {
+              "label": "Comparar condiciones",
+              "detail": "Se registra tarea, destino y momento de cada prueba."
+            }
+          ],
+          "caption": "El caso requiere métricas temporales y de pérdida, no solo capacidad de descarga."
+        }
+      },
+      "practice": {
+        "task": "Asigna una métrica principal a copia grande, videollamada y respuesta interactiva.",
+        "steps": [
+          "Justifica cada elección.",
+          "Incluye unidades apropiadas.",
+          "Indica una segunda métrica que también podría influir."
+        ],
+        "expected": "Una relación razonada entre experiencia y medición."
+      },
+      "check": {
+        "question": "¿Qué mide el jitter?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La capacidad total del disco."
+          },
+          {
+            "id": "b",
+            "text": "La variación de demora entre entregas."
+          },
+          {
+            "id": "c",
+            "text": "El número de cuentas del equipo."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La variabilidad temporal puede afectar aplicaciones sensibles a entregas regulares, como voz en tiempo real."
+      },
+      "mistakes": [
+        {
+          "myth": "Más Mbps resuelven cualquier problema de una llamada.",
+          "correction": "La experiencia también depende de latencia, variación, pérdida y comportamiento de la aplicación."
+        }
+      ],
+      "recap": [
+        "Ancho de banda: ¿Cuántos datos puede transportar el enlace por tiempo?",
+        "Latencia: ¿Cuánto tarda la entrega o respuesta medida?",
+        "Pérdida: ¿Qué proporción no llegó en la prueba?"
+      ],
+      "glossary": [
+        {
+          "term": "Latencia",
+          "definition": "Demora asociada a una comunicación medida."
+        },
+        {
+          "term": "Jitter",
+          "definition": "Variación de demora entre entregas."
+        },
+        {
+          "term": "Pérdida",
+          "definition": "Datos que no llegan según el método de observación."
+        }
+      ]
+    },
+    {
+      "dayId": "w09d6",
+      "title": "Simulación",
+      "lead": "Un simulador permite representar dispositivos, enlaces y protocolos sin intervenir equipos reales.",
+      "sections": [
+        {
+          "explanation": [
+            "Un simulador permite representar dispositivos, enlaces y protocolos sin intervenir equipos reales. Packet Tracer ofrece un entorno de aprendizaje donde puedes construir una topología y observar comunicaciones modeladas. El resultado depende de sus capacidades y de la versión utilizada: una simulación no reproduce todos los detalles de cada dispositivo físico ni sustituye la autorización necesaria para una red real.",
+            "Empieza con dos equipos y un switch. Define direcciones compatibles, comprueba enlaces y observa una comunicación sencilla dentro del entorno. Cambia una sola condición, como una dirección, y predice cómo afectará el resultado. Guarda el archivo de práctica y anota el estado inicial para repetirlo. Si no puedes instalar el simulador, realiza el mismo razonamiento sobre papel y utiliza ejemplos de su curso oficial. El objetivo es comprender flujos, no descargar herramientas desde fuentes desconocidas ni explorar una red ajena."
+          ],
+          "analogy": "Una maqueta permite probar decisiones a escala, pero sus materiales y reglas no son idénticos a los del edificio real.",
+          "keyPoints": [
+            "Construir: Dos equipos y un switch virtual.",
+            "Configurar: Direcciones y enlaces coherentes.",
+            "Predecir: Resultado esperado de una comunicación."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Experimento en una topología mínima",
+            "items": [
+              {
+                "label": "Construir",
+                "detail": "Dos equipos y un switch virtual."
+              },
+              {
+                "label": "Configurar",
+                "detail": "Direcciones y enlaces coherentes."
+              },
+              {
+                "label": "Predecir",
+                "detail": "Resultado esperado de una comunicación."
+              },
+              {
+                "label": "Observar",
+                "detail": "Comparar el modelo con la predicción."
+              }
+            ],
+            "caption": "El objetivo es comprender flujos, no descargar herramientas desde fuentes desconocidas ni explorar una red ajena."
+          },
+          "topic": "Packet Tracer y conexiones básicas"
+        }
+      ],
+      "workedExample": {
+        "title": "Dirección incompatible en un simulador",
+        "scenario": "Dos equipos simulados tienen enlace activo, pero pertenecen a redes IP diferentes sin router.",
+        "steps": [
+          {
+            "action": "Revisar la topología",
+            "reason": "El enlace físico modelado no basta.",
+            "result": "Ambos llegan al switch."
+          },
+          {
+            "action": "Comparar la configuración IP",
+            "reason": "La comunicación depende de red y rutas.",
+            "result": "Se detectan redes distintas sin encaminamiento."
+          },
+          {
+            "action": "Corregir una variable",
+            "reason": "La prueba debe aislar el efecto.",
+            "result": "Se usa una configuración coherente y se repite."
+          }
+        ],
+        "result": "La simulación muestra una diferencia entre enlace y conectividad IP.",
+        "visual": {
+          "type": "flow",
+          "title": "Dirección incompatible en un simulador · secuencia",
+          "items": [
+            {
+              "label": "Revisar la topología",
+              "detail": "Ambos llegan al switch."
+            },
+            {
+              "label": "Comparar la configuración IP",
+              "detail": "Se detectan redes distintas sin encaminamiento."
+            },
+            {
+              "label": "Corregir una variable",
+              "detail": "Se usa una configuración coherente y se repite."
+            }
+          ],
+          "caption": "La simulación muestra una diferencia entre enlace y conectividad IP."
+        }
+      },
+      "practice": {
+        "task": "Diseña una topología mínima en simulador o papel.",
+        "steps": [
+          "Etiqueta equipos y enlaces.",
+          "Predice una comunicación permitida.",
+          "Introduce un error ficticio y explica su efecto."
+        ],
+        "expected": "Una topología guardada o dibujada con predicción y comprobación."
+      },
+      "check": {
+        "question": "¿Qué límite debes recordar sobre un simulador?",
+        "options": [
+          {
+            "id": "a",
+            "text": "No reproduce necesariamente todos los detalles de un equipo real."
+          },
+          {
+            "id": "b",
+            "text": "Autoriza probar cualquier red externa."
+          },
+          {
+            "id": "c",
+            "text": "Garantiza que todas las configuraciones son seguras."
+          }
+        ],
+        "correct": "a",
+        "explanation": "El modelo tiene un alcance de funciones y comportamientos que debe contrastarse con el entorno real."
+      },
+      "mistakes": [
+        {
+          "myth": "Si funciona en el simulador, funcionará igual en cualquier red.",
+          "correction": "La plataforma, los equipos, las versiones y las políticas reales pueden introducir diferencias."
+        }
+      ],
+      "recap": [
+        "Construir: Dos equipos y un switch virtual.",
+        "Configurar: Direcciones y enlaces coherentes.",
+        "Predecir: Resultado esperado de una comunicación."
+      ],
+      "glossary": [
+        {
+          "term": "Topología",
+          "definition": "Representación de dispositivos y conexiones."
+        },
+        {
+          "term": "Simulación",
+          "definition": "Modelo de comportamientos bajo reglas definidas."
+        }
+      ]
+    },
+    {
+      "dayId": "w09d7",
+      "title": "Evaluación de red",
+      "lead": "Para explicar un flujo de datos identifica quién solicita la función, dónde está el destino y qué dispositivos participan en el camino.",
+      "sections": [
+        {
+          "explanation": [
+            "Para explicar un flujo de datos identifica quién solicita la función, dónde está el destino y qué dispositivos participan en el camino. Un equipo local puede comunicarse con otro mediante el enlace y un switch; si el destino está en otra red, necesita un encaminamiento apropiado. El acceso inalámbrico añade un medio y un punto de acceso, no elimina las demás funciones de direccionamiento y servicio.",
+            "En una evaluación distingue lo que confirma cada observación. Un enlace activo no demuestra que DNS funcione; una respuesta de una aplicación no prueba que todas las rutas sean correctas. Dibuja el recorrido y anota qué medirías en cada tramo. Cuando una caja realiza varias funciones, sepáralas en el dibujo para no atribuir todo el problema a una sola etiqueta. El resultado debe ser una explicación del flujo con límites, no únicamente una lista de nombres de dispositivos."
+          ],
+          "analogy": "Describir un viaje requiere indicar origen, destino y transbordos; nombrar una estación no cuenta todo el recorrido.",
+          "keyPoints": [
+            "Cliente: Inicia la solicitud de una función.",
+            "Enlace local: Conecta al equipo con su red.",
+            "Encaminamiento: Permite alcanzar otras redes cuando se necesita."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Trayecto de una solicitud local o remota",
+            "items": [
+              {
+                "label": "Cliente",
+                "detail": "Inicia la solicitud de una función."
+              },
+              {
+                "label": "Enlace local",
+                "detail": "Conecta al equipo con su red."
+              },
+              {
+                "label": "Encaminamiento",
+                "detail": "Permite alcanzar otras redes cuando se necesita."
+              },
+              {
+                "label": "Servidor",
+                "detail": "Atiende la función si está disponible y autorizada."
+              }
+            ],
+            "caption": "El resultado debe ser una explicación del flujo con límites, no únicamente una lista de nombres de dispositivos."
+          },
+          "topic": "Dispositivos y flujo de datos"
+        }
+      ],
+      "workedExample": {
+        "title": "Impresora local y página remota",
+        "scenario": "La impresión funciona, pero una página externa no responde.",
+        "steps": [
+          {
+            "action": "Comparar destinos",
+            "reason": "Las tareas recorren caminos diferentes.",
+            "result": "La impresora pertenece al entorno local."
+          },
+          {
+            "action": "Delimitar lo demostrado",
+            "reason": "La LAN tiene al menos cierta comunicación funcional.",
+            "result": "No se acredita todavía la salida remota."
+          },
+          {
+            "action": "Elegir la siguiente pregunta",
+            "reason": "El problema podría estar en IP, DNS o aplicación.",
+            "result": "Se investigan los tramos adicionales sin reiniciar todo."
+          }
+        ],
+        "result": "Una tarea local correcta reduce el alcance del problema, pero no identifica por sí sola su causa remota.",
+        "visual": {
+          "type": "flow",
+          "title": "Impresora local y página remota · secuencia",
+          "items": [
+            {
+              "label": "Comparar destinos",
+              "detail": "La impresora pertenece al entorno local."
+            },
+            {
+              "label": "Delimitar lo demostrado",
+              "detail": "No se acredita todavía la salida remota."
+            },
+            {
+              "label": "Elegir la siguiente pregunta",
+              "detail": "Se investigan los tramos adicionales sin reiniciar todo."
+            }
+          ],
+          "caption": "Una tarea local correcta reduce el alcance del problema, pero no identifica por sí sola su causa remota."
+        }
+      },
+      "practice": {
+        "task": "Explica dos recorridos en el mismo mapa.",
+        "steps": [
+          "Traza una solicitud local.",
+          "Traza una solicitud hacia otra red.",
+          "Indica un dato que diferencie enlace y servicio."
+        ],
+        "expected": "Un diagrama con funciones y conclusiones limitadas."
+      },
+      "check": {
+        "question": "La impresión local funciona. ¿Qué demuestra?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que internet y todas las aplicaciones funcionan."
+          },
+          {
+            "id": "b",
+            "text": "Que existe comunicación suficiente para esa tarea local."
+          },
+          {
+            "id": "c",
+            "text": "Que ningún router puede fallar."
+          }
+        ],
+        "correct": "b",
+        "explanation": "El éxito acredita el recorrido y servicio de esa prueba, no todos los destinos posibles."
+      },
+      "mistakes": [
+        {
+          "myth": "Todos los datos pasan siempre por internet.",
+          "correction": "Una red puede prestar servicios internos sin utilizar una conexión externa."
+        }
+      ],
+      "recap": [
+        "Cliente: Inicia la solicitud de una función.",
+        "Enlace local: Conecta al equipo con su red.",
+        "Encaminamiento: Permite alcanzar otras redes cuando se necesita."
+      ],
+      "glossary": [
+        {
+          "term": "Flujo",
+          "definition": "Recorrido de una comunicación entre participantes."
+        },
+        {
+          "term": "Tramo",
+          "definition": "Parte del camino con condiciones y funciones propias."
+        }
+      ]
+    }
+  ]
+}

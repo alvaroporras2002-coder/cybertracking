@@ -1,0 +1,960 @@
+{
+  "version": "2.0.0",
+  "week": 22,
+  "title": "Criptografía aplicada",
+  "overview": "La criptografía se aprende mejor separando objetivos. Esta semana distinguirás secreto, comparación de contenido, firma, certificados y almacenamiento de contraseñas. Los ejemplos muestran por qué una función correcta puede usarse de forma equivocada y por qué claves y referencias de confianza son parte de la solución. No construirás criptografía propia: practicarás interpretación y comprobaciones locales seguras, terminando con una selección razonada de mecanismos para escenarios diferentes.",
+  "objectives": [
+    "Distinguir cifrado, hash, firma y derivación de contraseñas.",
+    "Interpretar certificados y gestión de claves.",
+    "Seleccionar mecanismos y explicar límites de confianza."
+  ],
+  "sources": [
+    {
+      "id": "crypto",
+      "title": "OWASP: almacenamiento criptográfico",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html"
+    },
+    {
+      "id": "password",
+      "title": "OWASP: almacenamiento de contraseñas",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html"
+    },
+    {
+      "id": "tls",
+      "title": "IETF: especificación y estado de TLS",
+      "url": "https://www.rfc-editor.org/info/rfc8446"
+    },
+    {
+      "id": "auth",
+      "title": "NIST SP 800-63B-4: autenticación",
+      "url": "https://csrc.nist.gov/pubs/sp/800/63/b/4/final"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w22d1",
+      "title": "Cifrado",
+      "lead": "Elige cifrado por el secreto que necesitas proteger y por cómo gestionarás las claves.",
+      "sections": [
+        {
+          "topic": "Simétrico, asimétrico y usos",
+          "explanation": [
+            "El cifrado transforma datos legibles en una representación que requiere una clave para recuperarlos. En cifrado simétrico, las partes utilizan una clave secreta compartida para la operación correspondiente. En mecanismos asimétricos existe un par de claves con funciones distintas. Los sistemas reales suelen combinar capacidades: usan mecanismos de clave pública para establecer secretos o autenticar y cifrado simétrico para proteger grandes volúmenes de datos.",
+            "La seguridad depende del algoritmo, modo, generación de claves y uso correcto de parámetros. No inventes cifrados ni construyas combinaciones manuales para una aplicación real; utiliza bibliotecas mantenidas y diseños revisados. El cifrado autenticado puede proteger confidencialidad e integridad bajo sus condiciones de uso, pero no resuelve permisos del usuario ni recuperación de claves. Si un proceso legítimo puede descifrar, un compromiso de ese proceso puede seguir exponiendo datos."
+          ],
+          "analogy": "Una caja con llave protege el contenido; el problema incluye cómo se entrega, guarda y recupera esa llave.",
+          "keyPoints": [
+            "Simétrico y asimétrico tienen funciones y costos distintos.",
+            "Los diseños suelen combinar mecanismos.",
+            "Cifrado no sustituye permisos ni gestión de claves."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Protección híbrida conceptual",
+            "items": [
+              {
+                "label": "Clave pública",
+                "detail": "Autenticar o establecer un secreto según el protocolo"
+              },
+              {
+                "label": "Secreto de sesión",
+                "detail": "Derivar claves para la comunicación"
+              },
+              {
+                "label": "Cifrado autenticado",
+                "detail": "Proteger contenido y detectar alteraciones"
+              }
+            ],
+            "caption": "El protocolo exacto define las operaciones; no se propone implementar criptografía propia."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Archivo sensible en un equipo perdido",
+        "scenario": "Se necesita impedir lectura sin la clave y poder recuperar el archivo legítimamente.",
+        "steps": [
+          {
+            "action": "Identificar objetivo",
+            "reason": "La amenaza principal es lectura no autorizada.",
+            "result": "Confidencialidad requerida"
+          },
+          {
+            "action": "Elegir mecanismo mantenido",
+            "reason": "Un esquema propio introduce errores.",
+            "result": "Cifrado apropiado mediante herramienta confiable"
+          },
+          {
+            "action": "Planificar claves",
+            "reason": "Perder la clave también afecta disponibilidad.",
+            "result": "Acceso y recuperación autorizados probados"
+          }
+        ],
+        "result": "La solución incluye protección del archivo y una gestión de claves verificable.",
+        "visual": {
+          "type": "flow",
+          "title": "Archivo sensible en un equipo perdido",
+          "items": [
+            {
+              "label": "Identificar objetivo",
+              "detail": "Confidencialidad requerida"
+            },
+            {
+              "label": "Elegir mecanismo mantenido",
+              "detail": "Cifrado apropiado mediante herramienta confiable"
+            },
+            {
+              "label": "Planificar claves",
+              "detail": "Acceso y recuperación autorizados probados"
+            }
+          ],
+          "caption": "La solución incluye protección del archivo y una gestión de claves verificable."
+        }
+      },
+      "practice": {
+        "task": "Compara protección de un archivo y de una conexión.",
+        "steps": [
+          "Describe qué datos deben ser secretos.",
+          "Indica dónde existen los extremos que descifran.",
+          "Añade permiso y recuperación de la clave."
+        ],
+        "expected": "Dos diseños conceptuales que reconocen qué no resuelve el cifrado."
+      },
+      "check": {
+        "question": "¿Qué protege principalmente el cifrado de datos?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La confidencialidad bajo las condiciones del esquema"
+          },
+          {
+            "id": "b",
+            "text": "La legitimidad de cualquier usuario autenticado"
+          },
+          {
+            "id": "c",
+            "text": "La ausencia de malware en el equipo"
+          }
+        ],
+        "correct": "a",
+        "explanation": "El cifrado limita lectura sin clave, pero no elimina otros riesgos de identidad o ejecución."
+      },
+      "mistakes": [
+        {
+          "myth": "Cifrar con una clave privada es lo mismo que firmar.",
+          "correction": "La firma es una construcción específica; no debe explicarse como cifrado reversible del mensaje con la clave privada."
+        }
+      ],
+      "recap": [
+        "Simétrico y asimétrico tienen funciones y costos distintos.",
+        "Los diseños suelen combinar mecanismos.",
+        "Cifrado no sustituye permisos ni gestión de claves."
+      ],
+      "glossary": [
+        {
+          "term": "Cifrado simétrico",
+          "definition": "Protección que utiliza una clave secreta compartida."
+        },
+        {
+          "term": "Esquema híbrido",
+          "definition": "Diseño que combina mecanismos de clave pública y simétricos."
+        }
+      ]
+    },
+    {
+      "dayId": "w22d2",
+      "title": "Hashes y sal",
+      "lead": "Usa hashes para comparar contenido y derivación adecuada para proteger contraseñas.",
+      "sections": [
+        {
+          "topic": "Integridad frente a secreto",
+          "explanation": [
+            "Una función hash calcula un resumen de longitud definida a partir de datos. Es útil para detectar diferencias, pero no oculta un archivo ni permite recuperar su contenido original mediante descifrado. Para verificar una descarga necesitas comparar el resumen con una referencia obtenida de forma confiable. Si un atacante cambia archivo y referencia al mismo tiempo, que ambos coincidan no demuestra autenticidad.",
+            "Las contraseñas necesitan funciones de derivación diseñadas para dificultar intentos masivos, con parámetros adecuados y una sal única por contraseña. La sal no es una contraseña adicional que deba mantenerse secreta; evita reutilizar directamente cálculos entre registros iguales. Un hash rápido de propósito general no es una elección apropiada por sí sola para almacenar contraseñas. Utiliza mecanismos mantenidos de autenticación y no diseñes tu propio formato a partir de ejemplos de laboratorio."
+          ],
+          "analogy": "La huella de un paquete ayuda a compararlo; la confianza depende también de quién te entregó la huella de referencia.",
+          "keyPoints": [
+            "Un hash no cifra ni autentica por sí solo.",
+            "La referencia de comparación debe ser confiable.",
+            "Contraseñas requieren derivación lenta y sal única."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Dos usos diferentes de resúmenes",
+            "items": [
+              {
+                "label": "Archivo",
+                "detail": "Comparar hash con referencia confiable"
+              },
+              {
+                "label": "Contraseña",
+                "detail": "Función de derivación con sal y parámetros"
+              },
+              {
+                "label": "Límite",
+                "detail": "Coincidencia no prueba por sí sola quién creó el dato"
+              }
+            ],
+            "caption": "El contexto determina qué propiedad puede comprobarse."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Descarga y resumen en el mismo sitio comprometido",
+        "scenario": "El archivo y su supuesto hash oficial fueron sustituidos.",
+        "steps": [
+          {
+            "action": "Calcular resumen",
+            "reason": "La operación describe los bytes recibidos.",
+            "result": "Hash local coincide con el publicado"
+          },
+          {
+            "action": "Evaluar referencia",
+            "reason": "Ambos datos provienen del origen alterado.",
+            "result": "Autenticidad todavía no demostrada"
+          },
+          {
+            "action": "Buscar evidencia independiente",
+            "reason": "Hace falta una fuente de confianza distinta.",
+            "result": "Firma o referencia confiable verificada"
+          }
+        ],
+        "result": "La coincidencia detecta consistencia, pero no identifica un origen legítimo por sí sola.",
+        "visual": {
+          "type": "flow",
+          "title": "Descarga y resumen en el mismo sitio comprometido",
+          "items": [
+            {
+              "label": "Calcular resumen",
+              "detail": "Hash local coincide con el publicado"
+            },
+            {
+              "label": "Evaluar referencia",
+              "detail": "Autenticidad todavía no demostrada"
+            },
+            {
+              "label": "Buscar evidencia independiente",
+              "detail": "Firma o referencia confiable verificada"
+            }
+          ],
+          "caption": "La coincidencia detecta consistencia, pero no identifica un origen legítimo por sí sola."
+        }
+      },
+      "practice": {
+        "task": "Calcula el hash de dos archivos de texto propios.",
+        "steps": [
+          "Crea una copia con un carácter cambiado.",
+          "Compara los resúmenes sin usar contraseñas.",
+          "Explica de dónde tendría que venir una referencia confiable."
+        ],
+        "expected": "Dos resúmenes diferentes y una explicación de integridad frente a autenticidad.",
+        "console": {
+          "language": "powershell",
+          "code": "Get-FileHash -Algorithm SHA256 -LiteralPath ./ejemplo.txt",
+          "output": "Un resumen SHA-256 que depende exactamente del contenido de ejemplo.txt.",
+          "explanation": "Es una lectura local del archivo; compara una copia modificada y no lo uses como diseño de almacenamiento de contraseñas."
+        }
+      },
+      "check": {
+        "question": "¿Para qué sirve una sal única al derivar contraseñas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Para recuperar la contraseña descifrando"
+          },
+          {
+            "id": "b",
+            "text": "Para reducir reutilización de cálculos entre registros"
+          },
+          {
+            "id": "c",
+            "text": "Para hacer pública la contraseña"
+          }
+        ],
+        "correct": "b",
+        "explanation": "La sal diferencia el cálculo de cada registro y dificulta tablas precomputadas compartidas."
+      },
+      "mistakes": [
+        {
+          "myth": "SHA-256 aplicado directamente a una contraseña basta para almacenarla.",
+          "correction": "Utiliza derivación de contraseñas mantenida con sal y parámetros apropiados, no solo un hash rápido."
+        }
+      ],
+      "recap": [
+        "Un hash no cifra ni autentica por sí solo.",
+        "La referencia de comparación debe ser confiable.",
+        "Contraseñas requieren derivación lenta y sal única."
+      ],
+      "glossary": [
+        {
+          "term": "Hash",
+          "definition": "Resumen calculado de los bytes de un dato."
+        },
+        {
+          "term": "Sal",
+          "definition": "Valor único utilizado junto con una contraseña en su derivación."
+        }
+      ]
+    },
+    {
+      "dayId": "w22d3",
+      "title": "Firmas",
+      "lead": "Comprende la firma como prueba verificable sobre datos, no como secreto del contenido.",
+      "sections": [
+        {
+          "topic": "Autenticidad, integridad y verificación",
+          "explanation": [
+            "Una firma digital se produce mediante un algoritmo de firma y una clave privada. La verificación utiliza la clave pública correspondiente y los datos firmados. Bajo las condiciones del esquema, ayuda a detectar alteraciones y a atribuir la firma a quien controla esa clave. No cifra automáticamente el contenido: un documento firmado puede seguir siendo legible para cualquiera que lo reciba.",
+            "La atribución también depende de comprobar a quién pertenece la clave pública, cómo se protegió la privada y si era válida para ese uso. Una firma técnicamente válida de una clave desconocida no demuestra que el archivo provenga de la organización esperada. Del mismo modo, una clave robada puede producir firmas que requieren investigación de contexto. La evidencia de no repudio necesita procesos, identidad y gestión de claves, no únicamente un icono de firma en una interfaz."
+          ],
+          "analogy": "Un sello verificable permite comprobar quién tenía el instrumento de sellar y si el paquete cambió; no vuelve invisible el paquete.",
+          "keyPoints": [
+            "Firmar no oculta el contenido.",
+            "Verifica datos y clave pública apropiada.",
+            "La confianza en identidad y clave sigue siendo necesaria."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Firma y verificación",
+            "items": [
+              {
+                "label": "Firmante",
+                "detail": "Clave privada genera la firma del dato"
+              },
+              {
+                "label": "Receptor",
+                "detail": "Obtiene dato, firma y clave pública confiable"
+              },
+              {
+                "label": "Verificador",
+                "detail": "Comprueba correspondencia y alteraciones"
+              },
+              {
+                "label": "Contexto",
+                "detail": "Valida identidad, propósito y estado de la clave"
+              }
+            ],
+            "caption": "La verificación técnica se interpreta junto con la confianza en el firmante."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Dos instaladores firmados",
+        "scenario": "Uno está firmado por el proveedor esperado y otro por una entidad desconocida.",
+        "steps": [
+          {
+            "action": "Verificar firmas",
+            "reason": "Ambos pueden pasar una comprobación criptográfica.",
+            "result": "Integridad respecto a sus claves comprobada"
+          },
+          {
+            "action": "Validar identidad",
+            "reason": "No todas las claves representan al proveedor.",
+            "result": "Solo una coincide con el origen esperado"
+          },
+          {
+            "action": "Decidir con contexto",
+            "reason": "Una firma no certifica inocuidad total.",
+            "result": "Revisión de origen y política antes de instalar"
+          }
+        ],
+        "result": "La decisión utiliza firma, identidad y procedencia en conjunto.",
+        "visual": {
+          "type": "flow",
+          "title": "Dos instaladores firmados",
+          "items": [
+            {
+              "label": "Verificar firmas",
+              "detail": "Integridad respecto a sus claves comprobada"
+            },
+            {
+              "label": "Validar identidad",
+              "detail": "Solo una coincide con el origen esperado"
+            },
+            {
+              "label": "Decidir con contexto",
+              "detail": "Revisión de origen y política antes de instalar"
+            }
+          ],
+          "caption": "La decisión utiliza firma, identidad y procedencia en conjunto."
+        }
+      },
+      "practice": {
+        "task": "Explica cómo verificarías un documento firmado ficticio.",
+        "steps": [
+          "Identifica dato, firma y clave pública.",
+          "Describe cómo comprobarías la identidad de la clave.",
+          "Indica qué no puedes concluir solo con una firma válida."
+        ],
+        "expected": "Un flujo de verificación que separa integridad, autenticidad y confidencialidad."
+      },
+      "check": {
+        "question": "Un documento firmado digitalmente es necesariamente…",
+        "options": [
+          {
+            "id": "a",
+            "text": "Secreto para todo el mundo"
+          },
+          {
+            "id": "b",
+            "text": "Libre de errores y malware"
+          },
+          {
+            "id": "c",
+            "text": "Verificable respecto a una clave y unos datos"
+          }
+        ],
+        "correct": "c",
+        "explanation": "La firma protege una relación verificable; no garantiza secreto ni calidad del contenido."
+      },
+      "mistakes": [
+        {
+          "myth": "Una firma válida demuestra que el archivo es seguro para ejecutar.",
+          "correction": "Comprueba procedencia, propósito y otras medidas; una firma no prueba inocuidad."
+        }
+      ],
+      "recap": [
+        "Firmar no oculta el contenido.",
+        "Verifica datos y clave pública apropiada.",
+        "La confianza en identidad y clave sigue siendo necesaria."
+      ],
+      "glossary": [
+        {
+          "term": "Firma digital",
+          "definition": "Resultado criptográfico verificable asociado a datos y una clave privada."
+        },
+        {
+          "term": "Clave pública",
+          "definition": "Parte que permite verificar o realizar operaciones definidas por el esquema."
+        }
+      ]
+    },
+    {
+      "dayId": "w22d4",
+      "title": "Certificados y PKI",
+      "lead": "Valida la cadena de confianza, el nombre y el estado del certificado.",
+      "sections": [
+        {
+          "topic": "Autoridades, confianza y revocación",
+          "explanation": [
+            "Un certificado vincula una clave pública con una identidad y contiene información como emisor, validez y usos. Una infraestructura de clave pública organiza emisión, validación y gestión de esa confianza. El cliente construye una cadena hacia una autoridad que considera confiable y comprueba condiciones del certificado. En una conexión web también debe verificar que el nombre solicitado esté incluido de forma válida.",
+            "La fecha correcta del equipo influye en la validación temporal. La revocación permite señalar certificados que ya no deberían aceptarse antes de su vencimiento, aunque el comportamiento de consulta y fallo depende del cliente y su configuración. No ignores advertencias de certificado para «hacer que funcione» un sitio de producción. Investiga nombre, cadena, fecha y política. Un certificado válido autentica una vinculación dentro del modelo, pero no garantiza que toda actividad del sitio sea legítima."
+          ],
+          "analogy": "El certificado se parece a una acreditación emitida por una entidad reconocida: necesitas comprobar emisor, nombre, vigencia y condiciones de uso.",
+          "keyPoints": [
+            "Certificado vincula identidad y clave pública.",
+            "Valida cadena, nombre, tiempo y usos.",
+            "Revocación y confianza dependen de políticas del cliente."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Cadena de confianza conceptual",
+            "items": [
+              {
+                "label": "Raíz confiable",
+                "detail": "Ancla admitida por el cliente"
+              },
+              {
+                "label": "Intermedia",
+                "detail": "Emisor autorizado dentro de la cadena"
+              },
+              {
+                "label": "Servidor",
+                "detail": "Certificado del nombre solicitado"
+              },
+              {
+                "label": "Validación",
+                "detail": "Fechas, usos, nombre y estado evaluados"
+              }
+            ],
+            "caption": "La existencia de una cadena no sustituye las comprobaciones del cliente."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Advertencia por nombre diferente",
+        "scenario": "Se solicita portal.example.org, pero el certificado solo cubre otro nombre.",
+        "steps": [
+          {
+            "action": "Comparar identidad",
+            "reason": "El destino solicitado debe coincidir con el certificado.",
+            "result": "Nombre no incluido"
+          },
+          {
+            "action": "Descartar una solución insegura",
+            "reason": "Aceptar cualquier advertencia elimina una comprobación.",
+            "result": "No se omite la validación"
+          },
+          {
+            "action": "Corregir configuración autorizada",
+            "reason": "Debe presentarse un certificado adecuado al servicio.",
+            "result": "Nombre y cadena verificados nuevamente"
+          }
+        ],
+        "result": "La conexión se corrige manteniendo la verificación de identidad.",
+        "visual": {
+          "type": "flow",
+          "title": "Advertencia por nombre diferente",
+          "items": [
+            {
+              "label": "Comparar identidad",
+              "detail": "Nombre no incluido"
+            },
+            {
+              "label": "Descartar una solución insegura",
+              "detail": "No se omite la validación"
+            },
+            {
+              "label": "Corregir configuración autorizada",
+              "detail": "Nombre y cadena verificados nuevamente"
+            }
+          ],
+          "caption": "La conexión se corrige manteniendo la verificación de identidad."
+        }
+      },
+      "practice": {
+        "task": "Revisa un certificado de un sitio de documentación confiable.",
+        "steps": [
+          "Anota nombre, emisor y fechas visibles.",
+          "Dibuja su cadena conceptual.",
+          "Explica una causa de advertencia y cómo investigarla."
+        ],
+        "expected": "Una lectura de campos sin publicar claves ni desactivar validaciones."
+      },
+      "check": {
+        "question": "¿Por qué importa el reloj del equipo al validar certificados?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Porque cambia la dirección del servidor"
+          },
+          {
+            "id": "b",
+            "text": "Porque la validez incluye un intervalo temporal"
+          },
+          {
+            "id": "c",
+            "text": "Porque elimina la necesidad de verificar nombre"
+          }
+        ],
+        "correct": "b",
+        "explanation": "Un reloj incorrecto puede hacer que el cliente interprete mal la vigencia del certificado."
+      },
+      "mistakes": [
+        {
+          "myth": "Cualquier certificado emitido por una autoridad valida cualquier dominio.",
+          "correction": "El certificado debe corresponder al nombre y a las condiciones del uso solicitado."
+        }
+      ],
+      "recap": [
+        "Certificado vincula identidad y clave pública.",
+        "Valida cadena, nombre, tiempo y usos.",
+        "Revocación y confianza dependen de políticas del cliente."
+      ],
+      "glossary": [
+        {
+          "term": "PKI",
+          "definition": "Procesos y componentes para gestionar certificados y confianza de claves públicas."
+        },
+        {
+          "term": "Revocación de certificado",
+          "definition": "Indicación de que un certificado ya no debe aceptarse bajo la política aplicable."
+        }
+      ]
+    },
+    {
+      "dayId": "w22d5",
+      "title": "Claves y protección",
+      "lead": "Protege la clave durante generación, uso, recuperación y retirada.",
+      "sections": [
+        {
+          "topic": "Almacenamiento, rotación y hardware",
+          "explanation": [
+            "La fortaleza del cifrado no compensa una clave expuesta en un repositorio o compartida sin control. La gestión de claves define cómo se generan, almacenan, usan, rotan, recuperan y retiran. Deben producirse con fuentes y herramientas apropiadas para su finalidad, no mediante palabras fáciles o funciones aleatorias diseñadas para simulación. El acceso necesita identidad, mínimo privilegio y registro.",
+            "Un gestor de claves o hardware especializado puede reducir exposición y separar funciones, pero debe configurarse y operarse correctamente. Rotar una clave no siempre equivale a volver a cifrar todos los datos: depende de si se usa cifrado de envoltura y de qué elemento cambió. Ante compromiso, evalúa qué datos y operaciones pudieron verse afectados. Retirar una clave prematuramente puede destruir capacidad de recuperar copias legítimas; conservarla indefinidamente también amplía riesgo."
+          ],
+          "analogy": "Gestionar una llave incluye fabricarla bien, controlar copias, registrar uso y decidir cuándo cambiarla sin dejar personas atrapadas.",
+          "keyPoints": [
+            "El ciclo de la clave es parte del control criptográfico.",
+            "Separa acceso a datos y administración de claves.",
+            "Rotación y retirada requieren evaluar recuperación."
+          ],
+          "visual": {
+            "type": "cycle",
+            "title": "Ciclo de una clave",
+            "items": [
+              {
+                "label": "Generar",
+                "detail": "Herramienta y aleatoriedad apropiadas"
+              },
+              {
+                "label": "Custodiar",
+                "detail": "Acceso limitado y protección"
+              },
+              {
+                "label": "Usar",
+                "detail": "Operaciones autorizadas y registradas"
+              },
+              {
+                "label": "Rotar o retirar",
+                "detail": "Impacto y recuperación comprobados"
+              }
+            ],
+            "caption": "Las copias históricas pueden depender de claves antiguas bajo una política controlada."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Secreto publicado en un repositorio",
+        "scenario": "Una clave de una aplicación aparece en el historial público.",
+        "steps": [
+          {
+            "action": "Tratar la exposición",
+            "reason": "Borrar la línea no prueba que nadie la copió.",
+            "result": "Clave considerada comprometida"
+          },
+          {
+            "action": "Limitar y reemplazar",
+            "reason": "La respuesta requiere autoridad y continuidad.",
+            "result": "Revocación o rotación coordinadas"
+          },
+          {
+            "action": "Investigar alcance",
+            "reason": "La clave pudo habilitar operaciones previas.",
+            "result": "Registros y datos afectados revisados"
+          }
+        ],
+        "result": "La respuesta gestiona la credencial y el alcance, no solo la apariencia del archivo.",
+        "visual": {
+          "type": "flow",
+          "title": "Secreto publicado en un repositorio",
+          "items": [
+            {
+              "label": "Tratar la exposición",
+              "detail": "Clave considerada comprometida"
+            },
+            {
+              "label": "Limitar y reemplazar",
+              "detail": "Revocación o rotación coordinadas"
+            },
+            {
+              "label": "Investigar alcance",
+              "detail": "Registros y datos afectados revisados"
+            }
+          ],
+          "caption": "La respuesta gestiona la credencial y el alcance, no solo la apariencia del archivo."
+        }
+      },
+      "practice": {
+        "task": "Dibuja el ciclo de una clave de laboratorio ficticia.",
+        "steps": [
+          "Indica quién puede usarla y administrarla.",
+          "Describe recuperación y registro.",
+          "Explica qué comprobarías antes de retirarla."
+        ],
+        "expected": "Un plan que cubre seguridad y disponibilidad sin generar secretos reales."
+      },
+      "check": {
+        "question": "Una clave apareció en un repositorio público. ¿Qué basta hacer?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Borrar el texto visible y olvidar el caso"
+          },
+          {
+            "id": "b",
+            "text": "Cambiar el nombre del archivo"
+          },
+          {
+            "id": "c",
+            "text": "Nada de eso basta: gestionar compromiso y revisar alcance"
+          }
+        ],
+        "correct": "c",
+        "explanation": "La exposición puede persistir en copias e historial; hace falta tratar la clave y las operaciones que permitía."
+      },
+      "mistakes": [
+        {
+          "myth": "Rotar una clave siempre vuelve a cifrar automáticamente todas las copias.",
+          "correction": "El efecto depende de la arquitectura y debe verificarse en datos y respaldos."
+        }
+      ],
+      "recap": [
+        "El ciclo de la clave es parte del control criptográfico.",
+        "Separa acceso a datos y administración de claves.",
+        "Rotación y retirada requieren evaluar recuperación."
+      ],
+      "glossary": [
+        {
+          "term": "Rotación",
+          "definition": "Sustitución controlada de material de clave según política o incidente."
+        },
+        {
+          "term": "Cifrado de envoltura",
+          "definition": "Protección de una clave de datos mediante otra clave administrada."
+        }
+      ]
+    },
+    {
+      "dayId": "w22d6",
+      "title": "Datos transformados",
+      "lead": "Identifica el objetivo de cada transformación antes de llamarla protección.",
+      "sections": [
+        {
+          "topic": "Codificación, tokenización y enmascaramiento",
+          "explanation": [
+            "Codificar cambia la representación de datos para transportarlos o interpretarlos, como Base64. No exige necesariamente un secreto y no debe confundirse con cifrado. Enmascarar oculta partes de un dato en una vista, por ejemplo mostrar solo los últimos dígitos de un identificador. La información completa puede seguir existiendo en la base de datos y necesitar protección independiente.",
+            "Tokenizar sustituye un dato por un valor representativo que se relaciona con el original mediante un mecanismo controlado. La seguridad depende de ese diseño, de quién puede resolver la relación y de dónde permanece el dato sensible. Ninguna etiqueta elimina automáticamente el alcance de obligaciones aplicables. Cuando prepares evidencia, utiliza datos ficticios o una transformación aprobada y comprueba que metadatos, copias o campos ocultos no revelen el original. El objetivo debe expresarse como secreto, reducción de exposición o compatibilidad de representación."
+          ],
+          "analogy": "Cambiar una carta a otro alfabeto no equivale a guardarla bajo llave; tapar una línea tampoco elimina las copias de la carta.",
+          "keyPoints": [
+            "Base64 es representación, no secreto.",
+            "Enmascarar una vista no borra el original.",
+            "Tokenización depende de la relación y sus controles."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Tres transformaciones distintas",
+            "items": [
+              {
+                "label": "Codificación",
+                "detail": "Representar bytes de otra forma"
+              },
+              {
+                "label": "Enmascaramiento",
+                "detail": "Ocultar partes de una vista"
+              },
+              {
+                "label": "Tokenización",
+                "detail": "Sustituir por un identificador controlado"
+              }
+            ],
+            "caption": "Debes conocer dónde sigue existiendo el dato original y quién puede recuperarlo."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Identificador mostrado en un informe",
+        "scenario": "El reporte presenta ***1234, pero una exportación incluye el valor completo.",
+        "steps": [
+          {
+            "action": "Distinguir vista y dato",
+            "reason": "La máscara solo afecta una presentación.",
+            "result": "Original todavía almacenado"
+          },
+          {
+            "action": "Revisar exportación",
+            "reason": "Otro canal puede omitir la transformación.",
+            "result": "Exposición en el archivo exportado"
+          },
+          {
+            "action": "Aplicar tratamiento coherente",
+            "reason": "La clasificación se mantiene en las copias.",
+            "result": "Exportación minimizada y validada"
+          }
+        ],
+        "result": "La protección se evalúa en todos los canales, no solo en una pantalla.",
+        "visual": {
+          "type": "flow",
+          "title": "Identificador mostrado en un informe",
+          "items": [
+            {
+              "label": "Distinguir vista y dato",
+              "detail": "Original todavía almacenado"
+            },
+            {
+              "label": "Revisar exportación",
+              "detail": "Exposición en el archivo exportado"
+            },
+            {
+              "label": "Aplicar tratamiento coherente",
+              "detail": "Exportación minimizada y validada"
+            }
+          ],
+          "caption": "La protección se evalúa en todos los canales, no solo en una pantalla."
+        }
+      },
+      "practice": {
+        "task": "Compara tres versiones de un dato ficticio.",
+        "steps": [
+          "Representa una como Base64 sin usar secretos.",
+          "Diseña una máscara para una vista.",
+          "Explica qué control necesitaría un token y su relación."
+        ],
+        "expected": "Una comparación que separa representación, ocultación parcial y sustitución controlada."
+      },
+      "check": {
+        "question": "Un texto en Base64 debe tratarse como…",
+        "options": [
+          {
+            "id": "a",
+            "text": "Datos que pueden decodificarse sin una clave secreta"
+          },
+          {
+            "id": "b",
+            "text": "Cifrado fuerte por definición"
+          },
+          {
+            "id": "c",
+            "text": "Una firma digital del autor"
+          }
+        ],
+        "correct": "a",
+        "explanation": "La codificación cambia la representación y no proporciona confidencialidad por sí sola."
+      },
+      "mistakes": [
+        {
+          "myth": "Si el dato aparece con asteriscos en pantalla, no puede filtrarse por otro medio.",
+          "correction": "Comprueba exportaciones, registros, almacenamiento y metadatos además de la vista."
+        }
+      ],
+      "recap": [
+        "Base64 es representación, no secreto.",
+        "Enmascarar una vista no borra el original.",
+        "Tokenización depende de la relación y sus controles."
+      ],
+      "glossary": [
+        {
+          "term": "Codificación",
+          "definition": "Cambio de representación para procesamiento o transporte."
+        },
+        {
+          "term": "Tokenización",
+          "definition": "Sustitución de un dato por un valor vinculado mediante un mecanismo controlado."
+        }
+      ]
+    },
+    {
+      "dayId": "w22d7",
+      "title": "Evaluación criptográfica",
+      "lead": "Selecciona el mecanismo por la propiedad requerida y explica sus condiciones de confianza.",
+      "sections": [
+        {
+          "topic": "Selección por escenario",
+          "explanation": [
+            "La evaluación criptográfica comienza preguntando qué necesitas demostrar o proteger. Para evitar lectura no autorizada considera cifrado apropiado y claves protegidas. Para comparar bytes usa un hash con referencia confiable. Para verificar una firma necesitas datos, firma, clave pública e identidad asociada. Para almacenar contraseñas utiliza derivación adecuada con sal y parámetros, no una colección improvisada de funciones rápidas.",
+            "Un escenario puede requerir varios mecanismos a la vez. Un respaldo sensible necesita confidencialidad, recuperación e integridad, mientras una actualización de software requiere procedencia verificable y evaluación del contenido. Explica siempre qué no garantiza tu elección: firmar no vuelve secreto el archivo y cifrar no hace legítimo a un usuario con acceso a la clave. Una respuesta sólida identifica la propiedad, la referencia de confianza, las claves y el procedimiento de comprobación."
+          ],
+          "analogy": "Elige el instrumento por la pregunta: una balanza compara peso y una cerradura limita acceso; no son sustitutos.",
+          "keyPoints": [
+            "Empieza por secreto, integridad o autenticidad.",
+            "Incluye claves y referencias confiables.",
+            "Declara límites y combina mecanismos cuando corresponda."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Necesidad y mecanismo",
+            "items": [
+              {
+                "label": "Secreto",
+                "detail": "Cifrado apropiado y gestión de claves"
+              },
+              {
+                "label": "Comparación de bytes",
+                "detail": "Hash y referencia confiable"
+              },
+              {
+                "label": "Origen verificable",
+                "detail": "Firma e identidad de clave pública"
+              },
+              {
+                "label": "Contraseñas",
+                "detail": "Derivación con sal y parámetros adecuados"
+              }
+            ],
+            "caption": "La elección no termina al nombrar un algoritmo."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Respaldo y actualización de una aplicación",
+        "scenario": "Se debe proteger una copia privada y comprobar de dónde viene un instalador.",
+        "steps": [
+          {
+            "action": "Separar objetivos",
+            "reason": "Los objetos requieren propiedades distintas.",
+            "result": "Respaldo secreto y origen del instalador"
+          },
+          {
+            "action": "Elegir mecanismos",
+            "reason": "Una firma no oculta datos.",
+            "result": "Cifrado para copia; firma verificada para origen"
+          },
+          {
+            "action": "Comprobar condiciones",
+            "reason": "Las claves y fuentes son parte de la decisión.",
+            "result": "Recuperación y clave del proveedor confirmadas"
+          }
+        ],
+        "result": "La selección responde a necesidades distintas sin atribuir garantías que el mecanismo no ofrece.",
+        "visual": {
+          "type": "flow",
+          "title": "Respaldo y actualización de una aplicación",
+          "items": [
+            {
+              "label": "Separar objetivos",
+              "detail": "Respaldo secreto y origen del instalador"
+            },
+            {
+              "label": "Elegir mecanismos",
+              "detail": "Cifrado para copia; firma verificada para origen"
+            },
+            {
+              "label": "Comprobar condiciones",
+              "detail": "Recuperación y clave del proveedor confirmadas"
+            }
+          ],
+          "caption": "La selección responde a necesidades distintas sin atribuir garantías que el mecanismo no ofrece."
+        }
+      },
+      "practice": {
+        "task": "Resuelve cuatro escenarios criptográficos propios.",
+        "steps": [
+          "Incluye archivo privado, descarga, firma y contraseña.",
+          "Elige mecanismo y referencia de confianza.",
+          "Explica una limitación y cómo comprobarías su uso correcto."
+        ],
+        "expected": "Cuatro decisiones con propiedades claras y sin diseñar criptografía casera."
+      },
+      "check": {
+        "question": "¿Qué combinación es coherente para verificar procedencia de un archivo firmado?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo comparar el tamaño del archivo"
+          },
+          {
+            "id": "b",
+            "text": "Verificar firma con la clave pública confiable del origen esperado"
+          },
+          {
+            "id": "c",
+            "text": "Decodificar Base64 y asumir legitimidad"
+          }
+        ],
+        "correct": "b",
+        "explanation": "La verificación requiere la relación entre datos, firma y una clave cuya identidad sea confiable."
+      },
+      "mistakes": [
+        {
+          "myth": "El algoritmo más conocido sirve para cualquier necesidad criptográfica.",
+          "correction": "La propiedad requerida y el uso correcto determinan qué mecanismo corresponde."
+        }
+      ],
+      "recap": [
+        "Empieza por secreto, integridad o autenticidad.",
+        "Incluye claves y referencias confiables.",
+        "Declara límites y combina mecanismos cuando corresponda."
+      ],
+      "glossary": [
+        {
+          "term": "Autenticidad",
+          "definition": "Confianza sustentada en el origen o identidad de un dato."
+        },
+        {
+          "term": "Referencia de confianza",
+          "definition": "Fuente o clave validada utilizada para interpretar una comprobación."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,957 @@
+{
+  "version": "2.0.0",
+  "week": 21,
+  "title": "Plan específico de Security+",
+  "overview": "Esta semana prepara un plan de Security+ basado en la versión que elijas y verifiques oficialmente. Construirás una matriz de cobertura, revisarás controles y principios, y resolverás un caso integrador antes del diagnóstico inicial. El objetivo es saber qué significa cada competencia y cómo demostrarla. Las fechas, idiomas y reglas se consultan en la entidad antes de reservar; la herramienta conserva un método de preparación adaptable en lugar de fijar condiciones que podrían cambiar.",
+  "objectives": [
+    "Seleccionar y documentar una versión objetivo verificada.",
+    "Relacionar subobjetivos con actividades y evidencia.",
+    "Planificar refuerzo a partir de un diagnóstico por competencia."
+  ],
+  "sources": [
+    {
+      "id": "security",
+      "title": "CompTIA: Security+ y objetivos oficiales",
+      "url": "https://www.comptia.org/en-us/certifications/security/"
+    },
+    {
+      "id": "csf",
+      "title": "NIST Cybersecurity Framework",
+      "url": "https://www.nist.gov/cyberframework"
+    },
+    {
+      "id": "zt",
+      "title": "NIST SP 800-207: arquitectura de confianza cero",
+      "url": "https://csrc.nist.gov/pubs/sp/800/207/final"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w21d1",
+      "title": "Elegir versión",
+      "lead": "Elige una versión concreta antes de comprar material o reservar una fecha.",
+      "sections": [
+        {
+          "topic": "Fechas oficiales, idioma y objetivos",
+          "explanation": [
+            "Una certificación puede tener versiones con objetivos, fechas e idiomas diferentes. El nombre Security+ no basta para identificar el examen al que te prepararás. Consulta la página oficial de CompTIA y el documento de objetivos correspondiente a la opción que realmente puedas reservar. Registra identificador de versión, fecha de publicación o vigencia indicada y fecha de tu consulta; no uses una fecha recordada de una guía antigua como referencia definitiva.",
+            "Después compara tu horizonte de estudio con la disponibilidad oficial y las condiciones de la modalidad elegida. Una versión nueva puede introducir competencias o redistribuir contenidos; una versión anterior puede tener retirada prevista. No se fija aquí una fecha ni un código como si fueran permanentes. Si la fuente no está disponible, conserva el dato como pendiente de verificar. Tus bases técnicas siguen siendo útiles, pero la matriz de examen necesita una referencia precisa."
+          ],
+          "analogy": "Comprar un manual requiere saber la edición del curso, igual que una pieza de repuesto requiere el modelo exacto del equipo.",
+          "keyPoints": [
+            "Identifica versión y objetivos oficiales.",
+            "Verifica idioma, disponibilidad y modalidad.",
+            "Marca como pendiente lo que no puedas confirmar."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Selección de una versión",
+            "items": [
+              {
+                "label": "Oferta oficial",
+                "detail": "Opciones que realmente pueden reservarse"
+              },
+              {
+                "label": "Objetivos",
+                "detail": "Documento asociado a la versión"
+              },
+              {
+                "label": "Horizonte",
+                "detail": "Tiempo de estudio y disponibilidad"
+              },
+              {
+                "label": "Registro",
+                "detail": "Versión y fecha de verificación guardadas"
+              }
+            ],
+            "caption": "La decisión se vuelve a revisar antes de pagar o reservar."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Dos cursos con el mismo nombre",
+        "scenario": "Una tienda ofrece dos manuales Security+ de versiones diferentes.",
+        "steps": [
+          {
+            "action": "Leer identificadores",
+            "reason": "El nombre comercial no define cobertura.",
+            "result": "Versiones distintas identificadas"
+          },
+          {
+            "action": "Consultar fuente oficial",
+            "reason": "La decisión no debe basarse en publicidad.",
+            "result": "Disponibilidad y objetivos por confirmar"
+          },
+          {
+            "action": "Elegir material coherente",
+            "reason": "Curso, prácticas y reserva deben coincidir.",
+            "result": "Una versión objetivo registrada"
+          }
+        ],
+        "result": "El material se selecciona por la referencia elegida y no solo por su título.",
+        "visual": {
+          "type": "flow",
+          "title": "Dos cursos con el mismo nombre",
+          "items": [
+            {
+              "label": "Leer identificadores",
+              "detail": "Versiones distintas identificadas"
+            },
+            {
+              "label": "Consultar fuente oficial",
+              "detail": "Disponibilidad y objetivos por confirmar"
+            },
+            {
+              "label": "Elegir material coherente",
+              "detail": "Una versión objetivo registrada"
+            }
+          ],
+          "caption": "El material se selecciona por la referencia elegida y no solo por su título."
+        }
+      },
+      "practice": {
+        "task": "Completa una ficha de versión objetivo de Security+.",
+        "steps": [
+          "Anota enlace oficial y fecha de consulta.",
+          "Registra versión, idioma y condiciones confirmadas.",
+          "Deja explícitos los datos que todavía debes comprobar."
+        ],
+        "expected": "Una ficha verificable sin fechas o precios inventados."
+      },
+      "check": {
+        "question": "¿Qué debe coincidir entre manual, prácticas y reserva?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El color de la portada"
+          },
+          {
+            "id": "b",
+            "text": "La versión objetivo del examen"
+          },
+          {
+            "id": "c",
+            "text": "La cantidad de páginas"
+          }
+        ],
+        "correct": "b",
+        "explanation": "El identificador de versión permite relacionar cobertura y condiciones de la evaluación elegida."
+      },
+      "mistakes": [
+        {
+          "myth": "Todas las ediciones de Security+ cubren exactamente lo mismo.",
+          "correction": "Compara los objetivos oficiales y las condiciones de cada versión disponible."
+        }
+      ],
+      "recap": [
+        "Identifica versión y objetivos oficiales.",
+        "Verifica idioma, disponibilidad y modalidad.",
+        "Marca como pendiente lo que no puedas confirmar."
+      ],
+      "glossary": [
+        {
+          "term": "Versión objetivo",
+          "definition": "Edición concreta del examen para la que se organiza preparación."
+        },
+        {
+          "term": "Vigencia",
+          "definition": "Periodo o condición temporal indicada por la entidad para una referencia."
+        }
+      ]
+    },
+    {
+      "dayId": "w21d2",
+      "title": "Matriz de cobertura",
+      "lead": "Construye una matriz que conecte cada objetivo con una prueba de tu competencia.",
+      "sections": [
+        {
+          "topic": "Objetivo, subobjetivo y recurso",
+          "explanation": [
+            "Una matriz de cobertura utiliza filas para objetivos o subobjetivos y columnas para evidencia. Incluye el identificador del documento elegido, concepto, recurso de apoyo, actividad realizada, resultado y brecha. Leer una página o ver un video aporta exposición al contenido, pero no demuestra que puedas aplicarlo. La evidencia debe corresponder al verbo del objetivo: explicar, comparar, interpretar o configurar son tareas diferentes.",
+            "Por ejemplo, estudiar reglas de firewall puede requerir explicar sus campos, interpretar una política y resolver un caso de tráfico permitido o denegado. Una sola pregunta de definición no cubre esas capacidades. Añade fecha y condiciones de la práctica para saber si necesitaste ayuda. Al revisar la matriz, busca objetivos sin actividad y actividades que no correspondan al alcance. La herramienta sirve para orientar estudio, no para declarar automáticamente que un examen está garantizado."
+          ],
+          "analogy": "Es un plano con comprobantes: cada habitación del aprendizaje necesita evidencia, no solo una marca de que pasaste por la puerta.",
+          "keyPoints": [
+            "Relaciona evidencia con el verbo del objetivo.",
+            "Distingue exposición al material y competencia.",
+            "Busca filas sin prueba o con ayuda pendiente."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Columnas de una matriz útil",
+            "items": [
+              {
+                "label": "Objetivo",
+                "detail": "Qué competencia requiere la versión elegida"
+              },
+              {
+                "label": "Actividad",
+                "detail": "Qué tarea se realizó para demostrarla"
+              },
+              {
+                "label": "Resultado",
+                "detail": "Qué salió y con cuánta ayuda"
+              },
+              {
+                "label": "Brecha",
+                "detail": "Qué falta y cómo se comprobará"
+              }
+            ],
+            "caption": "Un enlace es un apoyo; la evidencia describe desempeño."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Objetivo sobre acceso mínimo",
+        "scenario": "La persona solo registró haber visto una explicación de roles.",
+        "steps": [
+          {
+            "action": "Interpretar competencia",
+            "reason": "Se necesita aplicar permisos, no solo reconocer términos.",
+            "result": "Falta una tarea de decisión"
+          },
+          {
+            "action": "Añadir caso",
+            "reason": "Una matriz de lector y editor permite probar límites.",
+            "result": "Operaciones permitidas y prohibidas justificadas"
+          },
+          {
+            "action": "Registrar evidencia",
+            "reason": "La tarea debe poder revisarse después.",
+            "result": "Resultado y ayuda utilizada anotados"
+          }
+        ],
+        "result": "La fila pasa de consumo de material a una demostración acotada.",
+        "visual": {
+          "type": "flow",
+          "title": "Objetivo sobre acceso mínimo",
+          "items": [
+            {
+              "label": "Interpretar competencia",
+              "detail": "Falta una tarea de decisión"
+            },
+            {
+              "label": "Añadir caso",
+              "detail": "Operaciones permitidas y prohibidas justificadas"
+            },
+            {
+              "label": "Registrar evidencia",
+              "detail": "Resultado y ayuda utilizada anotados"
+            }
+          ],
+          "caption": "La fila pasa de consumo de material a una demostración acotada."
+        }
+      },
+      "practice": {
+        "task": "Crea una matriz de seis objetivos de tu documento elegido.",
+        "steps": [
+          "Incluye un recurso oficial por bloque.",
+          "Asigna una actividad adecuada al verbo.",
+          "Marca resultado, ayuda y siguiente comprobación."
+        ],
+        "expected": "Seis filas que revelan cobertura y brechas reales."
+      },
+      "check": {
+        "question": "¿Cuál es evidencia de aplicar una regla?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Justificar un flujo permitido y otro bloqueado"
+          },
+          {
+            "id": "b",
+            "text": "Guardar un enlace sin abrirlo"
+          },
+          {
+            "id": "c",
+            "text": "Memorizar el nombre del fabricante"
+          }
+        ],
+        "correct": "a",
+        "explanation": "La aplicación exige decidir sobre condiciones concretas y explicar el resultado esperado."
+      },
+      "mistakes": [
+        {
+          "myth": "Una fila con un recurso enlazado ya está completamente cubierta.",
+          "correction": "El recurso apoya el estudio; la actividad demuestra la competencia."
+        }
+      ],
+      "recap": [
+        "Relaciona evidencia con el verbo del objetivo.",
+        "Distingue exposición al material y competencia.",
+        "Busca filas sin prueba o con ayuda pendiente."
+      ],
+      "glossary": [
+        {
+          "term": "Matriz de cobertura",
+          "definition": "Relación entre objetivos, actividades, resultados y brechas."
+        },
+        {
+          "term": "Evidencia de aprendizaje",
+          "definition": "Resultado revisable que muestra una competencia concreta."
+        }
+      ]
+    },
+    {
+      "dayId": "w21d3",
+      "title": "Controles",
+      "lead": "Selecciona controles según la necesidad y explica por qué actúan en ese punto.",
+      "sections": [
+        {
+          "topic": "Categorías, tipos y selección",
+          "explanation": [
+            "En un escenario de examen o trabajo, la selección de control empieza por el problema que necesitas reducir. Si el objetivo es impedir acceso, una medida puramente detectiva puede ser insuficiente. Si necesitas saber qué ocurrió, bloquear sin registrar puede dejar una brecha de investigación. La clasificación técnica, administrativa o física describe implementación; preventiva, detectiva o correctiva describe función.",
+            "Considera restricciones de disponibilidad, costo, alcance y autoridad. Un control ideal en abstracto puede no encajar con un sistema legado o una tarea urgente. En ese caso evalúa una compensación limitada, su aprobación y la verificación posterior. No elijas una herramienta solo porque su nombre aparece en el enunciado. Explica cómo cambia la probabilidad o impacto del escenario y qué riesgo permanece, incluyendo quién revisará su funcionamiento con el tiempo."
+          ],
+          "analogy": "La herramienta adecuada depende del material y del trabajo: un martillo excelente no sustituye una llave para ajustar una tuerca.",
+          "keyPoints": [
+            "Empieza por el efecto que necesitas conseguir.",
+            "Separa función e implementación.",
+            "Incluye restricciones, verificación y riesgo residual."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Elección de un control",
+            "items": [
+              {
+                "label": "Necesidad",
+                "detail": "Evitar edición no autorizada"
+              },
+              {
+                "label": "Medida",
+                "detail": "Permiso de solo lectura"
+              },
+              {
+                "label": "Verificación",
+                "detail": "Lectura funciona y escritura falla"
+              },
+              {
+                "label": "Seguimiento",
+                "detail": "Revisión periódica del acceso"
+              }
+            ],
+            "caption": "La medida se justifica por su efecto observable."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Documentos modificados por lectores",
+        "scenario": "El grupo lector tiene permiso de escritura por una asignación heredada.",
+        "steps": [
+          {
+            "action": "Definir efecto",
+            "reason": "Hace falta limitar una operación.",
+            "result": "Prevención de edición no autorizada"
+          },
+          {
+            "action": "Corregir permiso",
+            "reason": "Una cámara no cambia el acceso lógico.",
+            "result": "Asignación efectiva de solo lectura"
+          },
+          {
+            "action": "Comprobar y observar",
+            "reason": "El cambio debe funcionar y dejar trazabilidad.",
+            "result": "Escritura denegada y registros revisables"
+          }
+        ],
+        "result": "El control elegido responde al problema concreto y permite verificar su eficacia.",
+        "visual": {
+          "type": "flow",
+          "title": "Documentos modificados por lectores",
+          "items": [
+            {
+              "label": "Definir efecto",
+              "detail": "Prevención de edición no autorizada"
+            },
+            {
+              "label": "Corregir permiso",
+              "detail": "Asignación efectiva de solo lectura"
+            },
+            {
+              "label": "Comprobar y observar",
+              "detail": "Escritura denegada y registros revisables"
+            }
+          ],
+          "caption": "El control elegido responde al problema concreto y permite verificar su eficacia."
+        }
+      },
+      "practice": {
+        "task": "Elige controles para tres escenarios diferentes.",
+        "steps": [
+          "Define el daño que intentas reducir.",
+          "Clasifica función e implementación de la medida.",
+          "Indica prueba, responsable y exposición restante."
+        ],
+        "expected": "Tres selecciones justificadas sin depender de marcas comerciales."
+      },
+      "check": {
+        "question": "Para impedir que un lector modifique un archivo, ¿qué medida es más directa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Cambiar el logotipo del portal"
+          },
+          {
+            "id": "b",
+            "text": "Crear una alerta sin limitar permisos"
+          },
+          {
+            "id": "c",
+            "text": "Aplicar y verificar permiso de solo lectura"
+          }
+        ],
+        "correct": "c",
+        "explanation": "La autorización efectiva limita la acción; la detección puede complementarla pero no sustituirla."
+      },
+      "mistakes": [
+        {
+          "myth": "Un control correctivo siempre evita que ocurra el evento inicial.",
+          "correction": "Su función principal puede ser reparar efectos, no impedir la primera acción."
+        }
+      ],
+      "recap": [
+        "Empieza por el efecto que necesitas conseguir.",
+        "Separa función e implementación.",
+        "Incluye restricciones, verificación y riesgo residual."
+      ],
+      "glossary": [
+        {
+          "term": "Control compensatorio",
+          "definition": "Medida alternativa que reduce un riesgo cuando otra no puede aplicarse."
+        },
+        {
+          "term": "Eficacia",
+          "definition": "Grado en que una medida produce el efecto esperado."
+        }
+      ]
+    },
+    {
+      "dayId": "w21d4",
+      "title": "Principios",
+      "lead": "Conecta CIA, AAA y confianza cero sin tratarlos como eslóganes equivalentes.",
+      "sections": [
+        {
+          "topic": "CIA, AAA, no repudio y confianza cero",
+          "explanation": [
+            "CIA describe confidencialidad, integridad y disponibilidad. AAA organiza autenticación, autorización y registro o rendición de cuentas de la actividad. Son perspectivas complementarias: una cuenta puede autenticarse correctamente y después intentar una operación que la política debe denegar. El registro permite revisar quién hizo qué, pero su utilidad depende de identidad consistente, tiempo y protección de los propios eventos.",
+            "El no repudio busca aportar evidencia que dificulte negar una acción atribuida, bajo condiciones de claves, identidad y procedimientos apropiados; no es una propiedad automática de cualquier firma en pantalla. La confianza cero evita conceder confianza implícita solo por ubicación o pertenencia de un dispositivo. Evalúa acceso a recursos con contexto y mínimo privilegio. No significa rechazar todo ni pedir contraseña en cada paquete, sino diseñar decisiones explícitas y revisables."
+          ],
+          "analogy": "CIA define qué proteges; AAA organiza cómo decides y observas el acceso; confianza cero cuestiona permisos implícitos.",
+          "keyPoints": [
+            "CIA y AAA responden a preguntas distintas.",
+            "No repudio necesita condiciones y evidencia confiable.",
+            "La ubicación no concede acceso universal."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Principios sobre una operación",
+            "items": [
+              {
+                "label": "Autenticar",
+                "detail": "Verificar control de una identidad"
+              },
+              {
+                "label": "Autorizar",
+                "detail": "Permitir una acción sobre un recurso"
+              },
+              {
+                "label": "Registrar",
+                "detail": "Conservar actividad vinculada y protegida"
+              },
+              {
+                "label": "Proteger",
+                "detail": "Evaluar confidencialidad, integridad y disponibilidad"
+              }
+            ],
+            "caption": "El contexto y la política conectan estas decisiones."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Usuario interno con solicitud administrativa",
+        "scenario": "Un empleado autenticado intenta cambiar permisos fuera de su función.",
+        "steps": [
+          {
+            "action": "Reconocer autenticación",
+            "reason": "La cuenta es válida.",
+            "result": "Identidad comprobada"
+          },
+          {
+            "action": "Aplicar autorización",
+            "reason": "Estar dentro de la red no concede administración.",
+            "result": "Operación denegada"
+          },
+          {
+            "action": "Conservar trazabilidad",
+            "reason": "El intento puede requerir revisión posterior.",
+            "result": "Evento con sujeto, recurso y hora"
+          }
+        ],
+        "result": "El control respeta AAA y evita confianza implícita por ubicación.",
+        "visual": {
+          "type": "flow",
+          "title": "Usuario interno con solicitud administrativa",
+          "items": [
+            {
+              "label": "Reconocer autenticación",
+              "detail": "Identidad comprobada"
+            },
+            {
+              "label": "Aplicar autorización",
+              "detail": "Operación denegada"
+            },
+            {
+              "label": "Conservar trazabilidad",
+              "detail": "Evento con sujeto, recurso y hora"
+            }
+          ],
+          "caption": "El control respeta AAA y evita confianza implícita por ubicación."
+        }
+      },
+      "practice": {
+        "task": "Analiza una aprobación de documento ficticia.",
+        "steps": [
+          "Describe CIA relevante para el documento.",
+          "Separa autenticación, autorización y registro.",
+          "Explica qué evidencia y límites tendría la atribución."
+        ],
+        "expected": "Una explicación que no confunde inicio de sesión con permiso o no repudio absoluto."
+      },
+      "check": {
+        "question": "¿Qué contradice una arquitectura de confianza cero?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Verificar contexto del acceso"
+          },
+          {
+            "id": "b",
+            "text": "Conceder permisos amplios solo por estar en la red interna"
+          },
+          {
+            "id": "c",
+            "text": "Limitar acciones al recurso necesario"
+          }
+        ],
+        "correct": "b",
+        "explanation": "La ubicación interna no debe convertirse por sí sola en confianza o autorización universal."
+      },
+      "mistakes": [
+        {
+          "myth": "Confianza cero significa bloquear todos los servicios.",
+          "correction": "Significa evitar confianza implícita y aplicar decisiones de acceso explícitas."
+        }
+      ],
+      "recap": [
+        "CIA y AAA responden a preguntas distintas.",
+        "No repudio necesita condiciones y evidencia confiable.",
+        "La ubicación no concede acceso universal."
+      ],
+      "glossary": [
+        {
+          "term": "AAA",
+          "definition": "Autenticación, autorización y registro de actividad."
+        },
+        {
+          "term": "No repudio",
+          "definition": "Capacidad de aportar evidencia confiable de una acción atribuida bajo condiciones definidas."
+        }
+      ]
+    },
+    {
+      "dayId": "w21d5",
+      "title": "Seguridad física y engaño",
+      "lead": "Relaciona barreras físicas y señales de engaño con su finalidad y límites.",
+      "sections": [
+        {
+          "topic": "Zonas, sensores y controles de detección",
+          "explanation": [
+            "La seguridad física protege personas, equipos y espacios mediante zonas, barreras, sensores y procedimientos. Una cerradura restringe entrada; un sensor puede detectar apertura; una cámara aporta observación según cobertura y retención. La medida debe respetar rutas de emergencia y privacidad. Un dispositivo instalado sin mantenimiento o sin revisión de sus señales puede dar una apariencia de protección mayor que su eficacia real.",
+            "Los mecanismos de engaño defensivo, como recursos señuelo, buscan detectar interacciones que no deberían ocurrir en el uso normal. Requieren diseño autorizado, aislamiento y responsables capaces de interpretar señales. Una interacción con un señuelo no explica automáticamente quién actuó o cuál era su intención; puede haber errores o procesos automatizados. En un curso inicial, representa el concepto mediante datos ficticios y análisis de alertas, sin desplegar servicios que atraigan actividad real en redes ajenas."
+          ],
+          "analogy": "Una puerta limita acceso y una alarma avisa de apertura; un objeto señuelo ayuda a detectar una acción que necesita explicación.",
+          "keyPoints": [
+            "Barreras y sensores realizan funciones distintas.",
+            "Las señales de engaño necesitan contexto.",
+            "Protege personas, privacidad y alcance de despliegue."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Protección y detección física",
+            "items": [
+              {
+                "label": "Barrera",
+                "detail": "Puerta restringe paso a una zona"
+              },
+              {
+                "label": "Sensor",
+                "detail": "Apertura genera un evento"
+              },
+              {
+                "label": "Revisión",
+                "detail": "Responsable contrasta autorización y contexto"
+              }
+            ],
+            "caption": "La detección tiene valor cuando existe un procedimiento de respuesta."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Señal de apertura fuera de horario",
+        "scenario": "Una puerta de sala técnica genera una alerta durante mantenimiento.",
+        "steps": [
+          {
+            "action": "Identificar señal",
+            "reason": "El sensor informa apertura, no intención.",
+            "result": "Evento y hora conservados"
+          },
+          {
+            "action": "Verificar contexto",
+            "reason": "Puede existir una visita autorizada.",
+            "result": "Orden de trabajo y persona contrastadas"
+          },
+          {
+            "action": "Resolver y mejorar",
+            "reason": "La conclusión depende de evidencia concordante.",
+            "result": "Cierre justificado o escalamiento según resultado"
+          }
+        ],
+        "result": "La revisión distingue una entrada permitida de una posible exposición.",
+        "visual": {
+          "type": "flow",
+          "title": "Señal de apertura fuera de horario",
+          "items": [
+            {
+              "label": "Identificar señal",
+              "detail": "Evento y hora conservados"
+            },
+            {
+              "label": "Verificar contexto",
+              "detail": "Orden de trabajo y persona contrastadas"
+            },
+            {
+              "label": "Resolver y mejorar",
+              "detail": "Cierre justificado o escalamiento según resultado"
+            }
+          ],
+          "caption": "La revisión distingue una entrada permitida de una posible exposición."
+        }
+      },
+      "practice": {
+        "task": "Diseña tres medidas para una sala de equipos ficticia.",
+        "steps": [
+          "Incluye una barrera y un sensor.",
+          "Define quién revisa la señal.",
+          "Explica un falso positivo y una limitación de cobertura."
+        ],
+        "expected": "Un diseño que conecta prevención, detección y respuesta sin afectar evacuación."
+      },
+      "check": {
+        "question": "Una alerta de apertura demuestra directamente…",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que la sala sufrió una intrusión maliciosa"
+          },
+          {
+            "id": "b",
+            "text": "Que alguien robó información"
+          },
+          {
+            "id": "c",
+            "text": "Que el sensor registró una condición de apertura"
+          }
+        ],
+        "correct": "c",
+        "explanation": "La señal debe contrastarse con autorización, mantenimiento y otras evidencias antes de atribuir intención."
+      },
+      "mistakes": [
+        {
+          "myth": "Un sensor elimina la necesidad de una persona responsable.",
+          "correction": "La señal necesita revisión, mantenimiento y un procedimiento de actuación."
+        }
+      ],
+      "recap": [
+        "Barreras y sensores realizan funciones distintas.",
+        "Las señales de engaño necesitan contexto.",
+        "Protege personas, privacidad y alcance de despliegue."
+      ],
+      "glossary": [
+        {
+          "term": "Sensor",
+          "definition": "Dispositivo que detecta una condición y genera una señal."
+        },
+        {
+          "term": "Señuelo defensivo",
+          "definition": "Recurso controlado diseñado para revelar interacciones que requieren análisis."
+        }
+      ]
+    },
+    {
+      "dayId": "w21d6",
+      "title": "Caso integrador",
+      "lead": "Diseña una combinación proporcionada de controles para un proceso completo.",
+      "sections": [
+        {
+          "topic": "Combinar controles con necesidades",
+          "explanation": [
+            "Un caso integrador exige equilibrar necesidad de negocio y protección. Empieza por el flujo legítimo: una persona consulta una aplicación que utiliza datos. Define qué debe funcionar, qué acciones sobran y qué interrupción puede tolerarse. Después elige controles de identidad, red, aplicación y recuperación que respondan a esas condiciones. La arquitectura no mejora simplemente por incluir todos los acrónimos disponibles.",
+            "Para cada medida, escribe una prueba de eficacia y una dependencia. MFA puede reducir uso de contraseñas robadas, pero necesita recuperación segura; segmentación limita flujos, pero requiere reglas correctas; respaldo ayuda a recuperar, pero necesita claves y pruebas. Evalúa también fallos compartidos, como una única cuenta que administra producción y todas las copias. El resultado debe incluir exposición residual y responsables que puedan mantener la solución después de la primera instalación."
+          ],
+          "analogy": "Preparar una cocina segura combina permisos, organización, detección y limpieza; ningún electrodoméstico resuelve todo el proceso.",
+          "keyPoints": [
+            "Parte del flujo legítimo del negocio.",
+            "Relaciona cada control con una prueba y dependencia.",
+            "Busca fallos comunes entre capas."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Aplicación de documentos protegida",
+            "items": [
+              {
+                "label": "Identidad",
+                "detail": "MFA y roles de lectura o edición"
+              },
+              {
+                "label": "Red",
+                "detail": "Flujos necesarios entre zonas"
+              },
+              {
+                "label": "Datos",
+                "detail": "Clasificación y protección de copias"
+              },
+              {
+                "label": "Operación",
+                "detail": "Registros, restauración y revisión"
+              }
+            ],
+            "caption": "Las capas tienen objetivos complementarios y deben probarse como conjunto."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Portal de una biblioteca pequeña",
+        "scenario": "Personal edita el catálogo y visitantes solo lo consultan.",
+        "steps": [
+          {
+            "action": "Definir operaciones",
+            "reason": "No todos los usuarios requieren la misma acción.",
+            "result": "Lectura pública y edición restringida"
+          },
+          {
+            "action": "Aplicar capas",
+            "reason": "El permiso debe acompañarse de protección operativa.",
+            "result": "Roles, conexión protegida y registros"
+          },
+          {
+            "action": "Probar recuperación",
+            "reason": "Una edición errónea también afecta integridad.",
+            "result": "Restauración de versión y revisión de cambios"
+          }
+        ],
+        "result": "La solución sostiene el servicio y limita acciones sin depender de una única barrera.",
+        "visual": {
+          "type": "flow",
+          "title": "Portal de una biblioteca pequeña",
+          "items": [
+            {
+              "label": "Definir operaciones",
+              "detail": "Lectura pública y edición restringida"
+            },
+            {
+              "label": "Aplicar capas",
+              "detail": "Roles, conexión protegida y registros"
+            },
+            {
+              "label": "Probar recuperación",
+              "detail": "Restauración de versión y revisión de cambios"
+            }
+          ],
+          "caption": "La solución sostiene el servicio y limita acciones sin depender de una única barrera."
+        }
+      },
+      "practice": {
+        "task": "Diseña un proceso de pedidos ficticio con cuatro controles.",
+        "steps": [
+          "Escribe necesidad legítima y dos amenazas.",
+          "Justifica cada medida y su dependencia.",
+          "Define pruebas conjuntas y riesgo que permanece."
+        ],
+        "expected": "Un diseño proporcionado con responsables y validación, no una lista de productos."
+      },
+      "check": {
+        "question": "¿Qué característica mejora un diseño con varias capas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que cada control tenga objetivo y prueba definidos"
+          },
+          {
+            "id": "b",
+            "text": "Que todos dependan de una contraseña compartida"
+          },
+          {
+            "id": "c",
+            "text": "Que no haya responsables para evitar retrasos"
+          }
+        ],
+        "correct": "a",
+        "explanation": "Los objetivos y pruebas permiten comprobar que las capas aportan efectos reales y complementarios."
+      },
+      "mistakes": [
+        {
+          "myth": "Un diagrama con muchos controles demuestra que todos funcionan.",
+          "correction": "La arquitectura necesita configuración, operación y pruebas de sus dependencias."
+        }
+      ],
+      "recap": [
+        "Parte del flujo legítimo del negocio.",
+        "Relaciona cada control con una prueba y dependencia.",
+        "Busca fallos comunes entre capas."
+      ],
+      "glossary": [
+        {
+          "term": "Caso integrador",
+          "definition": "Escenario que relaciona varias competencias en una decisión."
+        },
+        {
+          "term": "Dependencia común",
+          "definition": "Elemento cuyo fallo puede afectar varias capas a la vez."
+        }
+      ]
+    },
+    {
+      "dayId": "w21d7",
+      "title": "Evaluación de arranque",
+      "lead": "Obtén un diagnóstico inicial por competencia y úsalo para distribuir estudio.",
+      "sections": [
+        {
+          "topic": "Diagnóstico por dominio",
+          "explanation": [
+            "Un diagnóstico de arranque debe mostrar dónde necesitas atención, no producir una etiqueta fija de capacidad. Agrupa tareas por los dominios del documento Security+ elegido y utiliza preguntas originales, interpretación de evidencia y ejercicios pequeños. Conserva tanto aciertos como razonamientos; un acierto por descarte incierto aporta información distinta de una respuesta explicada con seguridad y límites correctos.",
+            "Clasifica los errores como desconocimiento conceptual, lectura incompleta, uso de herramienta o exceso de inferencia. Luego asigna un refuerzo concreto y una variante para comprobar mejora. La distribución del estudio puede dedicar más tiempo al bloque débil sin abandonar revisión de los demás. No conviertas una nota inicial en predicción de aprobación. Su utilidad está en orientar trabajo verificable y permitir comparar desempeño en situaciones nuevas a lo largo del programa."
+          ],
+          "analogy": "Un mapa inicial de pendientes ayuda a elegir dónde trabajar primero; no es una sentencia sobre lo que podrás aprender.",
+          "keyPoints": [
+            "Agrupa resultados por competencia del esquema elegido.",
+            "Registra razonamiento y tipo de error.",
+            "Planifica refuerzo con una prueba posterior."
+          ],
+          "visual": {
+            "type": "cycle",
+            "title": "Diagnóstico que guía estudio",
+            "items": [
+              {
+                "label": "Tarea",
+                "detail": "Caso original por competencia"
+              },
+              {
+                "label": "Resultado",
+                "detail": "Respuesta y razonamiento observados"
+              },
+              {
+                "label": "Causa",
+                "detail": "Brecha de concepto, lectura o herramienta"
+              },
+              {
+                "label": "Refuerzo",
+                "detail": "Actividad y nueva comprobación"
+              }
+            ],
+            "caption": "El valor del diagnóstico aparece en las decisiones de estudio que produce."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Promedio aceptable y errores en criptografía",
+        "scenario": "Una persona confunde hash, firma y cifrado aunque responda bien otros temas.",
+        "steps": [
+          {
+            "action": "Separar resultados",
+            "reason": "La media no muestra la confusión específica.",
+            "result": "Brecha criptográfica identificada"
+          },
+          {
+            "action": "Elegir actividad",
+            "reason": "Las diferencias se aprenden comparando objetivos.",
+            "result": "Casos de secreto, integridad y autenticidad"
+          },
+          {
+            "action": "Comprobar variante",
+            "reason": "Repetir preguntas conocidas puede ocultar el error.",
+            "result": "Nuevos escenarios resueltos y explicados"
+          }
+        ],
+        "result": "El diagnóstico se convierte en un plan concreto para la semana de criptografía.",
+        "visual": {
+          "type": "flow",
+          "title": "Promedio aceptable y errores en criptografía",
+          "items": [
+            {
+              "label": "Separar resultados",
+              "detail": "Brecha criptográfica identificada"
+            },
+            {
+              "label": "Elegir actividad",
+              "detail": "Casos de secreto, integridad y autenticidad"
+            },
+            {
+              "label": "Comprobar variante",
+              "detail": "Nuevos escenarios resueltos y explicados"
+            }
+          ],
+          "caption": "El diagnóstico se convierte en un plan concreto para la semana de criptografía."
+        }
+      },
+      "practice": {
+        "task": "Construye tu diagnóstico de seis competencias.",
+        "steps": [
+          "Usa tareas nuevas y anota la ayuda necesaria.",
+          "Clasifica la causa de cada fallo.",
+          "Asigna una actividad y una variante de verificación."
+        ],
+        "expected": "Un plan de estudio ajustado por evidencia, no solamente por una media."
+      },
+      "check": {
+        "question": "¿Qué uso aporta más valor a un diagnóstico inicial?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Compararte permanentemente con otras personas"
+          },
+          {
+            "id": "b",
+            "text": "Predecir una aprobación garantizada"
+          },
+          {
+            "id": "c",
+            "text": "Asignar refuerzos concretos y volver a comprobarlos"
+          }
+        ],
+        "correct": "c",
+        "explanation": "El diagnóstico orienta aprendizaje y seguimiento; no certifica por sí solo un resultado futuro."
+      },
+      "mistakes": [
+        {
+          "myth": "Una nota inicial baja impide llegar a una competencia alta.",
+          "correction": "El resultado inicial identifica tareas de aprendizaje y puede cambiar con práctica dirigida."
+        }
+      ],
+      "recap": [
+        "Agrupa resultados por competencia del esquema elegido.",
+        "Registra razonamiento y tipo de error.",
+        "Planifica refuerzo con una prueba posterior."
+      ],
+      "glossary": [
+        {
+          "term": "Diagnóstico",
+          "definition": "Evaluación inicial destinada a identificar necesidades de aprendizaje."
+        },
+        {
+          "term": "Tipo de error",
+          "definition": "Clasificación de la causa que orienta el refuerzo adecuado."
+        }
+      ]
+    }
+  ]
+}

@@ -1,23 +1,27 @@
-import { loadState, getState, mutateState, subscribe, ensureDay, createDefaultState, replaceState, getStorageInfo } from './storage.js?v=1.6.0';
-import { getDayCompletion } from './progress.js?v=1.6.0';
-import { createAttempt, scoreAttempt, evaluateChallenge } from './assessments.js?v=1.6.0';
-import { getTimerMs, startTimer, pauseTimer, logTimer, logManualStudy, initTimer } from './timer.js?v=1.6.0';
-import { exportBackup, parseBackup, mergeStates, previewImport, evidenceFromFile } from './backup.js?v=1.6.0';
-import { loadCurriculum, safeUrl, embedUrl, videoThumbnailUrl } from './resources.js?v=1.6.1';
-import { readRoute, navigate, initRouter } from './router.js?v=1.6.0';
-import { initMotion } from './motion.js?v=1.6.0';
-import { createNoteDrafts } from './draft-notes.js?v=1.6.0';
-import { createFormDrafts } from './form-drafts.js?v=1.6.0';
-import { searchWeeks, highlightText, matchesSearch, selectNotebookDays, recentNoteDays, selectLearnerNavigation } from './learner-tools.js?v=1.6.0';
-import { renderAnalytics, summarizeLearning } from './analytics.js?v=1.6.0';
+import { loadState, getState, mutateState, subscribe, ensureDay, createDefaultState, replaceState, getStorageInfo } from './storage.js?v=2.0.0';
+import { getDayCompletion } from './progress.js?v=2.0.0';
+import { createAttempt, scoreAttempt, evaluateChallenge } from './assessments.js?v=2.0.0';
+import { getTimerMs, startTimer, pauseTimer, logTimer, logManualStudy, initTimer } from './timer.js?v=2.0.0';
+import { exportBackup, parseBackup, mergeStates, previewImport, evidenceFromFile } from './backup.js?v=2.0.0';
+import { loadCurriculum, safeUrl, embedUrl, videoThumbnailUrl } from './resources.js?v=2.0.0';
+import { readRoute, navigate, initRouter } from './router.js?v=2.0.0';
+import { initMotion } from './motion.js?v=2.0.0';
+import { createNoteDrafts } from './draft-notes.js?v=2.0.0';
+import { createFormDrafts } from './form-drafts.js?v=2.0.0';
+import { searchWeeks, highlightText, matchesSearch, selectNotebookDays, recentNoteDays, selectLearnerNavigation } from './learner-tools.js?v=2.0.0';
+import { renderAnalytics, summarizeLearning } from './analytics.js?v=2.0.0';
+import { createLessonLibrary } from './lessons.js?v=2.0.0';
+import { renderProfessorLesson, lessonCheckFeedback } from './lessons-ui.js?v=2.0.0';
+import { lessonPhotos } from './lesson-photos.js?v=2.0.0';
+import { handleLearningLabInput } from './learning-labs.js?v=2.0.0';
 
 const $ = (s, root = document) => root.querySelector(s);
 const E = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
-let curriculum, days, banks, motion, notes, formDrafts, imported = null, searchTimer, loadBank = async () => {};
+let curriculum, days, banks, lessons, motion, notes, formDrafts, imported = null, searchTimer, loadBank = async () => {};
 let pathFilter = '', stageFilter = '', pageNumber = 1, noteFilter = '', notebookFilter = 'all', notebookSort = 'recent';
 let chartRange = 7, renderedHash = null;
 const pageSize = 8;
-const labels = { home: 'Inicio', path: 'Ruta de estudio', day: 'Aula', notes: 'Cuaderno', progress: 'Progreso', settings: 'Ajustes' };
+const labels = { home: 'Inicio', path: 'Ruta de estudio', day: 'Aula', week: 'Clase de la semana', notes: 'Cuaderno', progress: 'Progreso', settings: 'Ajustes' };
 
 function toast(message, error = false) {
   const box = $('#toast');
@@ -133,7 +137,7 @@ function restoreFocus(saved) {
   if(!target&&['quiz-form','challenge-form'].includes(saved.formId))target=$('#main-content')?.querySelector('.notice, .attempt-result, .card');
   if(target){if(['quiz-form','challenge-form'].includes(saved.formId))target.setAttribute('tabindex','-1');target.focus({preventScroll:true});if(typeof saved.start==='number')try{target.setSelectionRange(saved.start,saved.end);}catch{}}
 }
-function focusRouteTitle() { const target=$('#main-content')?.querySelector('h2')||$('#page-title')||$('#main-content');target?.setAttribute('tabindex','-1');target?.focus({preventScroll:true}); }
+function focusRouteTitle() { const main=$('#main-content'),target=(readRoute().page==='week'?main?.querySelector('.professor-intro h3'):null)||main?.querySelector('h2')||$('#page-title')||main;target?.setAttribute('tabindex','-1');target?.focus({preventScroll:true}); }
 async function flushDrafts() { await flushNotes();if(formDrafts)await formDrafts.flush(); }
 function neutralFocus() { const active=document.activeElement;return !active||active===document.body||active.tagName==='BODY'; }
 async function commit(fn, rerender = true, {form,focusFallback=null,focusHash=location.hash} = {}) {
@@ -199,7 +203,7 @@ function renderHome() {
 function matchingWeeks() { return searchWeeks(curriculum.weeks,{query:pathFilter,stage:stageFilter}); }
 function renderPathResults() {
   const matches=matchingWeeks(),count=Math.max(1,Math.ceil(matches.length/pageSize));pageNumber=Math.min(pageNumber,count);
-  return `<p class="result-count" role="status">${matches.length} semanas</p><div class="week-grid">${matches.slice((pageNumber-1)*pageSize,pageNumber*pageSize).map(({week:w,matchingDayIds,contextMatch})=>{const n=w.days.filter(d=>completion(d).completed).length,ready=w.days.every(d=>banks.has(d.id));return `<article class="card week-card">${weekImage(w.number,'stage-cover')}<div class="section-heading"><span class="eyebrow">SEMANA ${String(w.number).padStart(2,'0')}</span><span class="badge ${ready?'accent':''}">${ready?'Evaluación lista':'Solo contenido'}</span></div><span class="muted">${highlightText(w.stage,pathFilter)}</span><h3 class="week-title">${highlightText(w.title,pathFilter)}</h3>${bar(n,7)}<details class="week-days" ${pathFilter.trim()||w.number===currentDay().week?'open':''}><summary>Ver 7 sesiones · ${n}/7 superadas</summary><div class="route-days">${w.days.map(d=>{const matched=!!pathFilter.trim()&&(contextMatch||matchingDayIds.includes(d.id)),context=pathFilter.trim()?[...d.topics,...d.resources.map(r=>r.title)].find(text=>matchesSearch(text,pathFilter)):'';return `<a class="route-day ${d.id===currentDay().id?'current':''} ${matched?'search-match':''}" href="#day/${d.id}/learn"><span class="day-dot ${completion(d).completed?'done':''}">${completion(d).completed?'✓':d.day}</span><span>${highlightText(d.title,pathFilter)}${context?`<small class="search-match-context">${highlightText(context,pathFilter)}</small>`:''}</span><span aria-label="${unlocked(d)?'Disponible':'Vista previa'}">${unlocked(d)?'↗':'◌'}</span></a>`;}).join('')}</div></details></article>`;}).join('')||'<div class="empty-state">No encontramos ese tema. Prueba otra palabra.</div>'}</div><div class="pagination">${button('← Anterior','page',`data-n="${pageNumber-1}" ${pageNumber===1?'disabled':''}`,'secondary')}<span>Página ${pageNumber} de ${count}</span>${button('Siguiente →','page',`data-n="${pageNumber+1}" ${pageNumber===count?'disabled':''}`,'secondary')}</div>`;
+  return `<p class="result-count" role="status">${matches.length} semanas</p><div class="week-grid">${matches.slice((pageNumber-1)*pageSize,pageNumber*pageSize).map(({week:w,matchingDayIds,contextMatch})=>{const n=w.days.filter(d=>completion(d).completed).length,ready=w.days.every(d=>banks.has(d.id));return `<article class="card week-card">${weekImage(w.number,'stage-cover')}<div class="section-heading"><span class="eyebrow">SEMANA ${String(w.number).padStart(2,'0')}</span><span class="badge ${ready?'accent':''}">${ready?'Evaluación lista':'Solo contenido'}</span></div><span class="muted">${highlightText(w.stage,pathFilter)}</span><h3 class="week-title">${highlightText(w.title,pathFilter)}</h3><a class="btn secondary week-class-link" href="#week/${String(w.number).padStart(2,'0')}">Abrir clase de la semana ↗</a>${bar(n,7)}<details class="week-days" ${pathFilter.trim()||w.number===currentDay().week?'open':''}><summary>Ver 7 sesiones · ${n}/7 superadas</summary><div class="route-days">${w.days.map(d=>{const matched=!!pathFilter.trim()&&(contextMatch||matchingDayIds.includes(d.id)),context=pathFilter.trim()?[...d.topics,...d.resources.map(r=>r.title)].find(text=>matchesSearch(text,pathFilter)):'';return `<a class="route-day ${d.id===currentDay().id?'current':''} ${matched?'search-match':''}" href="#day/${d.id}/learn"><span class="day-dot ${completion(d).completed?'done':''}">${completion(d).completed?'✓':d.day}</span><span>${highlightText(d.title,pathFilter)}${context?`<small class="search-match-context">${highlightText(context,pathFilter)}</small>`:''}</span><span aria-label="${unlocked(d)?'Disponible':'Vista previa'}">${unlocked(d)?'↗':'◌'}</span></a>`;}).join('')}</div></details></article>`;}).join('')||'<div class="empty-state">No encontramos ese tema. Prueba otra palabra.</div>'}</div><div class="pagination">${button('← Anterior','page',`data-n="${pageNumber-1}" ${pageNumber===1?'disabled':''}`,'secondary')}<span>Página ${pageNumber} de ${count}</span>${button('Siguiente →','page',`data-n="${pageNumber+1}" ${pageNumber===count?'disabled':''}`,'secondary')}</div>`;
 }
 function renderPath() {
   const stages=[...new Set(curriculum.weeks.map(w=>w.stage))];
@@ -271,8 +275,18 @@ function renderDay(id,tab) {
   const day=days.find(d=>d.id===id); if(!day) return '<div class="empty-state"><h2>Sesión no encontrada</h2><a href="#path">Volver a la ruta</a></div>';
   const tabs=[['learn','Aprender'],['resources','Recursos'],['practice','Practicar'],['quiz','Evaluar'],['notes','Notas y evidencia']];
   const c=completion(day), visual=weekVisual(day.week);
-  const body=tab==='resources'?renderResources(day):tab==='practice'?renderPractice(day):tab==='quiz'?renderQuiz(day):tab==='notes'?renderNotesForDay(day):`<figure class="lesson-cover">${weekImage(day.week,'lesson-cover-image')}<figcaption><span class="eyebrow">${E(day.stage)}</span><p>${E(visual.title)}</p></figcaption></figure><article class="card"><h3>Hoy aprenderás</h3><ul class="topic-list">${day.topics.map((t,i)=>`<li><span class="topic-number" aria-hidden="true">${String(i+1).padStart(2,'0')}</span><span>${E(t)}</span></li>`).join('')}</ul><div class="notice"><strong>Resultado esperado</strong><p>${E(day.task)}</p></div><p>${E(day.evidence)}</p><div class="button-row">${button('Empezar con los recursos →','goto',`data-hash="day/${day.id}/resources"`)}</div></article><article class="card"><details class="study-method"><summary>Método de estudio</summary><div class="mini-checks"><p><strong>01 · Entiende.</strong> Mira el segmento relevante y lee su referencia.</p><p><strong>02 · Experimenta.</strong> Realiza la tarea con datos de práctica.</p><p><strong>03 · Comprueba.</strong> Resuelve el reto y la prueba sin consultar una solución.</p><p><strong>04 · Conserva.</strong> Guarda tu evidencia y las dudas que quieras resolver.</p></div><p class="muted">Las prácticas están limitadas a equipos propios o entornos autorizados.</p></details></article>`;
+  const body=tab==='resources'?renderResources(day):tab==='practice'?renderPractice(day):tab==='quiz'?renderQuiz(day):tab==='notes'?renderNotesForDay(day):renderProfessorLesson(lessons.getDay(day.id),{week:day.week,sources:lessons.getWeek(day.week)?.sources||[],photo:day.day===1?lessonPhotos.find(photo=>photo.weeks.includes(day.week))||null:null});
   return `<div class="section-heading lesson-heading"><div><a class="text-link" href="#path">← Ruta de aprendizaje</a><p class="eyebrow">SEMANA ${day.week} / DÍA ${day.day} · ${day.duration||100} MIN ORIENTATIVOS</p><h2>${E(day.title)}</h2></div><span id="session-status">${dayBadge(day)}</span></div>${!unlocked(day)?'<div class="notice">Estás explorando una sesión futura. Puedes leerla y guardar notas; el avance oficial requiere superar las sesiones anteriores.</div>':''}<div class="tabs" aria-label="Secciones del aula">${tabs.map(([k,l])=>`<a class="tab ${tab===k?'active':''}" ${tab===k?'aria-current="page"':''} href="#day/${day.id}/${k}">${l}</a>`).join('')}</div><div class="day-layout"><div class="study-panel">${body}</div><aside class="card study-aside"><h3>Requisitos</h3><div id="session-requirements">${requirementsMarkup(day)}</div>${timerPanel(day.id)}</aside></div>`;
+}
+
+
+function renderWeek(number,selectedDay) {
+  const week=curriculum.weeks.find(item=>item.number===Number(number));
+  if(!week)return '<section class="empty-state"><h2>Semana no encontrada</h2><a href="#path">Volver al programa</a></section>';
+  const material=lessons.getWeek(week.number),day=week.days.find(item=>item.id===selectedDay)||week.days[0];
+  if(!material)return '<section class="empty-state"><h2>No se pudo abrir esta clase</h2><button class="btn primary" data-action="retry-lesson">Reintentar clase</button></section>';
+  const photo=day.day===1?lessonPhotos.find(item=>item.weeks.includes(week.number))||null:null;
+  return `<div class="lesson-week-header"><a class="text-link" href="#path">← Programa de estudio</a><div class="week-class-cover">${weekImage(week.number,'week-class-cover-image',{priority:true,decorative:false})}</div><p class="eyebrow">SEMANA ${String(week.number).padStart(2,'0')} · ${E(week.stage)}</p><h2>${E(week.title)}</h2><p>${E(material.overview)}</p><details class="week-objectives"><summary>Qué aprenderás esta semana</summary><ul>${material.objectives.map(text=>`<li>${E(text)}</li>`).join('')}</ul></details></div><nav class="lesson-day-nav" aria-label="Clases de la semana">${week.days.map(item=>`<a class="${item.id===day.id?'active':''}" href="#week/${String(week.number).padStart(2,'0')}/${item.id}" ${item.id===day.id?'aria-current="page"':''}><span>Día ${item.day}</span><strong>${E(item.title)}</strong>${completion(item).completed?'<span class="lesson-day-done" aria-label="Sesión superada">✓</span>':''}</a>`).join('')}</nav><div class="weekly-professor-layout"><div>${renderProfessorLesson(lessons.getDay(day.id),{week:week.number,sources:material.sources,photo,context:'week'})}</div><aside class="card weekly-class-aside"><h3>Tu sesión ${week.number}.${day.day}</h3><p>Lee la explicación, intenta el ejemplo sin mirar los pasos y pasa a los recursos y la práctica.</p><div class="mini-checks"><a href="#day/${day.id}/resources">Recursos de esta sesión ↗</a><a href="#day/${day.id}/practice">Reto aplicado ↗</a><a href="#day/${day.id}/quiz">Evaluación ↗</a><a href="#day/${day.id}/notes">Notas y evidencias ↗</a></div>${dayBadge(day)}</aside></div>`;
 }
 
 function renderNotesList() {
@@ -317,8 +331,8 @@ function render({animate=true}={}) {
   const route=readRoute();renderedHash=location.hash;
   $('#page-title').textContent=labels[route.page]||labels.home;
   const subtitle=$('#header-subtitle');if(subtitle) subtitle.textContent='Ciberseguridad';
-  document.querySelectorAll('[data-nav]').forEach(a=>{const active=a.getAttribute('href')===`#${route.page==='day'?'path':route.page}`;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
-  $('#main-content').innerHTML=decorateFormDrafts(route.page==='path'?renderPath():route.page==='day'?renderDay(route.id,route.tab):route.page==='notes'?renderNotes():route.page==='progress'?renderProgress():route.page==='settings'?renderSettings():renderHome());
+  document.querySelectorAll('[data-nav]').forEach(a=>{const active=a.getAttribute('href')===`#${['day','week'].includes(route.page)?'path':route.page}`;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
+  $('#main-content').innerHTML=decorateFormDrafts(route.page==='path'?renderPath():route.page==='week'?renderWeek(route.id,route.tab):route.page==='day'?renderDay(route.id,route.tab):route.page==='notes'?renderNotes():route.page==='progress'?renderProgress():route.page==='settings'?renderSettings():renderHome());
   restoreFormDrafts();
   $('#main-content').classList.toggle('page-enter',animate);motion?.refresh?.($('#main-content'),{animate});
   updateTimer();
@@ -337,6 +351,8 @@ function updateTimer() {
 
 
 async function handleAction(e) {
+  const anchor=e.target.closest('[data-lesson-anchor]');
+  if(anchor){e.preventDefault();const target=document.getElementById(anchor.dataset.lessonAnchor);target?.focus({preventScroll:true});target?.scrollIntoView({block:'start',behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});return;}
   const btn=e.target.closest('[data-action]');if(!btn||btn.disabled)return;
   const action=btn.dataset.action,id=btn.dataset.id;
   if(action==='onboard') return;
@@ -347,7 +363,8 @@ async function handleAction(e) {
     if(action==='search'){navigate('path');setTimeout(()=>$('#path-search')?.focus(),30);}
     if(action==='page'){pageNumber=Number(btn.dataset.n);updateResults('path');$('#path-results')?.scrollIntoView({block:'start'});}
     if(action==='notes-retry'||action==='form-drafts-retry'){await flushDrafts();toast('Borradores guardados.');}
-    if(action==='retry-route'){const route=readRoute();if(route.page==='day'&&['practice','quiz'].includes(route.tab)){const main=$('#main-content');main.setAttribute('aria-busy','true');try{await loadBank(route.id);render();focusRouteTitle();await rememberActivity(route);}finally{main.removeAttribute('aria-busy');}}}
+    if(action==='retry-lesson'){const route=readRoute(),targetHash=location.hash,main=$('#main-content'),view=main.innerHTML;await prepareRoute(route);if(location.hash!==targetHash||main.innerHTML!==view)return;render();focusRouteTitle();await rememberActivity(route);}
+    if(action==='retry-route'){const route=readRoute(),targetHash=location.hash;if(route.page==='day'&&['practice','quiz'].includes(route.tab)){const main=$('#main-content'),view=main.innerHTML;main.setAttribute('aria-busy','true');try{await loadBank(route.id);if(location.hash!==targetHash||main.innerHTML!==view)return;render();focusRouteTitle();await rememberActivity(route);}finally{main.removeAttribute('aria-busy');}}}
     if(action==='notes-download-draft'){const text=notes.value(id);download(text,`cybertrack-borrador-${id}.txt`,'text/plain');toast('Borrador descargado. El guardado en el navegador sigue pendiente.');}
     if(action==='favorite')await commit(s=>{const d=ensureDay(s,id);d.favorite=!d.favorite;});
     if(action==='embed') {const url=embedUrl(btn.dataset.url);if(!url)return;const slot=$(`#video-slot-${btn.dataset.resource}`);slot.innerHTML=`<iframe title="Reproductor del recurso de estudio" src="${E(url)}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe><p class="muted">Si el proveedor bloquea la reproducción, utiliza Abrir fuente. Reproducir no marca el recurso como estudiado.</p>`;}
@@ -377,7 +394,9 @@ async function handleAction(e) {
 }
 
 async function handleSubmit(e) {
-  const form=e.target;if(!['onboarding','settings-form','challenge-form','quiz-form','doubt-form','evidence-link-form','cert-form','manual-time-form'].includes(form.id)&&!form.classList?.contains?.('replacement-form'))return;
+  const form=e.target;
+  if(form.classList?.contains?.('lesson-check-form')){e.preventDefault();const result=lessonCheckFeedback(lessons.getDay(form.dataset.day),String(new FormData(form).get('lesson-answer')||'')),feedback=form.querySelector('.lesson-check-feedback');if(feedback){feedback.textContent=result.text;feedback.dataset.correct=String(result.correct);}return;}
+  if(!['onboarding','settings-form','challenge-form','quiz-form','doubt-form','evidence-link-form','cert-form','manual-time-form'].includes(form.id)&&!form.classList?.contains?.('replacement-form'))return;
   e.preventDefault();if(form.dataset.submitting==='true')return;const data=new FormData(form),id=form.dataset.day,submittedFocus=captureFocus(),submittedHash=location.hash;
   const submitOptions={form,focusFallback:submittedFocus,focusHash:submittedHash};
   form.dataset.submitting='true';const locked=[...(form.querySelectorAll?.('input,textarea,select,button')||[])].map(field=>({field,disabled:field.disabled}));locked.forEach(({field})=>{field.disabled=true;});
@@ -405,6 +424,7 @@ async function handleSubmit(e) {
 }
 
 function handleInput(e) {
+  if(handleLearningLabInput(e))return;
   const el=e.target;
   if(el.id==='path-search'||el.id==='notes-search') {
     if(el.id==='path-search'){pathFilter=el.value;pageNumber=1;}else noteFilter=el.value;
@@ -415,6 +435,7 @@ function handleInput(e) {
 }
 
 async function handleChange(e) {
+  if(handleLearningLabInput(e))return;
   const el=e.target;
   try {
     captureFormInput(el);
@@ -437,7 +458,26 @@ function resetDraftManagers() {
   notes=createNoteDrafts({read:id=>ds(id).notes||'',write:async(id,text)=>{await mutateState(s=>{const d=ensureDay(s,id);if(d.notes!==text){d.notes=text;d.notesEditedAt=new Date().toISOString();}});applyPreferences();},onStatus:noteStatus});
   formDrafts=createFormDrafts({read:key=>snapshot().formDrafts?.[key]||null,write:async(key,record)=>{await mutateState(s=>{s.formDrafts||={};s.formDrafts[key]=record;});},onStatus:formDraftStatus});
 }
+async function prepareRoute(route) {
+  const bankNeeded=route.page==='day'&&['practice','quiz'].includes(route.tab)&&days.some(day=>day.id===route.id);
+  const day=route.page==='day'?days.find(item=>item.id===route.id):null;
+  const week=route.page==='week'?curriculum.weeks.find(item=>item.number===Number(route.id)):null;
+  const lessonWeek=week?.number||(day&&!['resources','practice','quiz','notes'].includes(route.tab)?day.week:null);
+  if(!bankNeeded&&!lessonWeek)return;
+  const main=$('#main-content');main.setAttribute('aria-busy','true');
+  try{await Promise.all([...(bankNeeded?[loadBank(route.id)]:[]),...(lessonWeek?[lessons.loadWeek(lessonWeek)]:[])]);}finally{main.removeAttribute('aria-busy');}
+}
+function initialRouteError(error) {
+  const main=$('#main-content'),route=readRoute();
+  if(main?.innerHTML.includes('loading-screen')){
+    const week=curriculum.weeks.find(item=>item.number===Number(route.id)),dayId=route.page==='week'?(week?.days.find(day=>day.id===route.tab)||week?.days[0])?.id:route.id;
+    const assessment=route.page==='day'&&['practice','quiz'].includes(route.tab);
+    main.innerHTML=`<section class="empty-state"><h2>${assessment?'No pudimos cargar esta evaluación':'No pudimos cargar esta clase'}</h2><p>${E(error.message)}</p><div class="button-row">${button(assessment?'Reintentar evaluación':'Reintentar clase',assessment?'retry-route':'retry-lesson')}${dayId?`<a class="btn secondary" href="#day/${E(dayId)}/resources">Abrir recursos</a>`:'<a class="btn secondary" href="#path">Ver programa</a>'}</div></section>`;$('#page-title').textContent=assessment?'Aula':'Clase de la semana';
+  }
+  toast(`No se pudo cambiar de pantalla: ${error.message}. Tus datos y borradores se conservan.`,true);
+}
 async function rememberActivity(route) {
+  if(route.page==='week'){const week=curriculum.weeks.find(item=>item.number===Number(route.id)),day=week&&(week.days.find(item=>item.id===route.tab)||week.days[0]);if(day)route={page:'day',id:day.id,tab:'learn'};}
   if(route.page!=='day'||!days.some(day=>day.id===route.id))return;
   const tab=['learn','resources','practice','quiz','notes'].includes(route.tab)?route.tab:'learn';
   await commit(s=>{ensureDay(s,route.id).lastTab=tab;s.lastActivity={dayId:route.id,tab,visitedAt:new Date().toISOString()};},false);
@@ -445,12 +485,12 @@ async function rememberActivity(route) {
 
 async function boot() {
   try {
-    const data=await loadCurriculum();curriculum=data.curriculum;days=curriculum.weeks.flatMap(w=>w.days.map(d=>({...d,stage:w.stage})));banks=data.banks;loadBank=data.loadBank||loadBank;
+    const data=await loadCurriculum();curriculum=data.curriculum;days=curriculum.weeks.flatMap(w=>w.days.map(d=>({...d,stage:w.stage})));banks=data.banks;loadBank=data.loadBank||loadBank;lessons=createLessonLibrary(curriculum);
 
     await loadState();resetDraftManagers();motion=initMotion({enabled:true});applyPreferences();
     document.addEventListener('click',e=>{if(e.target.closest('.skip-link')){e.preventDefault();$('#main-content').focus();return;}return handleAction(e);});document.addEventListener('error',handleThumbnailError,true);document.addEventListener('submit',handleSubmit);document.addEventListener('input',handleInput);document.addEventListener('change',handleChange);
     subscribe(()=>{applyPreferences();updateTimer();});
-    initTimer(updateTimer);await initRouter(async({isCurrent=()=>true}={})=>{clearTimeout(searchTimer);const route=readRoute();if(route.page==='day'&&['practice','quiz'].includes(route.tab)&&days.some(d=>d.id===route.id)){const main=$('#main-content');main.setAttribute('aria-busy','true');try{await loadBank(route.id);}finally{main.removeAttribute('aria-busy');}}if(!isCurrent())return;if(route.page==='notes'&&['all','favorites','open-doubts','evidence'].includes(route.id))notebookFilter=route.id;render();focusRouteTitle();await rememberActivity(route);window.scrollTo({top:0,behavior:'instant'});},{beforeChange:flushDrafts,onError:error=>{const main=$('#main-content'),route=readRoute();if(main?.innerHTML.includes('loading-screen')&&route.page==='day'&&['practice','quiz'].includes(route.tab)){main.innerHTML=`<section class="empty-state"><h2>No pudimos cargar esta evaluación</h2><p>${E(error.message)}</p><div class="button-row">${button('Reintentar evaluación','retry-route')}<a class="btn secondary" href="#day/${E(route.id)}/resources">Abrir recursos</a></div></section>`;$('#page-title').textContent='Aula';}toast(`No se pudo cambiar de pantalla: ${error.message}. Tus datos y borradores se conservan.`,true)}});
+    initTimer(updateTimer);await initRouter(async({isCurrent=()=>true}={})=>{clearTimeout(searchTimer);const route=readRoute();await prepareRoute(route);if(!isCurrent())return;if(route.page==='notes'&&['all','favorites','open-doubts','evidence'].includes(route.id))notebookFilter=route.id;render();focusRouteTitle();await rememberActivity(route);window.scrollTo({top:0,behavior:'instant'});},{beforeChange:flushDrafts,onError:initialRouteError});
     document.addEventListener('visibilitychange',()=>{if(document.hidden)flushDrafts().catch(error=>toast(error.message,true));});
     window.addEventListener('pagehide',()=>flushDrafts().catch(()=>{}));
     window.addEventListener('beforeunload',event=>{if(notes.pending()||formDrafts.pending()){event.preventDefault();event.returnValue='';}});

@@ -1,0 +1,933 @@
+{
+  "version": "2.0.0",
+  "week": 51,
+  "title": "Portafolio y presentación profesional",
+  "overview": "Convertirás prácticas autorizadas en evidencias profesionales claras. Seleccionarás proyectos según permiso, privacidad y habilidad demostrada; después estructurarás análisis de correo, SIEM y respuesta con métodos reproducibles. Aprenderás a explicar el repositorio, revisar historial y distinguir condiciones de uso del material. La parte de CV conserva hechos verificables sin presentar cursos o laboratorios como experiencia que no existe. Terminarás defendiendo un proyecto con preguntas nuevas y corrigiendo una dificultad real de lectura o reproducción.",
+  "objectives": [
+    "Seleccionar y publicar evidencia sin exponer datos privados.",
+    "Estructurar proyectos y CV con hechos defendibles.",
+    "Explicar decisiones y límites de un proyecto ante preguntas nuevas."
+  ],
+  "sources": [
+    {
+      "id": "github",
+      "title": "GitHub: About READMEs",
+      "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes"
+    },
+    {
+      "id": "license",
+      "title": "GitHub: Licensing a repository",
+      "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository"
+    },
+    {
+      "id": "nist86",
+      "title": "NIST SP 800-86: técnicas forenses en respuesta a incidentes",
+      "url": "https://csrc.nist.gov/pubs/sp/800/86/final"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w51d1",
+      "title": "Seleccionar proyectos",
+      "lead": "Un proyecto publicable demuestra criterio técnico y control de la información que compartes.",
+      "sections": [
+        {
+          "topic": "Permisos de publicación y privacidad",
+          "explanation": [
+            "Seleccionar proyectos para un portafolio exige revisar tanto valor didáctico como permiso de publicación. Un análisis puede demostrar buenas habilidades y contener datos que no estás autorizado a compartir: nombres, correos, rutas internas, identificadores de clientes o material privado de un curso. Antes de preparar capturas define qué parte es tu trabajo, de dónde viene el conjunto de datos y qué condiciones de uso tiene. La publicación no debe asumirse permitida solo porque pudiste descargar o analizar un archivo.",
+            "Elige proyectos con una pregunta clara, un método reproducible y un resultado que puedas defender. Sustituye datos reales por muestras sintéticas cuando la autorización no permita mostrarlos y declara esa transformación; no presentes el caso inventado como un incidente profesional real. Revisa también metadatos y texto oculto de archivos, no solo la pantalla principal. Un portafolio pequeño con dos proyectos sólidos puede comunicar más que diez capturas sin contexto, especialmente si explica límites, errores corregidos y qué aprendiste al contrastar una hipótesis."
+          ],
+          "analogy": "Exhibir una maqueta propia demuestra diseño sin tener que publicar los planos privados de un cliente.",
+          "keyPoints": [
+            "Permiso: Comprueba origen, autoría y condiciones de publicación.",
+            "Selección: Prioriza pregunta, método y resultado defendibles.",
+            "Protección: Minimiza datos y declara cualquier sustitución sintética."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Seleccionar proyectos",
+            "items": [
+              {
+                "label": "Permiso",
+                "detail": "Comprueba origen, autoría y condiciones de publicación."
+              },
+              {
+                "label": "Selección",
+                "detail": "Prioriza pregunta, método y resultado defendibles."
+              },
+              {
+                "label": "Protección",
+                "detail": "Minimiza datos y declara cualquier sustitución sintética."
+              }
+            ],
+            "caption": "Un proyecto publicable demuestra criterio técnico y control de la información que compartes."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "El caso del curso privado",
+        "scenario": "Un análisis ficticio es propio, pero sus archivos provienen de una práctica privada con restricciones.",
+        "steps": [
+          {
+            "action": "Separar autorías",
+            "reason": "Tu informe no convierte los datos ajenos en publicables.",
+            "result": "Se identifican material del curso y texto propio."
+          },
+          {
+            "action": "Crear alternativa",
+            "reason": "Puede demostrarse el método sin copiar el material.",
+            "result": "Se construye una muestra sintética equivalente en habilidad."
+          },
+          {
+            "action": "Declarar naturaleza",
+            "reason": "Evita exagerar experiencia.",
+            "result": "El proyecto se presenta como laboratorio original y explica sus límites."
+          }
+        ],
+        "result": "El portafolio demuestra el método sin redistribuir material privado.",
+        "visual": {
+          "type": "timeline",
+          "title": "El caso del curso privado",
+          "items": [
+            {
+              "label": "Separar autorías",
+              "detail": "Se identifican material del curso y texto propio."
+            },
+            {
+              "label": "Crear alternativa",
+              "detail": "Se construye una muestra sintética equivalente en habilidad."
+            },
+            {
+              "label": "Declarar naturaleza",
+              "detail": "El proyecto se presenta como laboratorio original y explica sus límites."
+            }
+          ],
+          "caption": "El portafolio demuestra el método sin redistribuir material privado."
+        }
+      },
+      "practice": {
+        "task": "Elige dos proyectos y prepara una ficha de publicación.",
+        "steps": [
+          "Anota origen y autorización de cada archivo.",
+          "Describe la habilidad que demuestra el proyecto.",
+          "Marca datos que deben retirarse o sustituirse con una declaración clara."
+        ],
+        "expected": "Dos fichas que justifiquen valor técnico y permiso para compartir."
+      },
+      "check": {
+        "question": "¿Qué debes comprobar antes de publicar una captura de un laboratorio?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Permiso de uso y presencia de información privada o material restringido."
+          },
+          {
+            "id": "b",
+            "text": "Solo que se vea bonita."
+          },
+          {
+            "id": "c",
+            "text": "Que otros también hayan publicado capturas."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La autorización y la minimización de datos son necesarias aunque el análisis sea propio."
+      },
+      "mistakes": [
+        {
+          "myth": "Analizar un archivo me da permiso para publicarlo.",
+          "correction": "Acceso, análisis y redistribución son permisos distintos que deben verificarse."
+        }
+      ],
+      "recap": [
+        "Permiso: Comprueba origen, autoría y condiciones de publicación.",
+        "Selección: Prioriza pregunta, método y resultado defendibles.",
+        "Protección: Minimiza datos y declara cualquier sustitución sintética."
+      ],
+      "glossary": [
+        {
+          "term": "Portafolio",
+          "definition": "Conjunto seleccionado de evidencias de capacidades propias."
+        },
+        {
+          "term": "Dato sintético",
+          "definition": "Dato inventado para practicar sin representar un hecho real."
+        }
+      ]
+    },
+    {
+      "dayId": "w51d2",
+      "title": "Proyecto phishing",
+      "lead": "Un proyecto de phishing explica cómo pasaste del mensaje al veredicto y con qué límites.",
+      "sections": [
+        {
+          "topic": "Contexto, indicadores y veredicto",
+          "explanation": [
+            "Un proyecto defendible de phishing comienza por una pregunta sobre un mensaje autorizado o sintético. Presenta contexto, estructura, identidad aparente, autenticación y solicitud al destinatario. Después muestra indicadores y razonamiento sin convertir una señal aislada en veredicto. Un resultado de autenticación favorable no garantiza que el contenido sea benigno, y un fallo puede tener explicaciones técnicas legítimas. La calidad del proyecto está en combinar campos y contexto, no en una lista larga de herramientas utilizadas.",
+            "Organiza el README con muestra segura, pasos, hallazgos y conclusión limitada. Si incluyes URL, usa dominios de prueba o una representación neutralizada claramente explicada para evitar clics accidentales. No publiques adjuntos sospechosos ni mensajes reales con datos privados. Añade una alternativa que investigaste y la evidencia que cambió tu decisión. En una entrevista deberías poder explicar cada campo mostrado y repetir el razonamiento con otro mensaje, sin depender de frases copiadas de una solución del curso."
+          ],
+          "analogy": "Un informe de inspección enseña las señales y las pruebas, no solo un sello rojo o verde.",
+          "keyPoints": [
+            "Contexto: Quién recibe qué solicitud en un mensaje sintético.",
+            "Análisis: Campos, autenticación e indicadores con explicación.",
+            "Veredicto: Conclusión y límites sustentados por varias observaciones."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Proyecto phishing",
+            "items": [
+              {
+                "label": "Contexto",
+                "detail": "Quién recibe qué solicitud en un mensaje sintético."
+              },
+              {
+                "label": "Análisis",
+                "detail": "Campos, autenticación e indicadores con explicación."
+              },
+              {
+                "label": "Veredicto",
+                "detail": "Conclusión y límites sustentados por varias observaciones."
+              }
+            ],
+            "caption": "Un proyecto de phishing explica cómo pasaste del mensaje al veredicto y con qué límites."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Un remitente auténtico con solicitud sospechosa",
+        "scenario": "Una muestra inventada usa una cuenta legítima, pero pide transferir datos a un destino no autorizado.",
+        "steps": [
+          {
+            "action": "Separar autenticación",
+            "reason": "Identidad técnica no equivale a intención benigna.",
+            "result": "La autenticación del dominio puede ser válida."
+          },
+          {
+            "action": "Examinar solicitud",
+            "reason": "El objetivo del mensaje importa.",
+            "result": "La petición contradice el procedimiento del escenario."
+          },
+          {
+            "action": "Redactar conclusión",
+            "reason": "Evita depender de una señal aislada.",
+            "result": "Se recomienda verificar por canal aprobado y no enviar los datos."
+          }
+        ],
+        "result": "El proyecto demuestra que autenticación y legitimidad de la solicitud son preguntas distintas.",
+        "visual": {
+          "type": "timeline",
+          "title": "Un remitente auténtico con solicitud sospechosa",
+          "items": [
+            {
+              "label": "Separar autenticación",
+              "detail": "La autenticación del dominio puede ser válida."
+            },
+            {
+              "label": "Examinar solicitud",
+              "detail": "La petición contradice el procedimiento del escenario."
+            },
+            {
+              "label": "Redactar conclusión",
+              "detail": "Se recomienda verificar por canal aprobado y no enviar los datos."
+            }
+          ],
+          "caption": "El proyecto demuestra que autenticación y legitimidad de la solicitud son preguntas distintas."
+        }
+      },
+      "practice": {
+        "task": "Escribe el esquema de un proyecto de correo sintético.",
+        "steps": [
+          "Incluye tres campos y su significado.",
+          "Describe una alternativa legítima considerada.",
+          "Redacta veredicto y siguiente paso sin publicar datos privados."
+        ],
+        "expected": "Un README que permite revisar cómo se tomó la decisión."
+      },
+      "check": {
+        "question": "¿Qué falta en un proyecto que solo muestra «SPF pasa»?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Un color más oscuro."
+          },
+          {
+            "id": "b",
+            "text": "Análisis de solicitud, contexto y otras evidencias."
+          },
+          {
+            "id": "c",
+            "text": "Un dominio más largo."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La autenticación es una pieza del análisis y no determina por sí sola la legitimidad del contenido."
+      },
+      "mistakes": [
+        {
+          "myth": "Autenticación correcta significa mensaje seguro.",
+          "correction": "Una cuenta o dominio autenticado puede enviar solicitudes no autorizadas o contenido malicioso."
+        }
+      ],
+      "recap": [
+        "Contexto: Quién recibe qué solicitud en un mensaje sintético.",
+        "Análisis: Campos, autenticación e indicadores con explicación.",
+        "Veredicto: Conclusión y límites sustentados por varias observaciones."
+      ],
+      "glossary": [
+        {
+          "term": "Veredicto",
+          "definition": "Conclusión razonada sobre el mensaje dentro de su contexto."
+        },
+        {
+          "term": "Neutralización",
+          "definition": "Representación de un indicador que reduce el riesgo de interacción accidental."
+        }
+      ]
+    },
+    {
+      "dayId": "w51d3",
+      "title": "Proyecto SIEM",
+      "lead": "Un proyecto SIEM debe permitir comprobar la consulta y entender la unidad del resultado.",
+      "sections": [
+        {
+          "topic": "Consulta, resultados y cronología",
+          "explanation": [
+            "Para presentar una investigación con registros define fuente, esquema, intervalo y pregunta. Si el proyecto usa datos sintéticos, inclúyelos en un formato sencillo o documenta cómo generarlos. Una consulta que depende de un índice privado no es reproducible para el lector sin una alternativa segura. Explica qué representa una fila, qué campo agrupa la búsqueda y por qué elegiste los filtros. El resultado debe poder reconciliarse con una muestra conocida, no aparecer como una cifra sin soporte.",
+            "Incluye una cronología cuando el orden de acciones sea relevante y conserva zonas o conversiones. Una captura de dashboard puede ilustrar, pero acompáñala con consulta, tabla y límites. Distingue patrones detectados de incidentes confirmados y señala qué fuente faltaría para atribuir un proceso o una persona. En una entrevista el valor está en justificar una decisión de consulta y un error que corregiste, no en mostrar grandes cantidades de eventos o prometer detección perfecta sobre cualquier entorno."
+          ],
+          "analogy": "Un gráfico de ventas convence más cuando puedes explicar qué cuenta cada barra y mostrar las filas que la forman.",
+          "keyPoints": [
+            "Datos: Fuente sintética o autorizada con esquema conocido.",
+            "Consulta: Filtro, agrupación e intervalo explicados.",
+            "Resultado: Tabla verificable, cronología y límites de interpretación."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Proyecto SIEM",
+            "items": [
+              {
+                "label": "Datos",
+                "detail": "Fuente sintética o autorizada con esquema conocido."
+              },
+              {
+                "label": "Consulta",
+                "detail": "Filtro, agrupación e intervalo explicados."
+              },
+              {
+                "label": "Resultado",
+                "detail": "Tabla verificable, cronología y límites de interpretación."
+              }
+            ],
+            "caption": "Un proyecto SIEM debe permitir comprobar la consulta y entender la unidad del resultado."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Un conteo que no cuadraba",
+        "scenario": "Un proyecto ficticio afirma cinco usuarios afectados, pero la consulta contaba cinco eventos de una sola cuenta.",
+        "steps": [
+          {
+            "action": "Definir unidad",
+            "reason": "Evita una conclusión equivocada.",
+            "result": "count estaba midiendo filas."
+          },
+          {
+            "action": "Revisar agrupación",
+            "reason": "La pregunta pedía identidades distintas.",
+            "result": "Se compara la cuenta de cada evento."
+          },
+          {
+            "action": "Corregir presentación",
+            "reason": "Tabla y resumen deben coincidir.",
+            "result": "Se informa una cuenta con cinco eventos, sin afirmar cinco personas."
+          }
+        ],
+        "result": "El proyecto mejora al mostrar la corrección y su razón.",
+        "visual": {
+          "type": "timeline",
+          "title": "Un conteo que no cuadraba",
+          "items": [
+            {
+              "label": "Definir unidad",
+              "detail": "count estaba midiendo filas."
+            },
+            {
+              "label": "Revisar agrupación",
+              "detail": "Se compara la cuenta de cada evento."
+            },
+            {
+              "label": "Corregir presentación",
+              "detail": "Se informa una cuenta con cinco eventos, sin afirmar cinco personas."
+            }
+          ],
+          "caption": "El proyecto mejora al mostrar la corrección y su razón."
+        }
+      },
+      "practice": {
+        "task": "Diseña un proyecto con ocho registros sintéticos y una pregunta.",
+        "steps": [
+          "Incluye campos, tiempos y datos legibles.",
+          "Escribe consulta o selección manual equivalente.",
+          "Verifica un conteo y comunica un límite."
+        ],
+        "expected": "Un proyecto pequeño que otra persona pueda reproducir."
+      },
+      "check": {
+        "question": "¿Qué vuelve reproducible un proyecto de búsqueda?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo una captura del gráfico."
+          },
+          {
+            "id": "b",
+            "text": "Un número grande de eventos."
+          },
+          {
+            "id": "c",
+            "text": "Datos disponibles o generables, consulta y condiciones explicadas."
+          }
+        ],
+        "correct": "c",
+        "explanation": "El lector necesita material y método para comprobar el resultado."
+      },
+      "mistakes": [
+        {
+          "myth": "Un dashboard atractivo sustituye a los datos y la consulta.",
+          "correction": "La visualización comunica; la reproducibilidad depende de fuente, método y parámetros."
+        }
+      ],
+      "recap": [
+        "Datos: Fuente sintética o autorizada con esquema conocido.",
+        "Consulta: Filtro, agrupación e intervalo explicados.",
+        "Resultado: Tabla verificable, cronología y límites de interpretación."
+      ],
+      "glossary": [
+        {
+          "term": "Esquema",
+          "definition": "Definición de campos y tipos del conjunto de datos."
+        },
+        {
+          "term": "Reconciliación",
+          "definition": "Comprobación de que un resumen coincide con los registros de origen."
+        }
+      ]
+    },
+    {
+      "dayId": "w51d4",
+      "title": "Proyecto respuesta",
+      "lead": "Un proyecto de respuesta demuestra decisiones proporcionadas y comprobación de resultados.",
+      "sections": [
+        {
+          "topic": "Alcance, acciones y recuperación",
+          "explanation": [
+            "Un caso de respuesta para portafolio puede ser un ejercicio de mesa original. Presenta alcance, roles, datos iniciales e inyecciones que cambian la situación. La evidencia principal es el razonamiento: qué priorizaste, qué medida propusiste, qué autorización necesitabas y cómo verificarías su resultado. Separa claramente acciones simuladas de intervenciones reales. No necesitas afirmar que administraste un incidente empresarial para demostrar que comprendes contención, erradicación y recuperación en un laboratorio.",
+            "Incluye una matriz que vincule hallazgo, decisión, responsable y criterio de finalización. Explica una dependencia que condicionó tu respuesta y una alternativa descartada por su impacto. La recuperación necesita pruebas funcionales y de seguridad, además de un estado aceptado por el dueño ficticio del servicio. Cierra con lecciones aprendidas y tareas residuales. Ese nivel de detalle permite a un entrevistador evaluar criterio y comunicación sin acceder a datos privados, y evita que el proyecto se convierta en una lista genérica de recomendaciones."
+          ],
+          "analogy": "Un simulador de vuelo demuestra decisiones y procedimientos aunque no represente un vuelo comercial real.",
+          "keyPoints": [
+            "Escenario: Caso sintético y límites expresamente declarados.",
+            "Decisiones: Alternativas, autorización y razones documentadas.",
+            "Validación: Criterios de recuperación y seguimiento con responsable."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Proyecto respuesta",
+            "items": [
+              {
+                "label": "Escenario",
+                "detail": "Caso sintético y límites expresamente declarados."
+              },
+              {
+                "label": "Decisiones",
+                "detail": "Alternativas, autorización y razones documentadas."
+              },
+              {
+                "label": "Validación",
+                "detail": "Criterios de recuperación y seguimiento con responsable."
+              }
+            ],
+            "caption": "Un proyecto de respuesta demuestra decisiones proporcionadas y comprobación de resultados."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Aislar un servicio crítico",
+        "scenario": "El escenario ficticio ofrece aislar un equipo que también presta una función esencial.",
+        "steps": [
+          {
+            "action": "Revisar dependencia",
+            "reason": "La contención puede afectar operación.",
+            "result": "Se identifica el servicio dependiente."
+          },
+          {
+            "action": "Comparar alternativas",
+            "reason": "La medida debe reducir riesgo con impacto conocido.",
+            "result": "Se considera restringir una sesión mientras se coordina aislamiento."
+          },
+          {
+            "action": "Definir aceptación",
+            "reason": "No basta con proponer una acción.",
+            "result": "Se fijan comprobaciones y responsable de autorizar el retorno."
+          }
+        ],
+        "result": "El proyecto muestra una decisión proporcional en vez de una respuesta automática.",
+        "visual": {
+          "type": "timeline",
+          "title": "Aislar un servicio crítico",
+          "items": [
+            {
+              "label": "Revisar dependencia",
+              "detail": "Se identifica el servicio dependiente."
+            },
+            {
+              "label": "Comparar alternativas",
+              "detail": "Se considera restringir una sesión mientras se coordina aislamiento."
+            },
+            {
+              "label": "Definir aceptación",
+              "detail": "Se fijan comprobaciones y responsable de autorizar el retorno."
+            }
+          ],
+          "caption": "El proyecto muestra una decisión proporcional en vez de una respuesta automática."
+        }
+      },
+      "practice": {
+        "task": "Crea una matriz de tres decisiones para un incidente ficticio.",
+        "steps": [
+          "Incluye alternativa y dependencia por decisión.",
+          "Indica qué es simulado.",
+          "Añade verificación, dueño y criterio de cierre."
+        ],
+        "expected": "Un artefacto de respuesta que demuestra método y honestidad sobre experiencia."
+      },
+      "check": {
+        "question": "¿Qué debería declarar un proyecto basado en ejercicio de mesa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que es una simulación y qué capacidades demuestra."
+          },
+          {
+            "id": "b",
+            "text": "Que fue un incidente real para impresionar."
+          },
+          {
+            "id": "c",
+            "text": "Que todas las medidas fueron ejecutadas en producción."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La naturaleza del trabajo debe presentarse con precisión; una simulación puede demostrar capacidades sin exagerar experiencia."
+      },
+      "mistakes": [
+        {
+          "myth": "Solo un incidente real puede servir para un portafolio.",
+          "correction": "Los laboratorios originales permiten demostrar razonamiento, documentación y criterio de forma segura."
+        }
+      ],
+      "recap": [
+        "Escenario: Caso sintético y límites expresamente declarados.",
+        "Decisiones: Alternativas, autorización y razones documentadas.",
+        "Validación: Criterios de recuperación y seguimiento con responsable."
+      ],
+      "glossary": [
+        {
+          "term": "Ejercicio de mesa",
+          "definition": "Simulación guiada de decisiones sin ejecución sobre producción."
+        },
+        {
+          "term": "Criterio de retorno",
+          "definition": "Condición necesaria para restablecer una operación."
+        }
+      ]
+    },
+    {
+      "dayId": "w51d5",
+      "title": "GitHub básico",
+      "lead": "Git conserva versiones; publicar exige revisar archivos actuales y su historial.",
+      "sections": [
+        {
+          "topic": "Repositorio, README, commit y licencia",
+          "explanation": [
+            "Un repositorio organiza archivos y su evolución mediante commits. El README explica propósito, requisitos, datos, pasos y límites; un commit registra un conjunto de cambios con un mensaje que permite entenderlo. Antes de publicar revisa qué archivos entrarán, incluyendo respaldos, capturas y configuraciones. Excluir un archivo del seguimiento futuro no elimina automáticamente una versión ya guardada en el historial. Si se expuso una credencial, retirarla de la vista no sustituye la acción de revocarla o rotarla según corresponda.",
+            "La licencia expresa condiciones de uso del material sobre el que tienes derechos. No puedes otorgar permisos sobre datos o código ajenos que no te pertenecen; verifica sus condiciones y conserva atribuciones necesarias. Para practicar crea un repositorio de laboratorio con contenido sintético y cambios pequeños. Escribe mensajes descriptivos y comprueba que alguien pueda seguir el README sin información oral adicional. Mantén secretos y evidencias privadas fuera del repositorio público, y revisa enlaces y rutas relativas para que el proyecto pueda abrirse desde su ubicación publicada."
+          ],
+          "analogy": "Git es un cuaderno con páginas anteriores conservadas; tachar una línea de la página actual no borra las anteriores.",
+          "keyPoints": [
+            "README: Propósito, material, pasos y límites para el lector.",
+            "Commit: Cambio identificable con un mensaje descriptivo.",
+            "Publicación: Revisión de permisos, secretos e historial antes de compartir."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "GitHub básico",
+            "items": [
+              {
+                "label": "README",
+                "detail": "Propósito, material, pasos y límites para el lector."
+              },
+              {
+                "label": "Commit",
+                "detail": "Cambio identificable con un mensaje descriptivo."
+              },
+              {
+                "label": "Publicación",
+                "detail": "Revisión de permisos, secretos e historial antes de compartir."
+              }
+            ],
+            "caption": "Git conserva versiones; publicar exige revisar archivos actuales y su historial."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "El secreto borrado de la última versión",
+        "scenario": "Un repositorio ficticio incluyó un token de prueba y después eliminó el archivo.",
+        "steps": [
+          {
+            "action": "Revisar historial",
+            "reason": "La versión anterior puede seguir accesible.",
+            "result": "El token aparece en un commit previo."
+          },
+          {
+            "action": "Invalidar acceso",
+            "reason": "Eliminar texto no revoca una credencial.",
+            "result": "Se rota o revoca el token según el procedimiento del escenario."
+          },
+          {
+            "action": "Corregir material",
+            "reason": "La limpieza necesita revisar historia y copias.",
+            "result": "Se sigue la guía oficial y se comprueba el repositorio antes de compartir."
+          }
+        ],
+        "result": "La respuesta trata exposición y almacenamiento como problemas relacionados pero distintos.",
+        "visual": {
+          "type": "timeline",
+          "title": "El secreto borrado de la última versión",
+          "items": [
+            {
+              "label": "Revisar historial",
+              "detail": "El token aparece en un commit previo."
+            },
+            {
+              "label": "Invalidar acceso",
+              "detail": "Se rota o revoca el token según el procedimiento del escenario."
+            },
+            {
+              "label": "Corregir material",
+              "detail": "Se sigue la guía oficial y se comprueba el repositorio antes de compartir."
+            }
+          ],
+          "caption": "La respuesta trata exposición y almacenamiento como problemas relacionados pero distintos."
+        }
+      },
+      "practice": {
+        "task": "Prepara un repositorio didáctico sin información privada.",
+        "steps": [
+          "Escribe un README con pasos reproducibles.",
+          "Crea dos cambios pequeños con mensajes claros.",
+          "Revisa archivos, historial y condiciones de uso antes de hacerlo público."
+        ],
+        "expected": "Un repositorio seguro de laboratorio y fácil de entender."
+      },
+      "check": {
+        "question": "¿Qué logra añadir un archivo a una lista de exclusión después de haberlo versionado?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Eliminar siempre todos sus commits antiguos."
+          },
+          {
+            "id": "b",
+            "text": "No garantiza retirar el contenido del historial existente."
+          },
+          {
+            "id": "c",
+            "text": "Revocar automáticamente credenciales."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La exclusión y el borrado actual no eliminan necesariamente versiones anteriores ni invalidan secretos."
+      },
+      "mistakes": [
+        {
+          "myth": "Puedo elegir una licencia y redistribuir cualquier archivo incluido.",
+          "correction": "Solo puedes conceder permisos sobre material propio o conforme a las condiciones de su titular."
+        }
+      ],
+      "recap": [
+        "README: Propósito, material, pasos y límites para el lector.",
+        "Commit: Cambio identificable con un mensaje descriptivo.",
+        "Publicación: Revisión de permisos, secretos e historial antes de compartir."
+      ],
+      "glossary": [
+        {
+          "term": "Commit",
+          "definition": "Registro identificable de cambios en un repositorio."
+        },
+        {
+          "term": "README",
+          "definition": "Documento de entrada que explica uso y contexto del proyecto."
+        }
+      ]
+    },
+    {
+      "dayId": "w51d6",
+      "title": "CV",
+      "lead": "Un CV técnico comunica capacidades verificables sin convertir formación en experiencia inventada.",
+      "sections": [
+        {
+          "topic": "Habilidades, formación y proyectos",
+          "explanation": [
+            "Un CV debe ayudar al lector a entender qué has hecho, qué sabes demostrar y qué encaja con el puesto. Separa experiencia laboral, formación y proyectos. Un laboratorio de análisis de registros puede describirse con su pregunta, herramienta y resultado, dejando clara su naturaleza. No conviertas un curso completado en una certificación obtenida ni una simulación en trabajo de producción. La precisión permite que puedas defender cada línea sin necesitar exagerar el alcance de tu participación.",
+            "Las cifras aportan valor cuando son reales, pertinentes y explicables. Si no mediste reducción de tiempo o cantidad de casos, usa un resultado concreto sin inventar porcentajes: por ejemplo, una consulta reproducible sobre un conjunto sintético documentado. Adapta el orden y el vocabulario al puesto conservando los mismos hechos. Incluye un enlace revisado al portafolio y evita publicar datos personales innecesarios. Antes de enviar, comprueba fechas, nombres, requisitos y que el archivo sea legible; el diseño no compensa contradicciones o afirmaciones que no puedes sostener."
+          ],
+          "analogy": "El CV es una etiqueta precisa de tus capacidades, no un anuncio de funciones que todavía no has probado.",
+          "keyPoints": [
+            "Hechos: Distingue empleo, proyecto, curso y certificación.",
+            "Evidencia: Cada capacidad enlaza a una tarea que puedes defender.",
+            "Ajuste: Prioriza lo pertinente para el puesto sin cambiar la verdad."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "CV",
+            "items": [
+              {
+                "label": "Hechos",
+                "detail": "Distingue empleo, proyecto, curso y certificación."
+              },
+              {
+                "label": "Evidencia",
+                "detail": "Cada capacidad enlaza a una tarea que puedes defender."
+              },
+              {
+                "label": "Ajuste",
+                "detail": "Prioriza lo pertinente para el puesto sin cambiar la verdad."
+              }
+            ],
+            "caption": "Un CV técnico comunica capacidades verificables sin convertir formación en experiencia inventada."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Una línea demasiado amplia",
+        "scenario": "El borrador ficticio dice «administré un SOC», aunque solo existe un laboratorio personal.",
+        "steps": [
+          {
+            "action": "Revisar alcance",
+            "reason": "El verbo exagera responsabilidad.",
+            "result": "No hubo operación empresarial ni equipo administrado."
+          },
+          {
+            "action": "Describir tarea real",
+            "reason": "La experiencia sigue teniendo valor.",
+            "result": "Se escribe «analicé registros sintéticos y documenté una investigación reproducible»."
+          },
+          {
+            "action": "Vincular evidencia",
+            "reason": "Facilita comprobar la habilidad.",
+            "result": "Se añade el proyecto seguro con consulta y conclusiones."
+          }
+        ],
+        "result": "La línea resulta defendible y comunica una capacidad concreta.",
+        "visual": {
+          "type": "timeline",
+          "title": "Una línea demasiado amplia",
+          "items": [
+            {
+              "label": "Revisar alcance",
+              "detail": "No hubo operación empresarial ni equipo administrado."
+            },
+            {
+              "label": "Describir tarea real",
+              "detail": "Se escribe «analicé registros sintéticos y documenté una investigación reproducible»."
+            },
+            {
+              "label": "Vincular evidencia",
+              "detail": "Se añade el proyecto seguro con consulta y conclusiones."
+            }
+          ],
+          "caption": "La línea resulta defendible y comunica una capacidad concreta."
+        }
+      },
+      "practice": {
+        "task": "Reescribe tres líneas de tu CV usando únicamente hechos verificables.",
+        "steps": [
+          "Separa trabajo, estudio y laboratorio.",
+          "Retira métricas que no puedas explicar.",
+          "Relaciona una habilidad con una evidencia de proyecto."
+        ],
+        "expected": "Tres descripciones concretas y honestas adaptadas a un puesto objetivo."
+      },
+      "check": {
+        "question": "¿Qué debe hacerse con una mejora porcentual que nunca mediste?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Incluirla si parece razonable."
+          },
+          {
+            "id": "b",
+            "text": "Redondearla al número más alto."
+          },
+          {
+            "id": "c",
+            "text": "Sustituirla por un resultado real que puedas explicar."
+          }
+        ],
+        "correct": "c",
+        "explanation": "Las métricas deben ser verdaderas y defendibles; un resultado concreto sin porcentaje puede comunicar valor."
+      },
+      "mistakes": [
+        {
+          "myth": "Un laboratorio solo vale si se presenta como empleo real.",
+          "correction": "Su valor está en la habilidad demostrada y en explicar con honestidad las condiciones de práctica."
+        }
+      ],
+      "recap": [
+        "Hechos: Distingue empleo, proyecto, curso y certificación.",
+        "Evidencia: Cada capacidad enlaza a una tarea que puedes defender.",
+        "Ajuste: Prioriza lo pertinente para el puesto sin cambiar la verdad."
+      ],
+      "glossary": [
+        {
+          "term": "Capacidad verificable",
+          "definition": "Habilidad que puedes demostrar con una tarea o evidencia."
+        },
+        {
+          "term": "Adaptación del CV",
+          "definition": "Selección y organización de hechos pertinentes para un puesto."
+        }
+      ]
+    },
+    {
+      "dayId": "w51d7",
+      "title": "Evaluación del portafolio",
+      "lead": "Defender el portafolio significa explicar decisiones, errores y límites con tus propias palabras.",
+      "sections": [
+        {
+          "topic": "Claridad y defensa",
+          "explanation": [
+            "La evaluación del portafolio comienza como lo haría una persona que nunca vio tu práctica. ¿Entiende el problema, puede encontrar los datos autorizados y sabe repetir un resultado? Revisa el README, enlaces, capturas y coherencia entre tablas y conclusiones. Una explicación sólida no depende de que el lector adivine el entorno o acepte una etiqueta de herramienta. Cada proyecto debe mostrar una capacidad distinta o una aplicación suficientemente diferente, en lugar de repetir la misma captura con otro título.",
+            "Practica una defensa breve: problema, método, hallazgo, limitación y mejora. Después responde una pregunta que cambie una condición, como disponer de otra fuente o descubrir un desfase de reloj. Eso prueba comprensión más allá de memorizar el relato. Reconoce lo que no sabes y explica cómo lo comprobarías. Si otra persona puede reproducir un paso y tú puedes justificar por qué lo elegiste, el proyecto comunica autonomía. Cierra corrigiendo una fricción real de lectura antes de añadir otro proyecto al conjunto."
+          ],
+          "analogy": "Una visita guiada funciona cuando puedes explicar por qué existe cada parte y no solo recitar los carteles.",
+          "keyPoints": [
+            "Claridad: El lector entiende problema, datos y método.",
+            "Defensa: Puedes justificar decisiones y responder cambios de contexto.",
+            "Mejora: La revisión corrige una dificultad concreta del proyecto."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Evaluación del portafolio",
+            "items": [
+              {
+                "label": "Claridad",
+                "detail": "El lector entiende problema, datos y método."
+              },
+              {
+                "label": "Defensa",
+                "detail": "Puedes justificar decisiones y responder cambios de contexto."
+              },
+              {
+                "label": "Mejora",
+                "detail": "La revisión corrige una dificultad concreta del proyecto."
+              }
+            ],
+            "caption": "Defender el portafolio significa explicar decisiones, errores y límites con tus propias palabras."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "El enlace que faltaba",
+        "scenario": "Una revisora ficticia entiende la conclusión, pero no encuentra el conjunto sintético necesario.",
+        "steps": [
+          {
+            "action": "Reproducir lectura",
+            "reason": "La revisión revela una fricción real.",
+            "result": "El README menciona un archivo sin enlace."
+          },
+          {
+            "action": "Corregir acceso",
+            "reason": "La evidencia debe poder localizarse.",
+            "result": "Se añade ruta relativa y descripción del archivo."
+          },
+          {
+            "action": "Probar de nuevo",
+            "reason": "La mejora necesita confirmación.",
+            "result": "La revisora repite el conteo y obtiene el mismo resultado."
+          }
+        ],
+        "result": "Una corrección pequeña mejora más la credibilidad que otra captura decorativa.",
+        "visual": {
+          "type": "timeline",
+          "title": "El enlace que faltaba",
+          "items": [
+            {
+              "label": "Reproducir lectura",
+              "detail": "El README menciona un archivo sin enlace."
+            },
+            {
+              "label": "Corregir acceso",
+              "detail": "Se añade ruta relativa y descripción del archivo."
+            },
+            {
+              "label": "Probar de nuevo",
+              "detail": "La revisora repite el conteo y obtiene el mismo resultado."
+            }
+          ],
+          "caption": "Una corrección pequeña mejora más la credibilidad que otra captura decorativa."
+        }
+      },
+      "practice": {
+        "task": "Defiende un proyecto en dos minutos y registra una pregunta difícil.",
+        "steps": [
+          "Explica problema, método y límite sin leer un guion.",
+          "Cambia una condición del escenario y razona su efecto.",
+          "Corrige una fricción descubierta en el README."
+        ],
+        "expected": "Una defensa propia y una mejora comprobada del proyecto."
+      },
+      "check": {
+        "question": "¿Qué demuestra mejor comprensión del proyecto?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Explicar cómo cambiaría el análisis al variar una condición."
+          },
+          {
+            "id": "b",
+            "text": "Memorizar todos los títulos."
+          },
+          {
+            "id": "c",
+            "text": "Evitar preguntas sobre límites."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La adaptación razonada muestra que entiendes el método y no solo el resultado del caso original."
+      },
+      "mistakes": [
+        {
+          "myth": "Admitir una limitación invalida el proyecto.",
+          "correction": "Explicar el alcance y cómo ampliarlo demuestra criterio técnico."
+        }
+      ],
+      "recap": [
+        "Claridad: El lector entiende problema, datos y método.",
+        "Defensa: Puedes justificar decisiones y responder cambios de contexto.",
+        "Mejora: La revisión corrige una dificultad concreta del proyecto."
+      ],
+      "glossary": [
+        {
+          "term": "Defensa técnica",
+          "definition": "Explicación y justificación de decisiones y resultados."
+        },
+        {
+          "term": "Fricción",
+          "definition": "Dificultad que impide comprender o reproducir un proyecto."
+        }
+      ]
+    }
+  ]
+}

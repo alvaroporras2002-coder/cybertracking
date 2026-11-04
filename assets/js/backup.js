@@ -1,4 +1,4 @@
-import { validateState } from './storage.js?v=1.6.0';
+import { validateState } from './storage.js?v=2.0.0';
 const MAX_BACKUP_BYTES = 150 * 1024 * 1024;
 export function exportBackup(state) {
   const checked = validateState(state);

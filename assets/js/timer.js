@@ -1,4 +1,4 @@
-import { getState, mutateState } from './storage.js?v=1.6.0';
+import { getState, mutateState } from './storage.js?v=2.0.0';
 const tabId = globalThis.crypto?.randomUUID?.() || `tab-${Math.random().toString(36).slice(2)}`;
 let interval;
 let tickCount = 0;

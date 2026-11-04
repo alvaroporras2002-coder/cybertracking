@@ -1,0 +1,978 @@
+{
+  "version": "2.0.0",
+  "week": 12,
+  "title": "DNS DHCP y tiempo",
+  "overview": "Una red funcional necesita más que direcciones estáticas escritas en un dibujo. Esta semana estudiarás cómo DNS responde consultas de nombres, cómo DHCP entrega configuración y por qué los relojes afectan la interpretación de registros. Separarás un nombre inexistente de un servidor que no responde y una dirección válida de un conflicto de asignación. Los ejemplos se resuelven con datos ficticios y consultas de solo lectura. La meta es identificar qué función necesita comprobarse sin cambiar varios parámetros de producción a la vez.",
+  "objectives": [
+    "Explicar resolución DNS, registros y caché.",
+    "Distinguir concesión DHCP, reserva y configuración estática.",
+    "Relacionar sincronización, UTC y cronologías de eventos."
+  ],
+  "sources": [
+    {
+      "id": "w12s1",
+      "title": "RFC 1034: conceptos del sistema de nombres",
+      "url": "https://www.rfc-editor.org/info/rfc1034/"
+    },
+    {
+      "id": "w12s2",
+      "title": "RFC 1035: implementación y registros DNS",
+      "url": "https://www.rfc-editor.org/info/rfc1035/"
+    },
+    {
+      "id": "w12s3",
+      "title": "RFC 2131: DHCP",
+      "url": "https://www.rfc-editor.org/info/rfc2131/"
+    },
+    {
+      "id": "w12s4",
+      "title": "RFC 5905: NTP",
+      "url": "https://www.rfc-editor.org/info/rfc5905/"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w12d1",
+      "title": "DNS básico",
+      "lead": "DNS es un sistema distribuido de nombres y datos asociados.",
+      "sections": [
+        {
+          "explanation": [
+            "DNS es un sistema distribuido de nombres y datos asociados. Una aplicación puede solicitar una dirección para un nombre, pero DNS también almacena otros tipos de registros. El resolutor del equipo suele consultar a un servicio recursivo configurado, que obtiene o conserva respuestas según su funcionamiento. Los servidores autoritativos mantienen datos de las zonas correspondientes; no son lo mismo que la caché temporal de un cliente o resolutor.",
+            "La caché evita repetir consultas mientras la información siga siendo válida según sus reglas y tiempos de vida. Por eso un cambio puede no observarse inmediatamente en todas partes. Resolver un nombre no demuestra que el servidor web responda ni que el usuario tenga acceso a su contenido. Para diagnosticar identifica nombre exacto, tipo consultado, resolutor y respuesta. No confundas una respuesta negativa con ausencia de conexión: puede ser una respuesta correcta indicando que el nombre no existe."
+          ],
+          "analogy": "Un directorio distribuido permite encontrar datos por nombre; encontrar una dirección no garantiza que el local esté abierto.",
+          "keyPoints": [
+            "Aplicación: Solicita datos de un nombre concreto.",
+            "Resolutor: Consulta su caché o un servicio configurado.",
+            "DNS recursivo: Obtiene y conserva respuestas según sus reglas."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Resolución y caché simplificadas",
+            "items": [
+              {
+                "label": "Aplicación",
+                "detail": "Solicita datos de un nombre concreto."
+              },
+              {
+                "label": "Resolutor",
+                "detail": "Consulta su caché o un servicio configurado."
+              },
+              {
+                "label": "DNS recursivo",
+                "detail": "Obtiene y conserva respuestas según sus reglas."
+              },
+              {
+                "label": "Autoritativo",
+                "detail": "Proporciona datos de la zona pertinente."
+              }
+            ],
+            "caption": "No confundas una respuesta negativa con ausencia de conexión: puede ser una respuesta correcta indicando que el nombre no existe."
+          },
+          "topic": "Nombre, resolución y caché"
+        }
+      ],
+      "workedExample": {
+        "title": "Un nombre resuelve, pero la web falla",
+        "scenario": "El ejemplo ficticio muestra una respuesta DNS válida y un servicio web que no responde.",
+        "steps": [
+          {
+            "action": "Separar las etapas",
+            "reason": "DNS y aplicación cumplen funciones diferentes.",
+            "result": "La resolución obtuvo una dirección."
+          },
+          {
+            "action": "Limitar la conclusión",
+            "reason": "La respuesta no acredita disponibilidad del servicio.",
+            "result": "Todavía falta comprobar transporte y aplicación."
+          },
+          {
+            "action": "Elegir la siguiente prueba",
+            "reason": "Repetir DNS no responde todas las preguntas.",
+            "result": "Se investiga el servicio autorizado con su contexto."
+          }
+        ],
+        "result": "Una resolución correcta puede coexistir con un fallo posterior de la aplicación.",
+        "visual": {
+          "type": "flow",
+          "title": "Un nombre resuelve, pero la web falla · secuencia",
+          "items": [
+            {
+              "label": "Separar las etapas",
+              "detail": "La resolución obtuvo una dirección."
+            },
+            {
+              "label": "Limitar la conclusión",
+              "detail": "Todavía falta comprobar transporte y aplicación."
+            },
+            {
+              "label": "Elegir la siguiente prueba",
+              "detail": "Se investiga el servicio autorizado con su contexto."
+            }
+          ],
+          "caption": "Una resolución correcta puede coexistir con un fallo posterior de la aplicación."
+        }
+      },
+      "practice": {
+        "task": "Dibuja resolución con caché y una consulta que necesita al servicio DNS.",
+        "steps": [
+          "Identifica quién pregunta.",
+          "Marca dónde se conserva temporalmente una respuesta.",
+          "Explica qué no demuestra obtener una dirección."
+        ],
+        "expected": "Un flujo con caché, roles y límites diferenciados."
+      },
+      "check": {
+        "question": "Una respuesta DNS correcta garantiza que una página web abrirá.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Sí, siempre."
+          },
+          {
+            "id": "b",
+            "text": "No; la aplicación y su conexión todavía pueden fallar."
+          },
+          {
+            "id": "c",
+            "text": "Solo si el nombre es corto."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La resolución proporciona datos; la disponibilidad del servicio y la autorización son comprobaciones adicionales."
+      },
+      "mistakes": [
+        {
+          "myth": "Un servidor recursivo y uno autoritativo tienen siempre el mismo papel.",
+          "correction": "Son funciones diferentes aunque una plataforma concreta pueda reunir más de una."
+        }
+      ],
+      "recap": [
+        "Aplicación: Solicita datos de un nombre concreto.",
+        "Resolutor: Consulta su caché o un servicio configurado.",
+        "DNS recursivo: Obtiene y conserva respuestas según sus reglas."
+      ],
+      "glossary": [
+        {
+          "term": "Resolución",
+          "definition": "Obtención de datos asociados a un nombre."
+        },
+        {
+          "term": "Caché DNS",
+          "definition": "Conservación temporal de respuestas según sus reglas."
+        },
+        {
+          "term": "Autoritativo",
+          "definition": "Servidor que responde con autoridad sobre una zona."
+        }
+      ]
+    },
+    {
+      "dayId": "w12d2",
+      "title": "Registros DNS",
+      "lead": "Los registros DNS tienen tipos que indican qué clase de dato contienen.",
+      "sections": [
+        {
+          "explanation": [
+            "Los registros DNS tienen tipos que indican qué clase de dato contienen. A relaciona un nombre con una dirección IPv4 y AAAA con una IPv6. CNAME declara un alias hacia otro nombre. MX indica servidores de correo con preferencias, no una dirección IP directamente. TXT conserva texto que diversos mecanismos interpretan según sus propias reglas. El tipo consultado forma parte de la pregunta; pedir A no solicita automáticamente cualquier dato disponible.",
+            "Un nombre puede tener varios registros válidos y sus respuestas pueden cambiar con el tiempo. Un CNAME no es una redirección HTTP del navegador: relaciona nombres dentro de DNS. Para interpretar un MX debes resolver después los nombres pertinentes cuando corresponda. Tampoco una cadena TXT verifica por sí sola la autenticidad de cualquier mensaje; los protocolos que la utilizan tienen validaciones adicionales. En los ejercicios representa cada relación sin convertir todos los registros en flechas hacia direcciones IPv4."
+          ],
+          "analogy": "Un directorio puede almacenar teléfonos, alias y responsables de correo en campos distintos; la etiqueta del campo cambia su significado.",
+          "keyPoints": [
+            "A y AAAA: Direcciones IPv4 e IPv6 respectivamente.",
+            "CNAME: Alias que apunta a otro nombre.",
+            "MX: Servidor de correo expresado como nombre y preferencia."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Tipos de datos DNS",
+            "items": [
+              {
+                "label": "A y AAAA",
+                "detail": "Direcciones IPv4 e IPv6 respectivamente."
+              },
+              {
+                "label": "CNAME",
+                "detail": "Alias que apunta a otro nombre."
+              },
+              {
+                "label": "MX",
+                "detail": "Servidor de correo expresado como nombre y preferencia."
+              },
+              {
+                "label": "TXT",
+                "detail": "Texto interpretado por mecanismos específicos."
+              }
+            ],
+            "caption": "En los ejercicios representa cada relación sin convertir todos los registros en flechas hacia direcciones IPv4."
+          },
+          "topic": "A, AAAA, CNAME, MX y TXT"
+        }
+      ],
+      "workedExample": {
+        "title": "Interpretar un alias",
+        "scenario": "En un ejemplo escrito, aula.ejemplo.test tiene CNAME hacia plataforma.ejemplo.test.",
+        "steps": [
+          {
+            "action": "Reconocer el tipo",
+            "reason": "El resultado es otro nombre, no una IPv4.",
+            "result": "Se identifica la relación de alias."
+          },
+          {
+            "action": "Continuar la resolución necesaria",
+            "reason": "El destino debe proporcionar el dato solicitado.",
+            "result": "Se buscan registros apropiados del nombre objetivo."
+          },
+          {
+            "action": "Separar DNS y HTTP",
+            "reason": "No se ha observado una respuesta web.",
+            "result": "El alias no demuestra una redirección del navegador."
+          }
+        ],
+        "result": "CNAME relaciona nombres; el comportamiento web debe analizarse en su propia capa.",
+        "visual": {
+          "type": "flow",
+          "title": "Interpretar un alias · secuencia",
+          "items": [
+            {
+              "label": "Reconocer el tipo",
+              "detail": "Se identifica la relación de alias."
+            },
+            {
+              "label": "Continuar la resolución necesaria",
+              "detail": "Se buscan registros apropiados del nombre objetivo."
+            },
+            {
+              "label": "Separar DNS y HTTP",
+              "detail": "El alias no demuestra una redirección del navegador."
+            }
+          ],
+          "caption": "CNAME relaciona nombres; el comportamiento web debe analizarse en su propia capa."
+        }
+      },
+      "practice": {
+        "task": "Construye una tabla ficticia con A, AAAA, CNAME, MX y TXT.",
+        "steps": [
+          "Indica el tipo de valor de cada uno.",
+          "Usa nombres de ejemplo sin consultas externas.",
+          "Explica por qué MX no se interpreta como una IPv4 directa."
+        ],
+        "expected": "Cinco tipos y valores coherentes con su significado."
+      },
+      "check": {
+        "question": "¿Qué dato contiene un MX?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El nombre de un servidor de correo con una preferencia."
+          },
+          {
+            "id": "b",
+            "text": "Siempre una contraseña."
+          },
+          {
+            "id": "c",
+            "text": "Únicamente una dirección MAC."
+          }
+        ],
+        "correct": "a",
+        "explanation": "El registro de correo utiliza un nombre y preferencia; la dirección se obtiene mediante otras consultas cuando corresponde."
+      },
+      "mistakes": [
+        {
+          "myth": "CNAME es exactamente una redirección HTTP.",
+          "correction": "Es una relación DNS entre nombres; una redirección HTTP ocurre mediante una respuesta de la aplicación web."
+        }
+      ],
+      "recap": [
+        "A y AAAA: Direcciones IPv4 e IPv6 respectivamente.",
+        "CNAME: Alias que apunta a otro nombre.",
+        "MX: Servidor de correo expresado como nombre y preferencia."
+      ],
+      "glossary": [
+        {
+          "term": "A",
+          "definition": "Registro que relaciona un nombre con IPv4."
+        },
+        {
+          "term": "AAAA",
+          "definition": "Registro que relaciona un nombre con IPv6."
+        },
+        {
+          "term": "MX",
+          "definition": "Registro que identifica servidores de correo y preferencias."
+        }
+      ]
+    },
+    {
+      "dayId": "w12d3",
+      "title": "Diagnóstico DNS",
+      "lead": "Diagnosticar DNS exige conservar la pregunta exacta y clasificar la respuesta.",
+      "sections": [
+        {
+          "explanation": [
+            "Diagnosticar DNS exige conservar la pregunta exacta y clasificar la respuesta. NXDOMAIN indica que el nombre consultado no existe según la respuesta recibida; un tiempo de espera significa que no obtuviste respuesta dentro del plazo observado. También puede existir un nombre sin el tipo de registro solicitado. Estos resultados no son equivalentes y requieren hipótesis distintas sobre nombre, servidor, conectividad y datos.",
+            "Registra el resolutor utilizado, la hora y si había caché. Una respuesta antigua puede seguir siendo válida durante su tiempo de vida, mientras un error de escritura produce una consulta distinta de la prevista. No cambies inmediatamente a un DNS público en un equipo de trabajo: podrías perder resolución interna o infringir su diseño. Primero compara con documentación y una muestra autorizada. Si se necesita repetir sin caché, utiliza un procedimiento conocido y conserva el contexto antes de modificarlo."
+          ],
+          "analogy": "No encontrar una entrada en un directorio y no poder contactar al directorio son problemas diferentes.",
+          "keyPoints": [
+            "NXDOMAIN: Respuesta que indica nombre inexistente.",
+            "Sin tipo solicitado: Puede existir el nombre, pero no ese registro.",
+            "Tiempo de espera: No se recibió una respuesta dentro del plazo."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Clasificar resultados DNS",
+            "items": [
+              {
+                "label": "NXDOMAIN",
+                "detail": "Respuesta que indica nombre inexistente."
+              },
+              {
+                "label": "Sin tipo solicitado",
+                "detail": "Puede existir el nombre, pero no ese registro."
+              },
+              {
+                "label": "Tiempo de espera",
+                "detail": "No se recibió una respuesta dentro del plazo."
+              },
+              {
+                "label": "Caché",
+                "detail": "Una respuesta anterior puede influir en lo observado."
+              }
+            ],
+            "caption": "Si se necesita repetir sin caché, utiliza un procedimiento conocido y conserva el contexto antes de modificarlo."
+          },
+          "topic": "Servidor, caché y errores"
+        }
+      ],
+      "workedExample": {
+        "title": "Error de escritura en el nombre",
+        "scenario": "Se consulta portla.ejemplo.test en lugar de portal.ejemplo.test dentro de un caso ficticio.",
+        "steps": [
+          {
+            "action": "Conservar la pregunta",
+            "reason": "Una letra cambia la identidad del nombre.",
+            "result": "Se registra portla como nombre consultado."
+          },
+          {
+            "action": "Comparar con el esperado",
+            "reason": "El resultado puede ser correcto para la pregunta equivocada.",
+            "result": "Se detecta la diferencia de escritura."
+          },
+          {
+            "action": "Repetir la consulta autorizada",
+            "reason": "La prueba debe mantener el resolutor y tipo.",
+            "result": "El nombre correcto devuelve el dato esperado del caso."
+          }
+        ],
+        "result": "Una respuesta negativa no implica necesariamente que el servicio DNS esté averiado.",
+        "visual": {
+          "type": "flow",
+          "title": "Error de escritura en el nombre · secuencia",
+          "items": [
+            {
+              "label": "Conservar la pregunta",
+              "detail": "Se registra portla como nombre consultado."
+            },
+            {
+              "label": "Comparar con el esperado",
+              "detail": "Se detecta la diferencia de escritura."
+            },
+            {
+              "label": "Repetir la consulta autorizada",
+              "detail": "El nombre correcto devuelve el dato esperado del caso."
+            }
+          ],
+          "caption": "Una respuesta negativa no implica necesariamente que el servicio DNS esté averiado."
+        }
+      },
+      "practice": {
+        "task": "Clasifica tres salidas ficticias: NXDOMAIN, respuesta A y timeout.",
+        "steps": [
+          "Escribe qué se observó en cada una.",
+          "Propón una hipótesis diferente.",
+          "Indica un dato adicional necesario para concluir."
+        ],
+        "expected": "Resultados diferenciados sin atribuirles una sola causa."
+      },
+      "check": {
+        "question": "¿Qué significa un timeout DNS observado?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que el nombre necesariamente no existe."
+          },
+          {
+            "id": "b",
+            "text": "Que todo internet está caído."
+          },
+          {
+            "id": "c",
+            "text": "Que no llegó una respuesta dentro del plazo de la consulta."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La falta de respuesta no informa por sí sola si el nombre existe; puede haber varias causas de comunicación."
+      },
+      "mistakes": [
+        {
+          "myth": "Toda falla de nombre se arregla cambiando de DNS.",
+          "correction": "Primero identifica pregunta, respuesta, servidor y política; un cambio puede romper resolución interna."
+        }
+      ],
+      "recap": [
+        "NXDOMAIN: Respuesta que indica nombre inexistente.",
+        "Sin tipo solicitado: Puede existir el nombre, pero no ese registro.",
+        "Tiempo de espera: No se recibió una respuesta dentro del plazo."
+      ],
+      "glossary": [
+        {
+          "term": "NXDOMAIN",
+          "definition": "Código DNS que indica inexistencia del nombre."
+        },
+        {
+          "term": "Timeout",
+          "definition": "Tiempo de espera agotado sin respuesta observada."
+        }
+      ]
+    },
+    {
+      "dayId": "w12d4",
+      "title": "DHCP",
+      "lead": "DHCP permite que un equipo obtenga configuración de red de un servicio.",
+      "sections": [
+        {
+          "explanation": [
+            "DHCP permite que un equipo obtenga configuración de red de un servicio. En IPv4, el intercambio inicial típico se resume como descubrir, ofrecer, solicitar y confirmar: Discover, Offer, Request y ACK. Una concesión asigna condiciones durante un periodo, no la propiedad permanente de una dirección. Además de IP puede proporcionar máscara, gateway, servidores DNS y otros parámetros según el entorno.",
+            "La renovación intenta prolongar o actualizar una concesión existente, pero no tiene por qué repetir exactamente todas las condiciones de una adquisición inicial. En una renovación normal en T1, el cliente envía DHCPREQUEST al servidor conocido; si este confirma la concesión válida, responde DHCPACK. No repite necesariamente Discover y Offer; una revinculación posterior tiene otras condiciones. Un fallo de DHCP puede impedir obtener configuración adecuada, aunque el enlace físico esté activo. Antes de liberar o renovar en un equipo real, considera que podrías interrumpir su conexión; para comenzar consulta y analiza registros ficticios. También verifica que el servidor pertenece al diseño autorizado: recibir una oferta no demuestra por sí solo que la configuración sea confiable."
+          ],
+          "analogy": "Un mostrador asigna temporalmente una habitación y entrega instrucciones de acceso; la asignación tiene condiciones y duración.",
+          "keyPoints": [
+            "Discover: El cliente busca configuración.",
+            "Offer: Un servidor ofrece condiciones.",
+            "Request: El cliente solicita una oferta."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Adquisición inicial DHCPv4 simplificada",
+            "items": [
+              {
+                "label": "Discover",
+                "detail": "El cliente busca configuración."
+              },
+              {
+                "label": "Offer",
+                "detail": "Un servidor ofrece condiciones."
+              },
+              {
+                "label": "Request",
+                "detail": "El cliente solicita una oferta."
+              },
+              {
+                "label": "ACK",
+                "detail": "El servidor confirma la concesión."
+              }
+            ],
+            "caption": "También verifica que el servidor pertenece al diseño autorizado: recibir una oferta no demuestra por sí solo que la configuración sea confiable."
+          },
+          "topic": "Concesión, configuración y renovación"
+        }
+      ],
+      "workedExample": {
+        "title": "Enlace activo sin concesión válida",
+        "scenario": "Un equipo de práctica tiene conexión física, pero el caso indica que no recibió una oferta DHCP.",
+        "steps": [
+          {
+            "action": "Separar enlace y configuración",
+            "reason": "Una capa puede funcionar mientras otra falla.",
+            "result": "La interfaz tiene enlace activo."
+          },
+          {
+            "action": "Examinar el intercambio",
+            "reason": "La falta de oferta delimita la observación.",
+            "result": "Se buscan servidor, alcance y conectividad del servicio."
+          },
+          {
+            "action": "Evitar cambios simultáneos",
+            "reason": "Una IP manual improvisada puede crear otro problema.",
+            "result": "Se consulta la configuración y el diseño antes de actuar."
+          }
+        ],
+        "result": "El caso apunta a obtención de configuración; no demuestra por sí solo daño del cable.",
+        "visual": {
+          "type": "flow",
+          "title": "Enlace activo sin concesión válida · secuencia",
+          "items": [
+            {
+              "label": "Separar enlace y configuración",
+              "detail": "La interfaz tiene enlace activo."
+            },
+            {
+              "label": "Examinar el intercambio",
+              "detail": "Se buscan servidor, alcance y conectividad del servicio."
+            },
+            {
+              "label": "Evitar cambios simultáneos",
+              "detail": "Se consulta la configuración y el diseño antes de actuar."
+            }
+          ],
+          "caption": "El caso apunta a obtención de configuración; no demuestra por sí solo daño del cable."
+        }
+      },
+      "practice": {
+        "task": "Ordena Discover, Offer, Request y ACK en un dibujo.",
+        "steps": [
+          "Identifica cliente y servidor.",
+          "Añade IP, máscara, gateway y DNS como posibles datos.",
+          "Explica por qué una concesión no es permanente."
+        ],
+        "expected": "Un intercambio inicial correcto con duración y límites."
+      },
+      "check": {
+        "question": "¿Qué es una concesión DHCP?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Una asignación con condiciones y periodo de validez."
+          },
+          {
+            "id": "b",
+            "text": "Una dirección que pertenece para siempre al cliente."
+          },
+          {
+            "id": "c",
+            "text": "Una prueba de que DNS funciona."
+          }
+        ],
+        "correct": "a",
+        "explanation": "DHCP asigna configuración bajo una concesión que puede renovarse o cambiar según el entorno."
+      },
+      "mistakes": [
+        {
+          "myth": "Renovar siempre es una acción sin impacto.",
+          "correction": "Puede afectar conectividad; usa un entorno autorizado y comprende la operación antes de ejecutarla."
+        }
+      ],
+      "recap": [
+        "Discover: El cliente busca configuración.",
+        "Offer: Un servidor ofrece condiciones.",
+        "Request: El cliente solicita una oferta."
+      ],
+      "glossary": [
+        {
+          "term": "Concesión",
+          "definition": "Asignación de configuración con condiciones y duración."
+        },
+        {
+          "term": "Renovación",
+          "definition": "Proceso para mantener o actualizar una concesión."
+        }
+      ]
+    },
+    {
+      "dayId": "w12d5",
+      "title": "IP estática y conflictos",
+      "lead": "Una configuración estática se define manualmente o mediante mecanismos de gestión sin depender de una concesión dinámica ordinaria.",
+      "sections": [
+        {
+          "explanation": [
+            "Una configuración estática se define manualmente o mediante mecanismos de gestión sin depender de una concesión dinámica ordinaria. Una reserva DHCP relaciona un cliente con una asignación prevista dentro del servicio DHCP; no es lo mismo que escribir una IP fija en el equipo. Ambos enfoques requieren coordinación para evitar que dos interfaces utilicen una dirección incompatible dentro del mismo contexto de red.",
+            "Un conflicto puede producir conectividad irregular y observaciones cambiantes en las tablas de vecinos. No lo resuelvas eligiendo un número que parece vacío: podría estar reservado o pertenecer a infraestructura. Revisa inventario, rango dinámico, exclusiones y registros pertinentes. El gateway también debe ser coherente con el diseño y las rutas del equipo. En esta etapa trabaja sobre una tabla ficticia y predice los fallos; no cambies direcciones de tu red doméstica o empresarial como parte obligatoria del aprendizaje."
+          ],
+          "analogy": "Asignar el mismo número de habitación a dos huéspedes crea ambigüedad aunque ambos tengan una tarjeta válida.",
+          "keyPoints": [
+            "Dinámica: El servidor entrega una concesión disponible.",
+            "Reserva: El servicio prevé una asignación para un cliente.",
+            "Estática: Configuración definida en el equipo o gestión correspondiente."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Asignaciones coordinadas",
+            "items": [
+              {
+                "label": "Dinámica",
+                "detail": "El servidor entrega una concesión disponible."
+              },
+              {
+                "label": "Reserva",
+                "detail": "El servicio prevé una asignación para un cliente."
+              },
+              {
+                "label": "Estática",
+                "detail": "Configuración definida en el equipo o gestión correspondiente."
+              },
+              {
+                "label": "Conflicto",
+                "detail": "Dos usos incompatibles de la misma dirección en el contexto."
+              }
+            ],
+            "caption": "En esta etapa trabaja sobre una tabla ficticia y predice los fallos; no cambies direcciones de tu red doméstica o empresarial como parte obligatoria del aprendizaje."
+          },
+          "topic": "Reservas, errores y gateway"
+        }
+      ],
+      "workedExample": {
+        "title": "Impresora y portátil comparten una IP",
+        "scenario": "Un caso ficticio configura manualmente una impresora con una dirección que DHCP entrega a un portátil.",
+        "steps": [
+          {
+            "action": "Identificar la duplicación",
+            "reason": "La coincidencia debe relacionarse con interfaz y contexto.",
+            "result": "Ambos usan la misma IPv4 local."
+          },
+          {
+            "action": "Consultar el plan",
+            "reason": "El rango dinámico debe coordinarse con asignaciones fijas.",
+            "result": "La IP de la impresora no estaba excluida ni reservada."
+          },
+          {
+            "action": "Corregir de forma autorizada",
+            "reason": "La solución necesita evitar repetición.",
+            "result": "Se coordina el plan y se valida cada dispositivo."
+          }
+        ],
+        "result": "El problema requiere administración de asignaciones, no cambiar números al azar.",
+        "visual": {
+          "type": "flow",
+          "title": "Impresora y portátil comparten una IP · secuencia",
+          "items": [
+            {
+              "label": "Identificar la duplicación",
+              "detail": "Ambos usan la misma IPv4 local."
+            },
+            {
+              "label": "Consultar el plan",
+              "detail": "La IP de la impresora no estaba excluida ni reservada."
+            },
+            {
+              "label": "Corregir de forma autorizada",
+              "detail": "Se coordina el plan y se valida cada dispositivo."
+            }
+          ],
+          "caption": "El problema requiere administración de asignaciones, no cambiar números al azar."
+        }
+      },
+      "practice": {
+        "task": "Diseña un rango ficticio para cinco clientes y una impresora.",
+        "steps": [
+          "Distingue asignaciones dinámicas y reservadas.",
+          "Añade gateway e inventario.",
+          "Describe cómo evitarías superposición."
+        ],
+        "expected": "Una tabla sin duplicados y con un mecanismo de gestión explícito."
+      },
+      "check": {
+        "question": "¿Una reserva DHCP es idéntica a configurar IP manual en el cliente?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Sí, no existe diferencia."
+          },
+          {
+            "id": "b",
+            "text": "No; la reserva se administra en el servicio DHCP."
+          },
+          {
+            "id": "c",
+            "text": "Solo si el cliente tiene Wi-Fi."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Ambas pueden producir estabilidad de dirección, pero utilizan mecanismos de configuración diferentes."
+      },
+      "mistakes": [
+        {
+          "myth": "Una dirección que no responde está necesariamente libre.",
+          "correction": "Puede estar apagada, filtrada o reservada; consulta el plan y los registros de asignación."
+        }
+      ],
+      "recap": [
+        "Dinámica: El servidor entrega una concesión disponible.",
+        "Reserva: El servicio prevé una asignación para un cliente.",
+        "Estática: Configuración definida en el equipo o gestión correspondiente."
+      ],
+      "glossary": [
+        {
+          "term": "Reserva DHCP",
+          "definition": "Asignación prevista para un cliente gestionada por DHCP."
+        },
+        {
+          "term": "Conflicto IP",
+          "definition": "Uso incompatible de una misma dirección dentro del contexto de red."
+        }
+      ]
+    },
+    {
+      "dayId": "w12d6",
+      "title": "Sincronización",
+      "lead": "Los relojes permiten ordenar eventos, validar ciertos mecanismos y comparar registros de varios equipos.",
+      "sections": [
+        {
+          "explanation": [
+            "Los relojes permiten ordenar eventos, validar ciertos mecanismos y comparar registros de varios equipos. NTP proporciona mecanismos de sincronización temporal con fuentes de referencia. Una zona horaria cambia la representación local de una hora; no es lo mismo que un reloj incorrecto. UTC ofrece una referencia común, mientras los offsets describen diferencias respecto a ella en una representación determinada.",
+            "Para correlacionar registra marca de tiempo, zona u offset y posible desviación del reloj. Si un evento dice 09:00 con offset -06:00, corresponde a 15:00 UTC en esa representación. No ajustes un reloj de producción para que una cronología encaje: conserva el dato original y documenta la conversión y la incertidumbre. Las reglas de horario local pueden variar con fecha y región; utiliza herramientas adecuadas y fuentes confiables cuando necesites una conversión real, en lugar de asumir un offset fijo para siempre."
+          ],
+          "analogy": "Dos cámaras pueden etiquetar la misma escena con horarios distintos; debes alinear sus referencias antes de ordenar lo sucedido.",
+          "keyPoints": [
+            "Original: 09:00 con offset -06:00.",
+            "Conversión: Sumar seis horas para esa referencia.",
+            "UTC: 15:00 UTC."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Normalización temporal",
+            "items": [
+              {
+                "label": "Original",
+                "detail": "09:00 con offset -06:00."
+              },
+              {
+                "label": "Conversión",
+                "detail": "Sumar seis horas para esa referencia."
+              },
+              {
+                "label": "UTC",
+                "detail": "15:00 UTC."
+              },
+              {
+                "label": "Límite",
+                "detail": "La conversión no corrige una desviación del reloj."
+              }
+            ],
+            "caption": "Las reglas de horario local pueden variar con fecha y región; utiliza herramientas adecuadas y fuentes confiables cuando necesites una conversión real, en lugar de asumir un offset fijo para siempre."
+          },
+          "topic": "NTP, UTC y zonas horarias"
+        }
+      ],
+      "workedExample": {
+        "title": "Dos registros parecen invertidos",
+        "scenario": "Un caso muestra acceso a las 09:00-06:00 y cambio a las 15:02Z.",
+        "steps": [
+          {
+            "action": "Conservar marcas originales",
+            "reason": "La evidencia no debe reemplazarse sin contexto.",
+            "result": "Se anotan ambas representaciones."
+          },
+          {
+            "action": "Convertir a UTC",
+            "reason": "Hace falta una base común.",
+            "result": "09:00-06:00 equivale a 15:00Z."
+          },
+          {
+            "action": "Comparar con incertidumbre",
+            "reason": "Las fuentes pueden tener desviación.",
+            "result": "El cambio aparece dos minutos después si los relojes son confiables."
+          }
+        ],
+        "result": "La secuencia depende de zona y exactitud del reloj; no solo de las horas impresas.",
+        "visual": {
+          "type": "flow",
+          "title": "Dos registros parecen invertidos · secuencia",
+          "items": [
+            {
+              "label": "Conservar marcas originales",
+              "detail": "Se anotan ambas representaciones."
+            },
+            {
+              "label": "Convertir a UTC",
+              "detail": "09:00-06:00 equivale a 15:00Z."
+            },
+            {
+              "label": "Comparar con incertidumbre",
+              "detail": "El cambio aparece dos minutos después si los relojes son confiables."
+            }
+          ],
+          "caption": "La secuencia depende de zona y exactitud del reloj; no solo de las horas impresas."
+        }
+      },
+      "practice": {
+        "task": "Convierte 18:30+02:00 y 09:30-07:00 a UTC.",
+        "steps": [
+          "Conserva las marcas originales.",
+          "Aplica el signo de cada offset.",
+          "Añade qué cambiaría si un reloj estuviera adelantado."
+        ],
+        "expected": "Ambas representaciones corresponden a 16:30 UTC, sin afirmar que los relojes fueran exactos."
+      },
+      "check": {
+        "question": "¿La conversión de zona corrige automáticamente un reloj adelantado?",
+        "options": [
+          {
+            "id": "a",
+            "text": "No; representación y desviación son cuestiones distintas."
+          },
+          {
+            "id": "b",
+            "text": "Sí, siempre."
+          },
+          {
+            "id": "c",
+            "text": "Solo cuando se usa Wi-Fi."
+          }
+        ],
+        "correct": "a",
+        "explanation": "Cambiar la referencia de representación no elimina un error de sincronización de la fuente."
+      },
+      "mistakes": [
+        {
+          "myth": "Ordenar por hora visible basta para correlacionar equipos.",
+          "correction": "Debes conocer zona, offset y posible desviación antes de comparar cronologías."
+        }
+      ],
+      "recap": [
+        "Original: 09:00 con offset -06:00.",
+        "Conversión: Sumar seis horas para esa referencia.",
+        "UTC: 15:00 UTC."
+      ],
+      "glossary": [
+        {
+          "term": "UTC",
+          "definition": "Referencia temporal común para representar eventos."
+        },
+        {
+          "term": "Offset",
+          "definition": "Diferencia indicada entre una hora representada y UTC."
+        },
+        {
+          "term": "Desviación",
+          "definition": "Diferencia entre un reloj y una referencia adecuada."
+        }
+      ]
+    },
+    {
+      "dayId": "w12d7",
+      "title": "Evaluación de infraestructura",
+      "lead": "DNS, DHCP y tiempo resuelven problemas diferentes que pueden coincidir en un mismo caso.",
+      "sections": [
+        {
+          "explanation": [
+            "DNS, DHCP y tiempo resuelven problemas diferentes que pueden coincidir en un mismo caso. DHCP puede proporcionar una configuración incorrecta de DNS; DNS puede responder correctamente mientras una aplicación falla; un reloj desviado puede complicar la autenticación o la interpretación de registros. Evita una cadena de cambios improvisados: clasifica cada observación según su función antes de proponer una acción.",
+            "Un diagnóstico acumulativo conserva IP, prefijo, gateway, servidor DNS, concesión y referencias temporales. Después formula preguntas concretas: ¿se recibió configuración?, ¿el nombre exacto produjo respuesta?, ¿las marcas pueden compararse? La ausencia de uno de esos datos limita la conclusión. En una práctica avanzada no se premia reiniciar todo hasta que funcione, sino explicar qué evidencia distingue hipótesis y qué prueba autorizada aportaría la información faltante sin interrumpir innecesariamente otros servicios."
+          ],
+          "analogy": "Tres instrumentos miden cosas distintas; usar todos como si fueran el mismo termómetro impide interpretar el problema.",
+          "keyPoints": [
+            "Configuración: DHCP y valores asignados a la interfaz.",
+            "Nombres: Consulta DNS exacta y respuesta.",
+            "Tiempo: Referencia, zona y posible desviación."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Separar infraestructura por función",
+            "items": [
+              {
+                "label": "Configuración",
+                "detail": "DHCP y valores asignados a la interfaz."
+              },
+              {
+                "label": "Nombres",
+                "detail": "Consulta DNS exacta y respuesta."
+              },
+              {
+                "label": "Tiempo",
+                "detail": "Referencia, zona y posible desviación."
+              },
+              {
+                "label": "Conclusión",
+                "detail": "Hipótesis sustentada y siguiente prueba pertinente."
+              }
+            ],
+            "caption": "En una práctica avanzada no se premia reiniciar todo hasta que funcione, sino explicar qué evidencia distingue hipótesis y qué prueba autorizada aportaría la información faltante sin interrumpir innecesariamente otros servicios."
+          },
+          "topic": "DNS, DHCP y tiempo"
+        }
+      ],
+      "workedExample": {
+        "title": "DNS incorrecto entregado por DHCP",
+        "scenario": "En un caso escrito, varios clientes reciben una concesión válida con un servidor DNS equivocado.",
+        "steps": [
+          {
+            "action": "Comparar el patrón",
+            "reason": "Un fallo compartido puede tener una fuente común.",
+            "result": "Los clientes muestran el mismo DNS asignado."
+          },
+          {
+            "action": "Separar configuración y resolución",
+            "reason": "Tener una IP no garantiza nombres correctos.",
+            "result": "Las consultas van al servidor configurado erróneamente."
+          },
+          {
+            "action": "Revisar la fuente autorizada",
+            "reason": "Cambiar cada cliente ocultaría la causa común.",
+            "result": "Se investiga la opción DHCP y se planifica una corrección validada."
+          }
+        ],
+        "result": "La relación entre servicios explica el patrón sin convertir DNS y DHCP en la misma función.",
+        "visual": {
+          "type": "flow",
+          "title": "DNS incorrecto entregado por DHCP · secuencia",
+          "items": [
+            {
+              "label": "Comparar el patrón",
+              "detail": "Los clientes muestran el mismo DNS asignado."
+            },
+            {
+              "label": "Separar configuración y resolución",
+              "detail": "Las consultas van al servidor configurado erróneamente."
+            },
+            {
+              "label": "Revisar la fuente autorizada",
+              "detail": "Se investiga la opción DHCP y se planifica una corrección validada."
+            }
+          ],
+          "caption": "La relación entre servicios explica el patrón sin convertir DNS y DHCP en la misma función."
+        }
+      },
+      "practice": {
+        "task": "Resuelve un caso con IP válida, nombre fallido y registros en zonas distintas.",
+        "steps": [
+          "Clasifica tres observaciones.",
+          "Propón una prueba por función.",
+          "Declara qué información falta para concluir."
+        ],
+        "expected": "Un informe con hipótesis separadas y cronología normalizada."
+      },
+      "check": {
+        "question": "Recibir una dirección DHCP demuestra que la resolución DNS funciona.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Sí, siempre."
+          },
+          {
+            "id": "b",
+            "text": "No; la configuración y las consultas deben verificarse por separado."
+          },
+          {
+            "id": "c",
+            "text": "Solo si el nombre tiene registro MX."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La concesión puede entregar parámetros, pero su recepción no demuestra una consulta DNS correcta."
+      },
+      "mistakes": [
+        {
+          "myth": "Un único reinicio demuestra cuál era la causa.",
+          "correction": "Puede cambiar varias condiciones a la vez y no permite atribuir el resultado a una función concreta."
+        }
+      ],
+      "recap": [
+        "Configuración: DHCP y valores asignados a la interfaz.",
+        "Nombres: Consulta DNS exacta y respuesta.",
+        "Tiempo: Referencia, zona y posible desviación."
+      ],
+      "glossary": [
+        {
+          "term": "Infraestructura",
+          "definition": "Servicios comunes que permiten operar otras funciones."
+        },
+        {
+          "term": "Patrón compartido",
+          "definition": "Observación semejante en varios participantes que orienta una hipótesis común."
+        }
+      ]
+    }
+  ]
+}

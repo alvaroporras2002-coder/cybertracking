@@ -1,0 +1,949 @@
+{
+  "version": "2.0.0",
+  "week": 37,
+  "title": "Método SOC y preparación BTL1",
+  "overview": "La práctica defensiva requiere investigar con método, no coleccionar herramientas. Esta semana conocerás cómo contrastar el programa oficial elegido, convertir eventos en casos, escribir notas reproducibles y priorizar preguntas. Los ejercicios usan registros ficticios y acceso de laboratorio; no sustituyen los módulos, herramientas ni reglas de una certificación comercial. El objetivo es que puedas explicar qué observaste, qué hipótesis contrastaste y por qué escalaste una decisión, dejando un rastro útil para otra persona.",
+  "objectives": [
+    "Relacionar el programa oficial con prácticas y brechas.",
+    "Documentar consultas, fuentes, tiempo y límites.",
+    "Realizar triaje y escalamiento con evidencia."
+  ],
+  "sources": [
+    {
+      "id": "btl1",
+      "title": "Security Blue Team — Blue Team Level 1",
+      "url": "https://www.securityblue.team/certifications/blue-team-level-1"
+    },
+    {
+      "id": "ir",
+      "title": "NIST SP 800-61r3 — Incident Response",
+      "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+    },
+    {
+      "id": "hunting",
+      "title": "Microsoft — Advanced hunting overview",
+      "url": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-overview"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w37d1",
+      "title": "Programa oficial",
+      "lead": "El alcance se comprueba en el programa vigente.",
+      "sections": [
+        {
+          "topic": "Módulos, herramientas y acceso",
+          "explanation": [
+            "El programa oficial de una formación define su alcance y condiciones, mientras esta aplicación organiza una preparación personal. Antes de atribuir cobertura, consulta la página y materiales vigentes del proveedor y registra fecha y referencia. BTL1 presenta formación defensiva sobre áreas como análisis de phishing, inteligencia, forense, SIEM y respuesta. La lista concreta de herramientas y acceso debe verificarse en el programa contratado; conocer una herramienta por nombre no demuestra que hayas completado su práctica ni que esté disponible gratis.",
+            "Construye una matriz que relacione módulo, competencia, entorno y evidencia propia. Separa estudiar un concepto de utilizar el laboratorio oficial y de cumplir las reglas de evaluación. No inventes accesos, licencias o equivalencias si todavía no los tienes. Puedes practicar fundamentos con datos sintéticos y herramientas permitidas, pero debes declarar qué parte no corresponde al entorno del proveedor. Esta distinción mantiene el plan honesto y evita pagar o reservar basándote en una supuesta cobertura que nadie verificó."
+          ],
+          "analogy": "El programa es el índice de una escuela; tu cuaderno de preparación no equivale a haber cursado cada laboratorio.",
+          "keyPoints": [
+            "El alcance se comprueba en el programa vigente.",
+            "Estudio personal y laboratorio oficial son evidencias distintas.",
+            "No se presumen accesos ni licencias."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Tres capas de preparación",
+            "items": [
+              {
+                "label": "Conceptos",
+                "detail": "Explicaciones y ejercicios propios"
+              },
+              {
+                "label": "Laboratorio",
+                "detail": "Práctica en entorno y herramientas disponibles"
+              },
+              {
+                "label": "Evaluación",
+                "detail": "Reglas y condiciones oficiales verificadas"
+              }
+            ],
+            "caption": "Esta herramienta apoya preparación y no declara equivalencia oficial."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Módulo SIEM sin acceso",
+        "scenario": "El estudiante comprende consultas, pero aún no tiene el entorno del curso contratado.",
+        "steps": [
+          {
+            "action": "Registrar estado",
+            "reason": "No debe marcar un laboratorio no realizado.",
+            "result": "Concepto estudiado; entorno pendiente."
+          },
+          {
+            "action": "Practicar base",
+            "reason": "Puede usar datos sintéticos propios.",
+            "result": "Resuelve una consulta de laboratorio local."
+          },
+          {
+            "action": "Planificar verificación",
+            "reason": "La cobertura oficial necesita su referencia.",
+            "result": "Se revisan acceso y tareas del proveedor antes de afirmar completado."
+          }
+        ],
+        "result": "La matriz conserva aprendizaje y brecha sin inventar acreditación.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Módulo SIEM sin acceso",
+          "items": [
+            {
+              "label": "Registrar estado",
+              "detail": "Concepto estudiado; entorno pendiente."
+            },
+            {
+              "label": "Practicar base",
+              "detail": "Resuelve una consulta de laboratorio local."
+            },
+            {
+              "label": "Planificar verificación",
+              "detail": "Se revisan acceso y tareas del proveedor antes de afirmar completado."
+            }
+          ],
+          "caption": "La matriz conserva aprendizaje y brecha sin inventar acreditación."
+        }
+      },
+      "practice": {
+        "task": "Crea una ficha para tres módulos del programa elegido.",
+        "steps": [
+          "Anota referencia y fecha.",
+          "Separa concepto, herramienta y evidencia.",
+          "Marca acceso pendiente sin cambiarlo a completado."
+        ],
+        "expected": "Una matriz que distinga preparación personal y formación oficial."
+      },
+      "check": {
+        "question": "¿Qué demuestra una práctica propia de SIEM?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que completaste automáticamente el laboratorio oficial."
+          },
+          {
+            "id": "b",
+            "text": "La competencia ejercitada bajo tus condiciones, no una equivalencia oficial."
+          },
+          {
+            "id": "c",
+            "text": "Que ya tienes todas las licencias del proveedor."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Una práctica propia tiene valor, pero su alcance no se convierte automáticamente en cumplimiento del programa externo."
+      },
+      "mistakes": [
+        {
+          "myth": "La lista de herramientas garantiza que todas son gratuitas y accesibles.",
+          "correction": "Comprueba condiciones y licencias del entorno concreto antes de depender de ellas."
+        }
+      ],
+      "recap": [
+        "El alcance se comprueba en el programa vigente.",
+        "Estudio personal y laboratorio oficial son evidencias distintas.",
+        "No se presumen accesos ni licencias."
+      ],
+      "glossary": [
+        {
+          "term": "Programa oficial",
+          "definition": "Referencia del proveedor sobre contenidos y condiciones de una formación."
+        },
+        {
+          "term": "Equivalencia",
+          "definition": "Reconocimiento explícito de que una evidencia satisface otro requisito."
+        }
+      ]
+    },
+    {
+      "dayId": "w37d2",
+      "title": "Flujo SOC",
+      "lead": "Evento, alerta, caso e incidente no son sinónimos.",
+      "sections": [
+        {
+          "topic": "Evento, alerta, caso y escalamiento",
+          "explanation": [
+            "Un SOC recibe señales y coordina su análisis según necesidades de la organización. Un evento registra una observación; una alerta destaca una condición; un caso reúne una investigación; un incidente implica una clasificación conforme a criterios definidos. No todo evento crea una alerta ni toda alerta termina en incidente confirmado. El flujo debe conservar identificadores y relaciones para evitar duplicar trabajo o perder contexto cuando varios analistas revisan señales del mismo problema.",
+            "El escalamiento se basa en impacto, alcance, autoridad y capacidad necesaria. Un analista junior puede documentar evidencia y pedir decisión cuando una acción excede sus permisos. Escalar no significa abandonar: entrega resumen, hechos, hipótesis, consultas, acciones realizadas y preguntas abiertas. Una alerta crítica de la herramienta puede resultar irrelevante para ese activo, y una señal aparentemente baja puede revelar un servicio esencial afectado. El procedimiento define prioridades iniciales, pero el contexto debe revisarlas y quedar registrado."
+          ],
+          "analogy": "Un aviso en recepción inicia una revisión; el expediente agrupa lo investigado y la autoridad decide las acciones necesarias.",
+          "keyPoints": [
+            "Evento, alerta, caso e incidente no son sinónimos.",
+            "El caso conserva contexto y relaciones.",
+            "Escala con evidencia y una decisión solicitada."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Flujo defensivo",
+            "items": [
+              {
+                "label": "Evento",
+                "detail": "Registro de autenticación"
+              },
+              {
+                "label": "Alerta",
+                "detail": "Regla detecta patrón"
+              },
+              {
+                "label": "Caso",
+                "detail": "Investigación y contexto"
+              },
+              {
+                "label": "Decisión",
+                "detail": "Clasificación y escalamiento"
+              }
+            ],
+            "caption": "Los nombres y criterios concretos pueden variar entre organizaciones."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Dos alertas relacionadas",
+        "scenario": "Dos herramientas señalan la misma cuenta y sesión durante un intervalo cercano.",
+        "steps": [
+          {
+            "action": "Comparar entidades",
+            "reason": "La proximidad sola no basta.",
+            "result": "Se confirma la misma sesión."
+          },
+          {
+            "action": "Unir contexto",
+            "reason": "Evita investigaciones desconectadas.",
+            "result": "Ambas señales se vinculan al mismo caso."
+          },
+          {
+            "action": "Escalar necesidad",
+            "reason": "Se requiere revocar acceso fuera del permiso del analista.",
+            "result": "Se entrega evidencia y solicitud al responsable."
+          }
+        ],
+        "result": "El escalamiento conserva trabajo y formula una decisión concreta.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Dos alertas relacionadas",
+          "items": [
+            {
+              "label": "Comparar entidades",
+              "detail": "Se confirma la misma sesión."
+            },
+            {
+              "label": "Unir contexto",
+              "detail": "Ambas señales se vinculan al mismo caso."
+            },
+            {
+              "label": "Escalar necesidad",
+              "detail": "Se entrega evidencia y solicitud al responsable."
+            }
+          ],
+          "caption": "El escalamiento conserva trabajo y formula una decisión concreta."
+        }
+      },
+      "practice": {
+        "task": "Clasifica cuatro mensajes ficticios como evento, alerta, caso o incidente según criterios dados.",
+        "steps": [
+          "Define primero los criterios.",
+          "Justifica cada clasificación.",
+          "Indica una condición que obligue a escalar."
+        ],
+        "expected": "Clasificaciones coherentes y revisables con sus criterios y condiciones de escalamiento."
+      },
+      "check": {
+        "question": "¿Qué debería contener un escalamiento útil?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo urgente en mayúsculas."
+          },
+          {
+            "id": "b",
+            "text": "Una lista de herramientas sin contexto."
+          },
+          {
+            "id": "c",
+            "text": "Hechos, evidencia, acciones y decisión que se solicita."
+          }
+        ],
+        "correct": "c",
+        "explanation": "El receptor necesita comprender el caso y qué autoridad o capacidad se requiere para continuar."
+      },
+      "mistakes": [
+        {
+          "myth": "Escalar significa que el analista deja de documentar.",
+          "correction": "La trazabilidad y coordinación continúan durante y después de la transferencia."
+        }
+      ],
+      "recap": [
+        "Evento, alerta, caso e incidente no son sinónimos.",
+        "El caso conserva contexto y relaciones.",
+        "Escala con evidencia y una decisión solicitada."
+      ],
+      "glossary": [
+        {
+          "term": "SOC",
+          "definition": "Función organizada de supervisión y respuesta de seguridad."
+        },
+        {
+          "term": "Caso",
+          "definition": "Conjunto de evidencias, decisiones y acciones de una investigación."
+        }
+      ]
+    },
+    {
+      "dayId": "w37d3",
+      "title": "Notas reproducibles",
+      "lead": "Anota pregunta, fuente, tiempo y consulta.",
+      "sections": [
+        {
+          "topic": "Consulta, resultado, fuente y tiempo",
+          "explanation": [
+            "Las notas reproducibles permiten a otra persona seguir tu razonamiento y repetir una consulta cuando tenga acceso autorizado a los mismos datos. Registra pregunta, fuente, intervalo, zona horaria, consulta y resultado. No basta con pegar una captura sin saber de qué índice provino ni qué filtro estaba activo. Conserva también resultados negativos relevantes: una búsqueda sin coincidencias puede orientar el caso si declaras que la fuente tenía cobertura y el filtro era correcto.",
+            "Separa observación e interpretación en la escritura. Observación: tres fallos desde el equipo LAB-3. Interpretación: podría haber una credencial antigua o un intento no autorizado. Siguiente paso: contrastar cambio de contraseña y operaciones de esa sesión. Evita notas ambiguas como todo raro o ya revisado. Usa identificadores estables, protege datos sensibles y referencia el material sin duplicarlo innecesariamente. La claridad reduce tiempo de relevo y evita que un compañero repita pruebas que ya tenían una respuesta sustentada."
+          ],
+          "analogy": "Una receta reproducible indica ingredientes y medidas; una foto del plato por sí sola no permite cocinarlo de nuevo.",
+          "keyPoints": [
+            "Anota pregunta, fuente, tiempo y consulta.",
+            "Separa observación, interpretación y siguiente paso.",
+            "Un resultado negativo necesita contexto de cobertura."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Nota de investigación",
+            "items": [
+              {
+                "label": "Pregunta",
+                "detail": "¿Hubo accesos exitosos?"
+              },
+              {
+                "label": "Consulta",
+                "detail": "Fuente y ventana UTC"
+              },
+              {
+                "label": "Resultado",
+                "detail": "Dos eventos con sus identificadores"
+              },
+              {
+                "label": "Interpretación",
+                "detail": "Alcance y siguiente verificación"
+              }
+            ],
+            "caption": "La nota debe ser útil sin divulgar secretos ni datos innecesarios."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Captura sin filtro",
+        "scenario": "El relevo recibe una imagen con tres filas, pero no conoce el período ni la consulta.",
+        "steps": [
+          {
+            "action": "Identificar carencias",
+            "reason": "La imagen no permite repetir la búsqueda.",
+            "result": "Faltan fuente, ventana y filtro."
+          },
+          {
+            "action": "Completar registro",
+            "reason": "La consulta debe acompañar al resultado.",
+            "result": "Se añade fuente ficticia y rango UTC."
+          },
+          {
+            "action": "Limitar conclusión",
+            "reason": "Las filas solo cubren ese conjunto.",
+            "result": "Se declara qué pregunta respondieron y qué queda abierto."
+          }
+        ],
+        "result": "La evidencia visual pasa a ser una nota reproducible y delimitada.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Captura sin filtro",
+          "items": [
+            {
+              "label": "Identificar carencias",
+              "detail": "Faltan fuente, ventana y filtro."
+            },
+            {
+              "label": "Completar registro",
+              "detail": "Se añade fuente ficticia y rango UTC."
+            },
+            {
+              "label": "Limitar conclusión",
+              "detail": "Se declara qué pregunta respondieron y qué queda abierto."
+            }
+          ],
+          "caption": "La evidencia visual pasa a ser una nota reproducible y delimitada."
+        }
+      },
+      "practice": {
+        "task": "Escribe una nota de una consulta sobre datos ficticios.",
+        "steps": [
+          "Formula la pregunta.",
+          "Registra fuente, intervalo y filtro.",
+          "Separa resultado de interpretación y próximo paso."
+        ],
+        "expected": "Una nota que otro estudiante pueda seguir."
+      },
+      "check": {
+        "question": "¿Qué falta en una captura con tres eventos?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Contexto de consulta y cobertura para interpretarla correctamente."
+          },
+          {
+            "id": "b",
+            "text": "Una decoración más llamativa."
+          },
+          {
+            "id": "c",
+            "text": "La contraseña del sistema."
+          }
+        ],
+        "correct": "a",
+        "explanation": "Sin fuente, filtros y tiempo no se puede saber qué conjunto representa ni reproducir el resultado."
+      },
+      "mistakes": [
+        {
+          "myth": "Las notas deben guardar toda información sensible por si acaso.",
+          "correction": "Guarda solo lo necesario y referencia evidencias bajo acceso autorizado."
+        }
+      ],
+      "recap": [
+        "Anota pregunta, fuente, tiempo y consulta.",
+        "Separa observación, interpretación y siguiente paso.",
+        "Un resultado negativo necesita contexto de cobertura."
+      ],
+      "glossary": [
+        {
+          "term": "Reproducibilidad",
+          "definition": "Capacidad de repetir un procedimiento con condiciones conocidas."
+        },
+        {
+          "term": "Resultado negativo",
+          "definition": "Ausencia de coincidencias dentro de una consulta y cobertura definidas."
+        }
+      ]
+    },
+    {
+      "dayId": "w37d4",
+      "title": "Triaje",
+      "lead": "Prioridad combina impacto, alcance y actividad.",
+      "sections": [
+        {
+          "topic": "Prioridad, impacto y contexto",
+          "explanation": [
+            "El triaje decide qué necesita atención primero y qué información falta para actuar. Considera impacto del servicio, alcance confirmado o potencial, actividad en curso y confianza en la evidencia. La etiqueta de una herramienta es un punto de partida, no un sustituto de contexto. Un evento en un servidor de identidad puede exigir atención distinta al mismo evento en una máquina de prueba. La prioridad debe poder revisarse cuando cambia el alcance o se confirma una causa legítima.",
+            "Elige las primeras preguntas por su capacidad de cambiar una decisión. ¿La sesión sigue activa? ¿La cuenta tiene privilegios? ¿El equipo sostiene una función crítica? ¿Hay evidencia de operaciones posteriores? No intentes enriquecer cada detalle antes de reducir un daño urgente autorizado. Tampoco ejecutes bloqueos indiscriminados sin evaluar consecuencias. Registra qué datos sostienen la prioridad y qué incertidumbre queda. En una cola de casos, una explicación breve y consistente facilita que otro analista entienda por qué un caso pasó delante de otro."
+          ],
+          "analogy": "En urgencias no se ordena solo por volumen del aviso: se considera gravedad, contexto y riesgo de esperar.",
+          "keyPoints": [
+            "Prioridad combina impacto, alcance y actividad.",
+            "La severidad del producto necesita contexto.",
+            "Pregunta primero lo que cambia una decisión urgente."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Dos alertas del mismo tipo",
+            "items": [
+              {
+                "label": "Servidor crítico",
+                "detail": "Cuenta privilegiada y sesión activa"
+              },
+              {
+                "label": "Laboratorio",
+                "detail": "Cuenta de prueba y ejercicio aprobado"
+              },
+              {
+                "label": "Prioridad",
+                "detail": "Contexto confirmado antes de asignar recursos"
+              }
+            ],
+            "caption": "La prioridad puede variar si aparecen hechos nuevos."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Dos accesos no habituales",
+        "scenario": "Uno afecta una cuenta administrativa activa; otro coincide con un ejercicio aprobado.",
+        "steps": [
+          {
+            "action": "Confirmar contexto",
+            "reason": "Los títulos de alerta son iguales.",
+            "result": "Se distinguen privilegio y autorización."
+          },
+          {
+            "action": "Valorar impacto",
+            "reason": "Una cuenta administrativa amplía consecuencias.",
+            "result": "Se prioriza investigar su sesión activa."
+          },
+          {
+            "action": "Documentar cola",
+            "reason": "El otro caso no desaparece sin revisión.",
+            "result": "Se registra el ejercicio y su evidencia de aprobación."
+          }
+        ],
+        "result": "La decisión se explica mediante datos y no solo por el orden de llegada.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Dos accesos no habituales",
+          "items": [
+            {
+              "label": "Confirmar contexto",
+              "detail": "Se distinguen privilegio y autorización."
+            },
+            {
+              "label": "Valorar impacto",
+              "detail": "Se prioriza investigar su sesión activa."
+            },
+            {
+              "label": "Documentar cola",
+              "detail": "Se registra el ejercicio y su evidencia de aprobación."
+            }
+          ],
+          "caption": "La decisión se explica mediante datos y no solo por el orden de llegada."
+        }
+      },
+      "practice": {
+        "task": "Prioriza tres alertas ficticias con información incompleta.",
+        "steps": [
+          "Indica impacto y dato faltante.",
+          "Elige la primera pregunta de cada caso.",
+          "Explica qué respuesta cambiaría la prioridad."
+        ],
+        "expected": "Un orden provisional y revisable."
+      },
+      "check": {
+        "question": "¿Qué factor puede cambiar la prioridad inicial?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El color del icono."
+          },
+          {
+            "id": "b",
+            "text": "Confirmar que una cuenta afectada tiene privilegios y sesión activa."
+          },
+          {
+            "id": "c",
+            "text": "El número de palabras del título."
+          }
+        ],
+        "correct": "b",
+        "explanation": "El privilegio y la actividad en curso pueden aumentar consecuencias y urgencia del caso."
+      },
+      "mistakes": [
+        {
+          "myth": "La prioridad nunca cambia después de abrir el ticket.",
+          "correction": "Debe adaptarse a nueva evidencia y quedar documentada."
+        }
+      ],
+      "recap": [
+        "Prioridad combina impacto, alcance y actividad.",
+        "La severidad del producto necesita contexto.",
+        "Pregunta primero lo que cambia una decisión urgente."
+      ],
+      "glossary": [
+        {
+          "term": "Triaje",
+          "definition": "Clasificación inicial de atención según contexto y consecuencias."
+        },
+        {
+          "term": "Urgencia",
+          "definition": "Necesidad temporal de actuar para limitar consecuencias."
+        }
+      ]
+    },
+    {
+      "dayId": "w37d5",
+      "title": "Herramientas y entorno",
+      "lead": "Usa datos sintéticos o autorizados.",
+      "sections": [
+        {
+          "topic": "Acceso, cuentas y recuperación",
+          "explanation": [
+            "Un entorno de investigación necesita acceso controlado, fuentes conocidas y capacidad de recuperación. Comprueba que las cuentas de práctica no tengan permisos innecesarios y que los archivos del caso sean sintéticos o autorizados. No utilices tu equipo principal para abrir muestras sospechosas reales. La ausencia de una herramienta comercial no obliga a improvisar con servicios públicos que puedan almacenar datos privados. Puedes practicar razonamiento con tablas y artefactos preparados sin ejecutar contenido peligroso.",
+            "Antes de empezar, verifica conectividad al entorno, hora, ruta de datos, versiones relevantes y forma de restaurar el laboratorio. Una instantánea puede ayudar a recuperar estado, pero no sustituye todos los requisitos de respaldo o preservación. Distingue copia de trabajo y material original. Documenta límites de herramientas: un visor puede mostrar ciertos campos y omitir otros. Si una función falla, registra el error y usa una alternativa autorizada o solicita apoyo; no conviertas la falta de acceso en una conclusión sobre el caso."
+          ],
+          "analogy": "Una mesa de laboratorio se prepara antes del experimento: material identificado, permisos adecuados y recuperación prevista.",
+          "keyPoints": [
+            "Usa datos sintéticos o autorizados.",
+            "Comprueba entorno y recuperación antes de investigar.",
+            "Un error de herramienta no es evidencia de ausencia."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Preparar el laboratorio",
+            "items": [
+              {
+                "label": "Acceso",
+                "detail": "Cuenta y permisos de práctica"
+              },
+              {
+                "label": "Datos",
+                "detail": "Origen y copia de trabajo"
+              },
+              {
+                "label": "Herramientas",
+                "detail": "Versión y campos visibles"
+              },
+              {
+                "label": "Recuperación",
+                "detail": "Método de volver a un estado conocido"
+              }
+            ],
+            "caption": "La práctica no requiere abrir malware real ni publicar artefactos privados."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Visor no abre el archivo",
+        "scenario": "Una herramienta del laboratorio muestra formato no compatible en el artefacto preparado.",
+        "steps": [
+          {
+            "action": "Registrar error",
+            "reason": "No equivale a archivo vacío.",
+            "result": "Se conserva mensaje y versión."
+          },
+          {
+            "action": "Revisar formato",
+            "reason": "La extensión puede no bastar.",
+            "result": "Se consulta formato y herramienta admitida."
+          },
+          {
+            "action": "Elegir alternativa",
+            "reason": "La privacidad sigue aplicando.",
+            "result": "Se usa un visor autorizado o se pide apoyo sin subir el archivo públicamente."
+          }
+        ],
+        "result": "La limitación técnica queda separada de la evidencia del caso.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Visor no abre el archivo",
+          "items": [
+            {
+              "label": "Registrar error",
+              "detail": "Se conserva mensaje y versión."
+            },
+            {
+              "label": "Revisar formato",
+              "detail": "Se consulta formato y herramienta admitida."
+            },
+            {
+              "label": "Elegir alternativa",
+              "detail": "Se usa un visor autorizado o se pide apoyo sin subir el archivo públicamente."
+            }
+          ],
+          "caption": "La limitación técnica queda separada de la evidencia del caso."
+        }
+      },
+      "practice": {
+        "task": "Prepara una ficha de tu entorno de estudio.",
+        "steps": [
+          "Anota cuentas y fuentes sintéticas.",
+          "Describe copia de trabajo y recuperación.",
+          "Incluye una alternativa autorizada ante error."
+        ],
+        "expected": "Un entorno documentado sin secretos ni muestras peligrosas."
+      },
+      "check": {
+        "question": "¿Qué significa que un visor no abra un archivo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que el archivo no contiene evidencia."
+          },
+          {
+            "id": "b",
+            "text": "Que el usuario es culpable."
+          },
+          {
+            "id": "c",
+            "text": "Que existe una limitación o error que necesita diagnóstico."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La herramienta puede fallar por formato, versión o acceso; eso no demuestra el contenido del archivo."
+      },
+      "mistakes": [
+        {
+          "myth": "Cualquier servicio público es adecuado para analizar un archivo privado.",
+          "correction": "Verifica permisos y tratamiento de datos antes de compartir material."
+        }
+      ],
+      "recap": [
+        "Usa datos sintéticos o autorizados.",
+        "Comprueba entorno y recuperación antes de investigar.",
+        "Un error de herramienta no es evidencia de ausencia."
+      ],
+      "glossary": [
+        {
+          "term": "Copia de trabajo",
+          "definition": "Duplicado utilizado para análisis conservando el material de referencia."
+        },
+        {
+          "term": "Limitación de herramienta",
+          "definition": "Capacidad o condición que impide observar parte de los datos."
+        }
+      ]
+    },
+    {
+      "dayId": "w37d6",
+      "title": "Primer caso",
+      "lead": "Plantea dos hipótesis alternativas que puedas contrastar con evidencia.",
+      "sections": [
+        {
+          "topic": "Hipótesis y evidencia",
+          "explanation": [
+            "El primer caso defensivo debe ser lo bastante pequeño para que puedas seguir todas las decisiones. Parte de una pregunta concreta y una colección acotada de registros. Formula una hipótesis legítima y otra no autorizada, e identifica qué dato ayudaría a distinguirlas. No busques confirmar tu primera intuición en cada fila. Un analista debe intentar refutar sus explicaciones cuando la evidencia lo permita. La calidad del caso depende de la relación entre preguntas y pruebas, no del número de herramientas abiertas.",
+            "Construye una secuencia de consultas con resultados esperados. Si buscas una sesión posterior a varios fallos, empieza por la misma cuenta y ventana, comprueba origen e identificador y después revisa operaciones. Anota cuándo una hipótesis pierde apoyo. Un resultado insuficiente puede llevar a escalar o pedir otra fuente, no a inventar un veredicto definitivo. El cierre del ejercicio debe incluir hechos, conclusión provisional, límites y acción recomendada con su motivo. Esa estructura prepara casos mayores sin perder trazabilidad."
+          ],
+          "analogy": "Un rompecabezas pequeño enseña a comprobar que las piezas encajan antes de intentar una imagen enorme.",
+          "keyPoints": [
+            "Plantea hipótesis alternativas comprobables.",
+            "Cada consulta responde una pregunta.",
+            "El cierre puede ser provisional y delimitado."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Primer caso guiado",
+            "items": [
+              {
+                "label": "Pregunta",
+                "detail": "¿Los fallos preceden a una sesión no autorizada?"
+              },
+              {
+                "label": "Datos",
+                "detail": "Cuenta, tiempo y origen"
+              },
+              {
+                "label": "Contraste",
+                "detail": "Cambio autorizado y operaciones"
+              },
+              {
+                "label": "Conclusión",
+                "detail": "Hechos y evidencia pendiente"
+              }
+            ],
+            "caption": "No se fuerza un incidente confirmado cuando faltan datos decisivos."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Fallos tras rotación",
+        "scenario": "Cinco fallos preceden a un éxito desde un servicio conocido después de una rotación registrada.",
+        "steps": [
+          {
+            "action": "Ordenar eventos",
+            "reason": "La secuencia debe ser comparable.",
+            "result": "Los seis eventos pertenecen a la misma cuenta."
+          },
+          {
+            "action": "Contrastar cambio",
+            "reason": "La causa operativa tiene una referencia.",
+            "result": "El ticket coincide en hora y servicio."
+          },
+          {
+            "action": "Comprobar resultado",
+            "reason": "La explicación necesita efecto observable.",
+            "result": "Tras actualizar la configuración autorizada cesan los fallos."
+          }
+        ],
+        "result": "La hipótesis operativa queda apoyada por varias observaciones, no solo por una declaración.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Fallos tras rotación",
+          "items": [
+            {
+              "label": "Ordenar eventos",
+              "detail": "Los seis eventos pertenecen a la misma cuenta."
+            },
+            {
+              "label": "Contrastar cambio",
+              "detail": "El ticket coincide en hora y servicio."
+            },
+            {
+              "label": "Comprobar resultado",
+              "detail": "Tras actualizar la configuración autorizada cesan los fallos."
+            }
+          ],
+          "caption": "La hipótesis operativa queda apoyada por varias observaciones, no solo por una declaración."
+        }
+      },
+      "practice": {
+        "task": "Resuelve seis registros ficticios con dos hipótesis.",
+        "steps": [
+          "Escribe evidencia que apoyaría cada una.",
+          "Realiza dos filtros manuales.",
+          "Cierra con hechos, límite y siguiente acción."
+        ],
+        "expected": "Un caso pequeño con decisiones reproducibles."
+      },
+      "check": {
+        "question": "¿Qué debes hacer si un dato contradice tu hipótesis?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Revisar la hipótesis y conservar el dato."
+          },
+          {
+            "id": "b",
+            "text": "Eliminar el dato para mantener consistencia."
+          },
+          {
+            "id": "c",
+            "text": "Cambiar la hora del registro."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La investigación contrasta explicaciones con evidencia, no modifica datos para proteger una intuición."
+      },
+      "mistakes": [
+        {
+          "myth": "El primer caso debe terminar siempre en incidente confirmado.",
+          "correction": "Una conclusión legítima puede ser causa operativa o datos insuficientes, según evidencia."
+        }
+      ],
+      "recap": [
+        "Plantea hipótesis alternativas comprobables.",
+        "Cada consulta responde una pregunta.",
+        "El cierre puede ser provisional y delimitado."
+      ],
+      "glossary": [
+        {
+          "term": "Refutación",
+          "definition": "Búsqueda de datos que contradigan una explicación."
+        },
+        {
+          "term": "Veredicto provisional",
+          "definition": "Conclusión limitada y revisable según la evidencia disponible."
+        }
+      ]
+    },
+    {
+      "dayId": "w37d7",
+      "title": "Evaluación de método",
+      "lead": "Evalúa proceso además de resultado.",
+      "sections": [
+        {
+          "topic": "Orden y comunicación",
+          "explanation": [
+            "Evaluar el método defensivo significa revisar cómo llegaste a una conclusión. Pregunta si definiste alcance, conservaste fuentes, formulaste alternativas y registraste consultas. Un resultado correcto por casualidad no demuestra un proceso fiable. También puede haber una investigación bien hecha que termine en datos insuficientes: ese resultado es útil si explica qué falta y por qué importa. La evaluación debe premiar precisión y trazabilidad, no certeza artificial o una lista larga de comandos.",
+            "La comunicación cambia según el destinatario sin alterar los hechos. Un relevo técnico necesita identificadores, consultas y límites; un responsable operativo necesita impacto, estado y decisiones pendientes. Evita jerga innecesaria y distingue acción propuesta de ejecutada. Un resumen útil puede ocupar pocas líneas si responde qué ocurrió, qué se sabe, qué se hizo y qué se solicita. Las notas detalladas quedan como apoyo. Practicar ambas capas te ayuda a colaborar, escalar y defender un caso sin obligar a todos a repetir la investigación."
+          ],
+          "analogy": "El informe es el relevo de una carrera: debe entregar la información necesaria sin perder el hilo de lo ya comprobado.",
+          "keyPoints": [
+            "Evalúa proceso además de resultado.",
+            "Datos insuficientes puede ser una conclusión válida.",
+            "Adapta detalle al destinatario sin cambiar hechos."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Dos niveles de comunicación",
+            "items": [
+              {
+                "label": "Técnico",
+                "detail": "Fuentes, consultas y límites"
+              },
+              {
+                "label": "Operativo",
+                "detail": "Impacto, estado y decisiones"
+              },
+              {
+                "label": "Común",
+                "detail": "Hechos y acciones claramente diferenciados"
+              }
+            ],
+            "caption": "Ambas versiones deben sostener la misma conclusión."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Resumen para relevo",
+        "scenario": "El caso tiene una sesión sospechosa activa y necesita autorización para revocarla.",
+        "steps": [
+          {
+            "action": "Resumir hechos",
+            "reason": "El receptor necesita contexto verificable.",
+            "result": "Se indica cuenta, sesión e intervalo."
+          },
+          {
+            "action": "Separar acciones",
+            "reason": "No debe parecer que ya se ejecutó.",
+            "result": "Revocación propuesta, no realizada."
+          },
+          {
+            "action": "Solicitar decisión",
+            "reason": "Escalar exige una necesidad explícita.",
+            "result": "Se pide autorización al responsable con impacto y evidencia."
+          }
+        ],
+        "result": "El relevo permite decidir sin repetir todo el análisis.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Resumen para relevo",
+          "items": [
+            {
+              "label": "Resumir hechos",
+              "detail": "Se indica cuenta, sesión e intervalo."
+            },
+            {
+              "label": "Separar acciones",
+              "detail": "Revocación propuesta, no realizada."
+            },
+            {
+              "label": "Solicitar decisión",
+              "detail": "Se pide autorización al responsable con impacto y evidencia."
+            }
+          ],
+          "caption": "El relevo permite decidir sin repetir todo el análisis."
+        }
+      },
+      "practice": {
+        "task": "Escribe un resumen técnico y otro operativo del mismo caso ficticio.",
+        "steps": [
+          "Mantén idénticos hechos.",
+          "Varía detalle y vocabulario según destinatario.",
+          "Incluye acción pendiente y quién decide."
+        ],
+        "expected": "Dos resúmenes coherentes con referencias a la misma evidencia."
+      },
+      "check": {
+        "question": "¿Qué mejora más un relevo de caso?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ocultar incertidumbre para parecer seguro."
+          },
+          {
+            "id": "b",
+            "text": "Separar hechos, acciones realizadas y decisiones pendientes."
+          },
+          {
+            "id": "c",
+            "text": "Pegar todos los registros sin explicar nada."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La separación permite continuar y decidir con claridad sin confundir propuestas con acciones ejecutadas."
+      },
+      "mistakes": [
+        {
+          "myth": "Un informe más largo siempre es mejor.",
+          "correction": "El detalle debe responder al destinatario y conservar evidencia pertinente."
+        }
+      ],
+      "recap": [
+        "Evalúa proceso además de resultado.",
+        "Datos insuficientes puede ser una conclusión válida.",
+        "Adapta detalle al destinatario sin cambiar hechos."
+      ],
+      "glossary": [
+        {
+          "term": "Relevo",
+          "definition": "Transferencia de un caso con contexto suficiente para continuar."
+        },
+        {
+          "term": "Resumen operativo",
+          "definition": "Síntesis centrada en impacto, estado y decisiones necesarias."
+        }
+      ]
+    }
+  ]
+}

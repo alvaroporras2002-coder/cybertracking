@@ -1,0 +1,949 @@
+{
+  "version": "2.0.0",
+  "week": 18,
+  "title": "Identidad y gobierno del acceso",
+  "overview": "La identidad no termina al escribir una contraseña. Esta semana recorrerás autenticación, factores, permisos, cambios de puesto, acceso físico y revisión de cuentas. Aprenderás a evaluar quién recibe acceso, por qué lo necesita y cómo comprobar que se retira cuando deja de corresponder. Los casos incluyen sesiones, recuperación y cuentas técnicas, porque suelen quedar fuera de una revisión superficial. La evaluación final combina escenarios con una demostración segura y reproducible.",
+  "objectives": [
+    "Distinguir identidad, autenticación y autorización.",
+    "Aplicar mínimo privilegio y ciclo de vida completo.",
+    "Revisar accesos lógicos y físicos con evidencia."
+  ],
+  "sources": [
+    {
+      "id": "auth",
+      "title": "NIST SP 800-63B-4: autenticación",
+      "url": "https://csrc.nist.gov/pubs/sp/800/63/b/4/final"
+    },
+    {
+      "id": "session",
+      "title": "OWASP: gestión de sesiones",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html"
+    },
+    {
+      "id": "ethics",
+      "title": "ISC2: código de ética",
+      "url": "https://www.isc2.org/ethics"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w18d1",
+      "title": "Identidad y autenticación",
+      "lead": "Separa la identidad declarada, la prueba presentada y la sesión que resulta.",
+      "sections": [
+        {
+          "topic": "Credencial, sesión y verificación",
+          "explanation": [
+            "Identificarse es declarar quién eres, por ejemplo mediante un nombre de cuenta. Autenticarse es demostrar control de un autenticador asociado a esa identidad. Una contraseña, una llave de seguridad o un mecanismo de autenticación del dispositivo cumplen funciones diferentes dentro del proceso. La credencial debe verificarse mediante un servicio confiable, y el resultado puede dar lugar a una sesión que requiere protección propia.",
+            "No confundas autenticación con certeza absoluta sobre la persona o con autorización para cualquier tarea. Una cuenta válida puede ser usada indebidamente, y un usuario legítimo puede carecer de permiso para consultar un documento. Revisa el alta inicial, recuperación, cambios de autenticadores y revocación. Una recuperación débil puede eludir una autenticación fuerte. Para practicar, usa identidades ficticias y representa las pruebas sin escribir contraseñas reales en tus notas."
+          ],
+          "analogy": "Decir tu nombre en recepción no es lo mismo que mostrar una credencial ni recibir autorización para una sala.",
+          "keyPoints": [
+            "Identificación declara una identidad.",
+            "Autenticación verifica un autenticador asociado.",
+            "Sesión y recuperación necesitan protección adicional."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "De identidad a sesión",
+            "items": [
+              {
+                "label": "Declarar",
+                "detail": "Cuenta solicitada por el usuario"
+              },
+              {
+                "label": "Verificar",
+                "detail": "Prueba válida del autenticador"
+              },
+              {
+                "label": "Emitir",
+                "detail": "Sesión con alcance y caducidad"
+              },
+              {
+                "label": "Revisar",
+                "detail": "Acceso y eventos registrados"
+              }
+            ],
+            "caption": "El permiso sobre cada recurso se decide después según la política."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Inicio de sesión en biblioteca",
+        "scenario": "Una cuenta de lector supera la autenticación, pero pide editar el catálogo.",
+        "steps": [
+          {
+            "action": "Reconocer identidad",
+            "reason": "La credencial demuestra control de una cuenta.",
+            "result": "Cuenta de lector autenticada"
+          },
+          {
+            "action": "Consultar permisos",
+            "reason": "El rol no incluye edición del catálogo.",
+            "result": "Operación no autorizada"
+          },
+          {
+            "action": "Registrar decisión",
+            "reason": "La denegación debe ser explicable.",
+            "result": "Acceso de lectura conservado"
+          }
+        ],
+        "result": "La autenticación correcta y la denegación de edición son compatibles.",
+        "visual": {
+          "type": "flow",
+          "title": "Inicio de sesión en biblioteca",
+          "items": [
+            {
+              "label": "Reconocer identidad",
+              "detail": "Cuenta de lector autenticada"
+            },
+            {
+              "label": "Consultar permisos",
+              "detail": "Operación no autorizada"
+            },
+            {
+              "label": "Registrar decisión",
+              "detail": "Acceso de lectura conservado"
+            }
+          ],
+          "caption": "La autenticación correcta y la denegación de edición son compatibles."
+        }
+      },
+      "practice": {
+        "task": "Dibuja un inicio de sesión ficticio.",
+        "steps": [
+          "Incluye identificador y autenticador.",
+          "Separa emisión de sesión y autorización.",
+          "Añade una recuperación y cómo evitarías que fuera más débil."
+        ],
+        "expected": "Un flujo que no confunde conocer un nombre con demostrar identidad."
+      },
+      "check": {
+        "question": "Un usuario autenticado solicita un archivo. ¿Qué sigue siendo necesario?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Autorizar el acceso a ese archivo"
+          },
+          {
+            "id": "b",
+            "text": "Cambiar su dirección IP"
+          },
+          {
+            "id": "c",
+            "text": "Revelar su contraseña al dueño"
+          }
+        ],
+        "correct": "a",
+        "explanation": "La identidad verificada no concede automáticamente permiso para todos los recursos."
+      },
+      "mistakes": [
+        {
+          "myth": "Autenticación válida significa actividad legítima en cualquier contexto.",
+          "correction": "También debes verificar permisos, sesión y señales relevantes del acceso."
+        }
+      ],
+      "recap": [
+        "Identificación declara una identidad.",
+        "Autenticación verifica un autenticador asociado.",
+        "Sesión y recuperación necesitan protección adicional."
+      ],
+      "glossary": [
+        {
+          "term": "Autenticador",
+          "definition": "Medio utilizado para demostrar control durante autenticación."
+        },
+        {
+          "term": "Identificador",
+          "definition": "Dato que permite seleccionar una identidad o cuenta."
+        }
+      ]
+    },
+    {
+      "dayId": "w18d2",
+      "title": "MFA",
+      "lead": "Cuenta factores diferentes y analiza cómo podrían ser robados o retransmitidos.",
+      "sections": [
+        {
+          "topic": "Factores, métodos y limitaciones",
+          "explanation": [
+            "MFA combina factores de categorías distintas, como algo que sabes, algo que tienes o una característica inherente utilizada mediante un sistema adecuado. Dos contraseñas no constituyen dos factores independientes. El método concreto importa: un código introducido en un sitio falso puede ser retransmitido, mientras mecanismos resistentes al phishing vinculan la autenticación al servicio legítimo mediante propiedades del protocolo.",
+            "Una implementación también necesita recuperación segura, registro de autenticadores y tratamiento de dispositivos perdidos. Las notificaciones de aprobación pueden ser abusadas si el usuario acepta solicitudes que no inició. Configura métodos adecuados al riesgo y enseña a rechazar y reportar solicitudes inesperadas. MFA reduce riesgos, pero no impide automáticamente robo de sesión, engaños posteriores ni permisos excesivos. Evalúa qué amenaza mitiga cada método en lugar de tratar todos los botones de doble verificación como equivalentes."
+          ],
+          "analogy": "Dos llaves copiadas del mismo llavero no equivalen a dos controles independientes sobre una entrada.",
+          "keyPoints": [
+            "Dos secretos del mismo tipo no son dos factores.",
+            "Los métodos difieren en resistencia al phishing.",
+            "Recuperación y sesión forman parte del diseño."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Métodos y amenazas",
+            "items": [
+              {
+                "label": "Contraseña y pregunta",
+                "detail": "Dos pruebas de conocimiento"
+              },
+              {
+                "label": "Contraseña y dispositivo",
+                "detail": "Factores distintos si se implementan correctamente"
+              },
+              {
+                "label": "Resistencia al phishing",
+                "detail": "Vinculación al servicio legítimo"
+              }
+            ],
+            "caption": "La independencia y el protocolo importan más que contar pantallas."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Aprobaciones inesperadas",
+        "scenario": "Una persona recibe varias solicitudes de acceso que no inició.",
+        "steps": [
+          {
+            "action": "Reconocer contexto",
+            "reason": "La solicitud no coincide con una acción propia.",
+            "result": "No aprobar"
+          },
+          {
+            "action": "Usar canal conocido",
+            "reason": "Responder al mensaje puede mantener el engaño.",
+            "result": "Reportar al servicio autorizado"
+          },
+          {
+            "action": "Revisar acceso",
+            "reason": "La cuenta puede estar bajo intento de abuso.",
+            "result": "Eventos, autenticadores y sesiones revisados"
+          }
+        ],
+        "result": "Rechazar la solicitud evita convertir una presión repetida en autorización.",
+        "visual": {
+          "type": "flow",
+          "title": "Aprobaciones inesperadas",
+          "items": [
+            {
+              "label": "Reconocer contexto",
+              "detail": "No aprobar"
+            },
+            {
+              "label": "Usar canal conocido",
+              "detail": "Reportar al servicio autorizado"
+            },
+            {
+              "label": "Revisar acceso",
+              "detail": "Eventos, autenticadores y sesiones revisados"
+            }
+          ],
+          "caption": "Rechazar la solicitud evita convertir una presión repetida en autorización."
+        }
+      },
+      "practice": {
+        "task": "Compara tres métodos de autenticación en papel.",
+        "steps": [
+          "Identifica la categoría de cada factor.",
+          "Explica si un sitio falso podría retransmitir su prueba.",
+          "Describe la recuperación ante pérdida del dispositivo."
+        ],
+        "expected": "Una comparación con ventajas y límites, sin usar credenciales reales."
+      },
+      "check": {
+        "question": "¿Cuál es la mejor descripción de dos contraseñas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Dos factores de categorías distintas"
+          },
+          {
+            "id": "b",
+            "text": "Dos pruebas del mismo tipo de factor"
+          },
+          {
+            "id": "c",
+            "text": "Un método resistente al phishing por definición"
+          }
+        ],
+        "correct": "b",
+        "explanation": "Ambas son conocimiento; añadir otra contraseña no crea independencia de categorías."
+      },
+      "mistakes": [
+        {
+          "myth": "Activar cualquier MFA elimina el phishing.",
+          "correction": "La resistencia depende del método y no cubre todos los robos de sesión o engaños."
+        }
+      ],
+      "recap": [
+        "Dos secretos del mismo tipo no son dos factores.",
+        "Los métodos difieren en resistencia al phishing.",
+        "Recuperación y sesión forman parte del diseño."
+      ],
+      "glossary": [
+        {
+          "term": "Factor",
+          "definition": "Categoría de evidencia utilizada para autenticar."
+        },
+        {
+          "term": "Resistencia al phishing",
+          "definition": "Capacidad de impedir que un engaño de sitio reutilice la autenticación en otro origen."
+        }
+      ]
+    },
+    {
+      "dayId": "w18d3",
+      "title": "Autorización",
+      "lead": "Asigna permisos a una función y comprueba su efecto sobre una operación concreta.",
+      "sections": [
+        {
+          "topic": "Roles, atributos y privilegios",
+          "explanation": [
+            "La autorización determina qué puede hacer un sujeto sobre un recurso. Un modelo basado en roles agrupa permisos por función, como lector o editor. Uno basado en atributos evalúa características del usuario, recurso o contexto, como departamento, clasificación y dispositivo. Los nombres del rol no bastan: debes revisar los permisos efectivos y cómo se combinan con otras asignaciones.",
+            "El mínimo privilegio limita el acceso a lo necesario para la tarea durante el tiempo necesario. La separación de funciones evita que una sola persona controle etapas incompatibles, como solicitar y aprobar el mismo pago. Estas medidas también reducen el daño si una cuenta se compromete. Valida operaciones permitidas y prohibidas con cuentas de prueba. Ocultar un botón en la interfaz no sustituye la autorización en el componente que realmente ejecuta la operación."
+          ],
+          "analogy": "Una tarjeta puede permitir consultar el archivo y otra modificarlo; la etiqueta de la tarjeta debe corresponder a lo que abre.",
+          "keyPoints": [
+            "Roles agrupan permisos; atributos aportan condiciones.",
+            "Mínimo privilegio incluye alcance y tiempo.",
+            "Comprueba permisos efectivos, no solo nombres."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Decisión de autorización",
+            "items": [
+              {
+                "label": "Sujeto",
+                "detail": "Cuenta con rol de lector"
+              },
+              {
+                "label": "Recurso",
+                "detail": "Documento de su departamento"
+              },
+              {
+                "label": "Contexto",
+                "detail": "Sesión y condiciones evaluadas"
+              },
+              {
+                "label": "Decisión",
+                "detail": "Lectura permitida; edición denegada"
+              }
+            ],
+            "caption": "La política debe aplicarse donde se ejecuta la operación."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Editor temporal de un proyecto",
+        "scenario": "Una persona solo necesita modificar documentos del proyecto A durante una semana.",
+        "steps": [
+          {
+            "action": "Acotar recursos",
+            "reason": "Otros proyectos no forman parte de la tarea.",
+            "result": "Permiso limitado al proyecto A"
+          },
+          {
+            "action": "Acotar duración",
+            "reason": "La necesidad no es permanente.",
+            "result": "Caducidad o revisión programada"
+          },
+          {
+            "action": "Probar operaciones",
+            "reason": "La etiqueta editor puede ocultar permisos extra.",
+            "result": "Edición de A funciona; B permanece denegado"
+          }
+        ],
+        "result": "El acceso coincide con la necesidad, con un mecanismo de retirada definido.",
+        "visual": {
+          "type": "flow",
+          "title": "Editor temporal de un proyecto",
+          "items": [
+            {
+              "label": "Acotar recursos",
+              "detail": "Permiso limitado al proyecto A"
+            },
+            {
+              "label": "Acotar duración",
+              "detail": "Caducidad o revisión programada"
+            },
+            {
+              "label": "Probar operaciones",
+              "detail": "Edición de A funciona; B permanece denegado"
+            }
+          ],
+          "caption": "El acceso coincide con la necesidad, con un mecanismo de retirada definido."
+        }
+      },
+      "practice": {
+        "task": "Diseña permisos para lector, editor y aprobador.",
+        "steps": [
+          "Escribe dos operaciones por rol.",
+          "Marca una combinación de funciones incompatible.",
+          "Añade una prueba negativa por rol."
+        ],
+        "expected": "Una matriz de acceso que pueda probarse con cuentas ficticias."
+      },
+      "check": {
+        "question": "¿Qué demuestra mejor mínimo privilegio?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Todos son administradores para evitar errores"
+          },
+          {
+            "id": "b",
+            "text": "El menú de administración está oculto"
+          },
+          {
+            "id": "c",
+            "text": "Solo se permiten recursos y operaciones necesarios"
+          }
+        ],
+        "correct": "c",
+        "explanation": "El control debe limitar acciones efectivas, no únicamente la apariencia de la interfaz."
+      },
+      "mistakes": [
+        {
+          "myth": "Cambiar el nombre de un rol modifica automáticamente todos sus permisos.",
+          "correction": "Debes revisar la definición y las asignaciones efectivas del sistema."
+        }
+      ],
+      "recap": [
+        "Roles agrupan permisos; atributos aportan condiciones.",
+        "Mínimo privilegio incluye alcance y tiempo.",
+        "Comprueba permisos efectivos, no solo nombres."
+      ],
+      "glossary": [
+        {
+          "term": "RBAC",
+          "definition": "Modelo de acceso organizado mediante roles."
+        },
+        {
+          "term": "ABAC",
+          "definition": "Modelo que evalúa atributos para decidir un acceso."
+        }
+      ]
+    },
+    {
+      "dayId": "w18d4",
+      "title": "Ciclo de vida",
+      "lead": "Gestiona la cuenta desde su alta hasta la retirada de sesiones y accesos.",
+      "sections": [
+        {
+          "topic": "Alta, cambio y baja",
+          "explanation": [
+            "El ciclo de vida de identidad comienza antes del primer inicio de sesión. El alta necesita una solicitud autorizada, una identidad vinculada a la persona y permisos acordes con su función. Un cambio de puesto debe retirar accesos anteriores además de agregar los nuevos. Si solo se acumulan permisos, aparece una expansión gradual de privilegios que puede no corresponder a ninguna necesidad actual.",
+            "La baja incluye deshabilitar o eliminar la cuenta según la política, revocar sesiones y credenciales, retirar grupos y revisar accesos en servicios conectados. Algunas aplicaciones conservan cuentas locales aunque el directorio central se haya actualizado. También deben atenderse dispositivos, llaves y propiedad de archivos para que la operación continúe sin compartir la cuenta de quien se retira. Documenta quién aprobó, quién ejecutó y qué evidencia confirma cada paso."
+          ],
+          "analogy": "Cambiar la cerradura de la puerta principal no retira automáticamente todas las copias de llaves de las oficinas.",
+          "keyPoints": [
+            "El cambio de puesto también retira permisos.",
+            "La baja cubre sesiones y servicios conectados.",
+            "La continuidad requiere transferir propiedad sin compartir cuentas."
+          ],
+          "visual": {
+            "type": "cycle",
+            "title": "Ciclo de identidad",
+            "items": [
+              {
+                "label": "Alta",
+                "detail": "Solicitud y permisos iniciales autorizados"
+              },
+              {
+                "label": "Cambio",
+                "detail": "Revisar y retirar accesos anteriores"
+              },
+              {
+                "label": "Revisión",
+                "detail": "Confirmar necesidad y propietario"
+              },
+              {
+                "label": "Baja",
+                "detail": "Revocar accesos y comprobar cierre"
+              }
+            ],
+            "caption": "Cada transición necesita evidencia y responsables."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Traslado de ventas a finanzas",
+        "scenario": "Una persona cambia de departamento y conserva un grupo antiguo.",
+        "steps": [
+          {
+            "action": "Comparar funciones",
+            "reason": "El puesto anterior ya no justifica ese acceso.",
+            "result": "Grupo de ventas identificado"
+          },
+          {
+            "action": "Retirar y conceder",
+            "reason": "El cambio no consiste solo en sumar permisos.",
+            "result": "Acceso nuevo aprobado y anterior retirado"
+          },
+          {
+            "action": "Verificar aplicaciones",
+            "reason": "Los servicios pueden mantener sesiones independientes.",
+            "result": "Pruebas de acceso y revocación registradas"
+          }
+        ],
+        "result": "La identidad conserva únicamente los permisos que corresponden a su función actual.",
+        "visual": {
+          "type": "flow",
+          "title": "Traslado de ventas a finanzas",
+          "items": [
+            {
+              "label": "Comparar funciones",
+              "detail": "Grupo de ventas identificado"
+            },
+            {
+              "label": "Retirar y conceder",
+              "detail": "Acceso nuevo aprobado y anterior retirado"
+            },
+            {
+              "label": "Verificar aplicaciones",
+              "detail": "Pruebas de acceso y revocación registradas"
+            }
+          ],
+          "caption": "La identidad conserva únicamente los permisos que corresponden a su función actual."
+        }
+      },
+      "practice": {
+        "task": "Crea una lista de baja de una cuenta ficticia.",
+        "steps": [
+          "Incluye directorio, aplicaciones y sesiones.",
+          "Incluye dispositivos y propiedad de archivos.",
+          "Define evidencia y responsable para cada comprobación."
+        ],
+        "expected": "Un cierre verificable que no dependa de compartir contraseñas."
+      },
+      "check": {
+        "question": "¿Qué evita mejor acumulación de privilegios en un traslado?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Añadir el rol nuevo sin revisar nada"
+          },
+          {
+            "id": "b",
+            "text": "Revisar y retirar permisos del puesto anterior"
+          },
+          {
+            "id": "c",
+            "text": "Cambiar solo el nombre mostrado"
+          }
+        ],
+        "correct": "b",
+        "explanation": "El cambio debe comparar necesidades anteriores y actuales, no únicamente agregar accesos."
+      },
+      "mistakes": [
+        {
+          "myth": "Deshabilitar una cuenta central cierra cualquier sesión de cualquier servicio.",
+          "correction": "Comprueba federación, aplicaciones independientes y mecanismos de revocación."
+        }
+      ],
+      "recap": [
+        "El cambio de puesto también retira permisos.",
+        "La baja cubre sesiones y servicios conectados.",
+        "La continuidad requiere transferir propiedad sin compartir cuentas."
+      ],
+      "glossary": [
+        {
+          "term": "Aprovisionamiento",
+          "definition": "Creación y asignación de accesos autorizados."
+        },
+        {
+          "term": "Desaprovisionamiento",
+          "definition": "Retirada y verificación de accesos al terminar su necesidad."
+        }
+      ]
+    },
+    {
+      "dayId": "w18d5",
+      "title": "Acceso físico",
+      "lead": "Aplica el mismo razonamiento de permisos al espacio físico.",
+      "sections": [
+        {
+          "topic": "Visitantes, zonas y controles",
+          "explanation": [
+            "El acceso físico controla quién entra a un lugar y qué puede hacer allí. Una recepción verifica visitas; una credencial habilita zonas; un registro permite revisar entradas. Las áreas deben corresponder al impacto de los activos que contienen. Un visitante puede necesitar una sala de reunión sin necesitar acceso al armario de comunicaciones o a documentos impresos.",
+            "Combina autorización, acompañamiento y procedimientos que no dependan solo de reconocer caras. El seguimiento de una persona autorizada a través de una puerta, conocido como tailgating, puede eludir el control de credenciales. La respuesta debe seguir políticas seguras y no poner a las personas en riesgo. También considera salidas de emergencia y continuidad: un control que dificulta evacuar introduce otro peligro. Los registros de visita contienen información personal y requieren acceso y retención adecuados."
+          ],
+          "analogy": "El acceso al vestíbulo de un hotel no autoriza a abrir su sala de servidores ni las habitaciones de otras personas.",
+          "keyPoints": [
+            "Define zonas según necesidad e impacto.",
+            "Acompañamiento y registro complementan credenciales.",
+            "La seguridad física incluye seguridad de las personas."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Zonas físicas de una oficina",
+            "items": [
+              {
+                "label": "Recepción",
+                "detail": "Verificación y registro de visitantes"
+              },
+              {
+                "label": "Sala de reunión",
+                "detail": "Acceso temporal acompañado"
+              },
+              {
+                "label": "Área restringida",
+                "detail": "Solo personal autorizado por función"
+              }
+            ],
+            "caption": "Las rutas de emergencia y la privacidad de los registros también deben contemplarse."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Técnico externo de mantenimiento",
+        "scenario": "El visitante debe reparar un equipo en una sala concreta.",
+        "steps": [
+          {
+            "action": "Confirmar visita",
+            "reason": "Un uniforme no prueba autorización.",
+            "result": "Responsable interno valida la cita"
+          },
+          {
+            "action": "Limitar recorrido",
+            "reason": "La tarea no requiere toda la oficina.",
+            "result": "Credencial temporal y acompañamiento"
+          },
+          {
+            "action": "Cerrar acceso",
+            "reason": "Las credenciales temporales no deben persistir.",
+            "result": "Salida registrada y credencial retirada"
+          }
+        ],
+        "result": "La visita queda vinculada a una tarea y un intervalo verificables.",
+        "visual": {
+          "type": "flow",
+          "title": "Técnico externo de mantenimiento",
+          "items": [
+            {
+              "label": "Confirmar visita",
+              "detail": "Responsable interno valida la cita"
+            },
+            {
+              "label": "Limitar recorrido",
+              "detail": "Credencial temporal y acompañamiento"
+            },
+            {
+              "label": "Cerrar acceso",
+              "detail": "Salida registrada y credencial retirada"
+            }
+          ],
+          "caption": "La visita queda vinculada a una tarea y un intervalo verificables."
+        }
+      },
+      "practice": {
+        "task": "Diseña un recorrido de visitante en una oficina ficticia.",
+        "steps": [
+          "Define recepción y zona permitida.",
+          "Indica acompañamiento y restricción.",
+          "Añade devolución de credencial y privacidad del registro."
+        ],
+        "expected": "Un procedimiento seguro para las personas y acotado a la tarea."
+      },
+      "check": {
+        "question": "Un visitante con cita debería recibir…",
+        "options": [
+          {
+            "id": "a",
+            "text": "Acceso a todas las áreas por comodidad"
+          },
+          {
+            "id": "b",
+            "text": "La cuenta de un empleado"
+          },
+          {
+            "id": "c",
+            "text": "Acceso limitado a las zonas necesarias"
+          }
+        ],
+        "correct": "c",
+        "explanation": "La autorización física también sigue mínimo privilegio y duración de la necesidad."
+      },
+      "mistakes": [
+        {
+          "myth": "Una cámara reemplaza cualquier control de puerta.",
+          "correction": "Puede aportar evidencia, pero no necesariamente impide una entrada no autorizada."
+        }
+      ],
+      "recap": [
+        "Define zonas según necesidad e impacto.",
+        "Acompañamiento y registro complementan credenciales.",
+        "La seguridad física incluye seguridad de las personas."
+      ],
+      "glossary": [
+        {
+          "term": "Tailgating",
+          "definition": "Entrada siguiendo a una persona autorizada sin control individual."
+        },
+        {
+          "term": "Credencial temporal",
+          "definition": "Medio de acceso válido durante un intervalo y alcance definidos."
+        }
+      ]
+    },
+    {
+      "dayId": "w18d6",
+      "title": "Revisión de accesos",
+      "lead": "Busca accesos que ya no tengan una necesidad o un propietario válido.",
+      "sections": [
+        {
+          "topic": "Excesos, cuentas huérfanas y segregación",
+          "explanation": [
+            "Una revisión de accesos compara asignaciones actuales con funciones y necesidades aprobadas. No se limita a contar cuentas: debe identificar permisos excesivos, cuentas sin propietario activo y combinaciones incompatibles. Una cuenta huérfana puede permanecer habilitada después de una baja o de retirar una aplicación. Las cuentas de servicio también necesitan dueño, propósito y un mecanismo de revisión.",
+            "Prepara un inventario y pide validación a responsables que conozcan el proceso. El equipo técnico puede recopilar permisos, pero el propietario del recurso confirma la necesidad. Ante un acceso dudoso, investiga dependencias antes de retirarlo de forma que cause una interrupción evitable. Documenta la decisión, su aprobación y el resultado de la verificación. Una revisión periódica pierde valor si las excepciones quedan abiertas sin fecha ni responsable de seguimiento."
+          ],
+          "analogy": "Revisar llaves consiste en saber quién las tiene y por qué todavía las necesita, no solo en contar cuántas existen.",
+          "keyPoints": [
+            "Cada cuenta requiere propósito y dueño.",
+            "La necesidad debe confirmarla quien conoce el recurso.",
+            "Las excepciones necesitan plazo y seguimiento."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Revisión de permisos",
+            "items": [
+              {
+                "label": "Inventario",
+                "detail": "Cuentas, roles y recursos actuales"
+              },
+              {
+                "label": "Validación",
+                "detail": "Dueño confirma necesidad"
+              },
+              {
+                "label": "Decisión",
+                "detail": "Conservar, limitar o retirar"
+              },
+              {
+                "label": "Verificación",
+                "detail": "Acceso efectivo y dependencias comprobados"
+              }
+            ],
+            "caption": "La revisión produce decisiones verificables, no únicamente una hoja firmada."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Cuenta de servicio sin dueño",
+        "scenario": "Una aplicación utiliza una cuenta creada por una persona que ya no trabaja allí.",
+        "steps": [
+          {
+            "action": "Identificar dependencia",
+            "reason": "Eliminarla sin análisis puede interrumpir la aplicación.",
+            "result": "Servicio y uso documentados"
+          },
+          {
+            "action": "Asignar responsabilidad",
+            "reason": "Una cuenta técnica no puede quedar sin dueño.",
+            "result": "Propietario operativo designado"
+          },
+          {
+            "action": "Reducir exposición",
+            "reason": "El propósito define permisos y revisión.",
+            "result": "Accesos limitados y fecha de seguimiento"
+          }
+        ],
+        "result": "La cuenta deja de ser huérfana y sus permisos quedan ligados a una necesidad comprobable.",
+        "visual": {
+          "type": "flow",
+          "title": "Cuenta de servicio sin dueño",
+          "items": [
+            {
+              "label": "Identificar dependencia",
+              "detail": "Servicio y uso documentados"
+            },
+            {
+              "label": "Asignar responsabilidad",
+              "detail": "Propietario operativo designado"
+            },
+            {
+              "label": "Reducir exposición",
+              "detail": "Accesos limitados y fecha de seguimiento"
+            }
+          ],
+          "caption": "La cuenta deja de ser huérfana y sus permisos quedan ligados a una necesidad comprobable."
+        }
+      },
+      "practice": {
+        "task": "Revisa cinco cuentas ficticias en una tabla.",
+        "steps": [
+          "Incluye una cuenta personal y una de servicio.",
+          "Marca propietario, función y último criterio de revisión.",
+          "Propón una decisión y cómo verificarla."
+        ],
+        "expected": "Un registro con al menos un exceso y una dependencia que debas investigar."
+      },
+      "check": {
+        "question": "¿Qué caracteriza una cuenta huérfana?",
+        "options": [
+          {
+            "id": "a",
+            "text": "No tiene propietario o necesidad válidos identificados"
+          },
+          {
+            "id": "b",
+            "text": "No tiene foto de perfil"
+          },
+          {
+            "id": "c",
+            "text": "Tiene un nombre largo"
+          }
+        ],
+        "correct": "a",
+        "explanation": "La falta de responsabilidad y justificación impide gestionar adecuadamente su acceso."
+      },
+      "mistakes": [
+        {
+          "myth": "Una firma de aprobación demuestra que todos los permisos fueron comprobados.",
+          "correction": "La revisión necesita evidencia de necesidad y de los cambios efectivos."
+        }
+      ],
+      "recap": [
+        "Cada cuenta requiere propósito y dueño.",
+        "La necesidad debe confirmarla quien conoce el recurso.",
+        "Las excepciones necesitan plazo y seguimiento."
+      ],
+      "glossary": [
+        {
+          "term": "Cuenta huérfana",
+          "definition": "Cuenta cuyo propietario o necesidad ya no está identificado."
+        },
+        {
+          "term": "Segregación de funciones",
+          "definition": "Separación de tareas incompatibles para reducir abuso o error."
+        }
+      ]
+    },
+    {
+      "dayId": "w18d7",
+      "title": "Evaluación de identidad",
+      "lead": "Comprueba identidad mediante decisiones de acceso y una demostración observable.",
+      "sections": [
+        {
+          "topic": "Diez escenarios y una demostración",
+          "explanation": [
+            "Una evaluación de identidad debe combinar escenarios y una demostración controlada. Los escenarios comprueban si distingues autenticación, autorización, factores, ciclo de vida y revisión. La demostración muestra si puedes aplicar una política y observar el resultado. Una cuenta de prueba con permiso de lectura debería consultar un recurso y fallar al intentar una edición no autorizada.",
+            "Plantea diez situaciones con información suficiente y señala el motivo de cada respuesta. Incluye una recuperación de cuenta, una baja con sesión activa y un permiso heredado de un puesto anterior. Evita evaluar únicamente nombres de productos. En la parte práctica usa datos ficticios y conserva evidencia que no exponga autenticadores. Si el sistema no permite una prueba segura, describe un procedimiento reproducible y declara que la demostración técnica sigue pendiente."
+          ],
+          "analogy": "Explicar una cerradura y comprobar una llave en una puerta real son evidencias complementarias de aprendizaje.",
+          "keyPoints": [
+            "Evalúa decisiones, no solo vocabulario.",
+            "Combina acceso permitido y operación denegada.",
+            "Protege los secretos en la evidencia de práctica."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Evidencias de preparación en identidad",
+            "items": [
+              {
+                "label": "Escenarios",
+                "detail": "Justificar factores y permisos"
+              },
+              {
+                "label": "Demostración",
+                "detail": "Observar lectura y denegación de edición"
+              },
+              {
+                "label": "Revisión",
+                "detail": "Explicar errores y límites pendientes"
+              }
+            ],
+            "caption": "La nota interna no sustituye una práctica bien documentada."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Cuenta lectora en un repositorio de pruebas",
+        "scenario": "La política permite consultar, pero no modificar documentos.",
+        "steps": [
+          {
+            "action": "Verificar cuenta",
+            "reason": "La prueba debe usar la identidad adecuada.",
+            "result": "Lector de laboratorio autenticado"
+          },
+          {
+            "action": "Probar lectura y edición",
+            "reason": "Las dos operaciones evalúan límites distintos.",
+            "result": "Lectura exitosa y modificación denegada"
+          },
+          {
+            "action": "Conservar evidencia segura",
+            "reason": "No hace falta publicar tokens para demostrar el resultado.",
+            "result": "Capturas depuradas y pasos reproducibles"
+          }
+        ],
+        "result": "La demostración sostiene la política mediante dos resultados observables.",
+        "visual": {
+          "type": "flow",
+          "title": "Cuenta lectora en un repositorio de pruebas",
+          "items": [
+            {
+              "label": "Verificar cuenta",
+              "detail": "Lector de laboratorio autenticado"
+            },
+            {
+              "label": "Probar lectura y edición",
+              "detail": "Lectura exitosa y modificación denegada"
+            },
+            {
+              "label": "Conservar evidencia segura",
+              "detail": "Capturas depuradas y pasos reproducibles"
+            }
+          ],
+          "caption": "La demostración sostiene la política mediante dos resultados observables."
+        }
+      },
+      "practice": {
+        "task": "Prepara tu evaluación de diez escenarios y una práctica.",
+        "steps": [
+          "Incluye tres errores distintos del ciclo de vida.",
+          "Resuelve cada caso con su justificación.",
+          "Demuestra un límite de acceso con datos ficticios."
+        ],
+        "expected": "Diez decisiones explicadas y una práctica con evidencia sin secretos."
+      },
+      "check": {
+        "question": "¿Cuál es la evidencia más completa de una política de solo lectura?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El nombre del rol dice lector"
+          },
+          {
+            "id": "b",
+            "text": "La contraseña funciona"
+          },
+          {
+            "id": "c",
+            "text": "Lectura permitida y edición denegada con la misma cuenta"
+          }
+        ],
+        "correct": "c",
+        "explanation": "Las dos operaciones comprueban el permiso y su límite efectivo en el recurso evaluado."
+      },
+      "mistakes": [
+        {
+          "myth": "Responder preguntas de identidad demuestra que todos los accesos están bien configurados.",
+          "correction": "Los conocimientos necesitan comprobarse sobre permisos efectivos en un entorno concreto."
+        }
+      ],
+      "recap": [
+        "Evalúa decisiones, no solo vocabulario.",
+        "Combina acceso permitido y operación denegada.",
+        "Protege los secretos en la evidencia de práctica."
+      ],
+      "glossary": [
+        {
+          "term": "Permiso efectivo",
+          "definition": "Acción que realmente admite el sistema para una identidad."
+        },
+        {
+          "term": "Demostración controlada",
+          "definition": "Prueba acotada con resultados y condiciones documentados."
+        }
+      ]
+    }
+  ]
+}

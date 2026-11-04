@@ -1,0 +1,970 @@
+{
+  "version": "2.0.0",
+  "week": 10,
+  "title": "Direcciones y comunicación IP",
+  "overview": "Las direcciones permiten decidir cómo entregar una comunicación. Esta semana separarás direcciones de enlace y direcciones IP, interpretarás la configuración de un equipo y seguirás un paquete hacia un destino local o remoto. Aprenderás por qué ARP consulta el siguiente salto y por qué NAT no es cifrado. También conocerás la representación básica de IPv6. Los diagramas utilizan direcciones de práctica y no autorizan conectarte a equipos desconocidos; el objetivo es explicar decisiones de encaminamiento con contexto.",
+  "objectives": [
+    "Diferenciar MAC, IP, prefijo y siguiente salto.",
+    "Interpretar IP, gateway y DNS sin intercambiar sus funciones.",
+    "Explicar el alcance local de ARP y la convivencia con IPv6."
+  ],
+  "sources": [
+    {
+      "id": "w10s1",
+      "title": "RFC 1918: direcciones privadas IPv4",
+      "url": "https://www.rfc-editor.org/info/rfc1918/"
+    },
+    {
+      "id": "w10s2",
+      "title": "RFC 826: resolución de direcciones de enlace",
+      "url": "https://www.rfc-editor.org/info/rfc826/"
+    },
+    {
+      "id": "w10s3",
+      "title": "RFC 8200: especificación IPv6",
+      "url": "https://www.rfc-editor.org/info/rfc8200/"
+    },
+    {
+      "id": "w10s4",
+      "title": "RFC 4632: direccionamiento CIDR",
+      "url": "https://www.rfc-editor.org/info/rfc4632/"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w10d1",
+      "title": "Direcciones MAC",
+      "lead": "Una dirección MAC identifica una interfaz dentro de tecnologías de enlace como Ethernet.",
+      "sections": [
+        {
+          "explanation": [
+            "Una dirección MAC identifica una interfaz dentro de tecnologías de enlace como Ethernet. Suele representarse mediante seis octetos en hexadecimal. No equivale a una dirección postal global ni garantiza la identidad física permanente de un dispositivo: puede modificarse, virtualizarse o utilizar aleatorización según la plataforma. Su función se interpreta dentro de la entrega local de tramas, no como sustituto del direccionamiento IP entre redes.",
+            "Las tablas de vecinos relacionan direcciones de red con información de enlace según el protocolo utilizado. En IPv4, ARP ayuda a obtener una MAC para un vecino o siguiente salto local; IPv6 utiliza descubrimiento de vecinos, no ARP. Un switch aprende información sobre direcciones de origen para reenviar tramas según su funcionamiento. No concluyas que una entrada de tabla demuestra quién estaba usando físicamente un equipo. Registra interfaz, tiempo y contexto de la observación, respetando la privacidad de las direcciones reales."
+          ],
+          "analogy": "La dirección de entrega del siguiente tramo no es necesariamente la dirección final de todo el viaje.",
+          "keyPoints": [
+            "MAC: Dirección utilizada en el enlace local.",
+            "IP: Dirección de red para comunicación y encaminamiento.",
+            "Tabla de vecinos: Asociación contextual entre red y enlace."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Identificadores con alcances distintos",
+            "items": [
+              {
+                "label": "MAC",
+                "detail": "Dirección utilizada en el enlace local."
+              },
+              {
+                "label": "IP",
+                "detail": "Dirección de red para comunicación y encaminamiento."
+              },
+              {
+                "label": "Tabla de vecinos",
+                "detail": "Asociación contextual entre red y enlace."
+              },
+              {
+                "label": "Identidad humana",
+                "detail": "No queda demostrada por una dirección aislada."
+              }
+            ],
+            "caption": "Registra interfaz, tiempo y contexto de la observación, respetando la privacidad de las direcciones reales."
+          },
+          "topic": "Enlace local y tabla de vecinos"
+        }
+      ],
+      "workedExample": {
+        "title": "La MAC remota no aparece",
+        "scenario": "Un equipo consulta su tabla ARP y no encuentra la MAC de un servidor de otra red.",
+        "steps": [
+          {
+            "action": "Identificar el alcance",
+            "reason": "ARP trabaja sobre vecinos del enlace local.",
+            "result": "El servidor remoto no es vecino directo."
+          },
+          {
+            "action": "Localizar el siguiente salto",
+            "reason": "La trama debe llegar al router local.",
+            "result": "La tabla puede contener la MAC del gateway."
+          },
+          {
+            "action": "Separar las cabeceras",
+            "reason": "Destino IP y destino de enlace cumplen funciones diferentes.",
+            "result": "El paquete conserva el destino IP remoto en el caso simple."
+          }
+        ],
+        "result": "No necesitas conocer una MAC que atraviese todas las redes para enviar a un destino remoto.",
+        "visual": {
+          "type": "flow",
+          "title": "La MAC remota no aparece · secuencia",
+          "items": [
+            {
+              "label": "Identificar el alcance",
+              "detail": "El servidor remoto no es vecino directo."
+            },
+            {
+              "label": "Localizar el siguiente salto",
+              "detail": "La tabla puede contener la MAC del gateway."
+            },
+            {
+              "label": "Separar las cabeceras",
+              "detail": "El paquete conserva el destino IP remoto en el caso simple."
+            }
+          ],
+          "caption": "No necesitas conocer una MAC que atraviese todas las redes para enviar a un destino remoto."
+        }
+      },
+      "practice": {
+        "task": "Dibuja un equipo, su gateway y un servidor remoto ficticio.",
+        "steps": [
+          "Etiqueta destino IP y destino MAC del primer tramo.",
+          "Explica qué consulta la tabla de vecinos.",
+          "Indica qué identidad no demuestra esa tabla."
+        ],
+        "expected": "Un esquema con alcance local explícito."
+      },
+      "check": {
+        "question": "¿Una MAC demuestra de forma permanente quién usa un dispositivo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Sí, identifica a una persona sin dudas."
+          },
+          {
+            "id": "b",
+            "text": "No; identifica información de enlace y puede cambiar o virtualizarse."
+          },
+          {
+            "id": "c",
+            "text": "Solo si contiene letras."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La dirección de enlace no constituye por sí sola una prueba de identidad humana ni permanencia."
+      },
+      "mistakes": [
+        {
+          "myth": "Las MAC de ambos extremos viajan sin cambios por toda internet.",
+          "correction": "Las tramas corresponden a enlaces concretos; los routers pueden crear cabeceras de enlace diferentes."
+        }
+      ],
+      "recap": [
+        "MAC: Dirección utilizada en el enlace local.",
+        "IP: Dirección de red para comunicación y encaminamiento.",
+        "Tabla de vecinos: Asociación contextual entre red y enlace."
+      ],
+      "glossary": [
+        {
+          "term": "MAC",
+          "definition": "Dirección de una interfaz en una tecnología de enlace."
+        },
+        {
+          "term": "Vecino",
+          "definition": "Participante alcanzable directamente en el enlace relevante."
+        }
+      ]
+    },
+    {
+      "dayId": "w10d2",
+      "title": "IPv4",
+      "lead": "IPv4 utiliza direcciones de 32 bits, normalmente escritas como cuatro números decimales de cero a 255.",
+      "sections": [
+        {
+          "explanation": [
+            "IPv4 utiliza direcciones de 32 bits, normalmente escritas como cuatro números decimales de cero a 255. El prefijo indica qué parte pertenece a la red en un contexto de encaminamiento. Las direcciones privadas de RFC 1918 incluyen 10.0.0.0/8, 172.16.0.0/12 y 192.168.0.0/16. No se consideran direcciones públicas globalmente enrutables por el hecho de que un equipo pueda utilizarlas dentro de una organización.",
+            "Loopback permite comunicación con el propio sistema; 127.0.0.0/8 tiene ese propósito y 127.0.0.1 es su ejemplo habitual. También existen bloques especiales y reservados, por lo que «no privada» no equivale automáticamente a «pública utilizable». Una dirección puede aparecer en muchos entornos privados diferentes y no identifica globalmente a un equipo. Antes de interpretar una IP, consulta su categoría y el prefijo aplicable; los ejemplos del curso no son objetivos para realizar pruebas externas."
+          ],
+          "analogy": "Un número de habitación puede repetirse en muchos hoteles; necesitas contexto para identificar una ubicación global.",
+          "keyPoints": [
+            "Formato: Cuatro octetos, 32 bits en total.",
+            "Privadas: 10/8, 172.16/12 y 192.168/16.",
+            "Loopback: 127/8 para el propio sistema."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Categorías iniciales de IPv4",
+            "items": [
+              {
+                "label": "Formato",
+                "detail": "Cuatro octetos, 32 bits en total."
+              },
+              {
+                "label": "Privadas",
+                "detail": "10/8, 172.16/12 y 192.168/16."
+              },
+              {
+                "label": "Loopback",
+                "detail": "127/8 para el propio sistema."
+              },
+              {
+                "label": "Especiales",
+                "detail": "Otros bloques requieren consultar su finalidad."
+              }
+            ],
+            "caption": "Antes de interpretar una IP, consulta su categoría y el prefijo aplicable; los ejemplos del curso no son objetivos para realizar pruebas externas."
+          },
+          "topic": "Formato, privada, pública y loopback"
+        }
+      ],
+      "workedExample": {
+        "title": "172 no significa siempre privada",
+        "scenario": "Se comparan 172.20.1.5 y 172.40.1.5 en un ejercicio escrito.",
+        "steps": [
+          {
+            "action": "Identificar el rango privado",
+            "reason": "172.16/12 abarca segundo octeto de 16 a 31.",
+            "result": "172.20.1.5 está dentro de ese rango."
+          },
+          {
+            "action": "Comparar el segundo caso",
+            "reason": "El primer octeto no basta.",
+            "result": "172.40.1.5 queda fuera del rango privado citado."
+          },
+          {
+            "action": "Evitar una clasificación excesiva",
+            "reason": "Fuera de RFC1918 no garantiza uso permitido.",
+            "result": "Se consultaría la asignación y finalidad antes de utilizarla."
+          }
+        ],
+        "result": "La categoría se determina por el bloque completo, no por un número inicial aislado.",
+        "visual": {
+          "type": "flow",
+          "title": "172 no significa siempre privada · secuencia",
+          "items": [
+            {
+              "label": "Identificar el rango privado",
+              "detail": "172.20.1.5 está dentro de ese rango."
+            },
+            {
+              "label": "Comparar el segundo caso",
+              "detail": "172.40.1.5 queda fuera del rango privado citado."
+            },
+            {
+              "label": "Evitar una clasificación excesiva",
+              "detail": "Se consultaría la asignación y finalidad antes de utilizarla."
+            }
+          ],
+          "caption": "La categoría se determina por el bloque completo, no por un número inicial aislado."
+        }
+      },
+      "practice": {
+        "task": "Clasifica 10.2.3.4, 192.168.8.9 y 127.0.0.1.",
+        "steps": [
+          "Identifica el bloque aplicable.",
+          "Explica el alcance de cada categoría.",
+          "Añade por qué no son pruebas de identidad humana."
+        ],
+        "expected": "Clasificaciones justificadas sin enviar tráfico a ninguna dirección."
+      },
+      "check": {
+        "question": "¿Cuál pertenece al rango privado 172.16.0.0/12?",
+        "options": [
+          {
+            "id": "a",
+            "text": "172.20.1.5"
+          },
+          {
+            "id": "b",
+            "text": "172.40.1.5"
+          },
+          {
+            "id": "c",
+            "text": "172.8.1.5"
+          }
+        ],
+        "correct": "a",
+        "explanation": "El rango privado citado comprende segundos octetos de 16 a 31, no todos los que comienzan por 172."
+      },
+      "mistakes": [
+        {
+          "myth": "Cualquier IP que no sea privada puede asignarse libremente.",
+          "correction": "Existen direcciones especiales, reservadas y asignadas a terceros; comprueba su finalidad y autorización."
+        }
+      ],
+      "recap": [
+        "Formato: Cuatro octetos, 32 bits en total.",
+        "Privadas: 10/8, 172.16/12 y 192.168/16.",
+        "Loopback: 127/8 para el propio sistema."
+      ],
+      "glossary": [
+        {
+          "term": "Octeto",
+          "definition": "Grupo de ocho bits."
+        },
+        {
+          "term": "Loopback",
+          "definition": "Dirección o interfaz de comunicación con el propio sistema."
+        },
+        {
+          "term": "Dirección privada",
+          "definition": "Dirección de un bloque reservado para redes privadas."
+        }
+      ]
+    },
+    {
+      "dayId": "w10d3",
+      "title": "Configuración del equipo",
+      "lead": "La dirección IP sitúa una interfaz dentro de un esquema de red.",
+      "sections": [
+        {
+          "explanation": [
+            "La dirección IP sitúa una interfaz dentro de un esquema de red. La máscara o prefijo permite decidir qué destinos se consideran locales para ese contexto. El gateway predeterminado es un siguiente salto para destinos sin una ruta más específica. DNS aporta resolución de nombres y otros datos; no reemplaza al gateway ni a la máscara. Un equipo puede tener varias interfaces y rutas, por lo que estas decisiones tienen contexto.",
+            "En una red sencilla, 192.168.10.20/24 comparte red con 192.168.10.50, pero no con 192.168.11.50. Para un destino remoto se consulta la tabla de rutas y, si corresponde, el gateway. Una configuración de DNS equivocada puede impedir resolver un nombre aunque exista conectividad IP. Anota los valores antes de proponer cambios y no sustituyas servidores o rutas de un equipo administrado sin autorización. La primera tarea es predecir qué función fallaría con cada parámetro incorrecto."
+          ],
+          "analogy": "Una dirección identifica el edificio, el plano delimita el barrio, la salida conecta otros barrios y el directorio traduce nombres.",
+          "keyPoints": [
+            "IP: Dirección asignada a la interfaz.",
+            "Prefijo: Delimita la parte de red.",
+            "Gateway: Siguiente salto para determinados destinos remotos."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Cuatro parámetros, cuatro funciones",
+            "items": [
+              {
+                "label": "IP",
+                "detail": "Dirección asignada a la interfaz."
+              },
+              {
+                "label": "Prefijo",
+                "detail": "Delimita la parte de red."
+              },
+              {
+                "label": "Gateway",
+                "detail": "Siguiente salto para determinados destinos remotos."
+              },
+              {
+                "label": "DNS",
+                "detail": "Resuelve nombres y consulta registros."
+              }
+            ],
+            "caption": "La primera tarea es predecir qué función fallaría con cada parámetro incorrecto."
+          },
+          "topic": "IP, máscara, gateway y DNS"
+        }
+      ],
+      "workedExample": {
+        "title": "Nombre que falla con IP válida",
+        "scenario": "Un caso ficticio tiene IP y ruta coherentes, pero un nombre no se resuelve.",
+        "steps": [
+          {
+            "action": "Separar funciones",
+            "reason": "El nombre requiere una consulta adicional.",
+            "result": "Se identifica DNS como función candidata."
+          },
+          {
+            "action": "Conservar la configuración",
+            "reason": "Cambiar varios parámetros borraría contexto.",
+            "result": "Se registran IP, prefijo, gateway y servidor DNS."
+          },
+          {
+            "action": "Diseñar una prueba de resolución",
+            "reason": "La hipótesis necesita una consulta pertinente.",
+            "result": "Se comparan respuesta DNS y acceso al servicio con autorización."
+          }
+        ],
+        "result": "La investigación se orienta a resolución sin asumir que toda la red está caída.",
+        "visual": {
+          "type": "flow",
+          "title": "Nombre que falla con IP válida · secuencia",
+          "items": [
+            {
+              "label": "Separar funciones",
+              "detail": "Se identifica DNS como función candidata."
+            },
+            {
+              "label": "Conservar la configuración",
+              "detail": "Se registran IP, prefijo, gateway y servidor DNS."
+            },
+            {
+              "label": "Diseñar una prueba de resolución",
+              "detail": "Se comparan respuesta DNS y acceso al servicio con autorización."
+            }
+          ],
+          "caption": "La investigación se orienta a resolución sin asumir que toda la red está caída."
+        }
+      },
+      "practice": {
+        "task": "Analiza 192.168.4.20/24 con gateway 192.168.4.1.",
+        "steps": [
+          "Clasifica 192.168.4.30 y 192.168.5.30.",
+          "Explica cuándo se usaría una ruta al gateway.",
+          "Describe el papel separado del DNS."
+        ],
+        "expected": "Una predicción de entrega local o remota con funciones diferenciadas."
+      },
+      "check": {
+        "question": "¿Qué parámetro ayuda a delimitar la parte de red?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El nombre del archivo."
+          },
+          {
+            "id": "b",
+            "text": "La máscara o prefijo."
+          },
+          {
+            "id": "c",
+            "text": "La contraseña del usuario."
+          }
+        ],
+        "correct": "b",
+        "explanation": "El prefijo determina qué bits se interpretan como parte de la red en ese contexto."
+      },
+      "mistakes": [
+        {
+          "myth": "El servidor DNS es siempre la puerta de enlace.",
+          "correction": "Pueden coincidir en un equipo doméstico, pero son funciones diferentes y pueden residir en equipos distintos."
+        }
+      ],
+      "recap": [
+        "IP: Dirección asignada a la interfaz.",
+        "Prefijo: Delimita la parte de red.",
+        "Gateway: Siguiente salto para determinados destinos remotos."
+      ],
+      "glossary": [
+        {
+          "term": "Gateway",
+          "definition": "Siguiente salto utilizado por una ruta."
+        },
+        {
+          "term": "Prefijo",
+          "definition": "Cantidad inicial de bits correspondiente a la red."
+        }
+      ]
+    },
+    {
+      "dayId": "w10d4",
+      "title": "ARP",
+      "lead": "ARP relaciona una dirección IPv4 de un vecino con una dirección de enlace, como una MAC de Ethernet.",
+      "sections": [
+        {
+          "explanation": [
+            "ARP relaciona una dirección IPv4 de un vecino con una dirección de enlace, como una MAC de Ethernet. Si no hay una entrada adecuada en la caché, el equipo puede emitir una solicitud en el enlace local y recibir una respuesta del participante correspondiente. La caché evita repetir la consulta para cada paquete, aunque sus entradas tienen un contexto y pueden cambiar con el tiempo.",
+            "La decisión de ruta ocurre antes de determinar qué vecino necesita resolverse. Si el destino IP está en otra red, normalmente se resuelve la dirección de enlace del siguiente salto, no la MAC del servidor remoto. ARP no es DNS y no atraviesa routers como una búsqueda universal de cualquier equipo. Tampoco debe asumirse que sus respuestas constituyen autenticación fuerte. Para aprender, interpreta una captura de práctica o un dibujo de solicitud y respuesta sin realizar pruebas de suplantación."
+          ],
+          "analogy": "Preguntas por la puerta del siguiente transportista local, no por todos los destinatarios de una ruta interurbana.",
+          "keyPoints": [
+            "Ruta: Elegir el vecino al que se entregará el paquete.",
+            "Caché: Buscar una asociación válida para ese vecino.",
+            "Consulta ARP: Solicitar su dirección de enlace si hace falta."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Resolución del siguiente salto IPv4",
+            "items": [
+              {
+                "label": "Ruta",
+                "detail": "Elegir el vecino al que se entregará el paquete."
+              },
+              {
+                "label": "Caché",
+                "detail": "Buscar una asociación válida para ese vecino."
+              },
+              {
+                "label": "Consulta ARP",
+                "detail": "Solicitar su dirección de enlace si hace falta."
+              },
+              {
+                "label": "Entrega",
+                "detail": "Enviar la trama hacia el siguiente salto."
+              }
+            ],
+            "caption": "Para aprender, interpreta una captura de práctica o un dibujo de solicitud y respuesta sin realizar pruebas de suplantación."
+          },
+          "topic": "Resolución IP-MAC y alcance local"
+        }
+      ],
+      "workedExample": {
+        "title": "Enviar a otra red",
+        "scenario": "Un equipo 192.168.1.20/24 envía un paquete a un destino remoto mediante 192.168.1.1.",
+        "steps": [
+          {
+            "action": "Elegir la ruta",
+            "reason": "El destino no pertenece al prefijo local.",
+            "result": "Se utiliza el gateway del ejemplo."
+          },
+          {
+            "action": "Resolver el vecino",
+            "reason": "La trama necesita una dirección del enlace local.",
+            "result": "ARP busca la MAC de 192.168.1.1."
+          },
+          {
+            "action": "Enviar el paquete",
+            "reason": "IP y enlace no tienen el mismo destinatario inmediato.",
+            "result": "La trama llega al gateway y el paquete sigue su ruta."
+          }
+        ],
+        "result": "ARP resuelve al gateway local para ese primer tramo, no una MAC remota universal.",
+        "visual": {
+          "type": "flow",
+          "title": "Enviar a otra red · secuencia",
+          "items": [
+            {
+              "label": "Elegir la ruta",
+              "detail": "Se utiliza el gateway del ejemplo."
+            },
+            {
+              "label": "Resolver el vecino",
+              "detail": "ARP busca la MAC de 192.168.1.1."
+            },
+            {
+              "label": "Enviar el paquete",
+              "detail": "La trama llega al gateway y el paquete sigue su ruta."
+            }
+          ],
+          "caption": "ARP resuelve al gateway local para ese primer tramo, no una MAC remota universal."
+        }
+      },
+      "practice": {
+        "task": "Dibuja dos casos ARP: destino local y destino remoto.",
+        "steps": [
+          "Elige primero la ruta.",
+          "Indica qué IPv4 se resuelve en cada caso.",
+          "Explica qué datos pueden estar ya en caché."
+        ],
+        "expected": "Dos secuencias que distinguen destino final y siguiente salto."
+      },
+      "check": {
+        "question": "Para un destino remoto, ¿qué MAC suele necesitar el primer tramo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La del siguiente salto local."
+          },
+          {
+            "id": "b",
+            "text": "La de todos los routers de internet."
+          },
+          {
+            "id": "c",
+            "text": "La del servidor DNS, siempre."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La trama se entrega al vecino definido por la ruta, normalmente el gateway del caso sencillo."
+      },
+      "mistakes": [
+        {
+          "myth": "ARP y DNS hacen exactamente lo mismo.",
+          "correction": "ARP relaciona IPv4 y enlace local; DNS resuelve nombres y otros registros mediante un servicio diferente."
+        }
+      ],
+      "recap": [
+        "Ruta: Elegir el vecino al que se entregará el paquete.",
+        "Caché: Buscar una asociación válida para ese vecino.",
+        "Consulta ARP: Solicitar su dirección de enlace si hace falta."
+      ],
+      "glossary": [
+        {
+          "term": "ARP",
+          "definition": "Protocolo de resolución entre IPv4 e información de enlace."
+        },
+        {
+          "term": "Caché de vecinos",
+          "definition": "Asociaciones conservadas temporalmente para entrega local."
+        }
+      ]
+    },
+    {
+      "dayId": "w10d5",
+      "title": "Enrutamiento y NAT",
+      "lead": "Un router examina rutas para decidir el siguiente salto de un paquete IP.",
+      "sections": [
+        {
+          "explanation": [
+            "Un router examina rutas para decidir el siguiente salto de un paquete IP. Cuando varias rutas coinciden, la selección considera reglas como el prefijo más específico y otras condiciones del sistema. NAT traduce direcciones y, en variantes habituales, puertos entre contextos de red. Encaminamiento y traducción son funciones distintas: puede existir una red encaminada sin NAT y una traducción no aporta por sí sola cifrado del contenido.",
+            "En una salida doméstica típica, varias direcciones privadas pueden compartir una dirección de salida mediante traducción de puertos. El dispositivo mantiene estado para relacionar respuestas con flujos. Esto puede dificultar atribuir una actividad a un equipo interno si solo observas la dirección externa y no tienes tiempo y registros de traducción. No presentes NAT como una política de acceso completa: las reglas de firewall y la configuración determinan qué comunicaciones se permiten. Dibuja por separado ruta, traducción y control de acceso."
+          ],
+          "analogy": "Encaminar elige el próximo tramo; traducir cambia la referencia utilizada al cruzar entre dos contextos de direcciones.",
+          "keyPoints": [
+            "Ruta: Decidir hacia dónde enviar el paquete.",
+            "NAT: Traducir dirección o puerto según el mecanismo.",
+            "Política: Permitir o bloquear según reglas separadas."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Tres funciones en la salida de red",
+            "items": [
+              {
+                "label": "Ruta",
+                "detail": "Decidir hacia dónde enviar el paquete."
+              },
+              {
+                "label": "NAT",
+                "detail": "Traducir dirección o puerto según el mecanismo."
+              },
+              {
+                "label": "Política",
+                "detail": "Permitir o bloquear según reglas separadas."
+              },
+              {
+                "label": "Registro",
+                "detail": "Conservar tiempo y contexto para interpretar el flujo."
+              }
+            ],
+            "caption": "Dibuja por separado ruta, traducción y control de acceso."
+          },
+          "topic": "Red local, siguiente salto y traducción"
+        }
+      ],
+      "workedExample": {
+        "title": "Dos equipos comparten una salida",
+        "scenario": "En un ejemplo, dos equipos privados aparecen con la misma dirección de salida.",
+        "steps": [
+          {
+            "action": "Identificar la traducción",
+            "reason": "Una dirección externa puede representar varios flujos.",
+            "result": "Se reconoce un contexto compartido mediante NAT."
+          },
+          {
+            "action": "Pedir datos de correlación",
+            "reason": "La IP externa sola no distingue los equipos.",
+            "result": "Se requieren tiempo, puertos y registros pertinentes."
+          },
+          {
+            "action": "Separar confidencialidad",
+            "reason": "La traducción no cifra automáticamente el mensaje.",
+            "result": "Se evalúa TLS u otra protección por separado."
+          }
+        ],
+        "result": "Una dirección de salida no identifica por sí sola al equipo o persona interna.",
+        "visual": {
+          "type": "flow",
+          "title": "Dos equipos comparten una salida · secuencia",
+          "items": [
+            {
+              "label": "Identificar la traducción",
+              "detail": "Se reconoce un contexto compartido mediante NAT."
+            },
+            {
+              "label": "Pedir datos de correlación",
+              "detail": "Se requieren tiempo, puertos y registros pertinentes."
+            },
+            {
+              "label": "Separar confidencialidad",
+              "detail": "Se evalúa TLS u otra protección por separado."
+            }
+          ],
+          "caption": "Una dirección de salida no identifica por sí sola al equipo o persona interna."
+        }
+      },
+      "practice": {
+        "task": "Dibuja dos flujos privados hacia un servicio ficticio.",
+        "steps": [
+          "Marca la decisión de ruta.",
+          "Representa una traducción de dirección y puerto.",
+          "Indica qué propiedad no aporta NAT automáticamente."
+        ],
+        "expected": "Un esquema que separa encaminamiento, traducción y cifrado."
+      },
+      "check": {
+        "question": "¿Qué afirmación sobre NAT es correcta?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Siempre cifra los datos."
+          },
+          {
+            "id": "b",
+            "text": "Traduce direcciones o puertos, sin equivaler a cifrado."
+          },
+          {
+            "id": "c",
+            "text": "Reemplaza todas las reglas de firewall."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La traducción cambia referencias de red; confidencialidad y políticas de acceso son funciones adicionales."
+      },
+      "mistakes": [
+        {
+          "myth": "Una IP pública de salida identifica inequívocamente a una persona.",
+          "correction": "Puede estar compartida; necesitas contexto y evidencia adicional para atribuir una actividad."
+        }
+      ],
+      "recap": [
+        "Ruta: Decidir hacia dónde enviar el paquete.",
+        "NAT: Traducir dirección o puerto según el mecanismo.",
+        "Política: Permitir o bloquear según reglas separadas."
+      ],
+      "glossary": [
+        {
+          "term": "Encaminamiento",
+          "definition": "Selección del siguiente salto de un paquete."
+        },
+        {
+          "term": "NAT",
+          "definition": "Traducción de direcciones y, según el mecanismo, puertos."
+        }
+      ]
+    },
+    {
+      "dayId": "w10d6",
+      "title": "IPv6 inicial",
+      "lead": "IPv6 utiliza direcciones de 128 bits, representadas normalmente mediante grupos hexadecimales separados por dos puntos.",
+      "sections": [
+        {
+          "explanation": [
+            "IPv6 utiliza direcciones de 128 bits, representadas normalmente mediante grupos hexadecimales separados por dos puntos. Se pueden omitir ceros iniciales de un grupo y comprimir una única secuencia continua de grupos cero con doble dos puntos. El prefijo sigue delimitando una parte de red, pero no se aplican sin más todos los cálculos y categorías aprendidos para IPv4. IPv6 no utiliza broadcast de la misma manera: emplea, entre otros mecanismos, multicast.",
+            "Una interfaz puede tener varias direcciones IPv6 con finalidades distintas, como enlace local y comunicación de mayor alcance. Loopback se representa como ::1. El descubrimiento de vecinos utiliza mecanismos de ICMPv6, no ARP. En doble pila, IPv4 e IPv6 pueden coexistir; una aplicación puede funcionar por una familia y fallar por la otra. Para investigar registra dirección, prefijo, interfaz y familia utilizada. No desactives IPv6 por costumbre: identifica primero el problema y respeta el diseño del entorno."
+          ],
+          "analogy": "Dos sistemas de numeración pueden coexistir en una ciudad; sus formatos y reglas no son intercambiables sin estudiar el contexto.",
+          "keyPoints": [
+            "128 bits: Espacio de direcciones mayor que IPv4.",
+            "Hexadecimal: Grupos separados por dos puntos.",
+            "Descubrimiento de vecinos: Mecanismos de ICMPv6, no ARP."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "IPv6: formato y funciones iniciales",
+            "items": [
+              {
+                "label": "128 bits",
+                "detail": "Espacio de direcciones mayor que IPv4."
+              },
+              {
+                "label": "Hexadecimal",
+                "detail": "Grupos separados por dos puntos."
+              },
+              {
+                "label": "Descubrimiento de vecinos",
+                "detail": "Mecanismos de ICMPv6, no ARP."
+              },
+              {
+                "label": "Doble pila",
+                "detail": "Coexistencia de IPv4 e IPv6."
+              }
+            ],
+            "caption": "No desactives IPv6 por costumbre: identifica primero el problema y respeta el diseño del entorno."
+          },
+          "topic": "Formato, tipos y convivencia"
+        }
+      ],
+      "workedExample": {
+        "title": "Una dirección comprimida",
+        "scenario": "El ejemplo documental 2001:db8:0:0:0:0:0:1 se muestra como 2001:db8::1.",
+        "steps": [
+          {
+            "action": "Identificar grupos cero",
+            "reason": "La abreviación conserva el valor.",
+            "result": "Hay una secuencia continua de cinco grupos cero."
+          },
+          {
+            "action": "Aplicar una compresión",
+            "reason": "Doble dos puntos se utiliza una sola vez por dirección.",
+            "result": "Se obtiene 2001:db8::1."
+          },
+          {
+            "action": "Conservar el contexto",
+            "reason": "El formato no demuestra conectividad.",
+            "result": "Se registra que es un ejemplo documental, no un destino de prueba."
+          }
+        ],
+        "result": "La compresión cambia la escritura, no la dirección representada.",
+        "visual": {
+          "type": "flow",
+          "title": "Una dirección comprimida · secuencia",
+          "items": [
+            {
+              "label": "Identificar grupos cero",
+              "detail": "Hay una secuencia continua de cinco grupos cero."
+            },
+            {
+              "label": "Aplicar una compresión",
+              "detail": "Se obtiene 2001:db8::1."
+            },
+            {
+              "label": "Conservar el contexto",
+              "detail": "Se registra que es un ejemplo documental, no un destino de prueba."
+            }
+          ],
+          "caption": "La compresión cambia la escritura, no la dirección representada."
+        }
+      },
+      "practice": {
+        "task": "Expande 2001:db8:1::5 a ocho grupos.",
+        "steps": [
+          "Cuenta los grupos explícitos.",
+          "Inserta los grupos cero faltantes.",
+          "Explica por qué no puedes usar dos compresiones ambiguas."
+        ],
+        "expected": "2001:0db8:0001:0000:0000:0000:0000:0005, o grupos equivalentes sin ceros iniciales."
+      },
+      "check": {
+        "question": "¿Qué dirección representa loopback IPv6?",
+        "options": [
+          {
+            "id": "a",
+            "text": "::1"
+          },
+          {
+            "id": "b",
+            "text": "127.0.0.1 en formato decimal IPv6"
+          },
+          {
+            "id": "c",
+            "text": "192.168.1.1"
+          }
+        ],
+        "correct": "a",
+        "explanation": "::1 identifica loopback IPv6; IPv4 utiliza su propia familia y representación de direcciones."
+      },
+      "mistakes": [
+        {
+          "myth": "IPv6 utiliza ARP para resolver direcciones de enlace.",
+          "correction": "Utiliza descubrimiento de vecinos basado en ICMPv6; no traslades literalmente el mecanismo IPv4."
+        }
+      ],
+      "recap": [
+        "128 bits: Espacio de direcciones mayor que IPv4.",
+        "Hexadecimal: Grupos separados por dos puntos.",
+        "Descubrimiento de vecinos: Mecanismos de ICMPv6, no ARP."
+      ],
+      "glossary": [
+        {
+          "term": "IPv6",
+          "definition": "Protocolo IP con direcciones de 128 bits."
+        },
+        {
+          "term": "Doble pila",
+          "definition": "Uso coexistente de IPv4 e IPv6 en un entorno."
+        }
+      ]
+    },
+    {
+      "dayId": "w10d7",
+      "title": "Evaluación IP",
+      "lead": "Decidir entrega local o remota exige dirección, prefijo y tabla de rutas, no solo comparar el primer número de dos IP.",
+      "sections": [
+        {
+          "explanation": [
+            "Decidir entrega local o remota exige dirección, prefijo y tabla de rutas, no solo comparar el primer número de dos IP. En un ejemplo sencillo, el equipo compara la parte de red del destino con su configuración local. Si necesita un router, selecciona una ruta y después obtiene la información de enlace del siguiente salto. DNS interviene antes o durante la tarea si se necesita resolver un nombre, pero no sustituye esas decisiones.",
+            "Un paquete dirigido a un servidor remoto puede utilizar una trama cuyo destino es el gateway local. Al llegar a otro enlace, el router construye una nueva trama según ese tramo. NAT puede cambiar direcciones o puertos si está configurado, y debe analizarse como función adicional. En la evaluación dibuja cada responsabilidad y declara la simplificación del caso. La conectividad depende también de filtros, servicios y permisos; una ruta calculada correctamente no garantiza que la aplicación responderá."
+          ],
+          "analogy": "Un envío conserva un destinatario final mientras cada transportista entrega al participante de su siguiente tramo.",
+          "keyPoints": [
+            "Nombre: Resolverlo si la aplicación lo necesita.",
+            "Ruta: Determinar entrega local o siguiente salto.",
+            "Vecino: Obtener información de enlace del tramo."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Decisión completa de un envío sencillo",
+            "items": [
+              {
+                "label": "Nombre",
+                "detail": "Resolverlo si la aplicación lo necesita."
+              },
+              {
+                "label": "Ruta",
+                "detail": "Determinar entrega local o siguiente salto."
+              },
+              {
+                "label": "Vecino",
+                "detail": "Obtener información de enlace del tramo."
+              },
+              {
+                "label": "Servicio",
+                "detail": "Comprobar que la aplicación responde y permite la acción."
+              }
+            ],
+            "caption": "La conectividad depende también de filtros, servicios y permisos; una ruta calculada correctamente no garantiza que la aplicación responderá."
+          },
+          "topic": "Comunicación local y remota"
+        }
+      ],
+      "workedExample": {
+        "title": "Equipo local y servidor remoto",
+        "scenario": "192.168.8.20/24 se comunica con 192.168.8.30 y con un destino de otra red.",
+        "steps": [
+          {
+            "action": "Comparar el primer destino",
+            "reason": "Ambos comparten el prefijo del ejemplo.",
+            "result": "La entrega puede ser local sin gateway."
+          },
+          {
+            "action": "Comparar el segundo",
+            "reason": "La red remota requiere una ruta adecuada.",
+            "result": "Se selecciona un siguiente salto."
+          },
+          {
+            "action": "Distinguir éxito IP y aplicación",
+            "reason": "El servicio todavía puede estar cerrado o filtrado.",
+            "result": "Se declara esa condición adicional."
+          }
+        ],
+        "result": "El dibujo explica cómo llegar sin prometer que cualquier servicio será accesible.",
+        "visual": {
+          "type": "flow",
+          "title": "Equipo local y servidor remoto · secuencia",
+          "items": [
+            {
+              "label": "Comparar el primer destino",
+              "detail": "La entrega puede ser local sin gateway."
+            },
+            {
+              "label": "Comparar el segundo",
+              "detail": "Se selecciona un siguiente salto."
+            },
+            {
+              "label": "Distinguir éxito IP y aplicación",
+              "detail": "Se declara esa condición adicional."
+            }
+          ],
+          "caption": "El dibujo explica cómo llegar sin prometer que cualquier servicio será accesible."
+        }
+      },
+      "practice": {
+        "task": "Describe un envío local y otro remoto con prefijo /24.",
+        "steps": [
+          "Etiqueta destino final y siguiente salto.",
+          "Indica cuándo se usaría ARP en IPv4.",
+          "Añade una condición de aplicación que podría impedir el resultado."
+        ],
+        "expected": "Dos recorridos con funciones y límites correctos."
+      },
+      "check": {
+        "question": "Tener una ruta válida garantiza que la aplicación remota responderá.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Sí, siempre."
+          },
+          {
+            "id": "b",
+            "text": "Solo cuando existe DNS."
+          },
+          {
+            "id": "c",
+            "text": "No; filtros, servicio y permisos también pueden influir."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La ruta resuelve una parte de la comunicación, mientras otras capas pueden impedir completar la tarea."
+      },
+      "mistakes": [
+        {
+          "myth": "Para llegar a otra red se consulta la MAC remota mediante ARP global.",
+          "correction": "La entrega de enlace se dirige al vecino o siguiente salto local correspondiente."
+        }
+      ],
+      "recap": [
+        "Nombre: Resolverlo si la aplicación lo necesita.",
+        "Ruta: Determinar entrega local o siguiente salto.",
+        "Vecino: Obtener información de enlace del tramo."
+      ],
+      "glossary": [
+        {
+          "term": "Siguiente salto",
+          "definition": "Participante al que se entrega un paquete en el próximo tramo."
+        },
+        {
+          "term": "Destino final",
+          "definition": "Extremo IP al que se dirige la comunicación antes de posibles traducciones."
+        }
+      ]
+    }
+  ]
+}

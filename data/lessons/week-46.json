@@ -1,0 +1,933 @@
+{
+  "version": "2.0.0",
+  "week": 46,
+  "title": "Respuesta y gestión de casos",
+  "overview": "La respuesta se practica como una secuencia de decisiones verificables, no como una lista de botones. Aprenderás a priorizar por contexto, elegir contención proporcionada, relacionar correcciones con causas y definir una recuperación aceptable. Los casos muestran cómo documentar autorizaciones, dependencias y tareas pendientes. También construirás una entrega de turno y un ejercicio de mesa. La evaluación compara informes técnico y ejecutivo para comprobar que conservan los mismos hechos y límites aunque utilicen distinta profundidad.",
+  "objectives": [
+    "Priorizar y elegir medidas con objetivo y validación.",
+    "Relacionar contención, erradicación y recuperación sin confundirlas.",
+    "Gestionar tareas y comunicar el caso con trazabilidad."
+  ],
+  "sources": [
+    {
+      "id": "nist61",
+      "title": "NIST SP 800-61r3: respuesta y gestión del riesgo",
+      "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+    },
+    {
+      "id": "nist86",
+      "title": "NIST SP 800-86: técnicas forenses en respuesta a incidentes",
+      "url": "https://csrc.nist.gov/pubs/sp/800/86/final"
+    },
+    {
+      "id": "btl",
+      "title": "Centri / Security Blue Team: Blue Team Level 1",
+      "url": "https://www.centri.org/certifications/blue-team-level-1"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w46d1",
+      "title": "Clasificar el incidente",
+      "lead": "La prioridad combina impacto, alcance y urgencia; no depende únicamente del nombre de la alerta.",
+      "sections": [
+        {
+          "topic": "Alcance, impacto y prioridad",
+          "explanation": [
+            "Clasificar un incidente significa organizar la respuesta según lo que se conoce y lo que podría estar en riesgo. Distingue evento observado, alerta generada y situación que cumple los criterios de incidente del equipo. Después valora activos afectados, funciones interrumpidas, exposición de datos y posibilidad de expansión. Una alerta de alta severidad técnica puede corresponder a una prueba autorizada; una anomalía discreta en una cuenta crítica puede exigir atención rápida por su contexto.",
+            "Asigna prioridad con criterios documentados y declara qué datos faltan. No conviertas una clasificación inicial en una conclusión inamovible: nueva evidencia puede aumentar o reducir el alcance. Identifica quién decide, qué acciones están autorizadas y cuándo debe revisarse la prioridad. En un caso ficticio puedes comparar una estación aislada de formación con un servicio que sostiene operaciones importantes, sin inventar impacto económico. El resultado esperado es una decisión razonada y revisable, no una cifra de riesgo que aparente precisión sin datos."
+          ],
+          "analogy": "En urgencias no se atiende solo por el nombre del síntoma; importan gravedad, evolución y situación de la persona.",
+          "keyPoints": [
+            "Impacto: Funciones y datos realmente o potencialmente afectados.",
+            "Alcance: Cuentas, equipos e intervalos conocidos y pendientes.",
+            "Prioridad: Orden de respuesta con dueño y criterio de revisión."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Clasificar el incidente",
+            "items": [
+              {
+                "label": "Impacto",
+                "detail": "Funciones y datos realmente o potencialmente afectados."
+              },
+              {
+                "label": "Alcance",
+                "detail": "Cuentas, equipos e intervalos conocidos y pendientes."
+              },
+              {
+                "label": "Prioridad",
+                "detail": "Orden de respuesta con dueño y criterio de revisión."
+              }
+            ],
+            "caption": "La prioridad combina impacto, alcance y urgencia; no depende únicamente del nombre de la alerta."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Mismo aviso, distinto contexto",
+        "scenario": "Dos equipos ficticios muestran la misma alerta: uno es de formación y otro presta un servicio esencial.",
+        "steps": [
+          {
+            "action": "Comparar función",
+            "reason": "El activo cambia el impacto potencial.",
+            "result": "Se identifican dependencias del servicio esencial."
+          },
+          {
+            "action": "Verificar actividad",
+            "reason": "La etiqueta no confirma el incidente.",
+            "result": "La estación de formación ejecutaba una prueba autorizada."
+          },
+          {
+            "action": "Asignar prioridad",
+            "reason": "La decisión debe tener motivos.",
+            "result": "Se prioriza investigar el servicio y se documenta el cierre de la prueba."
+          }
+        ],
+        "result": "La prioridad sigue contexto y evidencia, no una etiqueta aislada.",
+        "visual": {
+          "type": "timeline",
+          "title": "Mismo aviso, distinto contexto",
+          "items": [
+            {
+              "label": "Comparar función",
+              "detail": "Se identifican dependencias del servicio esencial."
+            },
+            {
+              "label": "Verificar actividad",
+              "detail": "La estación de formación ejecutaba una prueba autorizada."
+            },
+            {
+              "label": "Asignar prioridad",
+              "detail": "Se prioriza investigar el servicio y se documenta el cierre de la prueba."
+            }
+          ],
+          "caption": "La prioridad sigue contexto y evidencia, no una etiqueta aislada."
+        }
+      },
+      "practice": {
+        "task": "Clasifica tres escenarios inventados con criterios explícitos.",
+        "steps": [
+          "Describe impacto y alcance conocido.",
+          "Señala la principal incertidumbre.",
+          "Asigna dueño y condición de revisión."
+        ],
+        "expected": "Tres prioridades justificadas sin cifras de impacto fabricadas."
+      },
+      "check": {
+        "question": "¿Qué puede cambiar una prioridad inicial?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Nueva evidencia sobre impacto o alcance."
+          },
+          {
+            "id": "b",
+            "text": "Solo el color de la herramienta."
+          },
+          {
+            "id": "c",
+            "text": "Nada una vez creado el ticket."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La clasificación debe revisarse cuando cambian los hechos que la justifican."
+      },
+      "mistakes": [
+        {
+          "myth": "La severidad del producto equivale siempre a prioridad del negocio.",
+          "correction": "El contexto del activo, la autorización y el impacto modifican la decisión operativa."
+        }
+      ],
+      "recap": [
+        "Impacto: Funciones y datos realmente o potencialmente afectados.",
+        "Alcance: Cuentas, equipos e intervalos conocidos y pendientes.",
+        "Prioridad: Orden de respuesta con dueño y criterio de revisión."
+      ],
+      "glossary": [
+        {
+          "term": "Severidad",
+          "definition": "Gravedad técnica descrita por una condición o herramienta."
+        },
+        {
+          "term": "Prioridad",
+          "definition": "Orden y urgencia asignados a la respuesta según criterios del caso."
+        }
+      ]
+    },
+    {
+      "dayId": "w46d2",
+      "title": "Contención",
+      "lead": "Contener reduce el daño mientras se conserva capacidad para investigar y operar.",
+      "sections": [
+        {
+          "topic": "Identidad, equipo y red",
+          "explanation": [
+            "La contención busca limitar actividad no autorizada o expansión sin confundirla con eliminación de la causa. Puede actuar sobre identidad, equipo o red: revocar una sesión, aislar un endpoint o restringir un flujo son mecanismos distintos. La selección depende del comportamiento observado, impacto, dependencias y autorización. No es necesario desconectar toda una organización para responder a una única cuenta, y una acción demasiado pequeña puede dejar activo el camino que permite continuar el incidente.",
+            "Antes de ejecutar una medida define objetivo, responsable, efecto esperado y comprobación. Considera qué evidencia podría perderse y qué servicio se interrumpirá. Un cambio debe registrarse con momento y alcance, y revisarse si no reduce la actividad prevista. En la práctica de esta semana describirás decisiones sobre un entorno ficticio; no ejecutarás aislamientos sobre equipos ajenos. La pregunta clave es qué riesgo limita cada acción y cómo sabrás que funcionó sin asumir que la contención resolvió todas las causas."
+          ],
+          "analogy": "Cerrar una válvula limita una fuga mientras se investiga la tubería; no equivale a repararla.",
+          "keyPoints": [
+            "Objetivo: Define qué actividad debe detenerse.",
+            "Medida: Elige identidad, endpoint o red según el caso.",
+            "Verificación: Comprueba efecto y dependencias después del cambio."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Contención",
+            "items": [
+              {
+                "label": "Objetivo",
+                "detail": "Define qué actividad debe detenerse."
+              },
+              {
+                "label": "Medida",
+                "detail": "Elige identidad, endpoint o red según el caso."
+              },
+              {
+                "label": "Verificación",
+                "detail": "Comprueba efecto y dependencias después del cambio."
+              }
+            ],
+            "caption": "Contener reduce el daño mientras se conserva capacidad para investigar y operar."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Sesión activa de una cuenta",
+        "scenario": "Un caso ficticio muestra una sesión no reconocida de una cuenta de laboratorio.",
+        "steps": [
+          {
+            "action": "Delimitar acceso",
+            "reason": "Permite una medida específica.",
+            "result": "Se identifica la sesión y sus aplicaciones."
+          },
+          {
+            "action": "Proponer contención",
+            "reason": "La acción requiere autoridad.",
+            "result": "Se solicita revocación de esa sesión y revisión de tokens relacionados."
+          },
+          {
+            "action": "Comprobar efecto",
+            "reason": "Una orden emitida no prueba éxito.",
+            "result": "Los registros confirman finalización y se vigilan nuevos accesos."
+          }
+        ],
+        "result": "La medida limita la sesión observada; la causa de acceso sigue en investigación.",
+        "visual": {
+          "type": "timeline",
+          "title": "Sesión activa de una cuenta",
+          "items": [
+            {
+              "label": "Delimitar acceso",
+              "detail": "Se identifica la sesión y sus aplicaciones."
+            },
+            {
+              "label": "Proponer contención",
+              "detail": "Se solicita revocación de esa sesión y revisión de tokens relacionados."
+            },
+            {
+              "label": "Comprobar efecto",
+              "detail": "Los registros confirman finalización y se vigilan nuevos accesos."
+            }
+          ],
+          "caption": "La medida limita la sesión observada; la causa de acceso sigue en investigación."
+        }
+      },
+      "practice": {
+        "task": "Compara dos medidas de contención para un caso ficticio.",
+        "steps": [
+          "Indica qué riesgo reduce cada una.",
+          "Anota dependencia y evidencia que podrían afectarse.",
+          "Define un resultado observable para validarlas."
+        ],
+        "expected": "Una decisión proporcionada con comprobación posterior."
+      },
+      "check": {
+        "question": "Ante la sesión no reconocida del caso, ¿qué distingue una medida de contención de una de erradicación?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La contención siempre borra archivos."
+          },
+          {
+            "id": "b",
+            "text": "La contención limita actividad; erradicar aborda su causa y persistencia."
+          },
+          {
+            "id": "c",
+            "text": "Son nombres idénticos para el mismo paso."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Detener un camino de actividad no garantiza que la causa o persistencia hayan desaparecido."
+      },
+      "mistakes": [
+        {
+          "myth": "Aislar equivale a terminar la investigación.",
+          "correction": "La contención puede conservar incertidumbres y debe acompañarse de análisis y recuperación."
+        }
+      ],
+      "recap": [
+        "Objetivo: Define qué actividad debe detenerse.",
+        "Medida: Elige identidad, endpoint o red según el caso.",
+        "Verificación: Comprueba efecto y dependencias después del cambio."
+      ],
+      "glossary": [
+        {
+          "term": "Contención",
+          "definition": "Medida destinada a limitar daño o expansión."
+        },
+        {
+          "term": "Dependencia",
+          "definition": "Servicio o componente que puede verse afectado por una acción."
+        }
+      ]
+    },
+    {
+      "dayId": "w46d3",
+      "title": "Erradicación",
+      "lead": "Erradicar requiere explicar qué permitió el incidente y comprobar que la corrección lo aborda.",
+      "sections": [
+        {
+          "topic": "Causa y dependencias",
+          "explanation": [
+            "La erradicación busca retirar componentes o condiciones que permiten mantener o repetir el incidente. La causa puede incluir una configuración, una cuenta expuesta, software vulnerable o un mecanismo de persistencia; borrar un archivo visible puede no resolverla. Construye una relación entre evidencia, causa propuesta y cambio correctivo. Si la causa sigue siendo una hipótesis, deja claro qué medida es provisional y qué comprobación falta antes de describir el entorno como corregido.",
+            "Los cambios pueden afectar dependencias y deben seguir autorización, pruebas y posibilidad de reversión cuando corresponda. Una actualización sin verificar compatibilidad podría interrumpir un servicio esencial; una contraseña rotada sin revisar sesiones y secretos relacionados puede dejar accesos activos. En el laboratorio redacta un plan que distinga eliminación del síntoma y corrección de la vía de entrada. Registra los criterios que demostrarían que la condición ya no está presente y los riesgos residuales que todavía requieren supervisión."
+          ],
+          "analogy": "Secar el suelo elimina el charco; reparar y comprobar la tubería aborda la causa de la fuga.",
+          "keyPoints": [
+            "Causa: Condición sustentada que permite la actividad.",
+            "Corrección: Cambio relacionado con esa condición y sus dependencias.",
+            "Validación: Prueba posterior que comprueba la corrección y sus límites."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Erradicación",
+            "items": [
+              {
+                "label": "Causa",
+                "detail": "Condición sustentada que permite la actividad."
+              },
+              {
+                "label": "Corrección",
+                "detail": "Cambio relacionado con esa condición y sus dependencias."
+              },
+              {
+                "label": "Validación",
+                "detail": "Prueba posterior que comprueba la corrección y sus límites."
+              }
+            ],
+            "caption": "Erradicar requiere explicar qué permitió el incidente y comprobar que la corrección lo aborda."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "El acceso que volvía",
+        "scenario": "Un caso ficticio muestra nuevos accesos tras cambiar una contraseña porque una sesión seguía válida.",
+        "steps": [
+          {
+            "action": "Revisar persistencia",
+            "reason": "El síntoma reaparece por una vía distinta.",
+            "result": "La sesión anterior no había sido revocada."
+          },
+          {
+            "action": "Completar plan",
+            "reason": "La corrección debe cubrir credencial y sesión.",
+            "result": "Se solicita revisar sesiones y secretos relacionados."
+          },
+          {
+            "action": "Verificar después",
+            "reason": "La acción necesita evidencia posterior.",
+            "result": "Se comprueba revocación y ausencia de nuevos accesos en la ventana acordada."
+          }
+        ],
+        "result": "Cambiar una credencial no sustituyó la revisión del ciclo de sesión.",
+        "visual": {
+          "type": "timeline",
+          "title": "El acceso que volvía",
+          "items": [
+            {
+              "label": "Revisar persistencia",
+              "detail": "La sesión anterior no había sido revocada."
+            },
+            {
+              "label": "Completar plan",
+              "detail": "Se solicita revisar sesiones y secretos relacionados."
+            },
+            {
+              "label": "Verificar después",
+              "detail": "Se comprueba revocación y ausencia de nuevos accesos en la ventana acordada."
+            }
+          ],
+          "caption": "Cambiar una credencial no sustituyó la revisión del ciclo de sesión."
+        }
+      },
+      "practice": {
+        "task": "Diseña un plan de erradicación para una configuración ficticia incorrecta.",
+        "steps": [
+          "Relaciona causa con evidencia.",
+          "Describe cambio, dependencia y autorización.",
+          "Define una prueba posterior y un riesgo residual."
+        ],
+        "expected": "Un plan que aborda la causa y no solo su manifestación visible."
+      },
+      "check": {
+        "question": "¿Qué debe vincularse a cada medida de erradicación?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Una causa o condición sustentada y una comprobación posterior."
+          },
+          {
+            "id": "b",
+            "text": "Solo el nombre de una herramienta."
+          },
+          {
+            "id": "c",
+            "text": "La eliminación indiscriminada de todos los archivos."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La corrección debe responder al mecanismo observado y demostrar su efecto."
+      },
+      "mistakes": [
+        {
+          "myth": "Borrar el primer archivo sospechoso garantiza la limpieza.",
+          "correction": "Puede haber otras condiciones, sesiones o mecanismos que permitan repetición."
+        }
+      ],
+      "recap": [
+        "Causa: Condición sustentada que permite la actividad.",
+        "Corrección: Cambio relacionado con esa condición y sus dependencias.",
+        "Validación: Prueba posterior que comprueba la corrección y sus límites."
+      ],
+      "glossary": [
+        {
+          "term": "Erradicación",
+          "definition": "Corrección de causas y mecanismos que sostienen el incidente."
+        },
+        {
+          "term": "Riesgo residual",
+          "definition": "Riesgo que permanece tras aplicar medidas."
+        }
+      ]
+    },
+    {
+      "dayId": "w46d4",
+      "title": "Recuperación",
+      "lead": "Recuperar es restaurar una operación comprobada, no solo encender de nuevo el servicio.",
+      "sections": [
+        {
+          "topic": "Criterios, monitoreo y validación",
+          "explanation": [
+            "La recuperación devuelve funciones a un estado aceptable después de aplicar correcciones. Define primero qué significa aceptable: integridad de datos, funcionamiento, acceso autorizado y supervisión de señales relevantes. Restaurar una copia antigua puede recuperar disponibilidad y reintroducir una condición vulnerable, de modo que el plan debe relacionar respaldo, corrección y validación. El propietario del servicio necesita participar para confirmar que las pruebas técnicas representan su uso real.",
+            "Establece una secuencia gradual con criterios de avance y de detener o revertir. Antes de ampliar acceso, verifica componentes, permisos y tareas esenciales; después supervisa durante una ventana definida según el caso. La ausencia de alertas no es suficiente si la fuente de supervisión está desconectada. En el ejercicio utiliza un servicio ficticio y datos de prueba. Documenta qué se restauró, qué versión quedó activa, qué pruebas pasaron y quién aceptó el retorno a operación, conservando limitaciones y seguimiento pendiente."
+          ],
+          "analogy": "Reabrir un puente requiere comprobar estructura y circulación; retirar el cartel de cerrado no realiza esas pruebas.",
+          "keyPoints": [
+            "Criterios: Disponibilidad, integridad y acceso esperado.",
+            "Pruebas: Validación técnica y funcional con el propietario.",
+            "Monitoreo: Ventana y fuentes activas para detectar recurrencia."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Recuperación",
+            "items": [
+              {
+                "label": "Criterios",
+                "detail": "Disponibilidad, integridad y acceso esperado."
+              },
+              {
+                "label": "Pruebas",
+                "detail": "Validación técnica y funcional con el propietario."
+              },
+              {
+                "label": "Monitoreo",
+                "detail": "Ventana y fuentes activas para detectar recurrencia."
+              }
+            ],
+            "caption": "Recuperar es restaurar una operación comprobada, no solo encender de nuevo el servicio."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Restauración con un ajuste pendiente",
+        "scenario": "Un servicio ficticio se restaura desde una copia que contiene una configuración antigua.",
+        "steps": [
+          {
+            "action": "Comparar versión",
+            "reason": "El respaldo no garantiza corrección.",
+            "result": "Se identifica la configuración vulnerable de la copia."
+          },
+          {
+            "action": "Aplicar cambio aprobado",
+            "reason": "Evita reintroducir la causa.",
+            "result": "Se corrige antes de abrir el acceso general."
+          },
+          {
+            "action": "Validar operación",
+            "reason": "La recuperación necesita aceptación.",
+            "result": "Pruebas funcionales y telemetría pasan; el dueño acepta el retorno gradual."
+          }
+        ],
+        "result": "La restauración se completa con corrección y pruebas, no con el simple arranque.",
+        "visual": {
+          "type": "timeline",
+          "title": "Restauración con un ajuste pendiente",
+          "items": [
+            {
+              "label": "Comparar versión",
+              "detail": "Se identifica la configuración vulnerable de la copia."
+            },
+            {
+              "label": "Aplicar cambio aprobado",
+              "detail": "Se corrige antes de abrir el acceso general."
+            },
+            {
+              "label": "Validar operación",
+              "detail": "Pruebas funcionales y telemetría pasan; el dueño acepta el retorno gradual."
+            }
+          ],
+          "caption": "La restauración se completa con corrección y pruebas, no con el simple arranque."
+        }
+      },
+      "practice": {
+        "task": "Escribe cinco criterios de recuperación para un servicio didáctico.",
+        "steps": [
+          "Incluye una prueba de integridad y una funcional.",
+          "Define señal de detener o revertir.",
+          "Asigna responsable y ventana de monitoreo."
+        ],
+        "expected": "Una lista de aceptación con resultados observables."
+      },
+      "check": {
+        "question": "¿Por qué «no hay alertas» puede ser insuficiente?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Porque demuestra que todo está bien."
+          },
+          {
+            "id": "b",
+            "text": "Porque la supervisión podría no estar funcionando."
+          },
+          {
+            "id": "c",
+            "text": "Porque nunca se deben revisar registros."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Debes comprobar también que las fuentes y las reglas relevantes están activas y cubren el periodo."
+      },
+      "mistakes": [
+        {
+          "myth": "Un respaldo limpio de errores técnicos siempre es seguro para restaurar.",
+          "correction": "Puede conservar configuraciones o condiciones antiguas que necesitan corregirse."
+        }
+      ],
+      "recap": [
+        "Criterios: Disponibilidad, integridad y acceso esperado.",
+        "Pruebas: Validación técnica y funcional con el propietario.",
+        "Monitoreo: Ventana y fuentes activas para detectar recurrencia."
+      ],
+      "glossary": [
+        {
+          "term": "Criterio de aceptación",
+          "definition": "Condición observable necesaria para aprobar una etapa."
+        },
+        {
+          "term": "Recurrencia",
+          "definition": "Reaparición de actividad o condiciones relacionadas con el incidente."
+        }
+      ]
+    },
+    {
+      "dayId": "w46d5",
+      "title": "Gestión del caso",
+      "lead": "Un caso bien gestionado deja decisiones, responsables y evidencias visibles para el siguiente turno.",
+      "sections": [
+        {
+          "topic": "Tickets, responsables y comunicación",
+          "explanation": [
+            "Un ticket de incidente es un registro operativo, no solo un lugar para pegar capturas. Debe identificar pregunta, alcance, prioridad, responsable, evidencias y decisiones con sus momentos. Distingue estado del caso de estado de una tarea: una tarea terminada puede dejar otras comprobaciones pendientes. Cada acción necesita dueño, resultado y referencia al soporte. Si una recomendación espera aprobación, debe aparecer como pendiente y no como una medida ya aplicada.",
+            "La comunicación cambia según audiencia, pero los hechos deben seguir siendo coherentes. Un resumen ejecutivo explica impacto, estado y decisión requerida; la nota técnica conserva consultas, fuentes y límites. Antes de cambiar turno destaca qué se sabe, qué falta y qué acción tiene plazo. Minimiza información privada y evita credenciales en comentarios. Una gestión clara permite que otra persona continúe el trabajo sin repetir toda la investigación ni asumir que el silencio en el ticket significa ausencia de problemas."
+          ],
+          "analogy": "Una carrera de relevos funciona cuando el siguiente corredor recibe el testigo y sabe qué tramo le toca.",
+          "keyPoints": [
+            "Estado: Qué etapa y qué tareas siguen abiertas.",
+            "Responsabilidad: Cada acción tiene dueño y resultado esperado.",
+            "Entrega: El siguiente turno recibe evidencias y decisiones pendientes."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Gestión del caso",
+            "items": [
+              {
+                "label": "Estado",
+                "detail": "Qué etapa y qué tareas siguen abiertas."
+              },
+              {
+                "label": "Responsabilidad",
+                "detail": "Cada acción tiene dueño y resultado esperado."
+              },
+              {
+                "label": "Entrega",
+                "detail": "El siguiente turno recibe evidencias y decisiones pendientes."
+              }
+            ],
+            "caption": "Un caso bien gestionado deja decisiones, responsables y evidencias visibles para el siguiente turno."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Tarea cerrada, incidente abierto",
+        "scenario": "Una medida ficticia de bloqueo se completó, pero falta comprobar si hubo otros equipos afectados.",
+        "steps": [
+          {
+            "action": "Separar estados",
+            "reason": "Evita un cierre prematuro.",
+            "result": "La tarea de bloqueo está terminada; el caso sigue abierto."
+          },
+          {
+            "action": "Asignar seguimiento",
+            "reason": "La laguna necesita dueño.",
+            "result": "Otra analista revisará alcance en endpoint."
+          },
+          {
+            "action": "Preparar relevo",
+            "reason": "Hace continuable la investigación.",
+            "result": "La nota incluye fuente, intervalo, consulta y criterio de escalamiento."
+          }
+        ],
+        "result": "El siguiente turno distingue lo aplicado de lo todavía no comprobado.",
+        "visual": {
+          "type": "timeline",
+          "title": "Tarea cerrada, incidente abierto",
+          "items": [
+            {
+              "label": "Separar estados",
+              "detail": "La tarea de bloqueo está terminada; el caso sigue abierto."
+            },
+            {
+              "label": "Asignar seguimiento",
+              "detail": "Otra analista revisará alcance en endpoint."
+            },
+            {
+              "label": "Preparar relevo",
+              "detail": "La nota incluye fuente, intervalo, consulta y criterio de escalamiento."
+            }
+          ],
+          "caption": "El siguiente turno distingue lo aplicado de lo todavía no comprobado."
+        }
+      },
+      "practice": {
+        "task": "Redacta una entrega de turno para un caso ficticio.",
+        "steps": [
+          "Incluye tres hechos y dos tareas pendientes.",
+          "Asigna responsables y próximos resultados.",
+          "Separa resumen ejecutivo y referencias técnicas."
+        ],
+        "expected": "Una nota que permita continuar sin contexto oral adicional."
+      },
+      "check": {
+        "question": "¿Qué debe indicar una recomendación todavía no aprobada?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que está aplicada para avanzar más rápido."
+          },
+          {
+            "id": "b",
+            "text": "Solo su nombre."
+          },
+          {
+            "id": "c",
+            "text": "Su estado pendiente, dueño y decisión requerida."
+          }
+        ],
+        "correct": "c",
+        "explanation": "Propuesta y ejecución son estados distintos; confundirlos puede dejar un riesgo sin atender."
+      },
+      "mistakes": [
+        {
+          "myth": "Cerrar una tarea equivale a cerrar el incidente.",
+          "correction": "El caso puede mantener preguntas de alcance, recuperación y seguimiento."
+        }
+      ],
+      "recap": [
+        "Estado: Qué etapa y qué tareas siguen abiertas.",
+        "Responsabilidad: Cada acción tiene dueño y resultado esperado.",
+        "Entrega: El siguiente turno recibe evidencias y decisiones pendientes."
+      ],
+      "glossary": [
+        {
+          "term": "Ticket",
+          "definition": "Registro operativo que reúne decisiones, tareas y evidencias."
+        },
+        {
+          "term": "Entrega de turno",
+          "definition": "Transferencia documentada del estado y próximos pasos de un caso."
+        }
+      ]
+    },
+    {
+      "dayId": "w46d6",
+      "title": "Ejercicio de mesa",
+      "lead": "Un ejercicio de mesa evalúa decisiones bajo información que cambia, sin ejecutar acciones peligrosas.",
+      "sections": [
+        {
+          "topic": "Incidente con decisiones sucesivas",
+          "explanation": [
+            "Un ejercicio de mesa presenta un escenario y añade datos por etapas para practicar coordinación. Las personas discuten qué harían, con qué autoridad y cómo comprobarían el resultado; no necesitan aislar equipos reales. El facilitador define alcance, roles, reglas y objetivos de aprendizaje. Cada inyección de información puede cambiar prioridad o hipótesis, por lo que debes conservar el razonamiento previo en lugar de reescribir la historia como si siempre hubieras conocido el desenlace.",
+            "Usa un registro de decisiones con alternativas, evidencia disponible y próximo criterio de revisión. Por ejemplo, una alerta de cuenta se amplía cuando aparecen accesos a otra aplicación; eso obliga a revisar alcance y dependencias. Evalúa calidad de comunicación y proporcionalidad, no rapidez por sí sola. Al terminar compara lo decidido con los objetivos del ejercicio, identifica una mejora de procedimiento y asigna un responsable. El valor está en descubrir fricciones y lagunas antes de un caso real, sin castigar preguntas razonables."
+          ],
+          "analogy": "Es un simulador de decisiones: el mapa cambia por etapas y debes explicar por qué eliges cada camino.",
+          "keyPoints": [
+            "Preparación: Roles, límites y objetivos compartidos.",
+            "Inyección: Nuevo dato que puede modificar la decisión.",
+            "Revisión: Lección aprendida y mejora con responsable."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Ejercicio de mesa",
+            "items": [
+              {
+                "label": "Preparación",
+                "detail": "Roles, límites y objetivos compartidos."
+              },
+              {
+                "label": "Inyección",
+                "detail": "Nuevo dato que puede modificar la decisión."
+              },
+              {
+                "label": "Revisión",
+                "detail": "Lección aprendida y mejora con responsable."
+              }
+            ],
+            "caption": "Un ejercicio de mesa evalúa decisiones bajo información que cambia, sin ejecutar acciones peligrosas."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "El alcance se amplía",
+        "scenario": "Primero se informa una sesión anómala; después aparecen accesos a una segunda aplicación ficticia.",
+        "steps": [
+          {
+            "action": "Registrar decisión inicial",
+            "reason": "Conserva el contexto original.",
+            "result": "Se priorizó revisar la primera sesión."
+          },
+          {
+            "action": "Incorporar dato nuevo",
+            "reason": "El alcance ya no es el mismo.",
+            "result": "Se amplía revisión a tokens y aplicaciones relacionadas."
+          },
+          {
+            "action": "Revisar coordinación",
+            "reason": "La respuesta requiere varios dueños.",
+            "result": "Identidad y aplicación acuerdan responsables y verificación."
+          }
+        ],
+        "result": "La decisión cambia de forma trazable al cambiar la evidencia.",
+        "visual": {
+          "type": "timeline",
+          "title": "El alcance se amplía",
+          "items": [
+            {
+              "label": "Registrar decisión inicial",
+              "detail": "Se priorizó revisar la primera sesión."
+            },
+            {
+              "label": "Incorporar dato nuevo",
+              "detail": "Se amplía revisión a tokens y aplicaciones relacionadas."
+            },
+            {
+              "label": "Revisar coordinación",
+              "detail": "Identidad y aplicación acuerdan responsables y verificación."
+            }
+          ],
+          "caption": "La decisión cambia de forma trazable al cambiar la evidencia."
+        }
+      },
+      "practice": {
+        "task": "Prepara un ejercicio de mesa con tres inyecciones ficticias.",
+        "steps": [
+          "Define participantes y acciones simuladas.",
+          "Escribe qué decisión puede cambiar con cada dato.",
+          "Cierra con una mejora y un responsable."
+        ],
+        "expected": "Un guion que evalúe razonamiento y coordinación sin tocar producción."
+      },
+      "check": {
+        "question": "¿Qué caracteriza una buena inyección de información?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Introduce un dato relevante que obliga a revisar una decisión."
+          },
+          {
+            "id": "b",
+            "text": "Revela todas las respuestas al inicio."
+          },
+          {
+            "id": "c",
+            "text": "Exige acciones reales no autorizadas."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La información gradual permite practicar adaptación y documentar cambios de criterio."
+      },
+      "mistakes": [
+        {
+          "myth": "Cambiar una decisión demuestra que el equipo falló.",
+          "correction": "Actualizarla ante evidencia nueva es parte de una respuesta razonada."
+        }
+      ],
+      "recap": [
+        "Preparación: Roles, límites y objetivos compartidos.",
+        "Inyección: Nuevo dato que puede modificar la decisión.",
+        "Revisión: Lección aprendida y mejora con responsable."
+      ],
+      "glossary": [
+        {
+          "term": "Ejercicio de mesa",
+          "definition": "Simulación conversacional de decisiones y coordinación."
+        },
+        {
+          "term": "Inyección",
+          "definition": "Dato añadido al escenario durante una simulación."
+        }
+      ]
+    },
+    {
+      "dayId": "w46d7",
+      "title": "Evaluación de respuesta",
+      "lead": "El informe técnico y el ejecutivo deben contar el mismo caso con distinta profundidad.",
+      "sections": [
+        {
+          "topic": "Informe técnico y ejecutivo",
+          "explanation": [
+            "El informe técnico permite revisar método, evidencias, cronología y decisiones; el ejecutivo facilita comprender impacto, estado y acción requerida. No son relatos diferentes. Si el análisis no confirmó pérdida de datos, el resumen tampoco debe afirmarla para sonar contundente. Separa impacto observado de impacto potencial y utiliza un lenguaje que la audiencia comprenda. Los identificadores técnicos pueden mantenerse en anexos o referencias sin ocultar las limitaciones que cambian una decisión importante.",
+            "Para evaluar el caso revisa si cada conclusión llega a una fuente y si cada recomendación responde a un hallazgo. Añade responsables, prioridades y criterios de finalización, evitando listas genéricas imposibles de comprobar. Describe qué corrección fue aplicada y cuál quedó propuesta, junto con su seguimiento. Una revisión final de privacidad debe retirar secretos y datos personales innecesarios. El cierre del incidente requiere un estado aceptado y tareas residuales visibles, no simplemente un documento terminado o una puntuación alta en una prueba interna."
+          ],
+          "analogy": "Un plano de ingeniería y una explicación al dueño del edificio cambian el detalle, pero deben describir la misma estructura.",
+          "keyPoints": [
+            "Técnico: Método, evidencia y cronología reproducibles.",
+            "Ejecutivo: Impacto, estado y decisión requerida comprensibles.",
+            "Cierre: Aceptación, riesgos residuales y tareas con dueño."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Evaluación de respuesta",
+            "items": [
+              {
+                "label": "Técnico",
+                "detail": "Método, evidencia y cronología reproducibles."
+              },
+              {
+                "label": "Ejecutivo",
+                "detail": "Impacto, estado y decisión requerida comprensibles."
+              },
+              {
+                "label": "Cierre",
+                "detail": "Aceptación, riesgos residuales y tareas con dueño."
+              }
+            ],
+            "caption": "El informe técnico y el ejecutivo deben contar el mismo caso con distinta profundidad."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Un resumen demasiado firme",
+        "scenario": "El informe ficticio confirma acceso a una cuenta, pero el resumen dice que todos los datos fueron robados.",
+        "steps": [
+          {
+            "action": "Comparar afirmaciones",
+            "reason": "Detecta contradicción entre audiencias.",
+            "result": "La exfiltración no tiene evidencia."
+          },
+          {
+            "action": "Corregir alcance",
+            "reason": "El resumen conserva el hecho relevante.",
+            "result": "Se indica acceso confirmado y alcance de datos aún en revisión."
+          },
+          {
+            "action": "Añadir decisión",
+            "reason": "La audiencia necesita saber qué hacer.",
+            "result": "Se solicita completar la revisión y mantener las medidas acordadas."
+          }
+        ],
+        "result": "Ambas versiones comunican los mismos hechos y límites.",
+        "visual": {
+          "type": "timeline",
+          "title": "Un resumen demasiado firme",
+          "items": [
+            {
+              "label": "Comparar afirmaciones",
+              "detail": "La exfiltración no tiene evidencia."
+            },
+            {
+              "label": "Corregir alcance",
+              "detail": "Se indica acceso confirmado y alcance de datos aún en revisión."
+            },
+            {
+              "label": "Añadir decisión",
+              "detail": "Se solicita completar la revisión y mantener las medidas acordadas."
+            }
+          ],
+          "caption": "Ambas versiones comunican los mismos hechos y límites."
+        }
+      },
+      "practice": {
+        "task": "Escribe un resumen ejecutivo de cinco líneas para un caso didáctico.",
+        "steps": [
+          "Incluye hecho, impacto observado y estado.",
+          "Añade una limitación que cambie la decisión.",
+          "Relaciona dos recomendaciones con evidencias y responsables."
+        ],
+        "expected": "Un resumen claro que no exagera ni oculta incertidumbres."
+      },
+      "check": {
+        "question": "¿Qué debe conservar el resumen ejecutivo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Todas las líneas de cada registro."
+          },
+          {
+            "id": "b",
+            "text": "Los mismos hechos y límites materiales del informe técnico."
+          },
+          {
+            "id": "c",
+            "text": "Solo una conclusión contundente sin soporte."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La profundidad cambia, pero no la veracidad ni el alcance de las afirmaciones."
+      },
+      "mistakes": [
+        {
+          "myth": "El informe termina cuando se guarda el documento.",
+          "correction": "Las decisiones, la aceptación de recuperación y las tareas residuales deben quedar registradas."
+        }
+      ],
+      "recap": [
+        "Técnico: Método, evidencia y cronología reproducibles.",
+        "Ejecutivo: Impacto, estado y decisión requerida comprensibles.",
+        "Cierre: Aceptación, riesgos residuales y tareas con dueño."
+      ],
+      "glossary": [
+        {
+          "term": "Impacto observado",
+          "definition": "Consecuencia respaldada por las evidencias disponibles."
+        },
+        {
+          "term": "Impacto potencial",
+          "definition": "Consecuencia posible que todavía no se ha confirmado."
+        }
+      ]
+    }
+  ]
+}

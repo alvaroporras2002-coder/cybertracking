@@ -1,0 +1,938 @@
+{
+  "version": "2.0.0",
+  "week": 47,
+  "title": "Cobertura y herramientas BTL1",
+  "overview": "Revisarás la preparación como una colección de capacidades demostrables y no como una lista de recursos consumidos. Las clases cubren análisis de correo, inteligencia, forense, SIEM y respuesta con ejemplos de auditoría de evidencias. También construirás un inventario fechado a partir del programa oficial vigente para incluir las herramientas que realmente correspondan. La matriz final distingue lectura, práctica guiada y autonomía, permite localizar brechas y evita interpretar una puntuación interna como garantía de un examen externo.",
+  "objectives": [
+    "Auditar evidencias por dominio y por herramienta.",
+    "Comparar cobertura con el programa oficial vigente.",
+    "Priorizar brechas con tareas y criterios observables."
+  ],
+  "sources": [
+    {
+      "id": "btl",
+      "title": "Centri / Security Blue Team: Blue Team Level 1",
+      "url": "https://www.centri.org/certifications/blue-team-level-1"
+    },
+    {
+      "id": "nist86",
+      "title": "NIST SP 800-86: técnicas forenses en respuesta a incidentes",
+      "url": "https://csrc.nist.gov/pubs/sp/800/86/final"
+    },
+    {
+      "id": "mitre",
+      "title": "MITRE ATT&CK: conceptos y preguntas frecuentes",
+      "url": "https://attack.mitre.org/resources/faq/"
+    },
+    {
+      "id": "splunk",
+      "title": "Splunk: búsqueda y procesamiento de resultados",
+      "url": "https://www.splunk.com/en_us/blog/tips-and-tricks/search-commands-stats-chart-and-timechart.html"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w47d1",
+      "title": "Auditar phishing",
+      "lead": "Auditar cobertura de phishing significa demostrar tareas, no solo recordar nombres de herramientas.",
+      "sections": [
+        {
+          "topic": "Objetivos y herramientas oficiales",
+          "explanation": [
+            "Una auditoría de preparación compara objetivos del programa oficial con acciones que puedes realizar y explicar. Para phishing separa estructura del mensaje, identidad aparente, autenticación, URL, adjuntos y contexto de solicitud. Cada fila debe tener una tarea observable y una evidencia propia. Marcar «correo estudiado» es demasiado amplio: no indica si puedes distinguir From y Reply-To, interpretar un resultado de autenticación o describir un adjunto sin abrirlo de forma insegura.",
+            "Utiliza mensajes sintéticos o muestras autorizadas y conserva las reglas del curso para herramientas y manejo de datos. Una herramienta como PhishTool puede organizar campos, pero debes entender qué proviene de la cabecera y qué es una interpretación. No publiques mensajes del material privado ni respuestas de examen. Si una competencia depende de una plataforma que todavía no puedes usar, marca la laguna con precisión y practica su razonamiento sobre un ejemplo seguro, sin afirmar que eso equivale a completar la actividad oficial."
+          ],
+          "analogy": "Un checklist de conducción debe comprobar estacionar y frenar, no solo que reconoces las marcas de automóvil.",
+          "keyPoints": [
+            "Objetivo: Tarea concreta del programa que debe demostrarse.",
+            "Evidencia: Mensaje sintético y análisis propio identificados.",
+            "Brecha: Parte que todavía requiere práctica o acceso autorizado."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Auditar phishing",
+            "items": [
+              {
+                "label": "Objetivo",
+                "detail": "Tarea concreta del programa que debe demostrarse."
+              },
+              {
+                "label": "Evidencia",
+                "detail": "Mensaje sintético y análisis propio identificados."
+              },
+              {
+                "label": "Brecha",
+                "detail": "Parte que todavía requiere práctica o acceso autorizado."
+              }
+            ],
+            "caption": "Auditar cobertura de phishing significa demostrar tareas, no solo recordar nombres de herramientas."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "La casilla demasiado amplia",
+        "scenario": "Una matriz ficticia dice «phishing: completo», pero el estudiante confunde Reply-To con el remitente visible.",
+        "steps": [
+          {
+            "action": "Descomponer objetivo",
+            "reason": "Hace observable la capacidad.",
+            "result": "Se crean filas para campos, autenticación y contexto."
+          },
+          {
+            "action": "Probar caso nuevo",
+            "reason": "Distingue memoria de transferencia.",
+            "result": "El error aparece al cambiar el mensaje."
+          },
+          {
+            "action": "Planificar refuerzo",
+            "reason": "La brecha necesita tarea concreta.",
+            "result": "Se comparan tres cabeceras sintéticas antes de marcar dominio."
+          }
+        ],
+        "result": "La cobertura se corrige para representar capacidades demostradas.",
+        "visual": {
+          "type": "timeline",
+          "title": "La casilla demasiado amplia",
+          "items": [
+            {
+              "label": "Descomponer objetivo",
+              "detail": "Se crean filas para campos, autenticación y contexto."
+            },
+            {
+              "label": "Probar caso nuevo",
+              "detail": "El error aparece al cambiar el mensaje."
+            },
+            {
+              "label": "Planificar refuerzo",
+              "detail": "Se comparan tres cabeceras sintéticas antes de marcar dominio."
+            }
+          ],
+          "caption": "La cobertura se corrige para representar capacidades demostradas."
+        }
+      },
+      "practice": {
+        "task": "Audita tres competencias de correo con un mensaje inventado.",
+        "steps": [
+          "Define tarea y criterio de éxito.",
+          "Vincula evidencia propia y no material privado.",
+          "Marca una brecha con práctica específica."
+        ],
+        "expected": "Tres filas con resultado comprobable y límites honestos."
+      },
+      "check": {
+        "question": "¿Qué evidencia indica mejor dominio de un objetivo de phishing?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Haber abierto el índice del curso."
+          },
+          {
+            "id": "b",
+            "text": "Resolver y explicar un mensaje nuevo autorizado."
+          },
+          {
+            "id": "c",
+            "text": "Recordar el logotipo de una herramienta."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La transferencia a un caso nuevo aporta una demostración más concreta que una declaración de lectura."
+      },
+      "mistakes": [
+        {
+          "myth": "Una herramienta que muestra campos hace innecesario comprenderlos.",
+          "correction": "Debes distinguir datos del mensaje, resultados técnicos e interpretación del analista."
+        }
+      ],
+      "recap": [
+        "Objetivo: Tarea concreta del programa que debe demostrarse.",
+        "Evidencia: Mensaje sintético y análisis propio identificados.",
+        "Brecha: Parte que todavía requiere práctica o acceso autorizado."
+      ],
+      "glossary": [
+        {
+          "term": "Cobertura",
+          "definition": "Relación entre objetivos y evidencias de aprendizaje."
+        },
+        {
+          "term": "Brecha",
+          "definition": "Competencia o condición pendiente de demostrar."
+        }
+      ]
+    },
+    {
+      "dayId": "w47d2",
+      "title": "Auditar inteligencia",
+      "lead": "La preparación en inteligencia exige evaluar fuentes y relaciones, además de manejar una plataforma.",
+      "sections": [
+        {
+          "topic": "Fuentes y plataformas del curso",
+          "explanation": [
+            "Para auditar inteligencia de amenazas divide el trabajo en recoger indicadores, evaluar procedencia, enriquecer contexto y comunicar confianza. Plataformas como MISP u OpenCTI pueden organizar relaciones y observaciones, pero una importación exitosa no demuestra que el contenido sea correcto. La competencia consiste en explicar por qué una fuente es pertinente, cuándo se observó el dato y qué relación respalda. Usa ejemplos ficticios y conserva las restricciones de distribución que correspondan al material autorizado.",
+            "Construye una matriz con un caso nuevo para cada capacidad. Por ejemplo, compara dos informes que derivan de una misma fuente y demuestra por qué no son confirmaciones independientes. Después representa una relación dominio-IP con su momento, evitando atribuir propiedad por alojamiento compartido. Si el programa vigente incluye una herramienta distinta, añade su objetivo y una práctica autorizada sin sustituirla por una promesa genérica. El resultado debe mostrar qué sabes hacer, dónde está la evidencia y qué límites tiene tu experiencia."
+          ],
+          "analogy": "Una agenda puede almacenar muchos contactos; saber quién es una fuente fiable requiere revisar cómo obtuvo su información.",
+          "keyPoints": [
+            "Procedencia: Separa observación original de información replicada.",
+            "Relación: Cada enlace conserva evidencia y momento.",
+            "Capacidad: La herramienta apoya una tarea que puedes explicar."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Auditar inteligencia",
+            "items": [
+              {
+                "label": "Procedencia",
+                "detail": "Separa observación original de información replicada."
+              },
+              {
+                "label": "Relación",
+                "detail": "Cada enlace conserva evidencia y momento."
+              },
+              {
+                "label": "Capacidad",
+                "detail": "La herramienta apoya una tarea que puedes explicar."
+              }
+            ],
+            "caption": "La preparación en inteligencia exige evaluar fuentes y relaciones, además de manejar una plataforma."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Importación sin validación",
+        "scenario": "Un conjunto ficticio contiene dos nombres asociados a la misma IP y una etiqueta de actor.",
+        "steps": [
+          {
+            "action": "Examinar soporte",
+            "reason": "La etiqueta puede estar mal sustentada.",
+            "result": "Solo existe una coincidencia de alojamiento."
+          },
+          {
+            "action": "Corregir relación",
+            "reason": "Separa dato y atribución.",
+            "result": "Se conserva la asociación temporal sin asignar actor."
+          },
+          {
+            "action": "Documentar aprendizaje",
+            "reason": "La auditoría necesita evidencia propia.",
+            "result": "La matriz enlaza el análisis y su limitación."
+          }
+        ],
+        "result": "La competencia demostrada es evaluar la relación, no aceptar una etiqueta importada.",
+        "visual": {
+          "type": "timeline",
+          "title": "Importación sin validación",
+          "items": [
+            {
+              "label": "Examinar soporte",
+              "detail": "Solo existe una coincidencia de alojamiento."
+            },
+            {
+              "label": "Corregir relación",
+              "detail": "Se conserva la asociación temporal sin asignar actor."
+            },
+            {
+              "label": "Documentar aprendizaje",
+              "detail": "La matriz enlaza el análisis y su limitación."
+            }
+          ],
+          "caption": "La competencia demostrada es evaluar la relación, no aceptar una etiqueta importada."
+        }
+      },
+      "practice": {
+        "task": "Audita una pequeña ficha de inteligencia inventada.",
+        "steps": [
+          "Comprueba fuente y fecha.",
+          "Separa relación observada y atribución.",
+          "Asocia la tarea a un objetivo de la matriz oficial."
+        ],
+        "expected": "Una evidencia de evaluación crítica y una brecha concreta si falta plataforma."
+      },
+      "check": {
+        "question": "¿Qué demuestra importar un indicador a una plataforma?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo que la operación de importación se realizó, no que la afirmación sea verdadera."
+          },
+          {
+            "id": "b",
+            "text": "La identidad del atacante."
+          },
+          {
+            "id": "c",
+            "text": "La actualidad permanente del dato."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La validación del contenido es una tarea analítica distinta de la operación técnica de importación."
+      },
+      "mistakes": [
+        {
+          "myth": "Usar una plataforma reconocida garantiza inteligencia correcta.",
+          "correction": "Los errores de fuentes y relaciones pueden conservarse dentro de cualquier plataforma."
+        }
+      ],
+      "recap": [
+        "Procedencia: Separa observación original de información replicada.",
+        "Relación: Cada enlace conserva evidencia y momento.",
+        "Capacidad: La herramienta apoya una tarea que puedes explicar."
+      ],
+      "glossary": [
+        {
+          "term": "Procedencia",
+          "definition": "Origen documentado de una observación."
+        },
+        {
+          "term": "Plataforma de inteligencia",
+          "definition": "Herramienta para organizar y relacionar información de amenazas."
+        }
+      ]
+    },
+    {
+      "dayId": "w47d3",
+      "title": "Auditar forense",
+      "lead": "La cobertura forense se comprueba reproduciendo un resultado y explicando sus límites.",
+      "sections": [
+        {
+          "topic": "Disco, registro y memoria del programa",
+          "explanation": [
+            "Una auditoría forense debe separar preservación, adquisición, interpretación y comunicación. Herramientas como FTK Imager o Autopsy ayudan a examinar material; analizadores de artefactos y memoria responden preguntas específicas. La capacidad no se demuestra abriendo muchas interfaces, sino vinculando una pregunta a una fuente adecuada y obteniendo un resultado reproducible. Conserva identificador, huella, versión, parámetros y significado de los campos que usaste, siempre sobre datos propios o autorizados.",
+            "Comprueba disco, Registro y memoria con tareas distintas. Puedes demostrar integridad comparando copias, interpretación describiendo una clave y análisis temporal alineando dos fuentes. No confundas una referencia reciente con ejecución ni una captura de memoria con todo el historial. Revisa el programa oficial para detectar herramientas o formatos todavía no practicados y marca esa brecha sin publicar material privado. La preparación real combina autonomía para repetir el procedimiento y criterio para reconocer cuándo la fuente no permite responder la pregunta planteada."
+          ],
+          "analogy": "Un microscopio no convierte cualquier muestra en diagnóstico: importan preparación, interpretación y límites del instrumento.",
+          "keyPoints": [
+            "Preservar: Identifica fuente y verifica copia.",
+            "Interpretar: Relaciona artefacto con una pregunta apropiada.",
+            "Reproducir: Conserva método y explica límites del resultado."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Auditar forense",
+            "items": [
+              {
+                "label": "Preservar",
+                "detail": "Identifica fuente y verifica copia."
+              },
+              {
+                "label": "Interpretar",
+                "detail": "Relaciona artefacto con una pregunta apropiada."
+              },
+              {
+                "label": "Reproducir",
+                "detail": "Conserva método y explica límites del resultado."
+              }
+            ],
+            "caption": "La cobertura forense se comprueba reproduciendo un resultado y explicando sus límites."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Una práctica que no se podía repetir",
+        "scenario": "Un estudiante ficticio guarda una captura de una clave, pero no su hive ni ruta.",
+        "steps": [
+          {
+            "action": "Revisar evidencia",
+            "reason": "La imagen sola no identifica la selección.",
+            "result": "Faltan material y ubicación exacta."
+          },
+          {
+            "action": "Completar método",
+            "reason": "Permite repetir el hallazgo.",
+            "result": "Se añaden hive, ruta, versión y copia usada."
+          },
+          {
+            "action": "Probar autonomía",
+            "reason": "Otra persona verifica el resultado.",
+            "result": "La misma clave se encuentra con esos datos."
+          }
+        ],
+        "result": "La fila de cobertura pasa de lectura realizada a resultado reproducible.",
+        "visual": {
+          "type": "timeline",
+          "title": "Una práctica que no se podía repetir",
+          "items": [
+            {
+              "label": "Revisar evidencia",
+              "detail": "Faltan material y ubicación exacta."
+            },
+            {
+              "label": "Completar método",
+              "detail": "Se añaden hive, ruta, versión y copia usada."
+            },
+            {
+              "label": "Probar autonomía",
+              "detail": "La misma clave se encuentra con esos datos."
+            }
+          ],
+          "caption": "La fila de cobertura pasa de lectura realizada a resultado reproducible."
+        }
+      },
+      "practice": {
+        "task": "Audita una competencia de disco, otra de Registro y otra de memoria.",
+        "steps": [
+          "Define pregunta y fuente.",
+          "Añade material y parámetros de reproducción.",
+          "Explica un límite distinto por competencia."
+        ],
+        "expected": "Tres evidencias técnicas sin conclusiones superiores a su cobertura."
+      },
+      "check": {
+        "question": "¿Qué mejora una evidencia forense de preparación?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Una captura recortada sin identificadores."
+          },
+          {
+            "id": "b",
+            "text": "La lista de herramientas instaladas."
+          },
+          {
+            "id": "c",
+            "text": "Material identificado, método y resultado repetible."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La reproducibilidad demuestra una capacidad concreta y permite revisar errores."
+      },
+      "mistakes": [
+        {
+          "myth": "Instalar un analizador equivale a dominar la competencia.",
+          "correction": "El dominio requiere elegir fuente, interpretar resultado y explicar límites."
+        }
+      ],
+      "recap": [
+        "Preservar: Identifica fuente y verifica copia.",
+        "Interpretar: Relaciona artefacto con una pregunta apropiada.",
+        "Reproducir: Conserva método y explica límites del resultado."
+      ],
+      "glossary": [
+        {
+          "term": "Autonomía",
+          "definition": "Capacidad de ejecutar y justificar una tarea sin guía paso a paso."
+        },
+        {
+          "term": "Formato",
+          "definition": "Estructura de datos que la herramienta debe interpretar correctamente."
+        }
+      ]
+    },
+    {
+      "dayId": "w47d4",
+      "title": "Auditar SIEM",
+      "lead": "La auditoría de SIEM exige consultas adaptables y resultados comprobados.",
+      "sections": [
+        {
+          "topic": "Consultas, datos y alertas",
+          "explanation": [
+            "Para revisar preparación en SIEM organiza las competencias en orientación de fuentes, filtros, campos, agregación y comunicación. Cada una necesita una tarea observable con un resultado conocido o verificable. Una búsqueda memorizada puede funcionar en un conjunto y fallar al cambiar nombres de campos o zona temporal. Prueba una tabla nueva y explica la entidad que cuentas, el intervalo elegido y una fila que debe quedar fuera. Esa explicación demuestra comprensión de la lógica.",
+            "Incluye una comprobación de cobertura y otra de resultados: saber que una consulta devolvió cero no significa que el comportamiento nunca ocurrió. Documenta qué fuentes estaban disponibles y cómo validaste la extracción. Una visualización debe conservar unidad y tabla, y una detección necesita casos positivos y negativos. Compara la matriz con el programa oficial vigente para detectar tareas o herramientas faltantes, sin usar preguntas privadas de examen. Marca como pendiente lo que no puedas demostrar de forma independiente con material autorizado."
+          ],
+          "analogy": "Aprender una fórmula sirve cuando puedes elegir sus variables correctamente en un problema distinto.",
+          "keyPoints": [
+            "Lógica: La consulta responde a una pregunta y unidad definidas.",
+            "Comprobación: Filas de control validan inclusión y exclusión.",
+            "Cobertura: Las fuentes disponibles delimitan el resultado."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Auditar SIEM",
+            "items": [
+              {
+                "label": "Lógica",
+                "detail": "La consulta responde a una pregunta y unidad definidas."
+              },
+              {
+                "label": "Comprobación",
+                "detail": "Filas de control validan inclusión y exclusión."
+              },
+              {
+                "label": "Cobertura",
+                "detail": "Las fuentes disponibles delimitan el resultado."
+              }
+            ],
+            "caption": "La auditoría de SIEM exige consultas adaptables y resultados comprobados."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "La consulta trasladada",
+        "scenario": "Una búsqueda ficticia usa src_ip, pero el nuevo conjunto almacena client_address.",
+        "steps": [
+          {
+            "action": "Inspeccionar muestra",
+            "reason": "Evita confiar en nombres memorizados.",
+            "result": "Se identifica el campo real del cliente."
+          },
+          {
+            "action": "Adaptar consulta",
+            "reason": "La lógica permanece, cambia la representación.",
+            "result": "Se sustituye el campo tras comprobar su significado."
+          },
+          {
+            "action": "Validar resultado",
+            "reason": "La adaptación necesita control.",
+            "result": "Una fila conocida entra y otra queda fuera correctamente."
+          }
+        ],
+        "result": "La capacidad se demuestra al adaptar con criterio y comprobar el resultado.",
+        "visual": {
+          "type": "timeline",
+          "title": "La consulta trasladada",
+          "items": [
+            {
+              "label": "Inspeccionar muestra",
+              "detail": "Se identifica el campo real del cliente."
+            },
+            {
+              "label": "Adaptar consulta",
+              "detail": "Se sustituye el campo tras comprobar su significado."
+            },
+            {
+              "label": "Validar resultado",
+              "detail": "Una fila conocida entra y otra queda fuera correctamente."
+            }
+          ],
+          "caption": "La capacidad se demuestra al adaptar con criterio y comprobar el resultado."
+        }
+      },
+      "practice": {
+        "task": "Audita una búsqueda sobre una tabla sintética nueva.",
+        "steps": [
+          "Define entidad y ventana.",
+          "Cambia un nombre de campo respecto de una práctica anterior.",
+          "Comprueba un positivo y un negativo."
+        ],
+        "expected": "Una consulta adaptada con evidencias de control."
+      },
+      "check": {
+        "question": "¿Qué demuestra mejor transferencia en SIEM?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Adaptar una consulta a campos nuevos y verificar su resultado."
+          },
+          {
+            "id": "b",
+            "text": "Copiar una consulta sin leerla."
+          },
+          {
+            "id": "c",
+            "text": "Obtener el mayor número de filas."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La transferencia exige comprender la pregunta y la semántica de los campos, no solo reproducir sintaxis."
+      },
+      "mistakes": [
+        {
+          "myth": "Una consulta guardada garantiza la cobertura del objetivo.",
+          "correction": "Debe probarse con otra situación y verificarse su alcance."
+        }
+      ],
+      "recap": [
+        "Lógica: La consulta responde a una pregunta y unidad definidas.",
+        "Comprobación: Filas de control validan inclusión y exclusión.",
+        "Cobertura: Las fuentes disponibles delimitan el resultado."
+      ],
+      "glossary": [
+        {
+          "term": "Transferencia",
+          "definition": "Aplicación del conocimiento a datos o condiciones diferentes."
+        },
+        {
+          "term": "Fila de control",
+          "definition": "Observación conocida usada para comprobar un filtro."
+        }
+      ]
+    },
+    {
+      "dayId": "w47d5",
+      "title": "Auditar respuesta",
+      "lead": "Auditar respuesta significa demostrar decisiones y coordinación, no únicamente una cronología.",
+      "sections": [
+        {
+          "topic": "Caso y coordinación",
+          "explanation": [
+            "La preparación de respuesta se observa en cómo priorizas, eliges medidas y compruebas recuperación. Una cronología describe qué ocurrió; el registro de decisiones explica por qué se actuó de una manera y quién tenía autoridad. Para cada objetivo del programa define una situación que obligue a decidir entre alternativas, con impacto y dependencias. La evidencia puede ser un ejercicio de mesa propio, siempre que diferencie acciones simuladas de medidas aplicadas y no exponga datos reales.",
+            "Incluye comunicación técnica y ejecutiva, entrega de turno y tareas residuales. Una recomendación sin dueño ni criterio de finalización es difícil de convertir en acción. Evalúa si cambias tu decisión cuando llega evidencia nueva y si conservas la razón del cambio. El programa oficial puede exigir herramientas de gestión de casos específicas; registra esa parte como una competencia separada del razonamiento general. Completar una simulación en esta herramienta no equivale a aprobar una evaluación externa ni sustituye sus reglas."
+          ],
+          "analogy": "Un director de orquesta no demuestra coordinación escribiendo solo la lista de notas; debe organizar entradas y escuchar el resultado.",
+          "keyPoints": [
+            "Decisión: Alternativas, evidencia y autoridad documentadas.",
+            "Coordinación: Responsables y comunicaciones coherentes.",
+            "Validación: Cada medida tiene criterio de resultado y seguimiento."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Auditar respuesta",
+            "items": [
+              {
+                "label": "Decisión",
+                "detail": "Alternativas, evidencia y autoridad documentadas."
+              },
+              {
+                "label": "Coordinación",
+                "detail": "Responsables y comunicaciones coherentes."
+              },
+              {
+                "label": "Validación",
+                "detail": "Cada medida tiene criterio de resultado y seguimiento."
+              }
+            ],
+            "caption": "Auditar respuesta significa demostrar decisiones y coordinación, no únicamente una cronología."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Contención sin verificación",
+        "scenario": "Un ejercicio ficticio propone bloquear una sesión, pero nadie comprueba si terminó.",
+        "steps": [
+          {
+            "action": "Leer la decisión",
+            "reason": "Una propuesta no es un resultado.",
+            "result": "La medida figura como solicitada."
+          },
+          {
+            "action": "Asignar verificación",
+            "reason": "Necesita responsable y evidencia.",
+            "result": "Identidad revisará el estado de sesión."
+          },
+          {
+            "action": "Actualizar caso",
+            "reason": "Distingue estados del trabajo.",
+            "result": "Solo se marca aplicada cuando llega confirmación verificable."
+          }
+        ],
+        "result": "La auditoría detecta una brecha de validación, no solo de documentación.",
+        "visual": {
+          "type": "timeline",
+          "title": "Contención sin verificación",
+          "items": [
+            {
+              "label": "Leer la decisión",
+              "detail": "La medida figura como solicitada."
+            },
+            {
+              "label": "Asignar verificación",
+              "detail": "Identidad revisará el estado de sesión."
+            },
+            {
+              "label": "Actualizar caso",
+              "detail": "Solo se marca aplicada cuando llega confirmación verificable."
+            }
+          ],
+          "caption": "La auditoría detecta una brecha de validación, no solo de documentación."
+        }
+      },
+      "practice": {
+        "task": "Audita tres decisiones de un ejercicio de respuesta propio.",
+        "steps": [
+          "Añade alternativas y autoridad.",
+          "Define responsable de comprobar cada resultado.",
+          "Escribe una entrega de turno con tareas pendientes."
+        ],
+        "expected": "Un registro que permite continuar y revisar la respuesta."
+      },
+      "check": {
+        "question": "¿Qué falta en una recomendación sin dueño ni criterio de cierre?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Un color de prioridad."
+          },
+          {
+            "id": "b",
+            "text": "Capacidad operativa de seguimiento y comprobación."
+          },
+          {
+            "id": "c",
+            "text": "Una frase más larga."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La acción necesita responsabilidad y una condición observable de finalización."
+      },
+      "mistakes": [
+        {
+          "myth": "Una simulación interna aprobada garantiza aprobar BTL1.",
+          "correction": "La preparación debe contrastarse con objetivos y reglas oficiales; las pruebas internas tienen alcance propio."
+        }
+      ],
+      "recap": [
+        "Decisión: Alternativas, evidencia y autoridad documentadas.",
+        "Coordinación: Responsables y comunicaciones coherentes.",
+        "Validación: Cada medida tiene criterio de resultado y seguimiento."
+      ],
+      "glossary": [
+        {
+          "term": "Registro de decisiones",
+          "definition": "Documento que conserva razones, autoridad y resultado de acciones."
+        },
+        {
+          "term": "Tarea residual",
+          "definition": "Trabajo pendiente después de una medida o cierre de etapa."
+        }
+      ]
+    },
+    {
+      "dayId": "w47d6",
+      "title": "Herramientas adicionales",
+      "lead": "La lista vigente de herramientas se convierte en un mapa de capacidades verificables.",
+      "sections": [
+        {
+          "topic": "Todas las incluidas en el programa vigente",
+          "explanation": [
+            "Las herramientas de un programa pueden cambiar, por lo que la referencia de cobertura debe ser la página o el área oficial del curso a la que tienes acceso. En la consulta realizada para preparar esta clase aparecen familias de análisis de correo, inteligencia, forense, SIEM, red y gestión de casos. Ejemplos son CyberChef, Wireshark, Splunk, Autopsy y Volatility. No debes deducir que dominar una de ellas cubre automáticamente las tareas de las demás.",
+            "Crea una matriz con todas las herramientas que el programa vigente enumere y agrúpalas por propósito. Para cada una registra entrada esperada, salida interpretable, tarea practicada y límite. Por ejemplo, CyberChef transforma datos y exige entender la receta; Wireshark examina paquetes y exige conocer la captura; un gestor de casos conserva decisiones y responsables. Marca acceso, versión y fecha de revisión sin inventar requisitos del examen. No instales utilidades de fuentes desconocidas ni cargues material privado en servicios públicos para completar casillas."
+          ],
+          "analogy": "Una caja de herramientas se domina sabiendo qué problema resuelve cada pieza, no contando cuántas piezas hay.",
+          "keyPoints": [
+            "Inventario vigente: Copia nombres y objetivos desde la referencia oficial autorizada.",
+            "Capacidad: Relaciona herramienta con entrada, tarea y salida.",
+            "Prueba: Demuestra una operación segura y explica sus límites."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Herramientas adicionales",
+            "items": [
+              {
+                "label": "Inventario vigente",
+                "detail": "Copia nombres y objetivos desde la referencia oficial autorizada."
+              },
+              {
+                "label": "Capacidad",
+                "detail": "Relaciona herramienta con entrada, tarea y salida."
+              },
+              {
+                "label": "Prueba",
+                "detail": "Demuestra una operación segura y explica sus límites."
+              }
+            ],
+            "caption": "La lista vigente de herramientas se convierte en un mapa de capacidades verificables."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Una herramienta nueva en el programa",
+        "scenario": "La matriz ficticia incorpora un analizador de artefactos que todavía no se había practicado.",
+        "steps": [
+          {
+            "action": "Definir propósito",
+            "reason": "Evita instalar sin comprender.",
+            "result": "Se identifica formato de entrada y pregunta que responde."
+          },
+          {
+            "action": "Preparar muestra",
+            "reason": "La práctica debe ser autorizada.",
+            "result": "Se selecciona un artefacto sintético compatible."
+          },
+          {
+            "action": "Registrar evidencia",
+            "reason": "La casilla necesita resultado.",
+            "result": "Se guarda versión, parámetros y explicación de una salida."
+          }
+        ],
+        "result": "La herramienta queda vinculada a una capacidad demostrable, no solo a una instalación.",
+        "visual": {
+          "type": "timeline",
+          "title": "Una herramienta nueva en el programa",
+          "items": [
+            {
+              "label": "Definir propósito",
+              "detail": "Se identifica formato de entrada y pregunta que responde."
+            },
+            {
+              "label": "Preparar muestra",
+              "detail": "Se selecciona un artefacto sintético compatible."
+            },
+            {
+              "label": "Registrar evidencia",
+              "detail": "Se guarda versión, parámetros y explicación de una salida."
+            }
+          ],
+          "caption": "La herramienta queda vinculada a una capacidad demostrable, no solo a una instalación."
+        }
+      },
+      "practice": {
+        "task": "Construye tu matriz desde el programa oficial vigente.",
+        "steps": [
+          "Incluye todas las herramientas listadas, sin asumir una lista histórica.",
+          "Agrupa por función y anota acceso disponible.",
+          "Elige una brecha y diseña una práctica segura con resultado esperado."
+        ],
+        "expected": "Un inventario fechado con estado y evidencia por herramienta."
+      },
+      "check": {
+        "question": "¿Qué referencia debe decidir qué herramientas faltan en tu cobertura?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Una lista antigua sin fecha."
+          },
+          {
+            "id": "b",
+            "text": "La memoria de otro estudiante."
+          },
+          {
+            "id": "c",
+            "text": "El programa oficial vigente y autorizado."
+          }
+        ],
+        "correct": "c",
+        "explanation": "Los nombres y exigencias pueden cambiar; la cobertura debe compararse con la referencia actual."
+      },
+      "mistakes": [
+        {
+          "myth": "Más programas instalados significa mejor preparación.",
+          "correction": "Importa poder usarlos para tareas concretas e interpretar sus resultados."
+        }
+      ],
+      "recap": [
+        "Inventario vigente: Copia nombres y objetivos desde la referencia oficial autorizada.",
+        "Capacidad: Relaciona herramienta con entrada, tarea y salida.",
+        "Prueba: Demuestra una operación segura y explica sus límites."
+      ],
+      "glossary": [
+        {
+          "term": "Entrada",
+          "definition": "Datos que una herramienta necesita para una operación."
+        },
+        {
+          "term": "Salida interpretable",
+          "definition": "Resultado cuyo significado y límites puedes explicar."
+        }
+      ]
+    },
+    {
+      "dayId": "w47d7",
+      "title": "Control de cobertura",
+      "lead": "Una matriz completa distingue lectura, práctica guiada y demostración autónoma.",
+      "sections": [
+        {
+          "topic": "Objetivo, actividad y evidencia",
+          "explanation": [
+            "La matriz objetivo-actividad-evidencia convierte la preparación en algo revisable. Una fila contiene el objetivo oficial, la tarea que lo demuestra, el material autorizado y la evidencia obtenida. Añade un estado que diferencie pendiente, guiado y autónomo. Haber visto una clase no prueba autonomía; terminar una tarea siguiendo cada clic tampoco garantiza que puedas elegir el método en un caso nuevo. Por eso debes conservar el nivel real de ayuda utilizada.",
+            "Revisa las filas con mayor riesgo de sobrevaloración: las que dicen «entendido» sin resultado, usan una misma evidencia para objetivos distintos o dependen de datos que ya no están disponibles. Una práctica puede apoyar varios objetivos, pero explica qué parte demuestra cada uno. Termina con un plan de brechas que tenga prioridad, siguiente tarea y criterio de éxito. No conviertas porcentajes internos en promesas de aprobar: son medidas de cobertura de tu propia matriz, condicionadas por la calidad de sus evidencias."
+          ],
+          "analogy": "Una tabla de entrenamiento debe distinguir mirar una demostración de ejecutar el movimiento sin ayuda.",
+          "keyPoints": [
+            "Objetivo: Competencia concreta y referencia oficial.",
+            "Actividad: Tarea con condiciones y nivel de ayuda.",
+            "Evidencia: Resultado identificable y criterio de éxito comprobado."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Control de cobertura",
+            "items": [
+              {
+                "label": "Objetivo",
+                "detail": "Competencia concreta y referencia oficial."
+              },
+              {
+                "label": "Actividad",
+                "detail": "Tarea con condiciones y nivel de ayuda."
+              },
+              {
+                "label": "Evidencia",
+                "detail": "Resultado identificable y criterio de éxito comprobado."
+              }
+            ],
+            "caption": "Una matriz completa distingue lectura, práctica guiada y demostración autónoma."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Cobertura aparente del cien por ciento",
+        "scenario": "Una matriz ficticia marca todas las filas porque cada video fue visto, pero no hay prácticas.",
+        "steps": [
+          {
+            "action": "Revisar significado",
+            "reason": "El porcentaje medía consumo, no habilidad.",
+            "result": "Se reclasifican filas como lectura realizada."
+          },
+          {
+            "action": "Seleccionar muestras",
+            "reason": "La autonomía necesita casos nuevos.",
+            "result": "Se eligen tareas de correo, búsqueda y respuesta."
+          },
+          {
+            "action": "Definir brechas",
+            "reason": "El plan necesita criterios.",
+            "result": "Cada tarea debe producir un resultado explicado sin guía paso a paso."
+          }
+        ],
+        "result": "La nueva matriz comunica progreso real sin prometer resultados externos.",
+        "visual": {
+          "type": "timeline",
+          "title": "Cobertura aparente del cien por ciento",
+          "items": [
+            {
+              "label": "Revisar significado",
+              "detail": "Se reclasifican filas como lectura realizada."
+            },
+            {
+              "label": "Seleccionar muestras",
+              "detail": "Se eligen tareas de correo, búsqueda y respuesta."
+            },
+            {
+              "label": "Definir brechas",
+              "detail": "Cada tarea debe producir un resultado explicado sin guía paso a paso."
+            }
+          ],
+          "caption": "La nueva matriz comunica progreso real sin prometer resultados externos."
+        }
+      },
+      "practice": {
+        "task": "Audita cinco filas de tu matriz de preparación.",
+        "steps": [
+          "Comprueba referencia, actividad y evidencia.",
+          "Indica el nivel de ayuda usado.",
+          "Prioriza dos brechas con criterio observable."
+        ],
+        "expected": "Cinco filas defendibles y un plan concreto de refuerzo."
+      },
+      "check": {
+        "question": "¿Qué distingue mejor una demostración autónoma?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Elegir y justificar el método en un caso nuevo sin guía detallada."
+          },
+          {
+            "id": "b",
+            "text": "Volver a abrir una lección."
+          },
+          {
+            "id": "c",
+            "text": "Marcar una casilla por cada video."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La autonomía se demuestra mediante selección, ejecución e interpretación razonadas en condiciones definidas."
+      },
+      "mistakes": [
+        {
+          "myth": "Un porcentaje de cobertura predice la nota oficial.",
+          "correction": "La matriz mide preparación según sus criterios; no equivale a una predicción validada del examen."
+        }
+      ],
+      "recap": [
+        "Objetivo: Competencia concreta y referencia oficial.",
+        "Actividad: Tarea con condiciones y nivel de ayuda.",
+        "Evidencia: Resultado identificable y criterio de éxito comprobado."
+      ],
+      "glossary": [
+        {
+          "term": "Matriz de cobertura",
+          "definition": "Relación organizada entre objetivos, tareas y evidencias."
+        },
+        {
+          "term": "Nivel de ayuda",
+          "definition": "Grado de asistencia utilizado para completar una actividad."
+        }
+      ]
+    }
+  ]
+}

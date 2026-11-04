@@ -1,0 +1,985 @@
+{
+  "version": "2.0.0",
+  "week": 3,
+  "title": "Programas y sistemas operativos",
+  "overview": "Un sistema operativo y una aplicación cumplen funciones diferentes, aunque ambos sean software. Esta semana aprenderás a reconocer familias de sistemas, procesos y servicios, y a evaluar una instalación antes de ejecutarla. También estudiarás las actualizaciones y el soporte como partes del mantenimiento, no como botones que se pulsan sin contexto. Los casos se centran en fuentes, requisitos, permisos y validación. Podrás explicar por qué un programa compatible merece una prueba controlada y qué evidencia confirma que una actualización terminó correctamente.",
+  "objectives": [
+    "Relacionar aplicación, proceso y servicio.",
+    "Evaluar origen, requisitos y permisos de una instalación.",
+    "Distinguir actualización, soporte y comprobación posterior."
+  ],
+  "sources": [
+    {
+      "id": "w03s1",
+      "title": "Herramientas de configuración de Windows",
+      "url": "https://support.microsoft.com/en-us/windows/experience/system-configuration-tools-in-windows"
+    },
+    {
+      "id": "w03s2",
+      "title": "Instalar actualizaciones de Windows",
+      "url": "https://support.microsoft.com/en-us/windows/deployment/updates-lifecycle/install-windows-updates"
+    },
+    {
+      "id": "w03s3",
+      "title": "Terminal Linux para principiantes",
+      "url": "https://ubuntu.com/tutorials/command-line-for-beginners"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w03d1",
+      "title": "Familias de sistemas",
+      "lead": "Windows, Linux y macOS son familias de sistemas operativos con interfaces, herramientas y ecosistemas diferentes.",
+      "sections": [
+        {
+          "explanation": [
+            "Windows, Linux y macOS son familias de sistemas operativos con interfaces, herramientas y ecosistemas diferentes. Un equipo de escritorio prioriza la interacción de una persona; un servidor proporciona funciones a otros equipos o usuarios. «Servidor» describe también un papel, no necesariamente una caja de aspecto especial. Una computadora puede ejecutar servicios de servidor y un servidor puede administrarse sin una interfaz gráfica permanente.",
+            "La compatibilidad depende de la aplicación, la arquitectura y sus dependencias, además de la familia del sistema. Un instalador diseñado para Windows no se convierte en programa de Linux al copiarlo allí. Antes de elegir un entorno identifica qué herramienta necesitas, qué versiones admite y qué recursos exige. Para comenzar, aprende una tarea equivalente en dos interfaces y observa sus diferencias sin asumir que las rutas, permisos o comandos se trasladan literalmente de una a otra."
+          ],
+          "analogy": "Diferentes idiomas permiten pedir tareas semejantes, pero no utilizan siempre las mismas palabras ni reglas.",
+          "keyPoints": [
+            "Windows: Familia con herramientas e interfaces propias.",
+            "Linux: Kernel y distribuciones con distintas selecciones de software.",
+            "macOS: Sistema de Apple con su ecosistema compatible."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Familia y papel del sistema",
+            "items": [
+              {
+                "label": "Windows",
+                "detail": "Familia con herramientas e interfaces propias."
+              },
+              {
+                "label": "Linux",
+                "detail": "Kernel y distribuciones con distintas selecciones de software."
+              },
+              {
+                "label": "macOS",
+                "detail": "Sistema de Apple con su ecosistema compatible."
+              },
+              {
+                "label": "Servidor",
+                "detail": "Papel que presta funciones a otros usuarios o equipos."
+              }
+            ],
+            "caption": "Para comenzar, aprende una tarea equivalente en dos interfaces y observa sus diferencias sin asumir que las rutas, permisos o comandos se trasladan literalmente de una a otra."
+          },
+          "topic": "Windows, Linux, macOS y servidores"
+        }
+      ],
+      "workedExample": {
+        "title": "Elegir un entorno para una herramienta",
+        "scenario": "Una utilidad de práctica solo ofrece instalador para una arquitectura y sistema determinados.",
+        "steps": [
+          {
+            "action": "Consultar requisitos",
+            "reason": "La apariencia no demuestra compatibilidad.",
+            "result": "Se identifica sistema y arquitectura admitidos."
+          },
+          {
+            "action": "Comparar el equipo",
+            "reason": "El inventario aporta los datos necesarios.",
+            "result": "Se detecta si coincide o falta un requisito."
+          },
+          {
+            "action": "Elegir alternativa",
+            "reason": "Forzar la instalación añade incertidumbre.",
+            "result": "Se usa un entorno compatible o la documentación."
+          }
+        ],
+        "result": "La elección se fundamenta en requisitos verificables, no en preferencia por un logotipo.",
+        "visual": {
+          "type": "flow",
+          "title": "Elegir un entorno para una herramienta · secuencia",
+          "items": [
+            {
+              "label": "Consultar requisitos",
+              "detail": "Se identifica sistema y arquitectura admitidos."
+            },
+            {
+              "label": "Comparar el equipo",
+              "detail": "Se detecta si coincide o falta un requisito."
+            },
+            {
+              "label": "Elegir alternativa",
+              "detail": "Se usa un entorno compatible o la documentación."
+            }
+          ],
+          "caption": "La elección se fundamenta en requisitos verificables, no en preferencia por un logotipo."
+        }
+      },
+      "practice": {
+        "task": "Compara dos familias para una aplicación conocida.",
+        "steps": [
+          "Consulta su documentación oficial.",
+          "Anota versiones y arquitecturas admitidas.",
+          "Indica una alternativa si tu equipo no cumple."
+        ],
+        "expected": "Una decisión de compatibilidad con fuente y límites."
+      },
+      "check": {
+        "question": "¿Qué describe mejor un servidor?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Siempre una computadora sin pantalla."
+          },
+          {
+            "id": "b",
+            "text": "Un papel que proporciona servicios a otros."
+          },
+          {
+            "id": "c",
+            "text": "Cualquier equipo de mayor precio."
+          }
+        ],
+        "correct": "b",
+        "explanation": "El papel se define por la función que presta, no por su forma o precio."
+      },
+      "mistakes": [
+        {
+          "myth": "Todos los programas funcionan en todos los sistemas.",
+          "correction": "La compatibilidad requiere versiones, arquitectura y dependencias apropiadas."
+        }
+      ],
+      "recap": [
+        "Windows: Familia con herramientas e interfaces propias.",
+        "Linux: Kernel y distribuciones con distintas selecciones de software.",
+        "macOS: Sistema de Apple con su ecosistema compatible."
+      ],
+      "glossary": [
+        {
+          "term": "Sistema operativo",
+          "definition": "Software que administra recursos y servicios comunes."
+        },
+        {
+          "term": "Servidor",
+          "definition": "Sistema que proporciona una función a clientes."
+        }
+      ]
+    },
+    {
+      "dayId": "w03d2",
+      "title": "Aplicaciones y servicios",
+      "lead": "Un programa es un conjunto de instrucciones almacenadas.",
+      "sections": [
+        {
+          "explanation": [
+            "Un programa es un conjunto de instrucciones almacenadas. Un proceso es una instancia de ejecución con su propio contexto y recursos. Abrir dos ventanas no siempre crea exactamente dos procesos: una aplicación puede repartir trabajo entre varios, y varias ventanas pueden compartir parte del funcionamiento. Un servicio ofrece una función en segundo plano y suele tener reglas de inicio, una cuenta de ejecución y posibles dependencias.",
+            "Un navegador moderno puede mostrar varios procesos legítimos para pestañas, extensiones o componentes. Para investigar, registra nombre, identificador, ubicación y momento, sin concluir que muchos procesos significan infección. Un identificador de proceso puede reutilizarse después de que termine, por lo que la hora aporta contexto. Cerrar la ventana principal tampoco garantiza que toda tarea asociada haya finalizado. Estas distinciones ayudan a preguntar qué sigue activo y por qué, antes de detener componentes que otras aplicaciones necesitan."
+          ],
+          "analogy": "Una receta guardada es el programa; cada preparación en marcha es una ejecución con sus propios ingredientes.",
+          "keyPoints": [
+            "Programa: Instrucciones conservadas en archivos.",
+            "Proceso: Instancia activa con identificador y recursos.",
+            "Servicio: Función en segundo plano con identidad y reglas de inicio."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Del archivo a la ejecución",
+            "items": [
+              {
+                "label": "Programa",
+                "detail": "Instrucciones conservadas en archivos."
+              },
+              {
+                "label": "Proceso",
+                "detail": "Instancia activa con identificador y recursos."
+              },
+              {
+                "label": "Servicio",
+                "detail": "Función en segundo plano con identidad y reglas de inicio."
+              }
+            ],
+            "caption": "Estas distinciones ayudan a preguntar qué sigue activo y por qué, antes de detener componentes que otras aplicaciones necesitan."
+          },
+          "topic": "Programa, proceso y servicio"
+        }
+      ],
+      "workedExample": {
+        "title": "Varias filas del navegador",
+        "scenario": "El Administrador de tareas muestra varias entradas asociadas a un navegador.",
+        "steps": [
+          {
+            "action": "Identificar la aplicación",
+            "reason": "Relacionar filas evita contar programas por error.",
+            "result": "Se agrupan nombres y ubicación conocida."
+          },
+          {
+            "action": "Observar el tiempo",
+            "reason": "La captura necesita un momento de referencia.",
+            "result": "Se anota cuándo se abren y cierran pestañas."
+          },
+          {
+            "action": "Describir sin acusar",
+            "reason": "La multiplicidad tiene explicaciones normales.",
+            "result": "Se informa distribución de procesos, no malware demostrado."
+          }
+        ],
+        "result": "Una aplicación puede usar varios procesos; hace falta comportamiento adicional para valorar un riesgo.",
+        "visual": {
+          "type": "flow",
+          "title": "Varias filas del navegador · secuencia",
+          "items": [
+            {
+              "label": "Identificar la aplicación",
+              "detail": "Se agrupan nombres y ubicación conocida."
+            },
+            {
+              "label": "Observar el tiempo",
+              "detail": "Se anota cuándo se abren y cierran pestañas."
+            },
+            {
+              "label": "Describir sin acusar",
+              "detail": "Se informa distribución de procesos, no malware demostrado."
+            }
+          ],
+          "caption": "Una aplicación puede usar varios procesos; hace falta comportamiento adicional para valorar un riesgo."
+        }
+      },
+      "practice": {
+        "task": "Compara un editor y un servicio conocido sin detenerlos.",
+        "steps": [
+          "Registra su función.",
+          "Observa si necesitan una ventana abierta.",
+          "Explica qué dato faltaría para investigar un consumo anómalo."
+        ],
+        "expected": "Una clasificación con evidencias de solo lectura."
+      },
+      "check": {
+        "question": "¿Qué es un proceso?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Una instancia de un programa en ejecución."
+          },
+          {
+            "id": "b",
+            "text": "Siempre un archivo comprimido."
+          },
+          {
+            "id": "c",
+            "text": "El nombre de una carpeta."
+          }
+        ],
+        "correct": "a",
+        "explanation": "El proceso representa ejecución y recursos; el programa almacenado puede existir sin estar activo."
+      },
+      "mistakes": [
+        {
+          "myth": "Cada proceso corresponde a un programa diferente.",
+          "correction": "Una aplicación puede distribuir su trabajo entre varios procesos."
+        }
+      ],
+      "recap": [
+        "Programa: Instrucciones conservadas en archivos.",
+        "Proceso: Instancia activa con identificador y recursos.",
+        "Servicio: Función en segundo plano con identidad y reglas de inicio."
+      ],
+      "glossary": [
+        {
+          "term": "PID",
+          "definition": "Identificador de un proceso en un contexto temporal."
+        },
+        {
+          "term": "Dependencia",
+          "definition": "Componente necesario para que otro funcione."
+        }
+      ]
+    },
+    {
+      "dayId": "w03d3",
+      "title": "Instalación segura",
+      "lead": "Instalar software significa permitir cambios en el equipo, no únicamente copiar un icono.",
+      "sections": [
+        {
+          "explanation": [
+            "Instalar software significa permitir cambios en el equipo, no únicamente copiar un icono. Verifica la fuente, el producto, la versión y los requisitos antes de iniciar un instalador. Prioriza la página oficial o un repositorio gestionado por el fabricante del sistema. Un anuncio en los primeros resultados de búsqueda no demuestra autenticidad. Si existe firma digital, revisa quién firma y si corresponde al proveedor esperado, sin tratar la firma como garantía absoluta de ausencia de fallos.",
+            "Pregunta también por los permisos. Una herramienta sencilla no debería recibir privilegios administrativos sin una razón clara y documentada. La solicitud puede ser legítima, pero debes entender qué modifica. En un equipo de trabajo respeta el procedimiento de instalación de su administrador. Para practicar, utiliza una aplicación permitida o analiza su documentación sin instalarla. Conserva la URL oficial y los requisitos: esa evidencia permite explicar por qué confiaste en la procedencia y qué límites sigues aceptando."
+          ],
+          "analogy": "Entregar la llave de una casa exige comprobar a quién se la das y para qué trabajo concreto.",
+          "keyPoints": [
+            "Origen: Página oficial o repositorio autorizado.",
+            "Compatibilidad: Sistema, arquitectura y requisitos.",
+            "Permisos: Cambios que justifican la elevación."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Evaluación previa del instalador",
+            "items": [
+              {
+                "label": "Origen",
+                "detail": "Página oficial o repositorio autorizado."
+              },
+              {
+                "label": "Compatibilidad",
+                "detail": "Sistema, arquitectura y requisitos."
+              },
+              {
+                "label": "Permisos",
+                "detail": "Cambios que justifican la elevación."
+              },
+              {
+                "label": "Decisión",
+                "detail": "Instalar en entorno permitido o detenerse."
+              }
+            ],
+            "caption": "Conserva la URL oficial y los requisitos: esa evidencia permite explicar por qué confiaste en la procedencia y qué límites sigues aceptando."
+          },
+          "topic": "Fuentes oficiales, versiones y permisos"
+        }
+      ],
+      "workedExample": {
+        "title": "Un anuncio ofrece un actualizador",
+        "scenario": "Una página desconocida afirma que todos tus controladores están obsoletos.",
+        "steps": [
+          {
+            "action": "Identificar la fuente",
+            "reason": "El mensaje publicitario no prueba un diagnóstico.",
+            "result": "Se conserva la URL sin descargar archivos."
+          },
+          {
+            "action": "Consultar al fabricante",
+            "reason": "La comparación necesita un canal confiable.",
+            "result": "Se revisa la página oficial del dispositivo."
+          },
+          {
+            "action": "Evitar cambios innecesarios",
+            "reason": "Una herramienta no verificada agrega riesgo.",
+            "result": "No se ejecuta el actualizador anunciado."
+          }
+        ],
+        "result": "Se sustituye una promesa publicitaria por una comprobación de procedencia y necesidad.",
+        "visual": {
+          "type": "flow",
+          "title": "Un anuncio ofrece un actualizador · secuencia",
+          "items": [
+            {
+              "label": "Identificar la fuente",
+              "detail": "Se conserva la URL sin descargar archivos."
+            },
+            {
+              "label": "Consultar al fabricante",
+              "detail": "Se revisa la página oficial del dispositivo."
+            },
+            {
+              "label": "Evitar cambios innecesarios",
+              "detail": "No se ejecuta el actualizador anunciado."
+            }
+          ],
+          "caption": "Se sustituye una promesa publicitaria por una comprobación de procedencia y necesidad."
+        }
+      },
+      "practice": {
+        "task": "Evalúa una aplicación de estudio sin instalarla todavía.",
+        "steps": [
+          "Localiza su fuente oficial.",
+          "Anota requisitos y permisos documentados.",
+          "Escribe las condiciones para instalarla de forma autorizada."
+        ],
+        "expected": "Una ficha de decisión con URL, requisitos y motivo."
+      },
+      "check": {
+        "question": "¿Qué es una buena primera comprobación?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que el botón diga gratis."
+          },
+          {
+            "id": "b",
+            "text": "Que el resultado sea un anuncio destacado."
+          },
+          {
+            "id": "c",
+            "text": "Que el origen corresponda al proveedor oficial."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La procedencia debe verificarse antes de permitir cambios al equipo."
+      },
+      "mistakes": [
+        {
+          "myth": "Si tiene firma digital, es imposible que cause problemas.",
+          "correction": "La firma ayuda a comprobar origen e integridad; no garantiza calidad, compatibilidad ni seguridad completa."
+        }
+      ],
+      "recap": [
+        "Origen: Página oficial o repositorio autorizado.",
+        "Compatibilidad: Sistema, arquitectura y requisitos.",
+        "Permisos: Cambios que justifican la elevación."
+      ],
+      "glossary": [
+        {
+          "term": "Procedencia",
+          "definition": "Origen documentado de un archivo o paquete."
+        },
+        {
+          "term": "Elevación",
+          "definition": "Ejecución con privilegios superiores a los habituales."
+        }
+      ]
+    },
+    {
+      "dayId": "w03d4",
+      "title": "Actualizaciones",
+      "lead": "Una actualización cambia software que ya está instalado.",
+      "sections": [
+        {
+          "explanation": [
+            "Una actualización cambia software que ya está instalado. Puede corregir vulnerabilidades, resolver errores o incorporar funciones. El sistema operativo, las aplicaciones y los controladores mantienen ciclos diferentes; comprobar uno no demuestra que los demás estén al día. Registra la versión inicial y el cambio propuesto. La necesidad de reiniciar o de cerrar una aplicación depende del componente y debe revisarse antes de interrumpir trabajo.",
+            "Una instalación satisfactoria necesita validación posterior. Comprueba la versión resultante, el estado informado por el mecanismo oficial y una tarea importante que antes funcionaba. Si aparece un fallo, conserva el mensaje y el momento; no instales varios paquetes adicionales sin una hipótesis. En organizaciones se prueban cambios y se planifica reversión según su política. Para aprender, observa el historial y describe un cambio permitido sin obligarte a modificar un equipo administrado."
+          ],
+          "analogy": "Actualizar una pieza de una máquina requiere comprobar después que la tarea completa sigue funcionando.",
+          "keyPoints": [
+            "Antes: Versión y funcionamiento de referencia.",
+            "Cambio: Paquete oficial y condiciones conocidas.",
+            "Después: Versión nueva y prueba funcional."
+          ],
+          "visual": {
+            "type": "cycle",
+            "title": "Actualizar y verificar",
+            "items": [
+              {
+                "label": "Antes",
+                "detail": "Versión y funcionamiento de referencia."
+              },
+              {
+                "label": "Cambio",
+                "detail": "Paquete oficial y condiciones conocidas."
+              },
+              {
+                "label": "Después",
+                "detail": "Versión nueva y prueba funcional."
+              }
+            ],
+            "caption": "Para aprender, observa el historial y describe un cambio permitido sin obligarte a modificar un equipo administrado."
+          },
+          "topic": "Sistema, aplicación y controlador"
+        },
+        {
+          "explanation": [
+            "El soporte describe qué mantenimiento y asistencia ofrece un proveedor para una versión. Una aplicación puede seguir abriéndose después del fin del soporte, pero eso no implica que reciba correcciones de seguridad ordinarias. Las fechas y programas especiales pueden cambiar, por lo que debes consultar la página oficial correspondiente al producto y su edición. No utilices la antigüedad del icono como sustituto de esa comprobación.",
+            "Para documentar el estado registra producto, edición, versión, fuente y fecha de consulta. Si ya no tiene soporte adecuado, la respuesta no siempre es actualizar inmediatamente sin revisar compatibilidad: identifica alternativas, requisitos y una transición probada. Un equipo de laboratorio aislado tampoco debe presentarse como seguro por estar aislado. El aislamiento reduce ciertas exposiciones, mientras la falta de mantenimiento conserva limitaciones que deben conocerse y gestionarse explícitamente."
+          ],
+          "analogy": "Una herramienta puede seguir funcionando aunque ya no exista servicio de reparación ni piezas oficiales para ella.",
+          "keyPoints": [
+            "Funcionamiento: La aplicación todavía ejecuta tareas.",
+            "Soporte: El proveedor mantiene esa versión según sus condiciones.",
+            "Decisión: Verificar una transición compatible y autorizada."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Funcionar y recibir mantenimiento",
+            "items": [
+              {
+                "label": "Funcionamiento",
+                "detail": "La aplicación todavía ejecuta tareas."
+              },
+              {
+                "label": "Soporte",
+                "detail": "El proveedor mantiene esa versión según sus condiciones."
+              },
+              {
+                "label": "Decisión",
+                "detail": "Verificar una transición compatible y autorizada."
+              }
+            ],
+            "caption": "El aislamiento reduce ciertas exposiciones, mientras la falta de mantenimiento conserva limitaciones que deben conocerse y gestionarse explícitamente."
+          },
+          "topic": "soporte"
+        }
+      ],
+      "workedExample": {
+        "title": "Una aplicación abre, pero terminó su soporte",
+        "scenario": "Un inventario detecta una versión antigua que aún permite editar documentos.",
+        "steps": [
+          {
+            "action": "Identificar la versión exacta",
+            "reason": "El nombre del producto es insuficiente.",
+            "result": "Se registra edición y número de versión."
+          },
+          {
+            "action": "Consultar el ciclo oficial",
+            "reason": "Las fechas dependen de la versión.",
+            "result": "Se documenta la fuente y fecha de consulta."
+          },
+          {
+            "action": "Planificar la transición",
+            "reason": "Continuidad y seguridad deben comprobarse juntas.",
+            "result": "Se propone probar una alternativa compatible."
+          }
+        ],
+        "result": "Que el programa abra no demuestra que siga mantenido.",
+        "visual": {
+          "type": "flow",
+          "title": "Una aplicación abre, pero terminó su soporte · secuencia",
+          "items": [
+            {
+              "label": "Identificar la versión exacta",
+              "detail": "Se registra edición y número de versión."
+            },
+            {
+              "label": "Consultar el ciclo oficial",
+              "detail": "Se documenta la fuente y fecha de consulta."
+            },
+            {
+              "label": "Planificar la transición",
+              "detail": "Se propone probar una alternativa compatible."
+            }
+          ],
+          "caption": "Que el programa abra no demuestra que siga mantenido."
+        }
+      },
+      "practice": {
+        "task": "Revisa el soporte de una aplicación que utilices.",
+        "steps": [
+          "Anota versión y edición.",
+          "Consulta la página oficial vigente.",
+          "Define una prueba funcional posterior a una actualización."
+        ],
+        "expected": "Un registro fechado y una comprobación concreta."
+      },
+      "check": {
+        "question": "¿Qué demuestra que una aplicación se abre?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que todas sus vulnerabilidades fueron corregidas."
+          },
+          {
+            "id": "b",
+            "text": "Que puede iniciar esa tarea, no que tenga soporte."
+          },
+          {
+            "id": "c",
+            "text": "Que no necesita mantenimiento."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Poder iniciar una tarea demuestra funcionamiento en ese momento, mientras el soporte describe mantenimiento del proveedor."
+      },
+      "mistakes": [
+        {
+          "myth": "Actualizar Windows actualiza automáticamente cualquier programa.",
+          "correction": "Cada componente puede utilizar un mecanismo y calendario distinto."
+        }
+      ],
+      "recap": [
+        "Antes: Versión y funcionamiento de referencia.",
+        "Cambio: Paquete oficial y condiciones conocidas.",
+        "Después: Versión nueva y prueba funcional."
+      ],
+      "glossary": [
+        {
+          "term": "Actualización",
+          "definition": "Cambio aplicado a software instalado."
+        },
+        {
+          "term": "Soporte",
+          "definition": "Mantenimiento y asistencia ofrecidos para una versión."
+        }
+      ]
+    },
+    {
+      "dayId": "w03d5",
+      "title": "Instalar y desinstalar",
+      "lead": "Un asistente de instalación presenta decisiones que pueden cambiar rutas, componentes, asociaciones y tareas de inicio.",
+      "sections": [
+        {
+          "explanation": [
+            "Un asistente de instalación presenta decisiones que pueden cambiar rutas, componentes, asociaciones y tareas de inicio. Lee cada opción antes de aceptar. «Siguiente» no es una garantía de que todo lo propuesto sea necesario para tu objetivo. Algunas aplicaciones ofrecen instalación por usuario y otras modifican el equipo para todos. Distingue las opciones requeridas de complementos que no necesitas y respeta las licencias y políticas del entorno.",
+            "Desinstalar normalmente utiliza el mecanismo registrado por la aplicación o el sistema. Borrar su carpeta no garantiza retirar servicios, accesos, configuraciones o dependencias. Tampoco debes borrar componentes compartidos porque su nombre resulte desconocido. En una práctica autorizada, registra el estado inicial, instala una herramienta sencilla y verifica su funcionamiento; después usa su desinstalador y revisa qué permanece. Los documentos creados por el usuario pueden conservarse de forma deliberada después de retirar el programa."
+          ],
+          "analogy": "Montar un mueble siguiendo un asistente exige leer qué piezas opcionales se añaden y cómo desmontarlo después.",
+          "keyPoints": [
+            "Preparar: Fuente y estado inicial comprobados.",
+            "Elegir: Opciones necesarias para la tarea.",
+            "Validar: La aplicación realiza su función."
+          ],
+          "visual": {
+            "type": "timeline",
+            "title": "Instalación controlada",
+            "items": [
+              {
+                "label": "Preparar",
+                "detail": "Fuente y estado inicial comprobados."
+              },
+              {
+                "label": "Elegir",
+                "detail": "Opciones necesarias para la tarea."
+              },
+              {
+                "label": "Validar",
+                "detail": "La aplicación realiza su función."
+              },
+              {
+                "label": "Retirar",
+                "detail": "Desinstalador y comprobación del estado final."
+              }
+            ],
+            "caption": "Los documentos creados por el usuario pueden conservarse de forma deliberada después de retirar el programa."
+          },
+          "topic": "Asistente, opciones y permisos"
+        }
+      ],
+      "workedExample": {
+        "title": "La aplicación inicia con el equipo",
+        "scenario": "Un instalador propone abrir una utilidad en cada inicio de sesión.",
+        "steps": [
+          {
+            "action": "Leer la opción",
+            "reason": "El inicio automático añade comportamiento persistente.",
+            "result": "Se identifica que es opcional."
+          },
+          {
+            "action": "Relacionarla con la necesidad",
+            "reason": "Una utilidad ocasional no requiere siempre iniciar.",
+            "result": "Se desmarca si la documentación y política lo permiten."
+          },
+          {
+            "action": "Verificar después",
+            "reason": "La elección debe comprobarse.",
+            "result": "Se observa la lista de aplicaciones de inicio sin cambiar otras."
+          }
+        ],
+        "result": "La decisión se basa en una necesidad concreta y se verifica después.",
+        "visual": {
+          "type": "flow",
+          "title": "La aplicación inicia con el equipo · secuencia",
+          "items": [
+            {
+              "label": "Leer la opción",
+              "detail": "Se identifica que es opcional."
+            },
+            {
+              "label": "Relacionarla con la necesidad",
+              "detail": "Se desmarca si la documentación y política lo permiten."
+            },
+            {
+              "label": "Verificar después",
+              "detail": "Se observa la lista de aplicaciones de inicio sin cambiar otras."
+            }
+          ],
+          "caption": "La decisión se basa en una necesidad concreta y se verifica después."
+        }
+      },
+      "practice": {
+        "task": "Documenta un asistente oficial mediante capturas públicas o un entorno permitido.",
+        "steps": [
+          "Identifica ruta y componentes opcionales.",
+          "Explica qué opción elegirías y por qué.",
+          "Describe cómo se desinstala correctamente."
+        ],
+        "expected": "Una secuencia de decisiones con justificación, aunque no instales nada."
+      },
+      "check": {
+        "question": "¿Por qué no basta con borrar la carpeta del programa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Puede dejar servicios y configuraciones registrados."
+          },
+          {
+            "id": "b",
+            "text": "Porque nunca se puede desinstalar."
+          },
+          {
+            "id": "c",
+            "text": "Porque siempre elimina documentos personales."
+          }
+        ],
+        "correct": "a",
+        "explanation": "El mecanismo de desinstalación conoce componentes que pueden estar fuera de la carpeta principal."
+      },
+      "mistakes": [
+        {
+          "myth": "Todos los componentes sugeridos son obligatorios.",
+          "correction": "Distingue requisitos de opciones adicionales y consulta la documentación antes de aceptar."
+        }
+      ],
+      "recap": [
+        "Preparar: Fuente y estado inicial comprobados.",
+        "Elegir: Opciones necesarias para la tarea.",
+        "Validar: La aplicación realiza su función."
+      ],
+      "glossary": [
+        {
+          "term": "Asistente",
+          "definition": "Interfaz que guía decisiones de una operación."
+        },
+        {
+          "term": "Desinstalador",
+          "definition": "Mecanismo que retira componentes registrados de una aplicación."
+        }
+      ]
+    },
+    {
+      "dayId": "w03d6",
+      "title": "Diagnóstico de compatibilidad",
+      "lead": "La compatibilidad combina sistema, arquitectura, recursos y dependencias.",
+      "sections": [
+        {
+          "explanation": [
+            "La compatibilidad combina sistema, arquitectura, recursos y dependencias. La arquitectura puede ser x64 o ARM64, entre otras; no se deduce únicamente del tamaño de la pantalla. Una dependencia es una biblioteca, entorno de ejecución o componente que el programa necesita. Un mensaje de error puede señalar una ausencia concreta, pero descargar archivos sueltos de un sitio desconocido no es una forma confiable de resolverla.",
+            "Compara los requisitos oficiales con el inventario y conserva el error exacto. Si una aplicación requiere más espacio del disponible, libera recursos mediante un procedimiento autorizado o elige otra alternativa; no borres carpetas del sistema. Si falta un entorno de ejecución, consulta el instalador oficial indicado por el proveedor. Cambia una variable cada vez y vuelve a probar la misma tarea. Así podrás explicar qué condición impedía funcionar y qué evidencia mostró que la corrección tuvo efecto."
+          ],
+          "analogy": "Una pieza compatible necesita el tamaño, la conexión y las condiciones de uso correctas, no solo un nombre parecido.",
+          "keyPoints": [
+            "Sistema: Familia y versión admitidas.",
+            "Arquitectura: Conjunto de instrucciones compatible.",
+            "Recursos: Memoria y espacio suficientes."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Cuatro condiciones de ejecución",
+            "items": [
+              {
+                "label": "Sistema",
+                "detail": "Familia y versión admitidas."
+              },
+              {
+                "label": "Arquitectura",
+                "detail": "Conjunto de instrucciones compatible."
+              },
+              {
+                "label": "Recursos",
+                "detail": "Memoria y espacio suficientes."
+              },
+              {
+                "label": "Dependencias",
+                "detail": "Componentes requeridos presentes."
+              }
+            ],
+            "caption": "Así podrás explicar qué condición impedía funcionar y qué evidencia mostró que la corrección tuvo efecto."
+          },
+          "topic": "Arquitectura, recursos y dependencias"
+        }
+      ],
+      "workedExample": {
+        "title": "Instalador para arquitectura equivocada",
+        "scenario": "Un equipo ARM64 recibe un paquete que el proveedor solo admite en x64.",
+        "steps": [
+          {
+            "action": "Leer el requisito",
+            "reason": "La documentación delimita el soporte.",
+            "result": "Se identifica x64 como requisito del paquete."
+          },
+          {
+            "action": "Consultar el inventario",
+            "reason": "Hace falta comparar con el equipo real.",
+            "result": "El sistema informa ARM64."
+          },
+          {
+            "action": "Buscar una edición admitida",
+            "reason": "Forzar el paquete no demuestra compatibilidad.",
+            "result": "Se elige una alternativa documentada o se detiene la instalación."
+          }
+        ],
+        "result": "La discrepancia queda identificada sin modificar archivos del sistema.",
+        "visual": {
+          "type": "flow",
+          "title": "Instalador para arquitectura equivocada · secuencia",
+          "items": [
+            {
+              "label": "Leer el requisito",
+              "detail": "Se identifica x64 como requisito del paquete."
+            },
+            {
+              "label": "Consultar el inventario",
+              "detail": "El sistema informa ARM64."
+            },
+            {
+              "label": "Buscar una edición admitida",
+              "detail": "Se elige una alternativa documentada o se detiene la instalación."
+            }
+          ],
+          "caption": "La discrepancia queda identificada sin modificar archivos del sistema."
+        }
+      },
+      "practice": {
+        "task": "Analiza un error ficticio de dependencia faltante.",
+        "steps": [
+          "Escribe el mensaje exacto.",
+          "Relaciona requisito e inventario.",
+          "Propón una corrección oficial y una prueba posterior."
+        ],
+        "expected": "Una hipótesis comprobable, sin descargas de bibliotecas desconocidas."
+      },
+      "check": {
+        "question": "¿Cuál es una dependencia?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Un archivo personal cualquiera."
+          },
+          {
+            "id": "b",
+            "text": "Un componente que la aplicación necesita para funcionar."
+          },
+          {
+            "id": "c",
+            "text": "La marca del teclado."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Puede ser una biblioteca o entorno de ejecución requerido por la aplicación."
+      },
+      "mistakes": [
+        {
+          "myth": "Copiar una biblioteca de cualquier sitio siempre resuelve el error.",
+          "correction": "La fuente, versión y compatibilidad de las dependencias deben verificarse."
+        }
+      ],
+      "recap": [
+        "Sistema: Familia y versión admitidas.",
+        "Arquitectura: Conjunto de instrucciones compatible.",
+        "Recursos: Memoria y espacio suficientes."
+      ],
+      "glossary": [
+        {
+          "term": "Compatibilidad",
+          "definition": "Concordancia entre requisitos y entorno de ejecución."
+        },
+        {
+          "term": "Dependencia",
+          "definition": "Componente necesario para ejecutar una función."
+        }
+      ]
+    },
+    {
+      "dayId": "w03d7",
+      "title": "Evaluación de software",
+      "lead": "En un caso de software, empieza por identificar el papel del componente afectado.",
+      "sections": [
+        {
+          "explanation": [
+            "En un caso de software, empieza por identificar el papel del componente afectado. El sistema administra recursos; una aplicación realiza una tarea; un proceso es su ejecución y un servicio proporciona funciones sin exigir una ventana. Una actualización modifica una versión y el soporte describe su mantenimiento. Estas categorías se complementan: un servicio también es software, se ejecuta mediante procesos y puede requerir actualizaciones.",
+            "Supón que una aplicación deja de abrir tras un cambio. La cercanía temporal sugiere investigar la relación, pero no prueba causalidad. Compara el error, la versión anterior y la actual, las dependencias y otras modificaciones realizadas. Si hay un procedimiento de reversión autorizado, debe respetar la conservación de datos y permitir una prueba comparable. La conclusión correcta puede ser limitada: «el fallo aparece en esta versión y no en la anterior durante esta prueba», sin afirmar que afecta a todos los equipos."
+          ],
+          "analogy": "Una investigación distingue personas, funciones y cambios recientes antes de atribuir una causa al último evento observado.",
+          "keyPoints": [
+            "Clasificar: Aplicación, servicio o componente del sistema.",
+            "Comparar: Versión, requisito y mensaje antes/después.",
+            "Probar: Una acción autorizada y reproducible."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Del cambio observado a una conclusión",
+            "items": [
+              {
+                "label": "Clasificar",
+                "detail": "Aplicación, servicio o componente del sistema."
+              },
+              {
+                "label": "Comparar",
+                "detail": "Versión, requisito y mensaje antes/después."
+              },
+              {
+                "label": "Probar",
+                "detail": "Una acción autorizada y reproducible."
+              },
+              {
+                "label": "Concluir",
+                "detail": "Resultado concreto y límites de alcance."
+              }
+            ],
+            "caption": "La conclusión correcta puede ser limitada: «el fallo aparece en esta versión y no en la anterior durante esta prueba», sin afirmar que afecta a todos los equipos."
+          },
+          "topic": "Sistema, aplicación, servicio y actualización"
+        }
+      ],
+      "workedExample": {
+        "title": "Tras actualizar, el editor no abre",
+        "scenario": "Un editor falla mientras otra aplicación sigue funcionando.",
+        "steps": [
+          {
+            "action": "Delimitar el síntoma",
+            "reason": "El sistema completo no está necesariamente detenido.",
+            "result": "El problema se reproduce solo en el editor."
+          },
+          {
+            "action": "Registrar el cambio",
+            "reason": "La versión y el error permiten comparar.",
+            "result": "Se anota el mensaje exacto y la hora."
+          },
+          {
+            "action": "Comprobar requisitos",
+            "reason": "Puede existir una dependencia o incompatibilidad.",
+            "result": "Se consulta la documentación de esa versión."
+          }
+        ],
+        "result": "Se construye una investigación específica, no una reinstalación completa sin evidencia.",
+        "visual": {
+          "type": "flow",
+          "title": "Tras actualizar, el editor no abre · secuencia",
+          "items": [
+            {
+              "label": "Delimitar el síntoma",
+              "detail": "El problema se reproduce solo en el editor."
+            },
+            {
+              "label": "Registrar el cambio",
+              "detail": "Se anota el mensaje exacto y la hora."
+            },
+            {
+              "label": "Comprobar requisitos",
+              "detail": "Se consulta la documentación de esa versión."
+            }
+          ],
+          "caption": "Se construye una investigación específica, no una reinstalación completa sin evidencia."
+        }
+      },
+      "practice": {
+        "task": "Redacta un informe breve de una instalación fallida ficticia.",
+        "steps": [
+          "Clasifica el componente.",
+          "Incluye requisitos y evidencia del fallo.",
+          "Propón una siguiente prueba y su resultado esperado."
+        ],
+        "expected": "Un informe que separa hechos, hipótesis y acciones autorizadas."
+      },
+      "check": {
+        "question": "Un fallo apareció después de actualizar. ¿Qué sabes con certeza?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La actualización dañó todos los equipos."
+          },
+          {
+            "id": "b",
+            "text": "La CPU ya no funciona."
+          },
+          {
+            "id": "c",
+            "text": "Hay una relación temporal que necesita pruebas adicionales."
+          }
+        ],
+        "correct": "c",
+        "explanation": "El orden temporal ayuda a priorizar hipótesis, pero no demuestra por sí solo causalidad."
+      },
+      "mistakes": [
+        {
+          "myth": "El último cambio siempre es la causa.",
+          "correction": "Debe contrastarse con una prueba controlada y con otras posibles explicaciones."
+        }
+      ],
+      "recap": [
+        "Clasificar: Aplicación, servicio o componente del sistema.",
+        "Comparar: Versión, requisito y mensaje antes/después.",
+        "Probar: Una acción autorizada y reproducible."
+      ],
+      "glossary": [
+        {
+          "term": "Causalidad",
+          "definition": "Relación que explica por qué ocurre un resultado."
+        },
+        {
+          "term": "Correlación temporal",
+          "definition": "Coincidencia de eventos en una secuencia de tiempo."
+        }
+      ]
+    }
+  ]
+}

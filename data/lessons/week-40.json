@@ -1,0 +1,933 @@
+{
+  "version": "2.0.0",
+  "week": 40,
+  "title": "Inteligencia de amenazas",
+  "overview": "Esta semana aprenderás a transformar indicadores en razonamiento verificable. Trabajarás con dominios e IP de documentación y con casos inventados para distinguir lo observado de lo supuesto. La prioridad es comprender de dónde viene un dato, durante qué intervalo es relevante y qué relación puede sostener. También practicarás el uso de ATT&CK sin atribuciones automáticas y prepararás notas que puedan compartirse con una audiencia definida sin exponer información privada innecesaria.",
+  "objectives": [
+    "Distinguir indicador, contexto y atribución.",
+    "Relacionar conductas con ATT&CK justificando el mapeo.",
+    "Comunicar confianza, limitaciones y próximos pasos."
+  ],
+  "sources": [
+    {
+      "id": "mitre",
+      "title": "MITRE ATT&CK: conceptos y preguntas frecuentes",
+      "url": "https://attack.mitre.org/resources/faq/"
+    },
+    {
+      "id": "nist86",
+      "title": "NIST SP 800-86: técnicas forenses en respuesta a incidentes",
+      "url": "https://csrc.nist.gov/pubs/sp/800/86/final"
+    },
+    {
+      "id": "nist61",
+      "title": "NIST SP 800-61r3: respuesta y gestión del riesgo",
+      "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w40d1",
+      "title": "Indicadores y contexto",
+      "lead": "Un indicador sirve para buscar; el contexto determina qué significa encontrarlo.",
+      "sections": [
+        {
+          "topic": "IP, dominio, hash y comportamiento",
+          "explanation": [
+            "Una dirección IP identifica un punto de comunicación en un momento concreto; un dominio organiza nombres y un hash representa el contenido de un archivo según un algoritmo. Ninguno identifica por sí solo a una persona ni prueba un ataque. Una IP puede pertenecer a una infraestructura compartida, un dominio cambiar de propietario y un archivo legítimo aparecer en una investigación. Por eso registramos tipo, valor, fuente, fecha y motivo de interés antes de añadirlo a una búsqueda.",
+            "El comportamiento describe acciones: varios fallos de acceso seguidos de un éxito, por ejemplo. Para interpretarlo necesitamos saber cuántos usuarios estaban implicados, qué equipo originó la actividad y qué ocurrió después. Imagina una IP observada hace seis meses: puede orientar el análisis histórico, pero bloquearla hoy sin comprobar su situación causaría errores. Separa siempre la observación original de tu interpretación y conserva el dato que permitiría verificar ambas."
+          ],
+          "analogy": "Es como una matrícula anotada en un aparcamiento: permite localizar un vehículo, pero no demuestra quién conducía ni por qué estaba allí.",
+          "keyPoints": [
+            "Valor: 198.51.100.23 es una IP de documentación usada en este caso ficticio.",
+            "Contexto: Hubo cinco accesos fallidos a una cuenta de laboratorio.",
+            "Conclusión limitada: Se investiga la secuencia; todavía no se atribuye a un atacante."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Indicadores y contexto",
+            "items": [
+              {
+                "label": "Valor",
+                "detail": "198.51.100.23 es una IP de documentación usada en este caso ficticio."
+              },
+              {
+                "label": "Contexto",
+                "detail": "Hubo cinco accesos fallidos a una cuenta de laboratorio."
+              },
+              {
+                "label": "Conclusión limitada",
+                "detail": "Se investiga la secuencia; todavía no se atribuye a un atacante."
+              }
+            ],
+            "caption": "Un indicador sirve para buscar; el contexto determina qué significa encontrarlo."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Una coincidencia no es un veredicto",
+        "scenario": "Una lista ficticia contiene 198.51.100.23; el registro del laboratorio muestra un acceso desde esa dirección.",
+        "steps": [
+          {
+            "action": "Comparar valores",
+            "reason": "Evita coincidencias parciales o campos equivocados.",
+            "result": "La IP coincide exactamente en el campo src_ip."
+          },
+          {
+            "action": "Revisar fecha y función",
+            "reason": "El significado depende del momento y del servicio.",
+            "result": "La lista es antigua y la IP pertenece a un alojamiento compartido en la simulación."
+          },
+          {
+            "action": "Buscar actividad adicional",
+            "reason": "Una segunda evidencia aumenta o reduce la hipótesis.",
+            "result": "No aparecen fallos ni cambios; se mantiene como observación de baja confianza."
+          }
+        ],
+        "result": "La coincidencia justifica comprobar el contexto, no declarar compromiso.",
+        "visual": {
+          "type": "timeline",
+          "title": "Una coincidencia no es un veredicto",
+          "items": [
+            {
+              "label": "Comparar valores",
+              "detail": "La IP coincide exactamente en el campo src_ip."
+            },
+            {
+              "label": "Revisar fecha y función",
+              "detail": "La lista es antigua y la IP pertenece a un alojamiento compartido en la simulación."
+            },
+            {
+              "label": "Buscar actividad adicional",
+              "detail": "No aparecen fallos ni cambios; se mantiene como observación de baja confianza."
+            }
+          ],
+          "caption": "La coincidencia justifica comprobar el contexto, no declarar compromiso."
+        }
+      },
+      "practice": {
+        "task": "Construye una ficha para un dominio ficticio que aparece en una consulta DNS.",
+        "steps": [
+          "Usa portal-ejemplo.test y un momento inventado claramente etiquetado.",
+          "Anota fuente, tipo, valor y observación sin atribución.",
+          "Escribe qué evidencia faltaría para elevar la confianza."
+        ],
+        "expected": "Una ficha separando dato observado, hipótesis y próximo paso."
+      },
+      "check": {
+        "question": "¿Qué aporta más contexto a una IP encontrada en una lista?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El color del indicador en una herramienta."
+          },
+          {
+            "id": "b",
+            "text": "La fecha, la fuente y la actividad asociada."
+          },
+          {
+            "id": "c",
+            "text": "La longitud de la dirección."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La fecha y la actividad permiten valorar relevancia; una etiqueta aislada no demuestra intención."
+      },
+      "mistakes": [
+        {
+          "myth": "Una coincidencia de IP confirma quién atacó.",
+          "correction": "Las direcciones compartidas, cambios de asignación y límites de registro impiden esa atribución automática."
+        }
+      ],
+      "recap": [
+        "Valor: 198.51.100.23 es una IP de documentación usada en este caso ficticio.",
+        "Contexto: Hubo cinco accesos fallidos a una cuenta de laboratorio.",
+        "Conclusión limitada: Se investiga la secuencia; todavía no se atribuye a un atacante."
+      ],
+      "glossary": [
+        {
+          "term": "Indicador",
+          "definition": "Valor observable utilizado para orientar búsquedas."
+        },
+        {
+          "term": "Contexto",
+          "definition": "Datos que permiten interpretar cuándo, dónde y cómo apareció un valor."
+        }
+      ]
+    },
+    {
+      "dayId": "w40d2",
+      "title": "Fuentes",
+      "lead": "La confianza de una afirmación depende de su evidencia y del método de quien la publica.",
+      "sections": [
+        {
+          "topic": "Confianza, sesgo y actualización",
+          "explanation": [
+            "Una fuente de inteligencia puede aportar una observación directa, un análisis de varias observaciones o una copia de información ajena. Primero identifica cuál de estas situaciones tienes. Una captura con fecha y método verificable responde preguntas diferentes de una entrada sin referencias. Evalúa procedencia, actualización, alcance y posibilidad de reproducir la observación. Dos páginas que citan el mismo informe no constituyen dos confirmaciones independientes; ambas pueden heredar el mismo error original.",
+            "El sesgo aparece cuando una fuente ve solo una parte del entorno o utiliza criterios que no comparte. Un proveedor de correo observa mensajes que otra plataforma nunca recibe. Esto no vuelve inútil su información: delimita lo que puede sostener. En una nota de análisis escribe qué afirma la fuente, qué compruebas tú y qué permanece incierto. La confianza debe poder cambiar cuando llega nueva evidencia; no es una cualidad permanente del dominio ni del autor."
+          ],
+          "analogy": "Dos noticias que repiten una misma entrevista cuentan como una sola observación original, aunque sus titulares sean diferentes.",
+          "keyPoints": [
+            "Procedencia: Identifica al observador original y el método.",
+            "Vigencia: Relaciona la fecha del dato con la fecha del caso.",
+            "Independencia: Distingue confirmación propia de copia del mismo informe."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Fuentes",
+            "items": [
+              {
+                "label": "Procedencia",
+                "detail": "Identifica al observador original y el método."
+              },
+              {
+                "label": "Vigencia",
+                "detail": "Relaciona la fecha del dato con la fecha del caso."
+              },
+              {
+                "label": "Independencia",
+                "detail": "Distingue confirmación propia de copia del mismo informe."
+              }
+            ],
+            "caption": "La confianza de una afirmación depende de su evidencia y del método de quien la publica."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Tres enlaces, una sola evidencia",
+        "scenario": "Tres sitios citan un dominio ficticio; dos reproducen el informe del primero.",
+        "steps": [
+          {
+            "action": "Trazar referencias",
+            "reason": "Permite contar observaciones independientes.",
+            "result": "Los tres enlaces llevan a una publicación original."
+          },
+          {
+            "action": "Examinar el soporte",
+            "reason": "La explicación necesita datos comprobables.",
+            "result": "Solo se describe una muestra de correo de hace nueve meses."
+          },
+          {
+            "action": "Redactar confianza",
+            "reason": "Evita presentar repetición como corroboración.",
+            "result": "Se registra una fuente primaria histórica y confianza limitada para el caso actual."
+          }
+        ],
+        "result": "Cantidad de enlaces y fuerza de evidencia son medidas distintas.",
+        "visual": {
+          "type": "timeline",
+          "title": "Tres enlaces, una sola evidencia",
+          "items": [
+            {
+              "label": "Trazar referencias",
+              "detail": "Los tres enlaces llevan a una publicación original."
+            },
+            {
+              "label": "Examinar el soporte",
+              "detail": "Solo se describe una muestra de correo de hace nueve meses."
+            },
+            {
+              "label": "Redactar confianza",
+              "detail": "Se registra una fuente primaria histórica y confianza limitada para el caso actual."
+            }
+          ],
+          "caption": "Cantidad de enlaces y fuerza de evidencia son medidas distintas."
+        }
+      },
+      "practice": {
+        "task": "Compara dos notas ficticias: una sin fecha y otra con captura, momento y método.",
+        "steps": [
+          "Enumera los campos verificables de cada nota.",
+          "Indica si las observaciones son independientes.",
+          "Redacta una valoración de confianza con una limitación concreta."
+        ],
+        "expected": "Una tabla que justifica la valoración sin usar un número inventado de certeza."
+      },
+      "check": {
+        "question": "¿Qué son dos publicaciones que copian el mismo dato?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Dos enlaces, pero no necesariamente dos observaciones independientes."
+          },
+          {
+            "id": "b",
+            "text": "Una prueba definitiva."
+          },
+          {
+            "id": "c",
+            "text": "Dos propietarios diferentes del dominio."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La independencia se evalúa por el origen de la evidencia, no por el número de páginas que la repiten."
+      },
+      "mistakes": [
+        {
+          "myth": "Una fuente conocida siempre tiene razón.",
+          "correction": "La reputación ayuda a priorizar la lectura, pero cada afirmación necesita fecha, alcance y soporte."
+        }
+      ],
+      "recap": [
+        "Procedencia: Identifica al observador original y el método.",
+        "Vigencia: Relaciona la fecha del dato con la fecha del caso.",
+        "Independencia: Distingue confirmación propia de copia del mismo informe."
+      ],
+      "glossary": [
+        {
+          "term": "Fuente primaria",
+          "definition": "Publicación u observación original del dato."
+        },
+        {
+          "term": "Corroboración",
+          "definition": "Evidencia adicional que respalda una afirmación por otra vía."
+        }
+      ]
+    },
+    {
+      "dayId": "w40d3",
+      "title": "MITRE ATT&CK",
+      "lead": "ATT&CK organiza comportamientos; una etiqueta técnica no sustituye la evidencia del caso.",
+      "sections": [
+        {
+          "topic": "Táctica, técnica y procedimiento",
+          "explanation": [
+            "En ATT&CK una táctica representa la finalidad de una acción, mientras que una técnica describe una manera de alcanzar esa finalidad. Un procedimiento es una realización concreta observada o documentada de esa técnica. Puedes pensar en tres preguntas: para qué, cómo y qué ocurrió exactamente. La misma herramienta legítima puede participar en actividades administrativas y adversarias; clasificar su uso exige argumentos sobre el comportamiento, no solo reconocer su nombre en un proceso.",
+            "Para mapear un caso comienza por escribir la observación sin etiquetas: una cuenta ejecutó una herramienta de línea de comandos para consultar información del equipo. Después consulta la definición y los requisitos de la técnica candidata. Si el registro no contiene argumentos o contexto suficientes, conserva el mapeo como hipótesis. ATT&CK sirve para comunicar cobertura y preguntas pendientes; no es una lista rígida que todo incidente deba recorrer ni demuestra por sí mismo el grupo responsable."
+          ],
+          "analogy": "Una táctica es el destino del viaje; la técnica es el medio de transporte y el procedimiento es el recorrido concreto realizado.",
+          "keyPoints": [
+            "Táctica: Finalidad de la acción dentro del contexto adversario.",
+            "Técnica: Forma general de conseguir esa finalidad.",
+            "Procedimiento: Implementación específica respaldada por la evidencia disponible."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "MITRE ATT&CK",
+            "items": [
+              {
+                "label": "Táctica",
+                "detail": "Finalidad de la acción dentro del contexto adversario."
+              },
+              {
+                "label": "Técnica",
+                "detail": "Forma general de conseguir esa finalidad."
+              },
+              {
+                "label": "Procedimiento",
+                "detail": "Implementación específica respaldada por la evidencia disponible."
+              }
+            ],
+            "caption": "ATT&CK organiza comportamientos; una etiqueta técnica no sustituye la evidencia del caso."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Mapear sin exagerar",
+        "scenario": "Un registro ficticio muestra whoami ejecutado por una consola de administración; no indica quién ordenó la tarea.",
+        "steps": [
+          {
+            "action": "Describir el hecho",
+            "reason": "Separa observación y clasificación.",
+            "result": "Se observó una consulta de identidad local."
+          },
+          {
+            "action": "Comparar definición",
+            "reason": "El candidato debe corresponder al comportamiento.",
+            "result": "Se considera descubrimiento de usuario como hipótesis técnica."
+          },
+          {
+            "action": "Comprobar contexto",
+            "reason": "La misma acción puede ser autorizada.",
+            "result": "El ticket de soporte explica la ejecución; no se declara actividad maliciosa."
+          }
+        ],
+        "result": "El mapeo describe una conducta; el contexto determina la interpretación del caso.",
+        "visual": {
+          "type": "timeline",
+          "title": "Mapear sin exagerar",
+          "items": [
+            {
+              "label": "Describir el hecho",
+              "detail": "Se observó una consulta de identidad local."
+            },
+            {
+              "label": "Comparar definición",
+              "detail": "Se considera descubrimiento de usuario como hipótesis técnica."
+            },
+            {
+              "label": "Comprobar contexto",
+              "detail": "El ticket de soporte explica la ejecución; no se declara actividad maliciosa."
+            }
+          ],
+          "caption": "El mapeo describe una conducta; el contexto determina la interpretación del caso."
+        }
+      },
+      "practice": {
+        "task": "Clasifica un ejemplo inventado de búsqueda de archivos sin ejecutarlo.",
+        "steps": [
+          "Escribe objetivo, acción y evidencia por separado.",
+          "Consulta una definición oficial de ATT&CK relacionada.",
+          "Explica una razón por la que el mapeo seguiría siendo provisional."
+        ],
+        "expected": "Tres niveles de descripción y un límite explícito del mapeo."
+      },
+      "check": {
+        "question": "¿Qué describe mejor un procedimiento?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El objetivo general del adversario."
+          },
+          {
+            "id": "b",
+            "text": "Una puntuación de riesgo universal."
+          },
+          {
+            "id": "c",
+            "text": "Una implementación concreta de una técnica."
+          }
+        ],
+        "correct": "c",
+        "explanation": "El procedimiento detalla cómo se realizó una acción; la táctica expresa el objetivo y la técnica el método general."
+      },
+      "mistakes": [
+        {
+          "myth": "Encontrar una técnica identifica al grupo atacante.",
+          "correction": "Muchas organizaciones y actores usan conductas similares; atribuir requiere evidencia adicional."
+        }
+      ],
+      "recap": [
+        "Táctica: Finalidad de la acción dentro del contexto adversario.",
+        "Técnica: Forma general de conseguir esa finalidad.",
+        "Procedimiento: Implementación específica respaldada por la evidencia disponible."
+      ],
+      "glossary": [
+        {
+          "term": "Táctica",
+          "definition": "Objetivo que explica el porqué de una acción."
+        },
+        {
+          "term": "Procedimiento",
+          "definition": "Forma concreta en que se implementa una técnica."
+        }
+      ]
+    },
+    {
+      "dayId": "w40d4",
+      "title": "Enriquecimiento",
+      "lead": "Enriquecer significa añadir datos relevantes sin convertir una relación en causalidad.",
+      "sections": [
+        {
+          "topic": "Dominio, reputación y relaciones",
+          "explanation": [
+            "El enriquecimiento conecta un indicador con información que ayuda a decidir qué investigar. Para un dominio podrías revisar registros DNS obtenidos de una fuente autorizada, fechas documentadas y relaciones históricas. Cada dato debe conservar su origen y momento: que dos nombres compartan una IP hoy no implica que compartieran infraestructura durante el incidente. Tampoco demuestra que tengan el mismo propietario; el alojamiento compartido es habitual y puede agrupar servicios completamente independientes.",
+            "Usa un pequeño grafo con nodos claramente definidos: dominio, dirección y archivo. Dibuja una relación solo cuando puedas explicar qué observación la respalda. Por ejemplo, una respuesta DNS enlaza un nombre con una IP a una hora concreta; no enlaza automáticamente a su operador con otro cliente de esa IP. En lugar de recopilar todo, formula una pregunta: ¿esta relación ayuda a delimitar equipos afectados, relevancia temporal o una siguiente búsqueda comprobable?"
+          ],
+          "analogy": "Compartir edificio no convierte a dos empresas en la misma organización; compartir una IP tampoco.",
+          "keyPoints": [
+            "Dominio: actualizacion-ejemplo.test es el nombre observado en la simulación.",
+            "Relación DNS: Una respuesta lo asocia a 203.0.113.20 a las 10:00 UTC.",
+            "Límite: La asociación temporal no demuestra propietario ni intención."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Enriquecimiento",
+            "items": [
+              {
+                "label": "Dominio",
+                "detail": "actualizacion-ejemplo.test es el nombre observado en la simulación."
+              },
+              {
+                "label": "Relación DNS",
+                "detail": "Una respuesta lo asocia a 203.0.113.20 a las 10:00 UTC."
+              },
+              {
+                "label": "Límite",
+                "detail": "La asociación temporal no demuestra propietario ni intención."
+              }
+            ],
+            "caption": "Enriquecer significa añadir datos relevantes sin convertir una relación en causalidad."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Dos dominios en un mismo servidor",
+        "scenario": "portal-a.test y portal-b.test aparecen en una misma IP ficticia durante una consulta de laboratorio.",
+        "steps": [
+          {
+            "action": "Registrar la asociación",
+            "reason": "La hora forma parte del dato.",
+            "result": "Ambos nombres resolvían a 203.0.113.20 a las 10:00 UTC."
+          },
+          {
+            "action": "Examinar explicaciones",
+            "reason": "Hay alternativas legítimas.",
+            "result": "El escenario identifica un servicio de alojamiento compartido."
+          },
+          {
+            "action": "Elegir siguiente búsqueda",
+            "reason": "La relación debe producir una pregunta útil.",
+            "result": "Se busca qué equipos consultaron portal-a.test durante el intervalo del caso."
+          }
+        ],
+        "result": "La relación ayuda a buscar, pero no demuestra que ambos dominios pertenezcan al mismo actor.",
+        "visual": {
+          "type": "timeline",
+          "title": "Dos dominios en un mismo servidor",
+          "items": [
+            {
+              "label": "Registrar la asociación",
+              "detail": "Ambos nombres resolvían a 203.0.113.20 a las 10:00 UTC."
+            },
+            {
+              "label": "Examinar explicaciones",
+              "detail": "El escenario identifica un servicio de alojamiento compartido."
+            },
+            {
+              "label": "Elegir siguiente búsqueda",
+              "detail": "Se busca qué equipos consultaron portal-a.test durante el intervalo del caso."
+            }
+          ],
+          "caption": "La relación ayuda a buscar, pero no demuestra que ambos dominios pertenezcan al mismo actor."
+        }
+      },
+      "practice": {
+        "task": "Dibuja un grafo de un nombre, una IP y dos equipos ficticios.",
+        "steps": [
+          "Etiqueta cada enlace con fuente y momento.",
+          "Marca una relación que todavía no puedas demostrar.",
+          "Propón una consulta que reduzca esa incertidumbre."
+        ],
+        "expected": "Un grafo de relaciones verificables, sin enlaces basados solo en intuición."
+      },
+      "check": {
+        "question": "¿Qué permite afirmar una respuesta DNS registrada?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Quién controla legalmente todos los dominios de la IP."
+          },
+          {
+            "id": "b",
+            "text": "Que se observó una asociación nombre-dirección en ese momento."
+          },
+          {
+            "id": "c",
+            "text": "Que el dominio siempre tuvo la misma dirección."
+          }
+        ],
+        "correct": "b",
+        "explanation": "DNS aporta una asociación observada; la propiedad, la historia y la intención requieren otras evidencias."
+      },
+      "mistakes": [
+        {
+          "myth": "Dos dominios en una IP son del mismo atacante.",
+          "correction": "El alojamiento compartido y los cambios temporales ofrecen explicaciones alternativas."
+        }
+      ],
+      "recap": [
+        "Dominio: actualizacion-ejemplo.test es el nombre observado en la simulación.",
+        "Relación DNS: Una respuesta lo asocia a 203.0.113.20 a las 10:00 UTC.",
+        "Límite: La asociación temporal no demuestra propietario ni intención."
+      ],
+      "glossary": [
+        {
+          "term": "Enriquecimiento",
+          "definition": "Adición de contexto que responde una pregunta de investigación."
+        },
+        {
+          "term": "Relación temporal",
+          "definition": "Asociación válida para un momento o intervalo documentado."
+        }
+      ]
+    },
+    {
+      "dayId": "w40d5",
+      "title": "Gestión de inteligencia",
+      "lead": "La inteligencia útil también necesita reglas para quién puede recibirla y con qué detalle.",
+      "sections": [
+        {
+          "topic": "Compartir, etiquetar y privacidad",
+          "explanation": [
+            "Compartir inteligencia exige distinguir el indicador técnico del resto de la evidencia. Un hash puede parecer inocuo, pero el documento que lo acompaña puede incluir nombres, credenciales, direcciones internas o datos del cliente. Antes de publicar un paquete, verifica autorización, audiencia y necesidad de cada campo. La minimización consiste en entregar lo necesario para el propósito definido y retirar detalles que no cambian la decisión del destinatario ni su capacidad de comprobarla.",
+            "Una etiqueta de manejo comunica restricciones de distribución, pero no cifra el archivo ni revoca una copia enviada por error. Añade al registro quién autorizó el intercambio, qué versión se entregó y cuándo debe revisarse. Cuando anonimices, conserva una copia controlada que permita reconstruir la relación si está autorizada. No subas adjuntos reales a servicios públicos para enriquecerlos sin permiso: la propia consulta podría revelar información privada a terceros y quedar fuera del control del equipo."
+          ],
+          "analogy": "Una etiqueta de confidencialidad es una instrucción de manejo, no un candado que impide copiar el contenido.",
+          "keyPoints": [
+            "Audiencia: Define quién necesita el dato y con qué finalidad.",
+            "Minimización: Elimina identidad o detalles que no apoyan esa finalidad.",
+            "Trazabilidad: Registra autorización, versión y destinatario del intercambio."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Gestión de inteligencia",
+            "items": [
+              {
+                "label": "Audiencia",
+                "detail": "Define quién necesita el dato y con qué finalidad."
+              },
+              {
+                "label": "Minimización",
+                "detail": "Elimina identidad o detalles que no apoyan esa finalidad."
+              },
+              {
+                "label": "Trazabilidad",
+                "detail": "Registra autorización, versión y destinatario del intercambio."
+              }
+            ],
+            "caption": "La inteligencia útil también necesita reglas para quién puede recibirla y con qué detalle."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Compartir un indicador sin el correo privado",
+        "scenario": "Una analista prepara una nota interna sobre un mensaje de prueba que incluye el nombre de una persona.",
+        "steps": [
+          {
+            "action": "Definir propósito",
+            "reason": "El equipo receptor solo necesita buscar el dominio.",
+            "result": "Se conserva el dominio ficticio y el intervalo observado."
+          },
+          {
+            "action": "Reducir el paquete",
+            "reason": "El nombre no mejora la búsqueda.",
+            "result": "Se reemplaza por usuario-lab y se omite el cuerpo completo."
+          },
+          {
+            "action": "Registrar entrega",
+            "reason": "Permite revisar y corregir lo compartido.",
+            "result": "La nota incluye autorización, fecha y audiencia interna."
+          }
+        ],
+        "result": "La información compartida sigue siendo útil sin revelar datos personales innecesarios.",
+        "visual": {
+          "type": "timeline",
+          "title": "Compartir un indicador sin el correo privado",
+          "items": [
+            {
+              "label": "Definir propósito",
+              "detail": "Se conserva el dominio ficticio y el intervalo observado."
+            },
+            {
+              "label": "Reducir el paquete",
+              "detail": "Se reemplaza por usuario-lab y se omite el cuerpo completo."
+            },
+            {
+              "label": "Registrar entrega",
+              "detail": "La nota incluye autorización, fecha y audiencia interna."
+            }
+          ],
+          "caption": "La información compartida sigue siendo útil sin revelar datos personales innecesarios."
+        }
+      },
+      "practice": {
+        "task": "Prepara dos versiones de una nota ficticia: interna y pública.",
+        "steps": [
+          "Marca los campos necesarios para cada audiencia.",
+          "Retira identidades y secretos de la versión pública.",
+          "Añade una nota explicando qué se omitió y por qué."
+        ],
+        "expected": "Dos notas coherentes con el mismo hallazgo y distinta exposición de datos."
+      },
+      "check": {
+        "question": "¿Qué hace una etiqueta de distribución?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Comunica cómo debe manejarse la información."
+          },
+          {
+            "id": "b",
+            "text": "Cifra automáticamente el documento."
+          },
+          {
+            "id": "c",
+            "text": "Borra las copias antiguas."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La etiqueta orienta a las personas; los controles técnicos de acceso y cifrado son mecanismos separados."
+      },
+      "mistakes": [
+        {
+          "myth": "Una plataforma pública de análisis es un almacén privado.",
+          "correction": "El envío puede compartir el contenido con terceros; la autorización debe verificarse antes de cargarlo."
+        }
+      ],
+      "recap": [
+        "Audiencia: Define quién necesita el dato y con qué finalidad.",
+        "Minimización: Elimina identidad o detalles que no apoyan esa finalidad.",
+        "Trazabilidad: Registra autorización, versión y destinatario del intercambio."
+      ],
+      "glossary": [
+        {
+          "term": "Minimización",
+          "definition": "Reducción de datos al mínimo necesario para un propósito."
+        },
+        {
+          "term": "Audiencia",
+          "definition": "Personas o equipos autorizados a recibir una información."
+        }
+      ]
+    },
+    {
+      "dayId": "w40d6",
+      "title": "Caso de inteligencia",
+      "lead": "Un caso de inteligencia debe mostrar el camino desde cada evidencia hasta cada conclusión.",
+      "sections": [
+        {
+          "topic": "Hipótesis y enlaces sustentados",
+          "explanation": [
+            "Construir una hipótesis es proponer una explicación que podría contrastarse con datos. En un caso de inteligencia no basta con conectar nombres parecidos: necesitas indicar qué observación une cada elemento. Empieza por una pregunta delimitada, como si varios equipos recibieron mensajes relacionados durante una hora. Después inventaría las evidencias disponibles y separa las que observaste directamente de las que provienen de un tercero. La ausencia de un dato no permite rellenarlo por intuición.",
+            "Para cada hipótesis escribe una alternativa plausible y una comprobación que pueda distinguirlas. Si tres equipos consultaron un dominio, podría tratarse de una campaña, de una aplicación compartida o de un enlace divulgado internamente. Una buena conclusión explica qué versión encaja mejor, por qué y qué incertidumbre mantiene. Este método mejora la comunicación: otra persona puede revisar un enlace, repetir una consulta y señalar exactamente dónde discrepa sin tener que aceptar todo el relato."
+          ],
+          "analogy": "Un mapa de investigación necesita puentes con soporte; una línea dibujada entre dos puntos no construye el puente.",
+          "keyPoints": [
+            "Pregunta: ¿Tres consultas proceden de mensajes relacionados?",
+            "Evidencia: Cabeceras y DNS ficticios tienen fechas y equipos identificados.",
+            "Hipótesis: La campaña es posible, pero debe compararse con una distribución interna legítima."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Caso de inteligencia",
+            "items": [
+              {
+                "label": "Pregunta",
+                "detail": "¿Tres consultas proceden de mensajes relacionados?"
+              },
+              {
+                "label": "Evidencia",
+                "detail": "Cabeceras y DNS ficticios tienen fechas y equipos identificados."
+              },
+              {
+                "label": "Hipótesis",
+                "detail": "La campaña es posible, pero debe compararse con una distribución interna legítima."
+              }
+            ],
+            "caption": "Un caso de inteligencia debe mostrar el camino desde cada evidencia hasta cada conclusión."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Una campaña o un boletín interno",
+        "scenario": "Tres equipos de laboratorio consultan aviso-equipo.test tras recibir mensajes con un asunto similar.",
+        "steps": [
+          {
+            "action": "Alinear momentos",
+            "reason": "La relación requiere orden temporal comparable.",
+            "result": "Los mensajes preceden a las consultas por dos minutos."
+          },
+          {
+            "action": "Comparar contenido",
+            "reason": "La semejanza del asunto por sí sola es débil.",
+            "result": "Los identificadores y el enlace del boletín autorizado coinciden."
+          },
+          {
+            "action": "Contrastar alternativa",
+            "reason": "Un origen legítimo puede explicar la secuencia.",
+            "result": "El responsable confirma el envío interno en el escenario."
+          }
+        ],
+        "result": "Los datos favorecen un boletín interno; se documenta la confirmación en lugar de etiquetarlo como campaña maliciosa.",
+        "visual": {
+          "type": "timeline",
+          "title": "Una campaña o un boletín interno",
+          "items": [
+            {
+              "label": "Alinear momentos",
+              "detail": "Los mensajes preceden a las consultas por dos minutos."
+            },
+            {
+              "label": "Comparar contenido",
+              "detail": "Los identificadores y el enlace del boletín autorizado coinciden."
+            },
+            {
+              "label": "Contrastar alternativa",
+              "detail": "El responsable confirma el envío interno en el escenario."
+            }
+          ],
+          "caption": "Los datos favorecen un boletín interno; se documenta la confirmación en lugar de etiquetarlo como campaña maliciosa."
+        }
+      },
+      "practice": {
+        "task": "Construye una hipótesis y una alternativa para dos alertas ficticias relacionadas.",
+        "steps": [
+          "Escribe una pregunta con equipo e intervalo.",
+          "Asocia cada afirmación a una evidencia identificada.",
+          "Propón un dato que te haría cambiar la conclusión."
+        ],
+        "expected": "Una cadena de razonamiento revisable, con alternativa y criterio de refutación."
+      },
+      "check": {
+        "question": "¿Qué mejora más una hipótesis de investigación?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Repetirla con palabras más firmes."
+          },
+          {
+            "id": "b",
+            "text": "Eliminar cualquier explicación alternativa."
+          },
+          {
+            "id": "c",
+            "text": "Indicar qué dato podría refutarla."
+          }
+        ],
+        "correct": "c",
+        "explanation": "Una hipótesis contrastable permite buscar evidencia a favor y en contra, reduciendo el sesgo de confirmación."
+      },
+      "mistakes": [
+        {
+          "myth": "La primera explicación coherente debe convertirse en conclusión.",
+          "correction": "Las alternativas y los datos contradictorios necesitan revisión antes del cierre."
+        }
+      ],
+      "recap": [
+        "Pregunta: ¿Tres consultas proceden de mensajes relacionados?",
+        "Evidencia: Cabeceras y DNS ficticios tienen fechas y equipos identificados.",
+        "Hipótesis: La campaña es posible, pero debe compararse con una distribución interna legítima."
+      ],
+      "glossary": [
+        {
+          "term": "Hipótesis",
+          "definition": "Explicación provisional susceptible de contraste."
+        },
+        {
+          "term": "Refutación",
+          "definition": "Dato o prueba que debilita una explicación propuesta."
+        }
+      ]
+    },
+    {
+      "dayId": "w40d7",
+      "title": "Evaluación de inteligencia",
+      "lead": "Evaluar inteligencia consiste en defender el alcance de una conclusión, no en acumular indicadores.",
+      "sections": [
+        {
+          "topic": "Confianza y limitaciones",
+          "explanation": [
+            "Una evaluación completa combina precisión técnica, calidad de fuente y claridad sobre límites. Revisa si cada indicador conserva su tipo, valor y fecha, y si las relaciones se justifican con observaciones. Comprueba también qué preguntas no pueden responder las fuentes disponibles. Un resultado modesto pero respaldado es más útil que una atribución llamativa que depende de suposiciones. La confianza se expresa con razones: independencia de fuentes, coincidencia temporal, datos contradictorios y cobertura del entorno observado.",
+            "Aplica una revisión adversarial a tu propio informe. Intenta explicar el caso con una causa legítima y pregunta qué evidencia la descarta. Después verifica que las recomendaciones se correspondan con el nivel de certeza: una búsqueda adicional puede estar justificada donde un bloqueo general no lo está. Entrega la conclusión junto con el próximo paso más informativo y el costo de equivocarse. Así el equipo puede decidir una respuesta proporcionada sin confundir una pista con un hecho demostrado."
+          ],
+          "analogy": "Un buen examen de un mapa no cuenta cuántas carreteras dibujaste: comprueba si llevan realmente a los destinos señalados.",
+          "keyPoints": [
+            "Precisión: Valores y tiempos coinciden con las fuentes.",
+            "Confianza: Las razones de certeza y duda están documentadas.",
+            "Acción proporcional: La recomendación responde al impacto y a la evidencia."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Evaluación de inteligencia",
+            "items": [
+              {
+                "label": "Precisión",
+                "detail": "Valores y tiempos coinciden con las fuentes."
+              },
+              {
+                "label": "Confianza",
+                "detail": "Las razones de certeza y duda están documentadas."
+              },
+              {
+                "label": "Acción proporcional",
+                "detail": "La recomendación responde al impacto y a la evidencia."
+              }
+            ],
+            "caption": "Evaluar inteligencia consiste en defender el alcance de una conclusión, no en acumular indicadores."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Revisar una conclusión exagerada",
+        "scenario": "Un informe ficticio afirma compromiso total porque un equipo consultó un dominio antiguo de una lista.",
+        "steps": [
+          {
+            "action": "Separar hechos",
+            "reason": "Permite eliminar saltos de interpretación.",
+            "result": "Solo está demostrada una consulta DNS desde un equipo."
+          },
+          {
+            "action": "Examinar cobertura",
+            "reason": "La captura no contiene procesos ni sesiones del endpoint.",
+            "result": "No puede probarse ejecución ni alcance total."
+          },
+          {
+            "action": "Reformular recomendación",
+            "reason": "La acción debe resolver la principal laguna.",
+            "result": "Se propone correlacionar registros del equipo durante el intervalo."
+          }
+        ],
+        "result": "El nuevo informe mantiene el hallazgo y retira la afirmación de compromiso no demostrada.",
+        "visual": {
+          "type": "timeline",
+          "title": "Revisar una conclusión exagerada",
+          "items": [
+            {
+              "label": "Separar hechos",
+              "detail": "Solo está demostrada una consulta DNS desde un equipo."
+            },
+            {
+              "label": "Examinar cobertura",
+              "detail": "No puede probarse ejecución ni alcance total."
+            },
+            {
+              "label": "Reformular recomendación",
+              "detail": "Se propone correlacionar registros del equipo durante el intervalo."
+            }
+          ],
+          "caption": "El nuevo informe mantiene el hallazgo y retira la afirmación de compromiso no demostrada."
+        }
+      },
+      "practice": {
+        "task": "Audita una ficha propia usando precisión, independencia y proporcionalidad.",
+        "steps": [
+          "Subraya todas las afirmaciones verificables.",
+          "Marca las que carecen de fuente o fecha.",
+          "Reescribe una conclusión y una recomendación con alcance explícito."
+        ],
+        "expected": "Un informe breve que permite distinguir observación, inferencia y acción propuesta."
+      },
+      "check": {
+        "question": "¿Cuál es una conclusión defendible con una sola consulta DNS?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Toda la red está comprometida."
+          },
+          {
+            "id": "b",
+            "text": "Ese equipo consultó ese nombre en el intervalo observado."
+          },
+          {
+            "id": "c",
+            "text": "El usuario ejecutó un archivo malicioso."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La consulta sostiene una afirmación sobre resolución de nombres; no demuestra por sí sola ejecución ni compromiso global."
+      },
+      "mistakes": [
+        {
+          "myth": "Expresar incertidumbre resta valor al análisis.",
+          "correction": "Explicar límites permite tomar decisiones proporcionadas y diseñar la siguiente comprobación."
+        }
+      ],
+      "recap": [
+        "Precisión: Valores y tiempos coinciden con las fuentes.",
+        "Confianza: Las razones de certeza y duda están documentadas.",
+        "Acción proporcional: La recomendación responde al impacto y a la evidencia."
+      ],
+      "glossary": [
+        {
+          "term": "Alcance",
+          "definition": "Parte del entorno y del tiempo que cubre una investigación."
+        },
+        {
+          "term": "Proporcionalidad",
+          "definition": "Correspondencia entre la evidencia, el riesgo y la acción propuesta."
+        }
+      ]
+    }
+  ]
+}

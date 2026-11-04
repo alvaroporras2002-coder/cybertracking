@@ -1,0 +1,944 @@
+{
+  "version": "2.0.0",
+  "week": 4,
+  "title": "Windows y diagnóstico",
+  "overview": "Diagnosticar Windows significa formular preguntas y escoger herramientas que puedan responderlas. Esta semana observarás información del sistema, procesos, servicios y eventos sin aplicar cambios indiscriminados. Aprenderás a registrar una referencia, repetir un síntoma y diferenciar un error relevante de una coincidencia. El caso final combina lentitud, espacio y procesos. La meta no es encontrar una herramienta mágica: es producir una conclusión limitada, reproducible y apoyada en datos que otra persona pueda comprobar.",
+  "objectives": [
+    "Elegir herramientas según la pregunta de diagnóstico.",
+    "Contrastar una hipótesis con una prueba pequeña.",
+    "Presentar evidencia y límites sin modificar servicios desconocidos."
+  ],
+  "sources": [
+    {
+      "id": "w04s1",
+      "title": "Herramientas de configuración de Windows",
+      "url": "https://support.microsoft.com/en-us/windows/experience/system-configuration-tools-in-windows"
+    },
+    {
+      "id": "w04s2",
+      "title": "Task Manager: diagnóstico de procesos",
+      "url": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/support-tools/support-tools-task-manager"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w04d1",
+      "title": "Administración del equipo",
+      "lead": "Configuración y la información del sistema responden preguntas diferentes.",
+      "sections": [
+        {
+          "explanation": [
+            "Configuración y la información del sistema responden preguntas diferentes. La primera permite consultar y cambiar opciones habituales; herramientas como Información del sistema reúnen características del equipo y del entorno. Antes de resolver un problema identifica edición, versión, arquitectura y modelo general. Estos datos ayudan a elegir documentación compatible y a evitar instrucciones dirigidas a otro producto o a una interfaz diferente.",
+            "Una captura útil incluye únicamente los campos necesarios y la fecha. No expongas identificadores, nombres de usuario o rutas privadas cuando la compartas. Algunas herramientas muestran información más completa con permisos elevados, pero no necesitas elevar cada consulta por costumbre. Si un dato parece ausente, anota la limitación y consulta el comportamiento documentado de la herramienta. Un inventario es evidencia de un estado concreto; no es un certificado permanente de que el equipo está correctamente configurado."
+          ],
+          "analogy": "Elegir un manual técnico exige conocer el modelo y la versión del dispositivo al que se aplicará.",
+          "keyPoints": [
+            "Sistema: Edición y versión del equipo.",
+            "Arquitectura: Compatibilidad de herramientas y paquetes.",
+            "Contexto: Fecha, permisos y fuente de la consulta."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Identificar antes de diagnosticar",
+            "items": [
+              {
+                "label": "Sistema",
+                "detail": "Edición y versión del equipo."
+              },
+              {
+                "label": "Arquitectura",
+                "detail": "Compatibilidad de herramientas y paquetes."
+              },
+              {
+                "label": "Contexto",
+                "detail": "Fecha, permisos y fuente de la consulta."
+              }
+            ],
+            "caption": "Un inventario es evidencia de un estado concreto; no es un certificado permanente de que el equipo está correctamente configurado."
+          },
+          "topic": "Configuración e información del sistema"
+        }
+      ],
+      "workedExample": {
+        "title": "Instrucciones que no coinciden",
+        "scenario": "Una guía muestra una opción que no aparece en el equipo de práctica.",
+        "steps": [
+          {
+            "action": "Comprobar la versión",
+            "reason": "La interfaz cambia entre ediciones y versiones.",
+            "result": "Se registra el sistema real."
+          },
+          {
+            "action": "Comparar el alcance de la guía",
+            "reason": "La documentación puede dirigirse a otro producto.",
+            "result": "Se detecta la diferencia de versión."
+          },
+          {
+            "action": "Buscar la referencia adecuada",
+            "reason": "No hace falta editar el registro para imitar la pantalla.",
+            "result": "Se consulta la guía compatible."
+          }
+        ],
+        "result": "La ausencia de una opción se explica primero mediante versión y alcance.",
+        "visual": {
+          "type": "flow",
+          "title": "Instrucciones que no coinciden · secuencia",
+          "items": [
+            {
+              "label": "Comprobar la versión",
+              "detail": "Se registra el sistema real."
+            },
+            {
+              "label": "Comparar el alcance de la",
+              "detail": "Se detecta la diferencia de versión."
+            },
+            {
+              "label": "Buscar la referencia adecuada",
+              "detail": "Se consulta la guía compatible."
+            }
+          ],
+          "caption": "La ausencia de una opción se explica primero mediante versión y alcance."
+        }
+      },
+      "practice": {
+        "task": "Crea una ficha de diagnóstico redactada.",
+        "steps": [
+          "Anota versión y arquitectura.",
+          "Identifica la herramienta consultada.",
+          "Oculta campos personales antes de compartir."
+        ],
+        "expected": "Una ficha suficiente para seleccionar documentación correcta."
+      },
+      "check": {
+        "question": "¿Qué debes comprobar antes de seguir una guía de configuración?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo el color de la interfaz."
+          },
+          {
+            "id": "b",
+            "text": "Versión, edición y alcance de la guía."
+          },
+          {
+            "id": "c",
+            "text": "La cantidad de iconos."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Las instrucciones pueden variar según producto, edición y versión; identifica el entorno antes de aplicar cambios."
+      },
+      "mistakes": [
+        {
+          "myth": "Toda consulta requiere administrador.",
+          "correction": "Usa los permisos necesarios y documenta las limitaciones de información."
+        }
+      ],
+      "recap": [
+        "Sistema: Edición y versión del equipo.",
+        "Arquitectura: Compatibilidad de herramientas y paquetes.",
+        "Contexto: Fecha, permisos y fuente de la consulta."
+      ],
+      "glossary": [
+        {
+          "term": "Edición",
+          "definition": "Variante de un producto con funciones específicas."
+        },
+        {
+          "term": "Contexto de consulta",
+          "definition": "Condiciones bajo las que se recogió un dato."
+        }
+      ]
+    },
+    {
+      "dayId": "w04d2",
+      "title": "Procesos y rendimiento",
+      "lead": "Un porcentaje de consumo se interpreta respecto a una tarea y un intervalo.",
+      "sections": [
+        {
+          "explanation": [
+            "Un porcentaje de consumo se interpreta respecto a una tarea y un intervalo. Una CPU ocupada durante una compresión puede ser normal; una espera sostenida al abrir un archivo pequeño merece una investigación distinta. La memoria incluye procesos, cachés y componentes del sistema. La actividad del disco refleja operaciones y espera, mientras que su capacidad libre responde a cuánto espacio queda. Son medidas relacionadas, pero no equivalentes.",
+            "Establece una referencia y repite una acción. Observa qué proceso aumenta, cuándo ocurre y si el cambio coincide con el síntoma. No compares dos equipos con tareas diferentes como si fuera una prueba controlada. Tampoco concluyas que un proceso es malicioso por su nombre o consumo aislado. Conserva una tabla breve con hora, tarea y valores observados; una explicación honesta puede reconocer que todavía no hay evidencia suficiente para identificar el recurso limitante."
+          ],
+          "analogy": "La temperatura del motor se interpreta con la carga y la duración del viaje, no con una sola fotografía del tablero.",
+          "keyPoints": [
+            "Reposo: Referencia sin iniciar tareas nuevas.",
+            "Acción: Abrir el mismo archivo de práctica.",
+            "Respuesta: Consumo y demora observados."
+          ],
+          "visual": {
+            "type": "timeline",
+            "title": "Consumo durante una tarea",
+            "items": [
+              {
+                "label": "Reposo",
+                "detail": "Referencia sin iniciar tareas nuevas."
+              },
+              {
+                "label": "Acción",
+                "detail": "Abrir el mismo archivo de práctica."
+              },
+              {
+                "label": "Respuesta",
+                "detail": "Consumo y demora observados."
+              },
+              {
+                "label": "Recuperación",
+                "detail": "Estado tras terminar la operación."
+              }
+            ],
+            "caption": "Conserva una tabla breve con hora, tarea y valores observados; una explicación honesta puede reconocer que todavía no hay evidencia suficiente para identificar el recurso limitante."
+          },
+          "topic": "CPU, memoria, disco y consumo normal"
+        }
+      ],
+      "workedExample": {
+        "title": "Pico breve al abrir una aplicación",
+        "scenario": "La CPU sube durante dos segundos ficticios y luego baja; la aplicación responde.",
+        "steps": [
+          {
+            "action": "Anotar la duración",
+            "reason": "Un pico breve no equivale a bloqueo sostenido.",
+            "result": "Se registra inicio y fin."
+          },
+          {
+            "action": "Relacionar tarea y proceso",
+            "reason": "La actividad necesita una explicación funcional.",
+            "result": "Coincide con el lanzamiento de la aplicación."
+          },
+          {
+            "action": "Evitar una conclusión excesiva",
+            "reason": "No hay un síntoma persistente demostrado.",
+            "result": "Se conserva la observación como referencia."
+          }
+        ],
+        "result": "Un pico transitorio puede formar parte del funcionamiento esperado de esa tarea.",
+        "visual": {
+          "type": "flow",
+          "title": "Pico breve al abrir una aplicación · secuencia",
+          "items": [
+            {
+              "label": "Anotar la duración",
+              "detail": "Se registra inicio y fin."
+            },
+            {
+              "label": "Relacionar tarea y proceso",
+              "detail": "Coincide con el lanzamiento de la aplicación."
+            },
+            {
+              "label": "Evitar una conclusión excesiva",
+              "detail": "Se conserva la observación como referencia."
+            }
+          ],
+          "caption": "Un pico transitorio puede formar parte del funcionamiento esperado de esa tarea."
+        }
+      },
+      "practice": {
+        "task": "Observa una tarea autorizada en dos repeticiones.",
+        "steps": [
+          "Mantén el mismo archivo.",
+          "Anota duración y proceso.",
+          "Describe qué variable no pudiste controlar."
+        ],
+        "expected": "Dos mediciones comparables con límites explícitos."
+      },
+      "check": {
+        "question": "¿Qué diferencia espacio libre y actividad del disco?",
+        "options": [
+          {
+            "id": "a",
+            "text": "No hay diferencia."
+          },
+          {
+            "id": "b",
+            "text": "Ambos miden únicamente velocidad."
+          },
+          {
+            "id": "c",
+            "text": "Uno mide capacidad disponible y el otro trabajo/espera durante operaciones."
+          }
+        ],
+        "correct": "c",
+        "explanation": "El disco puede estar ocupado sin estar lleno, o lleno sin actividad intensa."
+      },
+      "mistakes": [
+        {
+          "myth": "La memoria utilizada debe volver inmediatamente a cero.",
+          "correction": "El sistema conserva cachés y mantiene otros componentes activos."
+        }
+      ],
+      "recap": [
+        "Reposo: Referencia sin iniciar tareas nuevas.",
+        "Acción: Abrir el mismo archivo de práctica.",
+        "Respuesta: Consumo y demora observados."
+      ],
+      "glossary": [
+        {
+          "term": "Intervalo",
+          "definition": "Periodo durante el que se observa una medición."
+        },
+        {
+          "term": "Saturación",
+          "definition": "Uso sostenido cercano a un límite relevante para la tarea."
+        }
+      ]
+    },
+    {
+      "dayId": "w04d3",
+      "title": "Servicios e inicio",
+      "lead": "Los servicios pueden iniciarse automáticamente, por demanda u otras condiciones.",
+      "sections": [
+        {
+          "explanation": [
+            "Los servicios pueden iniciarse automáticamente, por demanda u otras condiciones. Muchos dependen de servicios o recursos previos. También ejecutan acciones con una identidad y privilegios determinados. Estas propiedades explican por qué desactivar un componente desconocido puede interrumpir funciones que parecían independientes, como impresión, comunicación o inicio de una aplicación. El objetivo inicial es observar la configuración y comprender relaciones, no reducir la lista al mínimo posible.",
+            "Distingue inicio del equipo e inicio de sesión: una aplicación de usuario puede abrirse al iniciar sesión, mientras un servicio puede funcionar antes. Si investigas lentitud, registra nombre, proveedor, estado y tipo de inicio antes de proponer cambios. Consulta la documentación para conocer dependencias. En un equipo administrado necesitas autorización para modificarlo. Una prueba de desactivación, cuando proceda, debe ser reversible y comprobar también las funciones dependientes, no solo que la pantalla de inicio parezca más rápida."
+          ],
+          "analogy": "Una oficina puede depender de recepción, energía y comunicaciones; cerrar un servicio puede afectar a varios equipos de trabajo.",
+          "keyPoints": [
+            "Identidad: Cuenta bajo la que actúa el servicio.",
+            "Inicio: Condición que permite su ejecución.",
+            "Dependencias: Funciones que necesita o que lo necesitan."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Servicio y dependencias",
+            "items": [
+              {
+                "label": "Identidad",
+                "detail": "Cuenta bajo la que actúa el servicio."
+              },
+              {
+                "label": "Inicio",
+                "detail": "Condición que permite su ejecución."
+              },
+              {
+                "label": "Dependencias",
+                "detail": "Funciones que necesita o que lo necesitan."
+              }
+            ],
+            "caption": "Una prueba de desactivación, cuando proceda, debe ser reversible y comprobar también las funciones dependientes, no solo que la pantalla de inicio parezca más rápida."
+          },
+          "topic": "Inicio automático, dependencias y privilegios"
+        }
+      ],
+      "workedExample": {
+        "title": "Una utilidad depende de otro servicio",
+        "scenario": "Un registro ficticio indica que el servicio de práctica no inicia porque falta una dependencia.",
+        "steps": [
+          {
+            "action": "Leer el estado exacto",
+            "reason": "No todos los errores de inicio son iguales.",
+            "result": "Se identifica la dependencia mencionada."
+          },
+          {
+            "action": "Consultar documentación",
+            "reason": "Cambiar privilegios a ciegas no resuelve la relación.",
+            "result": "Se confirma el requisito del componente."
+          },
+          {
+            "action": "Planificar una prueba autorizada",
+            "reason": "Debe existir reversión y validación.",
+            "result": "Se define qué función se comprobará después."
+          }
+        ],
+        "result": "Se investiga una dependencia concreta antes de cambiar cuentas o desactivar servicios.",
+        "visual": {
+          "type": "flow",
+          "title": "Una utilidad depende de otro servicio · secuencia",
+          "items": [
+            {
+              "label": "Leer el estado exacto",
+              "detail": "Se identifica la dependencia mencionada."
+            },
+            {
+              "label": "Consultar documentación",
+              "detail": "Se confirma el requisito del componente."
+            },
+            {
+              "label": "Planificar una prueba autorizada",
+              "detail": "Se define qué función se comprobará después."
+            }
+          ],
+          "caption": "Se investiga una dependencia concreta antes de cambiar cuentas o desactivar servicios."
+        }
+      },
+      "practice": {
+        "task": "Analiza un servicio conocido solo en modo consulta.",
+        "steps": [
+          "Anota función y tipo de inicio.",
+          "Identifica una dependencia documentada.",
+          "Explica por qué no lo detendrías sin autorización."
+        ],
+        "expected": "Una ficha funcional sin cambios al sistema."
+      },
+      "check": {
+        "question": "¿Por qué importa la cuenta de ejecución?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Determina parte de los recursos y acciones permitidos."
+          },
+          {
+            "id": "b",
+            "text": "Solo cambia el color del icono."
+          },
+          {
+            "id": "c",
+            "text": "Siempre debe ser la cuenta personal."
+          }
+        ],
+        "correct": "a",
+        "explanation": "El contexto de seguridad del servicio limita o amplía sus capacidades."
+      },
+      "mistakes": [
+        {
+          "myth": "Desactivar todos los servicios acelera y protege el equipo.",
+          "correction": "Puede inutilizar funciones necesarias; cada cambio requiere justificación, prueba y reversión."
+        }
+      ],
+      "recap": [
+        "Identidad: Cuenta bajo la que actúa el servicio.",
+        "Inicio: Condición que permite su ejecución.",
+        "Dependencias: Funciones que necesita o que lo necesitan."
+      ],
+      "glossary": [
+        {
+          "term": "Tipo de inicio",
+          "definition": "Regla que determina cuándo se inicia un componente."
+        },
+        {
+          "term": "Cuenta de servicio",
+          "definition": "Identidad utilizada para ejecutar una función en segundo plano."
+        }
+      ]
+    },
+    {
+      "dayId": "w04d4",
+      "title": "Herramientas de diagnóstico",
+      "lead": "Cada herramienta de diagnóstico responde un tipo de pregunta.",
+      "sections": [
+        {
+          "explanation": [
+            "Cada herramienta de diagnóstico responde un tipo de pregunta. El Visor de eventos muestra registros emitidos por componentes; el Administrador de dispositivos presenta dispositivos y su estado; el Administrador de tareas ayuda a observar procesos y recursos. Ninguna herramienta, por sí sola, cuenta toda la historia. Un evento de error es una observación del componente que lo registró, no una explicación automática de cualquier síntoma ocurrido ese día.",
+            "Para correlacionar, anota hora, origen, identificador y mensaje completo del evento relevante. Compara con el momento del síntoma y con otros datos, como el proceso o dispositivo afectado. Evita filtrar únicamente por «error» y atribuir el problema al primer resultado. Los relojes y las zonas horarias también pueden generar confusión. Primero interpreta una muestra pequeña y conocida; exportar registros reales completos para compartir puede revelar nombres, rutas u otra información privada."
+          ],
+          "analogy": "Un médico elige un instrumento según la pregunta; un termómetro no sustituye todas las pruebas.",
+          "keyPoints": [
+            "Eventos: ¿Qué componente registró qué mensaje y cuándo?",
+            "Dispositivos: ¿Cómo reconoce el sistema este hardware?",
+            "Procesos: ¿Qué ejecución utiliza recursos durante el síntoma?"
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Pregunta y herramienta",
+            "items": [
+              {
+                "label": "Eventos",
+                "detail": "¿Qué componente registró qué mensaje y cuándo?"
+              },
+              {
+                "label": "Dispositivos",
+                "detail": "¿Cómo reconoce el sistema este hardware?"
+              },
+              {
+                "label": "Procesos",
+                "detail": "¿Qué ejecución utiliza recursos durante el síntoma?"
+              }
+            ],
+            "caption": "Primero interpreta una muestra pequeña y conocida; exportar registros reales completos para compartir puede revelar nombres, rutas u otra información privada."
+          },
+          "topic": "Visor de eventos, dispositivos y recursos"
+        }
+      ],
+      "workedExample": {
+        "title": "Error que ocurrió antes del síntoma",
+        "scenario": "Un evento de una impresora aparece una hora antes de una lentitud del navegador.",
+        "steps": [
+          {
+            "action": "Comparar el tiempo",
+            "reason": "Una coincidencia de fecha no basta.",
+            "result": "Los momentos no coinciden directamente."
+          },
+          {
+            "action": "Comparar el componente",
+            "reason": "El origen debe relacionarse con la tarea.",
+            "result": "El evento describe impresión, no navegación."
+          },
+          {
+            "action": "Buscar evidencia pertinente",
+            "reason": "La primera fila visible puede distraer.",
+            "result": "Se observa el navegador durante una reproducción del problema."
+          }
+        ],
+        "result": "El evento no se descarta por completo, pero no sustenta todavía la causa de la lentitud.",
+        "visual": {
+          "type": "flow",
+          "title": "Error que ocurrió antes del síntoma · secuencia",
+          "items": [
+            {
+              "label": "Comparar el tiempo",
+              "detail": "Los momentos no coinciden directamente."
+            },
+            {
+              "label": "Comparar el componente",
+              "detail": "El evento describe impresión, no navegación."
+            },
+            {
+              "label": "Buscar evidencia pertinente",
+              "detail": "Se observa el navegador durante una reproducción del problema."
+            }
+          ],
+          "caption": "El evento no se descarta por completo, pero no sustenta todavía la causa de la lentitud."
+        }
+      },
+      "practice": {
+        "task": "Elige una pregunta y una herramienta adecuada.",
+        "steps": [
+          "Anota qué dato esperas obtener.",
+          "Observa sin cambiar configuraciones.",
+          "Explica qué no puede demostrar esa herramienta."
+        ],
+        "expected": "Una relación entre pregunta, dato y límite."
+      },
+      "check": {
+        "question": "¿Un evento de error demuestra siempre la causa del síntoma actual?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Sí, por aparecer en rojo."
+          },
+          {
+            "id": "b",
+            "text": "No; debe correlacionarse con tiempo, componente y contexto."
+          },
+          {
+            "id": "c",
+            "text": "Solo si el equipo tiene poca RAM."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La relevancia de un registro depende de su relación con el caso."
+      },
+      "mistakes": [
+        {
+          "myth": "Todos los errores del registro deben corregirse inmediatamente.",
+          "correction": "Prioriza los relacionados con el síntoma y comprende el mensaje antes de actuar."
+        }
+      ],
+      "recap": [
+        "Eventos: ¿Qué componente registró qué mensaje y cuándo?",
+        "Dispositivos: ¿Cómo reconoce el sistema este hardware?",
+        "Procesos: ¿Qué ejecución utiliza recursos durante el síntoma?"
+      ],
+      "glossary": [
+        {
+          "term": "Origen de evento",
+          "definition": "Componente que emitió un registro."
+        },
+        {
+          "term": "Correlación",
+          "definition": "Relación contextual entre observaciones independientes."
+        }
+      ]
+    },
+    {
+      "dayId": "w04d5",
+      "title": "Método de resolución",
+      "lead": "El diagnóstico ordenado comienza con un síntoma observable: qué ocurre, a quién afecta, desde cuándo y cómo se reproduce.",
+      "sections": [
+        {
+          "explanation": [
+            "El diagnóstico ordenado comienza con un síntoma observable: qué ocurre, a quién afecta, desde cuándo y cómo se reproduce. Una hipótesis propone una explicación que puede contrastarse. La prueba debe producir resultados diferentes según esa explicación sea o no adecuada. Cambiar varias cosas a la vez impide saber cuál influyó y puede ocultar el problema original o introducir uno nuevo.",
+            "Define primero el resultado esperado. Si sospechas una aplicación, compara una operación equivalente en otra, usando datos de práctica. Si sospechas falta de espacio, registra el espacio libre y los requisitos de la tarea. Después evalúa el resultado y decide si la hipótesis gana o pierde apoyo. Resolver el síntoma no termina el trabajo: confirma la función principal, comprueba efectos secundarios y documenta qué cambió. Una conclusión puede seguir siendo provisional si la evidencia es limitada."
+          ],
+          "analogy": "Una investigación usa preguntas y pruebas para descartar caminos, en lugar de probar soluciones al azar.",
+          "keyPoints": [
+            "Síntoma: Descripción reproducible y alcance.",
+            "Hipótesis: Explicación provisional comprobable.",
+            "Prueba: Una variable y resultados esperados."
+          ],
+          "visual": {
+            "type": "cycle",
+            "title": "Método de resolución",
+            "items": [
+              {
+                "label": "Síntoma",
+                "detail": "Descripción reproducible y alcance."
+              },
+              {
+                "label": "Hipótesis",
+                "detail": "Explicación provisional comprobable."
+              },
+              {
+                "label": "Prueba",
+                "detail": "Una variable y resultados esperados."
+              },
+              {
+                "label": "Validación",
+                "detail": "Función recuperada y efectos secundarios revisados."
+              }
+            ],
+            "caption": "Una conclusión puede seguir siendo provisional si la evidencia es limitada."
+          },
+          "topic": "Síntoma, hipótesis, prueba y validación"
+        }
+      ],
+      "workedExample": {
+        "title": "El archivo abre en otro editor",
+        "scenario": "Un archivo de práctica no abre en la aplicación A, pero sí en B.",
+        "steps": [
+          {
+            "action": "Definir la hipótesis",
+            "reason": "El problema podría estar en A o en su compatibilidad.",
+            "result": "Se formula una explicación limitada."
+          },
+          {
+            "action": "Comparar el mismo archivo",
+            "reason": "Mantener la entrada evita mezclar variables.",
+            "result": "B muestra el contenido esperado."
+          },
+          {
+            "action": "Elegir la siguiente comprobación",
+            "reason": "El resultado no prueba que A esté dañada.",
+            "result": "Se revisan formato admitido y versión de A."
+          }
+        ],
+        "result": "La prueba reduce posibilidades y orienta el siguiente paso sin demostrar una causa universal.",
+        "visual": {
+          "type": "flow",
+          "title": "El archivo abre en otro editor · secuencia",
+          "items": [
+            {
+              "label": "Definir la hipótesis",
+              "detail": "Se formula una explicación limitada."
+            },
+            {
+              "label": "Comparar el mismo archivo",
+              "detail": "B muestra el contenido esperado."
+            },
+            {
+              "label": "Elegir la siguiente comprobación",
+              "detail": "Se revisan formato admitido y versión de A."
+            }
+          ],
+          "caption": "La prueba reduce posibilidades y orienta el siguiente paso sin demostrar una causa universal."
+        }
+      },
+      "practice": {
+        "task": "Diseña una prueba para un fallo de impresión ficticio.",
+        "steps": [
+          "Define síntoma y alcance.",
+          "Escribe dos resultados posibles.",
+          "Explica qué harías ante cada uno."
+        ],
+        "expected": "Una prueba que discrimina hipótesis, no una lista de cambios aleatorios."
+      },
+      "check": {
+        "question": "¿Qué hace útil una hipótesis?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que pueda ponerse a prueba con resultados interpretables."
+          },
+          {
+            "id": "b",
+            "text": "Que suene técnica."
+          },
+          {
+            "id": "c",
+            "text": "Que culpe al componente más caro."
+          }
+        ],
+        "correct": "a",
+        "explanation": "Una explicación comprobable permite aprender del resultado de una prueba."
+      },
+      "mistakes": [
+        {
+          "myth": "Si el problema desapareció, ya conozco la causa.",
+          "correction": "Puede existir una coincidencia o un efecto temporal; valida y documenta el cambio."
+        }
+      ],
+      "recap": [
+        "Síntoma: Descripción reproducible y alcance.",
+        "Hipótesis: Explicación provisional comprobable.",
+        "Prueba: Una variable y resultados esperados."
+      ],
+      "glossary": [
+        {
+          "term": "Síntoma",
+          "definition": "Manifestación observable de un problema."
+        },
+        {
+          "term": "Hipótesis",
+          "definition": "Explicación provisional que predice resultados."
+        }
+      ]
+    },
+    {
+      "dayId": "w04d6",
+      "title": "Caso de soporte",
+      "lead": "La lentitud puede surgir de varias restricciones: CPU ocupada, presión de memoria, espera de almacenamiento, falta de espacio o una tarea externa.",
+      "sections": [
+        {
+          "explanation": [
+            "La lentitud puede surgir de varias restricciones: CPU ocupada, presión de memoria, espera de almacenamiento, falta de espacio o una tarea externa. Empieza por definir qué operación tarda más que la referencia. «Todo está lento» es un punto inicial, pero necesita convertirse en una acción concreta, como abrir un documento de práctica o iniciar una aplicación. Registra duración, proceso y recursos mientras ocurre.",
+            "Supón que un instalador informa falta de espacio. Eso es evidencia más específica que un gráfico general de CPU. Revisa capacidad libre y requisitos, sin borrar carpetas desconocidas. Si una tarea de sincronización coincide con actividad de disco, comprueba si la relación se repite antes de detenerla. No atribuyas cualquier proceso de nombre extraño a un atacante. El caso de soporte debe conservar datos, respetar permisos y recomendar una siguiente acción proporcional a lo que realmente se observó."
+          ],
+          "analogy": "Un atasco puede deberse a una entrada estrecha, un vehículo detenido o demasiados vehículos; necesitas identificar dónde se forma la espera.",
+          "keyPoints": [
+            "Tarea: Abrir el mismo documento tarda más.",
+            "Medición: Tiempo y recursos durante la operación.",
+            "Contexto: Cambios recientes y trabajos simultáneos."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Del síntoma al recurso candidato",
+            "items": [
+              {
+                "label": "Tarea",
+                "detail": "Abrir el mismo documento tarda más."
+              },
+              {
+                "label": "Medición",
+                "detail": "Tiempo y recursos durante la operación."
+              },
+              {
+                "label": "Contexto",
+                "detail": "Cambios recientes y trabajos simultáneos."
+              },
+              {
+                "label": "Decisión",
+                "detail": "Prueba pequeña sobre la hipótesis mejor sustentada."
+              }
+            ],
+            "caption": "El caso de soporte debe conservar datos, respetar permisos y recomendar una siguiente acción proporcional a lo que realmente se observó."
+          },
+          "topic": "Lentitud, espacio y procesos"
+        }
+      ],
+      "workedExample": {
+        "title": "Instalación con poco espacio",
+        "scenario": "Un equipo ficticio tiene 2 GB libres y el instalador exige 6 GB adicionales.",
+        "steps": [
+          {
+            "action": "Comparar unidades y requisitos",
+            "reason": "Los números deben describir la misma capacidad.",
+            "result": "Faltan al menos 4 GB para ese requisito."
+          },
+          {
+            "action": "Evitar borrados improvisados",
+            "reason": "El espacio no justifica eliminar datos desconocidos.",
+            "result": "Se revisan archivos de práctica y políticas de limpieza."
+          },
+          {
+            "action": "Validar antes de repetir",
+            "reason": "La tarea necesita margen y condiciones correctas.",
+            "result": "Se comprueba el espacio disponible nuevamente."
+          }
+        ],
+        "result": "El mensaje y las cifras sustentan una restricción de almacenamiento para esa instalación.",
+        "visual": {
+          "type": "flow",
+          "title": "Instalación con poco espacio · secuencia",
+          "items": [
+            {
+              "label": "Comparar unidades y requisitos",
+              "detail": "Faltan al menos 4 GB para ese requisito."
+            },
+            {
+              "label": "Evitar borrados improvisados",
+              "detail": "Se revisan archivos de práctica y políticas de limpieza."
+            },
+            {
+              "label": "Validar antes de repetir",
+              "detail": "Se comprueba el espacio disponible nuevamente."
+            }
+          ],
+          "caption": "El mensaje y las cifras sustentan una restricción de almacenamiento para esa instalación."
+        }
+      },
+      "practice": {
+        "task": "Redacta un ticket ficticio de lentitud.",
+        "steps": [
+          "Define una operación y su tiempo.",
+          "Incluye tres observaciones pertinentes.",
+          "Propón una prueba y una medida de conservación."
+        ],
+        "expected": "Un ticket con hechos separados de hipótesis."
+      },
+      "check": {
+        "question": "¿Qué evidencia apoya directamente un fallo por espacio?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El fondo de pantalla es antiguo."
+          },
+          {
+            "id": "b",
+            "text": "El navegador tiene varias pestañas."
+          },
+          {
+            "id": "c",
+            "text": "El espacio libre es inferior al requisito del instalador."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La comparación vincula una condición observada con un requisito concreto."
+      },
+      "mistakes": [
+        {
+          "myth": "La mejor solución inicial es cerrar todos los procesos.",
+          "correction": "Puedes interrumpir trabajo y destruir contexto; observa primero y actúa con autorización."
+        }
+      ],
+      "recap": [
+        "Tarea: Abrir el mismo documento tarda más.",
+        "Medición: Tiempo y recursos durante la operación.",
+        "Contexto: Cambios recientes y trabajos simultáneos."
+      ],
+      "glossary": [
+        {
+          "term": "Restricción",
+          "definition": "Condición que limita una tarea."
+        },
+        {
+          "term": "Ticket",
+          "definition": "Registro organizado de un problema y su seguimiento."
+        }
+      ]
+    },
+    {
+      "dayId": "w04d7",
+      "title": "Evaluación Windows",
+      "lead": "Una evaluación de diagnóstico exige justificar qué herramienta elegiste y qué demostró su resultado.",
+      "sections": [
+        {
+          "explanation": [
+            "Una evaluación de diagnóstico exige justificar qué herramienta elegiste y qué demostró su resultado. Si el síntoma es un dispositivo ausente, consulta cómo lo reconoce el sistema. Si una aplicación tarda, observa sus procesos y recursos durante la tarea. Si existe un fallo registrado, relaciona tiempo y componente. La herramienta se selecciona por la pregunta; abrir todas y tomar muchas capturas no mejora necesariamente la investigación.",
+            "Presenta un resumen con síntoma, alcance, referencia, prueba y conclusión. Conserva los mensajes exactos que sean relevantes y redacta los datos privados. Diferencia «no observé» de «no existe»: una herramienta o un filtro pueden no cubrir la fuente necesaria. Si el problema no se reproduce, informa las condiciones del intento y qué información faltaría. Esa honestidad técnica permite que otra persona continúe el caso sin heredar una afirmación más fuerte que la evidencia."
+          ],
+          "analogy": "Un buen informe entrega un recorrido que otro investigador puede seguir, no una colección de fotografías sin explicación.",
+          "keyPoints": [
+            "Pregunta: Qué se quería comprobar.",
+            "Evidencia: Herramienta, hora y resultado.",
+            "Interpretación: Qué hipótesis gana apoyo."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Estructura de una conclusión defendible",
+            "items": [
+              {
+                "label": "Pregunta",
+                "detail": "Qué se quería comprobar."
+              },
+              {
+                "label": "Evidencia",
+                "detail": "Herramienta, hora y resultado."
+              },
+              {
+                "label": "Interpretación",
+                "detail": "Qué hipótesis gana apoyo."
+              },
+              {
+                "label": "Límite",
+                "detail": "Qué sigue sin comprobarse."
+              }
+            ],
+            "caption": "Esa honestidad técnica permite que otra persona continúe el caso sin heredar una afirmación más fuerte que la evidencia."
+          },
+          "topic": "Herramientas y evidencia"
+        }
+      ],
+      "workedExample": {
+        "title": "No se reproduce el problema",
+        "scenario": "Una aplicación abre correctamente durante una prueba controlada.",
+        "steps": [
+          {
+            "action": "Registrar condiciones",
+            "reason": "El resultado depende del entorno de la prueba.",
+            "result": "Se anota archivo, versión y momento."
+          },
+          {
+            "action": "Limitar la conclusión",
+            "reason": "Una prueba correcta no invalida un fallo intermitente.",
+            "result": "Se informa que no se reprodujo en ese intento."
+          },
+          {
+            "action": "Solicitar el dato faltante",
+            "reason": "El siguiente paso necesita contexto adicional.",
+            "result": "Se pide hora y acción exacta del próximo fallo."
+          }
+        ],
+        "result": "La conclusión es útil porque declara alcance y próxima evidencia necesaria.",
+        "visual": {
+          "type": "flow",
+          "title": "No se reproduce el problema · secuencia",
+          "items": [
+            {
+              "label": "Registrar condiciones",
+              "detail": "Se anota archivo, versión y momento."
+            },
+            {
+              "label": "Limitar la conclusión",
+              "detail": "Se informa que no se reprodujo en ese intento."
+            },
+            {
+              "label": "Solicitar el dato faltante",
+              "detail": "Se pide hora y acción exacta del próximo fallo."
+            }
+          ],
+          "caption": "La conclusión es útil porque declara alcance y próxima evidencia necesaria."
+        }
+      },
+      "practice": {
+        "task": "Entrega un informe de cinco líneas de un caso de esta semana.",
+        "steps": [
+          "Incluye una pregunta y herramienta.",
+          "Resume el resultado y su interpretación.",
+          "Añade una limitación y un siguiente paso."
+        ],
+        "expected": "Un informe reproducible sin afirmaciones absolutas injustificadas."
+      },
+      "check": {
+        "question": "¿Cómo informas una prueba donde no apareció un fallo intermitente?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El problema nunca existió."
+          },
+          {
+            "id": "b",
+            "text": "No se reprodujo bajo estas condiciones; falta más contexto."
+          },
+          {
+            "id": "c",
+            "text": "El usuario necesariamente se equivocó."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La ausencia en un intento no demuestra ausencia en todos los contextos."
+      },
+      "mistakes": [
+        {
+          "myth": "Más capturas siempre equivalen a mejor evidencia.",
+          "correction": "La evidencia debe responder la pregunta y permitir interpretar el resultado."
+        }
+      ],
+      "recap": [
+        "Pregunta: Qué se quería comprobar.",
+        "Evidencia: Herramienta, hora y resultado.",
+        "Interpretación: Qué hipótesis gana apoyo."
+      ],
+      "glossary": [
+        {
+          "term": "Reproducibilidad",
+          "definition": "Posibilidad de repetir un procedimiento con condiciones documentadas."
+        },
+        {
+          "term": "Limitación",
+          "definition": "Condición que restringe el alcance de una conclusión."
+        }
+      ]
+    }
+  ]
+}

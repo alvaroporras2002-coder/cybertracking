@@ -1,0 +1,994 @@
+{
+  "version": "2.0.0",
+  "week": 6,
+  "title": "Terminal y PowerShell inicial",
+  "overview": "La terminal permite expresar tareas con precisión, pero primero hay que conocer el intérprete que recibe las instrucciones. Esta semana trabajarás con consultas de PowerShell y archivos ficticios: descubrir comandos, leer ayuda, navegar, filtrar objetos y exportar un inventario reducido. Cada ejemplo separa comando, parámetros y resultado. No buscamos memorizar una colección de instrucciones; buscamos entender qué información solicita cada una y cómo comprobar que el resultado corresponde a la pregunta original.",
+  "objectives": [
+    "Leer sintaxis y ayuda antes de ejecutar un comando.",
+    "Distinguir objetos, propiedades y texto presentado.",
+    "Exportar datos seleccionados sin exponer información privada."
+  ],
+  "sources": [
+    {
+      "id": "w06s1",
+      "title": "Ayuda de PowerShell",
+      "url": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/get-help"
+    },
+    {
+      "id": "w06s2",
+      "title": "Ubicación de trabajo en PowerShell",
+      "url": "https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_locations"
+    },
+    {
+      "id": "w06s3",
+      "title": "Get-Process",
+      "url": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-process"
+    },
+    {
+      "id": "w06s4",
+      "title": "Export-Csv",
+      "url": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/export-csv"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w06d1",
+      "title": "Terminal y shell",
+      "lead": "La terminal es la interfaz donde escribes y ves respuestas; la shell interpreta las instrucciones.",
+      "sections": [
+        {
+          "explanation": [
+            "La terminal es la interfaz donde escribes y ves respuestas; la shell interpreta las instrucciones. CMD y PowerShell son intérpretes distintos, aunque puedan abrirse dentro de una misma aplicación de terminal. Un comando identifica una operación y sus argumentos aportan valores u opciones. Copiar una instrucción sin saber qué shell espera puede producir errores o un comportamiento diferente del que imaginas.",
+            "PowerShell utiliza cmdlets con nombres como Get-Process. Los parámetros con nombre, por ejemplo -Name, aclaran qué valor se proporciona. Las comillas permiten mantener juntos valores con espacios. Antes de ejecutar una instrucción, explica qué lee, qué cambia y dónde opera. Empezaremos con consultas de solo lectura. Un error de sintaxis no se arregla automáticamente ejecutando como administrador: primero revisa intérprete, escritura y ayuda del comando adecuado para tu versión."
+          ],
+          "analogy": "La terminal es el mostrador; la shell es quien interpreta el idioma de la solicitud.",
+          "keyPoints": [
+            "Terminal: Recibe texto y presenta respuestas.",
+            "Shell: Interpreta la sintaxis de PowerShell.",
+            "Comando: Get-Process solicita información."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Interpretar una consulta",
+            "items": [
+              {
+                "label": "Terminal",
+                "detail": "Recibe texto y presenta respuestas."
+              },
+              {
+                "label": "Shell",
+                "detail": "Interpreta la sintaxis de PowerShell."
+              },
+              {
+                "label": "Comando",
+                "detail": "Get-Process solicita información."
+              },
+              {
+                "label": "Parámetro",
+                "detail": "-Name limita la selección por nombre."
+              }
+            ],
+            "caption": "Un error de sintaxis no se arregla automáticamente ejecutando como administrador: primero revisa intérprete, escritura y ayuda del comando adecuado para tu versión."
+          },
+          "topic": "CMD, PowerShell, comandos y argumentos"
+        }
+      ],
+      "workedExample": {
+        "title": "La instrucción funciona en una shell diferente",
+        "scenario": "Una guía muestra Get-Process, pero el estudiante lo introduce en CMD.",
+        "steps": [
+          {
+            "action": "Identificar el intérprete",
+            "reason": "El mismo terminal puede alojar shells diferentes.",
+            "result": "Se confirma que la ventana está en CMD."
+          },
+          {
+            "action": "Consultar el requisito",
+            "reason": "La guía utiliza un cmdlet de PowerShell.",
+            "result": "Se abre el intérprete adecuado de forma normal."
+          },
+          {
+            "action": "Ejecutar una consulta conocida",
+            "reason": "La corrección no requiere privilegios extra.",
+            "result": "Get-Process presenta procesos visibles."
+          }
+        ],
+        "result": "El problema era el contexto de interpretación, no necesariamente los permisos.",
+        "visual": {
+          "type": "flow",
+          "title": "La instrucción funciona en una shell diferente · secuencia",
+          "items": [
+            {
+              "label": "Identificar el intérprete",
+              "detail": "Se confirma que la ventana está en CMD."
+            },
+            {
+              "label": "Consultar el requisito",
+              "detail": "Se abre el intérprete adecuado de forma normal."
+            },
+            {
+              "label": "Ejecutar una consulta conocida",
+              "detail": "Get-Process presenta procesos visibles."
+            }
+          ],
+          "caption": "El problema era el contexto de interpretación, no necesariamente los permisos."
+        }
+      },
+      "practice": {
+        "task": "Descompón Get-Process -Name notepad.",
+        "steps": [
+          "Identifica shell, comando y parámetro.",
+          "Explica qué resultado esperas.",
+          "Indica qué no cambia esa consulta."
+        ],
+        "expected": "Una lectura de la instrucción antes de ejecutarla.",
+        "console": {
+          "language": "powershell",
+          "code": "Get-Process -Name notepad",
+          "output": "Si no hay un proceso coincidente, puede aparecer un error de selección.",
+          "explanation": "La consulta no inicia el Bloc de notas; busca una ejecución que ya exista."
+        }
+      },
+      "check": {
+        "question": "¿Qué interpreta una instrucción de PowerShell?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El teclado."
+          },
+          {
+            "id": "b",
+            "text": "La shell de PowerShell."
+          },
+          {
+            "id": "c",
+            "text": "El archivo CSV."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La terminal presenta la interacción; el intérprete aplica la sintaxis del lenguaje."
+      },
+      "mistakes": [
+        {
+          "myth": "Todo error de comando requiere administrador.",
+          "correction": "Un error puede deberse a shell, sintaxis o parámetro; identifica la causa antes de elevar permisos."
+        }
+      ],
+      "recap": [
+        "Terminal: Recibe texto y presenta respuestas.",
+        "Shell: Interpreta la sintaxis de PowerShell.",
+        "Comando: Get-Process solicita información."
+      ],
+      "glossary": [
+        {
+          "term": "Terminal",
+          "definition": "Interfaz de entrada y salida de comandos."
+        },
+        {
+          "term": "Shell",
+          "definition": "Intérprete que procesa una instrucción."
+        }
+      ]
+    },
+    {
+      "dayId": "w06d2",
+      "title": "Ayuda",
+      "lead": "Get-Command permite descubrir comandos disponibles y examinar de dónde provienen.",
+      "sections": [
+        {
+          "explanation": [
+            "Get-Command permite descubrir comandos disponibles y examinar de dónde provienen. Get-Help explica su sintaxis, parámetros y ejemplos. Son preguntas diferentes: que un nombre exista no significa que ya entiendas cómo utilizarlo. La ayuda disponible puede variar según módulos y archivos instalados. Si solo aparece información básica, consulta la documentación oficial correspondiente a la versión en uso.",
+            "Lee primero el propósito y después los parámetros necesarios. En la sintaxis de ayuda, los corchetes y otras marcas describen reglas; no suelen copiarse literalmente en la instrucción. Los ejemplos muestran usos, pero debes adaptar rutas y alcance a tu entorno de práctica. Antes de copiar un ejemplo que modifica datos, explica su efecto y el destino. Aprender a consultar ayuda te permite verificar una instrucción nueva sin depender de una lista memorizada o de una fuente desconocida."
+          ],
+          "analogy": "Un catálogo confirma que una herramienta existe; el manual explica cómo utilizarla y qué precauciones requiere.",
+          "keyPoints": [
+            "Get-Command: Identificar el comando disponible.",
+            "Get-Help: Consultar propósito y parámetros.",
+            "Ejemplos: Comparar usos documentados."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Descubrir y comprender",
+            "items": [
+              {
+                "label": "Get-Command",
+                "detail": "Identificar el comando disponible."
+              },
+              {
+                "label": "Get-Help",
+                "detail": "Consultar propósito y parámetros."
+              },
+              {
+                "label": "Ejemplos",
+                "detail": "Comparar usos documentados."
+              },
+              {
+                "label": "Predicción",
+                "detail": "Explicar el efecto antes de ejecutar."
+              }
+            ],
+            "caption": "Aprender a consultar ayuda te permite verificar una instrucción nueva sin depender de una lista memorizada o de una fuente desconocida."
+          },
+          "topic": "Get-Help, Get-Command y ejemplos"
+        }
+      ],
+      "workedExample": {
+        "title": "Encontrar una forma de listar carpetas",
+        "scenario": "El estudiante necesita averiguar cómo consultar elementos de una ubicación.",
+        "steps": [
+          {
+            "action": "Descubrir el nombre",
+            "reason": "La búsqueda evita inventar instrucciones.",
+            "result": "Se identifica Get-ChildItem."
+          },
+          {
+            "action": "Leer ayuda y ejemplos",
+            "reason": "El parámetro de ruta debe comprenderse.",
+            "result": "Se distingue -Path del contenido que recibirá."
+          },
+          {
+            "action": "Probar en una carpeta propia",
+            "reason": "El alcance se mantiene pequeño.",
+            "result": "La salida lista únicamente elementos esperados."
+          }
+        ],
+        "result": "La ayuda convierte una necesidad en una instrucción verificable.",
+        "visual": {
+          "type": "flow",
+          "title": "Encontrar una forma de listar carpetas · secuencia",
+          "items": [
+            {
+              "label": "Descubrir el nombre",
+              "detail": "Se identifica Get-ChildItem."
+            },
+            {
+              "label": "Leer ayuda y ejemplos",
+              "detail": "Se distingue -Path del contenido que recibirá."
+            },
+            {
+              "label": "Probar en una carpeta propia",
+              "detail": "La salida lista únicamente elementos esperados."
+            }
+          ],
+          "caption": "La ayuda convierte una necesidad en una instrucción verificable."
+        }
+      },
+      "practice": {
+        "task": "Investiga Get-ChildItem sin cambiar archivos.",
+        "steps": [
+          "Consulta Get-Command.",
+          "Lee Get-Help con ejemplos.",
+          "Escribe una predicción del resultado de una ruta de práctica."
+        ],
+        "expected": "Comando identificado y parámetro explicado con palabras propias.",
+        "console": {
+          "language": "powershell",
+          "code": "Get-Command Get-ChildItem\nGet-Help Get-ChildItem -Examples",
+          "output": "Información del comando y ejemplos disponibles en esa instalación.",
+          "explanation": "La cantidad de ayuda puede variar; compara con la documentación oficial de tu versión."
+        }
+      },
+      "check": {
+        "question": "¿Qué aporta Get-Help?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo más privilegios."
+          },
+          {
+            "id": "b",
+            "text": "Una copia automática de seguridad."
+          },
+          {
+            "id": "c",
+            "text": "Sintaxis, parámetros y ejemplos de un comando."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La ayuda permite comprender el uso; no sustituye la evaluación del alcance y sus efectos."
+      },
+      "mistakes": [
+        {
+          "myth": "Los ejemplos de ayuda se copian con cualquier ruta.",
+          "correction": "Adapta el alcance y predice la operación antes de ejecutar, especialmente si modifica datos."
+        }
+      ],
+      "recap": [
+        "Get-Command: Identificar el comando disponible.",
+        "Get-Help: Consultar propósito y parámetros.",
+        "Ejemplos: Comparar usos documentados."
+      ],
+      "glossary": [
+        {
+          "term": "Cmdlet",
+          "definition": "Comando de PowerShell con una función definida."
+        },
+        {
+          "term": "Parámetro",
+          "definition": "Opción o valor que ajusta una instrucción."
+        }
+      ]
+    },
+    {
+      "dayId": "w06d3",
+      "title": "Navegación",
+      "lead": "Get-Location muestra la ubicación actual de PowerShell.",
+      "sections": [
+        {
+          "explanation": [
+            "Get-Location muestra la ubicación actual de PowerShell. Set-Location cambia ese contexto y Get-ChildItem consulta los elementos de una ubicación. Cambiar de carpeta no mueve sus archivos: modifica desde dónde se interpretan rutas relativas. Esta distinción evita errores cuando una instrucción funciona en una carpeta y falla en otra con el mismo nombre de archivo.",
+            "PowerShell también utiliza proveedores que pueden presentar ubicaciones diferentes del sistema de archivos. Para comenzar, limita la práctica a una carpeta propia y consulta su ruta completa. Una ruta con espacios se escribe entre comillas para mantenerla como argumento único. Comprueba la ubicación antes de cualquier operación que escriba. Si una carpeta no existe, el mensaje es una pista sobre la ruta, no una invitación a crearla dentro de un directorio del sistema sin entender por qué."
+          ],
+          "analogy": "Cambiar de punto en un mapa modifica desde dónde interpretas «a la derecha», pero no mueve los edificios.",
+          "keyPoints": [
+            "Consultar: Get-Location muestra el contexto.",
+            "Cambiar: Set-Location elige otra carpeta.",
+            "Listar: Get-ChildItem muestra sus elementos."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Navegación sin mover archivos",
+            "items": [
+              {
+                "label": "Consultar",
+                "detail": "Get-Location muestra el contexto."
+              },
+              {
+                "label": "Cambiar",
+                "detail": "Set-Location elige otra carpeta."
+              },
+              {
+                "label": "Listar",
+                "detail": "Get-ChildItem muestra sus elementos."
+              }
+            ],
+            "caption": "Si una carpeta no existe, el mensaje es una pista sobre la ruta, no una invitación a crearla dentro de un directorio del sistema sin entender por qué."
+          },
+          "topic": "Get-Location, Set-Location y Get-ChildItem"
+        }
+      ],
+      "workedExample": {
+        "title": "La ruta relativa apunta a otro lugar",
+        "scenario": "Desde C:\\Practica, informes\\nota.txt existe; desde C:\\Archivo, no.",
+        "steps": [
+          {
+            "action": "Consultar ubicación",
+            "reason": "La referencia relativa depende del contexto.",
+            "result": "Se identifica C:\\Archivo como ubicación actual."
+          },
+          {
+            "action": "Comparar rutas completas",
+            "reason": "El mismo texto relativo produce destinos distintos.",
+            "result": "Se reconstruye C:\\Practica\\informes\\nota.txt."
+          },
+          {
+            "action": "Usar el contexto correcto",
+            "reason": "La operación debe apuntar al archivo esperado.",
+            "result": "Se navega a la carpeta de práctica y se vuelve a listar."
+          }
+        ],
+        "result": "Se corrige el contexto sin copiar ni mover archivos innecesariamente.",
+        "visual": {
+          "type": "flow",
+          "title": "La ruta relativa apunta a otro lugar · secuencia",
+          "items": [
+            {
+              "label": "Consultar ubicación",
+              "detail": "Se identifica C:\\Archivo como ubicación actual."
+            },
+            {
+              "label": "Comparar rutas completas",
+              "detail": "Se reconstruye C:\\Practica\\informes\\nota.txt."
+            },
+            {
+              "label": "Usar el contexto correcto",
+              "detail": "Se navega a la carpeta de práctica y se vuelve a listar."
+            }
+          ],
+          "caption": "Se corrige el contexto sin copiar ni mover archivos innecesariamente."
+        }
+      },
+      "practice": {
+        "task": "Navega entre dos carpetas propias.",
+        "steps": [
+          "Consulta la ubicación inicial.",
+          "Cambia mediante una ruta con comillas si es necesario.",
+          "Lista elementos y explica qué permaneció en su sitio."
+        ],
+        "expected": "Un registro de ubicación y listado, sin confundir navegación y movimiento.",
+        "console": {
+          "language": "powershell",
+          "code": "Get-Location\nGet-ChildItem -Path .",
+          "output": "Ubicación actual y elementos visibles del directorio actual.",
+          "explanation": "El punto representa la ubicación de trabajo; los nombres concretos dependen de tu carpeta."
+        }
+      },
+      "check": {
+        "question": "¿Qué cambia Set-Location?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El directorio de trabajo del contexto."
+          },
+          {
+            "id": "b",
+            "text": "La ubicación física de todos los archivos."
+          },
+          {
+            "id": "c",
+            "text": "El contenido de la RAM instalada."
+          }
+        ],
+        "correct": "a",
+        "explanation": "Cambia el punto desde el que se interpretan ubicaciones relativas, sin trasladar los archivos."
+      },
+      "mistakes": [
+        {
+          "myth": "Cambiar de carpeta mediante un comando mueve los documentos.",
+          "correction": "La navegación modifica el contexto; mover archivos utiliza otra operación distinta."
+        }
+      ],
+      "recap": [
+        "Consultar: Get-Location muestra el contexto.",
+        "Cambiar: Set-Location elige otra carpeta.",
+        "Listar: Get-ChildItem muestra sus elementos."
+      ],
+      "glossary": [
+        {
+          "term": "Ubicación actual",
+          "definition": "Contexto desde el que se interpretan rutas relativas."
+        },
+        {
+          "term": "Proveedor",
+          "definition": "Componente que presenta datos como ubicaciones navegables."
+        }
+      ]
+    },
+    {
+      "dayId": "w06d4",
+      "title": "Lectura y salida",
+      "lead": "Get-Content lee contenido de un archivo.",
+      "sections": [
+        {
+          "explanation": [
+            "Get-Content lee contenido de un archivo. La salida presentada en la terminal no significa que se haya modificado el original. La redirección, en cambio, puede enviar una salida a un archivo y sobrescribir un destino existente según la operación. Por eso debes conocer tanto la fuente como el destino antes de usar símbolos que escriben. Practica únicamente con archivos ficticios dentro de una carpeta propia.",
+            "La codificación relaciona bytes con caracteres. Si un texto con tildes se interpreta usando una codificación incorrecta, puede mostrarse de forma extraña sin que el archivo esté necesariamente perdido. PowerShell ha tenido diferencias de valores predeterminados entre versiones y comandos; revisa la ayuda de tu entorno y especifica codificación cuando sea relevante. No conviertas un archivo original como primera prueba. Conserva una copia y compara el resultado para distinguir un problema de visualización de una modificación de datos."
+          ],
+          "analogy": "Leer una carta no cambia la carta; copiarla con un alfabeto mal interpretado puede producir caracteres equivocados.",
+          "keyPoints": [
+            "Fuente: Archivo de práctica con texto conocido.",
+            "Lectura: Get-Content interpreta y presenta caracteres.",
+            "Destino: Una redirección puede crear o sustituir un archivo."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Leer y escribir son acciones diferentes",
+            "items": [
+              {
+                "label": "Fuente",
+                "detail": "Archivo de práctica con texto conocido."
+              },
+              {
+                "label": "Lectura",
+                "detail": "Get-Content interpreta y presenta caracteres."
+              },
+              {
+                "label": "Destino",
+                "detail": "Una redirección puede crear o sustituir un archivo."
+              },
+              {
+                "label": "Validación",
+                "detail": "Comparar contenido y codificación esperada."
+              }
+            ],
+            "caption": "Conserva una copia y compara el resultado para distinguir un problema de visualización de una modificación de datos."
+          },
+          "topic": "Get-Content, redirección y codificación"
+        }
+      ],
+      "workedExample": {
+        "title": "Tildes que se ven extrañas",
+        "scenario": "Una nota ficticia contiene «dirección», pero una herramienta muestra caracteres inesperados.",
+        "steps": [
+          {
+            "action": "Conservar el original",
+            "reason": "Convertir sin comprobar puede perder información.",
+            "result": "Se trabaja sobre una copia."
+          },
+          {
+            "action": "Examinar la codificación",
+            "reason": "Los mismos bytes admiten interpretaciones diferentes.",
+            "result": "Se consulta el formato indicado por la herramienta."
+          },
+          {
+            "action": "Comparar una lectura correcta",
+            "reason": "La prueba necesita contenido conocido.",
+            "result": "La palabra esperada se muestra sin modificar la fuente."
+          }
+        ],
+        "result": "Una representación incorrecta no demuestra por sí sola corrupción permanente del archivo.",
+        "visual": {
+          "type": "flow",
+          "title": "Tildes que se ven extrañas · secuencia",
+          "items": [
+            {
+              "label": "Conservar el original",
+              "detail": "Se trabaja sobre una copia."
+            },
+            {
+              "label": "Examinar la codificación",
+              "detail": "Se consulta el formato indicado por la herramienta."
+            },
+            {
+              "label": "Comparar una lectura correcta",
+              "detail": "La palabra esperada se muestra sin modificar la fuente."
+            }
+          ],
+          "caption": "Una representación incorrecta no demuestra por sí sola corrupción permanente del archivo."
+        }
+      },
+      "practice": {
+        "task": "Lee una nota propia que contenga tildes.",
+        "steps": [
+          "Identifica su ruta exacta.",
+          "Consulta la ayuda de codificación.",
+          "Compara visualización y contenido sin sobrescribir el original."
+        ],
+        "expected": "Una observación que separa lectura, interpretación y escritura.",
+        "console": {
+          "language": "powershell",
+          "code": "Get-Content -LiteralPath './nota.txt'",
+          "output": "Las líneas del archivo de práctica, si existe y tienes permiso de lectura.",
+          "explanation": "LiteralPath evita interpretar caracteres de la ruta como patrones; la consulta no modifica el archivo."
+        }
+      },
+      "check": {
+        "question": "¿Qué riesgo tiene redirigir a un archivo existente?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Puede sobrescribir su contenido según la operación."
+          },
+          {
+            "id": "b",
+            "text": "Siempre cifra automáticamente el archivo."
+          },
+          {
+            "id": "c",
+            "text": "Nunca puede cambiar datos."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La redirección incluye una operación de escritura cuyo destino debes verificar antes de ejecutar."
+      },
+      "mistakes": [
+        {
+          "myth": "Los caracteres extraños demuestran que el disco está dañado.",
+          "correction": "Pueden deberse a una interpretación de codificación incorrecta; conserva el original y comprueba."
+        }
+      ],
+      "recap": [
+        "Fuente: Archivo de práctica con texto conocido.",
+        "Lectura: Get-Content interpreta y presenta caracteres.",
+        "Destino: Una redirección puede crear o sustituir un archivo."
+      ],
+      "glossary": [
+        {
+          "term": "Codificación",
+          "definition": "Regla para representar caracteres mediante bytes."
+        },
+        {
+          "term": "Redirección",
+          "definition": "Envío de una salida a otro destino."
+        }
+      ]
+    },
+    {
+      "dayId": "w06d5",
+      "title": "Objetos y filtros",
+      "lead": "PowerShell transmite objetos entre muchos de sus comandos.",
+      "sections": [
+        {
+          "explanation": [
+            "PowerShell transmite objetos entre muchos de sus comandos. Un objeto contiene propiedades con valores, no solamente las columnas visibles en pantalla. Get-Process devuelve información de procesos, y Where-Object selecciona elementos según una condición sobre sus propiedades. El símbolo de tubería conecta la salida de una etapa con la entrada de la siguiente, formando una transformación que puedes explicar paso a paso.",
+            "Para comenzar selecciona propiedades sencillas, como nombre e identificador, y filtra con un criterio explícito. No interpretes automáticamente una propiedad acumulada como si fuera un porcentaje instantáneo de CPU: consulta su definición. El formato de tabla es una presentación, no la totalidad del objeto. Una salida vacía puede significar que ningún elemento cumple la condición, no que el comando esté roto. Comprueba primero una consulta sin filtro y luego añade una condición pequeña para entender qué cambió."
+          ],
+          "analogy": "Una cinta de clasificación recibe registros completos y deja pasar únicamente los que cumplen una regla.",
+          "keyPoints": [
+            "Get-Process: Obtiene objetos de procesos visibles.",
+            "Where-Object: Aplica una condición sobre sus propiedades.",
+            "Select-Object: Elige campos para presentar o conservar."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Consultar y filtrar objetos",
+            "items": [
+              {
+                "label": "Get-Process",
+                "detail": "Obtiene objetos de procesos visibles."
+              },
+              {
+                "label": "Where-Object",
+                "detail": "Aplica una condición sobre sus propiedades."
+              },
+              {
+                "label": "Select-Object",
+                "detail": "Elige campos para presentar o conservar."
+              }
+            ],
+            "caption": "Comprueba primero una consulta sin filtro y luego añade una condición pequeña para entender qué cambió."
+          },
+          "topic": "Get-Process, propiedades y Where-Object"
+        }
+      ],
+      "workedExample": {
+        "title": "Buscar un nombre de proceso",
+        "scenario": "Se quiere mostrar únicamente procesos llamados notepad, si existen.",
+        "steps": [
+          {
+            "action": "Consultar primero",
+            "reason": "Una referencia muestra qué elementos hay.",
+            "result": "Get-Process presenta procesos visibles."
+          },
+          {
+            "action": "Aplicar una condición",
+            "reason": "El filtro debe expresar la pregunta exacta.",
+            "result": "Se comparan nombres con notepad."
+          },
+          {
+            "action": "Interpretar cero coincidencias",
+            "reason": "Una selección vacía puede ser correcta.",
+            "result": "Si no está abierto, no aparece ningún resultado."
+          }
+        ],
+        "result": "La ausencia de coincidencias responde al filtro; no inicia ni detiene la aplicación.",
+        "visual": {
+          "type": "flow",
+          "title": "Buscar un nombre de proceso · secuencia",
+          "items": [
+            {
+              "label": "Consultar primero",
+              "detail": "Get-Process presenta procesos visibles."
+            },
+            {
+              "label": "Aplicar una condición",
+              "detail": "Se comparan nombres con notepad."
+            },
+            {
+              "label": "Interpretar cero coincidencias",
+              "detail": "Si no está abierto, no aparece ningún resultado."
+            }
+          ],
+          "caption": "La ausencia de coincidencias responde al filtro; no inicia ni detiene la aplicación."
+        }
+      },
+      "practice": {
+        "task": "Explica una tubería de consulta con un filtro de nombre.",
+        "steps": [
+          "Identifica los objetos de entrada.",
+          "Escribe la condición en palabras.",
+          "Indica qué significa una salida vacía."
+        ],
+        "expected": "Una explicación de datos y criterio, no solo del símbolo de tubería.",
+        "console": {
+          "language": "powershell",
+          "code": "Get-Process | Where-Object { $_.ProcessName -eq 'notepad' } | Select-Object ProcessName, Id",
+          "output": "Cero o más filas con ProcessName e Id.",
+          "explanation": "$_ representa el objeto actual dentro del filtro; la consulta no modifica procesos."
+        }
+      },
+      "check": {
+        "question": "¿Una tabla visible contiene necesariamente todas las propiedades del objeto?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Sí, siempre."
+          },
+          {
+            "id": "b",
+            "text": "No; la presentación puede mostrar solo algunas propiedades."
+          },
+          {
+            "id": "c",
+            "text": "Solo cuando aparece una columna Name."
+          }
+        ],
+        "correct": "b",
+        "explanation": "El objeto puede contener más información que las columnas seleccionadas para presentarlo."
+      },
+      "mistakes": [
+        {
+          "myth": "La propiedad CPU siempre es un porcentaje instantáneo.",
+          "correction": "Revisa su definición; algunos valores representan tiempo acumulado y no una tasa actual."
+        }
+      ],
+      "recap": [
+        "Get-Process: Obtiene objetos de procesos visibles.",
+        "Where-Object: Aplica una condición sobre sus propiedades.",
+        "Select-Object: Elige campos para presentar o conservar."
+      ],
+      "glossary": [
+        {
+          "term": "Objeto",
+          "definition": "Registro con propiedades y valores."
+        },
+        {
+          "term": "Tubería",
+          "definition": "Conexión entre salida y entrada de comandos."
+        }
+      ]
+    },
+    {
+      "dayId": "w06d6",
+      "title": "Miniinventario",
+      "lead": "Una variable conserva una referencia a un valor para utilizarlo después.",
+      "sections": [
+        {
+          "explanation": [
+            "Una variable conserva una referencia a un valor para utilizarlo después. En PowerShell su nombre se escribe con un signo de dólar, como $procesos. Guardar una consulta en una variable permite examinar la misma muestra sin volver a consultar inmediatamente un sistema que cambia. Eso no la convierte en un registro permanente: necesitas exportarla si quieres conservarla después de cerrar la sesión.",
+            "Export-Csv representa propiedades de objetos como columnas y filas. Selecciona primero los campos que necesitas; no conviertas la salida a una tabla formateada antes de exportar, porque dejarías de trabajar con los objetos originales. Escoge una ruta de práctica y evita sobrescribir archivos importantes. Después abre o importa la copia y verifica cabeceras y número de registros. El inventario puede contener nombres o rutas privadas, por lo que una versión compartida debe reducirse a los campos autorizados."
+          ],
+          "analogy": "Una variable es una bandeja temporal de registros; un CSV es una tabla que puedes guardar y revisar más tarde.",
+          "keyPoints": [
+            "Consultar: Obtener una muestra de procesos.",
+            "Seleccionar: Conservar solo nombre e identificador.",
+            "Exportar: Escribir un CSV en una ruta de práctica."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Inventario reducido",
+            "items": [
+              {
+                "label": "Consultar",
+                "detail": "Obtener una muestra de procesos."
+              },
+              {
+                "label": "Seleccionar",
+                "detail": "Conservar solo nombre e identificador."
+              },
+              {
+                "label": "Exportar",
+                "detail": "Escribir un CSV en una ruta de práctica."
+              },
+              {
+                "label": "Comprobar",
+                "detail": "Revisar cabeceras y contenido guardado."
+              }
+            ],
+            "caption": "El inventario puede contener nombres o rutas privadas, por lo que una versión compartida debe reducirse a los campos autorizados."
+          },
+          "topic": "Variables sencillas y Export-Csv"
+        }
+      ],
+      "workedExample": {
+        "title": "Exportar una muestra de procesos",
+        "scenario": "Una práctica necesita conservar nombres e identificadores sin rutas privadas.",
+        "steps": [
+          {
+            "action": "Capturar la muestra",
+            "reason": "Los procesos cambian con el tiempo.",
+            "result": "Se asigna la consulta a una variable."
+          },
+          {
+            "action": "Seleccionar propiedades",
+            "reason": "Minimizar datos evita información innecesaria.",
+            "result": "Se conservan ProcessName e Id."
+          },
+          {
+            "action": "Guardar y leer",
+            "reason": "La exportación necesita validación.",
+            "result": "Se comprueban dos cabeceras y registros coherentes."
+          }
+        ],
+        "result": "El CSV documenta una muestra temporal, no todos los procesos que existirán después.",
+        "visual": {
+          "type": "flow",
+          "title": "Exportar una muestra de procesos · secuencia",
+          "items": [
+            {
+              "label": "Capturar la muestra",
+              "detail": "Se asigna la consulta a una variable."
+            },
+            {
+              "label": "Seleccionar propiedades",
+              "detail": "Se conservan ProcessName e Id."
+            },
+            {
+              "label": "Guardar y leer",
+              "detail": "Se comprueban dos cabeceras y registros coherentes."
+            }
+          ],
+          "caption": "El CSV documenta una muestra temporal, no todos los procesos que existirán después."
+        }
+      },
+      "practice": {
+        "task": "Diseña un miniinventario de solo dos propiedades.",
+        "steps": [
+          "Explica por qué son necesarias.",
+          "Elige una ruta propia y un nombre nuevo.",
+          "Describe cómo comprobarías el CSV sin publicar datos privados."
+        ],
+        "expected": "Una exportación mínima con alcance y fecha.",
+        "console": {
+          "language": "powershell",
+          "code": "$procesos = Get-Process | Select-Object ProcessName, Id\n$procesos | Export-Csv -Path './procesos-practica.csv' -NoTypeInformation -Encoding utf8",
+          "output": "Un archivo nuevo de práctica con columnas ProcessName e Id.",
+          "explanation": "Este ejemplo escribe en la carpeta actual; verifica antes que el nombre no corresponda a un archivo importante."
+        }
+      },
+      "check": {
+        "question": "¿Qué debe llegar a Export-Csv?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Objetos con las propiedades que quieres guardar."
+          },
+          {
+            "id": "b",
+            "text": "Únicamente una captura de pantalla."
+          },
+          {
+            "id": "c",
+            "text": "Una tabla formateada mediante Format-Table."
+          }
+        ],
+        "correct": "a",
+        "explanation": "CSV serializa propiedades de objetos; el formato visual de tabla corresponde a otra finalidad."
+      },
+      "mistakes": [
+        {
+          "myth": "Un CSV es una vista en tiempo real del sistema.",
+          "correction": "Representa los datos capturados y exportados en un momento determinado."
+        }
+      ],
+      "recap": [
+        "Consultar: Obtener una muestra de procesos.",
+        "Seleccionar: Conservar solo nombre e identificador.",
+        "Exportar: Escribir un CSV en una ruta de práctica."
+      ],
+      "glossary": [
+        {
+          "term": "Variable",
+          "definition": "Nombre que referencia un valor durante la ejecución."
+        },
+        {
+          "term": "CSV",
+          "definition": "Representación tabular mediante campos separados."
+        }
+      ]
+    },
+    {
+      "dayId": "w06d7",
+      "title": "Evaluación de terminal",
+      "lead": "Comprender una instrucción incluye reconocer su shell, entrada, parámetros, alcance y salida.",
+      "sections": [
+        {
+          "explanation": [
+            "Comprender una instrucción incluye reconocer su shell, entrada, parámetros, alcance y salida. Una consulta puede ser segura para datos de práctica y resultar inapropiada si exporta información privada de todo un equipo. La evaluación no consiste en escribir el comando más largo, sino en explicar por qué responde a la pregunta y cómo comprobarías el resultado. Empieza por una versión pequeña y añade una transformación cada vez.",
+            "Si una tubería no produce lo esperado, revisa sus etapas. Comprueba primero la consulta, después el filtro y finalmente la selección o exportación. Distingue un error de sintaxis de cero coincidencias y de un fallo de permisos al guardar. Conserva el mensaje exacto y la ruta implicada, sin convertir inmediatamente la ejecución en administrativa. Un resultado correcto debe interpretarse: una fila en un CSV demuestra una muestra exportada, no la salud completa del equipo ni la permanencia de ese proceso."
+          ],
+          "analogy": "Revisar una cadena de montaje por estaciones permite encontrar dónde cambió el resultado esperado.",
+          "keyPoints": [
+            "Sintaxis: Shell y parámetros correctos.",
+            "Selección: Datos que cumplen la condición.",
+            "Salida: Propiedades o archivo esperado."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Validar una instrucción por etapas",
+            "items": [
+              {
+                "label": "Sintaxis",
+                "detail": "Shell y parámetros correctos."
+              },
+              {
+                "label": "Selección",
+                "detail": "Datos que cumplen la condición."
+              },
+              {
+                "label": "Salida",
+                "detail": "Propiedades o archivo esperado."
+              },
+              {
+                "label": "Interpretación",
+                "detail": "Alcance temporal y límites del resultado."
+              }
+            ],
+            "caption": "Un resultado correcto debe interpretarse: una fila en un CSV demuestra una muestra exportada, no la salud completa del equipo ni la permanencia de ese proceso."
+          },
+          "topic": "Sintaxis, ayuda y validación"
+        }
+      ],
+      "workedExample": {
+        "title": "El CSV está vacío",
+        "scenario": "Una consulta filtrada exporta cabeceras pero no los procesos esperados.",
+        "steps": [
+          {
+            "action": "Probar la consulta básica",
+            "reason": "Hace falta localizar la etapa que pierde registros.",
+            "result": "Get-Process sí devuelve elementos."
+          },
+          {
+            "action": "Examinar el filtro",
+            "reason": "La condición puede no coincidir con ningún nombre.",
+            "result": "Se detecta una diferencia en el nombre solicitado."
+          },
+          {
+            "action": "Repetir sobre una muestra",
+            "reason": "No se requiere ampliar privilegios por costumbre.",
+            "result": "El filtro corregido produce la selección prevista."
+          }
+        ],
+        "result": "Una salida sin registros puede explicarse por el criterio, sin atribuirla al almacenamiento.",
+        "visual": {
+          "type": "flow",
+          "title": "El CSV está vacío · secuencia",
+          "items": [
+            {
+              "label": "Probar la consulta básica",
+              "detail": "Get-Process sí devuelve elementos."
+            },
+            {
+              "label": "Examinar el filtro",
+              "detail": "Se detecta una diferencia en el nombre solicitado."
+            },
+            {
+              "label": "Repetir sobre una muestra",
+              "detail": "El filtro corregido produce la selección prevista."
+            }
+          ],
+          "caption": "Una salida sin registros puede explicarse por el criterio, sin atribuirla al almacenamiento."
+        }
+      },
+      "practice": {
+        "task": "Analiza una tubería de consulta, filtro y exportación.",
+        "steps": [
+          "Describe cada etapa.",
+          "Propón una comprobación intermedia.",
+          "Indica qué conclusiones no permite el resultado."
+        ],
+        "expected": "Una explicación verificable del flujo de objetos y su alcance."
+      },
+      "check": {
+        "question": "Una consulta devuelve cero coincidencias sin error. ¿Qué haces primero?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Desactivar controles de seguridad."
+          },
+          {
+            "id": "b",
+            "text": "Revisar el criterio y los datos disponibles."
+          },
+          {
+            "id": "c",
+            "text": "Eliminar archivos del sistema."
+          }
+        ],
+        "correct": "b",
+        "explanation": "El filtro puede estar funcionando correctamente si ningún objeto cumple la condición indicada."
+      },
+      "mistakes": [
+        {
+          "myth": "Un comando que termina sin error garantiza una conclusión correcta.",
+          "correction": "También debes comprobar selección, contenido y significado del resultado obtenido."
+        }
+      ],
+      "recap": [
+        "Sintaxis: Shell y parámetros correctos.",
+        "Selección: Datos que cumplen la condición.",
+        "Salida: Propiedades o archivo esperado."
+      ],
+      "glossary": [
+        {
+          "term": "Sintaxis",
+          "definition": "Reglas que permiten interpretar una instrucción."
+        },
+        {
+          "term": "Muestra",
+          "definition": "Conjunto observado en un momento y alcance determinados."
+        }
+      ]
+    }
+  ]
+}

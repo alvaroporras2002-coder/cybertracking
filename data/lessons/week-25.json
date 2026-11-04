@@ -1,0 +1,962 @@
+{
+  "version": "2.0.0",
+  "week": 25,
+  "title": "Arquitectura segura",
+  "overview": "Diseñar seguridad requiere entender flujos, no solo ubicar dispositivos. Esta semana relaciona zonas, controles de red, acceso administrativo y restricciones de equipos especiales con necesidades del servicio. También diferencia capacidad, redundancia y recuperación, mostrando por qué duplicar componentes no elimina todos los fallos. El proyecto integrador termina con criterios de aceptación, pruebas de límites y riesgos residuales asignados a responsables, para que la arquitectura pueda mantenerse y revisarse cuando cambie.",
+  "objectives": [
+    "Diseñar flujos y límites de confianza según requisitos.",
+    "Elegir capacidades de protección y acceso administrativo.",
+    "Verificar disponibilidad, aceptación y riesgo residual."
+  ],
+  "sources": [
+    {
+      "id": "zt",
+      "title": "NIST SP 800-207: arquitectura de confianza cero",
+      "url": "https://csrc.nist.gov/pubs/sp/800/207/final"
+    },
+    {
+      "id": "firewall",
+      "title": "Microsoft: Windows Firewall",
+      "url": "https://learn.microsoft.com/en-us/windows/security/operating-system-security/network-security/windows-firewall/"
+    },
+    {
+      "id": "csf",
+      "title": "NIST Cybersecurity Framework",
+      "url": "https://www.nist.gov/cyberframework"
+    },
+    {
+      "id": "continuity",
+      "title": "NIST: guía de contingencia, revisión 1",
+      "url": "https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-34r1.pdf"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w25d1",
+      "title": "Zonas y flujos",
+      "lead": "Diseña la arquitectura desde los flujos permitidos y los datos que deben protegerse.",
+      "sections": [
+        {
+          "topic": "Confianza, segmentación y servicios",
+          "explanation": [
+            "Una arquitectura segura ubica componentes y define cómo se comunican. Las zonas agrupan necesidades y riesgos; los flujos conectan procesos legítimos con servicios concretos. Antes de dibujar barreras, identifica usuarios, datos, administración y dependencias. Una aplicación pública puede necesitar una base de datos interna, pero el cliente externo no debería heredar acceso directo a esa base por el hecho de usar la aplicación.",
+            "El límite de confianza indica dónde debe evaluarse una solicitud o un dato antes de aceptarlo. Puede existir entre redes, procesos, cuentas o servicios de nube, no solo en el perímetro físico. Documenta origen, destino, servicio, identidad y motivo de cada flujo. Después define pruebas para lo que debe funcionar y lo que debe quedar impedido. Un diagrama útil hace visibles dependencias y decisiones; uno lleno de iconos sin reglas no demuestra protección efectiva."
+          ],
+          "analogy": "Una cocina tiene zonas y recorridos para ingredientes, clientes y personal; mezclar todos los caminos introduce riesgos innecesarios.",
+          "keyPoints": [
+            "Empieza por procesos y flujos legítimos.",
+            "Los límites de confianza también existen dentro de la aplicación.",
+            "Cada flujo necesita identidad, propósito y prueba."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Aplicación con zonas separadas",
+            "items": [
+              {
+                "label": "Cliente",
+                "detail": "Solicita operaciones públicas"
+              },
+              {
+                "label": "Aplicación",
+                "detail": "Valida identidad, datos y autorización"
+              },
+              {
+                "label": "Base de datos",
+                "detail": "Acepta conexiones necesarias de la aplicación"
+              },
+              {
+                "label": "Administración",
+                "detail": "Acceso restringido por un recorrido distinto"
+              }
+            ],
+            "caption": "Las conexiones se limitan por necesidad y se verifican en ambos sentidos relevantes."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Catálogo público con administración interna",
+        "scenario": "Los visitantes deben consultar, pero no modificar inventario.",
+        "steps": [
+          {
+            "action": "Separar funciones",
+            "reason": "Consulta y administración tienen necesidades distintas.",
+            "result": "Dos recorridos definidos"
+          },
+          {
+            "action": "Limitar dependencias",
+            "reason": "El navegador no necesita hablar con la base.",
+            "result": "Acceso a datos mediado por aplicación"
+          },
+          {
+            "action": "Probar fronteras",
+            "reason": "El diseño debe sostener permisos reales.",
+            "result": "Consulta exitosa y administración externa denegada"
+          }
+        ],
+        "result": "Los flujos reflejan la necesidad del catálogo sin abrir la infraestructura completa.",
+        "visual": {
+          "type": "flow",
+          "title": "Catálogo público con administración interna",
+          "items": [
+            {
+              "label": "Separar funciones",
+              "detail": "Dos recorridos definidos"
+            },
+            {
+              "label": "Limitar dependencias",
+              "detail": "Acceso a datos mediado por aplicación"
+            },
+            {
+              "label": "Probar fronteras",
+              "detail": "Consulta exitosa y administración externa denegada"
+            }
+          ],
+          "caption": "Los flujos reflejan la necesidad del catálogo sin abrir la infraestructura completa."
+        }
+      },
+      "practice": {
+        "task": "Dibuja una arquitectura de pedidos ficticia.",
+        "steps": [
+          "Identifica cliente, aplicación, datos y administración.",
+          "Anota servicio y motivo de cada flujo.",
+          "Añade dos pruebas negativas y una dependencia crítica."
+        ],
+        "expected": "Un mapa que permita revisar quién puede comunicarse con qué y por qué."
+      },
+      "check": {
+        "question": "¿Qué flujo suele ser innecesario para un visitante de catálogo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "HTTPS hacia la aplicación pública"
+          },
+          {
+            "id": "b",
+            "text": "Respuesta de la aplicación a su consulta"
+          },
+          {
+            "id": "c",
+            "text": "Conexión administrativa directa a la base de datos"
+          }
+        ],
+        "correct": "c",
+        "explanation": "La aplicación media la función pública; el acceso administrativo a datos requiere un recorrido y permisos diferentes."
+      },
+      "mistakes": [
+        {
+          "myth": "Poner una base en otra zona garantiza su seguridad.",
+          "correction": "La separación necesita controles, identidad y pruebas de flujos efectivos."
+        }
+      ],
+      "recap": [
+        "Empieza por procesos y flujos legítimos.",
+        "Los límites de confianza también existen dentro de la aplicación.",
+        "Cada flujo necesita identidad, propósito y prueba."
+      ],
+      "glossary": [
+        {
+          "term": "Límite de confianza",
+          "definition": "Punto donde se evalúan datos o solicitudes antes de aceptarlos."
+        },
+        {
+          "term": "Arquitectura",
+          "definition": "Organización de componentes, dependencias y decisiones de comunicación."
+        }
+      ]
+    },
+    {
+      "dayId": "w25d2",
+      "title": "Dispositivos de protección",
+      "lead": "Compara dispositivos por su punto de observación y por la acción que pueden realizar.",
+      "sections": [
+        {
+          "topic": "Firewall, proxy, IDS, IPS y WAF",
+          "explanation": [
+            "Un firewall controla flujos según sus capacidades y política. Un proxy intermedia comunicaciones y puede aplicar reglas en el contexto que procesa. Un IDS detecta actividad y produce señales; un IPS puede actuar en línea para impedir tráfico según su diseño. Un WAF se orienta a solicitudes de aplicaciones web. Los nombres describen familias de capacidades, no garantías de que cualquier producto vea o bloquee toda amenaza.",
+            "La ubicación y el cifrado condicionan visibilidad. Un sensor de red que no dispone de contenido descifrado no debe tratarse como si inspeccionara todos los datos HTTP. La inspección de tráfico protegido introduce decisiones de confianza, privacidad, compatibilidad y gestión de claves que requieren autorización. Elige la capacidad para una necesidad concreta y prueba tanto detección como impacto en servicio. Una herramienta mal afinada puede generar ruido o bloquear actividad legítima."
+          ],
+          "analogy": "Un guardia, una ventanilla y una cámara observan y actúan de maneras diferentes; su ubicación determina qué pueden comprobar.",
+          "keyPoints": [
+            "Distingue detección y prevención en línea.",
+            "Ubicación y cifrado limitan visibilidad.",
+            "Comprueba eficacia e impacto sobre tráfico legítimo."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Capacidades de protección",
+            "items": [
+              {
+                "label": "Firewall",
+                "detail": "Controla comunicaciones permitidas"
+              },
+              {
+                "label": "IDS o IPS",
+                "detail": "Detecta y, según diseño, bloquea actividad"
+              },
+              {
+                "label": "WAF",
+                "detail": "Evalúa solicitudes de aplicación web"
+              },
+              {
+                "label": "Proxy",
+                "detail": "Intermedia y aplica política sobre el tráfico que procesa"
+              }
+            ],
+            "caption": "La elección depende de contexto y capacidades reales, no solo del nombre comercial."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Solicitud web y sensor sin descifrado",
+        "scenario": "Se espera que un sensor de red vea campos HTTP dentro de TLS sin acceso al contenido.",
+        "steps": [
+          {
+            "action": "Identificar posición",
+            "reason": "El sensor observa paquetes cifrados.",
+            "result": "Metadatos disponibles, contenido no"
+          },
+          {
+            "action": "Corregir expectativa",
+            "reason": "La marca no elimina el cifrado.",
+            "result": "No se afirma inspección completa de HTTP"
+          },
+          {
+            "action": "Elegir fuente adecuada",
+            "reason": "La aplicación puede registrar la operación autorizadamente.",
+            "result": "Registros web correlacionados con red"
+          }
+        ],
+        "result": "La arquitectura asigna observación a fuentes que realmente pueden aportar la información.",
+        "visual": {
+          "type": "flow",
+          "title": "Solicitud web y sensor sin descifrado",
+          "items": [
+            {
+              "label": "Identificar posición",
+              "detail": "Metadatos disponibles, contenido no"
+            },
+            {
+              "label": "Corregir expectativa",
+              "detail": "No se afirma inspección completa de HTTP"
+            },
+            {
+              "label": "Elegir fuente adecuada",
+              "detail": "Registros web correlacionados con red"
+            }
+          ],
+          "caption": "La arquitectura asigna observación a fuentes que realmente pueden aportar la información."
+        }
+      },
+      "practice": {
+        "task": "Compara firewall, IDS y WAF para un portal ficticio.",
+        "steps": [
+          "Define qué pregunta responde cada uno.",
+          "Indica su lugar y visibilidad.",
+          "Añade prueba de una detección y de un tráfico legítimo."
+        ],
+        "expected": "Una selección que reconoce cifrado, falsos positivos y límites operativos."
+      },
+      "check": {
+        "question": "¿Qué distingue principalmente a una capacidad IPS en línea?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Puede impedir tráfico según su política y diseño"
+          },
+          {
+            "id": "b",
+            "text": "Solo almacena nombres de usuarios"
+          },
+          {
+            "id": "c",
+            "text": "Siempre descifra cualquier conexión"
+          }
+        ],
+        "correct": "a",
+        "explanation": "La prevención en línea añade capacidad de acción, pero su visibilidad sigue dependiendo del despliegue."
+      },
+      "mistakes": [
+        {
+          "myth": "Un WAF reemplaza toda autorización de la aplicación.",
+          "correction": "La aplicación sigue necesitando validar permisos y lógica de negocio."
+        }
+      ],
+      "recap": [
+        "Distingue detección y prevención en línea.",
+        "Ubicación y cifrado limitan visibilidad.",
+        "Comprueba eficacia e impacto sobre tráfico legítimo."
+      ],
+      "glossary": [
+        {
+          "term": "IDS",
+          "definition": "Capacidad de detección de actividad relevante para seguridad."
+        },
+        {
+          "term": "IPS",
+          "definition": "Capacidad de prevención que puede actuar en el recorrido del tráfico."
+        }
+      ]
+    },
+    {
+      "dayId": "w25d3",
+      "title": "Acceso remoto",
+      "lead": "Separa entrada remota, salto administrativo y autorización sobre el destino.",
+      "sections": [
+        {
+          "topic": "VPN, salto intermedio e identidad",
+          "explanation": [
+            "El acceso remoto de administración necesita más restricciones que una consulta normal de usuario. Una VPN puede proteger el recorrido hacia una zona, mientras un punto de salto concentra la entrada administrativa y facilita observación. Ninguno concede por sí solo permiso sobre todos los destinos. Define identidades individuales, recursos permitidos, horarios y acciones necesarias para la tarea.",
+            "Evita compartir una cuenta administrativa para simplificar soporte: reduce atribución y dificulta retirar acceso a una persona sin afectar a todas. Aplica autenticación adecuada, protección del dispositivo y control de sesiones. El punto de salto también debe actualizarse y limitarse, porque concentrar acceso crea una dependencia importante. Antes de terminar una intervención temporal, verifica cierre de sesiones, retirada de permisos y estado del servicio. El diseño debe permitir recuperación si el componente de acceso falla."
+          ],
+          "analogy": "Una recepción controlada organiza entradas, pero sigue necesitando autorizaciones por sala y un plan si la recepción queda fuera de servicio.",
+          "keyPoints": [
+            "VPN, salto y permiso sobre destino cumplen funciones distintas.",
+            "Utiliza identidades individuales y acceso temporal.",
+            "Protege y recupera el punto que concentra administración."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Recorrido administrativo limitado",
+            "items": [
+              {
+                "label": "Persona",
+                "detail": "Identidad individual y MFA apropiado"
+              },
+              {
+                "label": "Entrada",
+                "detail": "Conexión remota autorizada"
+              },
+              {
+                "label": "Salto",
+                "detail": "Acceso administrado y observable"
+              },
+              {
+                "label": "Destino",
+                "detail": "Acciones mínimas para la tarea"
+              }
+            ],
+            "caption": "Cada tramo añade condiciones; ninguno debe convertir acceso en permiso universal."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Mantenimiento de un servidor por proveedor",
+        "scenario": "El contrato solo autoriza revisar una aplicación durante una ventana.",
+        "steps": [
+          {
+            "action": "Definir alcance",
+            "reason": "El proveedor no necesita toda la red.",
+            "result": "Servidor y acciones específicos"
+          },
+          {
+            "action": "Concentrar acceso",
+            "reason": "La intervención debe ser trazable.",
+            "result": "Identidad individual mediante salto autorizado"
+          },
+          {
+            "action": "Cerrar y validar",
+            "reason": "La ventana no debe dejar una excepción permanente.",
+            "result": "Sesión terminada y servicio verificado"
+          }
+        ],
+        "result": "La administración remota queda acotada y revisable antes, durante y después de la tarea.",
+        "visual": {
+          "type": "flow",
+          "title": "Mantenimiento de un servidor por proveedor",
+          "items": [
+            {
+              "label": "Definir alcance",
+              "detail": "Servidor y acciones específicos"
+            },
+            {
+              "label": "Concentrar acceso",
+              "detail": "Identidad individual mediante salto autorizado"
+            },
+            {
+              "label": "Cerrar y validar",
+              "detail": "Sesión terminada y servicio verificado"
+            }
+          ],
+          "caption": "La administración remota queda acotada y revisable antes, durante y después de la tarea."
+        }
+      },
+      "practice": {
+        "task": "Diseña acceso remoto para una tarea ficticia.",
+        "steps": [
+          "Define identidad, destino, acciones y horario.",
+          "Añade observación y protección del punto de salto.",
+          "Describe revocación y recuperación del acceso legítimo."
+        ],
+        "expected": "Un recorrido administrativo con límites y finalización comprobable."
+      },
+      "check": {
+        "question": "¿Qué problema introduce compartir una cuenta administrativa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Mejora automáticamente la atribución"
+          },
+          {
+            "id": "b",
+            "text": "Dificulta atribuir acciones y retirar acceso individual"
+          },
+          {
+            "id": "c",
+            "text": "Elimina todas las dependencias"
+          }
+        ],
+        "correct": "b",
+        "explanation": "Una identidad compartida mezcla responsabilidades y hace más compleja la revocación por persona."
+      },
+      "mistakes": [
+        {
+          "myth": "Un punto de salto no necesita endurecimiento porque ya está dentro de la red.",
+          "correction": "Es un activo crítico que concentra acceso y requiere controles y mantenimiento propios."
+        }
+      ],
+      "recap": [
+        "VPN, salto y permiso sobre destino cumplen funciones distintas.",
+        "Utiliza identidades individuales y acceso temporal.",
+        "Protege y recupera el punto que concentra administración."
+      ],
+      "glossary": [
+        {
+          "term": "Punto de salto",
+          "definition": "Sistema intermedio controlado para administración de destinos."
+        },
+        {
+          "term": "Acceso temporal",
+          "definition": "Permiso que existe solo durante una necesidad y un intervalo definidos."
+        }
+      ]
+    },
+    {
+      "dayId": "w25d4",
+      "title": "Modelos especiales",
+      "lead": "Adapta los controles a las restricciones reales de dispositivos y sistemas antiguos.",
+      "sections": [
+        {
+          "topic": "IoT, sistemas operativos y legado",
+          "explanation": [
+            "Los dispositivos IoT suelen combinar sensores, software, servicios remotos y conectividad con capacidades de administración limitadas. Los sistemas operativos y aplicaciones heredados pueden depender de versiones antiguas o hardware específico. No debes aplicar el mismo procedimiento a todos sin conocer soporte, función y dependencias. Un cambio diseñado para un portátil puede interrumpir un equipo que mantiene un proceso esencial.",
+            "El inventario debe incluir propietario, versión, necesidad de conectividad, mecanismo de actualización y consecuencias de fallo. Cuando no sea posible corregir inmediatamente, considera segmentación, acceso administrativo restringido, monitoreo y un plan de sustitución aprobado. Estas compensaciones no convierten el sistema en permanentemente seguro ni eliminan la necesidad de revisar riesgo. Evita exponer interfaces innecesarias y reemplaza credenciales iniciales cuando el diseño lo permita. Cada decisión debe equilibrar seguridad, operación y límites del fabricante."
+          ],
+          "analogy": "Un equipo antiguo puede seguir siendo útil, pero sus restricciones deben conocerse y gestionarse como parte del proceso, no ignorarse.",
+          "keyPoints": [
+            "Conoce función, soporte y dependencias.",
+            "Las compensaciones necesitan revisión y sustitución planificada.",
+            "Limita conectividad y administración innecesarias."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Gestión de un dispositivo limitado",
+            "items": [
+              {
+                "label": "Inventario",
+                "detail": "Función, dueño y versión conocidos"
+              },
+              {
+                "label": "Acceso",
+                "detail": "Solo conexiones necesarias"
+              },
+              {
+                "label": "Observación",
+                "detail": "Estado y cambios relevantes registrados"
+              },
+              {
+                "label": "Plan",
+                "detail": "Corrección o sustitución con riesgo aceptado"
+              }
+            ],
+            "caption": "Los controles se adaptan a la capacidad del dispositivo y al impacto del proceso."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Impresora con firmware sin soporte",
+        "scenario": "El equipo sigue siendo necesario mientras llega un reemplazo.",
+        "steps": [
+          {
+            "action": "Identificar función",
+            "reason": "No requiere acceso abierto a todas las zonas.",
+            "result": "Flujos de impresión y administración definidos"
+          },
+          {
+            "action": "Compensar exposición",
+            "reason": "La falta de actualización permanece como riesgo.",
+            "result": "Acceso limitado y revisión de actividad"
+          },
+          {
+            "action": "Planificar retirada",
+            "reason": "La excepción no debe quedar indefinida.",
+            "result": "Dueño y fecha de reemplazo aprobados"
+          }
+        ],
+        "result": "La continuidad se mantiene con una exposición conocida y una ruta de retirada.",
+        "visual": {
+          "type": "flow",
+          "title": "Impresora con firmware sin soporte",
+          "items": [
+            {
+              "label": "Identificar función",
+              "detail": "Flujos de impresión y administración definidos"
+            },
+            {
+              "label": "Compensar exposición",
+              "detail": "Acceso limitado y revisión de actividad"
+            },
+            {
+              "label": "Planificar retirada",
+              "detail": "Dueño y fecha de reemplazo aprobados"
+            }
+          ],
+          "caption": "La continuidad se mantiene con una exposición conocida y una ruta de retirada."
+        }
+      },
+      "practice": {
+        "task": "Analiza un dispositivo IoT ficticio.",
+        "steps": [
+          "Describe función, conectividad y soporte.",
+          "Elige dos compensaciones compatibles.",
+          "Fija dueño, revisión y una condición de sustitución."
+        ],
+        "expected": "Un plan que reconoce limitaciones sin prometer seguridad absoluta."
+      },
+      "check": {
+        "question": "¿Qué debe acompañar una compensación para un sistema sin soporte?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Una fecha y responsable de revisión o retirada"
+          },
+          {
+            "id": "b",
+            "text": "La promesa de que nunca necesitará cambios"
+          },
+          {
+            "id": "c",
+            "text": "Acceso público para facilitar mantenimiento"
+          }
+        ],
+        "correct": "a",
+        "explanation": "La compensación gestiona una exposición residual y necesita seguimiento explícito."
+      },
+      "mistakes": [
+        {
+          "myth": "Un dispositivo pequeño no puede representar un riesgo importante.",
+          "correction": "Su acceso, datos y dependencia del proceso determinan el impacto, no su tamaño."
+        }
+      ],
+      "recap": [
+        "Conoce función, soporte y dependencias.",
+        "Las compensaciones necesitan revisión y sustitución planificada.",
+        "Limita conectividad y administración innecesarias."
+      ],
+      "glossary": [
+        {
+          "term": "IoT",
+          "definition": "Dispositivos conectados que integran funciones físicas y software."
+        },
+        {
+          "term": "Sistema legado",
+          "definition": "Sistema heredado con restricciones de soporte, diseño o dependencia."
+        }
+      ]
+    },
+    {
+      "dayId": "w25d5",
+      "title": "Disponibilidad",
+      "lead": "Distingue redundancia de independencia y capacidad de recuperación.",
+      "sections": [
+        {
+          "topic": "Redundancia, capacidad y fallos",
+          "explanation": [
+            "La disponibilidad depende de capacidad suficiente, tolerancia a fallos y recuperación operativa. Redundancia duplica componentes, pero solo aporta resiliencia si se consideran fallos comunes. Dos servidores en el mismo suministro eléctrico pueden perderse juntos. Un balanceador puede distribuir carga y también convertirse en un punto crítico si no existe un diseño de continuidad para él.",
+            "La capacidad necesita métricas y límites bajo una demanda definida; agregar equipos sin conocer el cuello de botella puede no mejorar el servicio. Tampoco debe confundirse réplica con respaldo: una modificación o corrupción puede propagarse a todas las réplicas. Diseña pruebas de fallo autorizadas, criterios de recuperación y observación del servicio real. La continuidad incluye personas, claves, red y dependencias externas. Un porcentaje de disponibilidad prometido no sustituye comprobar qué situaciones cubre y cuáles quedan fuera."
+          ],
+          "analogy": "Dos linternas ayudan si ambas no dependen de la misma batería defectuosa; duplicar sin independencia puede repetir el mismo fallo.",
+          "keyPoints": [
+            "Busca fallos comunes entre componentes duplicados.",
+            "Capacidad y redundancia resuelven problemas distintos.",
+            "Réplicas y respaldos requieren pruebas específicas."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Tres necesidades de disponibilidad",
+            "items": [
+              {
+                "label": "Capacidad",
+                "detail": "Atender demanda legítima prevista"
+              },
+              {
+                "label": "Redundancia",
+                "detail": "Continuar ante fallos contemplados"
+              },
+              {
+                "label": "Recuperación",
+                "detail": "Restaurar un estado utilizable después del daño"
+              }
+            ],
+            "caption": "Cada necesidad tiene métricas y pruebas diferentes."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Dos servidores con un único enlace",
+        "scenario": "La aplicación tiene redundancia de cómputo, pero una sola salida de red.",
+        "steps": [
+          {
+            "action": "Reconocer mejora",
+            "reason": "Un fallo de un servidor puede estar cubierto.",
+            "result": "Redundancia de cómputo existente"
+          },
+          {
+            "action": "Buscar dependencia común",
+            "reason": "Ambos dependen del mismo recorrido de conectividad.",
+            "result": "Enlace único como punto crítico"
+          },
+          {
+            "action": "Probar escenario",
+            "reason": "El servicio debe verificarse ante ese fallo específico.",
+            "result": "Plan de conectividad y recuperación revisado"
+          }
+        ],
+        "result": "La arquitectura evita llamar alta disponibilidad a una duplicación que deja un fallo común sin tratar.",
+        "visual": {
+          "type": "flow",
+          "title": "Dos servidores con un único enlace",
+          "items": [
+            {
+              "label": "Reconocer mejora",
+              "detail": "Redundancia de cómputo existente"
+            },
+            {
+              "label": "Buscar dependencia común",
+              "detail": "Enlace único como punto crítico"
+            },
+            {
+              "label": "Probar escenario",
+              "detail": "Plan de conectividad y recuperación revisado"
+            }
+          ],
+          "caption": "La arquitectura evita llamar alta disponibilidad a una duplicación que deja un fallo común sin tratar."
+        }
+      },
+      "practice": {
+        "task": "Revisa una arquitectura ficticia con dos servidores.",
+        "steps": [
+          "Identifica electricidad, red y datos compartidos.",
+          "Separa cuello de botella y punto único de fallo.",
+          "Define una prueba y una copia recuperable independiente."
+        ],
+        "expected": "Un mapa de dependencias con al menos una mejora justificada."
+      },
+      "check": {
+        "question": "¿Qué puede seguir fallando con dos servidores redundantes?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Cualquier dependencia común no tratada"
+          },
+          {
+            "id": "b",
+            "text": "Solo el nombre de la aplicación"
+          },
+          {
+            "id": "c",
+            "text": "Ningún componente porque ya hay duplicación"
+          }
+        ],
+        "correct": "a",
+        "explanation": "La redundancia de un componente no elimina fallos comunes de red, energía, datos u otros servicios."
+      },
+      "mistakes": [
+        {
+          "myth": "Una réplica elimina la necesidad de respaldos.",
+          "correction": "La réplica puede propagar errores; necesitas recuperar estados válidos según el escenario."
+        }
+      ],
+      "recap": [
+        "Busca fallos comunes entre componentes duplicados.",
+        "Capacidad y redundancia resuelven problemas distintos.",
+        "Réplicas y respaldos requieren pruebas específicas."
+      ],
+      "glossary": [
+        {
+          "term": "Punto único de fallo",
+          "definition": "Elemento cuya pérdida puede impedir la función del conjunto."
+        },
+        {
+          "term": "Redundancia",
+          "definition": "Disponibilidad de componentes adicionales para cubrir fallos definidos."
+        }
+      ]
+    },
+    {
+      "dayId": "w25d6",
+      "title": "Diseño integrador",
+      "lead": "Transforma requisitos de negocio en un diseño con criterios de aceptación.",
+      "sections": [
+        {
+          "topic": "Requisitos, controles y validación",
+          "explanation": [
+            "Un diseño integrador comienza con requisitos: quién usa el servicio, qué datos procesa, qué disponibilidad necesita y qué administración requiere. Después identifica amenazas y límites para elegir componentes y controles. Si no existe un criterio medible de éxito, es difícil saber si la arquitectura responde a la necesidad o simplemente reproduce un dibujo conocido.",
+            "Para cada requisito define una prueba de aceptación. Un lector debe consultar sin editar; un invitado no debe alcanzar administración; una copia debe restaurarse dentro del objetivo acordado. Incluye condiciones de fallo y dependencias externas. Documenta decisiones descartadas y riesgos residuales para que el dueño pueda aceptar o pedir cambios. La arquitectura final debe ser comprensible para operación: quién mantiene reglas, revisa eventos y ejecuta recuperación importa tanto como dónde se ubica cada servidor."
+          ],
+          "analogy": "Un plano de construcción necesita requisitos de uso y pruebas de entrega, no solo una distribución visualmente atractiva.",
+          "keyPoints": [
+            "Define requisitos antes de seleccionar componentes.",
+            "Asigna una prueba por requisito.",
+            "Incluye operación y aceptación del riesgo restante."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "De requisito a aceptación",
+            "items": [
+              {
+                "label": "Necesidad",
+                "detail": "Visitantes consultan catálogo"
+              },
+              {
+                "label": "Diseño",
+                "detail": "Interfaz pública separada de administración"
+              },
+              {
+                "label": "Control",
+                "detail": "Permisos y flujos limitados"
+              },
+              {
+                "label": "Prueba",
+                "detail": "Consulta funciona y edición externa falla"
+              }
+            ],
+            "caption": "La aceptación conecta el objetivo con evidencia concreta."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Portal de pedidos de una tienda",
+        "scenario": "La tienda necesita consultas públicas y edición interna con recuperación de errores.",
+        "steps": [
+          {
+            "action": "Definir funciones",
+            "reason": "Consulta, edición y recuperación son requisitos distintos.",
+            "result": "Tres criterios de aceptación"
+          },
+          {
+            "action": "Elegir controles",
+            "reason": "Cada criterio necesita una medida relacionada.",
+            "result": "Roles, zonas, registros y versiones"
+          },
+          {
+            "action": "Validar conjunto",
+            "reason": "Los controles no deben romper el proceso.",
+            "result": "Pruebas funcionales, negativas y de restauración"
+          }
+        ],
+        "result": "La entrega demuestra necesidades cubiertas y límites pendientes de decisión.",
+        "visual": {
+          "type": "flow",
+          "title": "Portal de pedidos de una tienda",
+          "items": [
+            {
+              "label": "Definir funciones",
+              "detail": "Tres criterios de aceptación"
+            },
+            {
+              "label": "Elegir controles",
+              "detail": "Roles, zonas, registros y versiones"
+            },
+            {
+              "label": "Validar conjunto",
+              "detail": "Pruebas funcionales, negativas y de restauración"
+            }
+          ],
+          "caption": "La entrega demuestra necesidades cubiertas y límites pendientes de decisión."
+        }
+      },
+      "practice": {
+        "task": "Diseña un servicio ficticio con cuatro requisitos.",
+        "steps": [
+          "Relaciona cada requisito con un componente y control.",
+          "Escribe una prueba observable por requisito.",
+          "Asigna responsables y un riesgo residual."
+        ],
+        "expected": "Una propuesta que una persona de operación pueda revisar y mantener."
+      },
+      "check": {
+        "question": "¿Qué hace verificable un requisito de arquitectura?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que use muchos acrónimos"
+          },
+          {
+            "id": "b",
+            "text": "Que incluya un criterio de aceptación observable"
+          },
+          {
+            "id": "c",
+            "text": "Que no tenga responsable"
+          }
+        ],
+        "correct": "b",
+        "explanation": "El criterio conecta la necesidad con una prueba que permite decidir si se cumplió."
+      },
+      "mistakes": [
+        {
+          "myth": "Un diseño termina cuando se compran todos sus componentes.",
+          "correction": "La aceptación requiere configuración, pruebas y responsables de operación."
+        }
+      ],
+      "recap": [
+        "Define requisitos antes de seleccionar componentes.",
+        "Asigna una prueba por requisito.",
+        "Incluye operación y aceptación del riesgo restante."
+      ],
+      "glossary": [
+        {
+          "term": "Requisito",
+          "definition": "Necesidad o condición que el servicio debe satisfacer."
+        },
+        {
+          "term": "Criterio de aceptación",
+          "definition": "Resultado observable usado para aprobar una capacidad del diseño."
+        }
+      ]
+    },
+    {
+      "dayId": "w25d7",
+      "title": "Evaluación de arquitectura",
+      "lead": "Evalúa flujos y riesgos que permanecen después de aplicar una arquitectura.",
+      "sections": [
+        {
+          "topic": "Flujos y riesgos residuales",
+          "explanation": [
+            "Una evaluación de arquitectura compara necesidades, diseño e implementación. Empieza siguiendo un flujo legítimo completo e identifica puntos donde se verifica identidad, se autoriza una operación y se conserva evidencia. Luego prueba un flujo que debería impedirse. El objetivo no es encontrar un diseño sin riesgo, sino saber qué riesgos se redujeron y cuáles necesitan una decisión adicional.",
+            "El riesgo residual puede provenir de dependencias externas, sistemas sin soporte, límites de visibilidad o recuperación insuficiente. Debe tener dueño y tratamiento explícito. Una revisión también debe comprobar cambios: una regla temporal puede alterar una frontera que antes estaba bien limitada. Explica lo evaluado con fuentes y resultados, y no extiendas la conclusión a componentes no revisados. Una arquitectura segura es una práctica mantenida, no una fotografía estática del primer día."
+          ],
+          "analogy": "Revisar un edificio incluye recorrer rutas reales y observar qué cambió desde el plano, además de leer los planos originales.",
+          "keyPoints": [
+            "Compara necesidad, diseño e implementación.",
+            "Comprueba un flujo permitido y otro prohibido.",
+            "Asigna tratamiento a riesgos residuales y cambios."
+          ],
+          "visual": {
+            "type": "cycle",
+            "title": "Revisión de arquitectura",
+            "items": [
+              {
+                "label": "Recorrer",
+                "detail": "Flujo legítimo entre componentes"
+              },
+              {
+                "label": "Contrastar",
+                "detail": "Acceso que debe estar impedido"
+              },
+              {
+                "label": "Identificar",
+                "detail": "Dependencias y riesgos restantes"
+              },
+              {
+                "label": "Decidir",
+                "detail": "Responsables, corrección o aceptación"
+              }
+            ],
+            "caption": "La revisión se repite cuando cambian componentes, reglas o necesidades."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Excepción temporal que quedó permanente",
+        "scenario": "Una regla de mantenimiento permite administración desde una zona de usuarios.",
+        "steps": [
+          {
+            "action": "Comparar diseño",
+            "reason": "La excepción ya no responde a una tarea activa.",
+            "result": "Desviación de flujo identificada"
+          },
+          {
+            "action": "Evaluar impacto",
+            "reason": "El permiso amplía exposición administrativa.",
+            "result": "Riesgo residual con dueño"
+          },
+          {
+            "action": "Retirar y comprobar",
+            "reason": "Debe preservarse la vía legítima de soporte.",
+            "result": "Regla corregida y pruebas positiva y negativa"
+          }
+        ],
+        "result": "La revisión recupera el límite previsto sin perder el acceso autorizado necesario.",
+        "visual": {
+          "type": "flow",
+          "title": "Excepción temporal que quedó permanente",
+          "items": [
+            {
+              "label": "Comparar diseño",
+              "detail": "Desviación de flujo identificada"
+            },
+            {
+              "label": "Evaluar impacto",
+              "detail": "Riesgo residual con dueño"
+            },
+            {
+              "label": "Retirar y comprobar",
+              "detail": "Regla corregida y pruebas positiva y negativa"
+            }
+          ],
+          "caption": "La revisión recupera el límite previsto sin perder el acceso autorizado necesario."
+        }
+      },
+      "practice": {
+        "task": "Evalúa una arquitectura ficticia de tres zonas.",
+        "steps": [
+          "Sigue una operación legítima con sus controles.",
+          "Identifica dos riesgos que permanecen.",
+          "Define prueba, dueño y decisión para cada uno."
+        ],
+        "expected": "Una revisión limitada por evidencia con prioridades y seguimiento."
+      },
+      "check": {
+        "question": "¿Cuál es una conclusión responsable de revisión?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo se validaron los flujos y componentes descritos en las pruebas"
+          },
+          {
+            "id": "b",
+            "text": "Toda la organización está completamente segura"
+          },
+          {
+            "id": "c",
+            "text": "Nunca hará falta revisar cambios"
+          }
+        ],
+        "correct": "a",
+        "explanation": "La conclusión debe respetar alcance y evidencia, sin extender garantías a lo que no fue comprobado."
+      },
+      "mistakes": [
+        {
+          "myth": "El riesgo residual es un error que puede omitirse del informe.",
+          "correction": "Es una parte necesaria de la decisión y requiere dueño y tratamiento."
+        }
+      ],
+      "recap": [
+        "Compara necesidad, diseño e implementación.",
+        "Comprueba un flujo permitido y otro prohibido.",
+        "Asigna tratamiento a riesgos residuales y cambios."
+      ],
+      "glossary": [
+        {
+          "term": "Riesgo residual de arquitectura",
+          "definition": "Exposición que permanece después de aplicar el diseño y controles."
+        },
+        {
+          "term": "Desviación de diseño",
+          "definition": "Diferencia entre comportamiento previsto y configuración observada."
+        }
+      ]
+    }
+  ]
+}

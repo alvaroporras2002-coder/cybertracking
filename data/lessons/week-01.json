@@ -1,0 +1,1072 @@
+{
+  "version": "2.0.0",
+  "week": 1,
+  "title": "Informática desde cero",
+  "overview": "Una computadora transforma datos siguiendo instrucciones. Esta semana vas a separar sus componentes físicos, los programas y el trabajo que realizan juntos. Empezaremos con una acción cotidiana, escribir una palabra, y seguiremos su recorrido hasta la pantalla y el archivo guardado. Después interpretarás las unidades, observarás los recursos sin modificar el sistema y crearás un inventario. El objetivo es describir lo que ocurre con evidencia, en lugar de memorizar nombres de piezas.",
+  "objectives": [
+    "Distinguir hardware, software y datos en una tarea real.",
+    "Relacionar CPU, RAM y almacenamiento con síntomas observables.",
+    "Crear un inventario sin exponer identificadores personales."
+  ],
+  "sources": [
+    {
+      "id": "w01s1",
+      "title": "Herramientas de configuración de Windows",
+      "url": "https://support.microsoft.com/en-us/windows/experience/system-configuration-tools-in-windows"
+    },
+    {
+      "id": "w01s2",
+      "title": "Task Manager: diagnóstico de procesos",
+      "url": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/support-tools/support-tools-task-manager"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w01d1",
+      "title": "Qué es una computadora",
+      "lead": "El hardware es la parte física del equipo: teclado, pantalla, procesador y disco.",
+      "sections": [
+        {
+          "explanation": [
+            "El hardware es la parte física del equipo: teclado, pantalla, procesador y disco. El software son instrucciones que ese hardware puede ejecutar, como el sistema operativo y un editor de texto. Los datos son el contenido con el que trabaja el programa: una palabra, una imagen o una lista. Estas tres ideas se relacionan, pero cumplen papeles diferentes. Si escribes una nota, el teclado no decide cómo se guarda; el editor solicita esa operación al sistema.",
+            "Para clasificar algo, pregunta si es una pieza, una instrucción o contenido. Una fotografía impresa no es software; el archivo digital de la fotografía tampoco es un programa por el hecho de estar en un equipo. Un problema puede cruzar varias categorías: una pantalla apagada puede deberse a alimentación física o a una configuración. La clasificación orienta la investigación, pero no demuestra por sí sola la causa."
+          ],
+          "analogy": "Una cocina necesita utensilios físicos, una receta y los ingredientes que transforma.",
+          "keyPoints": [
+            "Hardware: Teclado y pantalla: elementos físicos.",
+            "Software: Editor: instrucciones que realizan una tarea.",
+            "Datos: La frase escrita: contenido procesado."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Pieza, instrucción y contenido",
+            "items": [
+              {
+                "label": "Hardware",
+                "detail": "Teclado y pantalla: elementos físicos."
+              },
+              {
+                "label": "Software",
+                "detail": "Editor: instrucciones que realizan una tarea."
+              },
+              {
+                "label": "Datos",
+                "detail": "La frase escrita: contenido procesado."
+              }
+            ],
+            "caption": "La clasificación orienta la investigación, pero no demuestra por sí sola la causa."
+          },
+          "topic": "Hardware y software"
+        },
+        {
+          "explanation": [
+            "Entrada, procesamiento y salida describen un recorrido de información. La entrada incorpora datos mediante un teclado, micrófono, sensor o conexión. El procesamiento aplica instrucciones sobre ellos: validar una tecla, calcular una suma o convertir una imagen. La salida presenta o envía un resultado mediante una pantalla, un altavoz o una conexión. El almacenamiento añade conservación: guardar el resultado para recuperarlo cuando ya no esté abierto el programa.",
+            "Al escribir «hola», cada pulsación genera información que el sistema entrega a la aplicación. El editor actualiza su documento y solicita dibujarlo en pantalla. Todavía puede no existir un archivo guardado. Al guardar, se escribe una representación del documento en un dispositivo persistente. Este modelo permite buscar fallos: si el teclado funciona en otra aplicación, la entrada física probablemente existe y conviene investigar el programa original."
+          ],
+          "analogy": "Una calculadora recibe números, calcula y muestra un resultado; anotarlo en papel añade conservación.",
+          "keyPoints": [
+            "Entrada: El teclado informa de una pulsación.",
+            "Procesamiento: El editor incorpora el carácter.",
+            "Salida: La pantalla muestra la palabra."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Escribir y conservar una palabra",
+            "items": [
+              {
+                "label": "Entrada",
+                "detail": "El teclado informa de una pulsación."
+              },
+              {
+                "label": "Procesamiento",
+                "detail": "El editor incorpora el carácter."
+              },
+              {
+                "label": "Salida",
+                "detail": "La pantalla muestra la palabra."
+              },
+              {
+                "label": "Almacenamiento",
+                "detail": "Guardar crea o actualiza el archivo."
+              }
+            ],
+            "caption": "Este modelo permite buscar fallos: si el teclado funciona en otra aplicación, la entrada física probablemente existe y conviene investigar el programa original."
+          },
+          "topic": "entrada, procesamiento y salida"
+        }
+      ],
+      "workedExample": {
+        "title": "La nota que desapareció",
+        "scenario": "Lucía escribe una nota, la ve en pantalla y cierra el editor sin guardarla.",
+        "steps": [
+          {
+            "action": "Identificar la entrada",
+            "reason": "La pulsación aportó información.",
+            "result": "El teclado sí fue utilizado."
+          },
+          {
+            "action": "Distinguir salida de conservación",
+            "reason": "Ver texto no demuestra una escritura en disco.",
+            "result": "La nota estaba visible en el programa."
+          },
+          {
+            "action": "Comprobar el guardado",
+            "reason": "No se eligió guardar ni había guardado automático confirmado.",
+            "result": "No podemos asegurar que exista un archivo."
+          }
+        ],
+        "result": "La visualización fue correcta; faltó confirmar la persistencia de la nota.",
+        "visual": {
+          "type": "flow",
+          "title": "La nota que desapareció · secuencia",
+          "items": [
+            {
+              "label": "Identificar la entrada",
+              "detail": "El teclado sí fue utilizado."
+            },
+            {
+              "label": "Distinguir salida de conservación",
+              "detail": "La nota estaba visible en el programa."
+            },
+            {
+              "label": "Comprobar el guardado",
+              "detail": "No podemos asegurar que exista un archivo."
+            }
+          ],
+          "caption": "La visualización fue correcta; faltó confirmar la persistencia de la nota."
+        }
+      },
+      "practice": {
+        "task": "Explica el recorrido de una fotografía tomada con un teléfono.",
+        "steps": [
+          "Identifica la entrada que capta la imagen.",
+          "Separa procesamiento, pantalla y almacenamiento.",
+          "Indica cómo comprobarías que se conservó."
+        ],
+        "expected": "Una secuencia que diferencia capturar, mostrar y guardar."
+      },
+      "check": {
+        "question": "¿Cuál es un dato en la tarea de redactar un correo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El procesador"
+          },
+          {
+            "id": "b",
+            "text": "El texto del mensaje"
+          },
+          {
+            "id": "c",
+            "text": "El programa de correo"
+          }
+        ],
+        "correct": "b",
+        "explanation": "El texto es contenido; el procesador es hardware y el programa contiene instrucciones."
+      },
+      "mistakes": [
+        {
+          "myth": "Si aparece en pantalla, ya está guardado.",
+          "correction": "La salida visual y la escritura persistente son operaciones distintas; confirma el archivo o el guardado automático."
+        }
+      ],
+      "recap": [
+        "Hardware: Teclado y pantalla: elementos físicos.",
+        "Software: Editor: instrucciones que realizan una tarea.",
+        "Datos: La frase escrita: contenido procesado."
+      ],
+      "glossary": [
+        {
+          "term": "Hardware",
+          "definition": "Componentes físicos del equipo."
+        },
+        {
+          "term": "Software",
+          "definition": "Instrucciones ejecutadas por una computadora."
+        },
+        {
+          "term": "Dato",
+          "definition": "Contenido que una aplicación utiliza o transforma."
+        }
+      ]
+    },
+    {
+      "dayId": "w01d2",
+      "title": "Componentes internos",
+      "lead": "La CPU ejecuta instrucciones y coordina cálculos; no almacena de forma permanente todos tus documentos.",
+      "sections": [
+        {
+          "explanation": [
+            "La CPU ejecuta instrucciones y coordina cálculos; no almacena de forma permanente todos tus documentos. La RAM mantiene datos e instrucciones que los programas están utilizando, con acceso rápido y normalmente volátil. El almacenamiento, como un SSD, conserva archivos cuando apagas el equipo. La placa base conecta estos componentes y ofrece interfaces para que intercambien información. Ninguna pieza explica por sí sola todo el rendimiento de un sistema.",
+            "Cuando abres una fotografía, el equipo lee su archivo desde el almacenamiento y utiliza memoria para trabajar con él. La CPU ejecuta instrucciones para interpretarlo y mostrarlo. Al editarla y guardar, la nueva información vuelve al almacenamiento. Si falta RAM, el sistema puede recurrir a mecanismos de memoria virtual y aumentar el trabajo del disco; eso no convierte el disco en RAM física ni garantiza que añadir memoria resuelva cualquier lentitud."
+          ],
+          "analogy": "La RAM es una mesa de trabajo, el disco un archivador y la CPU quien realiza la tarea.",
+          "keyPoints": [
+            "SSD: Conserva el archivo de fotografía.",
+            "RAM: Mantiene los datos que se están usando.",
+            "CPU: Ejecuta las instrucciones de edición."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Abrir, trabajar y guardar",
+            "items": [
+              {
+                "label": "SSD",
+                "detail": "Conserva el archivo de fotografía."
+              },
+              {
+                "label": "RAM",
+                "detail": "Mantiene los datos que se están usando."
+              },
+              {
+                "label": "CPU",
+                "detail": "Ejecuta las instrucciones de edición."
+              },
+              {
+                "label": "Placa base",
+                "detail": "Comunica componentes mediante sus interfaces."
+              }
+            ],
+            "caption": "Si falta RAM, el sistema puede recurrir a mecanismos de memoria virtual y aumentar el trabajo del disco; eso no convierte el disco en RAM física ni garantiza que añadir memoria resuelva cualquier lentitud."
+          },
+          "topic": "CPU, RAM, placa base y almacenamiento"
+        }
+      ],
+      "workedExample": {
+        "title": "Una fotografía de gran tamaño",
+        "scenario": "Un equipo tarda más al editar una imagen grande que al abrir un texto pequeño.",
+        "steps": [
+          {
+            "action": "Observar la memoria",
+            "reason": "La imagen puede requerir más espacio de trabajo.",
+            "result": "Anotamos el uso de RAM mientras se abre."
+          },
+          {
+            "action": "Observar CPU y disco",
+            "reason": "Distintas fases usan recursos diferentes.",
+            "result": "Registramos qué recurso aumenta y cuándo."
+          },
+          {
+            "action": "Relacionar la secuencia",
+            "reason": "La lentitud debe coincidir con evidencia.",
+            "result": "Una hipótesis se vincula al momento de carga o edición."
+          }
+        ],
+        "result": "Se identifica un recurso candidato; no se compra una pieza sin medir la tarea.",
+        "visual": {
+          "type": "flow",
+          "title": "Una fotografía de gran tamaño · secuencia",
+          "items": [
+            {
+              "label": "Observar la memoria",
+              "detail": "Anotamos el uso de RAM mientras se abre."
+            },
+            {
+              "label": "Observar CPU y disco",
+              "detail": "Registramos qué recurso aumenta y cuándo."
+            },
+            {
+              "label": "Relacionar la secuencia",
+              "detail": "Una hipótesis se vincula al momento de carga o edición."
+            }
+          ],
+          "caption": "Se identifica un recurso candidato; no se compra una pieza sin medir la tarea."
+        }
+      },
+      "practice": {
+        "task": "Dibuja el recorrido de un documento desde el SSD hasta su edición.",
+        "steps": [
+          "Incluye RAM y CPU.",
+          "Explica el papel de la placa base.",
+          "Añade una flecha para guardar los cambios."
+        ],
+        "expected": "Un esquema con funciones distintas, no cuatro nombres sin relación."
+      },
+      "check": {
+        "question": "¿Qué componente suele conservar los archivos al apagar?",
+        "options": [
+          {
+            "id": "a",
+            "text": "RAM"
+          },
+          {
+            "id": "b",
+            "text": "CPU"
+          },
+          {
+            "id": "c",
+            "text": "Almacenamiento"
+          }
+        ],
+        "correct": "c",
+        "explanation": "Un SSD o disco conserva archivos; la RAM de trabajo normalmente pierde su contenido sin energía."
+      },
+      "mistakes": [
+        {
+          "myth": "Una CPU más rápida siempre arregla la lentitud.",
+          "correction": "El límite también puede estar en memoria, almacenamiento, red o software; primero mide."
+        }
+      ],
+      "recap": [
+        "SSD: Conserva el archivo de fotografía.",
+        "RAM: Mantiene los datos que se están usando.",
+        "CPU: Ejecuta las instrucciones de edición."
+      ],
+      "glossary": [
+        {
+          "term": "CPU",
+          "definition": "Procesador que ejecuta instrucciones."
+        },
+        {
+          "term": "RAM",
+          "definition": "Memoria principal de trabajo, normalmente volátil."
+        },
+        {
+          "term": "SSD",
+          "definition": "Dispositivo de almacenamiento persistente."
+        }
+      ]
+    },
+    {
+      "dayId": "w01d3",
+      "title": "Capacidades y velocidades",
+      "lead": "Un bit representa una elección binaria, habitualmente escrita como cero o uno.",
+      "sections": [
+        {
+          "explanation": [
+            "Un bit representa una elección binaria, habitualmente escrita como cero o uno. Ocho bits forman un byte. La letra importa: b suele indicar bits y B bytes. Una conexión de 80 Mbps anuncia ochenta millones de bits por segundo, mientras que un archivo de 80 MB contiene ochenta millones de bytes si empleamos unidades decimales. Antes de dividir cantidades, convierte las unidades para que describan lo mismo.",
+            "En unidades decimales, 1 GB equivale a mil millones de bytes. Las unidades binarias usan otros nombres: 1 GiB equivale a 1 073 741 824 bytes. Algunas interfaces muestran etiquetas de forma poco clara, por lo que conviene consultar cómo calculan el tamaño. Para una primera estimación, 80 Mbps divididos entre ocho son 10 MB por segundo; la transferencia real será menor o variable por sobrecarga, congestión y otros límites."
+          ],
+          "analogy": "Medir líquido en litros y velocidad en litros por segundo son preguntas distintas; bits y bytes tampoco se intercambian sin conversión.",
+          "keyPoints": [
+            "8 bits: Equivalen a un byte.",
+            "80 Mbps: Velocidad anunciada en bits por segundo.",
+            "10 MB/s: Equivalente decimal ideal tras dividir entre ocho."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Convertir sin mezclar unidades",
+            "items": [
+              {
+                "label": "8 bits",
+                "detail": "Equivalen a un byte."
+              },
+              {
+                "label": "80 Mbps",
+                "detail": "Velocidad anunciada en bits por segundo."
+              },
+              {
+                "label": "10 MB/s",
+                "detail": "Equivalente decimal ideal tras dividir entre ocho."
+              }
+            ],
+            "caption": "Para una primera estimación, 80 Mbps divididos entre ocho son 10 MB por segundo; la transferencia real será menor o variable por sobrecarga, congestión y otros límites."
+          },
+          "topic": "Bits, bytes, GB y Mbps"
+        },
+        {
+          "explanation": [
+            "Capacidad indica cuánto cabe; rendimiento describe cuánto trabajo se completa o cuánto tarda una operación. Un SSD de 1 TB tiene más capacidad que uno de 500 GB, pero ese dato no demuestra que lea más rápido. La velocidad secuencial de un disco tampoco representa necesariamente la apertura de miles de archivos pequeños. La tarea, el tamaño de los datos y las condiciones determinan qué medición resulta útil.",
+            "Compara equipos con una misma operación reproducible. Anota el tamaño del archivo, el tiempo y si la lectura estaba en caché. Si copias 200 MB en diez segundos, el promedio observado es 20 MB/s, sin afirmar que todas las operaciones alcanzarán esa cifra. También distingue espera y capacidad de cálculo: un archivo puede caber perfectamente en el disco y, aun así, tardar en transferirse por una conexión limitada."
+          ],
+          "analogy": "Un estacionamiento grande admite más vehículos, pero no implica que su entrada permita pasar más vehículos por minuto.",
+          "keyPoints": [
+            "Capacidad: 500 GB disponibles para conservar archivos.",
+            "Tiempo: Diez segundos para la operación observada.",
+            "Rendimiento: 200 MB / 10 s = 20 MB/s en esa prueba."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Cuánto cabe y cuánto tarda",
+            "items": [
+              {
+                "label": "Capacidad",
+                "detail": "500 GB disponibles para conservar archivos."
+              },
+              {
+                "label": "Tiempo",
+                "detail": "Diez segundos para la operación observada."
+              },
+              {
+                "label": "Rendimiento",
+                "detail": "200 MB / 10 s = 20 MB/s en esa prueba."
+              }
+            ],
+            "caption": "También distingue espera y capacidad de cálculo: un archivo puede caber perfectamente en el disco y, aun así, tardar en transferirse por una conexión limitada."
+          },
+          "topic": "capacidad frente a rendimiento"
+        }
+      ],
+      "workedExample": {
+        "title": "Tiempo ideal de descarga",
+        "scenario": "Un archivo decimal de 100 MB se descarga por una conexión de 40 Mbps.",
+        "steps": [
+          {
+            "action": "Convertir a bits",
+            "reason": "El enlace se expresa en bits por segundo.",
+            "result": "100 MB equivalen a 800 Mb."
+          },
+          {
+            "action": "Dividir tamaño entre velocidad",
+            "reason": "Las unidades ya son compatibles.",
+            "result": "800 Mb / 40 Mbps = 20 segundos."
+          },
+          {
+            "action": "Añadir el límite de la estimación",
+            "reason": "El cálculo omite sobrecarga y variación.",
+            "result": "Veinte segundos es un ideal, no una promesa."
+          }
+        ],
+        "result": "La estimación ideal es veinte segundos; se mide la descarga real por separado.",
+        "visual": {
+          "type": "flow",
+          "title": "Tiempo ideal de descarga · secuencia",
+          "items": [
+            {
+              "label": "Convertir a bits",
+              "detail": "100 MB equivalen a 800 Mb."
+            },
+            {
+              "label": "Dividir tamaño entre velocidad",
+              "detail": "800 Mb / 40 Mbps = 20 segundos."
+            },
+            {
+              "label": "Añadir el límite de la",
+              "detail": "Veinte segundos es un ideal, no una promesa."
+            }
+          ],
+          "caption": "La estimación ideal es veinte segundos; se mide la descarga real por separado."
+        }
+      },
+      "practice": {
+        "task": "Estima el tiempo ideal de transferir 240 MB a 80 Mbps.",
+        "steps": [
+          "Convierte MB en Mb.",
+          "Divide entre la velocidad indicada.",
+          "Escribe dos razones por las que podría tardar más."
+        ],
+        "expected": "24 segundos ideales y una explicación de los límites del cálculo."
+      },
+      "check": {
+        "question": "¿Qué afirmación describe capacidad?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El disco almacena 500 GB."
+          },
+          {
+            "id": "b",
+            "text": "La copia tarda 12 segundos."
+          },
+          {
+            "id": "c",
+            "text": "La descarga alcanza 25 MB/s."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La cantidad total almacenada describe capacidad; los otros datos describen duración o velocidad."
+      },
+      "mistakes": [
+        {
+          "myth": "Mbps y MB/s son la misma unidad.",
+          "correction": "En la convención decimal hay ocho bits por byte; además debes distinguir tamaño de velocidad."
+        }
+      ],
+      "recap": [
+        "8 bits: Equivalen a un byte.",
+        "80 Mbps: Velocidad anunciada en bits por segundo.",
+        "10 MB/s: Equivalente decimal ideal tras dividir entre ocho."
+      ],
+      "glossary": [
+        {
+          "term": "Bit",
+          "definition": "Unidad binaria de información."
+        },
+        {
+          "term": "Byte",
+          "definition": "Conjunto de ocho bits."
+        },
+        {
+          "term": "Rendimiento",
+          "definition": "Trabajo observado por unidad de tiempo o duración de una tarea."
+        }
+      ]
+    },
+    {
+      "dayId": "w01d4",
+      "title": "Sistema operativo",
+      "lead": "El sistema operativo administra recursos y ofrece servicios comunes a las aplicaciones.",
+      "sections": [
+        {
+          "explanation": [
+            "El sistema operativo administra recursos y ofrece servicios comunes a las aplicaciones. Su núcleo, o kernel, participa en tareas como gestionar memoria, programar la ejecución y controlar el acceso a dispositivos. Una aplicación realiza una tarea para el usuario, como editar texto. Un servicio puede trabajar en segundo plano sin una ventana abierta. Un controlador permite que el sistema se comunique con un tipo de dispositivo mediante una interfaz adecuada.",
+            "Al imprimir, la aplicación prepara una solicitud; componentes del sistema gestionan la cola y el controlador adapta la comunicación con la impresora. Si la tarea queda detenida, no concluyas que la impresora está físicamente dañada: comprueba la conexión, la cola y el estado del dispositivo. Tampoco descargues controladores de una página cualquiera. Identificar qué capa interviene permite probar una hipótesis concreta sin cambiar varios componentes al mismo tiempo."
+          ],
+          "analogy": "Un hotel tiene administración central, servicios internos, personal especializado y solicitudes de huéspedes.",
+          "keyPoints": [
+            "Aplicación: Solicita imprimir un documento.",
+            "Servicios del sistema: Gestionan la cola y los recursos.",
+            "Controlador: Interpreta la interfaz del dispositivo."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Capas al solicitar una impresión",
+            "items": [
+              {
+                "label": "Aplicación",
+                "detail": "Solicita imprimir un documento."
+              },
+              {
+                "label": "Servicios del sistema",
+                "detail": "Gestionan la cola y los recursos."
+              },
+              {
+                "label": "Controlador",
+                "detail": "Interpreta la interfaz del dispositivo."
+              },
+              {
+                "label": "Hardware",
+                "detail": "La impresora produce la salida física."
+              }
+            ],
+            "caption": "Identificar qué capa interviene permite probar una hipótesis concreta sin cambiar varios componentes al mismo tiempo."
+          },
+          "topic": "Kernel, aplicaciones, servicios y controladores"
+        }
+      ],
+      "workedExample": {
+        "title": "Documento en cola",
+        "scenario": "Una impresora está encendida, pero un documento sigue esperando.",
+        "steps": [
+          {
+            "action": "Confirmar el alcance",
+            "reason": "Una sola aplicación puede estar afectada.",
+            "result": "Se prueba un documento de ejemplo sin datos privados."
+          },
+          {
+            "action": "Examinar la cola",
+            "reason": "La espera puede estar en un servicio o una tarea detenida.",
+            "result": "Se anota el estado antes de tocar configuraciones."
+          },
+          {
+            "action": "Verificar conexión y controlador",
+            "reason": "El sistema debe reconocer el dispositivo.",
+            "result": "Se compara el modelo con el controlador oficial instalado."
+          }
+        ],
+        "result": "La investigación separa aplicación, servicio, controlador y dispositivo.",
+        "visual": {
+          "type": "flow",
+          "title": "Documento en cola · secuencia",
+          "items": [
+            {
+              "label": "Confirmar el alcance",
+              "detail": "Se prueba un documento de ejemplo sin datos privados."
+            },
+            {
+              "label": "Examinar la cola",
+              "detail": "Se anota el estado antes de tocar configuraciones."
+            },
+            {
+              "label": "Verificar conexión y controlador",
+              "detail": "Se compara el modelo con el controlador oficial instalado."
+            }
+          ],
+          "caption": "La investigación separa aplicación, servicio, controlador y dispositivo."
+        }
+      },
+      "practice": {
+        "task": "Clasifica un navegador, una cola de impresión y un controlador de red.",
+        "steps": [
+          "Asigna una función a cada elemento.",
+          "Indica qué componente administra recursos comunes.",
+          "Explica una comprobación de solo lectura."
+        ],
+        "expected": "Cada elemento queda situado en su capa funcional."
+      },
+      "check": {
+        "question": "¿Qué permite al sistema comunicarse con un dispositivo específico?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Un documento"
+          },
+          {
+            "id": "b",
+            "text": "Un controlador"
+          },
+          {
+            "id": "c",
+            "text": "Una carpeta"
+          }
+        ],
+        "correct": "b",
+        "explanation": "El controlador implementa la interfaz necesaria entre el sistema y ese tipo de hardware."
+      },
+      "mistakes": [
+        {
+          "myth": "Todo programa sin ventana es malware.",
+          "correction": "Muchos servicios legítimos funcionan en segundo plano; investiga su identidad, procedencia y comportamiento."
+        }
+      ],
+      "recap": [
+        "Aplicación: Solicita imprimir un documento.",
+        "Servicios del sistema: Gestionan la cola y los recursos.",
+        "Controlador: Interpreta la interfaz del dispositivo."
+      ],
+      "glossary": [
+        {
+          "term": "Kernel",
+          "definition": "Núcleo del sistema operativo."
+        },
+        {
+          "term": "Servicio",
+          "definition": "Programa que proporciona una función en segundo plano."
+        },
+        {
+          "term": "Controlador",
+          "definition": "Componente que permite utilizar un dispositivo."
+        }
+      ]
+    },
+    {
+      "dayId": "w01d5",
+      "title": "Observar recursos",
+      "lead": "Un recurso es una capacidad que los procesos utilizan: tiempo de CPU, memoria, almacenamiento o comunicación.",
+      "sections": [
+        {
+          "explanation": [
+            "Un recurso es una capacidad que los procesos utilizan: tiempo de CPU, memoria, almacenamiento o comunicación. Un proceso es una instancia en ejecución de un programa. El Administrador de tareas permite observar consumos y su evolución, pero una captura aislada no explica toda una situación. Durante una actualización legítima puede aumentar la CPU o el disco; la interpretación depende de qué tarea se ejecuta, durante cuánto tiempo y con qué impacto.",
+            "Primero observa el equipo en reposo y después realiza una acción pequeña, como abrir un editor. Registra hora, proceso y recurso. La memoria usada no tiene que bajar a cero al cerrar una ventana, porque el sistema conserva cachés y otros procesos. Un disco con mucha actividad no necesariamente está lleno. Evita finalizar procesos desconocidos: podrías interrumpir trabajo o servicios. La primera habilidad de diagnóstico es medir sin alterar la evidencia que intentas comprender."
+          ],
+          "analogy": "Un tablero de un vehículo muestra velocidad, combustible y temperatura; un solo indicador no explica cualquier problema.",
+          "keyPoints": [
+            "CPU: ¿Qué proceso está calculando y durante cuánto tiempo?",
+            "Memoria: ¿Cuánto espacio de trabajo se utiliza?",
+            "Disco: ¿Se está leyendo o escribiendo, y con qué espera?"
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Tres preguntas sobre el consumo",
+            "items": [
+              {
+                "label": "CPU",
+                "detail": "¿Qué proceso está calculando y durante cuánto tiempo?"
+              },
+              {
+                "label": "Memoria",
+                "detail": "¿Cuánto espacio de trabajo se utiliza?"
+              },
+              {
+                "label": "Disco",
+                "detail": "¿Se está leyendo o escribiendo, y con qué espera?"
+              }
+            ],
+            "caption": "La primera habilidad de diagnóstico es medir sin alterar la evidencia que intentas comprender."
+          },
+          "topic": "CPU, memoria, disco y procesos"
+        }
+      ],
+      "workedExample": {
+        "title": "Abrir un navegador",
+        "scenario": "En una prueba ficticia, el uso de CPU sube al abrir varias pestañas y luego baja.",
+        "steps": [
+          {
+            "action": "Medir el reposo",
+            "reason": "Hace falta una referencia comparable.",
+            "result": "Se registra un minuto sin iniciar tareas nuevas."
+          },
+          {
+            "action": "Realizar una acción",
+            "reason": "Cambiar una variable facilita interpretar el efecto.",
+            "result": "Se abren dos pestañas conocidas."
+          },
+          {
+            "action": "Observar la recuperación",
+            "reason": "Un pico breve difiere de una saturación sostenida.",
+            "result": "Se anota que la carga vuelve cerca del punto inicial."
+          }
+        ],
+        "result": "La observación es compatible con trabajo transitorio; no demuestra una infección.",
+        "visual": {
+          "type": "flow",
+          "title": "Abrir un navegador · secuencia",
+          "items": [
+            {
+              "label": "Medir el reposo",
+              "detail": "Se registra un minuto sin iniciar tareas nuevas."
+            },
+            {
+              "label": "Realizar una acción",
+              "detail": "Se abren dos pestañas conocidas."
+            },
+            {
+              "label": "Observar la recuperación",
+              "detail": "Se anota que la carga vuelve cerca del punto inicial."
+            }
+          ],
+          "caption": "La observación es compatible con trabajo transitorio; no demuestra una infección."
+        }
+      },
+      "practice": {
+        "task": "Compara el reposo con la apertura de una aplicación de texto.",
+        "steps": [
+          "Anota hora y tres recursos.",
+          "Repite la misma acción una vez.",
+          "Describe diferencias y limitaciones."
+        ],
+        "expected": "Una tabla pequeña con contexto, sin cerrar procesos ni inventar valores."
+      },
+      "check": {
+        "question": "¿Qué aporta más contexto sobre una CPU al 90%?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo el porcentaje"
+          },
+          {
+            "id": "b",
+            "text": "El color del gráfico"
+          },
+          {
+            "id": "c",
+            "text": "Proceso, duración y tarea realizada"
+          }
+        ],
+        "correct": "c",
+        "explanation": "El porcentaje necesita contexto temporal y funcional para orientar un diagnóstico."
+      },
+      "mistakes": [
+        {
+          "myth": "Disco al 100% significa disco lleno.",
+          "correction": "El porcentaje de actividad y el espacio ocupado son medidas distintas."
+        }
+      ],
+      "recap": [
+        "CPU: ¿Qué proceso está calculando y durante cuánto tiempo?",
+        "Memoria: ¿Cuánto espacio de trabajo se utiliza?",
+        "Disco: ¿Se está leyendo o escribiendo, y con qué espera?"
+      ],
+      "glossary": [
+        {
+          "term": "Proceso",
+          "definition": "Programa en ejecución con recursos asociados."
+        },
+        {
+          "term": "Referencia",
+          "definition": "Medición inicial usada para comparar."
+        },
+        {
+          "term": "Caché",
+          "definition": "Datos conservados para evitar repetir trabajo."
+        }
+      ]
+    },
+    {
+      "dayId": "w01d6",
+      "title": "Laboratorio de inventario",
+      "lead": "Un inventario describe qué equipo tienes y qué puede hacer, con datos verificables.",
+      "sections": [
+        {
+          "explanation": [
+            "Un inventario describe qué equipo tienes y qué puede hacer, con datos verificables. Incluye modelo general, sistema operativo, arquitectura, memoria y capacidad disponible. Añade la fecha y la herramienta utilizada, porque el software y el espacio libre pueden cambiar. No publiques números de serie, claves de producto, direcciones personales ni capturas con información privada. Para estudiar basta una versión reducida que permita razonar sobre compatibilidad y recursos.",
+            "Separa dato e interpretación. «Tiene 8 GB de RAM» es una observación; «podría necesitar más memoria para dos máquinas virtuales» es una hipótesis que requiere conocer los requisitos y medir el uso. Tampoco confundas capacidad total con espacio libre. Un inventario útil permite repetir una comprobación y reconocer limitaciones, por ejemplo falta de espacio o de permisos administrativos. Documentar esas limitaciones vale más que copiar una lista extensa sin entenderla."
+          ],
+          "analogy": "Antes de cocinar revisas utensilios, ingredientes y restricciones; no basta con conocer la marca del horno.",
+          "keyPoints": [
+            "Observar: Sistema, arquitectura, RAM y espacio libre.",
+            "Registrar: Fecha, herramienta y valor obtenido.",
+            "Interpretar: Comparar con una tarea concreta."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Del dato a una decisión de laboratorio",
+            "items": [
+              {
+                "label": "Observar",
+                "detail": "Sistema, arquitectura, RAM y espacio libre."
+              },
+              {
+                "label": "Registrar",
+                "detail": "Fecha, herramienta y valor obtenido."
+              },
+              {
+                "label": "Interpretar",
+                "detail": "Comparar con una tarea concreta."
+              },
+              {
+                "label": "Proteger",
+                "detail": "Omitir identificadores y datos personales."
+              }
+            ],
+            "caption": "Documentar esas limitaciones vale más que copiar una lista extensa sin entenderla."
+          },
+          "topic": "Modelo, sistema, recursos y limitaciones"
+        }
+      ],
+      "workedExample": {
+        "title": "¿Cabe una máquina virtual?",
+        "scenario": "Un equipo ficticio tiene 8 GB de RAM y 25 GB libres; una práctica solicita recursos adicionales.",
+        "steps": [
+          {
+            "action": "Recoger requisitos",
+            "reason": "Las cifras del equipo necesitan un objetivo de comparación.",
+            "result": "Se consulta la documentación de la práctica."
+          },
+          {
+            "action": "Reservar recursos del anfitrión",
+            "reason": "El sistema principal seguirá trabajando.",
+            "result": "No se asigna toda la RAM al invitado."
+          },
+          {
+            "action": "Elegir alternativa",
+            "reason": "Los límites no deben forzar una instalación insegura.",
+            "result": "Se considera un entorno alojado o una práctica de lectura."
+          }
+        ],
+        "result": "La decisión depende de requisitos y margen, no únicamente de que el instalador se abra.",
+        "visual": {
+          "type": "flow",
+          "title": "¿Cabe una máquina virtual? · secuencia",
+          "items": [
+            {
+              "label": "Recoger requisitos",
+              "detail": "Se consulta la documentación de la práctica."
+            },
+            {
+              "label": "Reservar recursos del anfitrión",
+              "detail": "No se asigna toda la RAM al invitado."
+            },
+            {
+              "label": "Elegir alternativa",
+              "detail": "Se considera un entorno alojado o una práctica de lectura."
+            }
+          ],
+          "caption": "La decisión depende de requisitos y margen, no únicamente de que el instalador se abra."
+        }
+      },
+      "practice": {
+        "task": "Crea una ficha privada de tu equipo.",
+        "steps": [
+          "Anota sistema, arquitectura, RAM y espacio libre.",
+          "Indica cómo obtuviste cada dato.",
+          "Escribe una limitación y una alternativa de estudio."
+        ],
+        "expected": "Una ficha reproducible y una copia redactada que pueda compartirse sin identificadores."
+      },
+      "check": {
+        "question": "¿Cuál es una interpretación y no un dato observado?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Memoria instalada: 8 GB"
+          },
+          {
+            "id": "b",
+            "text": "Sistema: Windows"
+          },
+          {
+            "id": "c",
+            "text": "Podría faltar memoria para esta práctica"
+          }
+        ],
+        "correct": "c",
+        "explanation": "La posible insuficiencia relaciona una medición con requisitos y necesita validación."
+      },
+      "mistakes": [
+        {
+          "myth": "Un inventario debe mostrar todos mis identificadores.",
+          "correction": "La documentación de estudio utiliza solo los datos necesarios y protege la información privada."
+        }
+      ],
+      "recap": [
+        "Observar: Sistema, arquitectura, RAM y espacio libre.",
+        "Registrar: Fecha, herramienta y valor obtenido.",
+        "Interpretar: Comparar con una tarea concreta."
+      ],
+      "glossary": [
+        {
+          "term": "Inventario",
+          "definition": "Registro verificable de activos y características."
+        },
+        {
+          "term": "Arquitectura",
+          "definition": "Familia de instrucciones y características relevantes para ejecutar software."
+        },
+        {
+          "term": "Requisito",
+          "definition": "Condición necesaria para realizar una tarea."
+        }
+      ]
+    },
+    {
+      "dayId": "w01d7",
+      "title": "Control de fundamentos",
+      "lead": "La RAM mantiene el estado de trabajo y el almacenamiento conserva archivos.",
+      "sections": [
+        {
+          "explanation": [
+            "La RAM mantiene el estado de trabajo y el almacenamiento conserva archivos. La diferencia se ve al editar una nota: el texto puede existir en memoria antes de que el programa lo escriba en el disco. Algunos programas guardan automáticamente o mantienen recuperación, pero eso es una función concreta que debes verificar. «Se cerró la ventana» no demuestra ni que el archivo se perdió ni que se conservó correctamente.",
+            "Para evaluar un caso, reconstruye los hechos. ¿Había una ruta y un nombre de archivo? ¿Se confirmó guardar? ¿Existe una versión recuperada? Comprueba el contenido sin sobrescribir la única copia. Si un archivo aparece pero le faltan cambios, pueden haberse conservado distintas versiones. Explicar esta secuencia demuestra mejor comprensión que responder simplemente «memoria rápida, disco lento», porque relaciona cada recurso con el ciclo de vida de los datos."
+          ],
+          "analogy": "La mesa conserva el trabajo mientras lo realizas; el archivador necesita que coloques allí una copia identificable.",
+          "keyPoints": [
+            "RAM: Contenido con el que la aplicación trabaja ahora.",
+            "Disco: Versión escrita en un archivo identificable.",
+            "Recuperación: Función adicional que requiere comprobarse."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Estado de trabajo y archivo",
+            "items": [
+              {
+                "label": "RAM",
+                "detail": "Contenido con el que la aplicación trabaja ahora."
+              },
+              {
+                "label": "Disco",
+                "detail": "Versión escrita en un archivo identificable."
+              },
+              {
+                "label": "Recuperación",
+                "detail": "Función adicional que requiere comprobarse."
+              }
+            ],
+            "caption": "Explicar esta secuencia demuestra mejor comprensión que responder simplemente «memoria rápida, disco lento», porque relaciona cada recurso con el ciclo de vida de los datos."
+          },
+          "topic": "Memoria frente a disco"
+        },
+        {
+          "explanation": [
+            "Hardware y software interactúan en cada tarea, por lo que un síntoma no identifica automáticamente una categoría culpable. Si no hay sonido, puede existir un altavoz desconectado, una salida seleccionada incorrectamente o una aplicación silenciada. El mismo síntoma tiene hipótesis físicas y lógicas. La habilidad consiste en proponer pruebas pequeñas que permitan distinguirlas, conservando los ajustes originales para regresar a ellos si fuera necesario.",
+            "Una prueba útil predice resultados. Si el altavoz funciona con otra fuente autorizada, disminuye la probabilidad de un fallo del altavoz, pero aún no se ha demostrado que todo el hardware esté bien. Si otra aplicación reproduce sonido en el mismo equipo, conviene investigar la aplicación original. Evita frases absolutas como «seguro es el programa». Describe qué observaste, qué hipótesis apoyas y qué parte sigue sin comprobarse."
+          ],
+          "analogy": "Si una lámpara no enciende, primero distingues bombilla, alimentación e interruptor antes de culpar a toda la instalación.",
+          "keyPoints": [
+            "Síntoma: Una aplicación no produce sonido.",
+            "Prueba: Otra aplicación usa la misma salida.",
+            "Resultado: El sonido sí aparece en la comparación."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Un síntoma, varias hipótesis",
+            "items": [
+              {
+                "label": "Síntoma",
+                "detail": "Una aplicación no produce sonido."
+              },
+              {
+                "label": "Prueba",
+                "detail": "Otra aplicación usa la misma salida."
+              },
+              {
+                "label": "Resultado",
+                "detail": "El sonido sí aparece en la comparación."
+              },
+              {
+                "label": "Hipótesis",
+                "detail": "Revisar configuración de la primera aplicación."
+              }
+            ],
+            "caption": "Describe qué observaste, qué hipótesis apoyas y qué parte sigue sin comprobarse."
+          },
+          "topic": "hardware frente a software"
+        }
+      ],
+      "workedExample": {
+        "title": "La nota y el silencio",
+        "scenario": "Un estudiante conserva un archivo antiguo y tampoco escucha el video de una lección.",
+        "steps": [
+          {
+            "action": "Separar los dos problemas",
+            "reason": "Los síntomas no tienen que compartir causa.",
+            "result": "Se crean dos líneas de investigación."
+          },
+          {
+            "action": "Revisar versiones de la nota",
+            "reason": "El archivo puede ser anterior a los cambios.",
+            "result": "Se comparan fecha y contenido de copias."
+          },
+          {
+            "action": "Probar otra aplicación de audio",
+            "reason": "Una prueba pequeña discrimina hipótesis.",
+            "result": "Si funciona, se revisa el reproductor original."
+          }
+        ],
+        "result": "Se documentan dos conclusiones limitadas en lugar de atribuir ambos fallos al disco o a la CPU.",
+        "visual": {
+          "type": "flow",
+          "title": "La nota y el silencio · secuencia",
+          "items": [
+            {
+              "label": "Separar los dos problemas",
+              "detail": "Se crean dos líneas de investigación."
+            },
+            {
+              "label": "Revisar versiones de la nota",
+              "detail": "Se comparan fecha y contenido de copias."
+            },
+            {
+              "label": "Probar otra aplicación de audio",
+              "detail": "Si funciona, se revisa el reproductor original."
+            }
+          ],
+          "caption": "Se documentan dos conclusiones limitadas en lugar de atribuir ambos fallos al disco o a la CPU."
+        }
+      },
+      "practice": {
+        "task": "Resuelve por escrito un caso de documento no guardado y pantalla sin imagen.",
+        "steps": [
+          "Distingue dato observado e hipótesis.",
+          "Asigna cada componente a su función.",
+          "Propón una prueba pequeña por problema."
+        ],
+        "expected": "Dos investigaciones separadas con resultados esperados y límites."
+      },
+      "check": {
+        "question": "Otra aplicación sí reproduce sonido. ¿Qué concluyes?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Todo el hardware es perfecto."
+          },
+          {
+            "id": "b",
+            "text": "Conviene revisar la aplicación original, sin descartar todo lo demás."
+          },
+          {
+            "id": "c",
+            "text": "La RAM está dañada."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La comparación orienta la siguiente prueba, pero no demuestra el estado completo del equipo."
+      },
+      "mistakes": [
+        {
+          "myth": "Un síntoma permite identificar inmediatamente la pieza dañada.",
+          "correction": "Varias causas producen síntomas semejantes; una conclusión necesita pruebas que discriminen hipótesis."
+        }
+      ],
+      "recap": [
+        "RAM: Contenido con el que la aplicación trabaja ahora.",
+        "Disco: Versión escrita en un archivo identificable.",
+        "Recuperación: Función adicional que requiere comprobarse."
+      ],
+      "glossary": [
+        {
+          "term": "Hipótesis",
+          "definition": "Explicación provisional que se puede poner a prueba."
+        },
+        {
+          "term": "Evidencia",
+          "definition": "Observación documentada que apoya o limita una conclusión."
+        },
+        {
+          "term": "Persistencia",
+          "definition": "Conservación de datos más allá de su uso inmediato."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,933 @@
+{
+  "version": "2.0.0",
+  "week": 50,
+  "title": "Evaluación y posible BTL1",
+  "overview": "Esta semana ofrece dos caminos honestos: realizar una evaluación externa conforme a sus condiciones o dedicar el bloque a recuperación y refuerzo. Prepararás una ficha de reglas vigentes, comprobarás dependencias del entorno y corregirás lagunas concretas con prácticas pequeñas. Un ensayo con datos explícitos permite revisar búsqueda y evidencia. La reserva flexible y el cierre de etapa evitan confundir presión de calendario, puntuaciones internas y acreditación confirmada, manteniendo un plan de aprendizaje que pueda continuar después.",
+  "objectives": [
+    "Verificar reglas y condiciones oficiales sin asumir permisos.",
+    "Preparar entorno y refuerzo con pruebas observables.",
+    "Registrar resultados reales y planificar continuidad."
+  ],
+  "sources": [
+    {
+      "id": "btl",
+      "title": "Centri / Security Blue Team: Blue Team Level 1",
+      "url": "https://www.centri.org/certifications/blue-team-level-1"
+    },
+    {
+      "id": "nist61",
+      "title": "NIST SP 800-61r3: respuesta y gestión del riesgo",
+      "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+    },
+    {
+      "id": "nist86",
+      "title": "NIST SP 800-86: técnicas forenses en respuesta a incidentes",
+      "url": "https://csrc.nist.gov/pubs/sp/800/86/final"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w50d1",
+      "title": "Reglas vigentes",
+      "lead": "Las reglas vigentes se comprueban en la fuente oficial y se convierten en condiciones de trabajo.",
+      "sections": [
+        {
+          "topic": "Acceso, alcance y herramientas permitidas",
+          "explanation": [
+            "Antes de una evaluación externa debes verificar las condiciones actuales desde tu cuenta o la documentación oficial del proveedor. Revisa acceso, alcance, materiales permitidos, herramientas, asistencia externa, envío y política ante problemas técnicos. No deduzcas permisos porque una herramienta aparezca en el curso ni porque otra persona la usara en una edición anterior. Las condiciones pueden cambiar y una guía de estudio como esta no reemplaza las instrucciones que aceptas al realizar la evaluación.",
+            "Construye una ficha con fuente, fecha de revisión y pregunta concreta por cada regla relevante. Si una condición no está clara, busca la aclaración oficial antes de comenzar. Distingue requisitos técnicos de normas de integridad y de plazos de acceso; cumplir uno no implica cumplir los demás. No guardes en un repositorio público instrucciones privadas, preguntas o respuestas de examen. El propósito de esta clase es preparar un proceso de verificación, no reproducir contenido restringido ni recomendar atajos que violen las condiciones de la prueba."
+          ],
+          "analogy": "Las reglas de un torneo se leen en la convocatoria vigente, no se infieren del entrenamiento del año pasado.",
+          "keyPoints": [
+            "Referencia: Cuenta y documentación oficial autorizada.",
+            "Condiciones: Acceso, herramientas, materiales y envío.",
+            "Duda: Aclaración oficial antes de iniciar, no suposición."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Reglas vigentes",
+            "items": [
+              {
+                "label": "Referencia",
+                "detail": "Cuenta y documentación oficial autorizada."
+              },
+              {
+                "label": "Condiciones",
+                "detail": "Acceso, herramientas, materiales y envío."
+              },
+              {
+                "label": "Duda",
+                "detail": "Aclaración oficial antes de iniciar, no suposición."
+              }
+            ],
+            "caption": "Las reglas vigentes se comprueban en la fuente oficial y se convierten en condiciones de trabajo."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Una herramienta mencionada en el curso",
+        "scenario": "Un estudiante ficticio supone que puede usar cualquier servicio externo durante la evaluación.",
+        "steps": [
+          {
+            "action": "Separar contextos",
+            "reason": "Formación y examen pueden tener reglas distintas.",
+            "result": "La mención en una clase no prueba permiso de uso."
+          },
+          {
+            "action": "Leer condición vigente",
+            "reason": "La autorización debe ser explícita.",
+            "result": "Se revisan herramientas y asistencia permitidas en el área oficial."
+          },
+          {
+            "action": "Resolver duda",
+            "reason": "Evita actuar bajo una interpretación incierta.",
+            "result": "Se consulta soporte antes de iniciar si falta claridad."
+          }
+        ],
+        "result": "La preparación utiliza permisos comprobados y no experiencias de terceros como regla.",
+        "visual": {
+          "type": "timeline",
+          "title": "Una herramienta mencionada en el curso",
+          "items": [
+            {
+              "label": "Separar contextos",
+              "detail": "La mención en una clase no prueba permiso de uso."
+            },
+            {
+              "label": "Leer condición vigente",
+              "detail": "Se revisan herramientas y asistencia permitidas en el área oficial."
+            },
+            {
+              "label": "Resolver duda",
+              "detail": "Se consulta soporte antes de iniciar si falta claridad."
+            }
+          ],
+          "caption": "La preparación utiliza permisos comprobados y no experiencias de terceros como regla."
+        }
+      },
+      "practice": {
+        "task": "Prepara una ficha de verificación sin copiar material privado.",
+        "steps": [
+          "Anota fuente oficial y fecha.",
+          "Resume condiciones con tus palabras sin publicar instrucciones restringidas.",
+          "Marca dudas y canal oficial de aclaración."
+        ],
+        "expected": "Una ficha privada que distingue reglas confirmadas y preguntas pendientes."
+      },
+      "check": {
+        "question": "¿Que una herramienta aparezca en el curso demuestra que puede usarse libremente en el examen?",
+        "options": [
+          {
+            "id": "a",
+            "text": "No; debe comprobarse la condición específica vigente."
+          },
+          {
+            "id": "b",
+            "text": "Sí, sin revisar nada más."
+          },
+          {
+            "id": "c",
+            "text": "Solo si es gratuita."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La autorización de evaluación es específica y puede diferir del uso durante la formación."
+      },
+      "mistakes": [
+        {
+          "myth": "Las reglas que recuerda otro estudiante sustituyen la documentación oficial.",
+          "correction": "La edición, cuenta y condiciones pueden cambiar; la referencia debe ser la vigente y autorizada."
+        }
+      ],
+      "recap": [
+        "Referencia: Cuenta y documentación oficial autorizada.",
+        "Condiciones: Acceso, herramientas, materiales y envío.",
+        "Duda: Aclaración oficial antes de iniciar, no suposición."
+      ],
+      "glossary": [
+        {
+          "term": "Condición vigente",
+          "definition": "Regla aplicable en la versión y momento correspondientes."
+        },
+        {
+          "term": "Integridad de evaluación",
+          "definition": "Cumplimiento de límites de ayuda y material establecidos por el proveedor."
+        }
+      ]
+    },
+    {
+      "dayId": "w50d2",
+      "title": "Entorno",
+      "lead": "Un entorno preparado reduce fallos evitables sin asumir permisos sobre materiales o herramientas.",
+      "sections": [
+        {
+          "topic": "Conexión, notas y organización",
+          "explanation": [
+            "La preparación técnica identifica dependencias antes de una sesión importante: equipo, navegador compatible, conexión, acceso a cuenta y organización de archivos permitidos. Comprueba requisitos oficiales y prueba solo los entornos de demostración o verificación autorizados. No modifiques un sistema de trabajo ni desactives controles para improvisar compatibilidad. Si la cuenta requiere autenticación adicional, asegúrate de tener los métodos legítimos disponibles sin compartir credenciales ni guardar secretos en notas públicas.",
+            "Organiza un espacio limpio con nombres claros y separa prácticas, evidencias propias y cualquier material privado del proveedor. Las notas o herramientas solo deben estar presentes durante la evaluación cuando sus reglas lo permitan. Prepara también un procedimiento para una interrupción: qué información técnica mínima registrar y cuál es el canal oficial de ayuda, sin capturar preguntas restringidas. En el laboratorio puedes simular la apertura de archivos, rutas y guardado de resultados para detectar errores de organización antes de que afecten una tarea evaluada."
+          ],
+          "analogy": "Revisar combustible y frenos antes de un viaje no cambia las normas de circulación que tendrás que cumplir.",
+          "keyPoints": [
+            "Dependencias: Equipo, acceso y conexión comprobados.",
+            "Organización: Material separado y únicamente permitido.",
+            "Interrupción: Procedimiento y canal de soporte oficial identificados."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Entorno",
+            "items": [
+              {
+                "label": "Dependencias",
+                "detail": "Equipo, acceso y conexión comprobados."
+              },
+              {
+                "label": "Organización",
+                "detail": "Material separado y únicamente permitido."
+              },
+              {
+                "label": "Interrupción",
+                "detail": "Procedimiento y canal de soporte oficial identificados."
+              }
+            ],
+            "caption": "Un entorno preparado reduce fallos evitables sin asumir permisos sobre materiales o herramientas."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "El archivo guardado en otra carpeta",
+        "scenario": "Un ensayo ficticio termina con un resultado correcto que no puede encontrarse para entregar.",
+        "steps": [
+          {
+            "action": "Revisar ruta",
+            "reason": "El fallo es de organización, no de análisis.",
+            "result": "El archivo se guardó en una carpeta temporal."
+          },
+          {
+            "action": "Definir estructura",
+            "reason": "Reduce ambigüedad.",
+            "result": "Se crean carpetas de práctica y resultados con nombres claros."
+          },
+          {
+            "action": "Probar recuperación",
+            "reason": "La estructura debe funcionar.",
+            "result": "Se cierra y reabre el resultado desde la ruta documentada."
+          }
+        ],
+        "result": "La comprobación demuestra que el resultado se conserva y se localiza.",
+        "visual": {
+          "type": "timeline",
+          "title": "El archivo guardado en otra carpeta",
+          "items": [
+            {
+              "label": "Revisar ruta",
+              "detail": "El archivo se guardó en una carpeta temporal."
+            },
+            {
+              "label": "Definir estructura",
+              "detail": "Se crean carpetas de práctica y resultados con nombres claros."
+            },
+            {
+              "label": "Probar recuperación",
+              "detail": "Se cierra y reabre el resultado desde la ruta documentada."
+            }
+          ],
+          "caption": "La comprobación demuestra que el resultado se conserva y se localiza."
+        }
+      },
+      "practice": {
+        "task": "Ensaya tu organización con un archivo de texto propio.",
+        "steps": [
+          "Comprueba requisitos oficiales sin cambiar sistemas ajenos.",
+          "Guarda un resultado en una ruta definida.",
+          "Reabre el archivo y registra cómo pedirías soporte ante un fallo técnico."
+        ],
+        "expected": "Una prueba de acceso y conservación sin secretos expuestos."
+      },
+      "check": {
+        "question": "¿Qué debe decidir si puedes usar notas durante una evaluación?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La cantidad de notas que tengas."
+          },
+          {
+            "id": "b",
+            "text": "Las reglas oficiales aplicables."
+          },
+          {
+            "id": "c",
+            "text": "Que las notas sean tuyas."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La autoría de un material no sustituye las condiciones de uso de la evaluación."
+      },
+      "mistakes": [
+        {
+          "myth": "Preparar el entorno permite desactivar cualquier control del equipo.",
+          "correction": "Los cambios necesitan autorización y no deben perjudicar sistemas ni incumplir requisitos."
+        }
+      ],
+      "recap": [
+        "Dependencias: Equipo, acceso y conexión comprobados.",
+        "Organización: Material separado y únicamente permitido.",
+        "Interrupción: Procedimiento y canal de soporte oficial identificados."
+      ],
+      "glossary": [
+        {
+          "term": "Dependencia técnica",
+          "definition": "Componente necesario para que el entorno funcione."
+        },
+        {
+          "term": "Procedimiento de interrupción",
+          "definition": "Pasos autorizados para documentar y comunicar un problema técnico."
+        }
+      ]
+    },
+    {
+      "dayId": "w50d3",
+      "title": "Últimas lagunas",
+      "lead": "Las últimas lagunas se corrigen con tareas breves que separan conceptos parecidos.",
+      "sections": [
+        {
+          "topic": "Dos competencias débiles",
+          "explanation": [
+            "En la fase final prioriza dos competencias que todavía producen errores repetidos. Elige problemas suficientemente pequeños para comprobar la causa: confundir hash y cifrado, interpretar actor y destinatario o convertir una zona horaria. Explica primero la diferencia conceptual y después resuelve un caso nuevo. Un hash compara contenido según un algoritmo; el cifrado protege la confidencialidad con una clave. Usar ambos términos como sinónimos puede llevar a proponer una medida que no responde al objetivo del caso.",
+            "La segunda práctica debe cambiar una condición para evitar memorizar. Si una cronología utilizaba UTC−06:00, prueba otra hora o un desplazamiento diferente y conserva el original. Registra el criterio de éxito antes de responder, incluyendo una explicación del límite. No intentes compensar una laguna concreta consumiendo muchos recursos sin practicar. Si el error persiste, conserva la evidencia y decide un refuerzo adicional o una reserva flexible, sin presentar la presión de calendario como una prueba de preparación."
+          ],
+          "analogy": "Afilar dos herramientas que no cortan bien puede ser más útil que volver a ordenar toda la caja.",
+          "keyPoints": [
+            "Diagnóstico: Dos errores recurrentes y su causa concreta.",
+            "Práctica: Caso pequeño con criterio de éxito.",
+            "Transferencia: Nueva condición y explicación propia del resultado."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Últimas lagunas",
+            "items": [
+              {
+                "label": "Diagnóstico",
+                "detail": "Dos errores recurrentes y su causa concreta."
+              },
+              {
+                "label": "Práctica",
+                "detail": "Caso pequeño con criterio de éxito."
+              },
+              {
+                "label": "Transferencia",
+                "detail": "Nueva condición y explicación propia del resultado."
+              }
+            ],
+            "caption": "Las últimas lagunas se corrigen con tareas breves que separan conceptos parecidos."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Hash no oculta el documento",
+        "scenario": "Un caso ficticio quiere impedir lectura de un archivo, pero la propuesta solo calcula SHA-256.",
+        "steps": [
+          {
+            "action": "Identificar objetivo",
+            "reason": "La medida debe responder a confidencialidad.",
+            "result": "El objetivo es restringir lectura del contenido."
+          },
+          {
+            "action": "Separar mecanismos",
+            "reason": "Una huella no transforma el archivo en secreto.",
+            "result": "El hash sirve para comparar integridad."
+          },
+          {
+            "action": "Corregir propuesta",
+            "reason": "La protección necesita controles adecuados.",
+            "result": "Se propone cifrado y gestión de acceso según el entorno autorizado."
+          }
+        ],
+        "result": "La explicación distingue integridad de confidencialidad y evita una medida inadecuada.",
+        "visual": {
+          "type": "timeline",
+          "title": "Hash no oculta el documento",
+          "items": [
+            {
+              "label": "Identificar objetivo",
+              "detail": "El objetivo es restringir lectura del contenido."
+            },
+            {
+              "label": "Separar mecanismos",
+              "detail": "El hash sirve para comparar integridad."
+            },
+            {
+              "label": "Corregir propuesta",
+              "detail": "Se propone cifrado y gestión de acceso según el entorno autorizado."
+            }
+          ],
+          "caption": "La explicación distingue integridad de confidencialidad y evita una medida inadecuada."
+        }
+      },
+      "practice": {
+        "task": "Prepara dos microcasos sobre tus errores más frecuentes.",
+        "steps": [
+          "Escribe objetivo y criterio correcto.",
+          "Resuelve una variante nueva de cada caso.",
+          "Explica qué conclusión no permitiría tu resultado."
+        ],
+        "expected": "Dos pruebas de comprensión con transferencia y límites."
+      },
+      "check": {
+        "question": "¿Calcular SHA-256 de un archivo impide leer su contenido original?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Sí, siempre lo cifra."
+          },
+          {
+            "id": "b",
+            "text": "Solo si el nombre cambia."
+          },
+          {
+            "id": "c",
+            "text": "No; la huella no cifra el archivo."
+          }
+        ],
+        "correct": "c",
+        "explanation": "Hash y cifrado cumplen funciones diferentes; conservar el original permite seguir leyéndolo según sus permisos."
+      },
+      "mistakes": [
+        {
+          "myth": "Una fecha próxima demuestra que ya debo estar listo.",
+          "correction": "La decisión debe basarse en desempeño y condiciones, no solo en calendario."
+        }
+      ],
+      "recap": [
+        "Diagnóstico: Dos errores recurrentes y su causa concreta.",
+        "Práctica: Caso pequeño con criterio de éxito.",
+        "Transferencia: Nueva condición y explicación propia del resultado."
+      ],
+      "glossary": [
+        {
+          "term": "Microcaso",
+          "definition": "Ejercicio pequeño diseñado para aislar una competencia."
+        },
+        {
+          "term": "Integridad",
+          "definition": "Propiedad relacionada con conservar o comprobar contenido sin cambios no autorizados."
+        }
+      ]
+    },
+    {
+      "dayId": "w50d4",
+      "title": "Ensayo breve",
+      "lead": "Un ensayo breve comprueba búsqueda y evidencia sin intentar reproducir preguntas de examen.",
+      "sections": [
+        {
+          "topic": "Búsqueda y evidencia",
+          "explanation": [
+            "El ensayo utiliza material original y una pregunta delimitada para practicar el ciclo completo. Considera tres registros sintéticos de cuenta-lab: fallo a las 10:00Z desde PC-A, fallo a las 10:01Z desde PC-A y éxito a las 10:03Z desde PC-B. La tarea es describir la secuencia sin afirmar que los tres eventos pertenecen a una misma sesión. Debes seleccionar campos, ordenar por tiempo y distinguir resultado, equipo e identidad registrada.",
+            "Reserva tiempo para comprobar una fila y redactar una conclusión limitada. El éxito posterior no demuestra que PC-A consiguiera acceder, porque el origen del tercer evento es distinto y faltan identificadores de sesión. Una práctica breve útil termina con pregunta, datos, método, resultado y laguna, no con una captura sin explicación. Si necesitas ayuda, regístrala para valorar autonomía. No copies casos privados ni busques preguntas recordadas de una evaluación oficial; aquí importa transferir método a una muestra nueva y segura."
+          ],
+          "analogy": "Un ensayo de una escena comprueba la coordinación completa sin necesitar representar toda la obra.",
+          "keyPoints": [
+            "Datos: Dos fallos de PC-A y un éxito de PC-B.",
+            "Método: Ordenar tiempos y comparar cuenta, equipo y resultado.",
+            "Conclusión: La secuencia existe, pero una sesión común no está demostrada."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Ensayo breve",
+            "items": [
+              {
+                "label": "Datos",
+                "detail": "Dos fallos de PC-A y un éxito de PC-B."
+              },
+              {
+                "label": "Método",
+                "detail": "Ordenar tiempos y comparar cuenta, equipo y resultado."
+              },
+              {
+                "label": "Conclusión",
+                "detail": "La secuencia existe, pero una sesión común no está demostrada."
+              }
+            ],
+            "caption": "Un ensayo breve comprueba búsqueda y evidencia sin intentar reproducir preguntas de examen."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Tres eventos no son una sesión",
+        "scenario": "El resumen ficticio atribuye el éxito de PC-B a los intentos previos de PC-A.",
+        "steps": [
+          {
+            "action": "Revisar origen",
+            "reason": "Un campo contradice la unión automática.",
+            "result": "El tercer evento procede de otro equipo."
+          },
+          {
+            "action": "Buscar identificador",
+            "reason": "La sesión necesita un vínculo apropiado.",
+            "result": "No se dispone de ID de sesión que los una."
+          },
+          {
+            "action": "Redactar límite",
+            "reason": "Se conserva la secuencia sin atribución indebida.",
+            "result": "Hay dos fallos y un éxito de la cuenta con orígenes diferentes."
+          }
+        ],
+        "result": "La respuesta mantiene exactitud y evita inferir una sesión única.",
+        "visual": {
+          "type": "timeline",
+          "title": "Tres eventos no son una sesión",
+          "items": [
+            {
+              "label": "Revisar origen",
+              "detail": "El tercer evento procede de otro equipo."
+            },
+            {
+              "label": "Buscar identificador",
+              "detail": "No se dispone de ID de sesión que los una."
+            },
+            {
+              "label": "Redactar límite",
+              "detail": "Hay dos fallos y un éxito de la cuenta con orígenes diferentes."
+            }
+          ],
+          "caption": "La respuesta mantiene exactitud y evita inferir una sesión única."
+        }
+      },
+      "practice": {
+        "task": "Repite el ensayo con los tres registros indicados.",
+        "steps": [
+          "Dibuja tabla con hora, cuenta, equipo y resultado.",
+          "Verifica manualmente el orden.",
+          "Escribe dos hechos y una pregunta pendiente."
+        ],
+        "expected": "Una tabla y una conclusión reproducibles desde datos explícitos."
+      },
+      "check": {
+        "question": "¿Qué impide atribuir automáticamente el éxito a PC-A?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El origen PC-B del evento exitoso y la falta de un vínculo de sesión."
+          },
+          {
+            "id": "b",
+            "text": "Que todos los eventos tengan hora UTC."
+          },
+          {
+            "id": "c",
+            "text": "Que la cuenta sea la misma."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La cuenta común no elimina la diferencia de equipo ni prueba una única sesión."
+      },
+      "mistakes": [
+        {
+          "myth": "Un éxito tras varios fallos siempre pertenece a la misma sesión.",
+          "correction": "Hay que comprobar identificadores, orígenes y contexto, además de orden temporal."
+        }
+      ],
+      "recap": [
+        "Datos: Dos fallos de PC-A y un éxito de PC-B.",
+        "Método: Ordenar tiempos y comparar cuenta, equipo y resultado.",
+        "Conclusión: La secuencia existe, pero una sesión común no está demostrada."
+      ],
+      "glossary": [
+        {
+          "term": "Ensayo breve",
+          "definition": "Práctica limitada del ciclo completo de análisis."
+        },
+        {
+          "term": "Vínculo de sesión",
+          "definition": "Dato que permite relacionar eventos con una sesión concreta."
+        }
+      ]
+    },
+    {
+      "dayId": "w50d5",
+      "title": "Reserva flexible",
+      "lead": "La reserva flexible protege la calidad del aprendizaje cuando la evidencia o las condiciones no están listas.",
+      "sections": [
+        {
+          "topic": "Examen o descanso previo",
+          "explanation": [
+            "Una semana de evaluación necesita margen para problemas técnicos, disponibilidad y refuerzo. Reservar de forma flexible significa tomar decisiones según criterios, no aplazar indefinidamente por incomodidad ni avanzar solo por presión de calendario. Define qué competencias deben demostrarse, qué acceso oficial debe estar vigente y qué condiciones personales permiten concentrarte. Una práctica interna puede señalar una brecha concreta, pero su puntuación no predice por sí sola el resultado de una evaluación externa.",
+            "Considera tres opciones explícitas: avanzar, realizar un refuerzo delimitado o dedicar el bloque a recuperación y descanso antes de decidir. Cada opción necesita razón y próxima revisión. Si falta acceso o hay una regla sin aclarar, resuelve la condición oficial; no improvises atajos. Si el problema es conceptual, elige una tarea de transferencia con criterio de éxito. El margen debe conservar el objetivo de aprendizaje y evitar que una interrupción convierta todo el plan en una cadena de acciones apresuradas sin verificación."
+          ],
+          "analogy": "Un puente con margen de carga no es menos útil: permite operar sin depender de condiciones perfectas en cada momento.",
+          "keyPoints": [
+            "Criterio: Capacidades y condiciones necesarias definidas.",
+            "Opción: Avanzar, reforzar o reservar un bloque de recuperación.",
+            "Revisión: Momento y evidencia para reconsiderar la decisión."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Reserva flexible",
+            "items": [
+              {
+                "label": "Criterio",
+                "detail": "Capacidades y condiciones necesarias definidas."
+              },
+              {
+                "label": "Opción",
+                "detail": "Avanzar, reforzar o reservar un bloque de recuperación."
+              },
+              {
+                "label": "Revisión",
+                "detail": "Momento y evidencia para reconsiderar la decisión."
+              }
+            ],
+            "caption": "La reserva flexible protege la calidad del aprendizaje cuando la evidencia o las condiciones no están listas."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Acceso sin confirmar",
+        "scenario": "Un estudiante ficticio tiene buenas prácticas, pero no ha comprobado el estado de su acceso oficial.",
+        "steps": [
+          {
+            "action": "Identificar condición",
+            "reason": "La habilidad no resuelve un permiso técnico.",
+            "result": "La cuenta y el acceso deben verificarse."
+          },
+          {
+            "action": "Elegir acción pertinente",
+            "reason": "No hace falta repetir todos los temas.",
+            "result": "Se revisa el estado oficial y se aclara la condición pendiente."
+          },
+          {
+            "action": "Revisar decisión",
+            "reason": "El avance depende de condiciones reales.",
+            "result": "Solo se decide iniciar cuando requisitos y disponibilidad están confirmados."
+          }
+        ],
+        "result": "El margen se utiliza para resolver una condición concreta, no para improvisar durante la evaluación.",
+        "visual": {
+          "type": "timeline",
+          "title": "Acceso sin confirmar",
+          "items": [
+            {
+              "label": "Identificar condición",
+              "detail": "La cuenta y el acceso deben verificarse."
+            },
+            {
+              "label": "Elegir acción pertinente",
+              "detail": "Se revisa el estado oficial y se aclara la condición pendiente."
+            },
+            {
+              "label": "Revisar decisión",
+              "detail": "Solo se decide iniciar cuando requisitos y disponibilidad están confirmados."
+            }
+          ],
+          "caption": "El margen se utiliza para resolver una condición concreta, no para improvisar durante la evaluación."
+        }
+      },
+      "practice": {
+        "task": "Escribe tres criterios personales para avanzar o reforzar.",
+        "steps": [
+          "Incluye una capacidad, una condición técnica y una de disponibilidad.",
+          "Define la acción si un criterio no se cumple.",
+          "Añade una próxima revisión sin prometer una nota."
+        ],
+        "expected": "Un plan flexible con decisiones condicionadas y verificables."
+      },
+      "check": {
+        "question": "¿Qué caracteriza una reserva flexible?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Posponer sin criterio ni revisión."
+          },
+          {
+            "id": "b",
+            "text": "Definir opciones según capacidades y condiciones comprobadas."
+          },
+          {
+            "id": "c",
+            "text": "Ignorar las reglas porque el calendario aprieta."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La flexibilidad es una decisión estructurada con criterios y siguiente revisión."
+      },
+      "mistakes": [
+        {
+          "myth": "Cambiar la fecha equivale a fracasar.",
+          "correction": "Puede ser una decisión razonada si responde a una brecha o condición concreta."
+        }
+      ],
+      "recap": [
+        "Criterio: Capacidades y condiciones necesarias definidas.",
+        "Opción: Avanzar, reforzar o reservar un bloque de recuperación.",
+        "Revisión: Momento y evidencia para reconsiderar la decisión."
+      ],
+      "glossary": [
+        {
+          "term": "Margen",
+          "definition": "Capacidad reservada para absorber interrupciones o necesidades de refuerzo."
+        },
+        {
+          "term": "Decisión condicionada",
+          "definition": "Elección que depende de criterios explícitos."
+        }
+      ]
+    },
+    {
+      "dayId": "w50d6",
+      "title": "Examen o recuperación",
+      "lead": "Durante una evaluación se aplica el método dentro de sus reglas; después se aprende sin divulgar contenido restringido.",
+      "sections": [
+        {
+          "topic": "Cumplir reglas y disponibilidad",
+          "explanation": [
+            "Si decides realizar una evaluación externa, las instrucciones oficiales gobiernan materiales, herramientas, ayuda y entrega. La disciplina general sigue siendo útil: leer la pregunta, identificar evidencia, comprobar resultados y gestionar el tiempo. No debes recurrir a asistencia prohibida ni tratar esta guía como un canal de resolución de preguntas privadas. Si aparece un problema técnico, sigue el procedimiento oficial y conserva únicamente la información permitida para comunicarlo, sin publicar capturas o contenido restringido.",
+            "Si el bloque se dedica a recuperación de aprendizaje, utiliza casos originales y errores propios de práctica, no preguntas filtradas. Identifica qué competencia necesita refuerzo y diseña una tarea diferente que permita comprobar mejora. Tras una evaluación puedes registrar resultados y áreas de estudio en términos generales, respetando las condiciones de confidencialidad. La decisión entre examen y recuperación debe conservar honestidad sobre lo realizado. Una certificación solo se presenta como obtenida cuando el proveedor confirma el resultado correspondiente, no cuando terminaste un simulacro."
+          ],
+          "analogy": "Entrenar una técnica y competir en una prueba son contextos relacionados, pero cada uno tiene reglas y evidencias distintas.",
+          "keyPoints": [
+            "Evaluación: Se cumplen instrucciones y límites oficiales.",
+            "Recuperación: Se practica con casos propios y competencias generales.",
+            "Registro: Se conserva resultado real sin divulgar material restringido."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Examen o recuperación",
+            "items": [
+              {
+                "label": "Evaluación",
+                "detail": "Se cumplen instrucciones y límites oficiales."
+              },
+              {
+                "label": "Recuperación",
+                "detail": "Se practica con casos propios y competencias generales."
+              },
+              {
+                "label": "Registro",
+                "detail": "Se conserva resultado real sin divulgar material restringido."
+              }
+            ],
+            "caption": "Durante una evaluación se aplica el método dentro de sus reglas; después se aprende sin divulgar contenido restringido."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Un problema técnico durante una sesión",
+        "scenario": "Un escenario ficticio presenta una desconexión y la persona quiere compartir la pantalla completa públicamente.",
+        "steps": [
+          {
+            "action": "Revisar procedimiento",
+            "reason": "La respuesta debe respetar condiciones.",
+            "result": "Se identifica el canal oficial de soporte."
+          },
+          {
+            "action": "Minimizar información",
+            "reason": "La captura puede contener material restringido.",
+            "result": "Se comunica solo el dato técnico permitido."
+          },
+          {
+            "action": "Registrar estado",
+            "reason": "No se inventa un resultado.",
+            "result": "La sesión queda pendiente según la respuesta oficial."
+          }
+        ],
+        "result": "El problema se gestiona sin exposición innecesaria ni afirmaciones de aprobación.",
+        "visual": {
+          "type": "timeline",
+          "title": "Un problema técnico durante una sesión",
+          "items": [
+            {
+              "label": "Revisar procedimiento",
+              "detail": "Se identifica el canal oficial de soporte."
+            },
+            {
+              "label": "Minimizar información",
+              "detail": "Se comunica solo el dato técnico permitido."
+            },
+            {
+              "label": "Registrar estado",
+              "detail": "La sesión queda pendiente según la respuesta oficial."
+            }
+          ],
+          "caption": "El problema se gestiona sin exposición innecesaria ni afirmaciones de aprobación."
+        }
+      },
+      "practice": {
+        "task": "Prepara dos planes: evaluación autorizada o recuperación de aprendizaje.",
+        "steps": [
+          "Para evaluación, referencia reglas y canal oficial.",
+          "Para recuperación, elige un caso original y una competencia.",
+          "Define qué resultado registrarías en cada opción."
+        ],
+        "expected": "Dos planes honestos sin uso de material filtrado o ayuda no permitida."
+      },
+      "check": {
+        "question": "¿Cuándo debes presentar una certificación como obtenida?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Al completar un simulacro interno."
+          },
+          {
+            "id": "b",
+            "text": "Al terminar de ver los videos."
+          },
+          {
+            "id": "c",
+            "text": "Cuando el proveedor confirma que cumpliste sus condiciones de aprobación."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La formación y las pruebas internas no equivalen a la acreditación externa."
+      },
+      "mistakes": [
+        {
+          "myth": "Un resultado interno alto autoriza a afirmar que ya estoy certificado.",
+          "correction": "La certificación depende de la confirmación del proveedor correspondiente."
+        }
+      ],
+      "recap": [
+        "Evaluación: Se cumplen instrucciones y límites oficiales.",
+        "Recuperación: Se practica con casos propios y competencias generales.",
+        "Registro: Se conserva resultado real sin divulgar material restringido."
+      ],
+      "glossary": [
+        {
+          "term": "Evaluación externa",
+          "definition": "Proceso de evaluación administrado por un proveedor."
+        },
+        {
+          "term": "Recuperación de aprendizaje",
+          "definition": "Refuerzo planificado de una competencia pendiente."
+        }
+      ]
+    },
+    {
+      "dayId": "w50d7",
+      "title": "Cierre de etapa",
+      "lead": "Cerrar la etapa significa conservar resultados reales y decidir cómo seguir practicando.",
+      "sections": [
+        {
+          "topic": "Resultados y refuerzo",
+          "explanation": [
+            "El cierre reúne qué realizaste, qué resultado está confirmado y qué capacidades siguen pendientes. Si hubo evaluación externa, registra su estado real y la información que puedes conservar según las condiciones del proveedor. Si hubo refuerzo, describe tareas y evidencias propias sin etiquetarlo como certificación. Separa un resultado de examen de la amplitud de tu competencia: aprobar no implica conocer todas las herramientas ni resolver cualquier incidente, y una dificultad no borra todo el aprendizaje adquirido.",
+            "Actualiza la matriz de objetivos con evidencia y nivel de ayuda, y selecciona próximos pasos concretos. Puede ser repetir una investigación con datos nuevos, mejorar un informe o preparar un proyecto publicable con material sintético. Conserva también limitaciones de acceso y preguntas que requieren documentación oficial. El plan posterior debe tener un criterio observable y una revisión, evitando tanto abandonar toda práctica como perseguir muchas certificaciones sin demostrar habilidades. Cerrar bien facilita que la siguiente etapa profesional se apoye en hechos y no solo en etiquetas."
+          ],
+          "analogy": "Un balance de proyecto registra entregables y pendientes; no declara terminado todo el trabajo futuro de la organización.",
+          "keyPoints": [
+            "Resultado: Estado real de examen o práctica, sin equivalencias inventadas.",
+            "Balance: Evidencias, autonomía y brechas actuales.",
+            "Continuidad: Próximas tareas con criterio de mejora y revisión."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Cierre de etapa",
+            "items": [
+              {
+                "label": "Resultado",
+                "detail": "Estado real de examen o práctica, sin equivalencias inventadas."
+              },
+              {
+                "label": "Balance",
+                "detail": "Evidencias, autonomía y brechas actuales."
+              },
+              {
+                "label": "Continuidad",
+                "detail": "Próximas tareas con criterio de mejora y revisión."
+              }
+            ],
+            "caption": "Cerrar la etapa significa conservar resultados reales y decidir cómo seguir practicando."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Un cierre sin perder matices",
+        "scenario": "Un estudiante ficticio termina una simulación y quiere actualizar su CV como certificado.",
+        "steps": [
+          {
+            "action": "Clasificar resultado",
+            "reason": "La simulación no es acreditación.",
+            "result": "Se registra práctica completada con informe propio."
+          },
+          {
+            "action": "Describir capacidad",
+            "reason": "La evidencia sigue siendo valiosa.",
+            "result": "Puede mostrar análisis y documentación en laboratorio."
+          },
+          {
+            "action": "Planificar continuidad",
+            "reason": "La siguiente decisión requiere criterios.",
+            "result": "Se revisan brechas y condiciones oficiales antes de una evaluación externa."
+          }
+        ],
+        "result": "El cierre conserva el valor del aprendizaje sin atribuir una certificación inexistente.",
+        "visual": {
+          "type": "timeline",
+          "title": "Un cierre sin perder matices",
+          "items": [
+            {
+              "label": "Clasificar resultado",
+              "detail": "Se registra práctica completada con informe propio."
+            },
+            {
+              "label": "Describir capacidad",
+              "detail": "Puede mostrar análisis y documentación en laboratorio."
+            },
+            {
+              "label": "Planificar continuidad",
+              "detail": "Se revisan brechas y condiciones oficiales antes de una evaluación externa."
+            }
+          ],
+          "caption": "El cierre conserva el valor del aprendizaje sin atribuir una certificación inexistente."
+        }
+      },
+      "practice": {
+        "task": "Escribe un balance de esta etapa con resultados reales.",
+        "steps": [
+          "Separa formación, práctica y acreditación confirmada.",
+          "Incluye dos capacidades y una brecha.",
+          "Define una siguiente tarea con evidencia esperada."
+        ],
+        "expected": "Un balance defendible para alimentar portafolio y plan profesional."
+      },
+      "check": {
+        "question": "¿Qué debería conservar el cierre de etapa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Resultados reales, evidencias y próximos pasos con criterio."
+          },
+          {
+            "id": "b",
+            "text": "Solo una etiqueta de experto."
+          },
+          {
+            "id": "c",
+            "text": "Un listado de certificaciones todavía no obtenidas como si lo estuvieran."
+          }
+        ],
+        "correct": "a",
+        "explanation": "El balance útil comunica hechos, capacidades demostradas y trabajo pendiente."
+      },
+      "mistakes": [
+        {
+          "myth": "Una certificación elimina la necesidad de practicar.",
+          "correction": "Las habilidades y herramientas evolucionan; la práctica y la revisión siguen siendo necesarias."
+        }
+      ],
+      "recap": [
+        "Resultado: Estado real de examen o práctica, sin equivalencias inventadas.",
+        "Balance: Evidencias, autonomía y brechas actuales.",
+        "Continuidad: Próximas tareas con criterio de mejora y revisión."
+      ],
+      "glossary": [
+        {
+          "term": "Balance de etapa",
+          "definition": "Resumen de resultados, evidencias y brechas actuales."
+        },
+        {
+          "term": "Acreditación",
+          "definition": "Reconocimiento confirmado por la entidad correspondiente."
+        }
+      ]
+    }
+  ]
+}

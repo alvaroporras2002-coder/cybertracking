@@ -1,0 +1,953 @@
+{
+  "version": "2.0.0",
+  "week": 33,
+  "title": "Terceros cumplimiento y auditoría",
+  "overview": "Los servicios de terceros amplían capacidades y también crean dependencias. Esta semana aprenderás a convertir preguntas sobre proveedores, acuerdos y privacidad en evidencias revisables. Practicarás una auditoría pequeña y un plan de concienciación que mida conducta útil, no solo asistencia. No se fijan obligaciones legales universales: las normas y contratos aplicables deben identificarse para cada organización. El objetivo es conectar obligación, control y prueba sin suponer que una marca conocida o una firma comercial resuelven todos los riesgos.",
+  "objectives": [
+    "Evaluar proveedores según datos, acceso y dependencia.",
+    "Relacionar obligaciones con controles y evidencia.",
+    "Diseñar métricas de formación que no oculten su denominador."
+  ],
+  "sources": [
+    {
+      "id": "controls",
+      "title": "NIST SP 800-53 — Security and Privacy Controls",
+      "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+    },
+    {
+      "id": "risk",
+      "title": "NIST SP 800-30r1 — Risk Assessment",
+      "url": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+    },
+    {
+      "id": "csf",
+      "title": "NIST — Cybersecurity Framework",
+      "url": "https://www.nist.gov/cyberframework"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w33d1",
+      "title": "Proveedores",
+      "lead": "Evalúa el servicio concreto, no solo la marca.",
+      "sections": [
+        {
+          "topic": "Evaluación, dependencia y supervisión",
+          "explanation": [
+            "Evaluar un proveedor empieza por el servicio que prestará, los datos que tratará y los accesos que necesita. Un mismo proveedor puede ser poco crítico para una página pública y esencial para recuperar operaciones. Identifica dependencia, subproveedores relevantes, soporte y posibilidad de salida. Una certificación o cuestionario puede aportar información, pero su alcance debe coincidir con el servicio utilizado. No basta con que el logotipo de una certificación aparezca en una presentación comercial sin comprender qué cubre.",
+            "La revisión continúa durante la relación, no termina con la compra. Define quién controla cambios importantes, incidentes, vencimientos y acceso del proveedor. Solicita evidencia proporcional: configuración de acceso, informes pertinentes o prueba de recuperación, según el riesgo. Evita enviar datos privados para completar una demostración comercial si bastan datos sintéticos. Si el proveedor deja de prestar el servicio, necesitas una forma acordada de recuperar datos y revocar conexiones. Una buena evaluación permite tomar decisiones, no solo llenar casillas."
+          ],
+          "analogy": "Contratar una empresa de transporte exige saber qué llevará, quién lo custodia y qué ocurre si no llega.",
+          "keyPoints": [
+            "Evalúa el servicio concreto, no solo la marca.",
+            "Datos y dependencia determinan profundidad de revisión.",
+            "Planifica la salida antes de necesitarla."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Relación con un proveedor",
+            "items": [
+              {
+                "label": "Antes",
+                "detail": "Datos, acceso y requisitos"
+              },
+              {
+                "label": "Durante",
+                "detail": "Supervisión de cambios e incidentes"
+              },
+              {
+                "label": "Salida",
+                "detail": "Exportación, revocación y evidencia"
+              }
+            ],
+            "caption": "La revisión se ajusta al alcance real del servicio."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Proveedor de respaldo",
+        "scenario": "Una empresa ficticia promete recuperación, pero no muestra cómo exportar datos al terminar el contrato.",
+        "steps": [
+          {
+            "action": "Identificar dependencia",
+            "reason": "Sin exportación puede existir bloqueo operativo.",
+            "result": "Se registra una brecha de salida."
+          },
+          {
+            "action": "Solicitar prueba",
+            "reason": "Una promesa no acredita capacidad.",
+            "result": "Se pide exportación de datos sintéticos."
+          },
+          {
+            "action": "Decidir condiciones",
+            "reason": "La aceptación debe incorporar la brecha.",
+            "result": "La compra queda condicionada a una salida verificable."
+          }
+        ],
+        "result": "La revisión descubre un riesgo operativo antes de contratar.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Proveedor de respaldo",
+          "items": [
+            {
+              "label": "Identificar dependencia",
+              "detail": "Se registra una brecha de salida."
+            },
+            {
+              "label": "Solicitar prueba",
+              "detail": "Se pide exportación de datos sintéticos."
+            },
+            {
+              "label": "Decidir condiciones",
+              "detail": "La compra queda condicionada a una salida verificable."
+            }
+          ],
+          "caption": "La revisión descubre un riesgo operativo antes de contratar."
+        }
+      },
+      "practice": {
+        "task": "Prepara cinco preguntas para un proveedor de almacenamiento.",
+        "steps": [
+          "Incluye acceso y clasificación de datos.",
+          "Pregunta por recuperación y salida.",
+          "Indica qué evidencia respondería cada pregunta."
+        ],
+        "expected": "Preguntas ligadas a decisiones, no a prestigio comercial."
+      },
+      "check": {
+        "question": "¿Qué debe coincidir al revisar una certificación?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El color del certificado."
+          },
+          {
+            "id": "b",
+            "text": "Su alcance con el servicio y contexto contratado."
+          },
+          {
+            "id": "c",
+            "text": "El tamaño de la empresa únicamente."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Una certificación con otro alcance no demuestra automáticamente los controles del servicio que utilizarás."
+      },
+      "mistakes": [
+        {
+          "myth": "Un proveedor conocido no necesita revisión.",
+          "correction": "La revisión depende del riesgo y servicio concretos, aunque la marca sea conocida."
+        }
+      ],
+      "recap": [
+        "Evalúa el servicio concreto, no solo la marca.",
+        "Datos y dependencia determinan profundidad de revisión.",
+        "Planifica la salida antes de necesitarla."
+      ],
+      "glossary": [
+        {
+          "term": "Dependencia de proveedor",
+          "definition": "Necesidad de un tercero para mantener una función."
+        },
+        {
+          "term": "Alcance de certificación",
+          "definition": "Parte de una organización o servicio evaluada por una certificación."
+        }
+      ]
+    },
+    {
+      "dayId": "w33d2",
+      "title": "Acuerdos",
+      "lead": "Revisa alcance, exclusiones y método de medición.",
+      "sections": [
+        {
+          "topic": "Servicio, confidencialidad y responsabilidades",
+          "explanation": [
+            "Un acuerdo convierte expectativas en compromisos definidos. Un SLA puede describir niveles de servicio, períodos de medición y consecuencias; un acuerdo de confidencialidad delimita manejo de información; otros términos asignan responsabilidades de seguridad y respuesta. El nombre del documento no garantiza que cubra lo necesario. Lee qué servicio, datos y circunstancias incluye, qué excluye y cómo se verifica. No conviertas un objetivo comercial de disponibilidad en una garantía de recuperación de todos los datos.",
+            "Las responsabilidades compartidas deben describirse de forma operativa. Si el proveedor protege su infraestructura pero el cliente configura permisos, alguien debe revisar esa configuración. Define contacto de incidentes, notificación, acceso, retención y salida según requisitos aplicables. Las condiciones legales necesitan revisión competente cuando corresponda; el analista técnico aporta escenarios y evidencias. Un porcentaje sin ventana y método de cálculo puede ser ambiguo. Un compromiso claro permite comprobar cumplimiento y actuar cuando el resultado no coincide con lo acordado."
+          ],
+          "analogy": "Un contrato de mantenimiento debe indicar qué se repara, quién avisa y cómo se mide el resultado, no solo prometer buen servicio.",
+          "keyPoints": [
+            "Revisa alcance, exclusiones y método de medición.",
+            "Disponibilidad y recuperación de datos son cosas distintas.",
+            "Asigna responsabilidades que puedan ejecutarse y comprobarse."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Tres compromisos diferentes",
+            "items": [
+              {
+                "label": "Servicio",
+                "detail": "Disponibilidad medida en un período"
+              },
+              {
+                "label": "Confidencialidad",
+                "detail": "Uso y protección de información"
+              },
+              {
+                "label": "Responsabilidad",
+                "detail": "Quién configura, vigila y responde"
+              }
+            ],
+            "caption": "Los términos concretos requieren revisión del acuerdo aplicable."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "SLA incompleto",
+        "scenario": "El acuerdo ficticio dice alta disponibilidad, sin período ni método de medición.",
+        "steps": [
+          {
+            "action": "Detectar ambigüedad",
+            "reason": "La frase no se puede comprobar objetivamente.",
+            "result": "Falta definición medible."
+          },
+          {
+            "action": "Precisar alcance",
+            "reason": "No todos los componentes pueden estar incluidos.",
+            "result": "Se identifica servicio y exclusiones."
+          },
+          {
+            "action": "Solicitar criterio",
+            "reason": "El seguimiento necesita datos comparables.",
+            "result": "Se acuerda métrica, fuente y período de reporte."
+          }
+        ],
+        "result": "El compromiso queda verificable sin inventar una garantía inexistente.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: SLA incompleto",
+          "items": [
+            {
+              "label": "Detectar ambigüedad",
+              "detail": "Falta definición medible."
+            },
+            {
+              "label": "Precisar alcance",
+              "detail": "Se identifica servicio y exclusiones."
+            },
+            {
+              "label": "Solicitar criterio",
+              "detail": "Se acuerda métrica, fuente y período de reporte."
+            }
+          ],
+          "caption": "El compromiso queda verificable sin inventar una garantía inexistente."
+        }
+      },
+      "practice": {
+        "task": "Distingue dos responsabilidades del proveedor y dos del cliente.",
+        "steps": [
+          "Usa un servicio ficticio de nube.",
+          "Asigna cada control a un dueño.",
+          "Define cómo comprobarías su ejecución."
+        ],
+        "expected": "Una matriz sin controles abandonados entre ambas partes."
+      },
+      "check": {
+        "question": "¿Un SLA de disponibilidad demuestra que existe un respaldo recuperable?",
+        "options": [
+          {
+            "id": "a",
+            "text": "No; son compromisos diferentes que deben comprobarse por separado."
+          },
+          {
+            "id": "b",
+            "text": "Sí, siempre."
+          },
+          {
+            "id": "c",
+            "text": "Solo si aparece en una diapositiva."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La disponibilidad del servicio no describe necesariamente conservación ni restauración de datos."
+      },
+      "mistakes": [
+        {
+          "myth": "Responsabilidad compartida significa que nadie tiene una tarea exclusiva.",
+          "correction": "Cada tarea debe asignarse y coordinarse de forma explícita."
+        }
+      ],
+      "recap": [
+        "Revisa alcance, exclusiones y método de medición.",
+        "Disponibilidad y recuperación de datos son cosas distintas.",
+        "Asigna responsabilidades que puedan ejecutarse y comprobarse."
+      ],
+      "glossary": [
+        {
+          "term": "SLA",
+          "definition": "Acuerdo que define niveles y medición de servicio."
+        },
+        {
+          "term": "Responsabilidad compartida",
+          "definition": "Distribución explícita de tareas entre participantes de un servicio."
+        }
+      ]
+    },
+    {
+      "dayId": "w33d3",
+      "title": "Privacidad",
+      "lead": "Relaciona datos con finalidad y responsables.",
+      "sections": [
+        {
+          "topic": "Propietario, tratamiento y retención",
+          "explanation": [
+            "La privacidad estudia cómo el tratamiento de información puede afectar a las personas. Identifica qué datos se recogen, para qué, quién decide su uso y quién los procesa. La sensibilidad depende del contexto: una dirección puede ser pública en un caso y peligrosa en otro. Minimizar significa usar únicamente datos necesarios para una finalidad válida, no recoger todo por si acaso. Los requisitos concretos dependen de jurisdicción, contratos y función de la organización; deben verificarse sin suponer una regla universal.",
+            "La retención debe vincularse a finalidad y obligaciones aplicables. Conservar indefinidamente aumenta exposición y dificulta explicar por qué existe información antigua. Borrar sin revisar requisitos también puede ser incorrecto. En una práctica utiliza datos ficticios y documenta flujos: origen, almacenamiento, accesos, transferencias y eliminación. El propietario del dato toma decisiones de clasificación dentro del gobierno aplicable, mientras los custodios ejecutan controles. No copies información personal real a herramientas públicas para que te ayuden a clasificarla."
+          ],
+          "analogy": "Pedir una dirección para entregar un paquete no justifica guardar para siempre todos los documentos de la persona.",
+          "keyPoints": [
+            "Relaciona datos con finalidad y responsables.",
+            "Minimiza antes de almacenar o compartir.",
+            "Retención y eliminación necesitan criterios verificados."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Ciclo de datos",
+            "items": [
+              {
+                "label": "Recoger",
+                "detail": "Finalidad y campos necesarios"
+              },
+              {
+                "label": "Usar",
+                "detail": "Acceso y transferencias controladas"
+              },
+              {
+                "label": "Conservar",
+                "detail": "Plazo y necesidad revisados"
+              },
+              {
+                "label": "Eliminar",
+                "detail": "Método y evidencia aplicables"
+              }
+            ],
+            "caption": "El ejemplo no establece plazos legales; exige identificarlos para el caso."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Formulario de soporte",
+        "scenario": "Un formulario ficticio pide número de pedido y copia completa del documento de identidad para una consulta simple.",
+        "steps": [
+          {
+            "action": "Definir finalidad",
+            "reason": "La consulta no requiere todos esos datos.",
+            "result": "Se identifica el campo excesivo."
+          },
+          {
+            "action": "Acción: Minimizar",
+            "reason": "Reducir recopilación limita exposición.",
+            "result": "Se propone solo el identificador necesario."
+          },
+          {
+            "action": "Revisar retención",
+            "reason": "Los registros no deben quedarse sin criterio.",
+            "result": "El dueño define plazo según requisitos aplicables."
+          }
+        ],
+        "result": "La propuesta reduce datos innecesarios sin inventar obligaciones jurídicas.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Formulario de soporte",
+          "items": [
+            {
+              "label": "Definir finalidad",
+              "detail": "Se identifica el campo excesivo."
+            },
+            {
+              "label": "Minimizar",
+              "detail": "Se propone solo el identificador necesario."
+            },
+            {
+              "label": "Revisar retención",
+              "detail": "El dueño define plazo según requisitos aplicables."
+            }
+          ],
+          "caption": "La propuesta reduce datos innecesarios sin inventar obligaciones jurídicas."
+        }
+      },
+      "practice": {
+        "task": "Dibuja el flujo de una solicitud ficticia de soporte.",
+        "steps": [
+          "Anota campos necesarios y finalidad.",
+          "Indica quién accede y dónde se almacena.",
+          "Marca qué requisito debes consultar antes de fijar retención."
+        ],
+        "expected": "Un mapa sin datos personales reales."
+      },
+      "check": {
+        "question": "¿Qué pregunta guía la minimización?",
+        "options": [
+          {
+            "id": "a",
+            "text": "¿Cuántos campos caben en la pantalla?"
+          },
+          {
+            "id": "b",
+            "text": "¿Qué datos son necesarios para la finalidad definida?"
+          },
+          {
+            "id": "c",
+            "text": "¿Qué información podría resultar interesante algún día?"
+          }
+        ],
+        "correct": "b",
+        "explanation": "La finalidad y necesidad limitan la recopilación, en lugar de justificarla por curiosidad."
+      },
+      "mistakes": [
+        {
+          "myth": "Privacidad consiste solamente en cifrar archivos.",
+          "correction": "También importa qué se recoge, cómo se usa, con quién se comparte y cuánto se conserva."
+        }
+      ],
+      "recap": [
+        "Relaciona datos con finalidad y responsables.",
+        "Minimiza antes de almacenar o compartir.",
+        "Retención y eliminación necesitan criterios verificados."
+      ],
+      "glossary": [
+        {
+          "term": "Minimización",
+          "definition": "Limitar datos a lo necesario para una finalidad."
+        },
+        {
+          "term": "Retención",
+          "definition": "Conservación durante un período justificado por necesidades y requisitos."
+        }
+      ]
+    },
+    {
+      "dayId": "w33d4",
+      "title": "Auditoría",
+      "lead": "Define criterio y alcance antes de evaluar.",
+      "sections": [
+        {
+          "topic": "Alcance, evidencia, hallazgo y seguimiento",
+          "explanation": [
+            "Una auditoría compara evidencia con criterios dentro de un alcance definido. El criterio puede ser una política, un estándar o una obligación aplicable. El auditor no debería inventar el requisito después de mirar el resultado. Define qué sistemas, período y controles se revisan. Una captura aislada puede mostrar un valor en un momento, pero no demostrar que se mantuvo durante todo el año. La conclusión debe reflejar el tipo de evidencia y la cobertura de la muestra.",
+            "Un hallazgo explica criterio, condición observada y evidencia, además de su consecuencia cuando se pueda sustentar. No toda observación es un incumplimiento: puede ser una mejora o una cuestión pendiente de datos. Los responsables acuerdan acciones y fechas, y el seguimiento verifica resultados. Evita cerrar porque se escribió una nueva política si el problema era que un control no operaba. La independencia, el alcance y la calidad de evidencia hacen que el informe sea útil para corregir, no solo para obtener una calificación."
+          ],
+          "analogy": "Una inspección compara el trabajo con un plano acordado; no cambia el plano para que todo parezca correcto.",
+          "keyPoints": [
+            "Define criterio y alcance antes de evaluar.",
+            "La muestra limita lo que puedes concluir.",
+            "El seguimiento comprueba la corrección, no solo su promesa."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Auditoría sustentada",
+            "items": [
+              {
+                "label": "Criterio",
+                "detail": "Revisión mensual de privilegios"
+              },
+              {
+                "label": "Evidencia",
+                "detail": "Registros de revisiones del período"
+              },
+              {
+                "label": "Hallazgo",
+                "detail": "Mes sin revisión acreditada"
+              },
+              {
+                "label": "Seguimiento",
+                "detail": "Acción y comprobación"
+              }
+            ],
+            "caption": "La falta de evidencia debe describirse sin inventar qué ocurrió fuera de la muestra."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Revisión de accesos",
+        "scenario": "El criterio exige revisión mensual y solo se aportan registros de dos de tres meses.",
+        "steps": [
+          {
+            "action": "Comparar período",
+            "reason": "El requisito cubre tres meses.",
+            "result": "Falta evidencia de un mes."
+          },
+          {
+            "action": "Consultar responsable",
+            "reason": "Podría existir otro registro pertinente.",
+            "result": "No se aporta evidencia adicional en el caso."
+          },
+          {
+            "action": "Documentar hallazgo",
+            "reason": "La conclusión debe ser precisa.",
+            "result": "No se acredita la revisión del mes faltante."
+          }
+        ],
+        "result": "El hallazgo se ajusta al criterio y a la evidencia disponible.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Revisión de accesos",
+          "items": [
+            {
+              "label": "Comparar período",
+              "detail": "Falta evidencia de un mes."
+            },
+            {
+              "label": "Consultar responsable",
+              "detail": "No se aporta evidencia adicional en el caso."
+            },
+            {
+              "label": "Documentar hallazgo",
+              "detail": "No se acredita la revisión del mes faltante."
+            }
+          ],
+          "caption": "El hallazgo se ajusta al criterio y a la evidencia disponible."
+        }
+      },
+      "practice": {
+        "task": "Redacta un hallazgo sobre un control ficticio.",
+        "steps": [
+          "Escribe el requisito exacto.",
+          "Describe una condición observada.",
+          "Añade prueba de cierre que evalúe el control."
+        ],
+        "expected": "Un hallazgo sin acusaciones ni criterios inventados."
+      },
+      "check": {
+        "question": "¿Qué demuestra una captura de un ajuste?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que funcionó todo el año."
+          },
+          {
+            "id": "b",
+            "text": "Que no hubo incidentes."
+          },
+          {
+            "id": "c",
+            "text": "El estado mostrado en ese momento y contexto."
+          }
+        ],
+        "correct": "c",
+        "explanation": "Una evidencia puntual tiene límites temporales y no prueba funcionamiento continuo por sí sola."
+      },
+      "mistakes": [
+        {
+          "myth": "Una nueva política corrige automáticamente un control que no funcionaba.",
+          "correction": "Debes comprobar aplicación y operación del control después del cambio."
+        }
+      ],
+      "recap": [
+        "Define criterio y alcance antes de evaluar.",
+        "La muestra limita lo que puedes concluir.",
+        "El seguimiento comprueba la corrección, no solo su promesa."
+      ],
+      "glossary": [
+        {
+          "term": "Criterio de auditoría",
+          "definition": "Referencia utilizada para evaluar una condición."
+        },
+        {
+          "term": "Muestra",
+          "definition": "Parte de un conjunto revisada con un alcance y método determinados."
+        }
+      ]
+    },
+    {
+      "dayId": "w33d5",
+      "title": "Concienciación",
+      "lead": "Define una conducta observable que la formación deba mejorar.",
+      "sections": [
+        {
+          "topic": "Formación, reporte y métricas",
+          "explanation": [
+            "La concienciación busca que las personas reconozcan situaciones relevantes y actúen de forma adecuada. Asistir a un curso no demuestra que sepan reportar un correo sospechoso. Define conducta objetivo, canal y apoyo: por ejemplo, reportar una solicitud de credenciales sin reenviar datos sensibles a terceros. Los mensajes deben adaptarse al trabajo real y facilitar la respuesta correcta. Culpar a quien reporta tarde puede reducir los avisos y ocultar problemas que el equipo necesita conocer.",
+            "Las métricas necesitan denominador y contexto. Si ocho de veinte participantes reportan una simulación, la tasa es 40 % en ese ejercicio; no describe a toda la empresa ni garantiza conducta futura. Distingue entrega, participación, reporte y calidad del reporte. Una simulación debe estar autorizada y proteger a las personas. Usa resultados agregados para mejorar procesos, como simplificar el botón de reporte o aclarar qué información adjuntar. Comparar períodos exige escenarios y poblaciones suficientemente comparables."
+          ],
+          "analogy": "Un simulacro de evacuación mide si las personas encuentran la salida, no solo si leyeron el cartel.",
+          "keyPoints": [
+            "Define una conducta observable.",
+            "Toda tasa necesita denominador y contexto.",
+            "Usa resultados para mejorar, no para culpar."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Formación con propósito",
+            "items": [
+              {
+                "label": "Objetivo",
+                "detail": "Reportar una solicitud sospechosa"
+              },
+              {
+                "label": "Práctica",
+                "detail": "Ejercicio autorizado y seguro"
+              },
+              {
+                "label": "Medición",
+                "detail": "Reportes entre participantes expuestos"
+              },
+              {
+                "label": "Mejora",
+                "detail": "Canal y explicación más claros"
+              }
+            ],
+            "caption": "Los resultados de una simulación no predicen por sí solos todas las conductas reales."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Ocho reportes de veinte",
+        "scenario": "Veinte personas reciben una simulación aprobada y ocho usan el canal correcto.",
+        "steps": [
+          {
+            "action": "Elegir denominador",
+            "reason": "La tasa debe usar población expuesta.",
+            "result": "Ocho entre veinte."
+          },
+          {
+            "action": "Acción: Calcular",
+            "reason": "Se expresa proporción y alcance.",
+            "result": "40 % en ese ejercicio."
+          },
+          {
+            "action": "Acción: Interpretar",
+            "reason": "El número no explica barreras.",
+            "result": "Se revisa si el canal era visible y la instrucción clara."
+          }
+        ],
+        "result": "La métrica orienta una mejora concreta sin etiquetar a personas como inseguras.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Ocho reportes de veinte",
+          "items": [
+            {
+              "label": "Elegir denominador",
+              "detail": "Ocho entre veinte."
+            },
+            {
+              "label": "Calcular",
+              "detail": "40 % en ese ejercicio."
+            },
+            {
+              "label": "Interpretar",
+              "detail": "Se revisa si el canal era visible y la instrucción clara."
+            }
+          ],
+          "caption": "La métrica orienta una mejora concreta sin etiquetar a personas como inseguras."
+        }
+      },
+      "practice": {
+        "task": "Diseña una métrica de reporte para un grupo ficticio.",
+        "steps": [
+          "Define población y evento.",
+          "Indica numerador y denominador.",
+          "Añade una limitación y una mejora posible."
+        ],
+        "expected": "Una tasa interpretada con su alcance."
+      },
+      "check": {
+        "question": "¿Qué demuestra completar un curso?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Participación o finalización según el registro, no dominio automático."
+          },
+          {
+            "id": "b",
+            "text": "Que nadie caerá en phishing."
+          },
+          {
+            "id": "c",
+            "text": "Que el canal de reporte funciona siempre."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La finalización es una medida de actividad; el comportamiento requiere otras comprobaciones."
+      },
+      "mistakes": [
+        {
+          "myth": "Una simulación debe avergonzar a quienes se equivocan.",
+          "correction": "El objetivo es aprender y mejorar respuesta y procesos de forma autorizada."
+        }
+      ],
+      "recap": [
+        "Define una conducta observable.",
+        "Toda tasa necesita denominador y contexto.",
+        "Usa resultados para mejorar, no para culpar."
+      ],
+      "glossary": [
+        {
+          "term": "Denominador",
+          "definition": "Conjunto de referencia usado para calcular una proporción."
+        },
+        {
+          "term": "Conducta objetivo",
+          "definition": "Acción observable que la formación pretende mejorar."
+        }
+      ]
+    },
+    {
+      "dayId": "w33d6",
+      "title": "Caso integrador",
+      "lead": "Describe datos y función antes de comparar productos.",
+      "sections": [
+        {
+          "topic": "Compra de un servicio",
+          "explanation": [
+            "Comprar un servicio integra riesgo técnico, privacidad, continuidad y acuerdos. Antes de comparar funciones, describe el flujo de datos y la necesidad de negocio. ¿Qué información entra, quién accede, dónde se conserva y cómo se recupera? Después revisa identidad, registros, soporte y salida. Una demostración comercial puede mostrar una función sin probar que estará disponible en el plan contratado. Verifica alcance y condiciones sin asumir que toda capacidad anunciada forma parte de tu servicio.",
+            "Construye una decisión con requisitos indispensables, opciones y brechas. Si un proveedor no demuestra exportación de datos, la dependencia debe aparecer en el análisis. Si el acceso de administradores es compartido, pregunta por trazabilidad y alternativas. No necesitas inventar un precio para razonar: compara costes como pendientes de cotización y explica qué cambiaría la decisión. La aprobación final corresponde a los responsables definidos. Tras contratar, convierte promesas en controles y revisiones con evidencia y dueño."
+          ],
+          "analogy": "Comprar una casa exige revisar acceso, instalaciones y condiciones de salida del acuerdo; una foto bonita no basta.",
+          "keyPoints": [
+            "Describe datos y función antes de comparar productos.",
+            "Verifica las capacidades del plan concreto.",
+            "Transforma compromisos en revisiones con dueño."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Compra del servicio",
+            "items": [
+              {
+                "label": "Necesidad",
+                "detail": "Compartir archivos del proyecto"
+              },
+              {
+                "label": "Requisitos",
+                "detail": "Identidad, registros y exportación"
+              },
+              {
+                "label": "Evaluación",
+                "detail": "Pruebas con datos sintéticos"
+              },
+              {
+                "label": "Decisión",
+                "detail": "Brechas, condiciones y responsables"
+              }
+            ],
+            "caption": "La evaluación técnica informa la decisión; no sustituye las revisiones aplicables."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Plataforma de archivos",
+        "scenario": "La opción A tiene registros por usuario; la B usa una cuenta común en la demostración.",
+        "steps": [
+          {
+            "action": "Relacionar requisito",
+            "reason": "La investigación necesita atribución.",
+            "result": "Los registros por usuario son relevantes."
+          },
+          {
+            "action": "Pedir evidencia",
+            "reason": "Una cuenta común puede ser solo de demo.",
+            "result": "Se confirma el modelo del plan ofrecido."
+          },
+          {
+            "action": "Documentar brecha",
+            "reason": "No debe ocultarse detrás de más funciones.",
+            "result": "Se decide con trazabilidad y coste pendientes claros."
+          }
+        ],
+        "result": "La comparación se centra en requisitos comprobados y dudas pendientes.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Plataforma de archivos",
+          "items": [
+            {
+              "label": "Relacionar requisito",
+              "detail": "Los registros por usuario son relevantes."
+            },
+            {
+              "label": "Pedir evidencia",
+              "detail": "Se confirma el modelo del plan ofrecido."
+            },
+            {
+              "label": "Documentar brecha",
+              "detail": "Se decide con trazabilidad y coste pendientes claros."
+            }
+          ],
+          "caption": "La comparación se centra en requisitos comprobados y dudas pendientes."
+        }
+      },
+      "practice": {
+        "task": "Crea una matriz de cuatro requisitos para un servicio ficticio.",
+        "steps": [
+          "Incluye identidad y recuperación.",
+          "Asigna evidencia por requisito.",
+          "Marca una condición pendiente de confirmar."
+        ],
+        "expected": "Una matriz que permita aceptar, condicionar o rechazar con razones."
+      },
+      "check": {
+        "question": "¿Qué prueba una demostración comercial?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Todas las funciones de cualquier plan."
+          },
+          {
+            "id": "b",
+            "text": "Solo las capacidades observadas bajo sus condiciones."
+          },
+          {
+            "id": "c",
+            "text": "Que el proveedor nunca tendrá incidentes."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Hay que contrastar plan, configuración, límites y condiciones antes de generalizar lo observado."
+      },
+      "mistakes": [
+        {
+          "myth": "Una función anunciada está incluida automáticamente.",
+          "correction": "Confirma el alcance contratado y cómo se verificará su funcionamiento."
+        }
+      ],
+      "recap": [
+        "Describe datos y función antes de comparar productos.",
+        "Verifica las capacidades del plan concreto.",
+        "Transforma compromisos en revisiones con dueño."
+      ],
+      "glossary": [
+        {
+          "term": "Requisito indispensable",
+          "definition": "Condición necesaria para que una opción resulte aceptable."
+        },
+        {
+          "term": "Brecha",
+          "definition": "Diferencia entre un requisito y la capacidad demostrada."
+        }
+      ]
+    },
+    {
+      "dayId": "w33d7",
+      "title": "Evaluación de cumplimiento",
+      "lead": "Conecta obligación, control y evidencia.",
+      "sections": [
+        {
+          "topic": "Obligación, control y evidencia",
+          "explanation": [
+            "El cumplimiento se demuestra relacionando obligación, control y evidencia. Primero identifica qué requisito aplica al servicio y período; después qué medida lo ejecuta; finalmente qué prueba permite verificarla. No toda buena práctica es una obligación legal universal, y no toda obligación se resuelve comprando una herramienta. El analista debe consultar fuentes y responsables adecuados para interpretar requisitos específicos, manteniendo separado su análisis técnico de decisiones jurídicas o contractuales que no le corresponden.",
+            "En el ejercicio final examina una afirmación como cumplimos porque tenemos una política. La política puede ser necesaria, pero quizá el requisito exija operar y revisar un control. Busca registros de ejecución, cobertura y seguimiento. Si no existe evidencia suficiente, describe la limitación y la acción para obtenerla o corregir el proceso. Evita presentar cumplimiento como sinónimo de seguridad absoluta. Un control conforme puede necesitar mejoras ante amenazas nuevas, y una evaluación tiene alcance y fecha, no validez ilimitada."
+          ],
+          "analogy": "Una receta aprobada no demuestra que el plato se cocinó correctamente; necesitas evidencias del proceso y del resultado.",
+          "keyPoints": [
+            "Conecta obligación, control y evidencia.",
+            "No conviertas recomendaciones en leyes universales.",
+            "Cumplimiento y seguridad absoluta no son equivalentes."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Cadena de cumplimiento",
+            "items": [
+              {
+                "label": "Obligación",
+                "detail": "Revisión de acceso requerida"
+              },
+              {
+                "label": "Control",
+                "detail": "Proceso con dueño y frecuencia"
+              },
+              {
+                "label": "Evidencia",
+                "detail": "Registro de revisión y acciones"
+              },
+              {
+                "label": "Seguimiento",
+                "detail": "Prueba de correcciones pendientes"
+              }
+            ],
+            "caption": "El ejemplo usa un requisito de política ficticio, no una obligación legal universal."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Política sin ejecución",
+        "scenario": "La organización ficticia tiene política mensual, pero ningún registro de revisión del período.",
+        "steps": [
+          {
+            "action": "Identificar criterio",
+            "reason": "La obligación es revisar, no solo documentar.",
+            "result": "Se delimita período y cuentas."
+          },
+          {
+            "action": "Solicitar evidencia",
+            "reason": "La ausencia puede requerir búsqueda adicional.",
+            "result": "No se acredita ejecución."
+          },
+          {
+            "action": "Proponer corrección",
+            "reason": "Redactar otra política no resuelve operación.",
+            "result": "Se asigna revisión y mecanismo de registro."
+          }
+        ],
+        "result": "Se informa la brecha de evidencia y operación sin exagerar su alcance.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Política sin ejecución",
+          "items": [
+            {
+              "label": "Identificar criterio",
+              "detail": "Se delimita período y cuentas."
+            },
+            {
+              "label": "Solicitar evidencia",
+              "detail": "No se acredita ejecución."
+            },
+            {
+              "label": "Proponer corrección",
+              "detail": "Se asigna revisión y mecanismo de registro."
+            }
+          ],
+          "caption": "Se informa la brecha de evidencia y operación sin exagerar su alcance."
+        }
+      },
+      "practice": {
+        "task": "Completa una cadena obligación-control-evidencia para un respaldo ficticio.",
+        "steps": [
+          "Usa un requisito interno explícito.",
+          "Define quién ejecuta y verifica.",
+          "Describe evidencia de una restauración de prueba."
+        ],
+        "expected": "Tres elementos conectados y una limitación de alcance."
+      },
+      "check": {
+        "question": "¿Qué demuestra mejor una revisión de accesos?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo una política que ordena revisarlos."
+          },
+          {
+            "id": "b",
+            "text": "Una lista de herramientas compradas."
+          },
+          {
+            "id": "c",
+            "text": "Registros del proceso, decisiones y seguimiento del período."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La ejecución y sus decisiones acreditan operación; los documentos de intención no bastan por sí solos."
+      },
+      "mistakes": [
+        {
+          "myth": "Cumplir una lista elimina todos los riesgos.",
+          "correction": "El cumplimiento tiene alcance; la gestión de riesgo continúa cuando cambian condiciones y amenazas."
+        }
+      ],
+      "recap": [
+        "Conecta obligación, control y evidencia.",
+        "No conviertas recomendaciones en leyes universales.",
+        "Cumplimiento y seguridad absoluta no son equivalentes."
+      ],
+      "glossary": [
+        {
+          "term": "Obligación",
+          "definition": "Requisito aplicable identificado para un contexto."
+        },
+        {
+          "term": "Evidencia de cumplimiento",
+          "definition": "Información que permite comprobar la ejecución del requisito."
+        }
+      ]
+    }
+  ]
+}

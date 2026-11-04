@@ -1,0 +1,980 @@
+{
+  "version": "2.0.0",
+  "week": 13,
+  "title": "TCP UDP y servicios",
+  "overview": "Una dirección IP identifica un extremo de red, pero una conversación también necesita distinguir aplicaciones y transportes. Esta semana estudiarás puertos, sockets, TCP y UDP sin reducirlos a etiquetas de lento o rápido. Aprenderás a leer una conexión local, relacionar campos de tráfico y reconocer que un puerto habitual no prueba el protocolo ni la seguridad de una comunicación. Los ejercicios usan datos ficticios o consultas de solo lectura en tu entorno autorizado; no requieren explorar puertos de equipos ajenos.",
+  "objectives": [
+    "Interpretar dirección, puerto, transporte y proceso.",
+    "Explicar fiabilidad TCP y límites de UDP sin confundirlos con cifrado.",
+    "Relacionar observaciones de conexiones con contexto y alcance."
+  ],
+  "sources": [
+    {
+      "id": "w13s1",
+      "title": "RFC 9293: TCP",
+      "url": "https://www.rfc-editor.org/info/rfc9293/"
+    },
+    {
+      "id": "w13s2",
+      "title": "RFC 768: UDP",
+      "url": "https://www.rfc-editor.org/info/rfc768/"
+    },
+    {
+      "id": "w13s3",
+      "title": "RFC 9210: DNS mediante TCP",
+      "url": "https://www.rfc-editor.org/info/rfc9210/"
+    },
+    {
+      "id": "w13s4",
+      "title": "Get-NetTCPConnection",
+      "url": "https://learn.microsoft.com/en-us/powershell/module/nettcpip/get-nettcpconnection"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w13d1",
+      "title": "Puertos y sockets",
+      "lead": "Los puertos de transporte ayudan a distinguir puntos de comunicación dentro de un equipo.",
+      "sections": [
+        {
+          "explanation": [
+            "Los puertos de transporte ayudan a distinguir puntos de comunicación dentro de un equipo. TCP y UDP mantienen espacios de puertos separados, por lo que mencionar solo un número es incompleto. Un extremo suele describirse mediante dirección IP, puerto y protocolo; una conversación incluye ambos extremos. La aplicación utiliza sockets como interfaces para trabajar con comunicación, aunque los detalles dependen de la plataforma y del tipo de socket.",
+            "En una conexión típica, un cliente usa un puerto local temporal y se comunica con un puerto del servicio. Varias conexiones pueden compartir el puerto remoto y diferenciarse por sus combinaciones de direcciones y puertos. El número no autentica a la aplicación: un servicio puede configurarse en otro puerto y tráfico no esperado puede usar uno habitual. Para investigar registra también tiempo, estado y proceso cuando sea visible, sin atribuir una actividad a una persona basándote únicamente en un puerto."
+          ],
+          "analogy": "La dirección del edificio localiza el lugar; el puerto distingue una puerta funcional dentro de ese extremo de comunicación.",
+          "keyPoints": [
+            "IP local: Interfaz del extremo observado.",
+            "Puerto local: Punto de comunicación del proceso.",
+            "IP y puerto remotos: Extremo con el que se comunica."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Campos de una conversación",
+            "items": [
+              {
+                "label": "IP local",
+                "detail": "Interfaz del extremo observado."
+              },
+              {
+                "label": "Puerto local",
+                "detail": "Punto de comunicación del proceso."
+              },
+              {
+                "label": "IP y puerto remotos",
+                "detail": "Extremo con el que se comunica."
+              },
+              {
+                "label": "Transporte",
+                "detail": "TCP o UDP delimitan el significado de la conversación."
+              }
+            ],
+            "caption": "Para investigar registra también tiempo, estado y proceso cuando sea visible, sin atribuir una actividad a una persona basándote únicamente en un puerto."
+          },
+          "topic": "Origen, destino y proceso"
+        }
+      ],
+      "workedExample": {
+        "title": "Dos conexiones al mismo servicio",
+        "scenario": "Un cliente ficticio abre dos conexiones TCP al mismo servidor en puerto 443.",
+        "steps": [
+          {
+            "action": "Comparar extremos",
+            "reason": "El servicio remoto puede ser el mismo.",
+            "result": "Ambas filas comparten IP y puerto remotos."
+          },
+          {
+            "action": "Revisar los puertos locales",
+            "reason": "La combinación distingue conversaciones.",
+            "result": "Los puertos locales son diferentes."
+          },
+          {
+            "action": "Añadir proceso y tiempo",
+            "reason": "Los números no prueban identidad de usuario.",
+            "result": "Se correlaciona con el contexto autorizado."
+          }
+        ],
+        "result": "Un puerto remoto compartido no convierte dos flujos en una única conexión.",
+        "visual": {
+          "type": "flow",
+          "title": "Dos conexiones al mismo servicio · secuencia",
+          "items": [
+            {
+              "label": "Comparar extremos",
+              "detail": "Ambas filas comparten IP y puerto remotos."
+            },
+            {
+              "label": "Revisar los puertos locales",
+              "detail": "Los puertos locales son diferentes."
+            },
+            {
+              "label": "Añadir proceso y tiempo",
+              "detail": "Se correlaciona con el contexto autorizado."
+            }
+          ],
+          "caption": "Un puerto remoto compartido no convierte dos flujos en una única conexión."
+        }
+      },
+      "practice": {
+        "task": "Describe una conexión ficticia con cinco campos.",
+        "steps": [
+          "Incluye IP y puerto de ambos extremos.",
+          "Añade transporte.",
+          "Explica qué dato adicional relacionaría la conexión con una ejecución."
+        ],
+        "expected": "Una combinación completa y una limitación de atribución."
+      },
+      "check": {
+        "question": "¿Basta con decir puerto 53 para identificar una conversación?",
+        "options": [
+          {
+            "id": "a",
+            "text": "No; faltan transporte, extremos y contexto."
+          },
+          {
+            "id": "b",
+            "text": "Sí, identifica a una persona."
+          },
+          {
+            "id": "c",
+            "text": "Sí, demuestra un ataque DNS."
+          }
+        ],
+        "correct": "a",
+        "explanation": "El puerto es solo un campo; los extremos, el transporte y el tiempo delimitan la observación."
+      },
+      "mistakes": [
+        {
+          "myth": "Un puerto identifica de manera infalible el programa que lo usa.",
+          "correction": "Las convenciones orientan, pero necesitas evidencia del proceso y del protocolo observado."
+        }
+      ],
+      "recap": [
+        "IP local: Interfaz del extremo observado.",
+        "Puerto local: Punto de comunicación del proceso.",
+        "IP y puerto remotos: Extremo con el que se comunica."
+      ],
+      "glossary": [
+        {
+          "term": "Puerto",
+          "definition": "Identificador de un punto de comunicación de transporte."
+        },
+        {
+          "term": "Socket",
+          "definition": "Interfaz de programación utilizada para comunicación."
+        },
+        {
+          "term": "Extremo",
+          "definition": "Dirección y puerto en un contexto de transporte."
+        }
+      ]
+    },
+    {
+      "dayId": "w13d2",
+      "title": "TCP",
+      "lead": "TCP ofrece un flujo de bytes con mecanismos de orden, confirmación, retransmisión y control de flujo, entre otros.",
+      "sections": [
+        {
+          "explanation": [
+            "TCP ofrece un flujo de bytes con mecanismos de orden, confirmación, retransmisión y control de flujo, entre otros. El establecimiento convencional utiliza SYN, SYN-ACK y ACK para sincronizar el contexto entre extremos. Esto no equivale a autenticar la identidad del servidor ni a cifrar el contenido. Una conexión TCP establecida demuestra que se completó ese intercambio de transporte bajo las condiciones observadas, no que la aplicación haya atendido correctamente la solicitud.",
+            "La fiabilidad de transporte tampoco significa éxito ilimitado. La conexión puede fallar, agotarse un plazo o terminar antes de que una aplicación complete su trabajo. Los mensajes de la aplicación no siempre coinciden con segmentos TCP individuales: una lectura puede recibir partes o agrupaciones de datos. Al interpretar una captura conserva dirección, tiempo y secuencia. El cierre puede incluir intercambios FIN y ACK o un restablecimiento RST; su significado se analiza con el contexto, no como prueba automática de una intrusión."
+          ],
+          "analogy": "Un canal ordenado confirma entregas, pero no verifica por sí solo quién habla ni si lo que dice es verdadero.",
+          "keyPoints": [
+            "Cliente: SYN: Propone iniciar el contexto de conexión.",
+            "Servidor: SYN-ACK: Responde y sincroniza su contexto.",
+            "Cliente: ACK: Confirma la respuesta."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Establecimiento TCP convencional",
+            "items": [
+              {
+                "label": "Cliente: SYN",
+                "detail": "Propone iniciar el contexto de conexión."
+              },
+              {
+                "label": "Servidor: SYN-ACK",
+                "detail": "Responde y sincroniza su contexto."
+              },
+              {
+                "label": "Cliente: ACK",
+                "detail": "Confirma la respuesta."
+              },
+              {
+                "label": "Aplicación",
+                "detail": "Aún debe intercambiar y validar sus propios datos."
+              }
+            ],
+            "caption": "El cierre puede incluir intercambios FIN y ACK o un restablecimiento RST; su significado se analiza con el contexto, no como prueba automática de una intrusión."
+          },
+          "topic": "Establecimiento, fiabilidad y cierre"
+        }
+      ],
+      "workedExample": {
+        "title": "Conexión establecida con error de aplicación",
+        "scenario": "Un caso muestra TCP establecido y después una respuesta HTTP de error.",
+        "steps": [
+          {
+            "action": "Separar transporte y servicio",
+            "reason": "Las capas tienen criterios de éxito diferentes.",
+            "result": "TCP logró establecer la conexión."
+          },
+          {
+            "action": "Interpretar la respuesta",
+            "reason": "Un error de aplicación puede viajar por un transporte correcto.",
+            "result": "Se analiza el código y mensaje HTTP."
+          },
+          {
+            "action": "Evitar una garantía de seguridad",
+            "reason": "TCP no cifra automáticamente la información.",
+            "result": "Se comprueba la protección de aplicación por separado."
+          }
+        ],
+        "result": "Una conexión TCP correcta puede transportar una respuesta de error o datos sin cifrar.",
+        "visual": {
+          "type": "flow",
+          "title": "Conexión establecida con error de aplicación · secuencia",
+          "items": [
+            {
+              "label": "Separar transporte y servicio",
+              "detail": "TCP logró establecer la conexión."
+            },
+            {
+              "label": "Interpretar la respuesta",
+              "detail": "Se analiza el código y mensaje HTTP."
+            },
+            {
+              "label": "Evitar una garantía de seguridad",
+              "detail": "Se comprueba la protección de aplicación por separado."
+            }
+          ],
+          "caption": "Una conexión TCP correcta puede transportar una respuesta de error o datos sin cifrar."
+        }
+      },
+      "practice": {
+        "task": "Ordena el establecimiento TCP y añade una solicitud de aplicación.",
+        "steps": [
+          "Etiqueta SYN, SYN-ACK y ACK.",
+          "Distingue confirmación de bytes y éxito de la tarea.",
+          "Explica dónde necesitarías una protección como TLS."
+        ],
+        "expected": "Una secuencia que no confunde fiabilidad, autenticidad y cifrado."
+      },
+      "check": {
+        "question": "¿Qué propiedad no aporta TCP por sí solo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Orden del flujo de bytes."
+          },
+          {
+            "id": "b",
+            "text": "Cifrado y autenticación del servidor."
+          },
+          {
+            "id": "c",
+            "text": "Mecanismos de retransmisión."
+          }
+        ],
+        "correct": "b",
+        "explanation": "TCP proporciona funciones de transporte; otras capas deben aportar cifrado y autenticación cuando se requieran."
+      },
+      "mistakes": [
+        {
+          "myth": "TCP garantiza que cualquier tarea de aplicación termine correctamente.",
+          "correction": "La conexión puede fallar y la aplicación tiene sus propios errores y criterios de éxito."
+        }
+      ],
+      "recap": [
+        "Cliente: SYN: Propone iniciar el contexto de conexión.",
+        "Servidor: SYN-ACK: Responde y sincroniza su contexto.",
+        "Cliente: ACK: Confirma la respuesta."
+      ],
+      "glossary": [
+        {
+          "term": "SYN",
+          "definition": "Bandera utilizada para sincronizar el establecimiento TCP."
+        },
+        {
+          "term": "Retransmisión",
+          "definition": "Reenvío de datos según el mecanismo de fiabilidad."
+        },
+        {
+          "term": "RST",
+          "definition": "Restablecimiento de una conexión TCP con interpretación contextual."
+        }
+      ]
+    },
+    {
+      "dayId": "w13d3",
+      "title": "UDP",
+      "lead": "UDP transporta datagramas sin proporcionar por sí mismo un flujo ordenado y confiable como TCP.",
+      "sections": [
+        {
+          "explanation": [
+            "UDP transporta datagramas sin proporcionar por sí mismo un flujo ordenado y confiable como TCP. Cada datagrama conserva límites propios y puede perderse, duplicarse o llegar en distinto orden. La ausencia de establecimiento TCP no significa ausencia de estado en la aplicación o en dispositivos intermedios. Tampoco convierte todo tráfico UDP en inseguro: cifrado, autenticación y fiabilidad adicional pueden implementarse mediante protocolos superiores.",
+            "La selección depende de necesidades de la aplicación. Algunas comunicaciones de tiempo real prefieren que una muestra tardía no retrase todo lo siguiente; otras usan UDP como base para mecanismos más complejos. QUIC, por ejemplo, utiliza UDP y añade funciones que no pertenecen al UDP básico. DNS también puede utilizar UDP o TCP según el caso y sus requisitos. Evita la regla «UDP siempre es más rápido»: la experiencia depende del diseño, la ruta, la carga y los mecanismos que la aplicación incorpora."
+          ],
+          "analogy": "Enviar tarjetas separadas conserva sus límites, pero necesitas reglas adicionales si quieres confirmar recepción y reconstruir el orden.",
+          "keyPoints": [
+            "Datagrama: Unidad con límites propios.",
+            "UDP básico: No garantiza entrega ni orden por sí solo.",
+            "Aplicación: Puede añadir control, cifrado o retransmisión."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "UDP básico y funciones adicionales",
+            "items": [
+              {
+                "label": "Datagrama",
+                "detail": "Unidad con límites propios."
+              },
+              {
+                "label": "UDP básico",
+                "detail": "No garantiza entrega ni orden por sí solo."
+              },
+              {
+                "label": "Aplicación",
+                "detail": "Puede añadir control, cifrado o retransmisión."
+              },
+              {
+                "label": "Elección",
+                "detail": "Depende de la tarea y del diseño del protocolo superior."
+              }
+            ],
+            "caption": "Evita la regla «UDP siempre es más rápido»: la experiencia depende del diseño, la ruta, la carga y los mecanismos que la aplicación incorpora."
+          },
+          "topic": "Datagramas y usos"
+        }
+      ],
+      "workedExample": {
+        "title": "Una muestra de audio llega tarde",
+        "scenario": "Una aplicación ficticia de voz debe decidir qué hacer con una muestra fuera de su tiempo útil.",
+        "steps": [
+          {
+            "action": "Identificar la necesidad",
+            "reason": "La reproducción necesita continuidad temporal.",
+            "result": "No siempre conviene detener todo para esperar."
+          },
+          {
+            "action": "Separar UDP y aplicación",
+            "reason": "El transporte no define toda la política.",
+            "result": "La aplicación gestiona tiempo, pérdida y reproducción."
+          },
+          {
+            "action": "Interpretar el resultado",
+            "reason": "Menor demora y conservación completa son objetivos distintos.",
+            "result": "Se evalúa calidad con pérdida y variación, no solo capacidad."
+          }
+        ],
+        "result": "El diseño de la aplicación determina cómo tolerar una entrega incompleta o tardía.",
+        "visual": {
+          "type": "flow",
+          "title": "Una muestra de audio llega tarde · secuencia",
+          "items": [
+            {
+              "label": "Identificar la necesidad",
+              "detail": "No siempre conviene detener todo para esperar."
+            },
+            {
+              "label": "Separar UDP y aplicación",
+              "detail": "La aplicación gestiona tiempo, pérdida y reproducción."
+            },
+            {
+              "label": "Interpretar el resultado",
+              "detail": "Se evalúa calidad con pérdida y variación, no solo capacidad."
+            }
+          ],
+          "caption": "El diseño de la aplicación determina cómo tolerar una entrega incompleta o tardía."
+        }
+      },
+      "practice": {
+        "task": "Compara transferencia de archivo y voz en tiempo real.",
+        "steps": [
+          "Define qué pérdida es aceptable.",
+          "Explica qué mecanismos requiere cada tarea.",
+          "Separa UDP básico de funciones superiores."
+        ],
+        "expected": "Una elección razonada sin afirmar que un transporte siempre gana."
+      },
+      "check": {
+        "question": "Una aplicación sobre UDP puede añadir cifrado o fiabilidad.",
+        "options": [
+          {
+            "id": "a",
+            "text": "No, es imposible."
+          },
+          {
+            "id": "b",
+            "text": "Solo si cambia la dirección MAC."
+          },
+          {
+            "id": "c",
+            "text": "Sí; esas funciones pueden pertenecer a protocolos superiores."
+          }
+        ],
+        "correct": "c",
+        "explanation": "UDP básico no las proporciona, pero otros protocolos y aplicaciones pueden implementarlas sobre él."
+      },
+      "mistakes": [
+        {
+          "myth": "UDP significa que ninguna aplicación puede mantener estado.",
+          "correction": "El protocolo básico no establece una conexión TCP; la aplicación puede mantener su propio contexto."
+        }
+      ],
+      "recap": [
+        "Datagrama: Unidad con límites propios.",
+        "UDP básico: No garantiza entrega ni orden por sí solo.",
+        "Aplicación: Puede añadir control, cifrado o retransmisión."
+      ],
+      "glossary": [
+        {
+          "term": "Datagrama",
+          "definition": "Unidad independiente de datos de un transporte como UDP."
+        },
+        {
+          "term": "Protocolo superior",
+          "definition": "Mecanismo que utiliza otro transporte y añade sus propias funciones."
+        }
+      ]
+    },
+    {
+      "dayId": "w13d4",
+      "title": "Servicios comunes",
+      "lead": "Los puertos habituales ayudan a reconocer hipótesis: SSH suele usar TCP 22, HTTP TCP 80 y HTTPS frecuentemente TCP 443; HTTP/3 utiliza QUIC sobre UDP, habitualmente 443.",
+      "sections": [
+        {
+          "explanation": [
+            "Los puertos habituales ayudan a reconocer hipótesis: SSH suele usar TCP 22, HTTP TCP 80 y HTTPS frecuentemente TCP 443; HTTP/3 utiliza QUIC sobre UDP, habitualmente 443. El correo emplea servicios y puertos diferentes según envío, recepción y protección. DNS tradicional utiliza UDP y TCP 53. Estas convenciones no demuestran automáticamente qué contenido viaja ni qué nivel de autenticación o cifrado se ha establecido.",
+            "También debes distinguir un servicio escuchando de una comunicación permitida desde otra red. Un proceso puede escuchar solo en loopback o una interfaz concreta, y las reglas del equipo o la red pueden impedir acceso. El acceso remoto merece controles de identidad y alcance, no únicamente cambiar un puerto. Para esta lección analiza una tabla ficticia y consulta documentación. No necesitas ejecutar conexiones de prueba ni exploraciones sobre servicios externos para aprender a relacionar función, transporte y contexto."
+          ],
+          "analogy": "El número de una puerta sugiere un departamento, pero necesitas comprobar quién lo ocupa y si tienes permiso para entrar.",
+          "keyPoints": [
+            "SSH: Administración remota, normalmente TCP 22.",
+            "Web: HTTP suele usar TCP 80; HTTPS TCP 443.",
+            "HTTP/3: QUIC sobre UDP, habitualmente 443."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Convenciones sin garantías automáticas",
+            "items": [
+              {
+                "label": "SSH",
+                "detail": "Administración remota, normalmente TCP 22."
+              },
+              {
+                "label": "Web",
+                "detail": "HTTP suele usar TCP 80; HTTPS TCP 443."
+              },
+              {
+                "label": "HTTP/3",
+                "detail": "QUIC sobre UDP, habitualmente 443."
+              },
+              {
+                "label": "DNS",
+                "detail": "DNS tradicional admite UDP y TCP 53."
+              }
+            ],
+            "caption": "No necesitas ejecutar conexiones de prueba ni exploraciones sobre servicios externos para aprender a relacionar función, transporte y contexto."
+          },
+          "topic": "Web, SSH, correo, DNS y acceso remoto"
+        }
+      ],
+      "workedExample": {
+        "title": "443 no prueba una comunicación segura",
+        "scenario": "Una tabla ficticia muestra una conexión hacia el puerto remoto 443.",
+        "steps": [
+          {
+            "action": "Reconocer la convención",
+            "reason": "El número orienta una hipótesis de servicio.",
+            "result": "HTTPS es una posibilidad, no una prueba completa."
+          },
+          {
+            "action": "Verificar protocolo y protección",
+            "reason": "El puerto no demuestra un certificado válido.",
+            "result": "Se requiere información de TLS o del protocolo pertinente."
+          },
+          {
+            "action": "Añadir contexto de identidad",
+            "reason": "La conexión no identifica por sí sola al usuario.",
+            "result": "Se correlaciona con proceso, tiempo y destino autorizado."
+          }
+        ],
+        "result": "El puerto es una pista; la seguridad y el protocolo requieren evidencia adicional.",
+        "visual": {
+          "type": "flow",
+          "title": "443 no prueba una comunicación segura · secuencia",
+          "items": [
+            {
+              "label": "Reconocer la convención",
+              "detail": "HTTPS es una posibilidad, no una prueba completa."
+            },
+            {
+              "label": "Verificar protocolo y protección",
+              "detail": "Se requiere información de TLS o del protocolo pertinente."
+            },
+            {
+              "label": "Añadir contexto de identidad",
+              "detail": "Se correlaciona con proceso, tiempo y destino autorizado."
+            }
+          ],
+          "caption": "El puerto es una pista; la seguridad y el protocolo requieren evidencia adicional."
+        }
+      },
+      "practice": {
+        "task": "Construye una tabla de SSH, web, DNS y correo.",
+        "steps": [
+          "Anota una función y un transporte documentado.",
+          "Señala que existen variantes de configuración.",
+          "Explica qué no puedes concluir solo con el número."
+        ],
+        "expected": "Una tabla orientativa con límites explícitos de interpretación."
+      },
+      "check": {
+        "question": "¿DNS tradicional puede utilizar TCP?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Sí; no está limitado a UDP."
+          },
+          {
+            "id": "b",
+            "text": "No, TCP solo sirve para páginas web."
+          },
+          {
+            "id": "c",
+            "text": "Solo si no existe un servidor DNS."
+          }
+        ],
+        "correct": "a",
+        "explanation": "DNS tiene transporte UDP y TCP; reducirlo a un único protocolo conduce a diagnósticos y reglas incompletos."
+      },
+      "mistakes": [
+        {
+          "myth": "Puerto 443 garantiza que el destino es legítimo.",
+          "correction": "Debes verificar protocolo, identidad y contexto; el número no autentica al servidor."
+        }
+      ],
+      "recap": [
+        "SSH: Administración remota, normalmente TCP 22.",
+        "Web: HTTP suele usar TCP 80; HTTPS TCP 443.",
+        "HTTP/3: QUIC sobre UDP, habitualmente 443."
+      ],
+      "glossary": [
+        {
+          "term": "Servicio escuchando",
+          "definition": "Proceso preparado para recibir comunicaciones bajo ciertas condiciones."
+        },
+        {
+          "term": "Convención de puerto",
+          "definition": "Asignación habitual que orienta interpretación, sin garantizar el protocolo real."
+        }
+      ]
+    },
+    {
+      "dayId": "w13d5",
+      "title": "Conexiones locales",
+      "lead": "ss en Linux y Get-NetTCPConnection en Windows permiten consultar información local de sockets o conexiones, con diferencias de alcance y campos.",
+      "sections": [
+        {
+          "explanation": [
+            "ss en Linux y Get-NetTCPConnection en Windows permiten consultar información local de sockets o conexiones, con diferencias de alcance y campos. Antes de interpretar una fila revisa dirección local, puerto local, extremo remoto y estado. Escuchar no significa estar conectado a un cliente y una conexión establecida no significa que se haya completado una tarea de aplicación. El momento de consulta es importante porque el estado cambia.",
+            "La visibilidad de procesos y otros detalles puede depender de permisos y opciones. No eleves automáticamente para obtener más datos de los necesarios ni publiques direcciones privadas o nombres del entorno. Primero consulta la ayuda y utiliza una muestra reducida. Estas herramientas describen el equipo observado; no sustituyen una captura histórica ni demuestran todos los paquetes que circularon antes. Cuando no ves una conexión, pregunta si ya terminó, si usa otro transporte o si el filtro excluyó sus condiciones."
+          ],
+          "analogy": "Una lista de puertas abiertas y llamadas actuales muestra un momento, no todas las conversaciones que ocurrieron durante el día.",
+          "keyPoints": [
+            "Campos locales: Dirección y puerto del equipo observado.",
+            "Campos remotos: Extremo de la conversación, cuando corresponde.",
+            "Estado: Escucha, establecida u otra condición TCP."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Interpretación de una fila local",
+            "items": [
+              {
+                "label": "Campos locales",
+                "detail": "Dirección y puerto del equipo observado."
+              },
+              {
+                "label": "Campos remotos",
+                "detail": "Extremo de la conversación, cuando corresponde."
+              },
+              {
+                "label": "Estado",
+                "detail": "Escucha, establecida u otra condición TCP."
+              },
+              {
+                "label": "Contexto",
+                "detail": "Hora, herramienta, filtro y visibilidad."
+              }
+            ],
+            "caption": "Cuando no ves una conexión, pregunta si ya terminó, si usa otro transporte o si el filtro excluyó sus condiciones."
+          },
+          "topic": "ss o Get-NetTCPConnection"
+        }
+      ],
+      "workedExample": {
+        "title": "Una escucha en loopback",
+        "scenario": "Un caso escrito muestra un servicio TCP escuchando solo en 127.0.0.1.",
+        "steps": [
+          {
+            "action": "Interpretar la dirección local",
+            "reason": "Loopback limita el alcance indicado de esa escucha.",
+            "result": "La fila no anuncia por sí sola una escucha en la LAN."
+          },
+          {
+            "action": "Separar escucha y clientes",
+            "reason": "Preparación para recibir no equivale a actividad completada.",
+            "result": "Todavía no se demuestra una conexión de usuario."
+          },
+          {
+            "action": "Documentar la muestra",
+            "reason": "La consulta tiene momento y alcance.",
+            "result": "Se anotan herramienta, estado y hora."
+          }
+        ],
+        "result": "La observación describe una escucha local concreta y no una exposición global demostrada.",
+        "visual": {
+          "type": "flow",
+          "title": "Una escucha en loopback · secuencia",
+          "items": [
+            {
+              "label": "Interpretar la dirección local",
+              "detail": "La fila no anuncia por sí sola una escucha en la LAN."
+            },
+            {
+              "label": "Separar escucha y clientes",
+              "detail": "Todavía no se demuestra una conexión de usuario."
+            },
+            {
+              "label": "Documentar la muestra",
+              "detail": "Se anotan herramienta, estado y hora."
+            }
+          ],
+          "caption": "La observación describe una escucha local concreta y no una exposición global demostrada."
+        }
+      },
+      "practice": {
+        "task": "Interpreta una tabla ficticia con una escucha y una conexión establecida.",
+        "steps": [
+          "Etiqueta campos locales y remotos.",
+          "Explica los estados.",
+          "Añade una limitación temporal de la consulta."
+        ],
+        "expected": "Dos interpretaciones sin afirmar historial ni identidad humana completa.",
+        "console": {
+          "language": "powershell",
+          "code": "Get-NetTCPConnection -State Established | Select-Object LocalAddress, LocalPort, RemoteAddress, RemotePort, OwningProcess",
+          "output": "Cero o más conexiones TCP visibles en estado Established.",
+          "explanation": "Es una consulta local; protege direcciones y nombres al compartir resultados, y revisa requisitos del módulo en tu sistema."
+        }
+      },
+      "check": {
+        "question": "¿Una consulta local muestra necesariamente todas las conexiones del pasado?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Sí, conserva todo el historial."
+          },
+          {
+            "id": "b",
+            "text": "No; representa estados visibles en ese momento y alcance."
+          },
+          {
+            "id": "c",
+            "text": "Solo cuando hay un puerto 443."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Las conexiones pueden haber terminado y los filtros o permisos pueden limitar lo observado."
+      },
+      "mistakes": [
+        {
+          "myth": "Si una fila dice Listen, una persona ya utilizó el servicio.",
+          "correction": "La escucha indica disponibilidad para recibir bajo sus condiciones, no una sesión de aplicación completada."
+        }
+      ],
+      "recap": [
+        "Campos locales: Dirección y puerto del equipo observado.",
+        "Campos remotos: Extremo de la conversación, cuando corresponde.",
+        "Estado: Escucha, establecida u otra condición TCP."
+      ],
+      "glossary": [
+        {
+          "term": "Escucha",
+          "definition": "Estado de un servicio preparado para aceptar comunicaciones."
+        },
+        {
+          "term": "Estado TCP",
+          "definition": "Condición del contexto de transporte en un momento."
+        }
+      ]
+    },
+    {
+      "dayId": "w13d6",
+      "title": "Lectura de tráfico",
+      "lead": "Una observación de tráfico debe identificar origen, destino, transporte, puertos y tiempo.",
+      "sections": [
+        {
+          "explanation": [
+            "Una observación de tráfico debe identificar origen, destino, transporte, puertos y tiempo. El origen de un paquete no equivale siempre al iniciador original de la tarea: una respuesta invierte los extremos respecto de la solicitud. Tampoco una dirección observada demuestra directamente la identidad de una persona, especialmente con traducción de direcciones, intermediarios o equipos compartidos. La dirección y el punto de captura delimitan lo que puedes ver.",
+            "Lee conversaciones completas cuando el conjunto de práctica lo permita. Compara solicitudes y respuestas por campos y secuencia temporal, sin asumir que cada paquete contiene un mensaje completo de aplicación. El cifrado puede permitir observar metadatos y ocultar contenido; una captura incompleta puede omitir una etapa relevante. Distingue «no aparece en esta muestra» de «no ocurrió». Para comenzar utiliza una tabla ficticia con dos intercambios y escribe qué hipótesis apoya cada fila, evitando explorar o interceptar comunicaciones ajenas."
+          ],
+          "analogy": "Una fotografía de un tramo del viaje muestra quién pasa por allí, no necesariamente todo el origen y propósito del recorrido.",
+          "keyPoints": [
+            "Solicitud: Cliente hacia servicio en un momento.",
+            "Respuesta: Extremos invertidos y contexto relacionado.",
+            "Correlación: Transportes, puertos y secuencia coherentes."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Leer un intercambio con contexto",
+            "items": [
+              {
+                "label": "Solicitud",
+                "detail": "Cliente hacia servicio en un momento."
+              },
+              {
+                "label": "Respuesta",
+                "detail": "Extremos invertidos y contexto relacionado."
+              },
+              {
+                "label": "Correlación",
+                "detail": "Transportes, puertos y secuencia coherentes."
+              },
+              {
+                "label": "Límite",
+                "detail": "Captura parcial o cifrado restringen conclusiones."
+              }
+            ],
+            "caption": "Para comenzar utiliza una tabla ficticia con dos intercambios y escribe qué hipótesis apoya cada fila, evitando explorar o interceptar comunicaciones ajenas."
+          },
+          "topic": "Origen, destino, puerto y contexto"
+        }
+      ],
+      "workedExample": {
+        "title": "Solicitud y respuesta TCP ficticias",
+        "scenario": "La tabla presenta cliente:51000 hacia servidor:443 y luego servidor:443 hacia cliente:51000.",
+        "steps": [
+          {
+            "action": "Comparar los extremos",
+            "reason": "La inversión es compatible con una respuesta.",
+            "result": "Direcciones y puertos se corresponden."
+          },
+          {
+            "action": "Revisar transporte y tiempo",
+            "reason": "Las filas deben pertenecer al contexto adecuado.",
+            "result": "Ambas son TCP y próximas en la secuencia."
+          },
+          {
+            "action": "Limitar el contenido inferido",
+            "reason": "Puerto y tamaño no revelan todo el mensaje.",
+            "result": "Se describe un intercambio compatible, sin inventar credenciales ni páginas."
+          }
+        ],
+        "result": "La correlación apoya una conversación, pero no demuestra su contenido ni legitimidad completa.",
+        "visual": {
+          "type": "flow",
+          "title": "Solicitud y respuesta TCP ficticias · secuencia",
+          "items": [
+            {
+              "label": "Comparar los extremos",
+              "detail": "Direcciones y puertos se corresponden."
+            },
+            {
+              "label": "Revisar transporte y tiempo",
+              "detail": "Ambas son TCP y próximas en la secuencia."
+            },
+            {
+              "label": "Limitar el contenido inferido",
+              "detail": "Se describe un intercambio compatible, sin inventar credenciales ni páginas."
+            }
+          ],
+          "caption": "La correlación apoya una conversación, pero no demuestra su contenido ni legitimidad completa."
+        }
+      },
+      "practice": {
+        "task": "Interpreta tres filas ficticias: solicitud, respuesta y otra conversación.",
+        "steps": [
+          "Agrupa mediante extremos y transporte.",
+          "Añade hora o secuencia.",
+          "Escribe una conclusión y una incertidumbre."
+        ],
+        "expected": "Agrupación coherente con límites declarados."
+      },
+      "check": {
+        "question": "Una captura cifrada siempre revela la contraseña transmitida.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Sí, porque tiene puertos."
+          },
+          {
+            "id": "b",
+            "text": "Solo si el origen es privado."
+          },
+          {
+            "id": "c",
+            "text": "No; puede mostrar metadatos sin permitir leer el contenido protegido."
+          }
+        ],
+        "correct": "c",
+        "explanation": "Observar una comunicación y poder interpretar su contenido son capacidades diferentes según cifrado y contexto."
+      },
+      "mistakes": [
+        {
+          "myth": "Una IP y un puerto bastan para demostrar intención maliciosa.",
+          "correction": "La valoración necesita comportamiento, contexto y fuentes adicionales que sustenten la conclusión."
+        }
+      ],
+      "recap": [
+        "Solicitud: Cliente hacia servicio en un momento.",
+        "Respuesta: Extremos invertidos y contexto relacionado.",
+        "Correlación: Transportes, puertos y secuencia coherentes."
+      ],
+      "glossary": [
+        {
+          "term": "Metadatos",
+          "definition": "Información sobre una comunicación, distinta de su contenido completo."
+        },
+        {
+          "term": "Punto de captura",
+          "definition": "Lugar desde el que se observa tráfico y que limita su visibilidad."
+        }
+      ]
+    },
+    {
+      "dayId": "w13d7",
+      "title": "Evaluación de transporte",
+      "lead": "Elegir e interpretar un transporte requiere relacionar necesidades de la aplicación con las funciones disponibles.",
+      "sections": [
+        {
+          "explanation": [
+            "Elegir e interpretar un transporte requiere relacionar necesidades de la aplicación con las funciones disponibles. TCP aporta un flujo de bytes ordenado con mecanismos de fiabilidad, pero no cifrado por sí solo. UDP conserva datagramas sin garantizar entrega u orden, aunque protocolos superiores pueden añadir esas funciones. El número de puerto orienta sobre convenciones y no prueba la identidad, la seguridad o el contenido del servicio.",
+            "En un caso acumulativo describe qué datos tienes y qué falta. Una conexión establecida puede transportar un error; una salida vacía puede deberse al filtro; una consulta DNS puede necesitar TCP además de UDP. No conviertas reglas memorizadas en absolutos. Justifica la selección según pérdidas aceptables, demora, recuperación y protección. Al presentar evidencia, conserva extremos, transporte, tiempo y punto de observación. Una conclusión limitada y reproducible es más útil que afirmar el protocolo o la intención basándote únicamente en un número habitual."
+          ],
+          "analogy": "Elegir un método de envío exige considerar contenido, entrega, tiempo y protección, no solo el precio de la etiqueta.",
+          "keyPoints": [
+            "Entrega: ¿La aplicación necesita orden y recuperación?",
+            "Tiempo: ¿Qué demora o variación puede tolerar?",
+            "Protección: ¿Dónde se aportan cifrado y autenticación?"
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Preguntas para seleccionar e interpretar",
+            "items": [
+              {
+                "label": "Entrega",
+                "detail": "¿La aplicación necesita orden y recuperación?"
+              },
+              {
+                "label": "Tiempo",
+                "detail": "¿Qué demora o variación puede tolerar?"
+              },
+              {
+                "label": "Protección",
+                "detail": "¿Dónde se aportan cifrado y autenticación?"
+              },
+              {
+                "label": "Evidencia",
+                "detail": "¿Qué campos y fuentes sustentan la interpretación?"
+              }
+            ],
+            "caption": "Una conclusión limitada y reproducible es más útil que afirmar el protocolo o la intención basándote únicamente en un número habitual."
+          },
+          "topic": "Selección de protocolos"
+        }
+      ],
+      "workedExample": {
+        "title": "DNS funciona por UDP, pero falla una prueba TCP",
+        "scenario": "Un caso de laboratorio permite consultas UDP 53 y bloquea el transporte TCP correspondiente.",
+        "steps": [
+          {
+            "action": "Reconocer ambos transportes",
+            "reason": "DNS no se limita a una sola opción.",
+            "result": "La regla deja una capacidad incompleta."
+          },
+          {
+            "action": "Separar un éxito parcial",
+            "reason": "Una respuesta UDP no acredita todos los casos.",
+            "result": "El resultado depende de la consulta y sus condiciones."
+          },
+          {
+            "action": "Proponer una validación autorizada",
+            "reason": "La corrección debe probar el comportamiento requerido.",
+            "result": "Se revisa la política y se comprueban ambos transportes en el laboratorio."
+          }
+        ],
+        "result": "Un servicio puede funcionar parcialmente y seguir teniendo una regla incompleta.",
+        "visual": {
+          "type": "flow",
+          "title": "DNS funciona por UDP, pero falla una prueba TCP · secuencia",
+          "items": [
+            {
+              "label": "Reconocer ambos transportes",
+              "detail": "La regla deja una capacidad incompleta."
+            },
+            {
+              "label": "Separar un éxito parcial",
+              "detail": "El resultado depende de la consulta y sus condiciones."
+            },
+            {
+              "label": "Proponer una validación autorizada",
+              "detail": "Se revisa la política y se comprueban ambos transportes en el laboratorio."
+            }
+          ],
+          "caption": "Un servicio puede funcionar parcialmente y seguir teniendo una regla incompleta."
+        }
+      },
+      "practice": {
+        "task": "Compara una copia de archivo, una llamada y una consulta DNS.",
+        "steps": [
+          "Define requisitos de entrega y tiempo.",
+          "Indica qué parte corresponde al transporte o aplicación.",
+          "Explica una conclusión que no permite el puerto por sí solo."
+        ],
+        "expected": "Tres razonamientos contextualizados sin reglas absolutas de rápido, seguro o permitido."
+      },
+      "check": {
+        "question": "¿Qué razonamiento es correcto?",
+        "options": [
+          {
+            "id": "a",
+            "text": "UDP nunca puede usar cifrado."
+          },
+          {
+            "id": "b",
+            "text": "La aplicación puede añadir funciones y la selección depende de sus requisitos."
+          },
+          {
+            "id": "c",
+            "text": "TCP garantiza que cualquier usuario esté autorizado."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Las propiedades de transporte se combinan con mecanismos de aplicación y políticas, que deben evaluarse por separado."
+      },
+      "mistakes": [
+        {
+          "myth": "Memorizar puertos sustituye entender conversaciones.",
+          "correction": "Los puertos son campos orientativos; necesitas transporte, extremos, tiempo y contexto para interpretar una comunicación."
+        }
+      ],
+      "recap": [
+        "Entrega: ¿La aplicación necesita orden y recuperación?",
+        "Tiempo: ¿Qué demora o variación puede tolerar?",
+        "Protección: ¿Dónde se aportan cifrado y autenticación?"
+      ],
+      "glossary": [
+        {
+          "term": "Fiabilidad de transporte",
+          "definition": "Mecanismos para gestionar entrega y orden en el ámbito del protocolo."
+        },
+        {
+          "term": "Éxito de aplicación",
+          "definition": "Cumplimiento de la tarea solicitada según su propio resultado."
+        }
+      ]
+    }
+  ]
+}

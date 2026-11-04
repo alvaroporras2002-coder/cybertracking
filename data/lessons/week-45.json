@@ -1,0 +1,939 @@
+{
+  "version": "2.0.0",
+  "week": 45,
+  "title": "Investigación de red",
+  "overview": "Investigarás tráfico desde su punto de observación hasta una conclusión revisable. Primero delimitarás interfaces, intervalos y calidad de captura; después aprenderás a seleccionar paquetes y conversaciones sin perder contexto. Los ejemplos separan DNS, transporte y contenido de aplicación, incluyendo lo que el cifrado impide afirmar. Practicarás medidas de volumen, periodicidad y correlación con endpoint. El cierre de la semana consiste en un informe que otra persona pueda reproducir y que distinga claramente hechos, hipótesis y visibilidad ausente.",
+  "objectives": [
+    "Delimitar una captura y construir filtros de lectura reproducibles.",
+    "Interpretar protocolos y patrones sin inferir contenido o identidad injustificadamente.",
+    "Correlacionar red y endpoint con tiempos y campos compatibles."
+  ],
+  "sources": [
+    {
+      "id": "wireshark",
+      "title": "Wireshark: trabajo con paquetes capturados",
+      "url": "https://www.wireshark.org/docs/wsug_html_chunked/ChapterWork.html"
+    },
+    {
+      "id": "nist86",
+      "title": "NIST SP 800-86: técnicas forenses en respuesta a incidentes",
+      "url": "https://csrc.nist.gov/pubs/sp/800/86/final"
+    },
+    {
+      "id": "nist61",
+      "title": "NIST SP 800-61r3: respuesta y gestión del riesgo",
+      "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w45d1",
+      "title": "Orientación de la captura",
+      "lead": "Antes de buscar una anomalía debes saber qué parte de la red representa la captura.",
+      "sections": [
+        {
+          "topic": "Interfaces, tiempo y alcance",
+          "explanation": [
+            "Una captura contiene paquetes observados desde una interfaz y durante un intervalo. Esa posición determina qué comunicaciones son visibles: un equipo no ve necesariamente el tráfico de toda la organización. Identifica origen del archivo, interfaces, comienzo, final y condiciones de captura. Si hubo filtros de adquisición o paquetes perdidos, anótalos. El nombre captura-completa no demuestra cobertura completa; el alcance debe justificarse con el método y los metadatos disponibles.",
+            "Compara la referencia temporal de la captura con la de otras fuentes y comprueba si los paquetes aparecen truncados. Una longitud capturada menor que la longitud original puede limitar el análisis de contenido. Diferencia tráfico no observado de tráfico que se sabe que no ocurrió dentro de una cobertura adecuada. Para practicar utiliza PCAP didácticos o tráfico propio autorizado. Abrir un archivo de captura en un analizador actualizado permite examinar datos sin visitar los destinos que aparecen en sus paquetes."
+          ],
+          "analogy": "Una cámara que mira una puerta no puede demostrar qué ocurrió en todas las ventanas del edificio.",
+          "keyPoints": [
+            "Posición: La interfaz y el punto de captura definen visibilidad.",
+            "Intervalo: Inicio y final delimitan el periodo observado.",
+            "Calidad: Pérdidas, truncamiento y filtros limitan las conclusiones."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Orientación de la captura",
+            "items": [
+              {
+                "label": "Posición",
+                "detail": "La interfaz y el punto de captura definen visibilidad."
+              },
+              {
+                "label": "Intervalo",
+                "detail": "Inicio y final delimitan el periodo observado."
+              },
+              {
+                "label": "Calidad",
+                "detail": "Pérdidas, truncamiento y filtros limitan las conclusiones."
+              }
+            ],
+            "caption": "Antes de buscar una anomalía debes saber qué parte de la red representa la captura."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "La captura de un solo equipo",
+        "scenario": "Un PCAP ficticio proviene de PC-A durante diez minutos y no contiene tráfico de PC-B.",
+        "steps": [
+          {
+            "action": "Verificar origen",
+            "reason": "La posición explica qué puede verse.",
+            "result": "La interfaz pertenece a PC-A."
+          },
+          {
+            "action": "Definir cobertura",
+            "reason": "No toda la red está representada.",
+            "result": "Solo se conoce el tráfico observado desde esa posición."
+          },
+          {
+            "action": "Limitar ausencia",
+            "reason": "Evita inferencias sobre equipos no cubiertos.",
+            "result": "No se concluye que PC-B estuviera inactivo."
+          }
+        ],
+        "result": "La ausencia de PC-B no informa sobre toda su actividad.",
+        "visual": {
+          "type": "timeline",
+          "title": "La captura de un solo equipo",
+          "items": [
+            {
+              "label": "Verificar origen",
+              "detail": "La interfaz pertenece a PC-A."
+            },
+            {
+              "label": "Definir cobertura",
+              "detail": "Solo se conoce el tráfico observado desde esa posición."
+            },
+            {
+              "label": "Limitar ausencia",
+              "detail": "No se concluye que PC-B estuviera inactivo."
+            }
+          ],
+          "caption": "La ausencia de PC-B no informa sobre toda su actividad."
+        }
+      },
+      "practice": {
+        "task": "Prepara una ficha de orientación para una captura didáctica.",
+        "steps": [
+          "Anota posición e intervalo.",
+          "Comprueba si hay truncamiento o pérdidas documentadas.",
+          "Escribe una pregunta que la cobertura no pueda responder."
+        ],
+        "expected": "Una ficha que delimita el análisis antes de aplicar filtros."
+      },
+      "check": {
+        "question": "¿Qué determina principalmente la visibilidad de una captura?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Su nombre de archivo."
+          },
+          {
+            "id": "b",
+            "text": "Su punto de observación y condiciones de adquisición."
+          },
+          {
+            "id": "c",
+            "text": "El color de los paquetes."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La posición, el intervalo y las condiciones de captura limitan qué tráfico puede observarse."
+      },
+      "mistakes": [
+        {
+          "myth": "Un PCAP sin un equipo demuestra que ese equipo no se comunicó.",
+          "correction": "Puede haber quedado fuera del punto, intervalo o filtro de captura."
+        }
+      ],
+      "recap": [
+        "Posición: La interfaz y el punto de captura definen visibilidad.",
+        "Intervalo: Inicio y final delimitan el periodo observado.",
+        "Calidad: Pérdidas, truncamiento y filtros limitan las conclusiones."
+      ],
+      "glossary": [
+        {
+          "term": "PCAP",
+          "definition": "Archivo que conserva paquetes capturados y metadatos asociados."
+        },
+        {
+          "term": "Truncamiento",
+          "definition": "Conservación de solo una parte de los bytes de un paquete."
+        }
+      ]
+    },
+    {
+      "dayId": "w45d2",
+      "title": "Filtros",
+      "lead": "Los filtros de visualización seleccionan qué miras sin cambiar el archivo original.",
+      "sections": [
+        {
+          "topic": "Protocolos, equipos y conversaciones",
+          "explanation": [
+            "En Wireshark un filtro de visualización actúa sobre paquetes ya capturados; un filtro de captura se aplica durante la adquisición y puede impedir que otros paquetes se guarden. Esta diferencia importa cuando revisas una ausencia. Puedes retirar un filtro de visualización para recuperar el contexto del archivo, pero no recuperar con él datos que nunca se capturaron. Usa campos documentados y prueba una condición sencilla antes de combinar varios criterios.",
+            "Filtra por protocolo, dirección o puerto según la pregunta, y conserva una vista amplia de referencia. Una conversación agrupa comunicaciones relacionadas, pero un puerto por sí solo no garantiza qué aplicación o persona produjo el tráfico. Después de aislar un flujo revisa sus paquetes iniciales y finales: un filtro demasiado estrecho podría ocultar consultas DNS, respuestas o errores relevantes. En el informe guarda la expresión exacta, el número de paquetes resultante y el alcance temporal utilizado para que otra persona pueda repetir la selección."
+          ],
+          "analogy": "Un filtro de visualización es una lupa sobre la fotografía; un filtro de captura decide qué entra en la fotografía.",
+          "keyPoints": [
+            "Adquisición: El filtro de captura condiciona lo que se guarda.",
+            "Visualización: Selecciona paquetes existentes y puede retirarse.",
+            "Contexto: Las conversaciones requieren revisar ambos sentidos e intervalo."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Filtros",
+            "items": [
+              {
+                "label": "Adquisición",
+                "detail": "El filtro de captura condiciona lo que se guarda."
+              },
+              {
+                "label": "Visualización",
+                "detail": "Selecciona paquetes existentes y puede retirarse."
+              },
+              {
+                "label": "Contexto",
+                "detail": "Las conversaciones requieren revisar ambos sentidos e intervalo."
+              }
+            ],
+            "caption": "Los filtros de visualización seleccionan qué miras sin cambiar el archivo original."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Filtrar HTTPS de un equipo",
+        "scenario": "Un archivo ficticio contiene DNS y TCP; se desea revisar tráfico de 192.0.2.10 al puerto 443.",
+        "steps": [
+          {
+            "action": "Seleccionar equipo",
+            "reason": "Evita mezclar endpoints.",
+            "result": "Se aplica ip.addr == 192.0.2.10."
+          },
+          {
+            "action": "Añadir servicio",
+            "reason": "Delimita la pregunta del ejercicio.",
+            "result": "Se combina con tcp.port == 443."
+          },
+          {
+            "action": "Volver al contexto",
+            "reason": "DNS puede explicar destinos.",
+            "result": "Se retira el filtro y se revisan consultas previas relacionadas."
+          }
+        ],
+        "result": "El flujo seleccionado se interpreta dentro de la captura completa disponible.",
+        "visual": {
+          "type": "timeline",
+          "title": "Filtrar HTTPS de un equipo",
+          "items": [
+            {
+              "label": "Seleccionar equipo",
+              "detail": "Se aplica ip.addr == 192.0.2.10."
+            },
+            {
+              "label": "Añadir servicio",
+              "detail": "Se combina con tcp.port == 443."
+            },
+            {
+              "label": "Volver al contexto",
+              "detail": "Se retira el filtro y se revisan consultas previas relacionadas."
+            }
+          ],
+          "caption": "El flujo seleccionado se interpreta dentro de la captura completa disponible."
+        }
+      },
+      "practice": {
+        "task": "Escribe dos filtros de visualización para una captura didáctica.",
+        "steps": [
+          "Selecciona un equipo de documentación.",
+          "Añade una condición de protocolo o puerto.",
+          "Explica qué contexto quedaría oculto al aplicarlo."
+        ],
+        "expected": "Dos expresiones y una nota sobre exclusiones.",
+        "console": {
+          "language": "wireshark",
+          "code": "ip.addr == 192.0.2.10 && tcp.port == 443",
+          "output": "Paquetes disponibles del equipo de documentación relacionados con TCP443.",
+          "explanation": "Filtro de visualización de lectura; no establece conexiones ni descifra TLS."
+        }
+      },
+      "check": {
+        "question": "¿Qué puede recuperarse al retirar un filtro de visualización?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Paquetes presentes en el archivo que estaban ocultos."
+          },
+          {
+            "id": "b",
+            "text": "Paquetes que nunca se capturaron."
+          },
+          {
+            "id": "c",
+            "text": "Todo el tráfico cifrado en texto claro."
+          }
+        ],
+        "correct": "a",
+        "explanation": "El filtro de visualización no borra paquetes del archivo, pero tampoco crea datos ausentes."
+      },
+      "mistakes": [
+        {
+          "myth": "El puerto determina con certeza la aplicación y el usuario.",
+          "correction": "El puerto orienta; identidad y uso requieren contexto adicional."
+        }
+      ],
+      "recap": [
+        "Adquisición: El filtro de captura condiciona lo que se guarda.",
+        "Visualización: Selecciona paquetes existentes y puede retirarse.",
+        "Contexto: Las conversaciones requieren revisar ambos sentidos e intervalo."
+      ],
+      "glossary": [
+        {
+          "term": "Filtro de captura",
+          "definition": "Condición aplicada a la adquisición de paquetes."
+        },
+        {
+          "term": "Filtro de visualización",
+          "definition": "Condición que selecciona paquetes ya disponibles."
+        }
+      ]
+    },
+    {
+      "dayId": "w45d3",
+      "title": "DNS y web",
+      "lead": "DNS, HTTP y TLS muestran capas diferentes de la comunicación.",
+      "sections": [
+        {
+          "topic": "Consultas, respuestas y metadatos",
+          "explanation": [
+            "DNS permite observar preguntas y respuestas sobre nombres dentro de la cobertura disponible. Una consulta indica que un cliente o intermediario pidió información; no demuestra que después se estableciera una conexión. En HTTP sin cifrado pueden verse métodos, rutas y respuestas si los bytes fueron capturados. Con HTTPS el contenido de aplicación queda protegido por TLS en condiciones normales; la captura puede conservar metadatos de red y parte del establecimiento, según protocolo y configuración.",
+            "No traduzcas automáticamente una respuesta DNS en visita humana ni una conexión TCP en descarga completa. Compara tiempos, direcciones y resultados. Algunos datos de nombres pueden estar cifrados o no aparecer por caché, por lo que su ausencia necesita contexto. Un certificado o un nombre observado tampoco garantiza que un servicio sea benigno. Formula una secuencia pequeña: se resolvió un nombre, se intentó una conexión y se observaron determinados bytes, dejando fuera las acciones que las fuentes no permiten demostrar."
+          ],
+          "analogy": "Ver la dirección del sobre y el peso del paquete no permite leer la carta que viaja dentro.",
+          "keyPoints": [
+            "DNS: Observa resolución de nombres cuando está visible.",
+            "Transporte: Muestra extremos, puertos y resultados de conexión.",
+            "Aplicación: Su contenido puede estar cifrado o fuera de captura."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "DNS y web",
+            "items": [
+              {
+                "label": "DNS",
+                "detail": "Observa resolución de nombres cuando está visible."
+              },
+              {
+                "label": "Transporte",
+                "detail": "Muestra extremos, puertos y resultados de conexión."
+              },
+              {
+                "label": "Aplicación",
+                "detail": "Su contenido puede estar cifrado o fuera de captura."
+              }
+            ],
+            "caption": "DNS, HTTP y TLS muestran capas diferentes de la comunicación."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Consulta sin conexión",
+        "scenario": "Un PCAP ficticio contiene respuesta DNS de portal-lab.test, pero termina antes del siguiente minuto.",
+        "steps": [
+          {
+            "action": "Describir DNS",
+            "reason": "Mantiene el hecho exacto.",
+            "result": "Se observa una respuesta con 203.0.113.30."
+          },
+          {
+            "action": "Buscar transporte",
+            "reason": "La conexión es otra acción.",
+            "result": "No aparece un flujo posterior dentro del archivo."
+          },
+          {
+            "action": "Revisar intervalo",
+            "reason": "La captura termina pronto.",
+            "result": "No se afirma que nunca hubiera conexión después."
+          }
+        ],
+        "result": "La evidencia sostiene resolución durante el intervalo, no visita ni ausencia histórica de conexión.",
+        "visual": {
+          "type": "timeline",
+          "title": "Consulta sin conexión",
+          "items": [
+            {
+              "label": "Describir DNS",
+              "detail": "Se observa una respuesta con 203.0.113.30."
+            },
+            {
+              "label": "Buscar transporte",
+              "detail": "No aparece un flujo posterior dentro del archivo."
+            },
+            {
+              "label": "Revisar intervalo",
+              "detail": "No se afirma que nunca hubiera conexión después."
+            }
+          ],
+          "caption": "La evidencia sostiene resolución durante el intervalo, no visita ni ausencia histórica de conexión."
+        }
+      },
+      "practice": {
+        "task": "Clasifica cinco afirmaciones según DNS, transporte o aplicación.",
+        "steps": [
+          "Separa consulta de conexión.",
+          "Marca qué contenido requeriría visibilidad de aplicación.",
+          "Añade un límite relacionado con cifrado o intervalo."
+        ],
+        "expected": "Una tabla de afirmaciones y capas de evidencia."
+      },
+      "check": {
+        "question": "¿Qué demuestra una consulta DNS por sí sola?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que una persona leyó la página."
+          },
+          {
+            "id": "b",
+            "text": "Que el archivo se ejecutó."
+          },
+          {
+            "id": "c",
+            "text": "Que se realizó una solicitud de resolución observada."
+          }
+        ],
+        "correct": "c",
+        "explanation": "Resolver un nombre es distinto de conectarse, transferir contenido o ejecutarlo."
+      },
+      "mistakes": [
+        {
+          "myth": "HTTPS impide observar cualquier metadato de red.",
+          "correction": "El cifrado protege contenido, pero la visibilidad de extremos, tamaños y tiempos depende del contexto."
+        }
+      ],
+      "recap": [
+        "DNS: Observa resolución de nombres cuando está visible.",
+        "Transporte: Muestra extremos, puertos y resultados de conexión.",
+        "Aplicación: Su contenido puede estar cifrado o fuera de captura."
+      ],
+      "glossary": [
+        {
+          "term": "Metadato",
+          "definition": "Información sobre la comunicación, distinta de su contenido completo."
+        },
+        {
+          "term": "Resolución",
+          "definition": "Obtención de información asociada a un nombre."
+        }
+      ]
+    },
+    {
+      "dayId": "w45d4",
+      "title": "Patrones",
+      "lead": "Un patrón anómalo necesita una referencia y una explicación alternativa.",
+      "sections": [
+        {
+          "topic": "Volumen, periodicidad y anomalías",
+          "explanation": [
+            "Volumen, periodicidad y dirección de tráfico permiten describir patrones. Para llamarlos anómalos necesitas una referencia comparable: mismo equipo o función, intervalos semejantes y condiciones conocidas. Una copia de seguridad puede generar mucho tráfico y un servicio de supervisión conexiones periódicas. El patrón es un motivo para investigar, no un veredicto. Define la unidad observada, como bytes por minuto o número de conexiones, antes de comparar equipos de capacidades y funciones diferentes.",
+            "Examina también cuánto del patrón podría deberse a la captura: paquetes duplicados, pérdida de un sentido o una ventana demasiado corta pueden distorsionar el resumen. Una periodicidad aproximada puede variar por planificación o retraso, así que evita declarar exactitud sin medirla. Relaciona los extremos con inventario y tareas autorizadas, y busca actividad del endpoint cuando sea necesaria. La conclusión debería explicar qué es inusual respecto de la referencia, qué alternativas consideraste y qué dato ayudaría a distinguirlas."
+          ],
+          "analogy": "Una fila larga frente a una tienda puede indicar una oferta, no necesariamente un problema: necesitas saber qué es habitual allí.",
+          "keyPoints": [
+            "Medida: Bytes, conexiones e intervalos son unidades distintas.",
+            "Referencia: Compara equipos y ventanas equivalentes.",
+            "Hipótesis: Contrasta tarea legítima y comportamiento inesperado."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Patrones",
+            "items": [
+              {
+                "label": "Medida",
+                "detail": "Bytes, conexiones e intervalos son unidades distintas."
+              },
+              {
+                "label": "Referencia",
+                "detail": "Compara equipos y ventanas equivalentes."
+              },
+              {
+                "label": "Hipótesis",
+                "detail": "Contrasta tarea legítima y comportamiento inesperado."
+              }
+            ],
+            "caption": "Un patrón anómalo necesita una referencia y una explicación alternativa."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Conexiones cada cinco minutos",
+        "scenario": "Un equipo ficticio contacta al mismo destino a intervalos regulares.",
+        "steps": [
+          {
+            "action": "Medir intervalos",
+            "reason": "Evita depender de impresión visual.",
+            "result": "Se observan intervalos cercanos a cinco minutos."
+          },
+          {
+            "action": "Revisar función",
+            "reason": "La periodicidad puede ser esperada.",
+            "result": "El inventario describe un agente de supervisión."
+          },
+          {
+            "action": "Contrastar destino",
+            "reason": "Confirma que el comportamiento corresponda.",
+            "result": "La configuración autorizada identifica el mismo destino y servicio."
+          }
+        ],
+        "result": "El patrón se explica como supervisión esperada dentro del caso.",
+        "visual": {
+          "type": "timeline",
+          "title": "Conexiones cada cinco minutos",
+          "items": [
+            {
+              "label": "Medir intervalos",
+              "detail": "Se observan intervalos cercanos a cinco minutos."
+            },
+            {
+              "label": "Revisar función",
+              "detail": "El inventario describe un agente de supervisión."
+            },
+            {
+              "label": "Contrastar destino",
+              "detail": "La configuración autorizada identifica el mismo destino y servicio."
+            }
+          ],
+          "caption": "El patrón se explica como supervisión esperada dentro del caso."
+        }
+      },
+      "practice": {
+        "task": "Describe una serie ficticia de bytes por minuto sin etiquetarla primero.",
+        "steps": [
+          "Define unidad e intervalo.",
+          "Propón una referencia comparable.",
+          "Escribe dos explicaciones y una comprobación que las diferencie."
+        ],
+        "expected": "Una descripción medible y un plan para interpretar la anomalía."
+      },
+      "check": {
+        "question": "¿Qué convierte un volumen alto en una anomalía útil de investigar?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Su diferencia frente a una referencia comparable y el contexto."
+          },
+          {
+            "id": "b",
+            "text": "Que el gráfico sea rojo."
+          },
+          {
+            "id": "c",
+            "text": "Que use un puerto conocido."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La referencia y la función permiten distinguir volumen esperado de un cambio relevante."
+      },
+      "mistakes": [
+        {
+          "myth": "Toda conexión periódica es una señal de control malicioso.",
+          "correction": "Monitoreo, actualizaciones y tareas planificadas también producen periodicidad."
+        }
+      ],
+      "recap": [
+        "Medida: Bytes, conexiones e intervalos son unidades distintas.",
+        "Referencia: Compara equipos y ventanas equivalentes.",
+        "Hipótesis: Contrasta tarea legítima y comportamiento inesperado."
+      ],
+      "glossary": [
+        {
+          "term": "Línea base",
+          "definition": "Referencia de comportamiento comparable."
+        },
+        {
+          "term": "Periodicidad",
+          "definition": "Repetición de una actividad con ciertos intervalos."
+        }
+      ]
+    },
+    {
+      "dayId": "w45d5",
+      "title": "Correlación",
+      "lead": "La red muestra comunicaciones; el endpoint ayuda a explicar qué proceso las originó.",
+      "sections": [
+        {
+          "topic": "Red, endpoint y registros",
+          "explanation": [
+            "Una captura puede mostrar una conexión entre extremos, mientras que el registro del equipo puede asociarla a un proceso o usuario. Para correlacionarlos necesitas tiempos compatibles y campos suficientes: equipo, direcciones, puertos y, si existe, identificador de conexión. No unas datos solo por compartir destino. Varias aplicaciones pueden hablar con el mismo servicio y un intermediario puede concentrar tráfico de muchos usuarios. La relación debe explicar qué observación conecta realmente ambos lados.",
+            "La normalización temporal es necesaria, pero también debes valorar precisión y desfase de cada reloj. Una diferencia de segundos podría ser normal o impedir una unión segura, según la resolución disponible. Conserva la dirección de la comunicación y el papel de NAT, proxy o balanceador cuando existan. Si no puedes asociar un proceso, la conexión sigue siendo un hecho válido, pero su atribución al software queda pendiente. Comunica ese límite en vez de escoger el proceso que parece más sospechoso."
+          ],
+          "analogy": "Ver un coche salir del edificio y ver una persona en el vestíbulo no demuestra que esa persona lo condujera.",
+          "keyPoints": [
+            "Red: Extremos, puertos y tiempos del flujo observado.",
+            "Endpoint: Proceso y cuenta según telemetría disponible.",
+            "Enlace: Campos y relojes compatibles justifican la relación."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Correlación",
+            "items": [
+              {
+                "label": "Red",
+                "detail": "Extremos, puertos y tiempos del flujo observado."
+              },
+              {
+                "label": "Endpoint",
+                "detail": "Proceso y cuenta según telemetría disponible."
+              },
+              {
+                "label": "Enlace",
+                "detail": "Campos y relojes compatibles justifican la relación."
+              }
+            ],
+            "caption": "La red muestra comunicaciones; el endpoint ayuda a explicar qué proceso las originó."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Una conexión atribuida con soporte",
+        "scenario": "Un caso ficticio registra TCP hacia 203.0.113.40 y telemetría del equipo con la misma tupla y momento.",
+        "steps": [
+          {
+            "action": "Comparar tuplas",
+            "reason": "Reduce coincidencias casuales.",
+            "result": "Coinciden origen, destino y puertos."
+          },
+          {
+            "action": "Alinear tiempos",
+            "reason": "Valida el intervalo de la relación.",
+            "result": "Ambas fuentes usan UTC con desfase conocido mínimo."
+          },
+          {
+            "action": "Asociar proceso",
+            "reason": "La fuente aporta el enlace concreto.",
+            "result": "La telemetría identifica cliente-lab.exe para esa conexión."
+          }
+        ],
+        "result": "La atribución se sostiene por campos coincidentes y telemetría, no por intuición.",
+        "visual": {
+          "type": "timeline",
+          "title": "Una conexión atribuida con soporte",
+          "items": [
+            {
+              "label": "Comparar tuplas",
+              "detail": "Coinciden origen, destino y puertos."
+            },
+            {
+              "label": "Alinear tiempos",
+              "detail": "Ambas fuentes usan UTC con desfase conocido mínimo."
+            },
+            {
+              "label": "Asociar proceso",
+              "detail": "La telemetría identifica cliente-lab.exe para esa conexión."
+            }
+          ],
+          "caption": "La atribución se sostiene por campos coincidentes y telemetría, no por intuición."
+        }
+      },
+      "practice": {
+        "task": "Relaciona dos flujos y dos procesos ficticios.",
+        "steps": [
+          "Incluye puertos y momentos.",
+          "Haz que una relación quede ambigua.",
+          "Explica qué campo adicional pedirías para resolverla."
+        ],
+        "expected": "Una correlación confirmada y otra marcada como pendiente."
+      },
+      "check": {
+        "question": "¿Qué fortalece la unión entre un flujo y un proceso?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo un destino común."
+          },
+          {
+            "id": "b",
+            "text": "Tupla, tiempos compatibles y telemetría que los relacione."
+          },
+          {
+            "id": "c",
+            "text": "Un nombre de proceso conocido."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La combinación de campos y una fuente de endpoint aporta un vínculo más específico."
+      },
+      "mistakes": [
+        {
+          "myth": "Si no sé el proceso, la captura no aporta nada.",
+          "correction": "Puede demostrar la comunicación observada aunque la atribución al proceso siga pendiente."
+        }
+      ],
+      "recap": [
+        "Red: Extremos, puertos y tiempos del flujo observado.",
+        "Endpoint: Proceso y cuenta según telemetría disponible.",
+        "Enlace: Campos y relojes compatibles justifican la relación."
+      ],
+      "glossary": [
+        {
+          "term": "Tupla",
+          "definition": "Conjunto de campos que describe extremos y protocolo de una conexión."
+        },
+        {
+          "term": "Atribución a proceso",
+          "definition": "Relación sustentada entre una comunicación y un proceso."
+        }
+      ]
+    },
+    {
+      "dayId": "w45d6",
+      "title": "Caso de tráfico",
+      "lead": "Una captura nueva se investiga con preguntas, controles y una cronología verificable.",
+      "sections": [
+        {
+          "topic": "Captura nueva",
+          "explanation": [
+            "Para un caso de tráfico desconocido empieza por orientarte: cobertura, duración, equipos y protocolos. Después formula una pregunta concreta, como qué ocurrió antes de una conexión inusual de un equipo determinado. Guarda un resumen inicial sin filtros estrechos y utiliza condiciones progresivas para aislar la actividad. En cada paso anota expresión y propósito. Así puedes distinguir una observación realmente nueva de un efecto causado por cambiar la selección o la escala temporal.",
+            "Una investigación de red debe comprobar resultados de comunicación y no solo intentos. Una solicitud puede no recibir respuesta, una conexión fallar y una transferencia quedar incompleta. Examina ambos sentidos y relaciona con DNS o endpoint cuando la pregunta lo necesite. Conserva ejemplos que contradigan tu primera hipótesis y limita el informe al intervalo capturado. Si el tráfico está cifrado, describe metadatos y resultados visibles sin inventar el contenido de la aplicación ni atribuir una intención que no puedes observar."
+          ],
+          "analogy": "Investigar es seguir un sendero marcando los cruces; saltar directamente al destino impide revisar cómo llegaste.",
+          "keyPoints": [
+            "Orientar: Resume cobertura y protocolos antes de filtrar.",
+            "Investigar: Aplica filtros progresivos con una pregunta por paso.",
+            "Validar: Comprueba respuestas, contexto y alternativas."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Caso de tráfico",
+            "items": [
+              {
+                "label": "Orientar",
+                "detail": "Resume cobertura y protocolos antes de filtrar."
+              },
+              {
+                "label": "Investigar",
+                "detail": "Aplica filtros progresivos con una pregunta por paso."
+              },
+              {
+                "label": "Validar",
+                "detail": "Comprueba respuestas, contexto y alternativas."
+              }
+            ],
+            "caption": "Una captura nueva se investiga con preguntas, controles y una cronología verificable."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Intento sin respuesta visible",
+        "scenario": "Una captura ficticia muestra varios SYN de un equipo a un servicio y ninguna respuesta dentro del archivo.",
+        "steps": [
+          {
+            "action": "Contar intentos",
+            "reason": "Describe los paquetes visibles.",
+            "result": "Se observan tres solicitudes iniciales."
+          },
+          {
+            "action": "Revisar ambos sentidos",
+            "reason": "La respuesta puede faltar por causa o cobertura.",
+            "result": "No aparece SYN-ACK ni otro resultado visible."
+          },
+          {
+            "action": "Delimitar conclusión",
+            "reason": "No se prueba transferencia de datos de aplicación.",
+            "result": "Se informa intento sin respuesta observada en esta captura."
+          }
+        ],
+        "result": "El caso demuestra intentos visibles, no una sesión establecida ni descarga.",
+        "visual": {
+          "type": "timeline",
+          "title": "Intento sin respuesta visible",
+          "items": [
+            {
+              "label": "Contar intentos",
+              "detail": "Se observan tres solicitudes iniciales."
+            },
+            {
+              "label": "Revisar ambos sentidos",
+              "detail": "No aparece SYN-ACK ni otro resultado visible."
+            },
+            {
+              "label": "Delimitar conclusión",
+              "detail": "Se informa intento sin respuesta observada en esta captura."
+            }
+          ],
+          "caption": "El caso demuestra intentos visibles, no una sesión establecida ni descarga."
+        }
+      },
+      "practice": {
+        "task": "Investiga una captura didáctica con una pregunta elegida antes de filtrar.",
+        "steps": [
+          "Escribe orientación y cobertura.",
+          "Guarda tres filtros con propósito distinto.",
+          "Entrega tres hechos y una limitación."
+        ],
+        "expected": "Una ruta de análisis reproducible con datos observados."
+      },
+      "check": {
+        "question": "¿Qué puede afirmarse con SYN sin respuesta visible?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que se robó un archivo completo."
+          },
+          {
+            "id": "b",
+            "text": "Que la aplicación respondió correctamente."
+          },
+          {
+            "id": "c",
+            "text": "Que se observó un intento sin respuesta dentro de esa cobertura."
+          }
+        ],
+        "correct": "c",
+        "explanation": "El intento y su resultado observado deben distinguirse de una transferencia de aplicación."
+      },
+      "mistakes": [
+        {
+          "myth": "Un intento de conexión equivale a comunicación exitosa.",
+          "correction": "El resultado requiere revisar establecimiento, respuestas y cobertura."
+        }
+      ],
+      "recap": [
+        "Orientar: Resume cobertura y protocolos antes de filtrar.",
+        "Investigar: Aplica filtros progresivos con una pregunta por paso.",
+        "Validar: Comprueba respuestas, contexto y alternativas."
+      ],
+      "glossary": [
+        {
+          "term": "SYN",
+          "definition": "Bandera utilizada al iniciar el establecimiento TCP."
+        },
+        {
+          "term": "Resultado observado",
+          "definition": "Respuesta o estado que la fuente permite comprobar."
+        }
+      ]
+    },
+    {
+      "dayId": "w45d7",
+      "title": "Evaluación de red defensiva",
+      "lead": "La evaluación de red defensiva distingue con precisión lo visible de lo que queda fuera.",
+      "sections": [
+        {
+          "topic": "Lo visible y lo desconocido",
+          "explanation": [
+            "Un informe de red riguroso explica punto de captura, intervalo, filtros y limitaciones antes de presentar conclusiones. Revisa que cada afirmación esté respaldada por paquetes o estadísticas con unidades claras. Una dirección identifica un extremo observado, no necesariamente una persona; un nombre DNS no demuestra visita y un volumen de bytes no revela por sí solo el contenido transferido. Las conclusiones deben conservar estas diferencias incluso cuando se resumen para una audiencia no técnica.",
+            "Para evaluar autonomía, otra persona debería poder abrir el mismo material y reproducir una selección clave. Incluye referencias a paquetes, expresiones de filtro y una cronología normalizada, evitando datos privados innecesarios. Explica al menos una alternativa relevante y la fuente que permitiría comprobarla. Si no hay visibilidad de aplicación por cifrado, ese límite no invalida los metadatos observados, pero sí restringe afirmaciones sobre contenido. Un cierre útil indica qué se sabe, qué falta y cuál sería el siguiente paso proporcionado."
+          ],
+          "analogy": "Una ventana permite ver parte de una habitación; un buen informe describe esa vista sin fingir que recorrió toda la casa.",
+          "keyPoints": [
+            "Visible: Paquetes, metadatos y resultados realmente disponibles.",
+            "No demostrado: Contenido o identidad que la captura no permite afirmar.",
+            "Siguiente paso: Fuente concreta que resolvería la principal laguna."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Evaluación de red defensiva",
+            "items": [
+              {
+                "label": "Visible",
+                "detail": "Paquetes, metadatos y resultados realmente disponibles."
+              },
+              {
+                "label": "No demostrado",
+                "detail": "Contenido o identidad que la captura no permite afirmar."
+              },
+              {
+                "label": "Siguiente paso",
+                "detail": "Fuente concreta que resolvería la principal laguna."
+              }
+            ],
+            "caption": "La evaluación de red defensiva distingue con precisión lo visible de lo que queda fuera."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Bytes sin contenido visible",
+        "scenario": "Un PCAP ficticio muestra una sesión TLS con muchos bytes hacia un servicio externo.",
+        "steps": [
+          {
+            "action": "Describir medida",
+            "reason": "Evita confundir volumen y contenido.",
+            "result": "Se informa cantidad observada y dirección."
+          },
+          {
+            "action": "Revisar cifrado",
+            "reason": "Limita qué puede leerse.",
+            "result": "No se dispone del contenido de aplicación."
+          },
+          {
+            "action": "Proponer contraste",
+            "reason": "La hipótesis necesita otra fuente.",
+            "result": "Se solicita contexto de proceso y aplicación autorizada."
+          }
+        ],
+        "result": "No se declara exfiltración únicamente por volumen de una sesión cifrada.",
+        "visual": {
+          "type": "timeline",
+          "title": "Bytes sin contenido visible",
+          "items": [
+            {
+              "label": "Describir medida",
+              "detail": "Se informa cantidad observada y dirección."
+            },
+            {
+              "label": "Revisar cifrado",
+              "detail": "No se dispone del contenido de aplicación."
+            },
+            {
+              "label": "Proponer contraste",
+              "detail": "Se solicita contexto de proceso y aplicación autorizada."
+            }
+          ],
+          "caption": "No se declara exfiltración únicamente por volumen de una sesión cifrada."
+        }
+      },
+      "practice": {
+        "task": "Audita cinco afirmaciones de tu caso de tráfico.",
+        "steps": [
+          "Vincula cada una a paquetes o estadísticas.",
+          "Marca una inferencia no demostrada.",
+          "Escribe una conclusión ejecutiva sin perder el límite técnico."
+        ],
+        "expected": "Un informe breve, reproducible y proporcional a la captura."
+      },
+      "check": {
+        "question": "¿Qué limita una sesión TLS sin visibilidad de aplicación?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Las afirmaciones sobre su contenido concreto."
+          },
+          {
+            "id": "b",
+            "text": "La existencia de cualquier metadato."
+          },
+          {
+            "id": "c",
+            "text": "La posibilidad de registrar sus tiempos."
+          }
+        ],
+        "correct": "a",
+        "explanation": "Puede observarse parte de la comunicación, pero no debe inventarse el contenido protegido."
+      },
+      "mistakes": [
+        {
+          "myth": "Un gran volumen cifrado demuestra exfiltración.",
+          "correction": "Puede corresponder a actividad legítima; se requieren contexto y evidencias adicionales."
+        }
+      ],
+      "recap": [
+        "Visible: Paquetes, metadatos y resultados realmente disponibles.",
+        "No demostrado: Contenido o identidad que la captura no permite afirmar.",
+        "Siguiente paso: Fuente concreta que resolvería la principal laguna."
+      ],
+      "glossary": [
+        {
+          "term": "Visibilidad",
+          "definition": "Parte de una actividad que las fuentes permiten observar."
+        },
+        {
+          "term": "Exfiltración",
+          "definition": "Salida no autorizada de información, que necesita soporte para afirmarse."
+        }
+      ]
+    }
+  ]
+}

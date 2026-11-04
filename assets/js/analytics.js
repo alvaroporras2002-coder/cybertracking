@@ -1,4 +1,4 @@
-import { getDayCompletion } from './progress.js?v=1.6.0';
+import { getDayCompletion } from './progress.js?v=2.0.0';
 
 // Dates are grouped by the learner's local calendar day. A "7 day" range is
 // today and the six preceding days, including across DST/month boundaries.

@@ -1,0 +1,945 @@
+{
+  "version": "2.0.0",
+  "week": 27,
+  "title": "Configuración segura y activos",
+  "overview": "La configuración segura se construye midiendo el estado real de los equipos y justificando cada cambio. Esta semana distinguirás una recomendación de una política aplicada, revisarás dispositivos, aplicaciones y cuentas, y practicarás una mejora reversible. El objetivo no es desactivar todo: es reducir exposición sin impedir el trabajo legítimo. Los casos usan una oficina ficticia y valores de laboratorio; antes de cambiar un equipo real necesitas autorización y un método de recuperación.",
+  "objectives": [
+    "Comparar una configuración observada con una referencia aprobada.",
+    "Elegir controles proporcionales para equipos y aplicaciones.",
+    "Probar seguridad y funcionamiento después de un cambio."
+  ],
+  "sources": [
+    {
+      "id": "baseline",
+      "title": "Microsoft — Security baselines",
+      "url": "https://learn.microsoft.com/en-us/windows/security/operating-system-security/device-management/windows-security-configuration-framework/windows-security-baselines"
+    },
+    {
+      "id": "controls",
+      "title": "NIST SP 800-53 — Security and Privacy Controls",
+      "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+    },
+    {
+      "id": "owasp",
+      "title": "OWASP — Web Security Testing Guide",
+      "url": "https://owasp.org/www-project-web-security-testing-guide/"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w27d1",
+      "title": "Configuraciones de referencia",
+      "lead": "Una referencia necesita alcance y versión.",
+      "sections": [
+        {
+          "topic": "Baseline, desviación y validación",
+          "explanation": [
+            "Una baseline es una configuración de referencia aprobada: expresa qué valores deberían tener los controles para una clase de equipos. No es una fotografía cualquiera del sistema. Por ejemplo, una organización puede exigir bloqueo de pantalla, cifrado del disco y una política concreta de actualizaciones para sus portátiles. El estado observado se compara con esa referencia; una diferencia es una desviación que debe investigarse, no una prueba automática de ataque.",
+            "El mismo ajuste puede afectar de manera distinta a un servidor y a un portátil. Por eso una referencia necesita alcance, versión, responsable y excepciones documentadas. Validar significa comprobar tanto el valor configurado como su efecto: una política escrita de bloqueo no demuestra que el equipo realmente se bloquee. En el laboratorio se recoge evidencia antes y después y se prueba una función normal, como iniciar sesión con una cuenta estándar."
+          ],
+          "analogy": "La baseline funciona como la receta aprobada de una cocina: comparar ingredientes detecta diferencias, pero todavía hay que probar el resultado.",
+          "keyPoints": [
+            "Una referencia necesita alcance y versión.",
+            "Desviación significa diferencia; su causa se investiga.",
+            "Validar exige observar configuración y comportamiento."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Referencia frente a estado real",
+            "items": [
+              {
+                "label": "Referencia",
+                "detail": "Bloqueo tras 10 minutos"
+              },
+              {
+                "label": "Observado",
+                "detail": "Bloqueo desactivado"
+              },
+              {
+                "label": "Validación",
+                "detail": "Prueba controlada y registro"
+              }
+            ],
+            "caption": "Los valores de tiempo son un ejemplo de política, no una regla universal."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Portátil fuera de referencia",
+        "scenario": "En el inventario ficticio, LAB-01 tiene cifrado activo pero el bloqueo automático está desactivado.",
+        "steps": [
+          {
+            "action": "Comparar valores",
+            "reason": "Solo se evalúan controles incluidos en la referencia de portátiles.",
+            "result": "Se identifica una desviación concreta: bloqueo."
+          },
+          {
+            "action": "Comprobar excepción",
+            "reason": "Un equipo de presentación podría tener una excepción aprobada.",
+            "result": "LAB-01 no tiene excepción registrada."
+          },
+          {
+            "action": "Probar corrección",
+            "reason": "Una configuración visible puede no aplicarse a la cuenta actual.",
+            "result": "Tras el cambio autorizado, se verifica el bloqueo y el acceso normal."
+          }
+        ],
+        "result": "El hallazgo queda sustentado por dos estados y una prueba funcional; no se atribuye su causa a un atacante.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Portátil fuera de referencia",
+          "items": [
+            {
+              "label": "Comparar valores",
+              "detail": "Se identifica una desviación concreta: bloqueo."
+            },
+            {
+              "label": "Comprobar excepción",
+              "detail": "LAB-01 no tiene excepción registrada."
+            },
+            {
+              "label": "Probar corrección",
+              "detail": "Tras el cambio autorizado, se verifica el bloqueo y el acceso normal."
+            }
+          ],
+          "caption": "El hallazgo queda sustentado por dos estados y una prueba funcional; no se atribuye su causa a un atacante."
+        }
+      },
+      "practice": {
+        "task": "Diseña una referencia de tres controles para un portátil de estudio.",
+        "steps": [
+          "Define para qué equipo aplica.",
+          "Anota valor esperado y forma de comprobar cada control.",
+          "Incluye una excepción justificada y su fecha de revisión."
+        ],
+        "expected": "Una tabla con control, valor esperado, evidencia y responsable."
+      },
+      "check": {
+        "question": "¿Qué demuestra mejor que el bloqueo funciona?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La captura de la política sin probarla."
+          },
+          {
+            "id": "b",
+            "text": "La prueba controlada del bloqueo en el usuario afectado."
+          },
+          {
+            "id": "c",
+            "text": "El nombre del archivo baseline.json."
+          }
+        ],
+        "correct": "b",
+        "explanation": "El comportamiento observado confirma que el ajuste se aplica; el documento solo expresa una intención."
+      },
+      "mistakes": [
+        {
+          "myth": "Toda desviación es una intrusión.",
+          "correction": "Puede deberse a un cambio legítimo, un fallo de aplicación o una excepción; investiga antes de concluir."
+        }
+      ],
+      "recap": [
+        "Una referencia necesita alcance y versión.",
+        "Desviación significa diferencia; su causa se investiga.",
+        "Validar exige observar configuración y comportamiento."
+      ],
+      "glossary": [
+        {
+          "term": "Baseline",
+          "definition": "Referencia aprobada para un alcance concreto."
+        },
+        {
+          "term": "Desviación",
+          "definition": "Diferencia entre el estado esperado y el observado."
+        }
+      ]
+    },
+    {
+      "dayId": "w27d2",
+      "title": "Endpoints",
+      "lead": "Una protección instalada puede estar inactiva.",
+      "sections": [
+        {
+          "topic": "Actualizaciones, servicios, cuentas y protección",
+          "explanation": [
+            "Un endpoint es un dispositivo que utiliza una persona o ejecuta una carga de trabajo y puede conectarse a otros servicios. Su protección combina actualizaciones, reducción de servicios innecesarios, cuentas adecuadas y herramientas de prevención o detección. Ninguna capa sustituye a las demás: tener un agente instalado no corrige por sí mismo un sistema sin soporte ni elimina los privilegios excesivos de una cuenta utilizada todos los días.",
+            "Empieza por saber qué existe y quién lo administra. Comprueba versión del sistema, estado de actualización, servicios expuestos y última comunicación del agente de protección. Distingue instalado de operativo: un agente que dejó de enviar telemetría hace una semana genera una laguna. Prioriza cambios que puedas validar y revertir. En equipos de producción, coordina el reinicio y verifica después que las aplicaciones necesarias siguen funcionando para sus usuarios habituales."
+          ],
+          "analogy": "Proteger un endpoint se parece a mantener un vehículo: frenos, revisiones y conductor autorizado cubren problemas diferentes.",
+          "keyPoints": [
+            "Una protección instalada puede estar inactiva.",
+            "Privilegios diarios y administración deben separarse.",
+            "Actualizar requiere comprobar el servicio después."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Capas del portátil",
+            "items": [
+              {
+                "label": "Sistema",
+                "detail": "Versión soportada y actualizaciones"
+              },
+              {
+                "label": "Acceso",
+                "detail": "Cuenta estándar y elevación controlada"
+              },
+              {
+                "label": "Protección",
+                "detail": "Agente activo y eventos disponibles"
+              }
+            ],
+            "caption": "Las capas se complementan; no garantizan que un equipo esté libre de incidentes."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Agente silencioso",
+        "scenario": "De 20 portátiles, uno no envía eventos desde el lunes aunque aparece como instalado.",
+        "steps": [
+          {
+            "action": "Acción: Delimitar",
+            "reason": "La ausencia puede deberse a que el equipo está apagado.",
+            "result": "Se confirma que LAB-02 está conectado."
+          },
+          {
+            "action": "Acción: Contrastar",
+            "reason": "Instalación y salud son condiciones diferentes.",
+            "result": "El servicio del agente figura detenido en la evidencia suministrada."
+          },
+          {
+            "action": "Verificar recuperación",
+            "reason": "Una acción solo vale si restablece la función esperada.",
+            "result": "El caso se cierra cuando vuelven los eventos y funciona la aplicación de trabajo."
+          }
+        ],
+        "result": "La conclusión es una pérdida de visibilidad confirmada; no hay evidencia suficiente de malware.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Agente silencioso",
+          "items": [
+            {
+              "label": "Delimitar",
+              "detail": "Se confirma que LAB-02 está conectado."
+            },
+            {
+              "label": "Contrastar",
+              "detail": "El servicio del agente figura detenido en la evidencia suministrada."
+            },
+            {
+              "label": "Verificar recuperación",
+              "detail": "El caso se cierra cuando vuelven los eventos y funciona la aplicación de trabajo."
+            }
+          ],
+          "caption": "La conclusión es una pérdida de visibilidad confirmada; no hay evidencia suficiente de malware."
+        }
+      },
+      "practice": {
+        "task": "Revisa una ficha ficticia de un portátil actualizado que usa administrador para todo.",
+        "steps": [
+          "Separa controles presentes y ausentes.",
+          "Propón una cuenta estándar con elevación autorizada.",
+          "Define una prueba de funcionamiento posterior."
+        ],
+        "expected": "Un cambio acotado y una prueba que no dependa de desactivar la protección."
+      },
+      "check": {
+        "question": "¿Qué significa que el agente aparezca instalado?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que no puede haber malware."
+          },
+          {
+            "id": "b",
+            "text": "Que todas sus reglas están actualizadas."
+          },
+          {
+            "id": "c",
+            "text": "Solo que existe una instalación; falta comprobar salud y comunicación."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La instalación no demuestra funcionamiento, actualización, comunicación ni cobertura efectiva del equipo concreto."
+      },
+      "mistakes": [
+        {
+          "myth": "Más herramientas siempre significan más seguridad.",
+          "correction": "Herramientas incompatibles o sin operación pueden añadir fallos; verifica cobertura y responsables."
+        }
+      ],
+      "recap": [
+        "Una protección instalada puede estar inactiva.",
+        "Privilegios diarios y administración deben separarse.",
+        "Actualizar requiere comprobar el servicio después."
+      ],
+      "glossary": [
+        {
+          "term": "Endpoint",
+          "definition": "Equipo final o carga de trabajo conectada."
+        },
+        {
+          "term": "Telemetría",
+          "definition": "Datos que describen actividad y estado de un sistema."
+        }
+      ]
+    },
+    {
+      "dayId": "w27d3",
+      "title": "Móviles e inalámbrico",
+      "lead": "Propiedad y alcance de gestión se acuerdan primero.",
+      "sections": [
+        {
+          "topic": "Gestión, propiedad y autenticación",
+          "explanation": [
+            "Un móvil personal con correo corporativo mezcla intereses del propietario y de la organización. Antes de aplicar controles hay que distinguir dispositivos corporativos, personales autorizados y equipos desconocidos. La gestión centralizada puede exigir cifrado, bloqueo y versiones admitidas, pero su alcance debe ser explícito. La separación entre datos personales y laborales reduce conflictos; no autoriza a inspeccionar indiscriminadamente toda la vida digital del usuario ni a borrar sin procedimiento un equipo ajeno.",
+            "En redes inalámbricas, el nombre de una red no demuestra su identidad. Evalúa el método de autenticación, el cifrado y la separación entre invitados y servicios internos. Una red de invitados puede ofrecer internet sin acceso al servidor de archivos. El acceso condicionado al estado del dispositivo añade otra comprobación, pero no sustituye una identidad fuerte. Si se pierde un móvil, revocar sesiones y acceso laboral puede ser necesario incluso cuando existe una orden de borrado pendiente."
+          ],
+          "analogy": "Una credencial de visitante abre ciertas puertas del edificio; conectarse al Wi-Fi no debería entregar una llave maestra.",
+          "keyPoints": [
+            "Propiedad y alcance de gestión se acuerdan primero.",
+            "La red de invitados debe tener límites comprobables.",
+            "La pérdida del equipo también afecta a sus sesiones."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Tres tipos de dispositivo",
+            "items": [
+              {
+                "label": "Corporativo",
+                "detail": "Gestión y política de la organización"
+              },
+              {
+                "label": "Personal autorizado",
+                "detail": "Contenedor laboral y alcance acordado"
+              },
+              {
+                "label": "Desconocido",
+                "detail": "Sin acceso interno hasta validación"
+              }
+            ],
+            "caption": "La decisión depende de la política y las capacidades reales, no solo del dueño del hardware."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Móvil personal perdido",
+        "scenario": "Una analista pierde un teléfono personal que conserva una sesión laboral activa.",
+        "steps": [
+          {
+            "action": "Identificar alcance",
+            "reason": "No todo el teléfono pertenece a la organización.",
+            "result": "Se localizan cuenta y aplicaciones de trabajo gestionadas."
+          },
+          {
+            "action": "Reducir acceso",
+            "reason": "Un bloqueo de pantalla no revoca una sesión remota.",
+            "result": "Se solicita revocación de sesiones según el procedimiento."
+          },
+          {
+            "action": "Documentar acciones",
+            "reason": "Un borrado puede afectar datos personales.",
+            "result": "El responsable decide la medida permitida y deja constancia."
+          }
+        ],
+        "result": "La respuesta limita el riesgo laboral sin atribuirse permisos que no estaban acordados.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Móvil personal perdido",
+          "items": [
+            {
+              "label": "Identificar alcance",
+              "detail": "Se localizan cuenta y aplicaciones de trabajo gestionadas."
+            },
+            {
+              "label": "Reducir acceso",
+              "detail": "Se solicita revocación de sesiones según el procedimiento."
+            },
+            {
+              "label": "Documentar acciones",
+              "detail": "El responsable decide la medida permitida y deja constancia."
+            }
+          ],
+          "caption": "La respuesta limita el riesgo laboral sin atribuirse permisos que no estaban acordados."
+        }
+      },
+      "practice": {
+        "task": "Diseña dos accesos Wi-Fi: empleados gestionados e invitados.",
+        "steps": [
+          "Dibuja qué destinos necesita cada grupo.",
+          "Indica autenticación y separación de tráfico.",
+          "Define una prueba que confirme que invitados no alcanzan archivos internos."
+        ],
+        "expected": "Un mapa de accesos con al menos un flujo permitido y otro bloqueado."
+      },
+      "check": {
+        "question": "¿Qué prueba mejor la separación de invitados?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Comprobar un acceso interno denegado y un acceso a internet permitido."
+          },
+          {
+            "id": "b",
+            "text": "Poner nombres distintos a las redes."
+          },
+          {
+            "id": "c",
+            "text": "Cambiar el color del punto de acceso."
+          }
+        ],
+        "correct": "a",
+        "explanation": "Los nombres no aíslan tráfico; hay que comprobar los flujos reales."
+      },
+      "mistakes": [
+        {
+          "myth": "MDM da permiso para borrar cualquier móvil.",
+          "correction": "La capacidad técnica no sustituye autorización, política y límites de privacidad."
+        }
+      ],
+      "recap": [
+        "Propiedad y alcance de gestión se acuerdan primero.",
+        "La red de invitados debe tener límites comprobables.",
+        "La pérdida del equipo también afecta a sus sesiones."
+      ],
+      "glossary": [
+        {
+          "term": "MDM",
+          "definition": "Gestión de dispositivos móviles según una política."
+        },
+        {
+          "term": "BYOD",
+          "definition": "Uso autorizado de un dispositivo personal para trabajo."
+        }
+      ]
+    },
+    {
+      "dayId": "w27d4",
+      "title": "Aplicaciones",
+      "lead": "Valida entradas también en el servidor.",
+      "sections": [
+        {
+          "topic": "Validación, firma, aislamiento y cookies",
+          "explanation": [
+            "Una aplicación segura necesita controlar lo que recibe y lo que puede hacer. Validar entradas consiste en comprobar formato, tamaño y reglas del negocio en el servidor; confiar únicamente en la interfaz permite saltarse esas comprobaciones. La firma de un instalador ayuda a verificar su origen e integridad cuando se valida la cadena de confianza, pero no asegura que el programa carezca de errores. Aislar una aplicación limita las consecuencias de un fallo sin convertirla en inofensiva.",
+            "Las cookies permiten al navegador conservar estado. Si una cookie representa una sesión, robarla puede ser tan relevante como conocer la contraseña. Atributos como Secure y HttpOnly tienen finalidades distintas: el primero restringe su envío a conexiones seguras y el segundo limita el acceso desde scripts del navegador. SameSite influye en envíos entre sitios, con comportamientos que debes contrastar en la documentación. La autorización de cada operación sigue siendo necesaria aunque la cookie esté bien configurada."
+          ],
+          "analogy": "Una entrada de cine auténtica identifica una sesión de acceso, pero no permite entrar a cualquier sala ni elimina la necesidad de comprobar el asiento.",
+          "keyPoints": [
+            "Valida entradas también en el servidor.",
+            "Una firma válida no significa ausencia de vulnerabilidades.",
+            "La cookie de sesión requiere protección y autorización posterior."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Operación de una aplicación",
+            "items": [
+              {
+                "label": "Entrada",
+                "detail": "Validación de formato y reglas"
+              },
+              {
+                "label": "Identidad",
+                "detail": "Sesión comprobada"
+              },
+              {
+                "label": "Autorización",
+                "detail": "Acceso al recurso concreto"
+              },
+              {
+                "label": "Salida",
+                "detail": "Datos mínimos y codificación adecuada"
+              }
+            ],
+            "caption": "Cada capa responde una pregunta diferente de seguridad."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Edición de un pedido",
+        "scenario": "Un usuario autenticado cambia el identificador de pedido en una solicitud de prueba proporcionada.",
+        "steps": [
+          {
+            "action": "Separar controles",
+            "reason": "Estar autenticado no concede todos los pedidos.",
+            "result": "Se identifica la necesidad de autorización por propietario."
+          },
+          {
+            "action": "Definir resultado",
+            "reason": "La interfaz no es el único punto de entrada.",
+            "result": "El servidor debe rechazar el pedido ajeno."
+          },
+          {
+            "action": "Registrar evidencia",
+            "reason": "Un fallo reproducible necesita condiciones claras.",
+            "result": "Se conserva la solicitud ficticia y la respuesta esperada sin datos reales."
+          }
+        ],
+        "result": "El control decisivo es la autorización del recurso en el servidor, además de proteger la sesión.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Edición de un pedido",
+          "items": [
+            {
+              "label": "Separar controles",
+              "detail": "Se identifica la necesidad de autorización por propietario."
+            },
+            {
+              "label": "Definir resultado",
+              "detail": "El servidor debe rechazar el pedido ajeno."
+            },
+            {
+              "label": "Registrar evidencia",
+              "detail": "Se conserva la solicitud ficticia y la respuesta esperada sin datos reales."
+            }
+          ],
+          "caption": "El control decisivo es la autorización del recurso en el servidor, además de proteger la sesión."
+        }
+      },
+      "practice": {
+        "task": "Explica qué control falta si una cookie es Secure pero todos los usuarios pueden leer todas las facturas.",
+        "steps": [
+          "Define qué demuestra Secure.",
+          "Describe la comprobación de propietario.",
+          "Escribe una prueba con dos usuarios ficticios."
+        ],
+        "expected": "Una distinción clara entre transporte seguro y autorización."
+      },
+      "check": {
+        "question": "¿Qué aporta HttpOnly?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Cifra la base de datos."
+          },
+          {
+            "id": "b",
+            "text": "Impide cualquier ataque a la aplicación."
+          },
+          {
+            "id": "c",
+            "text": "Limita el acceso a esa cookie desde scripts del navegador."
+          }
+        ],
+        "correct": "c",
+        "explanation": "HttpOnly reduce una vía de exposición de cookies; no corrige todos los fallos de la aplicación."
+      },
+      "mistakes": [
+        {
+          "myth": "Una cookie protegida vuelve segura cualquier operación.",
+          "correction": "La aplicación debe verificar permisos en cada recurso y operación."
+        }
+      ],
+      "recap": [
+        "Valida entradas también en el servidor.",
+        "Una firma válida no significa ausencia de vulnerabilidades.",
+        "La cookie de sesión requiere protección y autorización posterior."
+      ],
+      "glossary": [
+        {
+          "term": "HttpOnly",
+          "definition": "Atributo que limita acceso a una cookie desde scripts."
+        },
+        {
+          "term": "Autorización por objeto",
+          "definition": "Comprobación del permiso sobre un recurso específico."
+        }
+      ]
+    },
+    {
+      "dayId": "w27d5",
+      "title": "Inventario y ciclo de vida",
+      "lead": "Un activo necesita dueño y propósito.",
+      "sections": [
+        {
+          "topic": "Compra, dueño, mantenimiento y retirada",
+          "explanation": [
+            "El inventario es una relación operativa de activos, no solo una lista de números de serie. Un registro útil conecta el equipo o servicio con un dueño, una función, una clasificación de datos y un estado de soporte. Si aparece un servidor sin responsable, el problema no se resuelve escribiendo desconocido para siempre: hay que asignar quién puede decidir su mantenimiento, sus cambios y su retirada. Los activos de nube y las cuentas de servicio también tienen ciclo de vida.",
+            "En la compra se definen requisitos; en la operación se mantienen y revisan; en la retirada se revocan accesos, conservan registros necesarios y eliminan datos según el medio y la política. Borrar un archivo no equivale automáticamente a sanitizar un disco. Tampoco basta con apagar una máquina virtual si sus discos, instantáneas o credenciales siguen disponibles. Una baja completa deja evidencia de qué se retiró, qué se conservó y quién comprobó cada acción."
+          ],
+          "analogy": "El inventario es la ficha de mantenimiento de una flota: conocer matrículas no indica quién conduce ni cuándo revisar los frenos.",
+          "keyPoints": [
+            "Un activo necesita dueño y propósito.",
+            "Soporte y datos influyen en su prioridad.",
+            "Retirar incluye accesos, copias y evidencia."
+          ],
+          "visual": {
+            "type": "cycle",
+            "title": "Vida de un activo",
+            "items": [
+              {
+                "label": "Adquirir",
+                "detail": "Requisitos y responsable"
+              },
+              {
+                "label": "Operar",
+                "detail": "Inventario y mantenimiento"
+              },
+              {
+                "label": "Revisar",
+                "detail": "Soporte y necesidad"
+              },
+              {
+                "label": "Retirar",
+                "detail": "Accesos, datos y constancia"
+              }
+            ],
+            "caption": "La retirada de un equipo no borra automáticamente sus dependencias."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Servidor de prueba olvidado",
+        "scenario": "El proyecto terminó, pero una máquina virtual conserva un disco con exportaciones de clientes ficticios.",
+        "steps": [
+          {
+            "action": "Localizar dependencias",
+            "reason": "La instancia no es el único activo asociado.",
+            "result": "Se registran disco, instantánea y cuenta técnica."
+          },
+          {
+            "action": "Consultar retención",
+            "reason": "No todos los datos se pueden eliminar de inmediato.",
+            "result": "El dueño decide qué debe conservarse y dónde."
+          },
+          {
+            "action": "Completar baja",
+            "reason": "Apagar conserva almacenamiento y credenciales.",
+            "result": "Se verifica la retirada autorizada y se actualiza el inventario."
+          }
+        ],
+        "result": "La baja queda trazable y no deja recursos huérfanos fuera del control previsto.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Servidor de prueba olvidado",
+          "items": [
+            {
+              "label": "Localizar dependencias",
+              "detail": "Se registran disco, instantánea y cuenta técnica."
+            },
+            {
+              "label": "Consultar retención",
+              "detail": "El dueño decide qué debe conservarse y dónde."
+            },
+            {
+              "label": "Completar baja",
+              "detail": "Se verifica la retirada autorizada y se actualiza el inventario."
+            }
+          ],
+          "caption": "La baja queda trazable y no deja recursos huérfanos fuera del control previsto."
+        }
+      },
+      "practice": {
+        "task": "Crea una ficha de inventario para una cuenta de servicio.",
+        "steps": [
+          "Incluye aplicación, dueño y permisos.",
+          "Anota dónde se usa sin copiar secretos.",
+          "Define revisión y criterio de retirada."
+        ],
+        "expected": "Una ficha que permita a otra persona decidir cómo mantener o dar de baja la cuenta."
+      },
+      "check": {
+        "question": "¿Cuál es un inventario más útil?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Modelo y color únicamente."
+          },
+          {
+            "id": "b",
+            "text": "Dueño, función, datos, soporte y estado."
+          },
+          {
+            "id": "c",
+            "text": "Solo el precio de compra."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Esos campos conectan el activo con decisiones de riesgo y operación."
+      },
+      "mistakes": [
+        {
+          "myth": "Si una máquina está apagada ya no representa riesgo.",
+          "correction": "Sus discos, copias y credenciales pueden seguir accesibles."
+        }
+      ],
+      "recap": [
+        "Un activo necesita dueño y propósito.",
+        "Soporte y datos influyen en su prioridad.",
+        "Retirar incluye accesos, copias y evidencia."
+      ],
+      "glossary": [
+        {
+          "term": "Activo",
+          "definition": "Elemento con valor para una organización."
+        },
+        {
+          "term": "Cuenta huérfana",
+          "definition": "Cuenta sin un propietario o necesidad vigente identificados."
+        }
+      ]
+    },
+    {
+      "dayId": "w27d6",
+      "title": "Práctica de hardening",
+      "lead": "Un cambio pequeño facilita atribuir resultados.",
+      "sections": [
+        {
+          "topic": "Estado inicial, cambio y prueba",
+          "explanation": [
+            "Hardening significa reducir exposición mediante una configuración justificada. Un ejercicio correcto comienza con una hipótesis concreta: deshabilitar una función que nadie necesita debería eliminar un acceso sin afectar la tarea autorizada. Antes de tocar nada, mide el estado inicial y prepara recuperación. Cambiar diez opciones a la vez dificulta saber cuál provocó un fallo y cuál aportó protección. Trabaja en una máquina de práctica o con una ficha simulada cuando no tengas un entorno recuperable.",
+            "El resultado tiene dos partes: prueba negativa y prueba positiva. La negativa confirma que el acceso innecesario queda impedido; la positiva demuestra que la actividad legítima sigue funcionando. Después compara registros, documenta valores y decide si mantienes o reviertes el cambio. Un servicio que no aparece en la pantalla principal puede sostener otra aplicación. La autorización y el conocimiento de dependencias son parte del ejercicio técnico, no trámites que puedas omitir para hacerlo más rápido."
+          ],
+          "analogy": "Es como cerrar una puerta lateral: compruebas que quedó cerrada y que la salida principal continúa disponible.",
+          "keyPoints": [
+            "Un cambio pequeño facilita atribuir resultados.",
+            "Prueba lo bloqueado y lo permitido.",
+            "Prepara reversión antes de modificar."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Cambio controlado",
+            "items": [
+              {
+                "label": "Antes",
+                "detail": "Estado y acceso observado"
+              },
+              {
+                "label": "Cambio",
+                "detail": "Un ajuste autorizado"
+              },
+              {
+                "label": "Pruebas",
+                "detail": "Acceso innecesario bloqueado y tarea normal válida"
+              },
+              {
+                "label": "Decisión",
+                "detail": "Mantener o revertir con evidencia"
+              }
+            ],
+            "caption": "Un control que impide trabajar sin justificación no es un resultado completo."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Servicio sobrante en laboratorio",
+        "scenario": "Una ficha de LAB-06 indica un servicio de transferencia antiguo que el equipo ya no utiliza.",
+        "steps": [
+          {
+            "action": "Confirmar dependencia",
+            "reason": "La ausencia de usuarios visibles no garantiza que sea innecesario.",
+            "result": "El propietario confirma que ninguna tarea lo requiere."
+          },
+          {
+            "action": "Planear reversión",
+            "reason": "El cambio podría tener un efecto imprevisto.",
+            "result": "Se anotan configuración original y método de recuperación."
+          },
+          {
+            "action": "Validar dos caminos",
+            "reason": "Cerrar un acceso no basta por sí solo.",
+            "result": "La prueba antigua falla y la aplicación necesaria sigue operativa."
+          }
+        ],
+        "result": "La reducción de exposición está vinculada a una necesidad comprobada y a una prueba funcional.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Servicio sobrante en laboratorio",
+          "items": [
+            {
+              "label": "Confirmar dependencia",
+              "detail": "El propietario confirma que ninguna tarea lo requiere."
+            },
+            {
+              "label": "Planear reversión",
+              "detail": "Se anotan configuración original y método de recuperación."
+            },
+            {
+              "label": "Validar dos caminos",
+              "detail": "La prueba antigua falla y la aplicación necesaria sigue operativa."
+            }
+          ],
+          "caption": "La reducción de exposición está vinculada a una necesidad comprobada y a una prueba funcional."
+        }
+      },
+      "practice": {
+        "task": "Escribe un plan de hardening sin ejecutar cambios en tu equipo principal.",
+        "steps": [
+          "Elige una función ficticia prescindible.",
+          "Define prueba antes y después con el mismo criterio.",
+          "Establece la condición exacta para revertir."
+        ],
+        "expected": "Un plan reproducible de una sola modificación con pruebas positivas y negativas."
+      },
+      "check": {
+        "question": "¿Qué harías si después del cambio falla la aplicación necesaria?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Aplicar otros diez cambios."
+          },
+          {
+            "id": "b",
+            "text": "Declarar éxito porque hay menos servicios."
+          },
+          {
+            "id": "c",
+            "text": "Revertir según el plan y estudiar la dependencia."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La seguridad debe conservar los requisitos operativos acordados; la reversión permite recuperar y analizar."
+      },
+      "mistakes": [
+        {
+          "myth": "Hardening consiste en desactivar todo.",
+          "correction": "Consiste en reducir exposición manteniendo las funciones necesarias."
+        }
+      ],
+      "recap": [
+        "Un cambio pequeño facilita atribuir resultados.",
+        "Prueba lo bloqueado y lo permitido.",
+        "Prepara reversión antes de modificar."
+      ],
+      "glossary": [
+        {
+          "term": "Hardening",
+          "definition": "Reducción justificada de exposición mediante configuración."
+        },
+        {
+          "term": "Reversión",
+          "definition": "Regreso planificado a un estado previo conocido."
+        }
+      ]
+    },
+    {
+      "dayId": "w27d7",
+      "title": "Evaluación de activos",
+      "lead": "Evalúa requisitos y resultados, no cantidad de controles.",
+      "sections": [
+        {
+          "topic": "Controles y disponibilidad",
+          "explanation": [
+            "Evaluar activos exige integrar controles y disponibilidad. Un portátil puede tener cifrado y agente activo, pero seguir expuesto por una cuenta compartida con privilegios elevados. También puede estar muy restringido y no permitir la tarea para la que fue comprado. La evaluación comienza por requisitos: qué debe hacer, qué datos maneja, quién lo usa y qué fallos son tolerables. Después selecciona evidencias que permitan probar esos requisitos, en lugar de premiar la cantidad de herramientas instaladas.",
+            "Cuando dos controles parecen competir, identifica el riesgo que trata cada uno y las alternativas. Un reinicio puede reducir exposición al aplicar una actualización, pero requiere coordinar una ventana si el servicio no tolera interrupciones. Un permiso temporal puede resolver una tarea excepcional si existe aprobación, vencimiento y revisión. No confundas una excepción documentada con una eliminación permanente de controles. La conclusión debe expresar qué se cumple, qué falta y qué riesgo residual acepta el responsable."
+          ],
+          "analogy": "Una inspección de una ambulancia no solo comprueba cerraduras: también confirma que puede salir cuando se necesita.",
+          "keyPoints": [
+            "Evalúa requisitos y resultados, no cantidad de controles.",
+            "Las excepciones tienen dueño y vencimiento.",
+            "Explica el riesgo que permanece."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Dos criterios simultáneos",
+            "items": [
+              {
+                "label": "Seguridad",
+                "detail": "Accesos y datos protegidos"
+              },
+              {
+                "label": "Operación",
+                "detail": "Tarea necesaria disponible"
+              },
+              {
+                "label": "Decisión",
+                "detail": "Prueba y riesgo residual documentados"
+              }
+            ],
+            "caption": "La evaluación no se reduce a elegir entre seguridad o disponibilidad."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Actualización del servidor de turnos",
+        "scenario": "Una actualización requiere reiniciar un servicio utilizado de 08:00 a 18:00 en el caso ficticio.",
+        "steps": [
+          {
+            "action": "Identificar requisitos",
+            "reason": "Un reinicio inmediato interrumpe el trabajo.",
+            "result": "Se delimita horario y urgencia del riesgo."
+          },
+          {
+            "action": "Acordar ventana",
+            "reason": "La demora debe tener justificación y responsable.",
+            "result": "Se aprueba una ventana fuera del horario con protección temporal."
+          },
+          {
+            "action": "Comprobar cierre",
+            "reason": "Instalado no equivale a operativo.",
+            "result": "Se valida versión, acceso de usuarios y registros tras el reinicio."
+          }
+        ],
+        "result": "El plan trata la exposición y evita una interrupción imprevista, sin ocultar la demora aprobada.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Actualización del servidor de turnos",
+          "items": [
+            {
+              "label": "Identificar requisitos",
+              "detail": "Se delimita horario y urgencia del riesgo."
+            },
+            {
+              "label": "Acordar ventana",
+              "detail": "Se aprueba una ventana fuera del horario con protección temporal."
+            },
+            {
+              "label": "Comprobar cierre",
+              "detail": "Se valida versión, acceso de usuarios y registros tras el reinicio."
+            }
+          ],
+          "caption": "El plan trata la exposición y evita una interrupción imprevista, sin ocultar la demora aprobada."
+        }
+      },
+      "practice": {
+        "task": "Evalúa un equipo con cifrado activo, usuario administrador y copias sin prueba de restauración.",
+        "steps": [
+          "Separa controles comprobados de afirmaciones.",
+          "Prioriza una mejora y justifica su relación con el riesgo.",
+          "Describe la evidencia que cerraría cada brecha."
+        ],
+        "expected": "Un informe breve con tres estados, un responsable y pruebas concretas."
+      },
+      "check": {
+        "question": "¿Qué evidencia falta para confiar en una copia?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que el archivo tenga un nombre reciente."
+          },
+          {
+            "id": "b",
+            "text": "Una restauración de prueba que valide los datos necesarios."
+          },
+          {
+            "id": "c",
+            "text": "Que el icono de la nube sea verde."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La restauración de prueba comprueba utilidad de los datos; existencia y sincronización no bastan para demostrar recuperación."
+      },
+      "mistakes": [
+        {
+          "myth": "Una excepción elimina la necesidad de seguimiento.",
+          "correction": "La excepción debe revisarse y expirar o renovarse con justificación."
+        }
+      ],
+      "recap": [
+        "Evalúa requisitos y resultados, no cantidad de controles.",
+        "Las excepciones tienen dueño y vencimiento.",
+        "Explica el riesgo que permanece."
+      ],
+      "glossary": [
+        {
+          "term": "Riesgo residual",
+          "definition": "Riesgo que permanece después de los controles."
+        },
+        {
+          "term": "Disponibilidad",
+          "definition": "Acceso a la función o información cuando se necesita."
+        }
+      ]
+    }
+  ]
+}

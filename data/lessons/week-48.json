@@ -1,0 +1,938 @@
+{
+  "version": "2.0.0",
+  "week": 48,
+  "title": "Primera simulación defensiva",
+  "overview": "La simulación Faro une correo, DNS y acceso a una aplicación mediante un conjunto ficticio pequeño. Su dificultad no depende de archivos peligrosos, sino de distinguir secuencia y causalidad, conservar procedencia y revisar hipótesis cuando llega contexto nuevo. Prepararás alcance, inventario, consultas, cronología, decisiones e informe. Los ejemplos resueltos muestran cómo una explicación de automatización puede cambiar el caso. La evaluación final identifica errores y prácticas para transferir el método a otra situación sin memorizar conclusiones.",
+  "objectives": [
+    "Investigar un caso sintético con alcance y evidencias identificadas.",
+    "Contrastar hipótesis y proponer acciones proporcionadas.",
+    "Entregar y evaluar un informe exacto, autónomo y reproducible."
+  ],
+  "sources": [
+    {
+      "id": "nist61",
+      "title": "NIST SP 800-61r3: respuesta y gestión del riesgo",
+      "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+    },
+    {
+      "id": "nist86",
+      "title": "NIST SP 800-86: técnicas forenses en respuesta a incidentes",
+      "url": "https://csrc.nist.gov/pubs/sp/800/86/final"
+    },
+    {
+      "id": "wireshark",
+      "title": "Wireshark: trabajo con paquetes capturados",
+      "url": "https://www.wireshark.org/docs/wsug_html_chunked/ChapterWork.html"
+    },
+    {
+      "id": "mitre",
+      "title": "MITRE ATT&CK: conceptos y preguntas frecuentes",
+      "url": "https://attack.mitre.org/resources/faq/"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w48d1",
+      "title": "Preparar el caso",
+      "lead": "El caso Faro empieza con una pregunta y un límite: investigar un acceso de laboratorio, no toda una organización.",
+      "sections": [
+        {
+          "topic": "Alcance y reglas",
+          "explanation": [
+            "Preparar una simulación defensiva implica fijar pregunta, material, permisos y condiciones de finalización. En el caso Faro trabajarás con mensajes y registros sintéticos: a las 14:00Z llega un correo de prueba, a las 14:02Z PC-A consulta aviso-faro.test y a las 14:03Z aparece un acceso a una aplicación del laboratorio. Estos datos describen una secuencia inicial; todavía no demuestran que el mensaje causara el acceso ni que hubiera pérdida de información.",
+            "Antes de investigar define qué puedes hacer: leer las muestras, organizar una cronología y proponer decisiones simuladas. No visitarás el dominio, ejecutarás adjuntos ni cambiarás cuentas reales. Registra también fuentes ausentes, como contenido de la sesión o telemetría completa del endpoint. Una buena regla de alcance evita tanto actuar fuera de permiso como responder preguntas que el material no cubre. El plan debe poder actualizarse si un dato nuevo cambia la hipótesis, sin borrar la decisión original ni sus razones."
+          ],
+          "analogy": "El tablero de un juego define casillas y movimientos permitidos; investigar sin alcance es cambiar reglas mientras juegas.",
+          "keyPoints": [
+            "Pregunta Faro: ¿Qué relación sustentan correo, DNS y acceso?",
+            "Material: Tres observaciones sintéticas con tiempos UTC.",
+            "Reglas: Solo lectura y decisiones simuladas, sin tocar sistemas reales."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Preparar el caso",
+            "items": [
+              {
+                "label": "Pregunta Faro",
+                "detail": "¿Qué relación sustentan correo, DNS y acceso?"
+              },
+              {
+                "label": "Material",
+                "detail": "Tres observaciones sintéticas con tiempos UTC."
+              },
+              {
+                "label": "Reglas",
+                "detail": "Solo lectura y decisiones simuladas, sin tocar sistemas reales."
+              }
+            ],
+            "caption": "El caso Faro empieza con una pregunta y un límite: investigar un acceso de laboratorio, no toda una organización."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Un objetivo demasiado amplio",
+        "scenario": "Una propuesta ficticia pide demostrar que toda la empresa quedó comprometida con tres registros de PC-A.",
+        "steps": [
+          {
+            "action": "Comparar pregunta y datos",
+            "reason": "La cobertura no sostiene esa amplitud.",
+            "result": "Solo hay observaciones de un equipo y una aplicación."
+          },
+          {
+            "action": "Reducir alcance",
+            "reason": "Hace resoluble la investigación.",
+            "result": "Se investiga la secuencia de PC-A entre 14:00Z y 14:10Z."
+          },
+          {
+            "action": "Fijar límites",
+            "reason": "Evita conclusiones indebidas.",
+            "result": "Impacto global y contenido de sesión quedan fuera de cobertura."
+          }
+        ],
+        "result": "La pregunta delimitada puede responderse con hechos y lagunas explícitas.",
+        "visual": {
+          "type": "timeline",
+          "title": "Un objetivo demasiado amplio",
+          "items": [
+            {
+              "label": "Comparar pregunta y datos",
+              "detail": "Solo hay observaciones de un equipo y una aplicación."
+            },
+            {
+              "label": "Reducir alcance",
+              "detail": "Se investiga la secuencia de PC-A entre 14:00Z y 14:10Z."
+            },
+            {
+              "label": "Fijar límites",
+              "detail": "Impacto global y contenido de sesión quedan fuera de cobertura."
+            }
+          ],
+          "caption": "La pregunta delimitada puede responderse con hechos y lagunas explícitas."
+        }
+      },
+      "practice": {
+        "task": "Escribe la carta de alcance del caso Faro.",
+        "steps": [
+          "Incluye equipo, aplicación e intervalo.",
+          "Enumera tres acciones permitidas y dos no autorizadas.",
+          "Define qué resultado permitiría cerrar la simulación."
+        ],
+        "expected": "Una carta de alcance que no promete demostrar lo que las fuentes no registran."
+      },
+      "check": {
+        "question": "¿Qué debe hacerse si una pregunta excede el material disponible?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Inventar fuentes que falten."
+          },
+          {
+            "id": "b",
+            "text": "Reducirla o declarar la cobertura necesaria."
+          },
+          {
+            "id": "c",
+            "text": "Ampliar acciones reales sin permiso."
+          }
+        ],
+        "correct": "b",
+        "explanation": "El alcance debe corresponder a datos y autorización; una laguna se comunica en lugar de rellenarse."
+      },
+      "mistakes": [
+        {
+          "myth": "Una simulación permite cualquier acción porque no es un incidente real.",
+          "correction": "Sus reglas y entornos autorizados siguen siendo límites de trabajo."
+        }
+      ],
+      "recap": [
+        "Pregunta Faro: ¿Qué relación sustentan correo, DNS y acceso?",
+        "Material: Tres observaciones sintéticas con tiempos UTC.",
+        "Reglas: Solo lectura y decisiones simuladas, sin tocar sistemas reales."
+      ],
+      "glossary": [
+        {
+          "term": "Carta de alcance",
+          "definition": "Documento que define pregunta, material y acciones permitidas."
+        },
+        {
+          "term": "Condición de cierre",
+          "definition": "Resultado verificable que permite terminar una etapa."
+        }
+      ]
+    },
+    {
+      "dayId": "w48d2",
+      "title": "Inventariar evidencia",
+      "lead": "El inventario convierte archivos dispersos en un conjunto de evidencias identificable.",
+      "sections": [
+        {
+          "topic": "Archivos, registros y tiempos",
+          "explanation": [
+            "El inventario del caso asigna un identificador a cada elemento y registra qué contiene, de dónde procede y qué intervalo cubre. Para Faro, EV-01 representa el correo sintético de las 14:00Z, EV-02 la consulta DNS de PC-A a las 14:02Z y EV-03 el evento de acceso de las 14:03Z. Conserva estos identificadores en las notas para que una conclusión pueda vincularse a la observación exacta sin depender de nombres de archivo cambiantes.",
+            "Añade integridad y condiciones de interpretación: huella de la copia cuando trabajes con archivos, referencia temporal y campos disponibles. Un inventario no es todavía una cronología causal ni un veredicto. También debe declarar qué no existe en el paquete, como procesos del endpoint o registros posteriores de la aplicación. Esa ausencia orienta preguntas y evita que otro analista crea que revisaste una fuente inexistente. Separa originales controlados, copias de trabajo y resultados derivados para no confundir un informe generado con la evidencia de origen."
+          ],
+          "analogy": "Un índice de biblioteca indica qué libros tienes y dónde están; no reemplaza su lectura ni agrega títulos ausentes.",
+          "keyPoints": [
+            "EV-01: Correo sintético recibido a las 14:00Z.",
+            "EV-02: DNS de PC-A a aviso-faro.test a las 14:02Z.",
+            "EV-03: Acceso a aplicación de laboratorio a las 14:03Z."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Inventariar evidencia",
+            "items": [
+              {
+                "label": "EV-01",
+                "detail": "Correo sintético recibido a las 14:00Z."
+              },
+              {
+                "label": "EV-02",
+                "detail": "DNS de PC-A a aviso-faro.test a las 14:02Z."
+              },
+              {
+                "label": "EV-03",
+                "detail": "Acceso a aplicación de laboratorio a las 14:03Z."
+              }
+            ],
+            "caption": "El inventario convierte archivos dispersos en un conjunto de evidencias identificable."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "El informe confundido con la fuente",
+        "scenario": "Un archivo resumen.csv fue generado a partir de EV-02, pero se contaba como evidencia independiente.",
+        "steps": [
+          {
+            "action": "Trazar procedencia",
+            "reason": "Un derivado no es una observación nueva.",
+            "result": "resumen.csv depende de EV-02."
+          },
+          {
+            "action": "Etiquetar versión",
+            "reason": "Evita mezclar origen y transformación.",
+            "result": "Se registra como resultado derivado."
+          },
+          {
+            "action": "Conservar vínculo",
+            "reason": "Permite reproducir el resumen.",
+            "result": "La ficha incluye filtro y referencia a EV-02."
+          }
+        ],
+        "result": "El inventario distingue fuente original y producto del análisis.",
+        "visual": {
+          "type": "timeline",
+          "title": "El informe confundido con la fuente",
+          "items": [
+            {
+              "label": "Trazar procedencia",
+              "detail": "resumen.csv depende de EV-02."
+            },
+            {
+              "label": "Etiquetar versión",
+              "detail": "Se registra como resultado derivado."
+            },
+            {
+              "label": "Conservar vínculo",
+              "detail": "La ficha incluye filtro y referencia a EV-02."
+            }
+          ],
+          "caption": "El inventario distingue fuente original y producto del análisis."
+        }
+      },
+      "practice": {
+        "task": "Construye el inventario Faro con tres fuentes y un resultado derivado.",
+        "steps": [
+          "Asigna identificadores y momentos.",
+          "Indica campos disponibles y fuente ausente.",
+          "Dibuja el vínculo del derivado con su origen."
+        ],
+        "expected": "Cuatro fichas sin contar dos veces la misma observación."
+      },
+      "check": {
+        "question": "¿Un resumen creado desde un registro es una confirmación independiente?",
+        "options": [
+          {
+            "id": "a",
+            "text": "No; deriva de la misma fuente salvo que aporte otra observación."
+          },
+          {
+            "id": "b",
+            "text": "Sí, porque tiene otro nombre."
+          },
+          {
+            "id": "c",
+            "text": "Sí, si es un CSV."
+          }
+        ],
+        "correct": "a",
+        "explanation": "El formato o nombre nuevo no cambia la procedencia del dato."
+      },
+      "mistakes": [
+        {
+          "myth": "Un archivo de resultado debe contarse como una nueva fuente original.",
+          "correction": "La independencia depende de la observación de origen, no del número de archivos producidos."
+        }
+      ],
+      "recap": [
+        "EV-01: Correo sintético recibido a las 14:00Z.",
+        "EV-02: DNS de PC-A a aviso-faro.test a las 14:02Z.",
+        "EV-03: Acceso a aplicación de laboratorio a las 14:03Z."
+      ],
+      "glossary": [
+        {
+          "term": "Derivado",
+          "definition": "Resultado generado a partir de material anterior."
+        },
+        {
+          "term": "Inventario",
+          "definition": "Registro organizado de elementos, procedencia y cobertura."
+        }
+      ]
+    },
+    {
+      "dayId": "w48d3",
+      "title": "Investigar",
+      "lead": "Una investigación avanza cuando cada consulta pone a prueba una hipótesis concreta.",
+      "sections": [
+        {
+          "topic": "Hipótesis y consultas",
+          "explanation": [
+            "En Faro la hipótesis inicial es que el correo se relaciona con la consulta DNS y con el acceso posterior. La alternativa es que el acceso fuera una actividad legítima independiente. Para contrastarlas necesitas campos que enlacen los eventos, no solo proximidad temporal: destinatario del mensaje, equipo que consultó, cuenta del acceso y contexto de autorización. Escribe primero qué esperarías observar si cada explicación fuera correcta y después selecciona una búsqueda que pueda distinguirlas.",
+            "No busques únicamente confirmaciones. Si EV-03 pertenece a otra cuenta, o el acceso fue anterior al clic supuesto, el relato necesita revisión. Una consulta útil conserva también resultados negativos y límites de cobertura. Trabaja sobre una tabla pequeña antes de aplicar un filtro más complejo: tres observaciones permiten practicar la lógica sin depender de una plataforma. Cada nota debe guardar pregunta, criterio de selección, resultado y efecto sobre la hipótesis, para que el progreso sea una reducción de incertidumbre y no solo una acumulación de pantallas."
+          ],
+          "analogy": "Una prueba de una llave pregunta si abre una cerradura concreta; no consiste en mirar más llaves esperando reconocerla.",
+          "keyPoints": [
+            "Hipótesis A: Correo y acceso forman una secuencia relacionada.",
+            "Hipótesis B: El acceso es una actividad autorizada independiente.",
+            "Prueba: Comparar identidad, equipo, tiempo y autorización."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Investigar",
+            "items": [
+              {
+                "label": "Hipótesis A",
+                "detail": "Correo y acceso forman una secuencia relacionada."
+              },
+              {
+                "label": "Hipótesis B",
+                "detail": "El acceso es una actividad autorizada independiente."
+              },
+              {
+                "label": "Prueba",
+                "detail": "Comparar identidad, equipo, tiempo y autorización."
+              }
+            ],
+            "caption": "Una investigación avanza cuando cada consulta pone a prueba una hipótesis concreta."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "La cuenta que no coincidía",
+        "scenario": "EV-01 se dirige a ana-lab; EV-03 registra acceso de servicio-lab.",
+        "steps": [
+          {
+            "action": "Comparar identidades",
+            "reason": "La relación necesita soporte.",
+            "result": "Destinatario y cuenta de acceso no coinciden."
+          },
+          {
+            "action": "Examinar alternativa",
+            "reason": "Puede haber procesos independientes.",
+            "result": "El escenario incluye una tarea planificada de servicio-lab."
+          },
+          {
+            "action": "Actualizar hipótesis",
+            "reason": "Evita forzar causalidad.",
+            "result": "La relación directa correo-acceso pierde apoyo; se mantiene la consulta DNS como hecho separado."
+          }
+        ],
+        "result": "La investigación cambia de explicación al encontrar un dato contrario.",
+        "visual": {
+          "type": "timeline",
+          "title": "La cuenta que no coincidía",
+          "items": [
+            {
+              "label": "Comparar identidades",
+              "detail": "Destinatario y cuenta de acceso no coinciden."
+            },
+            {
+              "label": "Examinar alternativa",
+              "detail": "El escenario incluye una tarea planificada de servicio-lab."
+            },
+            {
+              "label": "Actualizar hipótesis",
+              "detail": "La relación directa correo-acceso pierde apoyo; se mantiene la consulta DNS como hecho separado."
+            }
+          ],
+          "caption": "La investigación cambia de explicación al encontrar un dato contrario."
+        }
+      },
+      "practice": {
+        "task": "Escribe dos consultas manuales sobre EV-01, EV-02 y EV-03.",
+        "steps": [
+          "Define qué campo une cada par.",
+          "Incluye una prueba que podría debilitar tu hipótesis.",
+          "Anota el resultado y la incertidumbre restante."
+        ],
+        "expected": "Un registro de pruebas que distingue apoyo y contradicción."
+      },
+      "check": {
+        "question": "¿Qué hace valiosa una consulta durante el caso?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que devuelve muchas filas."
+          },
+          {
+            "id": "b",
+            "text": "Que tiene una sintaxis larga."
+          },
+          {
+            "id": "c",
+            "text": "Que responde una pregunta y puede cambiar una hipótesis."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La utilidad depende de reducir incertidumbre sobre una pregunta, no del tamaño del resultado."
+      },
+      "mistakes": [
+        {
+          "myth": "Una evidencia contraria debe omitirse para mantener la historia.",
+          "correction": "Puede indicar que la explicación inicial era incompleta o incorrecta."
+        }
+      ],
+      "recap": [
+        "Hipótesis A: Correo y acceso forman una secuencia relacionada.",
+        "Hipótesis B: El acceso es una actividad autorizada independiente.",
+        "Prueba: Comparar identidad, equipo, tiempo y autorización."
+      ],
+      "glossary": [
+        {
+          "term": "Prueba discriminante",
+          "definition": "Comprobación que ayuda a distinguir explicaciones competidoras."
+        },
+        {
+          "term": "Sesgo de confirmación",
+          "definition": "Tendencia a buscar o valorar solo datos favorables a una idea."
+        }
+      ]
+    },
+    {
+      "dayId": "w48d4",
+      "title": "Correlacionar",
+      "lead": "La secuencia temporal de Faro no demuestra causalidad hasta que aparecen vínculos suficientes.",
+      "sections": [
+        {
+          "topic": "Correo, equipo y red disponibles",
+          "explanation": [
+            "Correlacionar correo, equipo y red exige respetar lo que cada fuente observa. EV-01 puede identificar destinatario y enlace del mensaje; EV-02 registra una resolución desde PC-A; EV-03 registra una autenticación de una cuenta. La cercanía temporal es compatible con una relación, pero también con actividades concurrentes. Construye una tabla con campos compartidos y vacíos, y comprueba si existen intermediarios como proxy, sincronización o tareas automáticas que expliquen parte de la secuencia.",
+            "Una cronología debe conservar UTC y los momentos originales si hubo conversiones. Añade la precisión de cada fuente y evita ordenar con segundos exactos cuando solo tienes minutos. Distingue el orden observado de la causa propuesta: recibir un mensaje antes de consultar un dominio no prueba que una persona pulsara el enlace. Si no hay telemetría de navegador o endpoint, el vínculo puede seguir siendo una hipótesis. Esa distinción permite recomendar una comprobación concreta sin negar los hechos que sí se observaron."
+          ],
+          "analogy": "Que suene una campana antes de llover no demuestra que la campana provoque la lluvia.",
+          "keyPoints": [
+            "Correo: Destinatario y enlace según EV-01.",
+            "Red: Consulta desde PC-A según EV-02.",
+            "Acceso: Cuenta y aplicación según EV-03, sin causalidad automática."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Correlacionar",
+            "items": [
+              {
+                "label": "Correo",
+                "detail": "Destinatario y enlace según EV-01."
+              },
+              {
+                "label": "Red",
+                "detail": "Consulta desde PC-A según EV-02."
+              },
+              {
+                "label": "Acceso",
+                "detail": "Cuenta y aplicación según EV-03, sin causalidad automática."
+              }
+            ],
+            "caption": "La secuencia temporal de Faro no demuestra causalidad hasta que aparecen vínculos suficientes."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "La precarga del enlace",
+        "scenario": "El caso añade que una herramienta de seguridad consultó el dominio del correo automáticamente.",
+        "steps": [
+          {
+            "action": "Incorporar contexto",
+            "reason": "La consulta puede tener otro origen funcional.",
+            "result": "El análisis automático explica parte del DNS."
+          },
+          {
+            "action": "Revisar vínculo humano",
+            "reason": "Resolver no equivale a clic.",
+            "result": "No hay registro que pruebe interacción de la persona."
+          },
+          {
+            "action": "Conservar hechos",
+            "reason": "El contexto no borra la observación.",
+            "result": "EV-02 sigue válido, pero no se atribuye a un clic humano."
+          }
+        ],
+        "result": "La correlación se vuelve más precisa al distinguir automatización de interacción.",
+        "visual": {
+          "type": "timeline",
+          "title": "La precarga del enlace",
+          "items": [
+            {
+              "label": "Incorporar contexto",
+              "detail": "El análisis automático explica parte del DNS."
+            },
+            {
+              "label": "Revisar vínculo humano",
+              "detail": "No hay registro que pruebe interacción de la persona."
+            },
+            {
+              "label": "Conservar hechos",
+              "detail": "EV-02 sigue válido, pero no se atribuye a un clic humano."
+            }
+          ],
+          "caption": "La correlación se vuelve más precisa al distinguir automatización de interacción."
+        }
+      },
+      "practice": {
+        "task": "Dibuja la cronología Faro con un enlace confirmado y otro hipotético.",
+        "steps": [
+          "Etiqueta cada nodo con fuente y momento.",
+          "Explica el criterio de cada conexión.",
+          "Añade una alternativa de automatización."
+        ],
+        "expected": "Una cronología que no convierte orden en causa."
+      },
+      "check": {
+        "question": "¿Qué falta para afirmar que una persona pulsó un enlace solo con DNS?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Un vínculo de actividad apropiado que descarte otras causas."
+          },
+          {
+            "id": "b",
+            "text": "Un nombre de dominio más largo."
+          },
+          {
+            "id": "c",
+            "text": "Que el correo llegue antes."
+          }
+        ],
+        "correct": "a",
+        "explanation": "DNS puede deberse a varias operaciones; hace falta evidencia adecuada sobre la interacción."
+      },
+      "mistakes": [
+        {
+          "myth": "Todo DNS posterior a un correo proviene del clic del destinatario.",
+          "correction": "Precarga, análisis de seguridad y otras tareas pueden generar consultas."
+        }
+      ],
+      "recap": [
+        "Correo: Destinatario y enlace según EV-01.",
+        "Red: Consulta desde PC-A según EV-02.",
+        "Acceso: Cuenta y aplicación según EV-03, sin causalidad automática."
+      ],
+      "glossary": [
+        {
+          "term": "Causalidad",
+          "definition": "Relación por la que una acción produce otra."
+        },
+        {
+          "term": "Precarga",
+          "definition": "Obtención automática de recursos antes de una interacción explícita."
+        }
+      ]
+    },
+    {
+      "dayId": "w48d5",
+      "title": "Responder",
+      "lead": "Las recomendaciones de Faro deben reducir riesgos concretos sin afirmar un alcance no observado.",
+      "sections": [
+        {
+          "topic": "Alcance y recomendaciones",
+          "explanation": [
+            "Responder a una simulación implica elegir acciones proporcionales a hechos y a incertidumbres relevantes. Si solo se confirma recepción de un mensaje y resolución automática, no puedes declarar compromiso total de PC-A. Puedes proponer revisar sesiones, confirmar contexto del usuario o buscar telemetría adicional dentro de la autorización. Cada recomendación debe indicar qué pregunta resuelve o qué riesgo limita, quién decide y cómo se comprobará su resultado en el escenario.",
+            "Separa acciones inmediatas de mejoras de largo plazo. Una revisión de sesión puede ser urgente si hay indicios de acceso no autorizado; una mejora de registro puede evitar lagunas en futuros casos. No mezcles una propuesta con una medida ya aplicada. Añade dependencias y criterios de revisión para que la respuesta cambie si aparecen nuevos datos. La calidad no consiste en recomendar el máximo número de bloqueos, sino en relacionar evidencia, impacto posible y costo de la intervención con una decisión defendible."
+          ],
+          "analogy": "Un médico no aplica todos los tratamientos posibles a un síntoma: elige lo que responde al problema y comprueba su efecto.",
+          "keyPoints": [
+            "Hechos: Recepción, consulta y acceso conservan sus soportes.",
+            "Riesgo: Las hipótesis pendientes orientan decisiones proporcionadas.",
+            "Acción: Cada propuesta tiene dueño, objetivo y comprobación."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Responder",
+            "items": [
+              {
+                "label": "Hechos",
+                "detail": "Recepción, consulta y acceso conservan sus soportes."
+              },
+              {
+                "label": "Riesgo",
+                "detail": "Las hipótesis pendientes orientan decisiones proporcionadas."
+              },
+              {
+                "label": "Acción",
+                "detail": "Cada propuesta tiene dueño, objetivo y comprobación."
+              }
+            ],
+            "caption": "Las recomendaciones de Faro deben reducir riesgos concretos sin afirmar un alcance no observado."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Dos recomendaciones con distinto propósito",
+        "scenario": "Faro no dispone de registros de navegador y mantiene una sesión que el usuario no reconoce.",
+        "steps": [
+          {
+            "action": "Priorizar riesgo actual",
+            "reason": "Una sesión no reconocida necesita revisión.",
+            "result": "Se propone comprobar y, si se autoriza, revocar esa sesión."
+          },
+          {
+            "action": "Resolver laguna",
+            "reason": "El navegador ayudaría a evaluar interacción.",
+            "result": "Se solicita telemetría autorizada del intervalo."
+          },
+          {
+            "action": "Mejorar futuro",
+            "reason": "La cobertura puede fortalecerse después.",
+            "result": "Se propone revisar registro y retención con el dueño del servicio."
+          }
+        ],
+        "result": "Cada recomendación queda vinculada a un riesgo o una laguna concretos.",
+        "visual": {
+          "type": "timeline",
+          "title": "Dos recomendaciones con distinto propósito",
+          "items": [
+            {
+              "label": "Priorizar riesgo actual",
+              "detail": "Se propone comprobar y, si se autoriza, revocar esa sesión."
+            },
+            {
+              "label": "Resolver laguna",
+              "detail": "Se solicita telemetría autorizada del intervalo."
+            },
+            {
+              "label": "Mejorar futuro",
+              "detail": "Se propone revisar registro y retención con el dueño del servicio."
+            }
+          ],
+          "caption": "Cada recomendación queda vinculada a un riesgo o una laguna concretos."
+        }
+      },
+      "practice": {
+        "task": "Escribe tres recomendaciones para Faro con prioridades distintas.",
+        "steps": [
+          "Relaciona cada una con una evidencia o incertidumbre.",
+          "Asigna responsable y autorización.",
+          "Define un resultado observable o criterio de revisión."
+        ],
+        "expected": "Tres acciones verificables, sin presentar propuestas como ejecutadas."
+      },
+      "check": {
+        "question": "¿Qué vuelve operativa una recomendación?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que sea muy general."
+          },
+          {
+            "id": "b",
+            "text": "Un objetivo, responsable y criterio comprobable."
+          },
+          {
+            "id": "c",
+            "text": "Que prometa eliminar todo riesgo."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Una recomendación se puede seguir y revisar cuando especifica finalidad, dueño y resultado esperado."
+      },
+      "mistakes": [
+        {
+          "myth": "Más bloqueos siempre implican mejor respuesta.",
+          "correction": "Las medidas pueden afectar servicios y deben corresponder al riesgo y a la autorización."
+        }
+      ],
+      "recap": [
+        "Hechos: Recepción, consulta y acceso conservan sus soportes.",
+        "Riesgo: Las hipótesis pendientes orientan decisiones proporcionadas.",
+        "Acción: Cada propuesta tiene dueño, objetivo y comprobación."
+      ],
+      "glossary": [
+        {
+          "term": "Medida inmediata",
+          "definition": "Acción priorizada por un riesgo actual."
+        },
+        {
+          "term": "Mejora estructural",
+          "definition": "Cambio destinado a reducir futuras lagunas o debilidades."
+        }
+      ]
+    },
+    {
+      "dayId": "w48d6",
+      "title": "Informe",
+      "lead": "El informe Faro debe mostrar qué cambió entre la hipótesis inicial y la conclusión final.",
+      "sections": [
+        {
+          "topic": "Hallazgos y limitaciones",
+          "explanation": [
+            "Un informe de investigación necesita una pregunta inicial, alcance, fuentes, método, hallazgos y limitaciones. En Faro el lector debe entender por qué la proximidad de tres eventos parecía relevante y qué datos posteriores modificaron esa interpretación. Conserva las hipótesis descartadas con una explicación breve del motivo; no las borres como si nunca hubieran existido. Esto demuestra razonamiento y permite revisar si el descarte fue adecuado con el material disponible.",
+            "Redacta cada hallazgo como una afirmación pequeña seguida de su soporte. Por ejemplo, se observó resolución desde PC-A a las 14:02Z según EV-02; el contexto de análisis automático limita atribuirla a un clic. Luego separa recomendaciones y estado de ejecución. Incluye una cronología con referencias y una tabla de incertidumbres que afecten decisiones. Antes de entregar, revisa que el resumen ejecutivo no afirme pérdida de datos o ejecución si ninguna fuente las demuestra, y elimina cualquier dato privado innecesario de las muestras."
+          ],
+          "analogy": "Un cuaderno de laboratorio conserva también los experimentos que no apoyaron la primera idea.",
+          "keyPoints": [
+            "Método: Pregunta, hipótesis y pruebas documentadas.",
+            "Hallazgo: Afirmación vinculada a una evidencia identificada.",
+            "Límite: Dato ausente o alternativa que restringe la conclusión."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Informe",
+            "items": [
+              {
+                "label": "Método",
+                "detail": "Pregunta, hipótesis y pruebas documentadas."
+              },
+              {
+                "label": "Hallazgo",
+                "detail": "Afirmación vinculada a una evidencia identificada."
+              },
+              {
+                "label": "Límite",
+                "detail": "Dato ausente o alternativa que restringe la conclusión."
+              }
+            ],
+            "caption": "El informe Faro debe mostrar qué cambió entre la hipótesis inicial y la conclusión final."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "La frase corregida",
+        "scenario": "El borrador Faro decía «la usuaria abrió el enlace y fue comprometida» sin evidencia de interacción ni ejecución.",
+        "steps": [
+          {
+            "action": "Localizar soporte",
+            "reason": "Cada verbo requiere evidencia.",
+            "result": "Solo se confirman mensaje y consulta automática."
+          },
+          {
+            "action": "Reformular hallazgo",
+            "reason": "Mantiene precisión.",
+            "result": "Se describe la secuencia observada y su contexto."
+          },
+          {
+            "action": "Añadir seguimiento",
+            "reason": "La incertidumbre orienta trabajo.",
+            "result": "Se solicita verificar sesión y actividad del endpoint autorizada."
+          }
+        ],
+        "result": "El informe final conserva lo observado sin convertir una hipótesis en hecho.",
+        "visual": {
+          "type": "timeline",
+          "title": "La frase corregida",
+          "items": [
+            {
+              "label": "Localizar soporte",
+              "detail": "Solo se confirman mensaje y consulta automática."
+            },
+            {
+              "label": "Reformular hallazgo",
+              "detail": "Se describe la secuencia observada y su contexto."
+            },
+            {
+              "label": "Añadir seguimiento",
+              "detail": "Se solicita verificar sesión y actividad del endpoint autorizada."
+            }
+          ],
+          "caption": "El informe final conserva lo observado sin convertir una hipótesis en hecho."
+        }
+      },
+      "practice": {
+        "task": "Redacta un informe Faro de una página.",
+        "steps": [
+          "Incluye tres hallazgos con IDs de evidencia.",
+          "Añade dos límites que cambien la interpretación.",
+          "Cierra con recomendaciones y sus estados."
+        ],
+        "expected": "Un relato coherente y revisable con datos ficticios."
+      },
+      "check": {
+        "question": "¿Qué debe aparecer tras una conclusión que fue descartada?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La evidencia o razón que llevó a descartarla."
+          },
+          {
+            "id": "b",
+            "text": "Nada: conviene borrar todo rastro."
+          },
+          {
+            "id": "c",
+            "text": "Una afirmación más contundente."
+          }
+        ],
+        "correct": "a",
+        "explanation": "Conservar el motivo del cambio hace auditable el razonamiento."
+      },
+      "mistakes": [
+        {
+          "myth": "Un informe debe presentar una historia lineal sin dudas previas.",
+          "correction": "La investigación puede cambiar de rumbo; documentar por qué mejora su revisión."
+        }
+      ],
+      "recap": [
+        "Método: Pregunta, hipótesis y pruebas documentadas.",
+        "Hallazgo: Afirmación vinculada a una evidencia identificada.",
+        "Límite: Dato ausente o alternativa que restringe la conclusión."
+      ],
+      "glossary": [
+        {
+          "term": "Hallazgo",
+          "definition": "Resultado del análisis respaldado por evidencia."
+        },
+        {
+          "term": "Borrador",
+          "definition": "Versión de trabajo que debe revisarse antes de comunicar decisiones."
+        }
+      ]
+    },
+    {
+      "dayId": "w48d7",
+      "title": "Evaluación del caso",
+      "lead": "Evaluar Faro requiere exactitud, autonomía y uso razonado del tiempo.",
+      "sections": [
+        {
+          "topic": "Exactitud, autonomía y tiempo",
+          "explanation": [
+            "La evaluación de una simulación debe comprobar lo que el análisis demuestra, no comparar su tono con una respuesta ideal imaginaria. Revisa si los valores y momentos son correctos, si cada relación tiene soporte y si las limitaciones permanecen visibles en el resumen. Después valora autonomía: qué decisiones tomaste sin guía y cuáles dependieron de ayuda. Una investigación más rápida no es mejor si omite comprobar una cuenta o interpreta una consulta DNS como ejecución.",
+            "El tiempo sirve para descubrir cuellos de botella. Divide la sesión en orientación, búsquedas, validación y comunicación, y observa dónde perdiste minutos por desorden o por desconocer un concepto. No inventes una nota predictiva de examen con esos datos. Elige dos mejoras concretas que puedas probar en un caso nuevo: preparar una plantilla de evidencias, validar campos antes de filtrar o escribir una conclusión limitada antes del resumen. Así la evaluación produce un plan de aprendizaje y no solo una etiqueta de éxito o fracaso."
+          ],
+          "analogy": "Cronometrar una reparación solo sirve si también compruebas que el equipo quedó funcionando correctamente.",
+          "keyPoints": [
+            "Exactitud: Valores, tiempos y afirmaciones coinciden con fuentes.",
+            "Autonomía: Se registra el nivel real de ayuda.",
+            "Mejora: El análisis de tiempo produce una práctica comprobable."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Evaluación del caso",
+            "items": [
+              {
+                "label": "Exactitud",
+                "detail": "Valores, tiempos y afirmaciones coinciden con fuentes."
+              },
+              {
+                "label": "Autonomía",
+                "detail": "Se registra el nivel real de ayuda."
+              },
+              {
+                "label": "Mejora",
+                "detail": "El análisis de tiempo produce una práctica comprobable."
+              }
+            ],
+            "caption": "Evaluar Faro requiere exactitud, autonomía y uso razonado del tiempo."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Rapidez con una conclusión falsa",
+        "scenario": "Una entrega ficticia tardó poco, pero llamó clic humano a una consulta automática.",
+        "steps": [
+          {
+            "action": "Revisar exactitud",
+            "reason": "La velocidad no compensa el error.",
+            "result": "Se identifica el salto de DNS a interacción."
+          },
+          {
+            "action": "Clasificar dificultad",
+            "reason": "La brecha es conceptual.",
+            "result": "Se necesita distinguir resolución y navegación."
+          },
+          {
+            "action": "Definir práctica",
+            "reason": "La mejora debe comprobarse.",
+            "result": "Se resolverán dos secuencias nuevas con automatización e interacción diferenciadas."
+          }
+        ],
+        "result": "La evaluación convierte un error concreto en una tarea de transferencia.",
+        "visual": {
+          "type": "timeline",
+          "title": "Rapidez con una conclusión falsa",
+          "items": [
+            {
+              "label": "Revisar exactitud",
+              "detail": "Se identifica el salto de DNS a interacción."
+            },
+            {
+              "label": "Clasificar dificultad",
+              "detail": "Se necesita distinguir resolución y navegación."
+            },
+            {
+              "label": "Definir práctica",
+              "detail": "Se resolverán dos secuencias nuevas con automatización e interacción diferenciadas."
+            }
+          ],
+          "caption": "La evaluación convierte un error concreto en una tarea de transferencia."
+        }
+      },
+      "practice": {
+        "task": "Evalúa tu informe Faro con una rúbrica propia de tres criterios.",
+        "steps": [
+          "Registra un acierto y un error con evidencia.",
+          "Indica dónde necesitaste ayuda.",
+          "Define dos mejoras y cómo las comprobarás en otro caso."
+        ],
+        "expected": "Una autoevaluación honesta con plan de práctica, no una promesa de aprobación."
+      },
+      "check": {
+        "question": "¿Qué debería producir una evaluación útil del caso?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo una etiqueta de aprobado."
+          },
+          {
+            "id": "b",
+            "text": "Un número de minutos sin contexto."
+          },
+          {
+            "id": "c",
+            "text": "Errores localizados y prácticas que permitan comprobar mejora."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La evaluación aporta valor cuando identifica una causa y la transforma en aprendizaje verificable."
+      },
+      "mistakes": [
+        {
+          "myth": "Si terminé antes, demostré mayor competencia.",
+          "correction": "Exactitud, método y autonomía deben revisarse junto con el tiempo."
+        }
+      ],
+      "recap": [
+        "Exactitud: Valores, tiempos y afirmaciones coinciden con fuentes.",
+        "Autonomía: Se registra el nivel real de ayuda.",
+        "Mejora: El análisis de tiempo produce una práctica comprobable."
+      ],
+      "glossary": [
+        {
+          "term": "Rúbrica",
+          "definition": "Criterios explícitos utilizados para revisar una tarea."
+        },
+        {
+          "term": "Cuello de botella",
+          "definition": "Paso que concentra retrasos o dificultades del proceso."
+        }
+      ]
+    }
+  ]
+}

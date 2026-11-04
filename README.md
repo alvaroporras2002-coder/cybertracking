@@ -2,7 +2,9 @@
 
 Plataforma personal para estudiar ciberseguridad desde cero. Contiene las **52 semanas y 364 sesiones** del programa, con una página de inicio, ruta, aula, notas, seguimiento, temporizador y respaldos locales.
 
-La versión 1.6 conserva la apariencia clara de vidrio translúcido, las esquinas redondeadas y la tipografía adaptable. Añade borradores para los formularios, búsqueda sin tildes, filtros del cuaderno y accesos distintos para retomar una actividad o avanzar. Las entradas animadas se reservan para la navegación; los guardados muestran una confirmación puntual.
+La versión 2.0 incorpora un aula con explicaciones propias de los temas de las 52 semanas. Cada sesión combina teoría, un caso resuelto, una práctica independiente, una comprobación explicada y vocabulario. Conserva la apariencia clara de vidrio, las esquinas redondeadas y todas las funciones de seguimiento.
+
+Abre **Mi ruta → Abrir clase** para estudiar una semana o entra en **Aprender** desde una sesión. Las clases ofrecen esquemas específicos con texto accesible, fotografías de apoyo, errores frecuentes y referencias oficiales. Los laboratorios interactivos permiten experimentar con tamaños y velocidades, subredes IPv4 y reglas de firewall. No necesitan una API de IA ni ejecutan comandos en tu equipo.
 
 Cincuenta y dos portadas generadas para este proyecto identifican cada semana con una escena diferente. El inicio y el aula muestran la portada de la semana correspondiente; el mapa general conserva sus seis imágenes de etapa. Son ilustraciones conceptuales: las tareas, los temas y las explicaciones se mantienen como texto accesible. Las imágenes se sirven desde el repositorio; la página no llama a una API de IA. Consulta [las portadas y sus prompts](assets/images/weeks/README.md) y [las imágenes de etapa](assets/images/README.md).
 
@@ -15,6 +17,8 @@ Repositorio: [alvaroporras2002-coder/cybertracking](https://github.com/alvaropor
 | Parte | Alcance |
 | --- | --- |
 | Temario | 52 semanas y 364 sesiones disponibles para consultar |
+| Explicaciones propias | 369 temas, casos resueltos, prácticas, glosario y comprobaciones de comprensión |
+| Material visual didáctico | Esquemas de conceptos y casos, más escenas ilustrativas de apoyo |
 | Evaluaciones formativas | 52 semanas: bancos diarios, revisiones semanales y retos de interpretación |
 | Repaso | Los bloques nuevos reutilizan preguntas de los seis días de forma explícita y trazable |
 | Progreso | Secuencial, sin fecha de inicio obligatoria |
@@ -53,6 +57,11 @@ También puedes abrir [GUIA_GITHUB.html](GUIA_GITHUB.html), que explica cómo su
 | `assets/js/draft-notes.js` | Borradores por sesión, cola de guardado y recuperación de errores |
 | `assets/js/form-drafts.js` | Borradores locales de formularios y reintento del guardado |
 | `assets/js/learner-tools.js` | Búsqueda, filtros del cuaderno y selección de la actividad |
+| `assets/js/lessons.js` | Carga y validación de las clases de cada semana |
+| `assets/js/lessons-ui.js` | Explicaciones, esquemas y comprobaciones de lectura |
+| `assets/js/learning-labs.js` | Experimentos locales de transferencia, subredes y firewall |
+| `assets/js/lesson-photos.js` | Catálogo de las escenas didácticas |
+| `assets/images/lessons/` | Imágenes nuevas y procedencia de sus prompts |
 | `assets/js/resources.js` | Carga de contenido y reproducción permitida |
 | `assets/js/motion.js` | Efectos decorativos y movimiento reducido |
 | `assets/js/analytics.js` | Agregaciones y gráficos de actividad, resultados y progreso |
@@ -62,10 +71,12 @@ También puedes abrir [GUIA_GITHUB.html](GUIA_GITHUB.html), que explica cómo su
 | `assets/js/timer.js` | Sesiones de tiempo de estudio |
 | `assets/js/backup.js` | Respaldo, validación e importación |
 | `data/curriculum.json` | Temario y recursos de las 364 sesiones |
+| `data/lessons/week-01.json` a `week-52.json` | Texto didáctico original de cada semana y sus referencias |
 | `data/assessments/week-01.json` a `week-52.json` | Fuentes de los bancos formativos de cada semana |
 | `data/assessments/index.json` | Índice ligero para cargar cada banco cuando se necesita |
 | `data/content-status.json` | Estado de desarrollo del contenido |
 | `tools/validate-content.py` | Comprobaciones del contenido |
+| `tools/validate-lessons.py` | Cobertura de temas, estructura didáctica y duplicados |
 | `tools/build-assessments.py` | Reconstrucción del índice a partir de los 52 bancos |
 | `tests/` | Pruebas de la lógica |
 | `CONTENT_STATUS.md` | Cobertura y trabajo pendiente |
@@ -102,6 +113,7 @@ Co-authored-by: Codex <noreply@openai.com>
 ## Uso y avance
 
 - El inicio distingue la siguiente sesión pendiente de la última actividad visitada. Al superar las 364 sesiones, ofrece accesos para repasar y consultar evidencias.
+- Las clases semanales y la pestaña Aprender comparten el mismo contenido. Las prácticas propuestas y las preguntas de lectura no modifican por sí solas tu progreso oficial.
 - Buscar `evaluacion` también encuentra `evaluación`. Las semanas con coincidencias se despliegan para mostrar las sesiones.
 - El cuaderno permite consultar favoritos, dudas abiertas y evidencias; el orden reciente utiliza la fecha de edición de las notas.
 - Marca los recursos obligatorios cuando los hayas estudiado; los opcionales no bloquean.
@@ -135,6 +147,10 @@ node --test tests/*.test.mjs
 
 ```bash
 python tools/validate-content.py
+```
+
+```bash
+python tools/validate-lessons.py
 ```
 
 Comprueba además: móvil sin desplazamiento horizontal; navegación por teclado; movimiento reducido; una nota después de recargar; prueba fallida sin avance; aprobación con requisitos completos; exportación/importación y reproducción alternativa. El resultado real de las pruebas debe revisarse antes de declarar una versión terminada.

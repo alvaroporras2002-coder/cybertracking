@@ -27,6 +27,9 @@ state.preferences.motion = false;
 state.profile.name = 'Legacy learner';
 let failSaves = false;
 let failBankLoads = false;
+let delayBankLoad=null;
+let failLessonLoads = false;
+const lessonRequests=[];
 const events = new Map();
 const motionCalls = [];
 const entranceCalls=[];
@@ -84,7 +87,7 @@ const context=vm.createContext({console,URL,Blob,FormData:MockFormData,crypto:we
   document:doc,window:browserWindow,location:{hash:'#home'},navigator:{},
   setTimeout:(fn,ms)=>{const t=setTimeout(fn,ms);t.unref?.();return t;},clearTimeout,
   scrollTo(){},scrollY:0,confirm(){return false;},prompt(){return null;},
-  fetch:async url=>{try{const source=await fs.readFile(fileURLToPath(url),'utf8');return {ok:true,status:200,json:async()=>JSON.parse(source)};}catch{return {ok:false,status:404};}},
+  fetch:async url=>{try{if(String(url).includes('/data/lessons/')){lessonRequests.push(String(url));if(failLessonLoads)return {ok:false,status:503};}const source=await fs.readFile(fileURLToPath(url),'utf8');return {ok:true,status:200,json:async()=>JSON.parse(source)};}catch{return {ok:false,status:404};}},
 });
 const storageApi={...originalStorage,
   async loadState(){return state;},getState(){return state;},subscribe(){return ()=>{};},
@@ -94,7 +97,7 @@ const storageApi={...originalStorage,
 };
 const mocked = new Map([
   ['storage.js',storageApi],
-  ['resources.js',{...originalResources,async loadCurriculum(){const curriculum=JSON.parse(await fs.readFile(path.join(root,'data/curriculum.json'),'utf8'));const banks=new Map();for(const name of await fs.readdir(path.join(root,'data/assessments'))){if(!/^week-\d{2}\.json$/.test(name))continue;const week=JSON.parse(await fs.readFile(path.join(root,'data/assessments',name),'utf8'));for(const day of week.days)banks.set(day.dayId,day);}return {curriculum,banks,async loadBank(id){if(failBankLoads)throw new Error('Synthetic assessment download failure');return banks.get(id);}};}}],
+  ['resources.js',{...originalResources,async loadCurriculum(){const curriculum=JSON.parse(await fs.readFile(path.join(root,'data/curriculum.json'),'utf8'));const banks=new Map();for(const name of await fs.readdir(path.join(root,'data/assessments'))){if(!/^week-\d{2}\.json$/.test(name))continue;const week=JSON.parse(await fs.readFile(path.join(root,'data/assessments',name),'utf8'));for(const day of week.days)banks.set(day.dayId,day);}return {curriculum,banks,async loadBank(id){if(delayBankLoad){const wait=delayBankLoad;delayBankLoad=null;await wait;}if(failBankLoads)throw new Error('Synthetic assessment download failure');return banks.get(id);}};}}],
   ['timer.js',{getTimerMs:()=>0,startTimer:async()=>{},pauseTimer:async()=>{},logTimer:async()=>{},logManualStudy:async(dayId,minutes,note,{onMutate}={})=>{await storageApi.mutateState(s=>{s.studySessions.push({id:'manual-ui-'+s.studySessions.length,dayId,durationMs:minutes*60000,endedAt:new Date().toISOString(),source:'manual',note});onMutate?.(s);});},initTimer:()=>()=>{}}],
   ['motion.js',{initMotion:options=>{motionCalls.push(options.enabled);return {update(value){motionCalls.push(value);},refresh(_root,options={animate:true}){entranceCalls.push(options.animate);},destroy(){}};}}],
 ]);
@@ -125,7 +128,16 @@ async function route(hash, expected){
 }
 await route('#home','Abrir siguiente sesión');
 await route('#path','SEMANA 01');
-await route('#day/w01d1/learn','Resultado esperado');
+const professorMarkup=await route('#day/w01d1/learn','Resultado esperado');
+assert.ok(professorMarkup.includes('data-professor-day="w01d1"'));assert.ok(professorMarkup.includes('lesson-worked-example'));assert.ok(professorMarkup.includes('lesson-diagram'));
+const loadedLessonCount=lessonRequests.length;
+const weeklyClass=await route('#week/01','Qué aprenderás esta semana');assert.ok(weeklyClass.includes('aria-label="Clases de la semana"'));assert.ok(weeklyClass.includes('week-01.webp'));
+assert.equal(lessonRequests.length,loadedLessonCount,'weekly and daily learning share the same cached week');
+const secondClass=await route('#week/01/w01d2','data-professor-day="w01d2"');assert.ok(secondClass.includes('#day/w01d2/resources'));assert.equal(state.lastActivity.dayId,'w01d2');assert.equal(state.lastActivity.tab,'learn');
+const teachingDay=JSON.parse(await fs.readFile(path.join(root,'data/lessons/week-01.json'),'utf8')).days[1],checkStatus=new Element('check-status');
+const formativeBefore=structuredClone(state);await events.get('document:submit')({target:{classList:{contains:value=>value==='lesson-check-form'},dataset:{day:'w01d2'},values:{'lesson-answer':teachingDay.check.correct},querySelector:()=>checkStatus},preventDefault(){}});
+assert.ok(checkStatus.textContent.includes(teachingDay.check.explanation));assert.deepEqual(state,formativeBefore,'a class check must not mutate progress, attempts or learning records');
+
 await route('#day/w01d1/resources','He estudiado este recurso');
 await route('#day/w01d1/practice','Comprobar solución');
 await route('#day/w01d1/quiz','Comenzar prueba');
@@ -145,13 +157,13 @@ await route('#day/unknown/learn','Sesión no encontrada');
 await route('#path','SEMANA 01');
 const covers=new Set();
 for(let page=1;page<=7;page++){
-  if(page>1){const target={disabled:false,dataset:{action:'page',n:String(page)}};await events.get('document:click')({target:{closest(selector){return selector==='.skip-link'?null:target;}},preventDefault(){}});}
+  if(page>1){const target={disabled:false,dataset:{action:'page',n:String(page)}};await events.get('document:click')({target:{closest(selector){return (selector==='.skip-link'||selector==='[data-lesson-anchor]')?null:target;}},preventDefault(){}});}
   const markup=elements.get('path-results')?.innerHTML||elements.get('main-content').innerHTML;
   for(const match of markup.matchAll(/class="stage-cover" src="([^"]+)"/g))covers.add(match[1]);
 }
 assert.equal(covers.size,52,'all 52 weekly cards must use distinct image paths');
 assert.ok(covers.has('./assets/images/weeks/week-01.webp')&&covers.has('./assets/images/weeks/week-52.webp'));
-assert.ok((await route('#day/w52d7/learn','Resultado esperado')).includes('./assets/images/weeks/week-52.webp'),'lesson art must match its week');
+assert.ok((await route('#week/52/w52d7','Resultado esperado')).includes('./assets/images/weeks/week-52.webp'),'weekly classroom art must match its week');
 // A direct assessment startup must replace an indefinite loader with an actionable failure and support retry.
 await route('#day/w01d1/quiz','Comenzar prueba');
 elements.get('main-content').innerHTML='<div class="loading-screen">Cargando…</div>';
@@ -160,11 +172,21 @@ await route('#day/w01d1/quiz','No pudimos cargar esta evaluación');
 assert.ok(elements.get('main-content').innerHTML.includes('data-action="retry-route"'));
 assert.ok(elements.get('main-content').innerHTML.includes('#day/w01d1/resources'));
 const retryDownload={disabled:false,dataset:{action:'retry-route'}};
-const retryClick=()=>events.get('document:click')({target:{closest(selector){return selector==='.skip-link'?null:retryDownload;}},preventDefault(){}});
+const retryClick=()=>events.get('document:click')({target:{closest(selector){return (selector==='.skip-link'||selector==='[data-lesson-anchor]')?null:retryDownload;}},preventDefault(){}});
 await retryClick();
 assert.ok(elements.get('main-content').innerHTML.includes('Reintentar evaluación'),'a repeated download failure must retain its recovery controls');
 failBankLoads=false;await retryClick();
 assert.ok(elements.get('main-content').innerHTML.includes('Comenzar prueba'),'successful retry must render the assessment');
+let releaseStaleRetry;delayBankLoad=new Promise(resolve=>{releaseStaleRetry=resolve;});const staleRetry=retryClick();await Promise.resolve();
+await route('#progress','Resumen de actividad');const afterRetryNavigation=elements.get('main-content').writes,focusAfterRetryNavigation=focused;
+releaseStaleRetry();await staleRetry;
+assert.equal(elements.get('main-content').writes,afterRetryNavigation,'a delayed retry must not rebuild a newer route');assert.equal(focused,focusAfterRetryNavigation,'a delayed retry must not steal focus from a newer route');
+
+// An unavailable class keeps the accepted route and current screen intact; a new attempt can recover.
+await route('#progress','Resumen de actividad');const beforeClassFailure=elements.get('main-content').innerHTML;failLessonLoads=true;
+context.location.hash='#week/51';await events.get('window:hashchange')();assert.equal(context.location.hash,'#progress');assert.equal(elements.get('main-content').innerHTML,beforeClassFailure);
+assert.ok(elements.get('toast').textContent.includes('No se pudo cargar la clase'));
+failLessonLoads=false;await route('#week/51','data-professor-day="w51d1"');
 // A native hash transition must save the previous day's draft before another input can replace it.
 await route('#day/w01d1/notes','Tu cuaderno de laboratorio');
 let draftField=elements.get('day-notes');draftField.value='First note before rapid navigation';
@@ -202,7 +224,7 @@ let brokenPreviewRemoved=false;
 events.get('document:error')({target:{hasAttribute:name=>name==='data-video-thumbnail',closest:()=>({remove(){brokenPreviewRemoved=true;}})}});
 assert.ok(brokenPreviewRemoved,'an unavailable thumbnail must disappear while playback links remain available');
 assert.equal(elements.get('main-content').innerHTML,resourceMarkup,'a failed image must not rebuild the study screen');
-const clickAction=async(action,extra={})=>{const target={disabled:false,dataset:{action,...extra}};await events.get('document:click')({target:{closest(selector){return selector==='.skip-link'?null:target;}},preventDefault(){}});};
+const clickAction=async(action,extra={})=>{const target={disabled:false,dataset:{action,...extra}};await events.get('document:click')({target:{closest(selector){return (selector==='.skip-link'||selector==='[data-lesson-anchor]')?null:target;}},preventDefault(){}});};
 await clickAction('embed',{url:'https://www.youtube.com/watch?v=abcdefghijk',resource:'0'});
 const slot=elements.get('video-slot-0'),frame=slot.frame,screenWrites=elements.get('main-content').writes;
 assert.ok(frame,'fixture player must be mounted');
@@ -348,7 +370,7 @@ state=beforeComplete;await route('#progress','Resumen de actividad');
 // and must not be followed by the previous unconditional success toast.
 const clicks=events.get('document:click');failSaves=true;
 const target={disabled:false,dataset:{action:'favorite',id:first.id}};
-await clicks({target:{closest(selector){return selector==='.skip-link'?null:target;}},preventDefault(){}});
+await clicks({target:{closest(selector){return (selector==='.skip-link'||selector==='[data-lesson-anchor]')?null:target;}},preventDefault(){}});
 await new Promise(resolve=>setTimeout(resolve,5));
 assert.ok(elements.get('toast').textContent.includes('Synthetic storage failure'));
 assert.equal(elements.get('toast').hidden,false,'error toast must be visible');

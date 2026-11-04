@@ -1,0 +1,949 @@
+{
+  "version": "2.0.0",
+  "week": 17,
+  "title": "Principios controles y riesgo",
+  "overview": "Entramos en seguridad con un lenguaje que permite razonar y tomar decisiones. Aprenderás a separar propiedades de la información, activos, amenazas, vulnerabilidades y riesgos. También distinguirás funciones de controles y examinarás por qué varias capas necesitan independencia. Los casos incorporan autorización y privacidad desde el inicio. Al cerrar la semana tendrás un pequeño registro de riesgos con dueños, medidas y evidencia de seguimiento, en lugar de una lista de problemas sin contexto.",
+  "objectives": [
+    "Explicar CIA, controles y defensa en profundidad.",
+    "Describir escenarios de riesgo con contexto e impacto.",
+    "Definir autorización y responsabilidades de seguimiento."
+  ],
+  "sources": [
+    {
+      "id": "csf",
+      "title": "NIST Cybersecurity Framework",
+      "url": "https://www.nist.gov/cyberframework"
+    },
+    {
+      "id": "zt",
+      "title": "NIST SP 800-207: arquitectura de confianza cero",
+      "url": "https://csrc.nist.gov/pubs/sp/800/207/final"
+    },
+    {
+      "id": "ethics",
+      "title": "ISC2: código de ética",
+      "url": "https://www.isc2.org/ethics"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w17d1",
+      "title": "Principios",
+      "lead": "Evalúa qué propiedad de la información necesita protección en cada escenario.",
+      "sections": [
+        {
+          "topic": "Confidencialidad, integridad y disponibilidad",
+          "explanation": [
+            "La confidencialidad limita quién puede conocer información. La integridad protege su exactitud y evita modificaciones no autorizadas. La disponibilidad permite utilizar un servicio cuando se necesita. Estas propiedades se relacionan, pero no son intercambiables: un archivo puede permanecer secreto y haber sido alterado, o estar intacto pero ser inaccesible durante una caída del sistema.",
+            "Analiza primero el proceso y el daño posible. En una clínica, exponer una historia afecta confidencialidad; cambiar una dosis afecta integridad; impedir acceso urgente afecta disponibilidad. Un control puede mejorar una propiedad y dificultar otra: cifrar sin conservar la clave puede volver inaccesible una copia de respaldo. Por eso la decisión técnica debe considerar recuperación, permisos y funcionamiento conjunto, en lugar de seleccionar una herramienta solo porque lleva una etiqueta de seguridad."
+          ],
+          "analogy": "Una caja cerrada protege la lectura; un sello evidencia cambios; una llave disponible permite abrirla cuando hace falta.",
+          "keyPoints": [
+            "Confidencialidad trata acceso al contenido.",
+            "Integridad trata exactitud y cambios.",
+            "Disponibilidad trata uso oportuno del servicio."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Tres propiedades distintas",
+            "items": [
+              {
+                "label": "Confidencialidad",
+                "detail": "Solo personal autorizado lee el expediente"
+              },
+              {
+                "label": "Integridad",
+                "detail": "Los cambios quedan autorizados y trazables"
+              },
+              {
+                "label": "Disponibilidad",
+                "detail": "El expediente puede consultarse cuando se necesita"
+              }
+            ],
+            "caption": "Un diseño equilibrado protege las tres según el impacto del proceso."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Respaldo cifrado sin clave recuperable",
+        "scenario": "Existe una copia intacta, pero nadie puede descifrarla.",
+        "steps": [
+          {
+            "action": "Reconocer protección",
+            "reason": "El cifrado limita lectura no autorizada.",
+            "result": "Confidencialidad contemplada"
+          },
+          {
+            "action": "Identificar fallo",
+            "reason": "La organización tampoco puede leer su copia.",
+            "result": "Disponibilidad de recuperación incumplida"
+          },
+          {
+            "action": "Diseñar recuperación",
+            "reason": "La clave también necesita protección y acceso controlado.",
+            "result": "Procedimiento de recuperación probado"
+          }
+        ],
+        "result": "Proteger el secreto sin planificar acceso legítimo puede impedir la recuperación.",
+        "visual": {
+          "type": "flow",
+          "title": "Respaldo cifrado sin clave recuperable",
+          "items": [
+            {
+              "label": "Reconocer protección",
+              "detail": "Confidencialidad contemplada"
+            },
+            {
+              "label": "Identificar fallo",
+              "detail": "Disponibilidad de recuperación incumplida"
+            },
+            {
+              "label": "Diseñar recuperación",
+              "detail": "Procedimiento de recuperación probado"
+            }
+          ],
+          "caption": "Proteger el secreto sin planificar acceso legítimo puede impedir la recuperación."
+        }
+      },
+      "practice": {
+        "task": "Clasifica tres daños a una biblioteca digital.",
+        "steps": [
+          "Incluye una lectura no autorizada.",
+          "Incluye un cambio no autorizado.",
+          "Incluye una interrupción e identifica el impacto."
+        ],
+        "expected": "Tres propiedades justificadas con controles y una posible tensión entre ellas."
+      },
+      "check": {
+        "question": "Un documento fue cambiado sin autorización. ¿Qué propiedad se afecta directamente?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Disponibilidad"
+          },
+          {
+            "id": "b",
+            "text": "Integridad"
+          },
+          {
+            "id": "c",
+            "text": "Confidencialidad únicamente"
+          }
+        ],
+        "correct": "b",
+        "explanation": "La alteración compromete la exactitud y confianza en el contenido, aunque pueda seguir disponible."
+      },
+      "mistakes": [
+        {
+          "myth": "Cifrar un archivo resuelve toda su seguridad.",
+          "correction": "También necesitas permisos, integridad, recuperación y gestión de claves."
+        }
+      ],
+      "recap": [
+        "Confidencialidad trata acceso al contenido.",
+        "Integridad trata exactitud y cambios.",
+        "Disponibilidad trata uso oportuno del servicio."
+      ],
+      "glossary": [
+        {
+          "term": "Confidencialidad",
+          "definition": "Restricción de divulgación a sujetos autorizados."
+        },
+        {
+          "term": "Integridad",
+          "definition": "Protección frente a cambios indebidos y pérdida de exactitud."
+        }
+      ]
+    },
+    {
+      "dayId": "w17d2",
+      "title": "Lenguaje del riesgo",
+      "lead": "Describe un riesgo mediante un escenario, no mediante una palabra alarmante.",
+      "sections": [
+        {
+          "topic": "Activo, amenaza y vulnerabilidad",
+          "explanation": [
+            "Un activo es algo valioso para el proceso: datos, servicio, equipo o reputación. Una amenaza es una causa potencial de daño, como un actor malicioso o un fallo eléctrico. Una vulnerabilidad es una debilidad aprovechable o una condición que facilita ese daño. El riesgo relaciona la posibilidad de que ocurra un escenario con su impacto; no equivale simplemente al número de vulnerabilidades encontradas.",
+            "Por ejemplo, un servidor sin actualización tiene una debilidad, pero la prioridad depende de su exposición, la función que cumple y los controles existentes. Un servicio accesible desde Internet con datos sensibles puede requerir una respuesta distinta de una máquina aislada de entrenamiento. Escribe quién podría actuar, qué condición aprovecharía y qué proceso resultaría afectado. Así puedes elegir un control pertinente y asignar un dueño capaz de decidir sobre el riesgo residual."
+          ],
+          "analogy": "Una ventana sin cerrar es una debilidad; un robo es un escenario de amenaza; la pérdida esperada depende de lo que haya dentro.",
+          "keyPoints": [
+            "Activo, amenaza y vulnerabilidad cumplen papeles distintos.",
+            "El riesgo necesita contexto e impacto.",
+            "La prioridad depende de exposición y controles."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Construcción de un escenario",
+            "items": [
+              {
+                "label": "Activo",
+                "detail": "Servidor de pedidos"
+              },
+              {
+                "label": "Debilidad",
+                "detail": "Acceso administrativo expuesto"
+              },
+              {
+                "label": "Amenaza",
+                "detail": "Uso de una credencial robada"
+              },
+              {
+                "label": "Impacto",
+                "detail": "Interrupción y modificación de pedidos"
+              }
+            ],
+            "caption": "La relación permite discutir controles y consecuencias concretas."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Un portátil sin bloqueo automático",
+        "scenario": "El equipo contiene una aplicación de facturación con sesión abierta.",
+        "steps": [
+          {
+            "action": "Identificar valor",
+            "reason": "La aplicación permite acciones sobre facturas.",
+            "result": "Activo y proceso definidos"
+          },
+          {
+            "action": "Describir exposición",
+            "reason": "Una persona cercana podría usar la sesión.",
+            "result": "Escenario de uso no autorizado"
+          },
+          {
+            "action": "Reducir oportunidad",
+            "reason": "El control debe actuar sobre esa exposición.",
+            "result": "Bloqueo automático y revisión de sesiones"
+          }
+        ],
+        "result": "La descripción permite evaluar una medida específica, no solo decir que el portátil es inseguro.",
+        "visual": {
+          "type": "flow",
+          "title": "Un portátil sin bloqueo automático",
+          "items": [
+            {
+              "label": "Identificar valor",
+              "detail": "Activo y proceso definidos"
+            },
+            {
+              "label": "Describir exposición",
+              "detail": "Escenario de uso no autorizado"
+            },
+            {
+              "label": "Reducir oportunidad",
+              "detail": "Bloqueo automático y revisión de sesiones"
+            }
+          ],
+          "caption": "La descripción permite evaluar una medida específica, no solo decir que el portátil es inseguro."
+        }
+      },
+      "practice": {
+        "task": "Redacta un riesgo para un servicio ficticio.",
+        "steps": [
+          "Nombra el activo y su dueño.",
+          "Describe amenaza y debilidad por separado.",
+          "Explica el impacto y un control relacionado."
+        ],
+        "expected": "Un escenario completo que permita discutir prioridad y responsabilidad."
+      },
+      "check": {
+        "question": "¿Qué falta para priorizar una vulnerabilidad?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo su nombre técnico"
+          },
+          {
+            "id": "b",
+            "text": "El color del equipo"
+          },
+          {
+            "id": "c",
+            "text": "Su exposición, impacto y controles existentes"
+          }
+        ],
+        "correct": "c",
+        "explanation": "La debilidad necesita contexto para estimar el riesgo que representa para el proceso."
+      },
+      "mistakes": [
+        {
+          "myth": "Cada vulnerabilidad tiene el mismo riesgo en cualquier organización.",
+          "correction": "La criticidad del activo, exposición y compensaciones cambian la prioridad."
+        }
+      ],
+      "recap": [
+        "Activo, amenaza y vulnerabilidad cumplen papeles distintos.",
+        "El riesgo necesita contexto e impacto.",
+        "La prioridad depende de exposición y controles."
+      ],
+      "glossary": [
+        {
+          "term": "Activo",
+          "definition": "Elemento que tiene valor para un proceso."
+        },
+        {
+          "term": "Amenaza",
+          "definition": "Causa potencial de un efecto adverso."
+        }
+      ]
+    },
+    {
+      "dayId": "w17d3",
+      "title": "Controles",
+      "lead": "Clasifica un control por su función y por la forma en que se aplica.",
+      "sections": [
+        {
+          "topic": "Preventivos, detectivos, correctivos y categorías",
+          "explanation": [
+            "Un control es una medida que modifica el riesgo. Los preventivos intentan impedir un evento; los detectivos ayudan a advertirlo; los correctivos contribuyen a resolver efectos o recuperar una condición deseada. Estas funciones no son categorías excluyentes para todos los productos. Una plataforma puede bloquear una acción, registrar otra y ayudar a corregir una configuración, según la capacidad concreta que estés analizando.",
+            "También puedes clasificar por implementación: controles técnicos, administrativos o físicos. Una política de acceso es administrativa; una regla aplicada por un sistema es técnica; una puerta controlada es física. Combinar ambas dimensiones evita respuestas superficiales. Pregunta qué problema modifica, cuándo actúa y qué evidencia demuestra que funciona. Comprar una herramienta no equivale a desplegar correctamente su control ni a asignar a alguien que revise sus resultados."
+          ],
+          "analogy": "Un detector de humo avisa; una puerta resistente limita propagación; un procedimiento de recuperación organiza la vuelta a la operación.",
+          "keyPoints": [
+            "Función e implementación son dimensiones distintas.",
+            "Un producto puede implementar varios controles.",
+            "Todo control necesita operación y verificación."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Función de tres medidas",
+            "items": [
+              {
+                "label": "Preventivo",
+                "detail": "Autorización antes de abrir un documento"
+              },
+              {
+                "label": "Detectivo",
+                "detail": "Alerta de intento de acceso no permitido"
+              },
+              {
+                "label": "Correctivo",
+                "detail": "Restauración de un archivo alterado"
+              }
+            ],
+            "caption": "La clasificación se refiere a la capacidad concreta dentro del escenario."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Control de acceso a una sala",
+        "scenario": "Una organización instala cerradura, cámara y procedimiento de revisión.",
+        "steps": [
+          {
+            "action": "Clasificar cerradura",
+            "reason": "Actúa antes del ingreso no autorizado.",
+            "result": "Control físico preventivo"
+          },
+          {
+            "action": "Clasificar cámara",
+            "reason": "Permite observar y revisar entradas.",
+            "result": "Capacidad detectiva según su uso"
+          },
+          {
+            "action": "Asignar operación",
+            "reason": "La grabación sin revisión no resuelve todo.",
+            "result": "Responsable y retención definidos"
+          }
+        ],
+        "result": "El conjunto funciona mediante capacidades y responsabilidades complementarias.",
+        "visual": {
+          "type": "flow",
+          "title": "Control de acceso a una sala",
+          "items": [
+            {
+              "label": "Clasificar cerradura",
+              "detail": "Control físico preventivo"
+            },
+            {
+              "label": "Clasificar cámara",
+              "detail": "Capacidad detectiva según su uso"
+            },
+            {
+              "label": "Asignar operación",
+              "detail": "Responsable y retención definidos"
+            }
+          ],
+          "caption": "El conjunto funciona mediante capacidades y responsabilidades complementarias."
+        }
+      },
+      "practice": {
+        "task": "Clasifica cinco medidas de una oficina ficticia.",
+        "steps": [
+          "Indica si son técnicas, administrativas o físicas.",
+          "Describe la función concreta de cada una.",
+          "Añade cómo comprobarías que siguen funcionando."
+        ],
+        "expected": "Cinco clasificaciones justificadas sin reducir un producto a una sola etiqueta."
+      },
+      "check": {
+        "question": "Una política escrita que define permisos es principalmente…",
+        "options": [
+          {
+            "id": "a",
+            "text": "Un control administrativo"
+          },
+          {
+            "id": "b",
+            "text": "Una herramienta criptográfica"
+          },
+          {
+            "id": "c",
+            "text": "Un paquete de red"
+          }
+        ],
+        "correct": "a",
+        "explanation": "La política organiza responsabilidades y decisiones; su aplicación técnica puede requerir otros controles."
+      },
+      "mistakes": [
+        {
+          "myth": "Un control detectivo evita por definición todo incidente.",
+          "correction": "Detectar permite responder, pero no garantiza impedir el evento."
+        }
+      ],
+      "recap": [
+        "Función e implementación son dimensiones distintas.",
+        "Un producto puede implementar varios controles.",
+        "Todo control necesita operación y verificación."
+      ],
+      "glossary": [
+        {
+          "term": "Control preventivo",
+          "definition": "Medida destinada a impedir o reducir un evento."
+        },
+        {
+          "term": "Control detectivo",
+          "definition": "Medida que ayuda a identificar condiciones o eventos relevantes."
+        }
+      ]
+    },
+    {
+      "dayId": "w17d4",
+      "title": "Defensa en profundidad",
+      "lead": "Diseña capas que sigan aportando protección cuando una de ellas falle.",
+      "sections": [
+        {
+          "topic": "Capas y fallos independientes",
+          "explanation": [
+            "La defensa en profundidad combina controles en distintos puntos del recorrido. Una campaña de phishing puede enfrentarse a filtrado de correo, formación, autenticación resistente al phishing, privilegios limitados y monitoreo. No se trata de acumular productos, sino de reducir dependencia de una única barrera. Si todas las capas dependen de la misma cuenta administrativa comprometida, su independencia puede ser menor de lo que parece.",
+            "Analiza una cadena de fallo y pregunta qué limita el daño en cada paso. El cifrado de disco ayuda ante pérdida física, pero no impide que una sesión ya abierta lea los datos. Un respaldo permite recuperar información, pero no detecta necesariamente su robo. Asigna a cada capa una función y verifica fallos comunes. Una arquitectura razonable reconoce el riesgo que queda y evita prometer que múltiples controles vuelven imposible un incidente."
+          ],
+          "analogy": "Un vehículo utiliza frenos, cinturón y airbag porque cada medida actúa en una parte distinta del accidente.",
+          "keyPoints": [
+            "Las capas deben cubrir fallos diferentes.",
+            "Evita dependencias comunes inadvertidas.",
+            "Comprueba el daño que cada capa limita."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Capas ante una cuenta comprometida",
+            "items": [
+              {
+                "label": "Autenticación",
+                "detail": "Dificultar uso de credenciales robadas"
+              },
+              {
+                "label": "Autorización",
+                "detail": "Limitar recursos accesibles"
+              },
+              {
+                "label": "Detección",
+                "detail": "Observar acciones anómalas"
+              },
+              {
+                "label": "Recuperación",
+                "detail": "Restaurar servicios y revisar accesos"
+              }
+            ],
+            "caption": "La protección sigue siendo parcial y requiere mantenimiento."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Una credencial de usuario se filtra",
+        "scenario": "La cuenta no es administrativa y solo accede a un proyecto.",
+        "steps": [
+          {
+            "action": "Reconocer fallo inicial",
+            "reason": "La credencial dejó de ser secreta.",
+            "result": "Autenticación en riesgo"
+          },
+          {
+            "action": "Examinar límites",
+            "reason": "El permiso mínimo restringe alcance.",
+            "result": "Otros proyectos no resultan accesibles"
+          },
+          {
+            "action": "Responder y recuperar",
+            "reason": "El límite no elimina el incidente.",
+            "result": "Revocación, revisión de actividad y recuperación"
+          }
+        ],
+        "result": "Una capa falló, pero las demás redujeron alcance y facilitaron respuesta.",
+        "visual": {
+          "type": "flow",
+          "title": "Una credencial de usuario se filtra",
+          "items": [
+            {
+              "label": "Reconocer fallo inicial",
+              "detail": "Autenticación en riesgo"
+            },
+            {
+              "label": "Examinar límites",
+              "detail": "Otros proyectos no resultan accesibles"
+            },
+            {
+              "label": "Responder y recuperar",
+              "detail": "Revocación, revisión de actividad y recuperación"
+            }
+          ],
+          "caption": "Una capa falló, pero las demás redujeron alcance y facilitaron respuesta."
+        }
+      },
+      "practice": {
+        "task": "Diseña cuatro capas para una aplicación de documentos.",
+        "steps": [
+          "Asigna una amenaza a cada capa.",
+          "Explica qué ocurre si una falla.",
+          "Identifica una dependencia compartida que debas proteger."
+        ],
+        "expected": "Un diseño con funciones complementarias y riesgo residual explícito."
+      },
+      "check": {
+        "question": "¿Qué debilita una defensa con muchas herramientas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que todas tengan iconos distintos"
+          },
+          {
+            "id": "b",
+            "text": "Que existan controles físicos"
+          },
+          {
+            "id": "c",
+            "text": "Que dependan de una misma credencial sin protección"
+          }
+        ],
+        "correct": "c",
+        "explanation": "Una dependencia común puede permitir que un único fallo afecte varias capas."
+      },
+      "mistakes": [
+        {
+          "myth": "Más productos siempre significan más seguridad.",
+          "correction": "Las capacidades, independencia y operación importan más que la cantidad."
+        }
+      ],
+      "recap": [
+        "Las capas deben cubrir fallos diferentes.",
+        "Evita dependencias comunes inadvertidas.",
+        "Comprueba el daño que cada capa limita."
+      ],
+      "glossary": [
+        {
+          "term": "Defensa en profundidad",
+          "definition": "Uso de medidas complementarias en varias capas."
+        },
+        {
+          "term": "Fallo común",
+          "definition": "Condición que puede afectar simultáneamente a varios controles."
+        }
+      ]
+    },
+    {
+      "dayId": "w17d5",
+      "title": "Ética y alcance",
+      "lead": "Define autorización, alcance y manejo de datos antes de cualquier actividad técnica.",
+      "sections": [
+        {
+          "topic": "Autorización, privacidad y responsabilidades",
+          "explanation": [
+            "La capacidad técnica de acceder a un sistema no implica permiso para evaluarlo. Una actividad autorizada necesita un responsable que pueda conceder acceso, objetivos, activos incluidos, límites, horario y condiciones de detención. Un acuerdo claro también explica cómo se manejan hallazgos y datos personales. Si descubres un sistema adicional, no debes ampliar el alcance por tu cuenta solo porque sea accesible desde el laboratorio.",
+            "La privacidad exige recolectar únicamente lo necesario para la tarea y protegerlo durante almacenamiento y comunicación. Una captura puede contener identificadores, conversaciones o credenciales. Para aprender usa artefactos ficticios y entornos propios o preparados. Cuando un resultado exceda tu competencia, documenta la observación y escala a la persona indicada. Actuar con cuidado incluye reconocer límites, evitar daño innecesario y no presentar una sospecha como acusación demostrada."
+          ],
+          "analogy": "Tener una llave prestada para reparar una habitación no autoriza a revisar los armarios de toda la casa.",
+          "keyPoints": [
+            "Accesibilidad no equivale a autorización.",
+            "El alcance incluye activos, métodos y condiciones.",
+            "Recolecta y comparte solo datos necesarios."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Antes de comenzar una práctica",
+            "items": [
+              {
+                "label": "Permiso",
+                "detail": "Responsable y autorización explícitos"
+              },
+              {
+                "label": "Alcance",
+                "detail": "Activos, métodos y horarios definidos"
+              },
+              {
+                "label": "Protección",
+                "detail": "Datos mínimos y canal de reporte"
+              },
+              {
+                "label": "Detención",
+                "detail": "Condiciones para parar y escalar"
+              }
+            ],
+            "caption": "La documentación protege a las personas y hace revisable la actividad."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Un equipo no incluido responde",
+        "scenario": "Durante una práctica aparece un servidor fuera del listado autorizado.",
+        "steps": [
+          {
+            "action": "Comparar alcance",
+            "reason": "El permiso tiene límites concretos.",
+            "result": "Servidor no autorizado"
+          },
+          {
+            "action": "Detener esa exploración",
+            "reason": "La respuesta del equipo no amplía el permiso.",
+            "result": "Sin pruebas adicionales"
+          },
+          {
+            "action": "Reportar la observación",
+            "reason": "El responsable decide el siguiente paso.",
+            "result": "Solicitud de aclaración documentada"
+          }
+        ],
+        "result": "La actividad permanece dentro del acuerdo y evita una ampliación no autorizada.",
+        "visual": {
+          "type": "flow",
+          "title": "Un equipo no incluido responde",
+          "items": [
+            {
+              "label": "Comparar alcance",
+              "detail": "Servidor no autorizado"
+            },
+            {
+              "label": "Detener esa exploración",
+              "detail": "Sin pruebas adicionales"
+            },
+            {
+              "label": "Reportar la observación",
+              "detail": "Solicitud de aclaración documentada"
+            }
+          ],
+          "caption": "La actividad permanece dentro del acuerdo y evita una ampliación no autorizada."
+        }
+      },
+      "practice": {
+        "task": "Escribe un alcance para un laboratorio personal.",
+        "steps": [
+          "Identifica los equipos propios incluidos.",
+          "Define qué datos ficticios usarás.",
+          "Establece una condición de detención y un canal de reporte."
+        ],
+        "expected": "Un acuerdo breve que permita distinguir tareas permitidas y excluidas."
+      },
+      "check": {
+        "question": "Un sistema accesible fuera del alcance debe…",
+        "options": [
+          {
+            "id": "a",
+            "text": "Investigarse porque ya respondió"
+          },
+          {
+            "id": "b",
+            "text": "Explotarse para demostrar el riesgo"
+          },
+          {
+            "id": "c",
+            "text": "Reportarse sin ampliar pruebas por cuenta propia"
+          }
+        ],
+        "correct": "c",
+        "explanation": "La autorización se limita a lo acordado; una respuesta técnica no modifica ese acuerdo."
+      },
+      "mistakes": [
+        {
+          "myth": "Si la intención es ayudar, cualquier acceso es aceptable.",
+          "correction": "La intención no sustituye autorización, privacidad y responsabilidad."
+        }
+      ],
+      "recap": [
+        "Accesibilidad no equivale a autorización.",
+        "El alcance incluye activos, métodos y condiciones.",
+        "Recolecta y comparte solo datos necesarios."
+      ],
+      "glossary": [
+        {
+          "term": "Alcance",
+          "definition": "Límites explícitos de una actividad autorizada."
+        },
+        {
+          "term": "Minimización",
+          "definition": "Recolectar y conservar solo los datos necesarios."
+        }
+      ]
+    },
+    {
+      "dayId": "w17d6",
+      "title": "Registro de riesgos",
+      "lead": "Convierte una preocupación en una decisión con responsable y seguimiento.",
+      "sections": [
+        {
+          "topic": "Probabilidad, impacto y dueño",
+          "explanation": [
+            "Un registro de riesgos reúne escenarios que necesitan decisiones. Cada entrada debería identificar activo, descripción del escenario, probabilidad estimada, impacto, controles existentes, tratamiento y dueño. Las escalas cualitativas deben definirse: decir alto sin explicar qué significa permite que dos personas asignen prioridades incompatibles. La incertidumbre también debe registrarse cuando faltan datos sobre exposición o consecuencias.",
+            "El dueño del riesgo no es necesariamente quien instala el parche. Es quien puede decidir sobre la exposición del proceso dentro de la autoridad asignada. Una tarea técnica puede tener otro responsable y plazo. Tras aplicar controles, revisa el riesgo residual y verifica que la medida realmente funcione. El registro no es una lista estática de problemas: necesita actualizaciones cuando cambian activos, amenazas, dependencias o condiciones de negocio."
+          ],
+          "analogy": "Es una agenda de decisiones: incluye el problema, quién puede decidir y cómo se comprobará que la acción tuvo efecto.",
+          "keyPoints": [
+            "Define escalas y contexto de la estimación.",
+            "Distingue dueño del riesgo y ejecutor técnico.",
+            "Revisa tratamiento y riesgo residual."
+          ],
+          "visual": {
+            "type": "cycle",
+            "title": "Vida de una entrada de riesgo",
+            "items": [
+              {
+                "label": "Identificar",
+                "detail": "Escenario y activo afectados"
+              },
+              {
+                "label": "Evaluar",
+                "detail": "Probabilidad e impacto con criterios"
+              },
+              {
+                "label": "Tratar",
+                "detail": "Acción, responsable y plazo"
+              },
+              {
+                "label": "Revisar",
+                "detail": "Eficacia y exposición restante"
+              }
+            ],
+            "caption": "Un cambio importante puede exigir volver a evaluar el escenario."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Respaldo nunca probado",
+        "scenario": "Una organización depende de copias cuyo contenido no ha restaurado.",
+        "steps": [
+          {
+            "action": "Describir escenario",
+            "reason": "El archivo podría existir y no recuperarse.",
+            "result": "Riesgo de recuperación fallida"
+          },
+          {
+            "action": "Asignar decisión",
+            "reason": "El proceso tiene un propietario operativo.",
+            "result": "Dueño y responsable de prueba separados"
+          },
+          {
+            "action": "Verificar tratamiento",
+            "reason": "La prueba debe recuperar datos utilizables.",
+            "result": "Restauración controlada y resultado registrados"
+          }
+        ],
+        "result": "El riesgo se gestiona mediante una evidencia de recuperación, no solo una tarea marcada.",
+        "visual": {
+          "type": "flow",
+          "title": "Respaldo nunca probado",
+          "items": [
+            {
+              "label": "Describir escenario",
+              "detail": "Riesgo de recuperación fallida"
+            },
+            {
+              "label": "Asignar decisión",
+              "detail": "Dueño y responsable de prueba separados"
+            },
+            {
+              "label": "Verificar tratamiento",
+              "detail": "Restauración controlada y resultado registrados"
+            }
+          ],
+          "caption": "El riesgo se gestiona mediante una evidencia de recuperación, no solo una tarea marcada."
+        }
+      },
+      "practice": {
+        "task": "Crea dos entradas de registro de riesgos.",
+        "steps": [
+          "Define tu escala de impacto y probabilidad.",
+          "Asigna dueño y acción con plazo.",
+          "Incluye evidencia de cierre y riesgo residual."
+        ],
+        "expected": "Dos escenarios comparables que permitan tomar una decisión informada."
+      },
+      "check": {
+        "question": "¿Quién debe aceptar formalmente el riesgo residual?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Cualquier usuario de la aplicación"
+          },
+          {
+            "id": "b",
+            "text": "El dueño autorizado del riesgo"
+          },
+          {
+            "id": "c",
+            "text": "La herramienta de escaneo"
+          }
+        ],
+        "correct": "b",
+        "explanation": "La aceptación es una decisión de la autoridad competente, no una salida automática de una herramienta."
+      },
+      "mistakes": [
+        {
+          "myth": "Cerrar la tarea técnica elimina automáticamente el riesgo.",
+          "correction": "Comprueba eficacia y vuelve a evaluar lo que permanece expuesto."
+        }
+      ],
+      "recap": [
+        "Define escalas y contexto de la estimación.",
+        "Distingue dueño del riesgo y ejecutor técnico.",
+        "Revisa tratamiento y riesgo residual."
+      ],
+      "glossary": [
+        {
+          "term": "Dueño del riesgo",
+          "definition": "Persona con autoridad y responsabilidad sobre su tratamiento."
+        },
+        {
+          "term": "Tratamiento",
+          "definition": "Decisión y medidas para modificar o asumir un riesgo."
+        }
+      ]
+    },
+    {
+      "dayId": "w17d7",
+      "title": "Evaluación de fundamentos",
+      "lead": "Diferencia una debilidad observada de la consecuencia que podría producir.",
+      "sections": [
+        {
+          "topic": "Riesgo frente a vulnerabilidad",
+          "explanation": [
+            "En una evaluación de fundamentos, una vulnerabilidad es una condición concreta y un riesgo es un escenario contextualizado. «Contraseña inicial sin cambiar» describe una debilidad; «un visitante entra al panel y modifica la configuración que mantiene el servicio» describe una posible consecuencia. La segunda formulación permite discutir exposición, controles e impacto sobre un proceso real o ficticio.",
+            "Para justificar una prioridad, compara dos escenarios con criterios comunes. Una debilidad técnica llamativa en un equipo aislado puede tener menor impacto que un acceso sencillo a información crítica. No significa ignorar el primer caso: significa explicar el orden del trabajo y el riesgo que queda. Cuando los datos son insuficientes, formula una pregunta de verificación. La seguridad profesional necesita argumentos revisables y decisiones proporcionadas, además de identificar errores de configuración."
+          ],
+          "analogy": "Encontrar un escalón roto describe el defecto; evaluar quién lo usa y qué daño podría causar permite priorizar la reparación.",
+          "keyPoints": [
+            "Una debilidad no contiene por sí sola toda la prioridad.",
+            "Compara escenarios con criterios compartidos.",
+            "La incertidumbre requiere una comprobación explícita."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Debilidad y escenario de riesgo",
+            "items": [
+              {
+                "label": "Vulnerabilidad",
+                "detail": "Panel con credencial inicial"
+              },
+              {
+                "label": "Exposición",
+                "detail": "Accesible desde una zona de visitantes"
+              },
+              {
+                "label": "Riesgo",
+                "detail": "Cambio no autorizado interrumpe el servicio"
+              }
+            ],
+            "caption": "El impacto y los controles existentes completan la evaluación."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Dos configuraciones débiles",
+        "scenario": "Un equipo de práctica aislado y un servidor operativo comparten una mala configuración.",
+        "steps": [
+          {
+            "action": "Identificar diferencia",
+            "reason": "La debilidad puede ser igual y el contexto distinto.",
+            "result": "Exposición y valor del proceso distintos"
+          },
+          {
+            "action": "Comparar impacto",
+            "reason": "La interrupción operativa afecta usuarios reales.",
+            "result": "Servidor operativo con mayor urgencia justificada"
+          },
+          {
+            "action": "Asignar tratamiento",
+            "reason": "El caso menor tampoco desaparece.",
+            "result": "Corrección priorizada y seguimiento de ambos"
+          }
+        ],
+        "result": "La prioridad se apoya en contexto y consecuencias, no únicamente en el nombre del fallo.",
+        "visual": {
+          "type": "flow",
+          "title": "Dos configuraciones débiles",
+          "items": [
+            {
+              "label": "Identificar diferencia",
+              "detail": "Exposición y valor del proceso distintos"
+            },
+            {
+              "label": "Comparar impacto",
+              "detail": "Servidor operativo con mayor urgencia justificada"
+            },
+            {
+              "label": "Asignar tratamiento",
+              "detail": "Corrección priorizada y seguimiento de ambos"
+            }
+          ],
+          "caption": "La prioridad se apoya en contexto y consecuencias, no únicamente en el nombre del fallo."
+        }
+      },
+      "practice": {
+        "task": "Compara dos riesgos de una empresa ficticia.",
+        "steps": [
+          "Separa debilidad y escenario en cada uno.",
+          "Usa la misma escala de impacto.",
+          "Justifica orden de atención y una pregunta pendiente."
+        ],
+        "expected": "Una comparación que puede revisar alguien ajeno al caso."
+      },
+      "check": {
+        "question": "¿Cuál de estas frases describe mejor un riesgo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Existe un puerto abierto"
+          },
+          {
+            "id": "b",
+            "text": "El equipo tiene un icono rojo"
+          },
+          {
+            "id": "c",
+            "text": "Una cuenta expuesta podría modificar pedidos y detener ventas"
+          }
+        ],
+        "correct": "c",
+        "explanation": "El escenario relaciona una exposición con una consecuencia sobre un proceso."
+      },
+      "mistakes": [
+        {
+          "myth": "Una puntuación técnica sustituye la evaluación de negocio.",
+          "correction": "La prioridad necesita contexto, impacto y autoridad para decidir."
+        }
+      ],
+      "recap": [
+        "Una debilidad no contiene por sí sola toda la prioridad.",
+        "Compara escenarios con criterios compartidos.",
+        "La incertidumbre requiere una comprobación explícita."
+      ],
+      "glossary": [
+        {
+          "term": "Prioridad",
+          "definition": "Orden de atención justificado por criterios explícitos."
+        },
+        {
+          "term": "Escenario",
+          "definition": "Relato concreto de condiciones, evento y consecuencias posibles."
+        }
+      ]
+    }
+  ]
+}

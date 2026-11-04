@@ -1,0 +1,938 @@
+{
+  "version": "2.0.0",
+  "week": 52,
+  "title": "Entrevistas y evaluación anual",
+  "overview": "Cerrarás la ruta practicando cómo explicar fundamentos, investigar un caso incompleto y presentar un proyecto con evidencia. Las clases de entrevista conductual e inglés técnico mantienen hechos, responsabilidad y grado de certeza. También aprenderás a relacionar requisitos de una vacante con capacidades verificables sin inventar experiencia. La evaluación anual revisa autonomía y comunicación en casos nuevos y transforma las brechas en un plan de noventa días con tareas, criterios de mejora y oportunidades de revisión.",
+  "objectives": [
+    "Explicar y adaptar fundamentos en preguntas nuevas.",
+    "Presentar proyectos y experiencias con precisión en español e inglés.",
+    "Preparar postulaciones honestas y un plan de mejora verificable."
+  ],
+  "sources": [
+    {
+      "id": "nist61",
+      "title": "NIST SP 800-61r3: respuesta y gestión del riesgo",
+      "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+    },
+    {
+      "id": "nist86",
+      "title": "NIST SP 800-86: técnicas forenses en respuesta a incidentes",
+      "url": "https://csrc.nist.gov/pubs/sp/800/86/final"
+    },
+    {
+      "id": "github",
+      "title": "GitHub: About READMEs",
+      "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes"
+    },
+    {
+      "id": "btl",
+      "title": "Centri / Security Blue Team: Blue Team Level 1",
+      "url": "https://www.centri.org/certifications/blue-team-level-1"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w52d1",
+      "title": "Fundamentos orales",
+      "lead": "Explicar fundamentos en voz alta exige relacionarlos con un caso, no enumerar definiciones.",
+      "sections": [
+        {
+          "topic": "Redes, sistemas y acceso",
+          "explanation": [
+            "Una respuesta oral técnica funciona mejor cuando empieza por la idea central y la aplica a una situación. Si preguntan por DNS, explica que relaciona nombres con información y distingue resolución de conexión. Si preguntan por autenticación y autorización, utiliza un acceso concreto: comprobar identidad no concede automáticamente permiso para cualquier recurso. El objetivo es demostrar que puedes elegir conceptos para razonar sobre una operación, sin esconder incertidumbre detrás de muchas siglas.",
+            "Practica con una estructura breve: definición, ejemplo y límite. Para una máquina que no llega a un sitio, separa enlace, dirección IP, resolución y servicio antes de proponer una causa. Indica qué comprobación de lectura harías y qué resultado esperas. Si no recuerdas un comando exacto, describe la pregunta técnica y cómo consultarías la documentación, en lugar de inventar sintaxis. Una buena respuesta deja espacio para que la persona entrevistadora cambie el escenario y compruebe que mantienes el razonamiento."
+          ],
+          "analogy": "Explicar una ruta requiere saber orientarse en cruces nuevos, no memorizar una lista de nombres de calles.",
+          "keyPoints": [
+            "Definir: Expresa el concepto con palabras claras.",
+            "Aplicar: Relaciona la idea con un caso concreto.",
+            "Delimitar: Aclara lo que el concepto no demuestra y cómo lo comprobarías."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Fundamentos orales",
+            "items": [
+              {
+                "label": "Definir",
+                "detail": "Expresa el concepto con palabras claras."
+              },
+              {
+                "label": "Aplicar",
+                "detail": "Relaciona la idea con un caso concreto."
+              },
+              {
+                "label": "Delimitar",
+                "detail": "Aclara lo que el concepto no demuestra y cómo lo comprobarías."
+              }
+            ],
+            "caption": "Explicar fundamentos en voz alta exige relacionarlos con un caso, no enumerar definiciones."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "DNS no equivale a acceso web",
+        "scenario": "La pregunta ficticia dice que portal-lab.test resuelve, pero su página no abre.",
+        "steps": [
+          {
+            "action": "Reconocer avance",
+            "reason": "No todas las capas siguen pendientes.",
+            "result": "La resolución observada funcionó en esa prueba."
+          },
+          {
+            "action": "Separar operación",
+            "reason": "Resolver no establece una sesión de aplicación.",
+            "result": "Se investigan ruta, puerto y servicio."
+          },
+          {
+            "action": "Elegir comprobación",
+            "reason": "La prueba debe responder una pregunta.",
+            "result": "Se revisa resultado de conexión y estado del servicio autorizado."
+          }
+        ],
+        "result": "La explicación evita repetir una prueba DNS como si validara toda la web.",
+        "visual": {
+          "type": "timeline",
+          "title": "DNS no equivale a acceso web",
+          "items": [
+            {
+              "label": "Reconocer avance",
+              "detail": "La resolución observada funcionó en esa prueba."
+            },
+            {
+              "label": "Separar operación",
+              "detail": "Se investigan ruta, puerto y servicio."
+            },
+            {
+              "label": "Elegir comprobación",
+              "detail": "Se revisa resultado de conexión y estado del servicio autorizado."
+            }
+          ],
+          "caption": "La explicación evita repetir una prueba DNS como si validara toda la web."
+        }
+      },
+      "practice": {
+        "task": "Graba tres respuestas de un minuto sobre red, sistema e identidad.",
+        "steps": [
+          "Usa definición, ejemplo y límite.",
+          "Añade una comprobación de lectura por caso.",
+          "Revisa una frase que use una sigla sin explicar."
+        ],
+        "expected": "Tres respuestas comprensibles que soporten una pregunta de seguimiento."
+      },
+      "check": {
+        "question": "¿Qué demuestra una resolución DNS exitosa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que la aplicación web funciona completamente."
+          },
+          {
+            "id": "b",
+            "text": "Que la prueba obtuvo información de resolución, no toda la conexión."
+          },
+          {
+            "id": "c",
+            "text": "Que el usuario tiene permiso para todos los recursos."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Resolución, conexión y autorización son operaciones distintas."
+      },
+      "mistakes": [
+        {
+          "myth": "Una respuesta técnica mejor contiene más siglas.",
+          "correction": "La claridad y la relación con el problema permiten evaluar comprensión."
+        }
+      ],
+      "recap": [
+        "Definir: Expresa el concepto con palabras claras.",
+        "Aplicar: Relaciona la idea con un caso concreto.",
+        "Delimitar: Aclara lo que el concepto no demuestra y cómo lo comprobarías."
+      ],
+      "glossary": [
+        {
+          "term": "Respuesta estructurada",
+          "definition": "Explicación organizada en idea, aplicación y límite."
+        },
+        {
+          "term": "Comprobación",
+          "definition": "Prueba elegida para responder una pregunta técnica concreta."
+        }
+      ]
+    },
+    {
+      "dayId": "w52d2",
+      "title": "Caso técnico",
+      "lead": "Un caso nuevo con datos incompletos evalúa cómo reduces incertidumbre.",
+      "sections": [
+        {
+          "topic": "Alerta nueva y datos incompletos",
+          "explanation": [
+            "En una entrevista técnica puedes recibir una alerta sin toda la evidencia. Empieza por resumir hechos conocidos y hacer preguntas que afecten la decisión: activo, usuario, intervalo, fuente y resultado observado. No saltes directamente a una herramienta o a bloquear toda la red. Formula al menos dos explicaciones y elige una comprobación que las distinga. Esto muestra que entiendes tanto la investigación como el costo de actuar con información incompleta.",
+            "Considera un caso ficticio con seis accesos fallidos y un éxito de una cuenta. La secuencia podría corresponder a una contraseña olvidada o a un acceso no autorizado; faltan origen, tipo de inicio y actividad posterior. Explica qué revisarías primero, con qué permiso y cuándo escalarías. Si la evidencia cambia, actualiza tu hipótesis y di por qué. Reconocer que no puedes confirmar compromiso todavía es una respuesta técnica válida cuando va acompañada de un plan concreto para comprobarlo."
+          ],
+          "analogy": "Un mecánico no sustituye el motor al escuchar un ruido; primero localiza el síntoma y descarta causas con pruebas.",
+          "keyPoints": [
+            "Hechos: Seis fallos y un éxito dentro del caso ficticio.",
+            "Hipótesis: Error legítimo o acceso no autorizado siguen posibles.",
+            "Prueba: Origen, tipo y actividad posterior ayudan a distinguirlas."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Caso técnico",
+            "items": [
+              {
+                "label": "Hechos",
+                "detail": "Seis fallos y un éxito dentro del caso ficticio."
+              },
+              {
+                "label": "Hipótesis",
+                "detail": "Error legítimo o acceso no autorizado siguen posibles."
+              },
+              {
+                "label": "Prueba",
+                "detail": "Origen, tipo y actividad posterior ayudan a distinguirlas."
+              }
+            ],
+            "caption": "Un caso nuevo con datos incompletos evalúa cómo reduces incertidumbre."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "El éxito después de fallos",
+        "scenario": "La persona entrevistadora añade que el origen es el equipo habitual y hubo un cambio aprobado de contraseña.",
+        "steps": [
+          {
+            "action": "Incorporar dato",
+            "reason": "El contexto afecta la probabilidad de cada explicación.",
+            "result": "El cambio aprobado respalda una causa legítima."
+          },
+          {
+            "action": "Evitar cierre automático",
+            "reason": "Aún importa comprobar coherencia.",
+            "result": "Se revisan hora, cuenta y acciones posteriores."
+          },
+          {
+            "action": "Comunicar decisión",
+            "reason": "El cierre debe tener soporte.",
+            "result": "Se propone clasificar actividad esperada si las comprobaciones coinciden."
+          }
+        ],
+        "result": "La respuesta cambia con evidencia y mantiene un criterio de verificación.",
+        "visual": {
+          "type": "timeline",
+          "title": "El éxito después de fallos",
+          "items": [
+            {
+              "label": "Incorporar dato",
+              "detail": "El cambio aprobado respalda una causa legítima."
+            },
+            {
+              "label": "Evitar cierre automático",
+              "detail": "Se revisan hora, cuenta y acciones posteriores."
+            },
+            {
+              "label": "Comunicar decisión",
+              "detail": "Se propone clasificar actividad esperada si las comprobaciones coinciden."
+            }
+          ],
+          "caption": "La respuesta cambia con evidencia y mantiene un criterio de verificación."
+        }
+      },
+      "practice": {
+        "task": "Resuelve oralmente un caso de cinco minutos con tres datos iniciales.",
+        "steps": [
+          "Separa hechos y preguntas.",
+          "Propón dos hipótesis y una prueba discriminante.",
+          "Define un criterio de escalamiento."
+        ],
+        "expected": "Un razonamiento que no necesita inventar información para avanzar."
+      },
+      "check": {
+        "question": "¿Qué aporta más valor ante una alerta incompleta?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Preguntas relevantes y una comprobación que distinga hipótesis."
+          },
+          {
+            "id": "b",
+            "text": "Declarar compromiso inmediatamente."
+          },
+          {
+            "id": "c",
+            "text": "Elegir una herramienta antes de entender el objetivo."
+          }
+        ],
+        "correct": "a",
+        "explanation": "Las preguntas y pruebas adecuadas reducen incertidumbre y orientan una respuesta proporcionada."
+      },
+      "mistakes": [
+        {
+          "myth": "No tener todos los datos impide proponer cualquier siguiente paso.",
+          "correction": "Puedes formular una investigación segura y condicionada sin fingir certezas."
+        }
+      ],
+      "recap": [
+        "Hechos: Seis fallos y un éxito dentro del caso ficticio.",
+        "Hipótesis: Error legítimo o acceso no autorizado siguen posibles.",
+        "Prueba: Origen, tipo y actividad posterior ayudan a distinguirlas."
+      ],
+      "glossary": [
+        {
+          "term": "Pregunta aclaratoria",
+          "definition": "Solicitud de información que cambia interpretación o decisión."
+        },
+        {
+          "term": "Prueba discriminante",
+          "definition": "Comprobación que ayuda a separar explicaciones alternativas."
+        }
+      ]
+    },
+    {
+      "dayId": "w52d3",
+      "title": "Presentación de proyecto",
+      "lead": "Presentar un proyecto es explicar problema, decisión y resultado con evidencia propia.",
+      "sections": [
+        {
+          "topic": "Problema, método y resultado",
+          "explanation": [
+            "Una presentación técnica breve necesita contexto suficiente para entender por qué existe el proyecto. Explica la pregunta, los datos autorizados y tu responsabilidad real. Después selecciona una decisión importante del método, como validar un campo antes de contar o normalizar tiempos antes de correlacionar. Muestra el resultado y su evidencia, no solo una captura atractiva. Si el proyecto es sintético, dilo desde el comienzo: la naturaleza del laboratorio no elimina el valor de una habilidad demostrada.",
+            "Cierra con una limitación y una mejora que aplicarías en un siguiente caso. Evita recorrer cada clic o cada archivo si no aporta al razonamiento. La persona que escucha debería poder describir qué problema resolviste y por qué confía en el resultado. Prepara también una alternativa: qué cambiaría si faltara una fuente o apareciera un reloj desajustado. Esa pregunta de seguimiento permite mostrar comprensión, reconocer errores aprendidos y distinguir tu contribución de la de herramientas o guías que utilizaste."
+          ],
+          "analogy": "Presentar un puente consiste en explicar qué conecta y cómo comprobaste su resistencia, no en recitar cada tornillo.",
+          "keyPoints": [
+            "Problema: Pregunta y contexto del laboratorio.",
+            "Decisión: Elección de método que puedes justificar.",
+            "Resultado: Evidencia, límite y mejora posterior."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Presentación de proyecto",
+            "items": [
+              {
+                "label": "Problema",
+                "detail": "Pregunta y contexto del laboratorio."
+              },
+              {
+                "label": "Decisión",
+                "detail": "Elección de método que puedes justificar."
+              },
+              {
+                "label": "Resultado",
+                "detail": "Evidencia, límite y mejora posterior."
+              }
+            ],
+            "caption": "Presentar un proyecto es explicar problema, decisión y resultado con evidencia propia."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Un proyecto de conteo de accesos",
+        "scenario": "Una presentación ficticia muestra una consulta que agrupa fallos por equipo.",
+        "steps": [
+          {
+            "action": "Definir pregunta",
+            "reason": "Aclara qué mide el proyecto.",
+            "result": "Se buscaban equipos con repetición de fallos."
+          },
+          {
+            "action": "Mostrar control",
+            "reason": "La cifra necesita verificación.",
+            "result": "Se comparó un grupo con sus eventos originales."
+          },
+          {
+            "action": "Explicar límite",
+            "reason": "Evita ampliar la conclusión.",
+            "result": "El patrón orienta revisión, pero no confirma intrusión."
+          }
+        ],
+        "result": "La audiencia entiende objetivo, método y alcance del resultado.",
+        "visual": {
+          "type": "timeline",
+          "title": "Un proyecto de conteo de accesos",
+          "items": [
+            {
+              "label": "Definir pregunta",
+              "detail": "Se buscaban equipos con repetición de fallos."
+            },
+            {
+              "label": "Mostrar control",
+              "detail": "Se comparó un grupo con sus eventos originales."
+            },
+            {
+              "label": "Explicar límite",
+              "detail": "El patrón orienta revisión, pero no confirma intrusión."
+            }
+          ],
+          "caption": "La audiencia entiende objetivo, método y alcance del resultado."
+        }
+      },
+      "practice": {
+        "task": "Presenta un proyecto propio en dos minutos.",
+        "steps": [
+          "Usa una frase para problema y datos.",
+          "Explica una decisión con evidencia.",
+          "Cierra con límite y mejora sin exagerar experiencia."
+        ],
+        "expected": "Una presentación defendible sin depender de leer un README completo."
+      },
+      "check": {
+        "question": "¿Qué debe quedar claro sobre tu contribución?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que hiciste todo aunque siguieras una guía."
+          },
+          {
+            "id": "b",
+            "text": "Solo los nombres de herramientas."
+          },
+          {
+            "id": "c",
+            "text": "Qué decidiste, ejecutaste y verificaste realmente."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La contribución debe describirse con precisión para poder defenderla ante preguntas."
+      },
+      "mistakes": [
+        {
+          "myth": "Una captura de pantalla explica por sí sola el proyecto.",
+          "correction": "El lector necesita pregunta, datos, método y significado del resultado."
+        }
+      ],
+      "recap": [
+        "Problema: Pregunta y contexto del laboratorio.",
+        "Decisión: Elección de método que puedes justificar.",
+        "Resultado: Evidencia, límite y mejora posterior."
+      ],
+      "glossary": [
+        {
+          "term": "Contribución",
+          "definition": "Parte del trabajo que realizaste o decidiste realmente."
+        },
+        {
+          "term": "Resultado defendible",
+          "definition": "Conclusión vinculada a evidencia y límites conocidos."
+        }
+      ]
+    },
+    {
+      "dayId": "w52d4",
+      "title": "Entrevista conductual",
+      "lead": "Una entrevista conductual se responde con hechos, responsabilidad y aprendizaje.",
+      "sections": [
+        {
+          "topic": "Aprendizaje, error y colaboración",
+          "explanation": [
+            "Las preguntas sobre errores, colaboración o aprendizaje buscan ejemplos concretos de comportamiento. Organiza la respuesta con situación, tarea, acción y resultado, añadiendo qué cambiarías después. La estructura ayuda a ser claro, pero no autoriza a inventar incidentes o métricas. Puedes utilizar una experiencia real de otro trabajo o un laboratorio si explicas su contexto. Distingue lo que hizo el equipo de tu contribución y evita revelar datos privados de clientes o compañeros.",
+            "Para hablar de un error describe cómo lo detectaste, cómo limitaste sus efectos y qué cambió en tu método. Decir que nunca te equivocas impide demostrar capacidad de revisión. En colaboración, explica cómo compartiste información y resolviste una diferencia con evidencia, sin convertir a otra persona en culpable del relato. El resultado puede ser cualitativo si no existe una medición real: una entrega reproducible, una aclaración de responsabilidades o una corrección verificada. Termina vinculando ese aprendizaje a una situación futura del puesto."
+          ],
+          "analogy": "Una repetición deportiva sirve cuando reconoces la jugada y ajustas la técnica, no cuando afirmas que jamás fallaste.",
+          "keyPoints": [
+            "Contexto: Situación real y responsabilidad concreta.",
+            "Acción: Qué hiciste y cómo colaboraste.",
+            "Aprendizaje: Resultado verdadero y cambio aplicado al método."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Entrevista conductual",
+            "items": [
+              {
+                "label": "Contexto",
+                "detail": "Situación real y responsabilidad concreta."
+              },
+              {
+                "label": "Acción",
+                "detail": "Qué hiciste y cómo colaboraste."
+              },
+              {
+                "label": "Aprendizaje",
+                "detail": "Resultado verdadero y cambio aplicado al método."
+              }
+            ],
+            "caption": "Una entrevista conductual se responde con hechos, responsabilidad y aprendizaje."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "El filtro que excluyó eventos",
+        "scenario": "Una experiencia ficticia de laboratorio omitió un equipo por un error en un filtro.",
+        "steps": [
+          {
+            "action": "Reconocer error",
+            "reason": "Permite explicar responsabilidad.",
+            "result": "La selección no respondía al alcance definido."
+          },
+          {
+            "action": "Corregir con control",
+            "reason": "El arreglo debe verificarse.",
+            "result": "Se probaron una fila incluida y otra excluida."
+          },
+          {
+            "action": "Cambiar método",
+            "reason": "El aprendizaje debe afectar el futuro.",
+            "result": "Las búsquedas posteriores incluyen casos de control documentados."
+          }
+        ],
+        "result": "La respuesta demuestra revisión y mejora, sin inventar un impacto empresarial.",
+        "visual": {
+          "type": "timeline",
+          "title": "El filtro que excluyó eventos",
+          "items": [
+            {
+              "label": "Reconocer error",
+              "detail": "La selección no respondía al alcance definido."
+            },
+            {
+              "label": "Corregir con control",
+              "detail": "Se probaron una fila incluida y otra excluida."
+            },
+            {
+              "label": "Cambiar método",
+              "detail": "Las búsquedas posteriores incluyen casos de control documentados."
+            }
+          ],
+          "caption": "La respuesta demuestra revisión y mejora, sin inventar un impacto empresarial."
+        }
+      },
+      "practice": {
+        "task": "Prepara dos respuestas conductuales basadas en hechos tuyos.",
+        "steps": [
+          "Elige aprendizaje y colaboración.",
+          "Distingue acción propia y del equipo.",
+          "Retira nombres privados y cifras no medidas."
+        ],
+        "expected": "Dos relatos claros con resultado y mejora verificables."
+      },
+      "check": {
+        "question": "¿Qué fortalece una respuesta sobre un error?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Explicar detección, corrección y cambio de método."
+          },
+          {
+            "id": "b",
+            "text": "Culpar siempre a otra persona."
+          },
+          {
+            "id": "c",
+            "text": "Afirmar que nunca ocurrió un error."
+          }
+        ],
+        "correct": "a",
+        "explanation": "El aprendizaje se demuestra mediante una corrección y una mejora concreta del proceso."
+      },
+      "mistakes": [
+        {
+          "myth": "Sin porcentajes una respuesta conductual no tiene valor.",
+          "correction": "Un resultado real y bien explicado es preferible a una métrica fabricada."
+        }
+      ],
+      "recap": [
+        "Contexto: Situación real y responsabilidad concreta.",
+        "Acción: Qué hiciste y cómo colaboraste.",
+        "Aprendizaje: Resultado verdadero y cambio aplicado al método."
+      ],
+      "glossary": [
+        {
+          "term": "STAR",
+          "definition": "Estructura de situación, tarea, acción y resultado."
+        },
+        {
+          "term": "Responsabilidad",
+          "definition": "Descripción precisa de tu participación y decisiones."
+        }
+      ]
+    },
+    {
+      "dayId": "w52d5",
+      "title": "Inglés técnico",
+      "lead": "El inglés técnico debe conservar las diferencias entre observar, confirmar e inferir.",
+      "sections": [
+        {
+          "topic": "Resumen de incidente y preguntas",
+          "explanation": [
+            "Un resumen de incidente en inglés necesita claridad antes que vocabulario complejo. Usa observed para un hecho visto en una fuente, confirmed cuando la comprobación sostiene la afirmación y suspected para una interpretación pendiente. Separa pasado para eventos y presente para estado actual. Por ejemplo, «We observed three failed logons» describe registros; «The account is currently disabled» describe un estado que debe estar comprobado. No traduzcas sospecha como certeza para sonar más profesional.",
+            "Practica un resumen con cuatro componentes: qué se observó, qué se comprobó, qué sigue incierto y qué se necesita después. Explica siglas cuando la audiencia no las conozca y evita verbos que atribuyen más de lo demostrado, como stole si solo hay volumen de red. Si no entiendes una pregunta, pide que la aclaren y repite tu interpretación. Esta habilidad mejora precisión y colaboración: una frase sencilla con alcance correcto comunica mejor que una oración sofisticada que confunde cuenta, usuario humano y equipo."
+          ],
+          "analogy": "Cambiar de idioma no debe cambiar el grado de certeza, igual que cambiar de unidad no debe cambiar la cantidad.",
+          "keyPoints": [
+            "Observed: Hecho directamente observado en una fuente.",
+            "Confirmed: Afirmación respaldada por una comprobación apropiada.",
+            "Pending: Pregunta o alcance todavía no resuelto."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Inglés técnico",
+            "items": [
+              {
+                "label": "Observed",
+                "detail": "Hecho directamente observado en una fuente."
+              },
+              {
+                "label": "Confirmed",
+                "detail": "Afirmación respaldada por una comprobación apropiada."
+              },
+              {
+                "label": "Pending",
+                "detail": "Pregunta o alcance todavía no resuelto."
+              }
+            ],
+            "caption": "El inglés técnico debe conservar las diferencias entre observar, confirmar e inferir."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Resumen breve en inglés",
+        "scenario": "Un caso ficticio confirma tres fallos y mantiene incierta la actividad posterior.",
+        "steps": [
+          {
+            "action": "Describir evidencia",
+            "reason": "Evita empezar por un veredicto.",
+            "result": "We observed three failed logons for the lab account."
+          },
+          {
+            "action": "Delimitar incertidumbre",
+            "reason": "La cobertura no permite más.",
+            "result": "We have not confirmed any subsequent activity."
+          },
+          {
+            "action": "Pedir siguiente dato",
+            "reason": "El resumen debe orientar trabajo.",
+            "result": "We need endpoint logs for the same time window."
+          }
+        ],
+        "result": "El resumen conserva hechos, límite y próximo paso.",
+        "visual": {
+          "type": "timeline",
+          "title": "Resumen breve en inglés",
+          "items": [
+            {
+              "label": "Describir evidencia",
+              "detail": "We observed three failed logons for the lab account."
+            },
+            {
+              "label": "Delimitar incertidumbre",
+              "detail": "We have not confirmed any subsequent activity."
+            },
+            {
+              "label": "Pedir siguiente dato",
+              "detail": "We need endpoint logs for the same time window."
+            }
+          ],
+          "caption": "El resumen conserva hechos, límite y próximo paso."
+        }
+      },
+      "practice": {
+        "task": "Redacta cinco líneas en inglés sobre un caso sintético.",
+        "steps": [
+          "Usa observed, confirmed y pending correctamente.",
+          "Incluye una fuente y una ventana temporal.",
+          "Añade una pregunta aclaratoria que harías en una entrevista."
+        ],
+        "expected": "Un resumen comprensible sin afirmar acciones no demostradas."
+      },
+      "check": {
+        "question": "¿Qué frase expresa adecuadamente una limitación?",
+        "options": [
+          {
+            "id": "a",
+            "text": "The attacker stole everything, aunque solo haya una consulta DNS."
+          },
+          {
+            "id": "b",
+            "text": "We have not confirmed subsequent activity."
+          },
+          {
+            "id": "c",
+            "text": "Nothing happened anywhere, sin cobertura completa."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La frase delimita lo no confirmado sin negar toda actividad ni inventar impacto."
+      },
+      "mistakes": [
+        {
+          "myth": "Usar inglés más complejo permite omitir límites para ser breve.",
+          "correction": "La precisión de alcance y certeza sigue siendo necesaria en cualquier idioma."
+        }
+      ],
+      "recap": [
+        "Observed: Hecho directamente observado en una fuente.",
+        "Confirmed: Afirmación respaldada por una comprobación apropiada.",
+        "Pending: Pregunta o alcance todavía no resuelto."
+      ],
+      "glossary": [
+        {
+          "term": "Observed",
+          "definition": "Observado directamente en el material disponible."
+        },
+        {
+          "term": "Subsequent activity",
+          "definition": "Actividad posterior al evento mencionado."
+        }
+      ]
+    },
+    {
+      "dayId": "w52d6",
+      "title": "Postulaciones",
+      "lead": "Una postulación técnica mejora cuando conecta requisitos con evidencias sin ocultar brechas.",
+      "sections": [
+        {
+          "topic": "Requisitos, ajuste y seguimiento",
+          "explanation": [
+            "Analizar una vacante consiste en separar tareas del puesto, requisitos indispensables y conocimientos deseables. Comprueba la fuente oficial de la oferta y sus condiciones actuales antes de preparar materiales. Después relaciona cada requisito con experiencia, formación o proyecto verificable. Una coincidencia de palabras no demuestra capacidad y una herramienta parecida puede requerir explicar qué conocimiento es transferible. Si falta un requisito obligatorio, no lo conviertas en cumplido mediante una descripción ambigua.",
+            "El seguimiento permite aprender del proceso sin confundir envío con avance. Registra puesto, fuente, fecha, versión del CV, estado y próxima acción; utiliza datos personales solo donde sean necesarios. Adapta el orden de tus evidencias y prepara ejemplos que respondan a las tareas del anuncio. No inventes salario, elegibilidad o responsabilidades por deducción: confirma esos puntos en la fuente o en el proceso correspondiente. Una postulación honesta y enfocada facilita defender el ajuste durante la entrevista y detectar qué habilidad conviene seguir practicando."
+          ],
+          "analogy": "Una llave parecida puede compartir diseño, pero todavía necesitas comprobar si encaja en la cerradura concreta.",
+          "keyPoints": [
+            "Requisito: Distingue indispensable, deseable y tarea del puesto.",
+            "Evidencia: Relaciona cada capacidad con un hecho verificable.",
+            "Seguimiento: Fuente, versión enviada, estado y próxima acción."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Postulaciones",
+            "items": [
+              {
+                "label": "Requisito",
+                "detail": "Distingue indispensable, deseable y tarea del puesto."
+              },
+              {
+                "label": "Evidencia",
+                "detail": "Relaciona cada capacidad con un hecho verificable."
+              },
+              {
+                "label": "Seguimiento",
+                "detail": "Fuente, versión enviada, estado y próxima acción."
+              }
+            ],
+            "caption": "Una postulación técnica mejora cuando conecta requisitos con evidencias sin ocultar brechas."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Una herramienta distinta",
+        "scenario": "Una vacante ficticia pide experiencia de búsqueda en una plataforma diferente a la del laboratorio.",
+        "steps": [
+          {
+            "action": "Revisar obligatoriedad",
+            "reason": "Determina si la brecha impide ajuste.",
+            "result": "El anuncio la describe como deseable."
+          },
+          {
+            "action": "Explicar transferencia",
+            "reason": "Conserva los hechos reales.",
+            "result": "Se demuestra filtrado, agregación y validación en la plataforma practicada."
+          },
+          {
+            "action": "Declarar brecha",
+            "reason": "Evita simular experiencia.",
+            "result": "Se indica que la herramienta específica todavía requiere adaptación."
+          }
+        ],
+        "result": "La candidatura comunica conocimiento transferible sin afirmar uso inexistente.",
+        "visual": {
+          "type": "timeline",
+          "title": "Una herramienta distinta",
+          "items": [
+            {
+              "label": "Revisar obligatoriedad",
+              "detail": "El anuncio la describe como deseable."
+            },
+            {
+              "label": "Explicar transferencia",
+              "detail": "Se demuestra filtrado, agregación y validación en la plataforma practicada."
+            },
+            {
+              "label": "Declarar brecha",
+              "detail": "Se indica que la herramienta específica todavía requiere adaptación."
+            }
+          ],
+          "caption": "La candidatura comunica conocimiento transferible sin afirmar uso inexistente."
+        }
+      },
+      "practice": {
+        "task": "Construye una matriz para una oferta ficticia de analista junior.",
+        "steps": [
+          "Define tres tareas y dos requisitos.",
+          "Asocia evidencia propia o una brecha por fila.",
+          "Prepara un registro de seguimiento sin inventar estado de selección."
+        ],
+        "expected": "Una candidatura enfocada con capacidades y brechas transparentes."
+      },
+      "check": {
+        "question": "¿Cómo describir una herramienta que todavía no utilizaste?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Como dominio avanzado para superar el filtro."
+          },
+          {
+            "id": "b",
+            "text": "Omitiendo la diferencia aunque sea indispensable."
+          },
+          {
+            "id": "c",
+            "text": "Con honestidad, explicando capacidades transferibles y la brecha."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La transferencia puede aportar valor, pero no equivale a experiencia real en la herramienta específica."
+      },
+      "mistakes": [
+        {
+          "myth": "Adaptar el CV significa cambiar hechos para encajar.",
+          "correction": "La adaptación selecciona y ordena hechos verdaderos pertinentes al puesto."
+        }
+      ],
+      "recap": [
+        "Requisito: Distingue indispensable, deseable y tarea del puesto.",
+        "Evidencia: Relaciona cada capacidad con un hecho verificable.",
+        "Seguimiento: Fuente, versión enviada, estado y próxima acción."
+      ],
+      "glossary": [
+        {
+          "term": "Requisito indispensable",
+          "definition": "Condición que la oferta declara necesaria."
+        },
+        {
+          "term": "Capacidad transferible",
+          "definition": "Conocimiento aplicable a una herramienta o situación diferente con adaptación."
+        }
+      ]
+    },
+    {
+      "dayId": "w52d7",
+      "title": "Evaluación anual",
+      "lead": "El cierre anual convierte evidencias y brechas en un plan de noventa días comprobable.",
+      "sections": [
+        {
+          "topic": "Competencias y próximos noventa días",
+          "explanation": [
+            "Evaluar el año exige comparar capacidades demostradas con los objetivos que realmente buscabas, no solo contar semanas terminadas. Revisa una muestra de fundamentos, una investigación y una explicación oral con casos nuevos. Registra exactitud, autonomía y calidad de comunicación por separado. Un curso completado puede aportar estructura, pero la evidencia práctica muestra qué puedes hacer hoy y dónde todavía necesitas apoyo. Conserva también limitaciones de acceso o material que impidieron practicar una competencia.",
+            "Para los próximos noventa días elige pocas prioridades con tareas, recursos y criterios observables. Por ejemplo, mejorar correlación temporal puede comprobarse resolviendo dos casos con zonas distintas y defendiendo el orden de eventos. Divide el periodo en revisión inicial, práctica aplicada y nueva evaluación, ajustando carga a tu disponibilidad real. Incluye portafolio y búsqueda laboral cuando corresponda, sin prometer empleo o aprobación. Un plan útil permite decidir qué cambiar si no aparece progreso, en vez de repetir indefinidamente más videos sobre el mismo tema."
+          ],
+          "analogy": "El mantenimiento de un vehículo se programa según su estado medido, no según cuántos kilómetros imaginabas haber recorrido.",
+          "keyPoints": [
+            "Balance: Capacidades demostradas y límites actuales.",
+            "Prioridad: Pocas brechas con efecto importante.",
+            "Plan: Tareas, revisión y criterio de mejora dentro de noventa días."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Evaluación anual",
+            "items": [
+              {
+                "label": "Balance",
+                "detail": "Capacidades demostradas y límites actuales."
+              },
+              {
+                "label": "Prioridad",
+                "detail": "Pocas brechas con efecto importante."
+              },
+              {
+                "label": "Plan",
+                "detail": "Tareas, revisión y criterio de mejora dentro de noventa días."
+              }
+            ],
+            "caption": "El cierre anual convierte evidencias y brechas en un plan de noventa días comprobable."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Un plan demasiado amplio",
+        "scenario": "La propuesta ficticia dice «dominar toda ciberseguridad» sin actividades ni comprobación.",
+        "steps": [
+          {
+            "action": "Reducir objetivo",
+            "reason": "La amplitud impide medir avance.",
+            "result": "Se elige correlación de registros y comunicación técnica."
+          },
+          {
+            "action": "Definir evidencia",
+            "reason": "La mejora necesita una prueba.",
+            "result": "Dos casos nuevos y un informe reproducible por competencia."
+          },
+          {
+            "action": "Programar revisión",
+            "reason": "El plan debe poder ajustarse.",
+            "result": "Se revisa tras cada bloque de práctica y se compara autonomía."
+          }
+        ],
+        "result": "El plan pasa de intención general a trabajo verificable.",
+        "visual": {
+          "type": "timeline",
+          "title": "Un plan demasiado amplio",
+          "items": [
+            {
+              "label": "Reducir objetivo",
+              "detail": "Se elige correlación de registros y comunicación técnica."
+            },
+            {
+              "label": "Definir evidencia",
+              "detail": "Dos casos nuevos y un informe reproducible por competencia."
+            },
+            {
+              "label": "Programar revisión",
+              "detail": "Se revisa tras cada bloque de práctica y se compara autonomía."
+            }
+          ],
+          "caption": "El plan pasa de intención general a trabajo verificable."
+        }
+      },
+      "practice": {
+        "task": "Escribe tu plan de noventa días con dos prioridades.",
+        "steps": [
+          "Relaciona cada prioridad con una evidencia actual.",
+          "Define tareas y criterio de mejora.",
+          "Incluye una revisión y una alternativa si no progresas."
+        ],
+        "expected": "Un plan realista que pueda revisarse mediante resultados, no solo tiempo invertido."
+      },
+      "check": {
+        "question": "¿Qué criterio comprueba mejor una mejora de correlación?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Resolver un caso nuevo y justificar fuentes, tiempos y límites con menos ayuda."
+          },
+          {
+            "id": "b",
+            "text": "Ver el mismo video más veces sin práctica."
+          },
+          {
+            "id": "c",
+            "text": "Aumentar el número de pestañas abiertas."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La transferencia y la autonomía en una tarea nueva son evidencias más directas que el consumo de recursos."
+      },
+      "mistakes": [
+        {
+          "myth": "Terminar las cincuenta y dos semanas garantiza un empleo avanzado.",
+          "correction": "El aprendizaje y el mercado varían; los resultados prácticos y el ajuste profesional deben seguir desarrollándose."
+        }
+      ],
+      "recap": [
+        "Balance: Capacidades demostradas y límites actuales.",
+        "Prioridad: Pocas brechas con efecto importante.",
+        "Plan: Tareas, revisión y criterio de mejora dentro de noventa días."
+      ],
+      "glossary": [
+        {
+          "term": "Evaluación anual",
+          "definition": "Revisión de capacidades y evidencias al cerrar una etapa."
+        },
+        {
+          "term": "Criterio de mejora",
+          "definition": "Resultado observable que permite comparar desempeño antes y después."
+        }
+      ]
+    }
+  ]
+}

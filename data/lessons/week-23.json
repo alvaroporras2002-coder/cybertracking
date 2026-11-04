@@ -1,0 +1,961 @@
+{
+  "version": "2.0.0",
+  "week": 23,
+  "title": "Actores y vectores de amenaza",
+  "overview": "Aprenderás a describir amenazas sin confundir actores, vías de entrada y consecuencias. Los casos recorren ingeniería social, superficie de ataque, cadena de suministro y uso indebido de identidad. El enfoque es defensivo: reconocer la acción solicitada, reducir exposiciones y construir secuencias sustentadas. Al final podrás clasificar un escenario con incertidumbre explícita y seleccionar controles proporcionados, incluso cuando todavía no sea posible atribuir la actividad a una persona o grupo.",
+  "objectives": [
+    "Distinguir actor, vector, exposición y objetivo.",
+    "Analizar ingeniería social y dependencias de confianza.",
+    "Construir cronologías con evidencia y límites de atribución."
+  ],
+  "sources": [
+    {
+      "id": "cisa",
+      "title": "CISA: reconocer phishing y proteger cuentas",
+      "url": "https://www.cisa.gov/sites/default/files/2024-09/Secure-Our-World-4-Easy-Ways-Stay-Safe-Online-Tip-Sheet.pdf"
+    },
+    {
+      "id": "owasp",
+      "title": "OWASP Top 10: riesgos de aplicaciones",
+      "url": "https://top10.owasp.org/2025/"
+    },
+    {
+      "id": "csf",
+      "title": "NIST Cybersecurity Framework",
+      "url": "https://www.nist.gov/cyberframework"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w23d1",
+      "title": "Actores",
+      "lead": "Evalúa capacidad, motivación y acceso sin atribuir identidad a partir de una sola señal.",
+      "sections": [
+        {
+          "topic": "Internos, criminales y estados",
+          "explanation": [
+            "Un actor de amenaza es una persona o grupo capaz de causar daño intencional en un contexto. Puede ser externo o tener acceso interno, y sus motivaciones pueden incluir dinero, espionaje, sabotaje o intereses personales. Estas categorías ayudan a formular escenarios, pero no describen perfectamente a cada individuo. Un error de un empleado también puede producir un incidente sin convertirlo automáticamente en un actor malicioso.",
+            "La capacidad, recursos y acceso influyen en cómo podría actuar una amenaza. Un atacante no necesita ser sofisticado si encuentra credenciales expuestas y permisos amplios. La atribución exige evidencia cuidadosa: una dirección IP, idioma o herramienta no identifican por sí solos una persona, organización o Estado. En un análisis inicial es más útil describir comportamiento y alcance observados que asignar una etiqueta llamativa. Separa confianza de la hipótesis y hechos que todavía debes verificar."
+          ],
+          "analogy": "Encontrar una herramienta en una escena no identifica al dueño; distintos grupos pueden utilizar instrumentos semejantes.",
+          "keyPoints": [
+            "Motivación, capacidad y acceso aportan contexto.",
+            "Interno no significa siempre malicioso.",
+            "La atribución necesita más que un indicador aislado."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Dimensiones de un actor posible",
+            "items": [
+              {
+                "label": "Motivación",
+                "detail": "Qué beneficio o efecto buscaría"
+              },
+              {
+                "label": "Capacidad",
+                "detail": "Qué recursos y conocimientos podría usar"
+              },
+              {
+                "label": "Acceso",
+                "detail": "Qué posición o permisos ya posee"
+              },
+              {
+                "label": "Evidencia",
+                "detail": "Qué comportamiento está realmente observado"
+              }
+            ],
+            "caption": "Las dimensiones orientan hipótesis, no sustituyen una atribución sustentada."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Acceso desde una IP extranjera",
+        "scenario": "Una cuenta corporativa inicia sesión desde una ubicación poco habitual.",
+        "steps": [
+          {
+            "action": "Registrar observación",
+            "reason": "La ubicación estimada es solo un dato.",
+            "result": "Acceso fuera del patrón habitual"
+          },
+          {
+            "action": "Considerar alternativas",
+            "reason": "VPN, viaje o credencial robada pueden explicarlo.",
+            "result": "Varias hipótesis abiertas"
+          },
+          {
+            "action": "Buscar corroboración",
+            "reason": "La identidad del actor no se deduce del país.",
+            "result": "Dispositivo, sesión y usuario contrastados"
+          }
+        ],
+        "result": "La investigación prioriza evidencia de uso de cuenta sin atribuir un Estado por geolocalización.",
+        "visual": {
+          "type": "flow",
+          "title": "Acceso desde una IP extranjera",
+          "items": [
+            {
+              "label": "Registrar observación",
+              "detail": "Acceso fuera del patrón habitual"
+            },
+            {
+              "label": "Considerar alternativas",
+              "detail": "Varias hipótesis abiertas"
+            },
+            {
+              "label": "Buscar corroboración",
+              "detail": "Dispositivo, sesión y usuario contrastados"
+            }
+          ],
+          "caption": "La investigación prioriza evidencia de uso de cuenta sin atribuir un Estado por geolocalización."
+        }
+      },
+      "practice": {
+        "task": "Describe dos actores posibles para un negocio ficticio.",
+        "steps": [
+          "Separa motivación y capacidad.",
+          "Indica qué acceso necesitarían.",
+          "Añade un dato que no bastaría para atribuirles un evento."
+        ],
+        "expected": "Dos escenarios razonables con incertidumbre explícita."
+      },
+      "check": {
+        "question": "Una IP ubicada en otro país demuestra…",
+        "options": [
+          {
+            "id": "a",
+            "text": "La nacionalidad del atacante"
+          },
+          {
+            "id": "b",
+            "text": "Solo una observación de infraestructura o ubicación estimada"
+          },
+          {
+            "id": "c",
+            "text": "Que intervino un gobierno"
+          }
+        ],
+        "correct": "b",
+        "explanation": "La infraestructura puede ser compartida, intermediaria o mal geolocalizada; no identifica al actor."
+      },
+      "mistakes": [
+        {
+          "myth": "Un ataque simple siempre proviene de una persona sin recursos.",
+          "correction": "Actores diferentes reutilizan técnicas sencillas cuando resultan suficientes."
+        }
+      ],
+      "recap": [
+        "Motivación, capacidad y acceso aportan contexto.",
+        "Interno no significa siempre malicioso.",
+        "La atribución necesita más que un indicador aislado."
+      ],
+      "glossary": [
+        {
+          "term": "Actor de amenaza",
+          "definition": "Sujeto o grupo considerado capaz de producir daño intencional."
+        },
+        {
+          "term": "Atribución",
+          "definition": "Asignación sustentada de actividad a una identidad o entidad."
+        }
+      ]
+    },
+    {
+      "dayId": "w23d2",
+      "title": "Ingeniería social",
+      "lead": "Reconoce la solicitud y verifica por un canal independiente antes de actuar.",
+      "sections": [
+        {
+          "topic": "Phishing, vishing, smishing y suplantación",
+          "explanation": [
+            "La ingeniería social intenta influir en personas para obtener una acción, información o acceso. Phishing suele usar mensajes digitales; vishing utiliza voz y smishing mensajes de texto. Los términos describen canales, no una garantía sobre la sofisticación. El engaño puede invocar urgencia, autoridad, recompensa o una relación previa para reducir el tiempo que dedicas a comprobar la solicitud.",
+            "Analiza quién pide qué, por qué lo necesita y qué canal permite verificarlo de forma independiente. Un nombre de remitente conocido o una conversación convincente no bastan. Si la petición cambia una cuenta bancaria, solicita credenciales o exige aprobar una notificación inesperada, detén la acción y usa un contacto ya registrado. No respondas al mismo enlace como única verificación. En prácticas utiliza mensajes ficticios y enlaces desactivados; no envíes simulaciones a otras personas sin autorización."
+          ],
+          "analogy": "Un uniforme y una voz segura pueden imitar autoridad; la verificación consiste en comprobar el encargo con la fuente legítima.",
+          "keyPoints": [
+            "El canal no determina legitimidad.",
+            "Identifica la acción que intenta provocar el mensaje.",
+            "Verifica con un contacto independiente conocido."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Respuesta a una solicitud sospechosa",
+            "items": [
+              {
+                "label": "Solicitud",
+                "detail": "Urgencia para cambiar datos sensibles"
+              },
+              {
+                "label": "Pausa",
+                "detail": "No ejecutar ni compartir credenciales"
+              },
+              {
+                "label": "Verificación",
+                "detail": "Canal conocido fuera del mensaje"
+              },
+              {
+                "label": "Reporte",
+                "detail": "Conservar y comunicar según procedimiento"
+              }
+            ],
+            "caption": "La verificación no depende de confiar en datos proporcionados por el propio mensaje."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Cambio urgente de cuenta de pago",
+        "scenario": "Un supuesto proveedor pide sustituir la cuenta bancaria mediante un correo inesperado.",
+        "steps": [
+          {
+            "action": "Identificar impacto",
+            "reason": "La acción mueve dinero a otro destino.",
+            "result": "Solicitud de alto impacto"
+          },
+          {
+            "action": "Verificar fuera del mensaje",
+            "reason": "El teléfono incluido podría pertenecer al engaño.",
+            "result": "Contacto registrado previamente utilizado"
+          },
+          {
+            "action": "Documentar resultado",
+            "reason": "La decisión debe poder revisarse.",
+            "result": "Cambio suspendido hasta validación autorizada"
+          }
+        ],
+        "result": "El proceso evita que la presión de tiempo sustituya la validación del cambio.",
+        "visual": {
+          "type": "flow",
+          "title": "Cambio urgente de cuenta de pago",
+          "items": [
+            {
+              "label": "Identificar impacto",
+              "detail": "Solicitud de alto impacto"
+            },
+            {
+              "label": "Verificar fuera del mensaje",
+              "detail": "Contacto registrado previamente utilizado"
+            },
+            {
+              "label": "Documentar resultado",
+              "detail": "Cambio suspendido hasta validación autorizada"
+            }
+          ],
+          "caption": "El proceso evita que la presión de tiempo sustituya la validación del cambio."
+        }
+      },
+      "practice": {
+        "task": "Analiza un mensaje ficticio de cambio de contraseña.",
+        "steps": [
+          "Marca solicitud, presión y datos pedidos.",
+          "Describe un canal independiente de verificación.",
+          "Explica cómo reportarías sin reenviar secretos."
+        ],
+        "expected": "Un análisis de conducta y proceso, no solo de errores ortográficos."
+      },
+      "check": {
+        "question": "¿Qué es una verificación independiente?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Llamar a un contacto ya registrado por un canal confiable"
+          },
+          {
+            "id": "b",
+            "text": "Usar únicamente el número del mensaje sospechoso"
+          },
+          {
+            "id": "c",
+            "text": "Aprobar primero y preguntar después"
+          }
+        ],
+        "correct": "a",
+        "explanation": "Un canal previamente conocido reduce dependencia de la información controlada por el solicitante."
+      },
+      "mistakes": [
+        {
+          "myth": "Los mensajes sin errores de ortografía son legítimos.",
+          "correction": "La redacción puede ser impecable; verifica identidad, contexto y acción solicitada."
+        }
+      ],
+      "recap": [
+        "El canal no determina legitimidad.",
+        "Identifica la acción que intenta provocar el mensaje.",
+        "Verifica con un contacto independiente conocido."
+      ],
+      "glossary": [
+        {
+          "term": "Vishing",
+          "definition": "Ingeniería social mediante comunicación de voz."
+        },
+        {
+          "term": "Canal independiente",
+          "definition": "Medio de comprobación que no depende de los datos del mensaje recibido."
+        }
+      ]
+    },
+    {
+      "dayId": "w23d3",
+      "title": "Superficies",
+      "lead": "Una superficie de ataque incluye lo que acepta entradas o permite acceso a un proceso.",
+      "sections": [
+        {
+          "topic": "Servicios, cuentas, equipos y aplicaciones",
+          "explanation": [
+            "La superficie de ataque reúne puntos por los que un sistema puede interactuar con sujetos y datos. Incluye servicios de red, interfaces de aplicación, cuentas, dispositivos, integraciones y procesos humanos. No todos son vulnerabilidades, pero cada exposición requiere una razón y controles apropiados. Un servicio sin uso aumenta trabajo de mantenimiento y observación aunque no tenga una falla conocida.",
+            "Para revisarla, empieza con inventario y flujo de datos. Identifica qué está expuesto públicamente, qué depende de identidad y qué conexiones internas resultan necesarias. Reducir superficie puede significar retirar cuentas antiguas, deshabilitar un servicio innecesario o limitar una interfaz administrativa. Debes evaluar dependencias antes del cambio y comprobar que la función legítima siga disponible. La reducción no elimina toda amenaza: los puntos que permanecen necesitan protección y seguimiento."
+          ],
+          "analogy": "Cada puerta y ventanilla añade una forma de interactuar con el edificio, aunque ninguna esté rota en ese momento.",
+          "keyPoints": [
+            "Exposición no equivale automáticamente a vulnerabilidad.",
+            "Incluye cuentas, servicios e integraciones.",
+            "Retirar lo innecesario requiere comprobar dependencias."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Superficie de un servicio",
+            "items": [
+              {
+                "label": "Pública",
+                "detail": "Portal web y API expuestos"
+              },
+              {
+                "label": "Identidad",
+                "detail": "Cuentas y recuperación de acceso"
+              },
+              {
+                "label": "Interna",
+                "detail": "Administración e integraciones"
+              },
+              {
+                "label": "Humana",
+                "detail": "Soporte y aprobaciones de cambios"
+              }
+            ],
+            "caption": "La revisión considera puntos técnicos y procesos que permiten decisiones."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Panel de prueba olvidado",
+        "scenario": "Una aplicación conserva una interfaz administrativa que nadie utiliza.",
+        "steps": [
+          {
+            "action": "Inventariar exposición",
+            "reason": "El servicio no aparece en la lista aprobada.",
+            "result": "Panel adicional identificado"
+          },
+          {
+            "action": "Investigar dependencia",
+            "reason": "Retirarlo sin conocer uso puede causar daño.",
+            "result": "Sin necesidad actual confirmada"
+          },
+          {
+            "action": "Reducir y verificar",
+            "reason": "El cambio debe dejar el servicio legítimo sano.",
+            "result": "Panel retirado y aplicación probada"
+          }
+        ],
+        "result": "La organización elimina una exposición sin utilidad y reduce carga de control.",
+        "visual": {
+          "type": "flow",
+          "title": "Panel de prueba olvidado",
+          "items": [
+            {
+              "label": "Inventariar exposición",
+              "detail": "Panel adicional identificado"
+            },
+            {
+              "label": "Investigar dependencia",
+              "detail": "Sin necesidad actual confirmada"
+            },
+            {
+              "label": "Reducir y verificar",
+              "detail": "Panel retirado y aplicación probada"
+            }
+          ],
+          "caption": "La organización elimina una exposición sin utilidad y reduce carga de control."
+        }
+      },
+      "practice": {
+        "task": "Inventaría la superficie de una aplicación ficticia.",
+        "steps": [
+          "Enumera servicios, cuentas y recuperación.",
+          "Identifica una exposición innecesaria.",
+          "Propón retirada con prueba y reversión."
+        ],
+        "expected": "Un mapa de puntos de interacción y una reducción justificada."
+      },
+      "check": {
+        "question": "¿Cuál de estas acciones reduce superficie innecesaria?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Crear otra cuenta compartida"
+          },
+          {
+            "id": "b",
+            "text": "Publicar todas las interfaces"
+          },
+          {
+            "id": "c",
+            "text": "Retirar un servicio sin uso tras comprobar dependencias"
+          }
+        ],
+        "correct": "c",
+        "explanation": "Eliminar una exposición no necesaria reduce oportunidades y mantenimiento sin sacrificar una función aprobada."
+      },
+      "mistakes": [
+        {
+          "myth": "Si no hay una vulnerabilidad conocida, una interfaz expuesta no requiere revisión.",
+          "correction": "La exposición sigue necesitando propósito, mantenimiento, permisos y observación."
+        }
+      ],
+      "recap": [
+        "Exposición no equivale automáticamente a vulnerabilidad.",
+        "Incluye cuentas, servicios e integraciones.",
+        "Retirar lo innecesario requiere comprobar dependencias."
+      ],
+      "glossary": [
+        {
+          "term": "Superficie de ataque",
+          "definition": "Conjunto de puntos de interacción y acceso potencial."
+        },
+        {
+          "term": "Exposición",
+          "definition": "Condición que hace alcanzable un activo o una capacidad."
+        }
+      ]
+    },
+    {
+      "dayId": "w23d4",
+      "title": "Cadena de suministro",
+      "lead": "Evalúa la confianza que heredas de proveedores, actualizaciones y dependencias.",
+      "sections": [
+        {
+          "topic": "Proveedores, actualizaciones y dependencias",
+          "explanation": [
+            "La cadena de suministro de software incluye proveedores, bibliotecas, herramientas de desarrollo, procesos de construcción y canales de actualización. Una organización puede incorporar riesgo sin cambiar directamente su propio código si confía en un componente o una publicación comprometidos. Por eso una dependencia necesita origen, versión, mantenimiento y un responsable que conozca dónde se utiliza.",
+            "Las firmas y verificaciones de integridad ayudan a comprobar procedencia y cambios bajo sus condiciones, pero no garantizan que el contenido carezca de fallas o que la cuenta del proveedor nunca se comprometa. Combina fuentes oficiales, revisión de avisos, pruebas de actualización y capacidad de reversión. Limita también permisos de integraciones externas. El objetivo no es dejar de actualizar por miedo, sino hacer cambios trazables que permitan detectar y contener una dependencia problemática."
+          ],
+          "analogy": "Comprar ingredientes de un proveedor confiable no elimina la necesidad de revisar el lote, conservar trazabilidad y saber dónde se utilizó.",
+          "keyPoints": [
+            "La confianza puede propagarse mediante dependencias.",
+            "Firma no equivale a contenido inocuo.",
+            "Conserva versión, origen, uso y reversión."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Ruta de una dependencia",
+            "items": [
+              {
+                "label": "Proveedor",
+                "detail": "Publica un componente o actualización"
+              },
+              {
+                "label": "Canal",
+                "detail": "Distribuye el artefacto y su referencia"
+              },
+              {
+                "label": "Organización",
+                "detail": "Prueba y despliega según su proceso"
+              },
+              {
+                "label": "Servicio",
+                "detail": "Utiliza el componente con permisos concretos"
+              }
+            ],
+            "caption": "Una revisión necesita identificar en qué sistemas se usa el mismo componente."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Aviso sobre una biblioteca compartida",
+        "scenario": "El proveedor informa un problema en una versión usada por varias aplicaciones.",
+        "steps": [
+          {
+            "action": "Localizar uso",
+            "reason": "No basta revisar una sola aplicación.",
+            "result": "Inventario de dependencias consultado"
+          },
+          {
+            "action": "Evaluar contexto",
+            "reason": "Exposición y función afectan prioridad.",
+            "result": "Sistemas afectados y dueños identificados"
+          },
+          {
+            "action": "Cambiar y comprobar",
+            "reason": "La actualización debe mantener operación.",
+            "result": "Versión corregida probada y despliegue trazable"
+          }
+        ],
+        "result": "La organización responde con alcance conocido y no mediante cambios a ciegas.",
+        "visual": {
+          "type": "flow",
+          "title": "Aviso sobre una biblioteca compartida",
+          "items": [
+            {
+              "label": "Localizar uso",
+              "detail": "Inventario de dependencias consultado"
+            },
+            {
+              "label": "Evaluar contexto",
+              "detail": "Sistemas afectados y dueños identificados"
+            },
+            {
+              "label": "Cambiar y comprobar",
+              "detail": "Versión corregida probada y despliegue trazable"
+            }
+          ],
+          "caption": "La organización responde con alcance conocido y no mediante cambios a ciegas."
+        }
+      },
+      "practice": {
+        "task": "Dibuja la cadena de una aplicación ficticia.",
+        "steps": [
+          "Incluye biblioteca, proveedor y canal de actualización.",
+          "Indica cómo sabrías qué versión está desplegada.",
+          "Añade prueba, reversión y límite de permisos."
+        ],
+        "expected": "Un mapa de confianza y dependencia que permita responder a un aviso."
+      },
+      "check": {
+        "question": "¿Qué información ayuda más ante un aviso de una dependencia?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Qué sistemas usan la versión afectada"
+          },
+          {
+            "id": "b",
+            "text": "El tamaño del logotipo del proveedor"
+          },
+          {
+            "id": "c",
+            "text": "Solo la fecha de compra del portátil"
+          }
+        ],
+        "correct": "a",
+        "explanation": "El inventario de uso permite acotar alcance, propietarios y acciones de corrección."
+      },
+      "mistakes": [
+        {
+          "myth": "Una actualización firmada nunca puede introducir riesgo.",
+          "correction": "La firma aporta una comprobación de origen e integridad, no una garantía absoluta del contenido."
+        }
+      ],
+      "recap": [
+        "La confianza puede propagarse mediante dependencias.",
+        "Firma no equivale a contenido inocuo.",
+        "Conserva versión, origen, uso y reversión."
+      ],
+      "glossary": [
+        {
+          "term": "Dependencia",
+          "definition": "Componente que otra aplicación necesita para funcionar."
+        },
+        {
+          "term": "Trazabilidad",
+          "definition": "Capacidad de reconstruir origen, versión y uso de un elemento."
+        }
+      ]
+    },
+    {
+      "dayId": "w23d5",
+      "title": "Vectores y controles",
+      "lead": "Relaciona cada vector con el punto de control que puede reducirlo.",
+      "sections": [
+        {
+          "topic": "Acceso, exposición y defensa",
+          "explanation": [
+            "Un vector describe el camino o medio que permite iniciar una acción dañina: mensaje engañoso, servicio expuesto, credencial robada o dispositivo comprometido. El vector no es necesariamente el actor ni el objetivo final. Una misma campaña puede combinar varios, y un mismo control no cubre todos sus pasos. Por eso debes describir cómo se pasa de una exposición a una acción concreta.",
+            "Elige medidas que actúen sobre ese recorrido. Para credenciales robadas considera autenticación adecuada, límites de sesión y mínimo privilegio; para una interfaz innecesaria, reduce exposición y protege administración. La formación puede ayudar ante un engaño, pero no reemplaza autorización técnica. Añade detección y recuperación para el caso de que la prevención falle. La evidencia del control debe mostrar el efecto esperado y las condiciones que todavía permiten una vía alternativa."
+          ],
+          "analogy": "Cerrar una ventana no protege una puerta sin control; la medida debe colocarse en el camino que realmente usa el riesgo.",
+          "keyPoints": [
+            "Separa actor, vector y objetivo.",
+            "Ubica controles sobre el recorrido concreto.",
+            "Añade límites, detección y recuperación."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Vector y defensa relacionada",
+            "items": [
+              {
+                "label": "Vector",
+                "detail": "Uso de una credencial filtrada"
+              },
+              {
+                "label": "Prevención",
+                "detail": "Autenticación adecuada y recuperación segura"
+              },
+              {
+                "label": "Límite",
+                "detail": "Permisos mínimos y acceso por recurso"
+              },
+              {
+                "label": "Detección",
+                "detail": "Actividad de cuenta revisada con contexto"
+              }
+            ],
+            "caption": "Varias capas reducen oportunidades distintas de la misma secuencia."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Cuenta robada con permisos amplios",
+        "scenario": "El acceso inicial no necesita explotar una falla del servidor.",
+        "steps": [
+          {
+            "action": "Identificar vector",
+            "reason": "La credencial es la vía de entrada.",
+            "result": "Abuso de identidad"
+          },
+          {
+            "action": "Reducir oportunidad",
+            "reason": "Un parche aislado no resuelve esa vía.",
+            "result": "Métodos de autenticación y sesión revisados"
+          },
+          {
+            "action": "Limitar consecuencias",
+            "reason": "La cuenta no debe alcanzar todo el entorno.",
+            "result": "Permisos acotados y revisión de actividad"
+          }
+        ],
+        "result": "La defensa responde al mecanismo observado y al alcance que habilita.",
+        "visual": {
+          "type": "flow",
+          "title": "Cuenta robada con permisos amplios",
+          "items": [
+            {
+              "label": "Identificar vector",
+              "detail": "Abuso de identidad"
+            },
+            {
+              "label": "Reducir oportunidad",
+              "detail": "Métodos de autenticación y sesión revisados"
+            },
+            {
+              "label": "Limitar consecuencias",
+              "detail": "Permisos acotados y revisión de actividad"
+            }
+          ],
+          "caption": "La defensa responde al mecanismo observado y al alcance que habilita."
+        }
+      },
+      "practice": {
+        "task": "Construye tres parejas de vector y controles.",
+        "steps": [
+          "Describe el punto de entrada.",
+          "Asigna una medida preventiva y una detectiva.",
+          "Explica una condición que el conjunto no cubre."
+        ],
+        "expected": "Tres recorridos defendibles sin prometer cobertura total de una herramienta."
+      },
+      "check": {
+        "question": "¿Cuál es un vector y no un objetivo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Robo de información financiera"
+          },
+          {
+            "id": "b",
+            "text": "Interrupción del servicio"
+          },
+          {
+            "id": "c",
+            "text": "Correo que solicita entregar una credencial"
+          }
+        ],
+        "correct": "c",
+        "explanation": "El mensaje describe un medio de entrada; los otros describen efectos o metas de la actividad."
+      },
+      "mistakes": [
+        {
+          "myth": "El mismo control es la mejor respuesta para cualquier vector.",
+          "correction": "La selección debe corresponder al recorrido, exposición y efecto del escenario."
+        }
+      ],
+      "recap": [
+        "Separa actor, vector y objetivo.",
+        "Ubica controles sobre el recorrido concreto.",
+        "Añade límites, detección y recuperación."
+      ],
+      "glossary": [
+        {
+          "term": "Vector",
+          "definition": "Camino o medio por el que se inicia una acción dañina."
+        },
+        {
+          "term": "Objetivo de amenaza",
+          "definition": "Resultado que un actor busca conseguir."
+        }
+      ]
+    },
+    {
+      "dayId": "w23d6",
+      "title": "Caso de campaña",
+      "lead": "Construye la secuencia de una campaña sin rellenar huecos con certeza inventada.",
+      "sections": [
+        {
+          "topic": "Secuencia e información faltante",
+          "explanation": [
+            "Una campaña puede relacionar mensajes, accesos, cambios y transferencias a lo largo del tiempo. Investigar su secuencia requiere fuentes y criterios de asociación: identidad, equipo, indicador y proximidad temporal pueden aportar vínculos, pero no todos tienen la misma fuerza. Dos eventos que ocurren el mismo día no pertenecen necesariamente a la misma operación.",
+            "Organiza una cronología con hechos, fuente y nivel de confianza de cada relación. Por ejemplo, recibir un mensaje y luego observar un inicio de sesión no demuestra que la persona entregó una contraseña; necesitas evidencia adicional. También registra hipótesis alternativas y datos faltantes. El siguiente paso debe reducir una incertidumbre concreta mediante una consulta autorizada. Una narración prudente ayuda a escalar el caso porque muestra qué decisiones están sustentadas y qué partes siguen abiertas."
+          ],
+          "analogy": "Reconstruir una ruta requiere unir puntos con evidencia; dibujar una línea entre puntos cercanos no demuestra que alguien recorrió ese camino.",
+          "keyPoints": [
+            "Cada vínculo de la secuencia necesita sustento.",
+            "La cercanía temporal no demuestra causalidad.",
+            "Busca datos que reduzcan una incertidumbre concreta."
+          ],
+          "visual": {
+            "type": "timeline",
+            "title": "Secuencia y datos faltantes",
+            "items": [
+              {
+                "label": "Mensaje",
+                "detail": "Correo recibido a las 08:30"
+              },
+              {
+                "label": "Acceso",
+                "detail": "Sesión nueva a las 08:45"
+              },
+              {
+                "label": "Actividad",
+                "detail": "Consulta de documentos a las 08:50"
+              },
+              {
+                "label": "Pendiente",
+                "detail": "Comprobar vínculo entre mensaje y sesión"
+              }
+            ],
+            "caption": "La línea temporal ordena eventos sin convertir todos los vínculos en hechos confirmados."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Mensaje y sesión inusual",
+        "scenario": "El usuario recibió un mensaje y después aparece una sesión desde otro dispositivo.",
+        "steps": [
+          {
+            "action": "Separar hechos",
+            "reason": "Las fuentes muestran dos eventos distintos.",
+            "result": "Recepción y acceso registrados"
+          },
+          {
+            "action": "Formular vínculo",
+            "reason": "La relación causal sigue siendo una hipótesis.",
+            "result": "Posible entrega o robo de credencial"
+          },
+          {
+            "action": "Solicitar corroboración",
+            "reason": "Un dato adicional puede distinguir causas.",
+            "result": "Dispositivo, interacción y sesión revisados"
+          }
+        ],
+        "result": "El análisis conserva una secuencia útil y reconoce el vínculo todavía no demostrado.",
+        "visual": {
+          "type": "flow",
+          "title": "Mensaje y sesión inusual",
+          "items": [
+            {
+              "label": "Separar hechos",
+              "detail": "Recepción y acceso registrados"
+            },
+            {
+              "label": "Formular vínculo",
+              "detail": "Posible entrega o robo de credencial"
+            },
+            {
+              "label": "Solicitar corroboración",
+              "detail": "Dispositivo, interacción y sesión revisados"
+            }
+          ],
+          "caption": "El análisis conserva una secuencia útil y reconoce el vínculo todavía no demostrado."
+        }
+      },
+      "practice": {
+        "task": "Reconstruye una campaña ficticia de cinco eventos.",
+        "steps": [
+          "Asigna fuente y hora a cada evento.",
+          "Marca vínculos confirmados e hipotéticos.",
+          "Propón dos consultas para reducir incertidumbre."
+        ],
+        "expected": "Una cronología con confianza y límites explícitos."
+      },
+      "check": {
+        "question": "Dos eventos cercanos en el tiempo demuestran…",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que podrían relacionarse, pero se necesita corroboración"
+          },
+          {
+            "id": "b",
+            "text": "Que pertenecen obligatoriamente al mismo actor"
+          },
+          {
+            "id": "c",
+            "text": "Que el segundo fue causado por el primero"
+          }
+        ],
+        "correct": "a",
+        "explanation": "La proximidad temporal es una pista y no una prueba suficiente de causalidad."
+      },
+      "mistakes": [
+        {
+          "myth": "Un buen informe debe llenar todos los huecos de la historia.",
+          "correction": "Debe indicar información faltante en lugar de inventar hechos que no están demostrados."
+        }
+      ],
+      "recap": [
+        "Cada vínculo de la secuencia necesita sustento.",
+        "La cercanía temporal no demuestra causalidad.",
+        "Busca datos que reduzcan una incertidumbre concreta."
+      ],
+      "glossary": [
+        {
+          "term": "Causalidad",
+          "definition": "Relación en la que un hecho contribuye a producir otro."
+        },
+        {
+          "term": "Corroboración",
+          "definition": "Evidencia adicional que refuerza o contradice una interpretación."
+        }
+      ]
+    },
+    {
+      "dayId": "w23d7",
+      "title": "Evaluación de amenazas",
+      "lead": "Clasifica actor, vector y objetivo usando un caso con evidencia incompleta.",
+      "sections": [
+        {
+          "topic": "Actor, vector y objetivo",
+          "explanation": [
+            "Evaluar amenazas exige separar tres preguntas: quién podría actuar, por qué camino y con qué propósito. Una cuenta interna utilizada para copiar documentos no demuestra por sí sola que su titular lo hizo voluntariamente. El vector podría ser una sesión robada y el objetivo podría ser apropiación de información, pero esas explicaciones necesitan evidencia. Clasificar correctamente evita confundir indicador con identidad o actividad con intención.",
+            "Usa categorías como hipótesis de trabajo, expresando su confianza. La selección de controles puede avanzar incluso cuando la atribución no está completa: revocar una sesión comprometida y limitar acceso puede ser necesario sin saber quién controla el extremo remoto. La prioridad depende del activo y el impacto observado o potencial. Al cerrar el ejercicio, explica qué datos cambiarían tu clasificación y cómo obtendrías esa evidencia dentro del alcance autorizado."
+          ],
+          "analogy": "En una investigación, saber qué puerta se usó puede permitir cerrarla antes de conocer el nombre de quien entró.",
+          "keyPoints": [
+            "Actor, vector y objetivo son dimensiones distintas.",
+            "La contención no siempre espera una atribución completa.",
+            "Describe qué evidencia cambiaría tu hipótesis."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Clasificación de un caso",
+            "items": [
+              {
+                "label": "Actor posible",
+                "detail": "Sujeto externo o interno aún sin atribuir"
+              },
+              {
+                "label": "Vector posible",
+                "detail": "Sesión o credencial indebidamente utilizada"
+              },
+              {
+                "label": "Objetivo posible",
+                "detail": "Acceso a documentos sensibles"
+              },
+              {
+                "label": "Hecho",
+                "detail": "Operaciones de la cuenta registradas"
+              }
+            ],
+            "caption": "Las palabras posible y observado separan niveles de certeza."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Copia inusual de documentos",
+        "scenario": "La aplicación registra descargas con una cuenta válida fuera del patrón conocido.",
+        "steps": [
+          {
+            "action": "Describir comportamiento",
+            "reason": "La cuenta no identifica necesariamente a la persona presente.",
+            "result": "Descargas y sesión observadas"
+          },
+          {
+            "action": "Clasificar hipótesis",
+            "reason": "La credencial o sesión pudo ser abusada.",
+            "result": "Vector de identidad por verificar"
+          },
+          {
+            "action": "Priorizar acción",
+            "reason": "Los documentos y el alcance orientan respuesta.",
+            "result": "Revisión y contención autorizadas del acceso"
+          }
+        ],
+        "result": "La clasificación guía acciones sin acusar al titular de la cuenta sin evidencia suficiente.",
+        "visual": {
+          "type": "flow",
+          "title": "Copia inusual de documentos",
+          "items": [
+            {
+              "label": "Describir comportamiento",
+              "detail": "Descargas y sesión observadas"
+            },
+            {
+              "label": "Clasificar hipótesis",
+              "detail": "Vector de identidad por verificar"
+            },
+            {
+              "label": "Priorizar acción",
+              "detail": "Revisión y contención autorizadas del acceso"
+            }
+          ],
+          "caption": "La clasificación guía acciones sin acusar al titular de la cuenta sin evidencia suficiente."
+        }
+      },
+      "practice": {
+        "task": "Resuelve un caso de uso indebido de cuenta ficticia.",
+        "steps": [
+          "Separa hechos de actor, vector y objetivo hipotéticos.",
+          "Justifica un control inmediato proporcionado.",
+          "Indica qué evidencia necesitas para confirmar el alcance."
+        ],
+        "expected": "Una clasificación útil con incertidumbre y acción sustentada."
+      },
+      "check": {
+        "question": "¿Qué puedes afirmar si un registro muestra actividad de una cuenta?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que su titular fue siempre la persona que actuó"
+          },
+          {
+            "id": "b",
+            "text": "Que se registró actividad asociada a esa cuenta"
+          },
+          {
+            "id": "c",
+            "text": "Que ya conoces la motivación del actor"
+          }
+        ],
+        "correct": "b",
+        "explanation": "La asociación de cuenta no resuelve por sí sola quién controlaba la sesión ni su intención."
+      },
+      "mistakes": [
+        {
+          "myth": "No se puede actuar hasta identificar exactamente al atacante.",
+          "correction": "Algunas medidas de contención se justifican por actividad y riesgo, siguiendo el procedimiento autorizado."
+        }
+      ],
+      "recap": [
+        "Actor, vector y objetivo son dimensiones distintas.",
+        "La contención no siempre espera una atribución completa.",
+        "Describe qué evidencia cambiaría tu hipótesis."
+      ],
+      "glossary": [
+        {
+          "term": "Confianza analítica",
+          "definition": "Grado de sustento de una interpretación según la evidencia."
+        },
+        {
+          "term": "Comportamiento observado",
+          "definition": "Acción descrita directamente por los datos disponibles."
+        }
+      ]
+    }
+  ]
+}

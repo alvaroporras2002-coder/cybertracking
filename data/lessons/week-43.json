@@ -1,0 +1,945 @@
+{
+  "version": "2.0.0",
+  "week": 43,
+  "title": "SIEM y búsquedas",
+  "overview": "Aprenderás a buscar en un SIEM con una pregunta clara y datos verificables. Las clases explican índices, formatos, campos, filtros y agregaciones mediante pequeñas tablas y consultas de lectura. No necesitarás datos de producción para comprender el método. Cada ejemplo distingue el evento original de su resumen y muestra por qué la ventana temporal, la calidad de extracción y la unidad contada cambian el resultado. Al terminar podrás entregar una consulta reproducible y una conclusión defendible.",
+  "objectives": [
+    "Validar fuentes y campos antes de filtrar.",
+    "Construir agrupaciones y visualizaciones con unidades claras.",
+    "Documentar consultas reproducibles y comprobar sus resultados."
+  ],
+  "sources": [
+    {
+      "id": "splunk",
+      "title": "Splunk: búsqueda y procesamiento de resultados",
+      "url": "https://www.splunk.com/en_us/blog/tips-and-tricks/search-commands-stats-chart-and-timechart.html"
+    },
+    {
+      "id": "nist86",
+      "title": "NIST SP 800-86: técnicas forenses en respuesta a incidentes",
+      "url": "https://csrc.nist.gov/pubs/sp/800/86/final"
+    },
+    {
+      "id": "nist61",
+      "title": "NIST SP 800-61r3: respuesta y gestión del riesgo",
+      "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w43d1",
+      "title": "Eventos y fuentes",
+      "lead": "Una búsqueda empieza por saber dónde están los eventos y cómo fueron interpretados.",
+      "sections": [
+        {
+          "topic": "Índice, sourcetype, campos y tiempo",
+          "explanation": [
+            "Un SIEM reúne eventos para facilitar búsquedas y correlación, pero no convierte automáticamente todos los formatos en datos equivalentes. En Splunk, un índice organiza datos almacenados; sourcetype describe cómo se reconoce e interpreta una clase de eventos. Los campos, como host o usuario, deben verificarse en una muestra antes de utilizarlos para filtrar. Un nombre parecido en dos fuentes no garantiza que represente la misma identidad, unidad o momento del proceso.",
+            "El tiempo del evento y el de recepción pueden ser diferentes. Un equipo desconectado podría enviar tarde registros antiguos; buscar solo por el momento en que llegaron produciría una cronología incorrecta. Primero selecciona una fuente didáctica autorizada, inspecciona eventos sin agregarlos y compara sus campos con el texto original. Documenta rango temporal y zona. Si no hay resultados, revisa cobertura, permisos y conservación antes de interpretar el vacío como ausencia de actividad."
+          ],
+          "analogy": "El índice es una estantería; el tipo de fuente explica cómo leer las fichas que contiene.",
+          "keyPoints": [
+            "Índice: Selecciona el conjunto autorizado del laboratorio.",
+            "Formato: sourcetype orienta la interpretación de los eventos.",
+            "Tiempo: Comprueba momento del evento y retraso de recepción."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Eventos y fuentes",
+            "items": [
+              {
+                "label": "Índice",
+                "detail": "Selecciona el conjunto autorizado del laboratorio."
+              },
+              {
+                "label": "Formato",
+                "detail": "sourcetype orienta la interpretación de los eventos."
+              },
+              {
+                "label": "Tiempo",
+                "detail": "Comprueba momento del evento y retraso de recepción."
+              }
+            ],
+            "caption": "Una búsqueda empieza por saber dónde están los eventos y cómo fueron interpretados."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Eventos recibidos tarde",
+        "scenario": "Un registro ficticio ocurrido a las 10:00 llega al colector a las 10:12.",
+        "steps": [
+          {
+            "action": "Leer el original",
+            "reason": "Permite localizar el momento declarado.",
+            "result": "El evento indica 10:00 UTC."
+          },
+          {
+            "action": "Comparar recepción",
+            "reason": "Explica una diferencia legítima.",
+            "result": "La ingesta ocurrió doce minutos después."
+          },
+          {
+            "action": "Definir búsqueda",
+            "reason": "La pregunta pide cuándo sucedió.",
+            "result": "La cronología utiliza tiempo del evento y anota el retraso."
+          }
+        ],
+        "result": "La ingesta tardía no convierte la acción en un evento de las 10:12.",
+        "visual": {
+          "type": "timeline",
+          "title": "Eventos recibidos tarde",
+          "items": [
+            {
+              "label": "Leer el original",
+              "detail": "El evento indica 10:00 UTC."
+            },
+            {
+              "label": "Comparar recepción",
+              "detail": "La ingesta ocurrió doce minutos después."
+            },
+            {
+              "label": "Definir búsqueda",
+              "detail": "La cronología utiliza tiempo del evento y anota el retraso."
+            }
+          ],
+          "caption": "La ingesta tardía no convierte la acción en un evento de las 10:12."
+        }
+      },
+      "practice": {
+        "task": "Inspecciona cinco registros ficticios antes de escribir filtros.",
+        "steps": [
+          "Identifica fuente y tipo.",
+          "Compara campos extraídos con texto original.",
+          "Anota tiempo del evento y de recepción si existe."
+        ],
+        "expected": "Un pequeño diccionario de campos y límites de cobertura."
+      },
+      "check": {
+        "question": "¿Qué debe revisarse si una búsqueda no devuelve eventos?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo aumentar el tamaño de letra."
+          },
+          {
+            "id": "b",
+            "text": "Cobertura, rango, permisos y formato de campos."
+          },
+          {
+            "id": "c",
+            "text": "Concluir que nunca ocurrió actividad."
+          }
+        ],
+        "correct": "b",
+        "explanation": "El vacío puede deberse a selección o cobertura; no demuestra por sí mismo ausencia histórica."
+      },
+      "mistakes": [
+        {
+          "myth": "Todos los SIEM asignan el mismo significado a usuario y tiempo.",
+          "correction": "La normalización debe verificarse contra cada fuente y su documentación."
+        }
+      ],
+      "recap": [
+        "Índice: Selecciona el conjunto autorizado del laboratorio.",
+        "Formato: sourcetype orienta la interpretación de los eventos.",
+        "Tiempo: Comprueba momento del evento y retraso de recepción."
+      ],
+      "glossary": [
+        {
+          "term": "Índice",
+          "definition": "Conjunto de datos sobre el que se ejecuta una búsqueda."
+        },
+        {
+          "term": "Sourcetype",
+          "definition": "Clasificación de formato que ayuda a interpretar eventos en Splunk."
+        }
+      ]
+    },
+    {
+      "dayId": "w43d2",
+      "title": "Búsqueda básica",
+      "lead": "Filtrar reduce datos; verificar la lógica evita excluir precisamente lo que buscabas.",
+      "sections": [
+        {
+          "topic": "Filtros, operadores y rangos",
+          "explanation": [
+            "Una búsqueda básica combina selección de fuente, intervalo y condiciones. En SPL puedes comenzar por un índice de laboratorio y después añadir campos como host o action. Escribe operadores de forma explícita y usa paréntesis cuando combines alternativas con restricciones. La frase «fallos del equipo A o B» debe expresar claramente si ambos equipos quedan limitados a fallos. Comprueba la lógica con unas pocas filas cuya respuesta ya conozcas antes de aplicarla al conjunto completo.",
+            "No empieces excluyendo todo lo que parece normal: podrías ocultar un éxito relevante que aparece después de los fallos. Mantén una búsqueda amplia de referencia y guarda versiones de los filtros. Los comodines y los valores vacíos pueden tener efectos distintos de una comparación exacta. Si trabajas con una tabla ficticia en lugar de Splunk, puedes practicar el mismo razonamiento seleccionando filas manualmente. El propósito es demostrar que la condición responde a la pregunta y que entiendes qué dejó fuera."
+          ],
+          "analogy": "Un colador útil retiene lo que buscas; uno demasiado fino puede tirar también la pieza importante.",
+          "keyPoints": [
+            "Fuente: Acota el índice y los equipos autorizados.",
+            "Condición: Expresa alternativas y restricciones con paréntesis.",
+            "Comprobación: Contrasta filas incluidas y excluidas conocidas."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Búsqueda básica",
+            "items": [
+              {
+                "label": "Fuente",
+                "detail": "Acota el índice y los equipos autorizados."
+              },
+              {
+                "label": "Condición",
+                "detail": "Expresa alternativas y restricciones con paréntesis."
+              },
+              {
+                "label": "Comprobación",
+                "detail": "Contrasta filas incluidas y excluidas conocidas."
+              }
+            ],
+            "caption": "Filtrar reduce datos; verificar la lógica evita excluir precisamente lo que buscabas."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Dos equipos, solo fallos",
+        "scenario": "Una tabla contiene éxitos y fallos de PC-A y PC-B.",
+        "steps": [
+          {
+            "action": "Escribir condición",
+            "reason": "La intención debe ser explícita.",
+            "result": "Se selecciona action=failure y host A o B agrupados."
+          },
+          {
+            "action": "Probar filas",
+            "reason": "Detecta ambigüedad lógica.",
+            "result": "Un éxito de PC-B debe quedar fuera."
+          },
+          {
+            "action": "Guardar referencia",
+            "reason": "Permite revisar contexto después.",
+            "result": "Se conserva también la búsqueda de todas las acciones de ambos equipos."
+          }
+        ],
+        "result": "La consulta filtrada responde a fallos sin borrar la referencia completa.",
+        "visual": {
+          "type": "timeline",
+          "title": "Dos equipos, solo fallos",
+          "items": [
+            {
+              "label": "Escribir condición",
+              "detail": "Se selecciona action=failure y host A o B agrupados."
+            },
+            {
+              "label": "Probar filas",
+              "detail": "Un éxito de PC-B debe quedar fuera."
+            },
+            {
+              "label": "Guardar referencia",
+              "detail": "Se conserva también la búsqueda de todas las acciones de ambos equipos."
+            }
+          ],
+          "caption": "La consulta filtrada responde a fallos sin borrar la referencia completa."
+        }
+      },
+      "practice": {
+        "task": "Filtra una tabla inventada de seis accesos de tres equipos.",
+        "steps": [
+          "Define una pregunta antes de seleccionar filas.",
+          "Usa paréntesis en las alternativas.",
+          "Comprueba una fila que debe entrar y otra que debe salir."
+        ],
+        "expected": "Una selección correcta y una explicación de sus exclusiones.",
+        "console": {
+          "language": "spl",
+          "code": "index=lab (host=\"PC-A\" OR host=\"PC-B\") action=\"failure\"\n| table _time host user action",
+          "output": "Ejemplo ficticio: solo filas failure de PC-A o PC-B.",
+          "explanation": "Consulta de lectura; adapta índice y campos a un conjunto autorizado y fija el intervalo en el selector temporal."
+        }
+      },
+      "check": {
+        "question": "¿Qué comprueba mejor la lógica de un filtro?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Contar sus caracteres."
+          },
+          {
+            "id": "b",
+            "text": "Usar muchos comodines."
+          },
+          {
+            "id": "c",
+            "text": "Probar ejemplos conocidos que deben entrar y salir."
+          }
+        ],
+        "correct": "c",
+        "explanation": "Los casos positivos y negativos revelan errores de agrupación y exclusión."
+      },
+      "mistakes": [
+        {
+          "myth": "Cuanto más corta sea la lista final, mejor es la búsqueda.",
+          "correction": "Reducir resultados no es útil si se excluye el contexto necesario."
+        }
+      ],
+      "recap": [
+        "Fuente: Acota el índice y los equipos autorizados.",
+        "Condición: Expresa alternativas y restricciones con paréntesis.",
+        "Comprobación: Contrasta filas incluidas y excluidas conocidas."
+      ],
+      "glossary": [
+        {
+          "term": "Filtro",
+          "definition": "Condición que selecciona observaciones."
+        },
+        {
+          "term": "Caso negativo",
+          "definition": "Ejemplo que debe quedar fuera de una condición."
+        }
+      ]
+    },
+    {
+      "dayId": "w43d3",
+      "title": "Campos",
+      "lead": "Un campo útil tiene significado conocido y valores que pueden comprobarse.",
+      "sections": [
+        {
+          "topic": "Extracción, selección y valores",
+          "explanation": [
+            "Extraer un campo consiste en convertir parte del evento en un valor utilizable para buscar o agrupar. Una dirección puede aparecer en el mensaje original como texto y necesitar una extracción correcta para funcionar como src_ip. Antes de confiar en ella, compara varias filas: valores ausentes, formatos distintos y eventos con más de una dirección pueden revelar que la extracción selecciona el dato equivocado. La existencia del nombre del campo no garantiza su calidad.",
+            "La selección de campos facilita la lectura, pero no elimina la necesidad de conservar el evento original. Una tabla con hora, usuario, origen y acción puede ser suficiente para presentar un hallazgo, siempre que el lector pueda volver a la fuente. Distingue vacío de valor desconocido y de un valor que realmente no se aplica. Si conviertes tipos o renombras campos, registra la transformación. Un conteo por usuario será engañoso si diferentes formatos representan a la misma cuenta sin normalización."
+          ],
+          "analogy": "La etiqueta de una caja dice lo que debería contener; abrir unas muestras permite comprobarlo.",
+          "keyPoints": [
+            "Extracción: Relaciona una parte del original con un campo.",
+            "Calidad: Revisa valores vacíos, variantes y errores.",
+            "Presentación: Muestra campos necesarios conservando acceso al original."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Campos",
+            "items": [
+              {
+                "label": "Extracción",
+                "detail": "Relaciona una parte del original con un campo."
+              },
+              {
+                "label": "Calidad",
+                "detail": "Revisa valores vacíos, variantes y errores."
+              },
+              {
+                "label": "Presentación",
+                "detail": "Muestra campos necesarios conservando acceso al original."
+              }
+            ],
+            "caption": "Un campo útil tiene significado conocido y valores que pueden comprobarse."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "El origen equivocado",
+        "scenario": "Un mensaje ficticio contiene IP del cliente e IP del proxy, pero src_ip extrae la del proxy.",
+        "steps": [
+          {
+            "action": "Comparar texto",
+            "reason": "Valida la semántica del campo.",
+            "result": "Se detectan dos direcciones distintas."
+          },
+          {
+            "action": "Identificar rol",
+            "reason": "No todas representan al cliente.",
+            "result": "La extracción actual selecciona el intermediario."
+          },
+          {
+            "action": "Corregir análisis",
+            "reason": "Evita agrupar por una identidad equivocada.",
+            "result": "Se documenta el campo correcto del cliente antes del conteo."
+          }
+        ],
+        "result": "La agregación solo comienza después de validar qué representa la dirección.",
+        "visual": {
+          "type": "timeline",
+          "title": "El origen equivocado",
+          "items": [
+            {
+              "label": "Comparar texto",
+              "detail": "Se detectan dos direcciones distintas."
+            },
+            {
+              "label": "Identificar rol",
+              "detail": "La extracción actual selecciona el intermediario."
+            },
+            {
+              "label": "Corregir análisis",
+              "detail": "Se documenta el campo correcto del cliente antes del conteo."
+            }
+          ],
+          "caption": "La agregación solo comienza después de validar qué representa la dirección."
+        }
+      },
+      "practice": {
+        "task": "Construye un diccionario para cinco campos de un registro ficticio.",
+        "steps": [
+          "Define significado y formato esperado.",
+          "Incluye un ejemplo vacío y cómo tratarlo.",
+          "Relaciona cada valor con su ubicación en el original."
+        ],
+        "expected": "Un diccionario que otra persona pueda verificar sobre los eventos."
+      },
+      "check": {
+        "question": "¿Qué debe hacerse antes de contar por src_ip?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Verificar que el campo representa el origen que interesa."
+          },
+          {
+            "id": "b",
+            "text": "Cambiarlo siempre a texto libre."
+          },
+          {
+            "id": "c",
+            "text": "Eliminar todos los valores vacíos sin revisar."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La semántica y calidad del campo condicionan cualquier agrupación posterior."
+      },
+      "mistakes": [
+        {
+          "myth": "Un campo vacío equivale a cero actividad.",
+          "correction": "Puede reflejar ausencia de extracción, formato diferente o dato no disponible."
+        }
+      ],
+      "recap": [
+        "Extracción: Relaciona una parte del original con un campo.",
+        "Calidad: Revisa valores vacíos, variantes y errores.",
+        "Presentación: Muestra campos necesarios conservando acceso al original."
+      ],
+      "glossary": [
+        {
+          "term": "Extracción",
+          "definition": "Obtención estructurada de un dato desde el evento."
+        },
+        {
+          "term": "Normalización",
+          "definition": "Transformación de representaciones para compararlas con un criterio definido."
+        }
+      ]
+    },
+    {
+      "dayId": "w43d4",
+      "title": "Agregaciones",
+      "lead": "Agrupar responde preguntas de conjunto, pero puede esconder las filas que explican el resultado.",
+      "sections": [
+        {
+          "topic": "Conteo, grupos y tendencias",
+          "explanation": [
+            "Una agregación resume eventos por categorías o intervalos. Con stats count by user obtienes cuántas filas corresponden a cada valor de usuario, no necesariamente cuántas personas actuaron ni cuántas sesiones distintas existieron. La unidad contada depende del evento y de posibles duplicados. Antes de interpretar un número define qué representa una fila, verifica la ventana temporal y decide cómo tratar identidades ausentes. Un total sin estas condiciones puede parecer exacto y responder otra pregunta.",
+            "Las tendencias necesitan intervalos comparables. Un conteo de cinco minutos no debe compararse directamente con otro de una hora; puedes normalizar por duración o elegir ventanas iguales. Conserva una vía para volver desde el resumen a los eventos originales y revisar los grupos dominantes. Si un usuario tiene veinte fallos, examina equipos, frecuencia y causa: una contraseña de servicio antigua podría explicar el patrón. El conteo detecta concentración; no prueba intención ni compromiso por sí mismo."
+          ],
+          "analogy": "Contar recibos mide transacciones registradas, no necesariamente clientes diferentes.",
+          "keyPoints": [
+            "Unidad: Define qué representa cada fila contada.",
+            "Grupo: Agrupa por campos validados y ventana conocida.",
+            "Retorno: Revisa eventos originales que forman el resumen."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Agregaciones",
+            "items": [
+              {
+                "label": "Unidad",
+                "detail": "Define qué representa cada fila contada."
+              },
+              {
+                "label": "Grupo",
+                "detail": "Agrupa por campos validados y ventana conocida."
+              },
+              {
+                "label": "Retorno",
+                "detail": "Revisa eventos originales que forman el resumen."
+              }
+            ],
+            "caption": "Agrupar responde preguntas de conjunto, pero puede esconder las filas que explican el resultado."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Veinte fallos no son veinte personas",
+        "scenario": "Una tabla ficticia contiene veinte eventos de fallo para la cuenta servicio-lab.",
+        "steps": [
+          {
+            "action": "Definir conteo",
+            "reason": "Aclara la unidad observada.",
+            "result": "Son veinte filas de eventos, no usuarios únicos."
+          },
+          {
+            "action": "Revisar distribución",
+            "reason": "El patrón necesita contexto.",
+            "result": "Todas proceden de un equipo a intervalos regulares."
+          },
+          {
+            "action": "Contrastar causa",
+            "reason": "Una alternativa legítima puede explicar la repetición.",
+            "result": "Un servicio conserva credenciales antiguas en el escenario."
+          }
+        ],
+        "result": "La concentración identifica una investigación, no una atribución automática.",
+        "visual": {
+          "type": "timeline",
+          "title": "Veinte fallos no son veinte personas",
+          "items": [
+            {
+              "label": "Definir conteo",
+              "detail": "Son veinte filas de eventos, no usuarios únicos."
+            },
+            {
+              "label": "Revisar distribución",
+              "detail": "Todas proceden de un equipo a intervalos regulares."
+            },
+            {
+              "label": "Contrastar causa",
+              "detail": "Un servicio conserva credenciales antiguas en el escenario."
+            }
+          ],
+          "caption": "La concentración identifica una investigación, no una atribución automática."
+        }
+      },
+      "practice": {
+        "task": "Agrupa los doce eventos sintéticos que genera la consulta de práctica; todos quedan entre 10:00 y 10:06 UTC del 1 de enero de 2026.",
+        "steps": [
+          "Cuenta primero las filas originales.",
+          "Compara total y suma de grupos.",
+          "Describe un grupo sin concluir intención."
+        ],
+        "expected": "Un resumen reconciliado con sus eventos de origen.",
+        "console": {
+          "language": "spl",
+          "code": "| makeresults count=12\n| streamstats count as n\n| eval _time=1767261600+(n-1)*30, action=\"failure\", user=case(n<=6,\"ana-lab\",n<=10,\"bruno-lab\",true(),\"servicio-lab\"), host=if(n<=6 OR n>10,\"PC-A\",\"PC-B\")\n| where _time>=1767261600 AND _time<1767261960\n| stats count by user host",
+          "output": "ana-lab | PC-A | 6\nbruno-lab | PC-B | 4\nservicio-lab | PC-A | 2\nTotal comprobable: 12 eventos.",
+          "explanation": "SPL genera doce filas de prueba, sin leer ni modificar índices. La ventana fija es 2026-01-01 de 10:00Z a 10:06Z; los instantes avanzan treinta segundos. Cuenta eventos, no personas ni sesiones únicas. Si no tienes Splunk, reconstruye las filas n=1 a n=12 con estas mismas reglas y agrúpalas manualmente."
+        }
+      },
+      "check": {
+        "question": "¿Qué devuelve count sobre eventos?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Siempre personas únicas."
+          },
+          {
+            "id": "b",
+            "text": "Filas que cumplen la búsqueda."
+          },
+          {
+            "id": "c",
+            "text": "Solo ataques confirmados."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La unidad es la fila resultante; contar entidades únicas exige una operación y un campo apropiados."
+      },
+      "mistakes": [
+        {
+          "myth": "Un pico en una gráfica confirma un ataque.",
+          "correction": "Primero hay que comprobar unidad, cobertura, duplicados y contexto operacional."
+        }
+      ],
+      "recap": [
+        "Unidad: Define qué representa cada fila contada.",
+        "Grupo: Agrupa por campos validados y ventana conocida.",
+        "Retorno: Revisa eventos originales que forman el resumen."
+      ],
+      "glossary": [
+        {
+          "term": "Agregación",
+          "definition": "Resumen de observaciones por una regla definida."
+        },
+        {
+          "term": "Ventana",
+          "definition": "Intervalo temporal que delimita el conjunto analizado."
+        }
+      ]
+    },
+    {
+      "dayId": "w43d5",
+      "title": "Visualización",
+      "lead": "La visualización debe hacer comprensible la pregunta y conservar los valores exactos.",
+      "sections": [
+        {
+          "topic": "Tabla, gráfico y dashboard",
+          "explanation": [
+            "Una tabla es adecuada para buscar un evento o comparar valores precisos; una gráfica facilita reconocer distribución y cambios. Elige la representación después de definir la pregunta. Para tiempo de respuesta podrías usar una serie temporal; para verificar qué cuenta tuvo un resultado necesitas etiquetas y filas. Un dashboard reúne vistas, pero cada panel debe mostrar fuente, intervalo, unidad y filtros relevantes. Sin estas referencias resulta fácil comparar números que fueron calculados de forma distinta.",
+            "Una gráfica no añade evidencia a los datos subyacentes. Revisa escalas, categorías omitidas y tratamiento de valores nulos. Si el eje temporal agrupa por hora, un pico puede contener actividad distribuida en muchos minutos; no describas precisión que el gráfico no tiene. Añade una tabla accesible con los mismos resultados y una explicación breve de su lectura. Evita adornos que ocultan etiquetas y colores que sean la única forma de distinguir estados. La claridad ayuda a otro analista a cuestionar tu interpretación."
+          ],
+          "analogy": "El mapa y la lista de direcciones se complementan: uno muestra patrones y la otra conserva detalles exactos.",
+          "keyPoints": [
+            "Pregunta: Define la decisión o comparación buscada.",
+            "Vista: Selecciona tabla, distribución o serie temporal.",
+            "Contexto: Mantén unidad, intervalo, fuente y valores consultables."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Visualización",
+            "items": [
+              {
+                "label": "Pregunta",
+                "detail": "Define la decisión o comparación buscada."
+              },
+              {
+                "label": "Vista",
+                "detail": "Selecciona tabla, distribución o serie temporal."
+              },
+              {
+                "label": "Contexto",
+                "detail": "Mantén unidad, intervalo, fuente y valores consultables."
+              }
+            ],
+            "caption": "La visualización debe hacer comprensible la pregunta y conservar los valores exactos."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Un panel que parecía peor",
+        "scenario": "Dos paneles ficticios muestran diez y veinte fallos, pero cubren cinco y sesenta minutos.",
+        "steps": [
+          {
+            "action": "Leer intervalos",
+            "reason": "Los números no son directamente comparables.",
+            "result": "Las ventanas tienen distinta duración."
+          },
+          {
+            "action": "Igualar criterio",
+            "reason": "Permite una comparación válida.",
+            "result": "Se recalculan ambos sobre cinco minutos."
+          },
+          {
+            "action": "Mostrar datos",
+            "reason": "Hace revisable el patrón.",
+            "result": "La tabla acompaña la gráfica con valores e intervalo."
+          }
+        ],
+        "result": "El panel final evita comparar totales de ventanas diferentes.",
+        "visual": {
+          "type": "timeline",
+          "title": "Un panel que parecía peor",
+          "items": [
+            {
+              "label": "Leer intervalos",
+              "detail": "Las ventanas tienen distinta duración."
+            },
+            {
+              "label": "Igualar criterio",
+              "detail": "Se recalculan ambos sobre cinco minutos."
+            },
+            {
+              "label": "Mostrar datos",
+              "detail": "La tabla acompaña la gráfica con valores e intervalo."
+            }
+          ],
+          "caption": "El panel final evita comparar totales de ventanas diferentes."
+        }
+      },
+      "practice": {
+        "task": "Diseña en papel dos paneles para un caso ficticio de accesos.",
+        "steps": [
+          "Incluye una tabla y una serie temporal.",
+          "Escribe unidad, filtro e intervalo.",
+          "Añade una pregunta que cada panel sí pueda responder."
+        ],
+        "expected": "Un diseño sin números inventados ni conclusiones superiores a sus datos."
+      },
+      "check": {
+        "question": "¿Qué debe acompañar a un total en un dashboard?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo un color llamativo."
+          },
+          {
+            "id": "b",
+            "text": "Una valoración automática de intención."
+          },
+          {
+            "id": "c",
+            "text": "Unidad, intervalo y fuente o filtro."
+          }
+        ],
+        "correct": "c",
+        "explanation": "El contexto de cálculo permite interpretar y comparar correctamente un valor."
+      },
+      "mistakes": [
+        {
+          "myth": "Una gráfica de aspecto profesional valida los datos.",
+          "correction": "La presentación facilita lectura, pero la calidad depende de fuente, procesamiento y cobertura."
+        }
+      ],
+      "recap": [
+        "Pregunta: Define la decisión o comparación buscada.",
+        "Vista: Selecciona tabla, distribución o serie temporal.",
+        "Contexto: Mantén unidad, intervalo, fuente y valores consultables."
+      ],
+      "glossary": [
+        {
+          "term": "Dashboard",
+          "definition": "Conjunto de vistas organizadas para responder preguntas."
+        },
+        {
+          "term": "Unidad",
+          "definition": "Qué representa la cantidad mostrada: eventos, cuentas, minutos u otra medida."
+        }
+      ]
+    },
+    {
+      "dayId": "w43d6",
+      "title": "Consultas reproducibles",
+      "lead": "Una consulta reproducible incluye el texto y las condiciones que determinan sus resultados.",
+      "sections": [
+        {
+          "topic": "Fuente, rango y pasos",
+          "explanation": [
+            "Guardar una búsqueda exige conservar más que su expresión. El índice, el intervalo, la zona horaria, los permisos y las transformaciones influyen en los resultados. Una consulta ejecutada con «últimas veinticuatro horas» cambia mañana aunque su texto sea idéntico. Para reproducir un hallazgo documenta un rango fijo, fuentes incluidas y campos relevantes. Añade el momento de ejecución y la razón de cada filtro para distinguir una restricción deliberada de un error accidental.",
+            "La conservación también afecta a la repetición: si los datos originales se eliminan, la misma consulta puede devolver menos filas. Por eso guarda un resultado autorizado o referencias estables a los eventos cuando el procedimiento lo permita, minimizando información privada. Comprueba que otra persona entiende cómo pasar del resumen a una fila original. Si una búsqueda depende de campos creados por una configuración local, documenta esa dependencia. Reproducibilidad no significa prometer que todo entorno producirá siempre el mismo conteo."
+          ],
+          "analogy": "Una receta que dice «usa lo que haya en la nevera» cambia cada día; un rango relativo produce un problema parecido.",
+          "keyPoints": [
+            "Consulta: Texto exacto y explicación de filtros.",
+            "Condiciones: Fuente, rango fijo, zona y permisos.",
+            "Resultado: Conteo y referencias autorizadas que permiten comprobarlo."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Consultas reproducibles",
+            "items": [
+              {
+                "label": "Consulta",
+                "detail": "Texto exacto y explicación de filtros."
+              },
+              {
+                "label": "Condiciones",
+                "detail": "Fuente, rango fijo, zona y permisos."
+              },
+              {
+                "label": "Resultado",
+                "detail": "Conteo y referencias autorizadas que permiten comprobarlo."
+              }
+            ],
+            "caption": "Una consulta reproducible incluye el texto y las condiciones que determinan sus resultados."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "El resultado cambió al día siguiente",
+        "scenario": "Una consulta ficticia guardada con «última hora» devuelve doce filas hoy y tres mañana.",
+        "steps": [
+          {
+            "action": "Detectar relatividad",
+            "reason": "El conjunto cambia con el reloj.",
+            "result": "La ventana no era fija."
+          },
+          {
+            "action": "Fijar límites",
+            "reason": "Permite repetir el mismo caso.",
+            "result": "Se documenta de 10:00Z a 11:00Z del día del laboratorio."
+          },
+          {
+            "action": "Revisar conservación",
+            "reason": "Los datos deben seguir disponibles.",
+            "result": "Se anota política de retención y referencia del resultado exportado."
+          }
+        ],
+        "result": "La nota explica por qué cambió el conteo y cómo repetir la ventana original.",
+        "visual": {
+          "type": "timeline",
+          "title": "El resultado cambió al día siguiente",
+          "items": [
+            {
+              "label": "Detectar relatividad",
+              "detail": "La ventana no era fija."
+            },
+            {
+              "label": "Fijar límites",
+              "detail": "Se documenta de 10:00Z a 11:00Z del día del laboratorio."
+            },
+            {
+              "label": "Revisar conservación",
+              "detail": "Se anota política de retención y referencia del resultado exportado."
+            }
+          ],
+          "caption": "La nota explica por qué cambió el conteo y cómo repetir la ventana original."
+        }
+      },
+      "practice": {
+        "task": "Prepara una ficha reproducible para una búsqueda propia de laboratorio.",
+        "steps": [
+          "Usa un rango fijo con zona.",
+          "Incluye fuente y campos dependientes del entorno.",
+          "Guarda tres referencias de evento sin datos privados."
+        ],
+        "expected": "Una ficha ejecutable por otra persona dentro del mismo entorno autorizado."
+      },
+      "check": {
+        "question": "¿Por qué «última hora» limita la reproducibilidad histórica?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Porque selecciona un intervalo distinto al avanzar el tiempo."
+          },
+          {
+            "id": "b",
+            "text": "Porque siempre contiene sesenta eventos."
+          },
+          {
+            "id": "c",
+            "text": "Porque no puede incluir éxitos."
+          }
+        ],
+        "correct": "a",
+        "explanation": "El límite es relativo al momento de ejecución; un rango fijo permite seleccionar el mismo intervalo."
+      },
+      "mistakes": [
+        {
+          "myth": "El texto de la consulta explica por completo el resultado.",
+          "correction": "Fuente, tiempo, permisos y configuración también condicionan la búsqueda."
+        }
+      ],
+      "recap": [
+        "Consulta: Texto exacto y explicación de filtros.",
+        "Condiciones: Fuente, rango fijo, zona y permisos.",
+        "Resultado: Conteo y referencias autorizadas que permiten comprobarlo."
+      ],
+      "glossary": [
+        {
+          "term": "Rango relativo",
+          "definition": "Ventana definida respecto del momento actual."
+        },
+        {
+          "term": "Rango fijo",
+          "definition": "Ventana con límites temporales explícitos."
+        }
+      ]
+    },
+    {
+      "dayId": "w43d7",
+      "title": "Evaluación de búsqueda",
+      "lead": "Resolver un caso nuevo exige traducir la pregunta a datos antes de escoger comandos.",
+      "sections": [
+        {
+          "topic": "Caso nuevo",
+          "explanation": [
+            "En una evaluación de búsqueda comienza escribiendo qué necesitas saber y qué entidad estás contando. Si la pregunta pide equipos con accesos fallidos, un conteo por usuario no es la respuesta aunque el comando funcione. Inspecciona una muestra, valida campos y delimita el tiempo antes de agrupar. Conserva una búsqueda de referencia para comprobar que tus filtros no eliminan eventos relevantes. Esta secuencia reduce errores de sintaxis, interpretación y unidad que pueden producir números aparentemente razonables.",
+            "Después revisa el resultado con una comprobación independiente y pequeña. Puedes contar manualmente un subconjunto, inspeccionar la cuenta dominante o verificar un evento incluido y otro excluido. Presenta la consulta, la tabla y la conclusión con su límite. Si los registros solo cubren un servidor, no extiendas el hallazgo a toda la empresa. El objetivo del caso nuevo es demostrar transferencia: adaptar el método a campos y condiciones diferentes sin memorizar una búsqueda cuyo significado no comprendes."
+          ],
+          "analogy": "Saber usar una calculadora no basta si introduces los números de una pregunta distinta.",
+          "keyPoints": [
+            "Traducir: Define entidad, acción e intervalo de la pregunta.",
+            "Validar: Comprueba campos y filtros sobre eventos.",
+            "Defender: Presenta resultado, prueba de control y alcance."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Evaluación de búsqueda",
+            "items": [
+              {
+                "label": "Traducir",
+                "detail": "Define entidad, acción e intervalo de la pregunta."
+              },
+              {
+                "label": "Validar",
+                "detail": "Comprueba campos y filtros sobre eventos."
+              },
+              {
+                "label": "Defender",
+                "detail": "Presenta resultado, prueba de control y alcance."
+              }
+            ],
+            "caption": "Resolver un caso nuevo exige traducir la pregunta a datos antes de escoger comandos."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Equipos con fallos",
+        "scenario": "Seis eventos ficticios describen fallos de tres cuentas en dos equipos.",
+        "steps": [
+          {
+            "action": "Definir entidad",
+            "reason": "La pregunta pide equipos, no cuentas.",
+            "result": "Se agrupa por host."
+          },
+          {
+            "action": "Controlar filas",
+            "reason": "Valida que todos sean fallos del intervalo.",
+            "result": "Se excluye un éxito y un evento fuera de ventana."
+          },
+          {
+            "action": "Comprobar resumen",
+            "reason": "Evita confundir total y entidades.",
+            "result": "Quedan cuatro fallos distribuidos en dos equipos."
+          }
+        ],
+        "result": "La respuesta es dos equipos con cuatro eventos de fallo dentro del intervalo.",
+        "visual": {
+          "type": "timeline",
+          "title": "Equipos con fallos",
+          "items": [
+            {
+              "label": "Definir entidad",
+              "detail": "Se agrupa por host."
+            },
+            {
+              "label": "Controlar filas",
+              "detail": "Se excluye un éxito y un evento fuera de ventana."
+            },
+            {
+              "label": "Comprobar resumen",
+              "detail": "Quedan cuatro fallos distribuidos en dos equipos."
+            }
+          ],
+          "caption": "La respuesta es dos equipos con cuatro eventos de fallo dentro del intervalo."
+        }
+      },
+      "practice": {
+        "task": "Resuelve una pregunta nueva sobre una tabla de ocho eventos inventados.",
+        "steps": [
+          "Define qué cuenta la respuesta.",
+          "Escribe filtro y agrupación.",
+          "Verifica manualmente un grupo y explica la cobertura."
+        ],
+        "expected": "Una respuesta con unidad, consulta y control independiente."
+      },
+      "check": {
+        "question": "¿Qué debe definirse antes de elegir una agregación?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El color del panel."
+          },
+          {
+            "id": "b",
+            "text": "La entidad y la pregunta que debe responder el resultado."
+          },
+          {
+            "id": "c",
+            "text": "El número más alto que podrías obtener."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Definir la pregunta evita contar usuarios cuando se necesitan equipos, sesiones u otra unidad."
+      },
+      "mistakes": [
+        {
+          "myth": "Una consulta sin errores de sintaxis siempre es correcta.",
+          "correction": "Puede ejecutarse bien y responder una pregunta diferente o usar campos mal interpretados."
+        }
+      ],
+      "recap": [
+        "Traducir: Define entidad, acción e intervalo de la pregunta.",
+        "Validar: Comprueba campos y filtros sobre eventos.",
+        "Defender: Presenta resultado, prueba de control y alcance."
+      ],
+      "glossary": [
+        {
+          "term": "Transferencia",
+          "definition": "Aplicación razonada del método a un caso distinto."
+        },
+        {
+          "term": "Control independiente",
+          "definition": "Comprobación adicional que no depende solo de confiar en el resumen."
+        }
+      ]
+    }
+  ]
+}

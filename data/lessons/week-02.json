@@ -1,0 +1,956 @@
+{
+  "version": "2.0.0",
+  "week": 2,
+  "title": "Archivos y respaldos",
+  "overview": "Los archivos permiten conservar y transportar información, pero una carpeta organizada no sustituye una copia recuperable. Esta semana aprenderás a reconocer tipos, interpretar rutas y predecir qué cambia al copiar o mover. Después compararás almacenamiento local, nube y sincronización mediante casos de borrado y versiones. Trabajarás exclusivamente con archivos de práctica. La comprobación final consiste en recuperar contenido, abrirlo y demostrar que es la versión esperada, no simplemente mostrar que existe una carpeta llamada respaldo.",
+  "objectives": [
+    "Interpretar nombres, extensiones y rutas sin confundirlos con contenido.",
+    "Predecir el efecto de operaciones de archivos.",
+    "Comprobar una restauración con datos de práctica."
+  ],
+  "sources": [
+    {
+      "id": "w02s1",
+      "title": "Asociaciones y tipos de archivo",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/shell/fa-how-work"
+    },
+    {
+      "id": "w02s2",
+      "title": "Historial de archivos y restauración",
+      "url": "https://support.microsoft.com/en-us/windows/experience/backup-recovery/backup-and-restore-with-file-history"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w02d1",
+      "title": "Archivos y extensiones",
+      "lead": "Un archivo es una secuencia de datos guardada con un nombre y metadatos.",
+      "sections": [
+        {
+          "explanation": [
+            "Un archivo es una secuencia de datos guardada con un nombre y metadatos. Su extensión orienta al sistema sobre qué aplicación utilizar, pero no garantiza el contenido. Un archivo llamado informe.txt puede contener texto; una imagen emplea una estructura que interpreta un visor. Un ejecutable puede iniciar instrucciones y un archivo comprimido agrupa o reduce datos. Abrirlos implica acciones distintas y riesgos diferentes, especialmente cuando provienen de una fuente desconocida.",
+            "Muestra las extensiones para evitar nombres engañosos como factura.pdf.exe. Cambiar una extensión no convierte el formato: renombrar foto.jpg como foto.txt no transforma la imagen en un documento de texto válido. Un comprimido tampoco vuelve seguros sus archivos internos. En el laboratorio usa ejemplos propios y observa propiedades, tamaño y aplicación asociada. Si una extensión resulta inesperada, no la ejecutes para averiguar qué hace; primero investiga su procedencia y su tipo real."
+          ],
+          "analogy": "La etiqueta de una caja ayuda a clasificarla, pero no demuestra lo que contiene.",
+          "keyPoints": [
+            "Texto: Contenido que un editor interpreta como caracteres.",
+            "Imagen: Datos estructurados para un visor.",
+            "Ejecutable: Instrucciones que pueden iniciar acciones."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Nombre, formato y acción",
+            "items": [
+              {
+                "label": "Texto",
+                "detail": "Contenido que un editor interpreta como caracteres."
+              },
+              {
+                "label": "Imagen",
+                "detail": "Datos estructurados para un visor."
+              },
+              {
+                "label": "Ejecutable",
+                "detail": "Instrucciones que pueden iniciar acciones."
+              },
+              {
+                "label": "Comprimido",
+                "detail": "Contenedor que requiere revisar su contenido."
+              }
+            ],
+            "caption": "Si una extensión resulta inesperada, no la ejecutes para averiguar qué hace; primero investiga su procedencia y su tipo real."
+          },
+          "topic": "Texto, imagen, ejecutable y archivo comprimido"
+        }
+      ],
+      "workedExample": {
+        "title": "La doble extensión",
+        "scenario": "Aparecen dos nombres de práctica: notas.txt y factura.pdf.exe.",
+        "steps": [
+          {
+            "action": "Mostrar el nombre completo",
+            "reason": "Las extensiones ocultas pueden confundir.",
+            "result": "Se identifica .exe como extensión final."
+          },
+          {
+            "action": "Examinar propiedades",
+            "reason": "El icono no es una prueba suficiente.",
+            "result": "Se registra tipo y origen sin abrirlo."
+          },
+          {
+            "action": "Elegir una acción prudente",
+            "reason": "Ejecutar no es una técnica de identificación.",
+            "result": "El archivo inesperado se deja sin ejecutar."
+          }
+        ],
+        "result": "La extensión orienta, mientras el origen y el formato requieren comprobación.",
+        "visual": {
+          "type": "flow",
+          "title": "La doble extensión · secuencia",
+          "items": [
+            {
+              "label": "Mostrar el nombre completo",
+              "detail": "Se identifica .exe como extensión final."
+            },
+            {
+              "label": "Examinar propiedades",
+              "detail": "Se registra tipo y origen sin abrirlo."
+            },
+            {
+              "label": "Elegir una acción prudente",
+              "detail": "El archivo inesperado se deja sin ejecutar."
+            }
+          ],
+          "caption": "La extensión orienta, mientras el origen y el formato requieren comprobación."
+        }
+      },
+      "practice": {
+        "task": "Clasifica cuatro archivos propios sin abrir ejecutables desconocidos.",
+        "steps": [
+          "Muestra las extensiones.",
+          "Anota tamaño y aplicación asociada.",
+          "Explica qué no demuestra el nombre."
+        ],
+        "expected": "Una tabla que separa nombre, formato supuesto y acción."
+      },
+      "check": {
+        "question": "¿Qué ocurre al renombrar imagen.jpg como imagen.txt?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Se convierte realmente en texto."
+          },
+          {
+            "id": "b",
+            "text": "Solo cambia el nombre; el formato no se transforma."
+          },
+          {
+            "id": "c",
+            "text": "La imagen se elimina."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Renombrar modifica una referencia visible, no recodifica la estructura del archivo."
+      },
+      "mistakes": [
+        {
+          "myth": "Un icono de PDF garantiza un documento seguro.",
+          "correction": "El icono y la extensión pueden inducir a error; no prueban seguridad ni procedencia."
+        }
+      ],
+      "recap": [
+        "Texto: Contenido que un editor interpreta como caracteres.",
+        "Imagen: Datos estructurados para un visor.",
+        "Ejecutable: Instrucciones que pueden iniciar acciones."
+      ],
+      "glossary": [
+        {
+          "term": "Extensión",
+          "definition": "Sufijo del nombre utilizado para asociar tipos."
+        },
+        {
+          "term": "Formato",
+          "definition": "Estructura con la que se representan los datos."
+        }
+      ]
+    },
+    {
+      "dayId": "w02d2",
+      "title": "Carpetas y rutas",
+      "lead": "Una ruta describe dónde se localiza un elemento dentro de una jerarquía.",
+      "sections": [
+        {
+          "explanation": [
+            "Una ruta describe dónde se localiza un elemento dentro de una jerarquía. Una ruta absoluta identifica una ubicación desde una raíz o unidad, como C:\\Practica\\notas.txt en Windows. Una relativa se interpreta desde el directorio actual, como informes\\resumen.txt. El directorio actual es contexto, no parte fija del archivo: la misma ruta relativa puede apuntar a sitios diferentes si comienzas desde otra carpeta.",
+            "Los separadores y convenciones cambian entre sistemas. En Linux, /home/ana/notas.txt parte de la raíz; Windows utiliza normalmente una unidad y barras inversas. Un espacio dentro de una ruta puede exigir comillas en la terminal para que se interprete como un solo argumento. Antes de operar, identifica la carpeta actual y resuelve la ruta completa. Esa comprobación evita modificar una copia equivocada, especialmente cuando existen varias carpetas con nombres parecidos."
+          ],
+          "analogy": "Una dirección completa incluye ciudad y calle; «la siguiente puerta» depende del lugar donde estás.",
+          "keyPoints": [
+            "Contexto: Directorio actual: C:\\Practica.",
+            "Ruta relativa: informes\\resumen.txt.",
+            "Resultado: C:\\Practica\\informes\\resumen.txt."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Resolver una ruta relativa",
+            "items": [
+              {
+                "label": "Contexto",
+                "detail": "Directorio actual: C:\\Practica."
+              },
+              {
+                "label": "Ruta relativa",
+                "detail": "informes\\resumen.txt."
+              },
+              {
+                "label": "Resultado",
+                "detail": "C:\\Practica\\informes\\resumen.txt."
+              }
+            ],
+            "caption": "Esa comprobación evita modificar una copia equivocada, especialmente cuando existen varias carpetas con nombres parecidos."
+          },
+          "topic": "Ruta absoluta, relativa y directorio actual"
+        }
+      ],
+      "workedExample": {
+        "title": "Dos carpetas llamadas informes",
+        "scenario": "Existen C:\\Practica\\informes y C:\\Archivo\\informes.",
+        "steps": [
+          {
+            "action": "Anotar el punto inicial",
+            "reason": "La ruta relativa necesita contexto.",
+            "result": "El directorio actual es C:\\Practica."
+          },
+          {
+            "action": "Resolver informes\\nota.txt",
+            "reason": "Se añade al directorio actual.",
+            "result": "Apunta a la copia dentro de Practica."
+          },
+          {
+            "action": "Comparar una ruta absoluta",
+            "reason": "La ubicación completa no depende del contexto.",
+            "result": "C:\\Archivo\\informes\\nota.txt identifica otra copia."
+          }
+        ],
+        "result": "Las dos rutas relativas iguales pueden señalar archivos distintos desde puntos iniciales diferentes.",
+        "visual": {
+          "type": "flow",
+          "title": "Dos carpetas llamadas informes · secuencia",
+          "items": [
+            {
+              "label": "Anotar el punto inicial",
+              "detail": "El directorio actual es C:\\Practica."
+            },
+            {
+              "label": "Resolver informes\\nota.txt",
+              "detail": "Apunta a la copia dentro de Practica."
+            },
+            {
+              "label": "Comparar una ruta absoluta",
+              "detail": "C:\\Archivo\\informes\\nota.txt identifica otra copia."
+            }
+          ],
+          "caption": "Las dos rutas relativas iguales pueden señalar archivos distintos desde puntos iniciales diferentes."
+        }
+      },
+      "practice": {
+        "task": "Escribe una ruta absoluta y dos relativas para un archivo ficticio.",
+        "steps": [
+          "Dibuja tres carpetas.",
+          "Marca el directorio actual.",
+          "Comprueba cada recorrido sobre el dibujo."
+        ],
+        "expected": "Cada ruta llega al destino esperado sin ambigüedad."
+      },
+      "check": {
+        "question": "¿Qué necesitas para interpretar informes/resumen.txt?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La cantidad de RAM"
+          },
+          {
+            "id": "b",
+            "text": "El directorio actual"
+          },
+          {
+            "id": "c",
+            "text": "La velocidad de internet"
+          }
+        ],
+        "correct": "b",
+        "explanation": "Una ruta relativa se interpreta desde una ubicación de trabajo."
+      },
+      "mistakes": [
+        {
+          "myth": "Una ruta relativa siempre identifica el mismo archivo.",
+          "correction": "Su significado cambia cuando cambia el directorio actual."
+        }
+      ],
+      "recap": [
+        "Contexto: Directorio actual: C:\\Practica.",
+        "Ruta relativa: informes\\resumen.txt.",
+        "Resultado: C:\\Practica\\informes\\resumen.txt."
+      ],
+      "glossary": [
+        {
+          "term": "Ruta absoluta",
+          "definition": "Ubicación expresada desde la raíz o unidad."
+        },
+        {
+          "term": "Ruta relativa",
+          "definition": "Ubicación interpretada desde un contexto."
+        },
+        {
+          "term": "Directorio actual",
+          "definition": "Carpeta de trabajo de la operación."
+        }
+      ]
+    },
+    {
+      "dayId": "w02d3",
+      "title": "Operaciones de archivos",
+      "lead": "Copiar crea otra representación de un archivo en un destino.",
+      "sections": [
+        {
+          "explanation": [
+            "Copiar crea otra representación de un archivo en un destino. Mover cambia su ubicación visible; según el sistema y los volúmenes, puede implicar renombrar referencias o copiar y después retirar el origen. Renombrar cambia el nombre, y eliminar retira una entrada según las reglas del sistema. No supongas que toda eliminación llega a una papelera ni que un movimiento siempre conserva todas las propiedades.",
+            "Antes de una operación identifica origen, destino y qué debería existir al terminar. Si ambos contienen un archivo con el mismo nombre, una sustitución puede perder una versión importante. Usa una carpeta de práctica y contenido reconocible para comprobar el resultado. Después abre la copia adecuada y verifica el texto. La presencia de dos nombres no demuestra independencia si se trata de accesos directos, enlaces o ubicaciones sincronizadas que obedecen reglas adicionales."
+          ],
+          "analogy": "Copiar una receta deja dos hojas; moverla cambia de carpeta la misma hoja.",
+          "keyPoints": [
+            "Copiar: Origen y destino deben existir tras comprobar la copia.",
+            "Mover: La nueva ubicación sustituye a la anterior.",
+            "Renombrar: Cambia el nombre, no necesariamente los datos."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Predecir el estado final",
+            "items": [
+              {
+                "label": "Copiar",
+                "detail": "Origen y destino deben existir tras comprobar la copia."
+              },
+              {
+                "label": "Mover",
+                "detail": "La nueva ubicación sustituye a la anterior."
+              },
+              {
+                "label": "Renombrar",
+                "detail": "Cambia el nombre, no necesariamente los datos."
+              },
+              {
+                "label": "Eliminar",
+                "detail": "Puede requerir una recuperación posterior."
+              }
+            ],
+            "caption": "La presencia de dos nombres no demuestra independencia si se trata de accesos directos, enlaces o ubicaciones sincronizadas que obedecen reglas adicionales."
+          },
+          "topic": "Copiar, mover, renombrar y eliminar"
+        }
+      ],
+      "workedExample": {
+        "title": "Dos versiones con igual nombre",
+        "scenario": "Una carpeta contiene nota.txt con «versión A» y el destino ya tiene «versión B».",
+        "steps": [
+          {
+            "action": "Leer ambas versiones",
+            "reason": "El nombre no distingue el contenido.",
+            "result": "Se identifica A en origen y B en destino."
+          },
+          {
+            "action": "Elegir un nombre de copia",
+            "reason": "Evitar sobrescritura conserva la comparación.",
+            "result": "Se usa nota-copia-A.txt."
+          },
+          {
+            "action": "Verificar el resultado",
+            "reason": "Una operación completada necesita comprobación.",
+            "result": "Ambos contenidos siguen disponibles."
+          }
+        ],
+        "result": "Una decisión explícita evita reemplazar la versión B por accidente.",
+        "visual": {
+          "type": "flow",
+          "title": "Dos versiones con igual nombre · secuencia",
+          "items": [
+            {
+              "label": "Leer ambas versiones",
+              "detail": "Se identifica A en origen y B en destino."
+            },
+            {
+              "label": "Elegir un nombre de copia",
+              "detail": "Se usa nota-copia-A.txt."
+            },
+            {
+              "label": "Verificar el resultado",
+              "detail": "Ambos contenidos siguen disponibles."
+            }
+          ],
+          "caption": "Una decisión explícita evita reemplazar la versión B por accidente."
+        }
+      },
+      "practice": {
+        "task": "Copia, mueve y renombra únicamente una nota de práctica.",
+        "steps": [
+          "Predice qué nombres existirán.",
+          "Realiza una operación por vez.",
+          "Abre el resultado y compara con tu predicción."
+        ],
+        "expected": "Una tabla antes/después con contenido comprobado."
+      },
+      "check": {
+        "question": "Tras copiar correctamente un archivo, ¿qué esperas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo existe el destino."
+          },
+          {
+            "id": "b",
+            "text": "El archivo se vuelve ejecutable."
+          },
+          {
+            "id": "c",
+            "text": "Existen origen y copia, salvo otra acción posterior."
+          }
+        ],
+        "correct": "c",
+        "explanation": "Copiar conserva el origen; mover o eliminar son operaciones distintas."
+      },
+      "mistakes": [
+        {
+          "myth": "Eliminar siempre permite recuperar desde la papelera.",
+          "correction": "El comportamiento depende de ubicación, configuración y operación; conserva una copia de práctica."
+        }
+      ],
+      "recap": [
+        "Copiar: Origen y destino deben existir tras comprobar la copia.",
+        "Mover: La nueva ubicación sustituye a la anterior.",
+        "Renombrar: Cambia el nombre, no necesariamente los datos."
+      ],
+      "glossary": [
+        {
+          "term": "Origen",
+          "definition": "Elemento que una operación toma como entrada."
+        },
+        {
+          "term": "Destino",
+          "definition": "Ubicación donde se coloca el resultado."
+        }
+      ]
+    },
+    {
+      "dayId": "w02d4",
+      "title": "Almacenamiento",
+      "lead": "Un disco local pertenece al equipo que estás usando; uno externo conecta almacenamiento adicional.",
+      "sections": [
+        {
+          "explanation": [
+            "Un disco local pertenece al equipo que estás usando; uno externo conecta almacenamiento adicional. Un servicio de nube conserva datos en infraestructura remota y ofrece acceso mediante una cuenta. La sincronización intenta mantener ubicaciones coordinadas: una modificación puede propagarse a otros dispositivos. Son características diferentes. Tener un archivo en la nube no describe por sí solo cuántas versiones conserva, quién puede leerlo ni qué ocurre al borrarlo.",
+            "Piensa en una carpeta sincronizada como una vista compartida de trabajo. Si borras algo en un lugar, el borrado puede replicarse. La posibilidad de restaurar depende del historial, la papelera, los plazos y el servicio concreto. Para un respaldo define qué pérdida quieres soportar y prueba la recuperación. Comprueba también permisos y disponibilidad sin conexión. No subas documentos privados a una cuenta ajena solo para completar la práctica; utiliza archivos ficticios."
+          ],
+          "analogy": "Un espejo reproduce cambios; una fotografía conservada de ayer permite regresar a un estado anterior.",
+          "keyPoints": [
+            "Local: Acceso directo desde el equipo.",
+            "Externo: Dispositivo separado que debes proteger.",
+            "Nube: Acceso remoto mediante cuenta y permisos."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Ubicación y comportamiento",
+            "items": [
+              {
+                "label": "Local",
+                "detail": "Acceso directo desde el equipo."
+              },
+              {
+                "label": "Externo",
+                "detail": "Dispositivo separado que debes proteger."
+              },
+              {
+                "label": "Nube",
+                "detail": "Acceso remoto mediante cuenta y permisos."
+              },
+              {
+                "label": "Sincronización",
+                "detail": "Propaga cambios según sus reglas."
+              }
+            ],
+            "caption": "No subas documentos privados a una cuenta ajena solo para completar la práctica; utiliza archivos ficticios."
+          },
+          "topic": "Disco local, externo, nube y sincronización"
+        }
+      ],
+      "workedExample": {
+        "title": "Borrado que se propaga",
+        "scenario": "Ana elimina una nota ficticia de una carpeta sincronizada y el cambio aparece en otro equipo.",
+        "steps": [
+          {
+            "action": "Identificar el mecanismo",
+            "reason": "Ambos dispositivos comparten sincronización.",
+            "result": "El borrado coordinado es un comportamiento esperado."
+          },
+          {
+            "action": "Consultar recuperación",
+            "reason": "La sincronización no describe el historial disponible.",
+            "result": "Se buscan versiones y papelera del servicio."
+          },
+          {
+            "action": "Separar una copia recuperable",
+            "reason": "Hace falta resistir el mismo error.",
+            "result": "Se conserva una versión fuera del flujo de borrado."
+          }
+        ],
+        "result": "La sincronización facilita trabajo compartido, pero no reemplaza automáticamente un plan de recuperación.",
+        "visual": {
+          "type": "flow",
+          "title": "Borrado que se propaga · secuencia",
+          "items": [
+            {
+              "label": "Identificar el mecanismo",
+              "detail": "El borrado coordinado es un comportamiento esperado."
+            },
+            {
+              "label": "Consultar recuperación",
+              "detail": "Se buscan versiones y papelera del servicio."
+            },
+            {
+              "label": "Separar una copia recuperable",
+              "detail": "Se conserva una versión fuera del flujo de borrado."
+            }
+          ],
+          "caption": "La sincronización facilita trabajo compartido, pero no reemplaza automáticamente un plan de recuperación."
+        }
+      },
+      "practice": {
+        "task": "Compara tres ubicaciones para una nota sin datos privados.",
+        "steps": [
+          "Anota quién puede acceder.",
+          "Explica qué pasa al modificarla.",
+          "Describe cómo restaurarías una versión anterior."
+        ],
+        "expected": "Una comparación de acceso, propagación y recuperación."
+      },
+      "check": {
+        "question": "¿Qué característica describe la sincronización?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Propagar cambios entre ubicaciones."
+          },
+          {
+            "id": "b",
+            "text": "Impedir cualquier borrado."
+          },
+          {
+            "id": "c",
+            "text": "Cifrar siempre todos los archivos."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La sincronización coordina estados; las garantías de restauración y cifrado son propiedades separadas."
+      },
+      "mistakes": [
+        {
+          "myth": "Nube significa respaldo completo.",
+          "correction": "Debes verificar versiones, retención, acceso y una restauración real."
+        }
+      ],
+      "recap": [
+        "Local: Acceso directo desde el equipo.",
+        "Externo: Dispositivo separado que debes proteger.",
+        "Nube: Acceso remoto mediante cuenta y permisos."
+      ],
+      "glossary": [
+        {
+          "term": "Nube",
+          "definition": "Recursos accesibles mediante infraestructura remota."
+        },
+        {
+          "term": "Sincronización",
+          "definition": "Coordinación de cambios entre ubicaciones."
+        }
+      ]
+    },
+    {
+      "dayId": "w02d5",
+      "title": "Respaldo y restauración",
+      "lead": "Un respaldo es una copia planificada para recuperar información tras una pérdida.",
+      "sections": [
+        {
+          "explanation": [
+            "Un respaldo es una copia planificada para recuperar información tras una pérdida. Necesita alcance, frecuencia, ubicación y conservación de versiones. La frecuencia determina cuánto trabajo reciente podría faltar; las versiones permiten regresar antes de una modificación equivocada. Guardar muchas copias en el mismo disco no protege frente a la pérdida de ese disco. El diseño comienza por preguntar qué fallos quieres resistir y qué contenido necesitas recuperar.",
+            "La restauración es la prueba del respaldo. Elige un archivo de práctica, recupera una versión en una ubicación diferente y confirma que abre con el contenido esperado. Registra la fecha de esa versión y el tiempo observado. No anuncies una recuperación satisfactoria solo porque el programa mostró «copia completada». También comprueba quién puede borrar o cifrar el respaldo: una copia accesible con las mismas credenciales puede compartir riesgos con el original."
+          ],
+          "analogy": "Un extintor guardado sin mantenimiento no demuestra preparación; un respaldo sin restauración tampoco.",
+          "keyPoints": [
+            "Definir: Contenido y pérdida que se quiere soportar.",
+            "Copiar: Frecuencia y versiones identificables.",
+            "Proteger: Separar los riesgos relevantes."
+          ],
+          "visual": {
+            "type": "cycle",
+            "title": "Ciclo de recuperación comprobada",
+            "items": [
+              {
+                "label": "Definir",
+                "detail": "Contenido y pérdida que se quiere soportar."
+              },
+              {
+                "label": "Copiar",
+                "detail": "Frecuencia y versiones identificables."
+              },
+              {
+                "label": "Proteger",
+                "detail": "Separar los riesgos relevantes."
+              },
+              {
+                "label": "Restaurar",
+                "detail": "Abrir y verificar el resultado."
+              }
+            ],
+            "caption": "También comprueba quién puede borrar o cifrar el respaldo: una copia accesible con las mismas credenciales puede compartir riesgos con el original."
+          },
+          "topic": "Versiones, frecuencia y comprobación"
+        }
+      ],
+      "workedExample": {
+        "title": "Recuperar la versión de ayer",
+        "scenario": "Una nota de práctica cambia de «A» a «B», pero se necesita volver a «A».",
+        "steps": [
+          {
+            "action": "Identificar la versión",
+            "reason": "La copia más nueva no es siempre la adecuada.",
+            "result": "Se selecciona la fecha que contiene A."
+          },
+          {
+            "action": "Restaurar aparte",
+            "reason": "No se sobrescribe la única versión actual.",
+            "result": "A se recupera en una carpeta nueva."
+          },
+          {
+            "action": "Validar contenido",
+            "reason": "El nombre puede ser igual en varias versiones.",
+            "result": "Se abre y confirma la frase A."
+          }
+        ],
+        "result": "La prueba demuestra recuperación de ese archivo y esa versión, no de todo el equipo.",
+        "visual": {
+          "type": "flow",
+          "title": "Recuperar la versión de ayer · secuencia",
+          "items": [
+            {
+              "label": "Identificar la versión",
+              "detail": "Se selecciona la fecha que contiene A."
+            },
+            {
+              "label": "Restaurar aparte",
+              "detail": "A se recupera en una carpeta nueva."
+            },
+            {
+              "label": "Validar contenido",
+              "detail": "Se abre y confirma la frase A."
+            }
+          ],
+          "caption": "La prueba demuestra recuperación de ese archivo y esa versión, no de todo el equipo."
+        }
+      },
+      "practice": {
+        "task": "Diseña un respaldo para apuntes ficticios.",
+        "steps": [
+          "Define frecuencia y conservación.",
+          "Explica un fallo que la ubicación resiste.",
+          "Escribe una prueba de restauración."
+        ],
+        "expected": "Un plan verificable con límites declarados."
+      },
+      "check": {
+        "question": "¿Qué demuestra mejor que una copia sirve?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Su carpeta se llama Backup."
+          },
+          {
+            "id": "b",
+            "text": "Tiene muchos archivos."
+          },
+          {
+            "id": "c",
+            "text": "Una restauración verificada del contenido esperado."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La recuperación del contenido esperado es la capacidad que el respaldo debe demostrar mediante una prueba."
+      },
+      "mistakes": [
+        {
+          "myth": "Una copia completada garantiza que todo se puede recuperar.",
+          "correction": "La copia y la restauración son operaciones distintas; prueba muestras representativas."
+        }
+      ],
+      "recap": [
+        "Definir: Contenido y pérdida que se quiere soportar.",
+        "Copiar: Frecuencia y versiones identificables.",
+        "Proteger: Separar los riesgos relevantes."
+      ],
+      "glossary": [
+        {
+          "term": "Versión",
+          "definition": "Estado identificable de un archivo en un momento."
+        },
+        {
+          "term": "Restauración",
+          "definition": "Recuperación de contenido desde una copia."
+        }
+      ]
+    },
+    {
+      "dayId": "w02d6",
+      "title": "Práctica de recuperación",
+      "lead": "La recuperación debe practicarse antes de una pérdida importante.",
+      "sections": [
+        {
+          "explanation": [
+            "La recuperación debe practicarse antes de una pérdida importante. Prepara una carpeta aislada con un archivo cuyo contenido conozcas, genera una copia y registra cómo localizarla. Después retira únicamente el original de práctica y recupera el contenido en un destino separado. Este entorno controlado permite aprender el procedimiento sin apostar tus documentos reales. La evidencia debe mostrar qué se perdió, desde qué copia se recuperó y cómo se validó.",
+            "Compara el archivo restaurado con el contenido esperado, no solo con su nombre. Si has aprendido a calcular hashes, una coincidencia puede confirmar igualdad de bytes; todavía no hace falta esa herramienta para comprobar una frase sencilla. Conserva capturas recortadas sin identificadores privados. Si no logras restaurar, documenta el punto exacto del fallo. Un ensayo fallido aporta información útil para mejorar el plan, siempre que no lo presentes como una recuperación correcta."
+          ],
+          "analogy": "Un simulacro utiliza una situación controlada para descubrir dificultades antes de una emergencia real.",
+          "keyPoints": [
+            "Preparar: Crear una frase y una copia comprobable.",
+            "Simular: Retirar solo el original de práctica.",
+            "Recuperar: Elegir copia y destino separados."
+          ],
+          "visual": {
+            "type": "timeline",
+            "title": "Ensayo con una nota ficticia",
+            "items": [
+              {
+                "label": "Preparar",
+                "detail": "Crear una frase y una copia comprobable."
+              },
+              {
+                "label": "Simular",
+                "detail": "Retirar solo el original de práctica."
+              },
+              {
+                "label": "Recuperar",
+                "detail": "Elegir copia y destino separados."
+              },
+              {
+                "label": "Comprobar",
+                "detail": "Abrir y comparar el contenido."
+              }
+            ],
+            "caption": "Un ensayo fallido aporta información útil para mejorar el plan, siempre que no lo presentes como una recuperación correcta."
+          },
+          "topic": "Borrado accidental y evidencia de restauración"
+        }
+      ],
+      "workedExample": {
+        "title": "Falta una línea en la copia",
+        "scenario": "La nota original tenía tres líneas y la restauración muestra solamente dos.",
+        "steps": [
+          {
+            "action": "Comprobar la versión",
+            "reason": "La copia puede ser anterior a la tercera línea.",
+            "result": "Se registra la fecha de la versión recuperada."
+          },
+          {
+            "action": "Buscar otra copia",
+            "reason": "Una copia antigua no prueba corrupción.",
+            "result": "Se examina el historial disponible."
+          },
+          {
+            "action": "Declarar el resultado",
+            "reason": "La evidencia debe reflejar lo recuperado.",
+            "result": "Se informa recuperación parcial, no completa."
+          }
+        ],
+        "result": "Se recuperó una versión anterior; la última línea sigue sin estar demostrada.",
+        "visual": {
+          "type": "flow",
+          "title": "Falta una línea en la copia · secuencia",
+          "items": [
+            {
+              "label": "Comprobar la versión",
+              "detail": "Se registra la fecha de la versión recuperada."
+            },
+            {
+              "label": "Buscar otra copia",
+              "detail": "Se examina el historial disponible."
+            },
+            {
+              "label": "Declarar el resultado",
+              "detail": "Se informa recuperación parcial, no completa."
+            }
+          ],
+          "caption": "Se recuperó una versión anterior; la última línea sigue sin estar demostrada."
+        }
+      },
+      "practice": {
+        "task": "Realiza un ensayo con una nota ficticia de tres líneas.",
+        "steps": [
+          "Guarda una copia identificada.",
+          "Retira solo la nota de práctica.",
+          "Restaura aparte y comprueba las tres líneas."
+        ],
+        "expected": "Registro del origen, versión, destino y comparación final."
+      },
+      "check": {
+        "question": "El archivo abre, pero faltan cambios recientes. ¿Cómo lo informas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Recuperación completa."
+          },
+          {
+            "id": "b",
+            "text": "Recuperación de una versión anterior, con pérdida pendiente."
+          },
+          {
+            "id": "c",
+            "text": "El dispositivo es necesariamente defectuoso."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Abrir el archivo no demuestra recuperar todos los cambios requeridos."
+      },
+      "mistakes": [
+        {
+          "myth": "Si algo falla en el ensayo, no sirve documentarlo.",
+          "correction": "El fallo muestra una brecha del procedimiento que puede corregirse antes de una pérdida real."
+        }
+      ],
+      "recap": [
+        "Preparar: Crear una frase y una copia comprobable.",
+        "Simular: Retirar solo el original de práctica.",
+        "Recuperar: Elegir copia y destino separados."
+      ],
+      "glossary": [
+        {
+          "term": "Ensayo",
+          "definition": "Prueba controlada de un procedimiento."
+        },
+        {
+          "term": "Validación",
+          "definition": "Comprobación frente a un resultado definido."
+        }
+      ]
+    },
+    {
+      "dayId": "w02d7",
+      "title": "Evaluación de archivos",
+      "lead": "Resolver un caso de archivos exige unir nombre, ubicación, contenido y versión.",
+      "sections": [
+        {
+          "explanation": [
+            "Resolver un caso de archivos exige unir nombre, ubicación, contenido y versión. «No encuentro el informe» puede significar que se movió, se renombró, se guardó desde otra aplicación o solo existe en una copia anterior. Construye una secuencia temporal antes de cambiar nada. Identifica cuál era el directorio actual, qué operación se realizó y qué rutas aparecen después. No confundas una búsqueda sin resultados con una demostración de borrado.",
+            "Supón que copiaste resumen.txt y luego editaste el original. Las dos versiones ahora pueden diferir aunque sus nombres sean parecidos. Si necesitas restaurar, determina qué estado buscas: el anterior al error o el más reciente. Conserva ambas copias hasta entender la situación. En la evaluación importa justificar cada conclusión con una comprobación: ruta completa, texto identificable y fecha contextualizada. Una lista de extensiones memorizada no sustituye esa investigación ordenada."
+          ],
+          "analogy": "Investigar un paquete extraviado requiere dirección, recorrido y contenido; conocer solo el nombre del destinatario no basta.",
+          "keyPoints": [
+            "Nombre: ¿Cómo se llamaba y qué extensión tenía?",
+            "Ubicación: ¿Desde qué ruta se operó?",
+            "Contenido: ¿Qué versión necesitas recuperar?"
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Resolver la identidad del archivo",
+            "items": [
+              {
+                "label": "Nombre",
+                "detail": "¿Cómo se llamaba y qué extensión tenía?"
+              },
+              {
+                "label": "Ubicación",
+                "detail": "¿Desde qué ruta se operó?"
+              },
+              {
+                "label": "Contenido",
+                "detail": "¿Qué versión necesitas recuperar?"
+              },
+              {
+                "label": "Validación",
+                "detail": "¿Qué prueba confirma el resultado?"
+              }
+            ],
+            "caption": "Una lista de extensiones memorizada no sustituye esa investigación ordenada."
+          },
+          "topic": "Rutas, extensiones y respaldo"
+        }
+      ],
+      "workedExample": {
+        "title": "El resumen está en otra carpeta",
+        "scenario": "Una nota se movió desde Practica a Archivo; luego se buscó solo en Practica.",
+        "steps": [
+          {
+            "action": "Reconstruir la operación",
+            "reason": "Mover retira la entrada del origen.",
+            "result": "La ausencia en Practica es compatible con el movimiento."
+          },
+          {
+            "action": "Revisar el destino",
+            "reason": "La búsqueda inicial tenía alcance limitado.",
+            "result": "Se encuentra Archivo/resumen.txt."
+          },
+          {
+            "action": "Comparar contenido",
+            "reason": "El nombre por sí solo no acredita identidad.",
+            "result": "La frase esperada coincide."
+          }
+        ],
+        "result": "El caso se explica por un cambio de ubicación, no por una pérdida demostrada.",
+        "visual": {
+          "type": "flow",
+          "title": "El resumen está en otra carpeta · secuencia",
+          "items": [
+            {
+              "label": "Reconstruir la operación",
+              "detail": "La ausencia en Practica es compatible con el movimiento."
+            },
+            {
+              "label": "Revisar el destino",
+              "detail": "Se encuentra Archivo/resumen.txt."
+            },
+            {
+              "label": "Comparar contenido",
+              "detail": "La frase esperada coincide."
+            }
+          ],
+          "caption": "El caso se explica por un cambio de ubicación, no por una pérdida demostrada."
+        }
+      },
+      "practice": {
+        "task": "Escribe un caso de copiar y editar dos versiones.",
+        "steps": [
+          "Dibuja origen y destino.",
+          "Predice el contenido de cada copia.",
+          "Define qué archivo restaurarías ante un error."
+        ],
+        "expected": "Una explicación coherente de rutas, operaciones y versiones."
+      },
+      "check": {
+        "question": "Después de mover un archivo, no aparece en el origen. ¿Es prueba suficiente de pérdida?",
+        "options": [
+          {
+            "id": "a",
+            "text": "No; falta comprobar el destino y el contenido."
+          },
+          {
+            "id": "b",
+            "text": "Sí, mover significa borrar permanentemente."
+          },
+          {
+            "id": "c",
+            "text": "Sí, si la extensión no cambió."
+          }
+        ],
+        "correct": "a",
+        "explanation": "Mover cambia la ubicación; la conclusión requiere examinar el destino esperado."
+      },
+      "mistakes": [
+        {
+          "myth": "Todos los archivos con igual nombre son la misma versión.",
+          "correction": "La identidad práctica requiere comparar ubicación, contenido y contexto temporal."
+        }
+      ],
+      "recap": [
+        "Nombre: ¿Cómo se llamaba y qué extensión tenía?",
+        "Ubicación: ¿Desde qué ruta se operó?",
+        "Contenido: ¿Qué versión necesitas recuperar?"
+      ],
+      "glossary": [
+        {
+          "term": "Alcance",
+          "definition": "Lugares y datos incluidos en una comprobación."
+        },
+        {
+          "term": "Versión esperada",
+          "definition": "Estado concreto que la recuperación debe entregar."
+        }
+      ]
+    }
+  ]
+}

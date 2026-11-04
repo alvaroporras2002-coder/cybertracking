@@ -1,0 +1,957 @@
+{
+  "version": "2.0.0",
+  "week": 24,
+  "title": "Vulnerabilidades y actividad maliciosa",
+  "overview": "Esta semana examina debilidades y comportamiento sin confundirlos. Aprenderás a validar hallazgos, diferenciar fallos de aplicación, interpretar capacidades de malware y revisar indicadores de identidad, red y consumo. Los ejemplos son defensivos y usan datos ficticios: no requieren ejecutar muestras ni explotar equipos. El cierre combina veinte preguntas y cinco escenarios para practicar hipótesis, mitigación y comprobación posterior con límites de evidencia claramente reconocidos.",
+  "objectives": [
+    "Validar vulnerabilidades según condiciones del activo.",
+    "Interpretar actividad e indicadores sin inferencias excesivas.",
+    "Diseñar mitigaciones y evaluaciones defensivas verificables."
+  ],
+  "sources": [
+    {
+      "id": "owasp",
+      "title": "OWASP Top 10: riesgos de aplicaciones",
+      "url": "https://top10.owasp.org/2025/"
+    },
+    {
+      "id": "ir",
+      "title": "NIST SP 800-61r3: respuesta a incidentes",
+      "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+    },
+    {
+      "id": "cisa",
+      "title": "CISA: reconocer phishing y proteger cuentas",
+      "url": "https://www.cisa.gov/sites/default/files/2024-09/Secure-Our-World-4-Easy-Ways-Stay-Safe-Online-Tip-Sheet.pdf"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w24d1",
+      "title": "Vulnerabilidades",
+      "lead": "Identifica la condición vulnerable y comprueba su aplicabilidad al activo concreto.",
+      "sections": [
+        {
+          "topic": "Configuración, soporte, aplicación y hardware",
+          "explanation": [
+            "Una vulnerabilidad puede surgir del diseño o implementación de software, de una configuración insegura, de hardware o de un componente sin soporte adecuado. Su existencia no se demuestra únicamente por un nombre de producto parecido al de un aviso. Necesitas versión, configuración y condiciones afectadas. Un hallazgo automático puede ser correcto, incompleto o un falso positivo que requiere validación.",
+            "El soporte influye en la posibilidad de recibir correcciones y asistencia, pero su finalización no describe por sí sola una explotación observada. Evalúa exposición, criticidad y controles compensatorios para priorizar. Conserva evidencia de la condición inicial y usa métodos de verificación autorizados y proporcionados. Para aprender, interpreta inventarios y avisos ficticios o públicos sin intentar explotar sistemas ajenos. Una clasificación útil termina en una decisión de remediación, compensación o excepción revisable."
+          ],
+          "analogy": "Un aviso de retirada de vehículos requiere comprobar modelo y condiciones; no basta ver un automóvil de la misma marca.",
+          "keyPoints": [
+            "Verifica versión y condiciones afectadas.",
+            "Un hallazgo automático requiere contexto.",
+            "Prioriza según exposición, impacto y capacidad de corrección."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Validación de un hallazgo",
+            "items": [
+              {
+                "label": "Aviso",
+                "detail": "Producto y condiciones descritas"
+              },
+              {
+                "label": "Activo",
+                "detail": "Versión y configuración observadas"
+              },
+              {
+                "label": "Contexto",
+                "detail": "Exposición y controles existentes"
+              },
+              {
+                "label": "Decisión",
+                "detail": "Corregir, compensar o investigar"
+              }
+            ],
+            "caption": "La comparación debe conservar evidencia de aplicabilidad y sus límites."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Aviso que afecta solo una función opcional",
+        "scenario": "El escáner detecta la versión, pero no sabe si la función está habilitada.",
+        "steps": [
+          {
+            "action": "Leer condiciones",
+            "reason": "El identificador de versión no es toda la evidencia.",
+            "result": "Función específica requerida"
+          },
+          {
+            "action": "Comprobar configuración",
+            "reason": "La validación no necesita explotar el sistema.",
+            "result": "Estado de la función documentado"
+          },
+          {
+            "action": "Decidir tratamiento",
+            "reason": "La exposición depende del resultado.",
+            "result": "Corrección o cierre justificado con evidencia"
+          }
+        ],
+        "result": "El hallazgo se interpreta según las condiciones reales del activo.",
+        "visual": {
+          "type": "flow",
+          "title": "Aviso que afecta solo una función opcional",
+          "items": [
+            {
+              "label": "Leer condiciones",
+              "detail": "Función específica requerida"
+            },
+            {
+              "label": "Comprobar configuración",
+              "detail": "Estado de la función documentado"
+            },
+            {
+              "label": "Decidir tratamiento",
+              "detail": "Corrección o cierre justificado con evidencia"
+            }
+          ],
+          "caption": "El hallazgo se interpreta según las condiciones reales del activo."
+        }
+      },
+      "practice": {
+        "task": "Evalúa dos hallazgos ficticios de inventario.",
+        "steps": [
+          "Compara versión y condición afectada.",
+          "Anota evidencia y dato faltante.",
+          "Justifica prioridad y siguiente acción autorizada."
+        ],
+        "expected": "Dos decisiones trazables que no confunden detección con explotación confirmada."
+      },
+      "check": {
+        "question": "Un escáner identifica una versión potencialmente afectada. ¿Qué falta?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Confirmar condiciones y aplicabilidad al activo"
+          },
+          {
+            "id": "b",
+            "text": "Afirmar inmediatamente una intrusión"
+          },
+          {
+            "id": "c",
+            "text": "Cambiar el nombre del servidor"
+          }
+        ],
+        "correct": "a",
+        "explanation": "La versión puede ser una pista; configuración, exposición y condiciones determinan la aplicabilidad concreta."
+      },
+      "mistakes": [
+        {
+          "myth": "Un aviso de vulnerabilidad demuestra que el equipo ya fue comprometido.",
+          "correction": "Describe una debilidad potencial; la actividad de explotación requiere evidencia distinta."
+        }
+      ],
+      "recap": [
+        "Verifica versión y condiciones afectadas.",
+        "Un hallazgo automático requiere contexto.",
+        "Prioriza según exposición, impacto y capacidad de corrección."
+      ],
+      "glossary": [
+        {
+          "term": "Aplicabilidad",
+          "definition": "Correspondencia entre condiciones del aviso y el activo observado."
+        },
+        {
+          "term": "Falso positivo",
+          "definition": "Hallazgo que señala un problema que no corresponde a la situación real."
+        }
+      ]
+    },
+    {
+      "dayId": "w24d2",
+      "title": "Aplicaciones",
+      "lead": "Comprende cómo una aplicación debe separar datos, instrucciones y permisos.",
+      "sections": [
+        {
+          "topic": "Inyección, XSS, errores de memoria y permisos",
+          "explanation": [
+            "Una inyección ocurre cuando datos no confiables influyen indebidamente en una interpretación como instrucciones. La prevención utiliza diseños y mecanismos apropiados al contexto, como consultas parametrizadas para separar valores y estructura. XSS aparece cuando contenido no confiable se interpreta como código activo en un contexto web; el tratamiento de salida debe corresponder a ese contexto y no reducirse a borrar palabras sospechosas.",
+            "Los errores de memoria pueden permitir comportamientos no previstos cuando un programa maneja tamaños o referencias de forma insegura. Los fallos de autorización permiten acciones o recursos que el usuario no debería alcanzar, incluso sin una inyección. Diferencia estas causas para elegir controles: validación, codificación de salida, bibliotecas seguras, pruebas y autorización del servidor cumplen papeles distintos. En esta etapa analiza ejemplos conceptuales y datos de prueba; no necesitas construir cargas de explotación para comprender las defensas."
+          ],
+          "analogy": "Un formulario es una bandeja para recibir datos, no una autorización para que el visitante reescriba las instrucciones del personal.",
+          "keyPoints": [
+            "Separa datos e instrucciones con mecanismos adecuados.",
+            "La salida web necesita protección según contexto.",
+            "La autorización debe aplicarse donde se ejecuta la operación."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Defensas en una aplicación",
+            "items": [
+              {
+                "label": "Entrada",
+                "detail": "Validar formato y límites según la necesidad"
+              },
+              {
+                "label": "Procesamiento",
+                "detail": "Separar datos de instrucciones"
+              },
+              {
+                "label": "Salida",
+                "detail": "Codificar según el contexto de interpretación"
+              },
+              {
+                "label": "Acceso",
+                "detail": "Autorizar sujeto, recurso y operación"
+              }
+            ],
+            "caption": "Cada capa reduce clases de fallos diferentes y requiere pruebas propias."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Formulario de búsqueda de catálogo",
+        "scenario": "El programa debe buscar un título sin interpretar el texto como una instrucción de base de datos.",
+        "steps": [
+          {
+            "action": "Definir dato",
+            "reason": "El texto del usuario representa un valor de búsqueda.",
+            "result": "Valor no confiable identificado"
+          },
+          {
+            "action": "Separar estructura",
+            "reason": "La consulta no debe construirse como texto mezclado.",
+            "result": "Mecanismo parametrizado apropiado"
+          },
+          {
+            "action": "Probar salida y permisos",
+            "reason": "Una consulta segura no resuelve todos los riesgos.",
+            "result": "Resultados codificados y acceso limitado"
+          }
+        ],
+        "result": "La defensa protege procesamiento, presentación y autorización como responsabilidades distintas.",
+        "visual": {
+          "type": "flow",
+          "title": "Formulario de búsqueda de catálogo",
+          "items": [
+            {
+              "label": "Definir dato",
+              "detail": "Valor no confiable identificado"
+            },
+            {
+              "label": "Separar estructura",
+              "detail": "Mecanismo parametrizado apropiado"
+            },
+            {
+              "label": "Probar salida y permisos",
+              "detail": "Resultados codificados y acceso limitado"
+            }
+          ],
+          "caption": "La defensa protege procesamiento, presentación y autorización como responsabilidades distintas."
+        }
+      },
+      "practice": {
+        "task": "Revisa el diseño conceptual de un formulario ficticio.",
+        "steps": [
+          "Identifica entrada no confiable y contexto de uso.",
+          "Propón una defensa para procesamiento y otra para salida.",
+          "Añade una prueba de autorización sobre el resultado."
+        ],
+        "expected": "Una revisión defensiva sin cargas de ataque ni acceso a sistemas ajenos."
+      },
+      "check": {
+        "question": "¿Qué resuelve directamente una consulta parametrizada bien utilizada?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La clasificación de todos los datos"
+          },
+          {
+            "id": "b",
+            "text": "Separar valores de la estructura de la consulta"
+          },
+          {
+            "id": "c",
+            "text": "La autorización de cualquier usuario"
+          }
+        ],
+        "correct": "b",
+        "explanation": "La parametrización aborda la interpretación de valores; los permisos requieren controles propios."
+      },
+      "mistakes": [
+        {
+          "myth": "Validar la entrada elimina la necesidad de codificar la salida.",
+          "correction": "El contexto de interpretación puede cambiar y necesita su protección específica."
+        }
+      ],
+      "recap": [
+        "Separa datos e instrucciones con mecanismos adecuados.",
+        "La salida web necesita protección según contexto.",
+        "La autorización debe aplicarse donde se ejecuta la operación."
+      ],
+      "glossary": [
+        {
+          "term": "Inyección",
+          "definition": "Interpretación indebida de datos como parte de instrucciones."
+        },
+        {
+          "term": "Codificación de salida",
+          "definition": "Transformación contextual para que un dato se presente sin interpretarse como código."
+        }
+      ]
+    },
+    {
+      "dayId": "w24d3",
+      "title": "Malware",
+      "lead": "Clasifica capacidades de malware sin suponer que una muestra pertenece a una sola categoría.",
+      "sections": [
+        {
+          "topic": "Ransomware, spyware, troyanos y persistencia",
+          "explanation": [
+            "Malware es software diseñado para realizar acciones dañinas o no autorizadas. Ransomware puede cifrar o interrumpir acceso a datos y combinarlo con amenazas de divulgación. Spyware busca observar o recolectar información. Un troyano se presenta como algo legítimo para facilitar su ejecución. Persistencia describe mecanismos para conservar capacidad de actuar después de ciertos cambios o reinicios; no es una familia única de malware.",
+            "Una misma operación puede combinar engaño, robo de credenciales, persistencia y extorsión. Para responder, describe comportamiento observado y fuentes, no solo un nombre asignado por una herramienta. No ejecutes archivos sospechosos para ver qué hacen en tu equipo habitual. Sigue procedimientos de aislamiento y escalamiento autorizados y preserva evidencia según el caso. El apagado o la eliminación inmediata no son respuestas universales: pueden afectar evidencia y continuidad, y deben decidirse con autoridad y contexto."
+          ],
+          "analogy": "Clasificar un incendio por sus efectos ayuda a responder, pero una etiqueta no explica por sí sola cómo empezó ni qué zonas alcanzó.",
+          "keyPoints": [
+            "Las capacidades de malware pueden combinarse.",
+            "Persistencia describe conservación de acceso o ejecución.",
+            "No ejecutes una muestra sospechosa en tu equipo habitual."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Comportamientos en una operación ficticia",
+            "items": [
+              {
+                "label": "Engaño",
+                "detail": "Archivo aparenta ser una herramienta útil"
+              },
+              {
+                "label": "Ejecución",
+                "detail": "Actividad no autorizada en el equipo"
+              },
+              {
+                "label": "Persistencia",
+                "detail": "Mecanismo mantiene capacidad de actuar"
+              },
+              {
+                "label": "Impacto",
+                "detail": "Datos afectados o información extraída"
+              }
+            ],
+            "caption": "La secuencia se investiga mediante evidencia; no todas las operaciones siguen los mismos pasos."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Archivo sospechoso descargado",
+        "scenario": "Un usuario encuentra un instalador inesperado antes de ejecutarlo.",
+        "steps": [
+          {
+            "action": "Evitar ejecución",
+            "reason": "Abrirlo para investigar aumenta exposición.",
+            "result": "Archivo no ejecutado"
+          },
+          {
+            "action": "Registrar contexto",
+            "reason": "Origen y hora ayudan a evaluar alcance.",
+            "result": "Datos de descarga conservados"
+          },
+          {
+            "action": "Escalar según proceso",
+            "reason": "El análisis requiere entorno y autorización.",
+            "result": "Responsable recibe evidencia por canal adecuado"
+          }
+        ],
+        "result": "La respuesta inicial limita exposición sin convertir la curiosidad en una ejecución peligrosa.",
+        "visual": {
+          "type": "flow",
+          "title": "Archivo sospechoso descargado",
+          "items": [
+            {
+              "label": "Evitar ejecución",
+              "detail": "Archivo no ejecutado"
+            },
+            {
+              "label": "Registrar contexto",
+              "detail": "Datos de descarga conservados"
+            },
+            {
+              "label": "Escalar según proceso",
+              "detail": "Responsable recibe evidencia por canal adecuado"
+            }
+          ],
+          "caption": "La respuesta inicial limita exposición sin convertir la curiosidad en una ejecución peligrosa."
+        }
+      },
+      "practice": {
+        "task": "Clasifica tres comportamientos ficticios de software.",
+        "steps": [
+          "Separa engaño, recolección y persistencia.",
+          "Indica qué evidencia sostendría cada clasificación.",
+          "Define una acción inicial segura y autorizada."
+        ],
+        "expected": "Tres descripciones de capacidad sin ejecutar muestras ni inventar alcance."
+      },
+      "check": {
+        "question": "¿Qué describe mejor persistencia?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Cualquier archivo con extensión larga"
+          },
+          {
+            "id": "b",
+            "text": "Solo el cifrado de documentos"
+          },
+          {
+            "id": "c",
+            "text": "Mecanismos para conservar capacidad de actuar"
+          }
+        ],
+        "correct": "c",
+        "explanation": "La persistencia se refiere a mantener ejecución o acceso y puede aparecer en operaciones distintas."
+      },
+      "mistakes": [
+        {
+          "myth": "Una detección de ransomware prueba que todos los datos fueron cifrados.",
+          "correction": "Comprueba alcance y comportamiento real; la etiqueta no demuestra cada efecto."
+        }
+      ],
+      "recap": [
+        "Las capacidades de malware pueden combinarse.",
+        "Persistencia describe conservación de acceso o ejecución.",
+        "No ejecutes una muestra sospechosa en tu equipo habitual."
+      ],
+      "glossary": [
+        {
+          "term": "Malware",
+          "definition": "Software destinado a acciones dañinas o no autorizadas."
+        },
+        {
+          "term": "Persistencia",
+          "definition": "Mecanismos que mantienen capacidad de actuar en un entorno."
+        }
+      ]
+    },
+    {
+      "dayId": "w24d4",
+      "title": "Ataques de identidad y red",
+      "lead": "Diferencia abuso de identidad, manipulación de resolución y afectación de disponibilidad.",
+      "sections": [
+        {
+          "topic": "Contraseñas, repetición, DNS y disponibilidad",
+          "explanation": [
+            "Los ataques de identidad pueden intentar adivinar credenciales, reutilizar contraseñas filtradas o aprovechar sesiones obtenidas indebidamente. Una repetición reutiliza una prueba o mensaje válido en un contexto donde no debería aceptarse otra vez; los protocolos necesitan mecanismos que limiten esa posibilidad. El detalle importa porque añadir complejidad a una contraseña no corrige automáticamente el robo de una sesión activa.",
+            "Los ataques relacionados con DNS pueden alterar o abusar de la resolución y su infraestructura; una falla de nombres también puede ser un error operativo. Los ataques de disponibilidad buscan impedir uso mediante agotamiento de recursos u otras condiciones. Volumen alto no demuestra por sí solo intención maliciosa. Describe patrón, objetivo y evidencia, y selecciona medidas específicas: autenticación y revocación, integridad de configuración, límites de recursos o capacidad de recuperación según el problema."
+          ],
+          "analogy": "No todas las interrupciones de una oficina tienen la misma causa: una llave usada indebidamente y una fila saturada requieren respuestas distintas.",
+          "keyPoints": [
+            "Distingue credencial, sesión y repetición.",
+            "Un fallo DNS puede ser operativo o malicioso.",
+            "El volumen necesita contexto para atribuir un ataque."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Tres familias de problemas",
+            "items": [
+              {
+                "label": "Identidad",
+                "detail": "Uso indebido de credencial o sesión"
+              },
+              {
+                "label": "Resolución",
+                "detail": "Nombre dirige a un destino incorrecto"
+              },
+              {
+                "label": "Disponibilidad",
+                "detail": "Recursos no satisfacen demanda legítima"
+              }
+            ],
+            "caption": "La causa y la evidencia determinan controles diferentes."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Muchos intentos y un acceso exitoso",
+        "scenario": "Una cuenta presenta fallos seguidos de una sesión desde un dispositivo no reconocido.",
+        "steps": [
+          {
+            "action": "Correlacionar eventos",
+            "reason": "Un fallo aislado no describe toda la secuencia.",
+            "result": "Fallos y éxito asociados por cuenta y tiempo"
+          },
+          {
+            "action": "Verificar contexto",
+            "reason": "El titular podría haber cambiado de dispositivo.",
+            "result": "Confirmación por canal conocido"
+          },
+          {
+            "action": "Responder a identidad",
+            "reason": "La acción depende de lo corroborado.",
+            "result": "Sesión y autenticadores revisados con autorización"
+          }
+        ],
+        "result": "El caso se investiga como posible abuso de identidad sin basarse solo en el conteo.",
+        "visual": {
+          "type": "flow",
+          "title": "Muchos intentos y un acceso exitoso",
+          "items": [
+            {
+              "label": "Correlacionar eventos",
+              "detail": "Fallos y éxito asociados por cuenta y tiempo"
+            },
+            {
+              "label": "Verificar contexto",
+              "detail": "Confirmación por canal conocido"
+            },
+            {
+              "label": "Responder a identidad",
+              "detail": "Sesión y autenticadores revisados con autorización"
+            }
+          ],
+          "caption": "El caso se investiga como posible abuso de identidad sin basarse solo en el conteo."
+        }
+      },
+      "practice": {
+        "task": "Analiza tres registros ficticios de identidad, DNS y demanda.",
+        "steps": [
+          "Identifica el tipo de problema posible.",
+          "Escribe una explicación legítima alternativa.",
+          "Propón una comprobación y un control relacionado."
+        ],
+        "expected": "Tres hipótesis con contexto y pruebas antes de atribuir intención."
+      },
+      "check": {
+        "question": "Un gran número de solicitudes demuestra automáticamente…",
+        "options": [
+          {
+            "id": "a",
+            "text": "Un ataque de denegación de servicio"
+          },
+          {
+            "id": "b",
+            "text": "Solo un volumen que debe interpretarse con contexto"
+          },
+          {
+            "id": "c",
+            "text": "Que los certificados están vencidos"
+          }
+        ],
+        "correct": "b",
+        "explanation": "La demanda legítima, errores y automatización también producen volumen; hacen falta otras evidencias."
+      },
+      "mistakes": [
+        {
+          "myth": "Cambiar una contraseña revoca cualquier token y sesión de toda aplicación.",
+          "correction": "El comportamiento de revocación depende del sistema y debe comprobarse explícitamente."
+        }
+      ],
+      "recap": [
+        "Distingue credencial, sesión y repetición.",
+        "Un fallo DNS puede ser operativo o malicioso.",
+        "El volumen necesita contexto para atribuir un ataque."
+      ],
+      "glossary": [
+        {
+          "term": "Repetición",
+          "definition": "Reutilización indebida de una prueba o mensaje válido."
+        },
+        {
+          "term": "Disponibilidad de servicio",
+          "definition": "Capacidad de atender el uso necesario en condiciones definidas."
+        }
+      ]
+    },
+    {
+      "dayId": "w24d5",
+      "title": "Indicadores",
+      "lead": "Trata un indicador como una pista que necesita línea de referencia y corroboración.",
+      "sections": [
+        {
+          "topic": "Accesos, cambios, tráfico y consumo",
+          "explanation": [
+            "Un indicador es un dato que puede orientar la detección o investigación. Puede ser un dominio, hash, proceso, cambio de configuración, patrón de acceso o consumo inusual. Su valor depende de contexto, momento y calidad de la fuente. Un hash identifica contenido específico bajo sus condiciones; un nombre de proceso puede ser compartido por actividades distintas. Ninguno debe interpretarse sin conocer qué afirma realmente.",
+            "Compara el comportamiento con una referencia del activo y con fuentes independientes. Un uso alto de CPU puede reflejar una tarea legítima, un error o actividad no autorizada. Una dirección con reputación negativa puede ser compartida o haber cambiado de uso. Conserva la observación original, el enriquecimiento y su fecha por separado. La conclusión debe explicar qué evidencia apoya una hipótesis y qué alternativa todavía no puede descartarse."
+          ],
+          "analogy": "Una huella orienta una investigación; su forma y ubicación deben relacionarse con otros hechos antes de identificar un recorrido.",
+          "keyPoints": [
+            "El indicador no es un veredicto completo.",
+            "Considera fecha, fuente y uso compartido.",
+            "Separa observación original y enriquecimiento."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "De señal a interpretación",
+            "items": [
+              {
+                "label": "Dato",
+                "detail": "Proceso con consumo elevado"
+              },
+              {
+                "label": "Referencia",
+                "detail": "Carga habitual y tarea programada"
+              },
+              {
+                "label": "Corroboración",
+                "detail": "Usuario, archivo y conexiones asociados"
+              },
+              {
+                "label": "Conclusión",
+                "detail": "Explicación sustentada y límites"
+              }
+            ],
+            "caption": "El análisis evita convertir una anomalía aislada en una acusación."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Consumo de CPU durante un respaldo",
+        "scenario": "Una alerta señala carga alta a la misma hora de la copia programada.",
+        "steps": [
+          {
+            "action": "Medir y registrar",
+            "reason": "El consumo es real aunque pueda ser legítimo.",
+            "result": "Carga y proceso identificados"
+          },
+          {
+            "action": "Comparar contexto",
+            "reason": "Existe una tarea prevista.",
+            "result": "Horario y ejecutable coherentes"
+          },
+          {
+            "action": "Verificar resultado",
+            "reason": "La coincidencia no sustituye revisión completa.",
+            "result": "Respaldo y eventos consistentes, sin otras señales"
+          }
+        ],
+        "result": "La alerta puede explicarse por actividad autorizada sin perder su trazabilidad.",
+        "visual": {
+          "type": "flow",
+          "title": "Consumo de CPU durante un respaldo",
+          "items": [
+            {
+              "label": "Medir y registrar",
+              "detail": "Carga y proceso identificados"
+            },
+            {
+              "label": "Comparar contexto",
+              "detail": "Horario y ejecutable coherentes"
+            },
+            {
+              "label": "Verificar resultado",
+              "detail": "Respaldo y eventos consistentes, sin otras señales"
+            }
+          ],
+          "caption": "La alerta puede explicarse por actividad autorizada sin perder su trazabilidad."
+        }
+      },
+      "practice": {
+        "task": "Evalúa tres indicadores ficticios.",
+        "steps": [
+          "Anota qué dato observaste exactamente.",
+          "Añade contexto y fecha de enriquecimiento.",
+          "Escribe una hipótesis y una explicación alternativa."
+        ],
+        "expected": "Tres análisis que no equiparan señal con incidente confirmado."
+      },
+      "check": {
+        "question": "¿Qué hace más útil un indicador?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Repetirlo muchas veces sin fuente"
+          },
+          {
+            "id": "b",
+            "text": "Eliminar su fecha para reutilizarlo siempre"
+          },
+          {
+            "id": "c",
+            "text": "Relacionarlo con contexto, tiempo y evidencia adicional"
+          }
+        ],
+        "correct": "c",
+        "explanation": "Su relevancia cambia según origen, momento y comportamiento asociado al activo."
+      },
+      "mistakes": [
+        {
+          "myth": "Una anomalía siempre es actividad maliciosa.",
+          "correction": "Una desviación puede ser legítima, accidental o dañina; necesita investigación."
+        }
+      ],
+      "recap": [
+        "El indicador no es un veredicto completo.",
+        "Considera fecha, fuente y uso compartido.",
+        "Separa observación original y enriquecimiento."
+      ],
+      "glossary": [
+        {
+          "term": "Indicador",
+          "definition": "Dato utilizado como pista en detección o investigación."
+        },
+        {
+          "term": "Línea de referencia",
+          "definition": "Comportamiento o estado esperado con el que se compara una observación."
+        }
+      ]
+    },
+    {
+      "dayId": "w24d6",
+      "title": "Mitigación",
+      "lead": "Combina corrección de causa, reducción de alcance y verificación posterior.",
+      "sections": [
+        {
+          "topic": "Parches, aislamiento, privilegios y segmentación",
+          "explanation": [
+            "Mitigar significa reducir un riesgo mediante medidas que afectan probabilidad o impacto. Un parche puede corregir una vulnerabilidad; una configuración puede limitar exposición; el mínimo privilegio reduce acciones disponibles; segmentación limita comunicaciones. El aislamiento puede contener actividad mientras se investiga, pero no demuestra que la causa haya sido eliminada. Cada medida necesita un objetivo y una autoridad para ejecutarla.",
+            "Prioriza según riesgo y continuidad, conserva estado inicial y prepara reversión cuando corresponda. Tras aplicar la medida, repite la prueba que demostraba la condición y comprueba que el servicio legítimo siga funcionando. Si no puedes corregir inmediatamente, registra una compensación, dueño, plazo y revisión. Una excepción sin fecha puede volverse permanente sin decisión consciente. La mejora debe medirse por el cambio observado y por la exposición que todavía queda."
+          ],
+          "analogy": "Poner un recipiente bajo una fuga limita daño; reparar la tubería y comprobarla son acciones distintas.",
+          "keyPoints": [
+            "Contener no equivale a eliminar la causa.",
+            "Prueba seguridad y función legítima después del cambio.",
+            "Las compensaciones necesitan dueño y revisión."
+          ],
+          "visual": {
+            "type": "cycle",
+            "title": "Mitigación verificable",
+            "items": [
+              {
+                "label": "Estado inicial",
+                "detail": "Condición y exposición documentadas"
+              },
+              {
+                "label": "Medida",
+                "detail": "Cambio autorizado y proporcionado"
+              },
+              {
+                "label": "Prueba",
+                "detail": "Condición corregida y servicio sano"
+              },
+              {
+                "label": "Seguimiento",
+                "detail": "Riesgo residual y excepciones revisados"
+              }
+            ],
+            "caption": "La operación no termina únicamente al instalar o activar una medida."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Servicio vulnerable que no puede actualizarse hoy",
+        "scenario": "Una dependencia crítica exige una ventana posterior.",
+        "steps": [
+          {
+            "action": "Evaluar exposición",
+            "reason": "La prioridad depende de alcance e impacto.",
+            "result": "Necesidad y riesgo documentados"
+          },
+          {
+            "action": "Aplicar compensación",
+            "reason": "Debe reducir la vía concreta de acceso.",
+            "result": "Flujos restringidos con aprobación"
+          },
+          {
+            "action": "Planificar corrección",
+            "reason": "La compensación no sustituye una decisión permanente.",
+            "result": "Dueño, fecha y prueba de actualización definidos"
+          }
+        ],
+        "result": "El riesgo se reduce de forma temporal y queda una ruta verificable hacia la corrección.",
+        "visual": {
+          "type": "flow",
+          "title": "Servicio vulnerable que no puede actualizarse hoy",
+          "items": [
+            {
+              "label": "Evaluar exposición",
+              "detail": "Necesidad y riesgo documentados"
+            },
+            {
+              "label": "Aplicar compensación",
+              "detail": "Flujos restringidos con aprobación"
+            },
+            {
+              "label": "Planificar corrección",
+              "detail": "Dueño, fecha y prueba de actualización definidos"
+            }
+          ],
+          "caption": "El riesgo se reduce de forma temporal y queda una ruta verificable hacia la corrección."
+        }
+      },
+      "practice": {
+        "task": "Propón un plan de mitigación de un servicio ficticio.",
+        "steps": [
+          "Describe estado inicial y causa posible.",
+          "Elige medida, autorización y reversión.",
+          "Añade prueba posterior y seguimiento del riesgo residual."
+        ],
+        "expected": "Un plan ejecutable que separa contención, corrección y validación."
+      },
+      "check": {
+        "question": "¿Qué demuestra mejor una remediación efectiva?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Repetir la prueba de la condición y validar el servicio"
+          },
+          {
+            "id": "b",
+            "text": "Cerrar el ticket apenas se instala un parche"
+          },
+          {
+            "id": "c",
+            "text": "Cambiar la prioridad a baja sin comprobar nada"
+          }
+        ],
+        "correct": "a",
+        "explanation": "La comprobación posterior muestra si el riesgo técnico se modificó sin interrumpir la función necesaria."
+      },
+      "mistakes": [
+        {
+          "myth": "Aislar un equipo garantiza eliminar malware y todas sus causas.",
+          "correction": "El aislamiento limita comunicaciones; investigación, erradicación y recuperación requieren pasos adicionales."
+        }
+      ],
+      "recap": [
+        "Contener no equivale a eliminar la causa.",
+        "Prueba seguridad y función legítima después del cambio.",
+        "Las compensaciones necesitan dueño y revisión."
+      ],
+      "glossary": [
+        {
+          "term": "Mitigación",
+          "definition": "Medida destinada a reducir probabilidad o impacto de un riesgo."
+        },
+        {
+          "term": "Compensación temporal",
+          "definition": "Control alternativo limitado mientras se completa una corrección o decisión."
+        }
+      ]
+    },
+    {
+      "dayId": "w24d7",
+      "title": "Evaluación integrada",
+      "lead": "Integra hallazgos y comportamiento en una evaluación de veinte preguntas y cinco escenarios.",
+      "sections": [
+        {
+          "topic": "Veinte preguntas y cinco escenarios",
+          "explanation": [
+            "Una evaluación integrada debe separar identificar una debilidad de demostrar actividad maliciosa. Las preguntas pueden comprobar conceptos de aplicaciones, malware, identidad e indicadores, mientras los casos exigen relacionar evidencia con decisiones. Incluye información suficiente para justificar una acción y también una incertidumbre que el estudiante deba reconocer. El resultado no debería premiar inventar un ataque donde solo existe una señal.",
+            "En los cinco escenarios combina configuración, permisos, eventos y necesidades del servicio. Para cada uno define hecho, hipótesis, evidencia adicional, mitigación y criterio de verificación. Al revisar respuestas, clasifica por qué ocurrió cada error: confusión de concepto, inferencia excesiva o selección de un control que no actúa sobre la causa. Usa casos originales y seguros; no necesitas ejecutar malware ni explotar sistemas para demostrar razonamiento defensivo en esta etapa."
+          ],
+          "analogy": "Un diagnóstico de salud de un servicio necesita síntomas, pruebas y tratamiento relacionado, no una etiqueta alarmante para cada dato.",
+          "keyPoints": [
+            "Evalúa debilidad y actividad como evidencias diferentes.",
+            "Relaciona cada mitigación con causa y alcance.",
+            "Reconoce incertidumbre y causas de error."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Cinco piezas de un caso",
+            "items": [
+              {
+                "label": "Hecho",
+                "detail": "Dato observado con fuente"
+              },
+              {
+                "label": "Hipótesis",
+                "detail": "Explicación que puede probarse"
+              },
+              {
+                "label": "Verificación",
+                "detail": "Información que falta obtener"
+              },
+              {
+                "label": "Medida",
+                "detail": "Acción y prueba posterior"
+              }
+            ],
+            "caption": "La evaluación valora razonamiento defensivo y límites de la evidencia."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Aplicación expuesta y cuenta con descargas",
+        "scenario": "Existe un aviso de versión, pero las descargas se hicieron mediante una sesión válida.",
+        "steps": [
+          {
+            "action": "Separar observaciones",
+            "reason": "La debilidad y la actividad pueden no tener relación.",
+            "result": "Dos líneas de análisis abiertas"
+          },
+          {
+            "action": "Buscar vínculo",
+            "reason": "No debe asumirse explotación de la versión.",
+            "result": "Registros de sesión y aplicabilidad revisados"
+          },
+          {
+            "action": "Priorizar acciones",
+            "reason": "La cuenta y la exposición requieren controles distintos.",
+            "result": "Respuesta de identidad y remediación coordinadas"
+          }
+        ],
+        "result": "El análisis evita atribuir toda actividad al primer aviso técnico encontrado.",
+        "visual": {
+          "type": "flow",
+          "title": "Aplicación expuesta y cuenta con descargas",
+          "items": [
+            {
+              "label": "Separar observaciones",
+              "detail": "Dos líneas de análisis abiertas"
+            },
+            {
+              "label": "Buscar vínculo",
+              "detail": "Registros de sesión y aplicabilidad revisados"
+            },
+            {
+              "label": "Priorizar acciones",
+              "detail": "Respuesta de identidad y remediación coordinadas"
+            }
+          ],
+          "caption": "El análisis evita atribuir toda actividad al primer aviso técnico encontrado."
+        }
+      },
+      "practice": {
+        "task": "Diseña cinco escenarios defensivos propios y veinte preguntas.",
+        "steps": [
+          "Distribuye conceptos entre aplicación, identidad, malware e indicadores.",
+          "Resuelve cada caso con una limitación explícita.",
+          "Define refuerzo y variante para los errores detectados."
+        ],
+        "expected": "Una evaluación original con cobertura y razonamientos verificables."
+      },
+      "check": {
+        "question": "Hay una vulnerabilidad y una descarga inusual. ¿Qué falta para relacionarlas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Nada, siempre son el mismo incidente"
+          },
+          {
+            "id": "b",
+            "text": "Evidencia que sustente el vínculo entre ambos hechos"
+          },
+          {
+            "id": "c",
+            "text": "Cambiar el nombre del archivo"
+          }
+        ],
+        "correct": "b",
+        "explanation": "La coexistencia de condiciones no demuestra que una produjo la otra; necesitas corroborar la secuencia."
+      },
+      "mistakes": [
+        {
+          "myth": "Una evaluación avanzada exige usar herramientas ofensivas en cualquier sistema.",
+          "correction": "Puede evaluar análisis profundo mediante artefactos y entornos seguros y autorizados."
+        }
+      ],
+      "recap": [
+        "Evalúa debilidad y actividad como evidencias diferentes.",
+        "Relaciona cada mitigación con causa y alcance.",
+        "Reconoce incertidumbre y causas de error."
+      ],
+      "glossary": [
+        {
+          "term": "Inferencia",
+          "definition": "Conclusión derivada de datos que debe distinguirse de la observación directa."
+        },
+        {
+          "term": "Verificación posterior",
+          "definition": "Prueba que comprueba el resultado real de una medida aplicada."
+        }
+      ]
+    }
+  ]
+}

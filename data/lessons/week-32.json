@@ -1,0 +1,957 @@
+{
+  "version": "2.0.0",
+  "week": 32,
+  "title": "Gobierno cambios y riesgo",
+  "overview": "Gobernar la seguridad significa decidir quién establece reglas, quién puede cambiarlas y quién acepta riesgos. Esta semana distinguirás políticas, estándares y procedimientos, practicarás cambios reversibles y compararás métodos cualitativos y cuantitativos. Los valores monetarios y probabilidades de los ejercicios son supuestos didácticos, no predicciones de tu organización. Aprenderás a justificar una decisión bajo restricciones, mostrar incertidumbre y mantener responsables, fechas y evidencia cuando un riesgo no pueda eliminarse de inmediato.",
+  "objectives": [
+    "Relacionar documentos de gobierno con decisiones operativas.",
+    "Calcular una pérdida esperada bajo supuestos explícitos.",
+    "Seleccionar tratamientos y documentar riesgo residual."
+  ],
+  "sources": [
+    {
+      "id": "risk",
+      "title": "NIST SP 800-30r1 — Risk Assessment",
+      "url": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+    },
+    {
+      "id": "controls",
+      "title": "NIST SP 800-53 — Security and Privacy Controls",
+      "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+    },
+    {
+      "id": "csf",
+      "title": "NIST — Cybersecurity Framework",
+      "url": "https://www.nist.gov/cyberframework"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w32d1",
+      "title": "Gobierno",
+      "lead": "Conoce autoridad, alcance y obligatoriedad del documento.",
+      "sections": [
+        {
+          "topic": "Política, estándar, guía y procedimiento",
+          "explanation": [
+            "Una política expresa una dirección obligatoria de la organización, como proteger información sensible. Un estándar concreta requisitos medibles, por ejemplo configuraciones admitidas. Un procedimiento describe pasos para ejecutar una actividad. Una guía ofrece recomendaciones que ayudan a decidir. Los nombres pueden variar entre organizaciones; lo importante es conocer autoridad, obligatoriedad, alcance y versión. Un documento sin dueño o sin fecha de revisión puede seguir circulando aunque ya no represente la decisión aprobada.",
+            "Los documentos deben conectarse. Si la política exige acceso mínimo, el estándar puede definir condiciones de cuentas privilegiadas y el procedimiento indicar cómo solicitarlas y revisarlas. Una guía puede recomendar cómo preparar la solicitud. No uses una recomendación como si autorizara una excepción a una regla obligatoria. Ante conflicto identifica al responsable y consulta la versión vigente. La evidencia de cumplimiento se vincula a requisitos concretos, no a la existencia de un archivo con un título que suene formal."
+          ],
+          "analogy": "La política indica a dónde ir, el estándar fija condiciones y el procedimiento explica cómo recorrer el camino.",
+          "keyPoints": [
+            "Conoce autoridad, alcance y obligatoriedad del documento.",
+            "Un procedimiento ejecuta una decisión; no la inventa.",
+            "Las versiones vigentes evitan reglas contradictorias."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Documentos conectados",
+            "items": [
+              {
+                "label": "Política",
+                "detail": "Proteger el acceso a datos"
+              },
+              {
+                "label": "Estándar",
+                "detail": "Condiciones de privilegios y revisión"
+              },
+              {
+                "label": "Procedimiento",
+                "detail": "Solicitar, aprobar y retirar"
+              },
+              {
+                "label": "Guía",
+                "detail": "Consejos para preparar la solicitud"
+              }
+            ],
+            "caption": "La jerarquía exacta debe seguir el gobierno de la organización."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Solicitud de administrador",
+        "scenario": "Una guía recomienda acceso temporal, pero el estándar exige aprobación del dueño.",
+        "steps": [
+          {
+            "action": "Identificar obligación",
+            "reason": "Una recomendación no sustituye un requisito.",
+            "result": "La aprobación sigue siendo necesaria."
+          },
+          {
+            "action": "Seguir procedimiento",
+            "reason": "Permite aplicar la regla con trazabilidad.",
+            "result": "Se registra solicitud y duración."
+          },
+          {
+            "action": "Conservar evidencia",
+            "reason": "La decisión debe poder revisarse.",
+            "result": "Se guarda aprobación y vencimiento."
+          }
+        ],
+        "result": "El acceso se tramita según la autoridad del requisito aplicable.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Solicitud de administrador",
+          "items": [
+            {
+              "label": "Identificar obligación",
+              "detail": "La aprobación sigue siendo necesaria."
+            },
+            {
+              "label": "Seguir procedimiento",
+              "detail": "Se registra solicitud y duración."
+            },
+            {
+              "label": "Conservar evidencia",
+              "detail": "Se guarda aprobación y vencimiento."
+            }
+          ],
+          "caption": "El acceso se tramita según la autoridad del requisito aplicable."
+        }
+      },
+      "practice": {
+        "task": "Clasifica cuatro frases como política, estándar, procedimiento o guía.",
+        "steps": [
+          "Escribe una intención general.",
+          "Añade un requisito medible y sus pasos.",
+          "Incluye una recomendación claramente opcional."
+        ],
+        "expected": "Cuatro documentos coherentes sobre el mismo control."
+      },
+      "check": {
+        "question": "¿Qué describe normalmente un procedimiento?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Una predicción de ataques."
+          },
+          {
+            "id": "b",
+            "text": "Pasos para realizar una actividad aprobada."
+          },
+          {
+            "id": "c",
+            "text": "Solo consejos opcionales sin orden."
+          }
+        ],
+        "correct": "b",
+        "explanation": "El procedimiento operacionaliza una actividad y debe relacionarse con requisitos y autoridad."
+      },
+      "mistakes": [
+        {
+          "myth": "Un documento llamado política siempre está vigente.",
+          "correction": "Comprueba aprobación, versión, alcance y responsable antes de aplicarlo."
+        }
+      ],
+      "recap": [
+        "Conoce autoridad, alcance y obligatoriedad del documento.",
+        "Un procedimiento ejecuta una decisión; no la inventa.",
+        "Las versiones vigentes evitan reglas contradictorias."
+      ],
+      "glossary": [
+        {
+          "term": "Estándar",
+          "definition": "Requisito concreto y comprobable dentro de un alcance."
+        },
+        {
+          "term": "Guía",
+          "definition": "Orientación que ayuda a decidir sin asumir obligatoriedad universal."
+        }
+      ]
+    },
+    {
+      "dayId": "w32d2",
+      "title": "Cambios",
+      "lead": "Define éxito y reversión antes de cambiar.",
+      "sections": [
+        {
+          "topic": "Aprobación, prueba, dependencias y reversión",
+          "explanation": [
+            "Un cambio controlado modifica un sistema con una finalidad, un alcance y una autorización definidos. Incluye estado inicial, impacto esperado, dependencias, pruebas y reversión. Actualizar un certificado puede parecer pequeño, pero romper clientes que no confían en su cadena. La evaluación debe considerar tanto seguridad como funcionamiento. Una aprobación sin información suficiente no vuelve seguro el cambio; la persona que decide necesita conocer riesgos y condiciones, no únicamente un título como mantenimiento rutinario.",
+            "Prueba primero en un entorno representativo cuando exista y documenta diferencias respecto a producción. Define una ventana y un criterio de éxito, además de una condición que obligue a revertir. Las emergencias pueden usar un proceso acelerado, pero no deberían borrar la trazabilidad ni la revisión posterior. Registra qué se hizo realmente, porque puede diferir del plan. Tras el cambio confirma servicio, configuración y monitoreo, y conserva los resultados para explicar incidencias futuras."
+          ],
+          "analogy": "Cambiar una pieza en una máquina requiere conocer qué otras piezas dependen de ella y cómo volver atrás.",
+          "keyPoints": [
+            "Define éxito y reversión antes de cambiar.",
+            "Las dependencias pueden volver crítico un ajuste pequeño.",
+            "El cambio ejecutado debe quedar registrado."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Cambio con control",
+            "items": [
+              {
+                "label": "Plan",
+                "detail": "Objetivo y dependencias"
+              },
+              {
+                "label": "Aprobación",
+                "detail": "Responsable e impacto"
+              },
+              {
+                "label": "Ejecución",
+                "detail": "Ventana y registro"
+              },
+              {
+                "label": "Validación",
+                "detail": "Éxito o reversión"
+              }
+            ],
+            "caption": "Un proceso de emergencia puede ser más rápido, pero debe conservar control y revisión."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Certificado nuevo",
+        "scenario": "Una aplicación de prueba funciona con el certificado nuevo, pero un cliente antiguo deja de conectar.",
+        "steps": [
+          {
+            "action": "Medir dependencia",
+            "reason": "No todos los clientes usan la misma confianza.",
+            "result": "Se identifica el cliente afectado."
+          },
+          {
+            "action": "Aplicar criterio",
+            "reason": "El plan exigía conexión de todos los clientes necesarios.",
+            "result": "El cambio no cumple aceptación."
+          },
+          {
+            "action": "Revertir o corregir",
+            "reason": "La decisión sigue el plan aprobado.",
+            "result": "Se restaura servicio y se prepara una prueba ampliada."
+          }
+        ],
+        "result": "La validación detecta un efecto operativo antes de declarar éxito.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Certificado nuevo",
+          "items": [
+            {
+              "label": "Medir dependencia",
+              "detail": "Se identifica el cliente afectado."
+            },
+            {
+              "label": "Aplicar criterio",
+              "detail": "El cambio no cumple aceptación."
+            },
+            {
+              "label": "Revertir o corregir",
+              "detail": "Se restaura servicio y se prepara una prueba ampliada."
+            }
+          ],
+          "caption": "La validación detecta un efecto operativo antes de declarar éxito."
+        }
+      },
+      "practice": {
+        "task": "Diseña un cambio de regla de firewall ficticio.",
+        "steps": [
+          "Define flujo actual y esperado.",
+          "Incluye una prueba permitida y otra denegada.",
+          "Anota criterio y método de reversión."
+        ],
+        "expected": "Un plan que permita decidir mantener o revertir."
+      },
+      "check": {
+        "question": "¿Cuándo se define la reversión?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Antes de ejecutar el cambio, con condiciones claras."
+          },
+          {
+            "id": "b",
+            "text": "Solo cuando ya falló todo."
+          },
+          {
+            "id": "c",
+            "text": "Nunca en una emergencia."
+          }
+        ],
+        "correct": "a",
+        "explanation": "Prepararla antes reduce improvisación y permite recuperar un estado conocido con mayor control."
+      },
+      "mistakes": [
+        {
+          "myth": "Un cambio aprobado no puede causar problemas.",
+          "correction": "La aprobación autoriza; las pruebas y el seguimiento comprueban sus efectos."
+        }
+      ],
+      "recap": [
+        "Define éxito y reversión antes de cambiar.",
+        "Las dependencias pueden volver crítico un ajuste pequeño.",
+        "El cambio ejecutado debe quedar registrado."
+      ],
+      "glossary": [
+        {
+          "term": "Ventana de cambio",
+          "definition": "Período acordado para una modificación."
+        },
+        {
+          "term": "Dependencia",
+          "definition": "Relación por la que un componente necesita otro para funcionar."
+        }
+      ]
+    },
+    {
+      "dayId": "w32d3",
+      "title": "Riesgo cualitativo",
+      "lead": "Define las categorías antes de usarlas.",
+      "sections": [
+        {
+          "topic": "Probabilidad, impacto y tolerancia",
+          "explanation": [
+            "Un análisis cualitativo describe riesgo con categorías como bajo, medio y alto. Para que sea útil debes definir qué significan probabilidad e impacto en ese contexto. Alto puede referirse a pérdida económica, interrupción, privacidad o seguridad física; no es una medida universal. Combinar categorías en una matriz ayuda a ordenar conversación, pero no convierte opiniones en datos objetivos. Conserva el escenario: amenaza, condición, activo y consecuencia, porque una etiqueta aislada no explica el riesgo.",
+            "La tolerancia indica qué nivel de riesgo está dispuesta a aceptar una autoridad responsable en unas condiciones. Puede variar entre servicios y cambiar con el tiempo. Explica supuestos y evidencias: exposición comprobada, dependencia de un proveedor o historial de interrupciones. Si no hay información para estimar probabilidad, registra la incertidumbre y qué dato ayudaría. No confundas una vulnerabilidad alta con riesgo alto en todos los contextos ni presentes el color de una celda como autorización automática para operar."
+          ],
+          "analogy": "Una escala de picante sirve si todos acuerdan qué significa suave o fuerte; el color solo no basta.",
+          "keyPoints": [
+            "Define las categorías antes de usarlas.",
+            "La etiqueta necesita escenario y supuestos.",
+            "Aceptar riesgo requiere autoridad, no un color de matriz."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Dos dimensiones del riesgo",
+            "items": [
+              {
+                "label": "Probabilidad",
+                "detail": "Posibilidad bajo condiciones definidas"
+              },
+              {
+                "label": "Impacto",
+                "detail": "Consecuencia para el objetivo"
+              },
+              {
+                "label": "Tolerancia",
+                "detail": "Límite que decide la autoridad"
+              }
+            ],
+            "caption": "La matriz es una ayuda; no sustituye evidencia ni decisión."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Copia no probada",
+        "scenario": "Una aplicación depende de una copia reciente cuya restauración nunca se ensayó.",
+        "steps": [
+          {
+            "action": "Definir escenario",
+            "reason": "El riesgo debe describir una consecuencia.",
+            "result": "No poder recuperar el servicio tras una pérdida."
+          },
+          {
+            "action": "Valorar evidencia",
+            "reason": "La existencia de copia no prueba recuperación.",
+            "result": "La incertidumbre de restauración queda registrada."
+          },
+          {
+            "action": "Decidir tratamiento",
+            "reason": "El dueño necesita un resultado verificable.",
+            "result": "Se prioriza una prueba de restauración controlada."
+          }
+        ],
+        "result": "La acción reduce una incertidumbre relevante del escenario.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Copia no probada",
+          "items": [
+            {
+              "label": "Definir escenario",
+              "detail": "No poder recuperar el servicio tras una pérdida."
+            },
+            {
+              "label": "Valorar evidencia",
+              "detail": "La incertidumbre de restauración queda registrada."
+            },
+            {
+              "label": "Decidir tratamiento",
+              "detail": "Se prioriza una prueba de restauración controlada."
+            }
+          ],
+          "caption": "La acción reduce una incertidumbre relevante del escenario."
+        }
+      },
+      "practice": {
+        "task": "Define categorías de impacto para un servicio ficticio.",
+        "steps": [
+          "Usa consecuencias observables.",
+          "Describe un caso por categoría.",
+          "Indica quién acepta y cuándo se revisa."
+        ],
+        "expected": "Una escala que otra persona pueda aplicar con resultados comparables."
+      },
+      "check": {
+        "question": "¿Qué hace útil una clasificación alta?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que use color rojo."
+          },
+          {
+            "id": "b",
+            "text": "Que esté definida y vinculada a un escenario y evidencia."
+          },
+          {
+            "id": "c",
+            "text": "Que no admita preguntas."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La definición compartida y el contexto permiten interpretar y revisar la clasificación."
+      },
+      "mistakes": [
+        {
+          "myth": "Bajo significa que puede ignorarse para siempre.",
+          "correction": "Un riesgo aceptado conserva responsable y revisión cuando cambian sus condiciones."
+        }
+      ],
+      "recap": [
+        "Define las categorías antes de usarlas.",
+        "La etiqueta necesita escenario y supuestos.",
+        "Aceptar riesgo requiere autoridad, no un color de matriz."
+      ],
+      "glossary": [
+        {
+          "term": "Riesgo cualitativo",
+          "definition": "Valoración mediante categorías definidas."
+        },
+        {
+          "term": "Tolerancia",
+          "definition": "Nivel de riesgo que una autoridad admite bajo condiciones determinadas."
+        }
+      ]
+    },
+    {
+      "dayId": "w32d4",
+      "title": "Riesgo cuantitativo",
+      "lead": "Los números dependen de supuestos.",
+      "sections": [
+        {
+          "topic": "Pérdida estimada y frecuencia",
+          "explanation": [
+            "Un modelo cuantitativo expresa riesgo con números bajo supuestos explícitos. En un ejemplo sencillo, la pérdida de un evento se estima como valor del activo multiplicado por fracción de pérdida. Si el activo vale 20 000 unidades y un evento supone perder el 25 %, la pérdida por evento sería 5 000. Si se estima una frecuencia media de 0,2 eventos al año, la pérdida anual esperada es 1 000. Son valores didácticos, no una promesa de lo que ocurrirá.",
+            "La pérdida esperada es un promedio del modelo, no una factura anual ni el máximo posible. Una frecuencia de 0,2 no significa que el evento ocurra exactamente cada cinco años. Cambia supuestos para estudiar sensibilidad: si la fracción de pérdida se duplica, también lo hace la estimación bajo este modelo lineal. Compara costes y beneficios con cuidado, incluyendo incertidumbre, efectos no monetarios y limitaciones. El resultado numérico ayuda a decidir, pero no elimina la necesidad de juicio y responsabilidad."
+          ],
+          "analogy": "Un pronóstico de lluvia promedio orienta decisiones; no determina exactamente cuándo caerá cada gota.",
+          "keyPoints": [
+            "Los números dependen de supuestos.",
+            "Pérdida esperada no es máximo ni predicción exacta.",
+            "La sensibilidad muestra qué supuestos cambian la decisión."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Cálculo didáctico",
+            "items": [
+              {
+                "label": "Valor",
+                "detail": "20 000 unidades"
+              },
+              {
+                "label": "Fracción",
+                "detail": "25 % por evento: 5 000"
+              },
+              {
+                "label": "Frecuencia",
+                "detail": "0,2 eventos por año"
+              },
+              {
+                "label": "Esperado anual",
+                "detail": "5 000 × 0,2 = 1 000"
+              }
+            ],
+            "caption": "Las cifras son inventadas para practicar el cálculo y su interpretación."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Comparar una medida",
+        "scenario": "Un control hipotético de 300 anuales reduce la frecuencia estimada de 0,2 a0,1.",
+        "steps": [
+          {
+            "action": "Calcular antes",
+            "reason": "Se mantienen los mismos supuestos de pérdida.",
+            "result": "Esperado anual: 1 000."
+          },
+          {
+            "action": "Calcular después",
+            "reason": "Solo cambia la frecuencia del modelo.",
+            "result": "Esperado anual: 500."
+          },
+          {
+            "action": "Comparar coste",
+            "reason": "El ahorro estimado no garantiza resultados reales.",
+            "result": "Reducción esperada 500 menos coste300: beneficio estimado200."
+          }
+        ],
+        "result": "El modelo favorece la medida bajo esos supuestos y deja explícita la incertidumbre.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Comparar una medida",
+          "items": [
+            {
+              "label": "Calcular antes",
+              "detail": "Esperado anual: 1 000."
+            },
+            {
+              "label": "Calcular después",
+              "detail": "Esperado anual: 500."
+            },
+            {
+              "label": "Comparar coste",
+              "detail": "Reducción esperada 500 menos coste300: beneficio estimado200."
+            }
+          ],
+          "caption": "El modelo favorece la medida bajo esos supuestos y deja explícita la incertidumbre."
+        }
+      },
+      "practice": {
+        "task": "Calcula pérdida anual con valor10 000, fracción20 % y frecuencia0,5.",
+        "steps": [
+          "Calcula pérdida por evento.",
+          "Multiplica por frecuencia anual.",
+          "Explica por qué no es una factura segura."
+        ],
+        "expected": "Pérdida por evento2 000 y esperada anual1 000, bajo los supuestos."
+      },
+      "check": {
+        "question": "¿Qué significa una pérdida anual esperada de1 000?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que el modelo promedia1 000 al año, sin fijar cuándo ocurrirá una pérdida."
+          },
+          {
+            "id": "b",
+            "text": "Que siempre se perderán exactamente1 000."
+          },
+          {
+            "id": "c",
+            "text": "Que nunca se puede perder más de1 000."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La esperanza matemática resume un modelo; eventos individuales y resultados reales pueden diferir mucho."
+      },
+      "mistakes": [
+        {
+          "myth": "La cifra calculada elimina la incertidumbre.",
+          "correction": "Su calidad depende de datos, supuestos y consecuencias incluidas o excluidas."
+        }
+      ],
+      "recap": [
+        "Los números dependen de supuestos.",
+        "Pérdida esperada no es máximo ni predicción exacta.",
+        "La sensibilidad muestra qué supuestos cambian la decisión."
+      ],
+      "glossary": [
+        {
+          "term": "Pérdida esperada",
+          "definition": "Promedio estimado bajo un modelo y sus probabilidades."
+        },
+        {
+          "term": "Sensibilidad",
+          "definition": "Cambio del resultado cuando se modifica un supuesto."
+        }
+      ]
+    },
+    {
+      "dayId": "w32d5",
+      "title": "Tratamiento",
+      "lead": "Aceptar es una decisión explícita y revisable.",
+      "sections": [
+        {
+          "topic": "Aceptar, mitigar, evitar y transferir",
+          "explanation": [
+            "Tratar un riesgo implica elegir una respuesta deliberada. Mitigar reduce probabilidad o impacto mediante controles; evitar elimina la actividad o condición que origina el escenario; transferir desplaza parte de las consecuencias mediante un acuerdo; aceptar conserva el riesgo bajo una decisión autorizada. En la práctica pueden combinarse. Un seguro no evita por sí mismo una interrupción ni transfiere automáticamente obligaciones de proteger datos. Una aceptación no debería ser la ausencia de respuesta de alguien que nunca recibió el informe.",
+            "La opción adecuada depende de objetivos, coste, restricciones y riesgo residual. Evitar una aplicación puede eliminar su exposición, pero también una función necesaria. Mitigar con acceso restringido puede ser temporal mientras llega una corrección. Registra responsable, motivo, controles, revisión y condiciones que invalidan la decisión. Si aumenta la exposición o cambia el servicio, la aceptación anterior puede dejar de ser adecuada. El analista aporta evidencia y alternativas; la autoridad correspondiente decide qué riesgo puede asumir la organización."
+          ],
+          "analogy": "Ante una carretera peligrosa puedes cambiar ruta, mejorar protección, contratar cobertura o aceptar el trayecto informado; cada opción conserva límites.",
+          "keyPoints": [
+            "Aceptar es una decisión explícita y revisable.",
+            "Transferir consecuencias no elimina toda responsabilidad.",
+            "Las respuestas pueden combinarse."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Respuestas al riesgo",
+            "items": [
+              {
+                "label": "Mitigar",
+                "detail": "Reducir acceso al servicio"
+              },
+              {
+                "label": "Evitar",
+                "detail": "Retirar una función no necesaria"
+              },
+              {
+                "label": "Transferir",
+                "detail": "Acuerdo que cubra consecuencias definidas"
+              },
+              {
+                "label": "Aceptar",
+                "detail": "Decisión con dueño y revisión"
+              }
+            ],
+            "caption": "La selección requiere conocer requisitos y riesgo residual."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Servicio legado",
+        "scenario": "Una aplicación sin soporte es necesaria durante una transición de dos meses ficticios.",
+        "steps": [
+          {
+            "action": "Examinar opciones",
+            "reason": "Retirarla hoy impediría una función necesaria.",
+            "result": "Se documenta la restricción temporal."
+          },
+          {
+            "action": "Combinar medidas",
+            "reason": "Una aceptación sin controles deja más exposición.",
+            "result": "Se limita acceso y aumenta supervisión."
+          },
+          {
+            "action": "Asignar vencimiento",
+            "reason": "La transición tiene una fecha y dueño.",
+            "result": "La excepción exige revisión y retirada planificada."
+          }
+        ],
+        "result": "Se combina mitigación con una aceptación limitada, no una aprobación indefinida.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Servicio legado",
+          "items": [
+            {
+              "label": "Examinar opciones",
+              "detail": "Se documenta la restricción temporal."
+            },
+            {
+              "label": "Combinar medidas",
+              "detail": "Se limita acceso y aumenta supervisión."
+            },
+            {
+              "label": "Asignar vencimiento",
+              "detail": "La excepción exige revisión y retirada planificada."
+            }
+          ],
+          "caption": "Se combina mitigación con una aceptación limitada, no una aprobación indefinida."
+        }
+      },
+      "practice": {
+        "task": "Compara dos tratamientos para un servicio no esencial expuesto.",
+        "steps": [
+          "Describe el escenario.",
+          "Propón mitigación y evitación.",
+          "Explica qué función se perdería y quién decide."
+        ],
+        "expected": "Dos alternativas con consecuencias y riesgo restante."
+      },
+      "check": {
+        "question": "¿Qué caracteriza una aceptación de riesgo válida?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Silencio del dueño."
+          },
+          {
+            "id": "b",
+            "text": "Decisión autorizada, condiciones y revisión documentadas."
+          },
+          {
+            "id": "c",
+            "text": "Un ticket cerrado sin explicación."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Aceptar requiere que la autoridad conozca el escenario y mantenga condiciones y seguimiento."
+      },
+      "mistakes": [
+        {
+          "myth": "Comprar seguro elimina el riesgo técnico.",
+          "correction": "Puede cubrir consecuencias específicas; los controles y obligaciones restantes deben evaluarse."
+        }
+      ],
+      "recap": [
+        "Aceptar es una decisión explícita y revisable.",
+        "Transferir consecuencias no elimina toda responsabilidad.",
+        "Las respuestas pueden combinarse."
+      ],
+      "glossary": [
+        {
+          "term": "Tratamiento",
+          "definition": "Respuesta elegida ante un riesgo."
+        },
+        {
+          "term": "Transferencia",
+          "definition": "Acuerdo que desplaza determinadas consecuencias o responsabilidades, según sus términos."
+        }
+      ]
+    },
+    {
+      "dayId": "w32d6",
+      "title": "Caso de negocio",
+      "lead": "La necesidad precede a la herramienta.",
+      "sections": [
+        {
+          "topic": "Restricciones y prioridades",
+          "explanation": [
+            "Un caso de negocio conecta una necesidad de seguridad con un objetivo operativo. Describe problema, consecuencias, alternativas y recursos necesarios. No basta con pedir una herramienta porque aparece en un examen. Si el problema es detectar accesos indebidos a una aplicación, una compra solo sirve si recoge los eventos pertinentes, alguien la opera y se define una respuesta. Considera instalación, formación, mantenimiento y coste de dejar de hacer otras tareas, además del precio inicial.",
+            "Presenta supuestos e incertidumbres de manera visible. Una alternativa más barata puede requerir más trabajo manual; otra puede reducir ciertos riesgos y añadir dependencia de un proveedor. Define una prueba de éxito antes de recomendar. Por ejemplo, demostrar que una operación de prueba genera un registro consultable y que el responsable puede investigarla. Evita beneficios garantizados como eliminar incidentes. La decisión debe permitir comparar opciones y revisar después si se consiguió el resultado que justificó la inversión."
+          ],
+          "analogy": "Comprar una cámara no mejora una tienda si apunta al lugar equivocado y nadie revisa sus grabaciones.",
+          "keyPoints": [
+            "La necesidad precede a la herramienta.",
+            "Incluye coste de operación y dependencias.",
+            "Define una prueba de éxito medible."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Decisión de inversión",
+            "items": [
+              {
+                "label": "Problema",
+                "detail": "Falta visibilidad de exportaciones"
+              },
+              {
+                "label": "Alternativas",
+                "detail": "Registro nativo o plataforma adicional"
+              },
+              {
+                "label": "Coste total",
+                "detail": "Implementación y operación"
+              },
+              {
+                "label": "Éxito",
+                "detail": "Evento de prueba investigable"
+              }
+            ],
+            "caption": "Los importes y capacidades deben confirmarse antes de una compra real."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Elegir supervisión",
+        "scenario": "La aplicación ya ofrece auditoría, pero está deshabilitada; se propone comprar una plataforma.",
+        "steps": [
+          {
+            "action": "Examinar causa",
+            "reason": "La falta de eventos puede ser configuración.",
+            "result": "Se identifica auditoría disponible."
+          },
+          {
+            "action": "Comparar opciones",
+            "reason": "La compra no es la única respuesta.",
+            "result": "Se evalúan activación y necesidades de centralización."
+          },
+          {
+            "action": "Probar resultado",
+            "reason": "La propuesta debe demostrar utilidad.",
+            "result": "Un evento ficticio queda registrado y revisable."
+          }
+        ],
+        "result": "La recomendación responde a una necesidad comprobada, sin comprar por apariencia.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Elegir supervisión",
+          "items": [
+            {
+              "label": "Examinar causa",
+              "detail": "Se identifica auditoría disponible."
+            },
+            {
+              "label": "Comparar opciones",
+              "detail": "Se evalúan activación y necesidades de centralización."
+            },
+            {
+              "label": "Probar resultado",
+              "detail": "Un evento ficticio queda registrado y revisable."
+            }
+          ],
+          "caption": "La recomendación responde a una necesidad comprobada, sin comprar por apariencia."
+        }
+      },
+      "practice": {
+        "task": "Redacta una recomendación con dos alternativas para una brecha ficticia.",
+        "steps": [
+          "Describe objetivo y consecuencias.",
+          "Compara costes y dependencias sin inventar precios reales.",
+          "Define evidencia de éxito."
+        ],
+        "expected": "Una decisión sustentada en resultados, no en nombres comerciales."
+      },
+      "check": {
+        "question": "¿Qué dato fortalece más un caso de negocio?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Una lista de palabras de moda."
+          },
+          {
+            "id": "b",
+            "text": "Una promesa de cero incidentes."
+          },
+          {
+            "id": "c",
+            "text": "Una prueba que conecte la alternativa con el objetivo necesario."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La prueba muestra que la solución propuesta responde al problema concreto bajo sus condiciones."
+      },
+      "mistakes": [
+        {
+          "myth": "La opción con más funciones siempre es mejor.",
+          "correction": "Importan pertinencia, operación, coste total y requisitos reales."
+        }
+      ],
+      "recap": [
+        "La necesidad precede a la herramienta.",
+        "Incluye coste de operación y dependencias.",
+        "Define una prueba de éxito medible."
+      ],
+      "glossary": [
+        {
+          "term": "Caso de negocio",
+          "definition": "Justificación de una decisión según objetivos, opciones y recursos."
+        },
+        {
+          "term": "Coste total",
+          "definition": "Recursos necesarios durante implementación y operación, no solo compra."
+        }
+      ]
+    },
+    {
+      "dayId": "w32d7",
+      "title": "Evaluación de gobierno",
+      "lead": "Conecta requisito, control y decisión.",
+      "sections": [
+        {
+          "topic": "Políticas y decisiones",
+          "explanation": [
+            "En gobierno y riesgo, la calidad de una respuesta depende de autoridad, coherencia y evidencia. Ante un cambio urgente, identifica qué requisito aplica y quién puede aprobarlo. Ante un riesgo, describe escenario y tratamiento; ante una excepción, exige límites y revisión. No confundas resolver una pregunta de opción múltiple con tener permiso para ejecutar acciones. En el trabajo, una decisión técnica puede requerir coordinación con propietarios de servicio, privacidad, operaciones y otras funciones según el caso.",
+            "Para evaluar un escenario completo, sigue la cadena entre política, control, cambio y riesgo residual. Si una política exige acceso mínimo y un proveedor solicita privilegio global, la respuesta no es concederlo por comodidad. Pregunta qué operaciones necesita, qué alternativa existe y cómo se revisará. Una aprobación puede ser condicionada y temporal. El informe final debe mostrar qué se decidió, con qué evidencia y cuándo se comprobará. Esa trazabilidad permite aprender y corregir sin depender del recuerdo de una conversación."
+          ],
+          "analogy": "La decisión es una cadena: si falta un eslabón de autoridad o evidencia, el resultado no queda defendido.",
+          "keyPoints": [
+            "Conecta requisito, control y decisión.",
+            "Una excepción requiere límites y revisión.",
+            "La respuesta técnica no sustituye la autorización."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Decisión defendible",
+            "items": [
+              {
+                "label": "Requisito",
+                "detail": "Mínimo privilegio"
+              },
+              {
+                "label": "Solicitud",
+                "detail": "Acceso global del proveedor"
+              },
+              {
+                "label": "Alternativa",
+                "detail": "Permiso acotado y temporal"
+              },
+              {
+                "label": "Revisión",
+                "detail": "Prueba, dueño y vencimiento"
+              }
+            ],
+            "caption": "La autoridad decide con información sobre necesidades y riesgos."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Proveedor con acceso excesivo",
+        "scenario": "El proveedor solicita administración permanente para una tarea mensual de lectura.",
+        "steps": [
+          {
+            "action": "Precisar necesidad",
+            "reason": "La solicitud puede exceder la función.",
+            "result": "Se confirma lectura mensual."
+          },
+          {
+            "action": "Proponer menor alcance",
+            "reason": "La alternativa debe poder operar.",
+            "result": "Acceso de lectura limitado y revisado."
+          },
+          {
+            "action": "Documentar decisión",
+            "reason": "La permanencia exige justificación.",
+            "result": "Se aprueba alcance y revisión según política."
+          }
+        ],
+        "result": "La decisión mantiene la función con menor exposición y trazabilidad.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Proveedor con acceso excesivo",
+          "items": [
+            {
+              "label": "Precisar necesidad",
+              "detail": "Se confirma lectura mensual."
+            },
+            {
+              "label": "Proponer menor alcance",
+              "detail": "Acceso de lectura limitado y revisado."
+            },
+            {
+              "label": "Documentar decisión",
+              "detail": "Se aprueba alcance y revisión según política."
+            }
+          ],
+          "caption": "La decisión mantiene la función con menor exposición y trazabilidad."
+        }
+      },
+      "practice": {
+        "task": "Resuelve un conflicto entre una guía opcional y un estándar obligatorio.",
+        "steps": [
+          "Identifica autoridad y alcance.",
+          "Explica qué consulta necesita una excepción.",
+          "Escribe la evidencia que conservarías."
+        ],
+        "expected": "Una respuesta que no use recomendaciones para saltarse requisitos."
+      },
+      "check": {
+        "question": "¿Quién acepta el riesgo de una excepción?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Cualquiera que encuentre el ticket."
+          },
+          {
+            "id": "b",
+            "text": "La autoridad responsable definida por el gobierno aplicable."
+          },
+          {
+            "id": "c",
+            "text": "La herramienta de escaneo."
+          }
+        ],
+        "correct": "b",
+        "explanation": "El analista informa; la aceptación corresponde a quien tiene autoridad y responsabilidad para asumirla."
+      },
+      "mistakes": [
+        {
+          "myth": "Cerrar el ticket prueba que el riesgo fue aceptado.",
+          "correction": "El cierre debe referenciar la decisión autorizada, sus condiciones y revisión."
+        }
+      ],
+      "recap": [
+        "Conecta requisito, control y decisión.",
+        "Una excepción requiere límites y revisión.",
+        "La respuesta técnica no sustituye la autorización."
+      ],
+      "glossary": [
+        {
+          "term": "Gobierno",
+          "definition": "Estructura de autoridad, responsabilidad y supervisión."
+        },
+        {
+          "term": "Trazabilidad",
+          "definition": "Capacidad de seguir la relación entre evidencia, decisión y acción."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,957 @@
+{
+  "version": "2.0.0",
+  "week": 35,
+  "title": "Simulacros y ejercicios de desempeño",
+  "overview": "Los simulacros son instrumentos para descubrir errores y probar transferencia, no una garantía de aprobar. Esta semana usarás casos originales y registrarás precisión, tiempo y tipo de ayuda. Aprenderás a corregir la causa del fallo, practicar reglas y registros, y comparar intentos diferentes sin confundir memoria con competencia. Las duraciones propuestas son ejercicios personales; el formato, las reglas y la puntuación de un examen externo deben comprobarse con su proveedor antes de reservar.",
+  "objectives": [
+    "Clasificar errores de concepto, lectura, herramienta y tiempo.",
+    "Resolver ejercicios originales con evidencia y explicación.",
+    "Comparar intentos sin reutilizar respuestas memorizadas."
+  ],
+  "sources": [
+    {
+      "id": "controls",
+      "title": "NIST SP 800-53 — Security and Privacy Controls",
+      "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+    },
+    {
+      "id": "ir",
+      "title": "NIST SP 800-61r3 — Incident Response",
+      "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+    },
+    {
+      "id": "owasp",
+      "title": "OWASP — Web Security Testing Guide",
+      "url": "https://owasp.org/www-project-web-security-testing-guide/"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w35d1",
+      "title": "Simulacro inicial",
+      "lead": "El simulacro mide un intento bajo condiciones definidas.",
+      "sections": [
+        {
+          "topic": "Tiempo, lectura y tipos de error",
+          "explanation": [
+            "Un simulacro inicial produce una línea base de tu desempeño actual. Usa preguntas originales y tareas acordes con los objetivos elegidos, define una duración personal y evita consultar respuestas durante el intento. Registra qué respondiste, cuánto tardaste y en qué puntos necesitaste ayuda. La finalidad es diagnosticar, no fabricar una nota favorable. Una puntuación interna no se convierte automáticamente en la escala del examen externo y no debe presentarse como una probabilidad acreditada de aprobación.",
+            "Al revisar, distingue respuesta correcta por razonamiento de acierto por azar o reconocimiento. Clasifica fallos: concepto, lectura de condición, selección de herramienta, interpretación de evidencia o gestión del tiempo. Un mismo porcentaje puede esconder perfiles distintos. Si aciertas redes pero fallas autorización, el plan debe tratar esa brecha. Conserva el enunciado propio y tu explicación, porque la revisión del razonamiento enseña más que contar errores. No utilices material que infrinja las reglas del proveedor o exponga contenido protegido del examen."
+          ],
+          "analogy": "La línea base es una foto de entrenamiento: muestra dónde empezar a mejorar, no cómo terminará la competición.",
+          "keyPoints": [
+            "El simulacro mide un intento bajo condiciones definidas.",
+            "Clasifica causas además de contar fallos.",
+            "Una puntuación interna no equivale a la escala externa."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Diagnóstico inicial",
+            "items": [
+              {
+                "label": "Intento",
+                "detail": "Tareas originales y tiempo registrado"
+              },
+              {
+                "label": "Resultado",
+                "detail": "Aciertos, errores y dudas"
+              },
+              {
+                "label": "Causa",
+                "detail": "Concepto, lectura, método o tiempo"
+              },
+              {
+                "label": "Plan",
+                "detail": "Refuerzo específico"
+              }
+            ],
+            "caption": "La duración y puntuación del ejercicio no se presentan como formato oficial."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Doce preguntas propias",
+        "scenario": "Un intento ficticio acierta nueve de doce; dos fallos son de autorización y uno de lectura.",
+        "steps": [
+          {
+            "action": "Calcular resultado",
+            "reason": "La fracción describe este intento.",
+            "result": "Nueve entre doce:75 %."
+          },
+          {
+            "action": "Clasificar fallos",
+            "reason": "El porcentaje solo no indica causa.",
+            "result": "Dos conceptuales y uno de lectura."
+          },
+          {
+            "action": "Elegir refuerzo",
+            "reason": "La acción debe atacar la causa.",
+            "result": "Dos casos nuevos de autorización y una lectura estructurada."
+          }
+        ],
+        "result": "El resultado se convierte en un plan, sin equivalencia inventada con un examen.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Doce preguntas propias",
+          "items": [
+            {
+              "label": "Calcular resultado",
+              "detail": "Nueve entre doce:75 %."
+            },
+            {
+              "label": "Clasificar fallos",
+              "detail": "Dos conceptuales y uno de lectura."
+            },
+            {
+              "label": "Elegir refuerzo",
+              "detail": "Dos casos nuevos de autorización y una lectura estructurada."
+            }
+          ],
+          "caption": "El resultado se convierte en un plan, sin equivalencia inventada con un examen."
+        }
+      },
+      "practice": {
+        "task": "Haz un bloque de diez preguntas originales ya disponibles en la aplicación.",
+        "steps": [
+          "Anota condiciones y ayuda utilizada.",
+          "Clasifica cada error por causa.",
+          "Elige dos acciones de refuerzo."
+        ],
+        "expected": "Un registro de desempeño y un plan específico."
+      },
+      "check": {
+        "question": "¿Qué revela mejor un75 % interno?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La proporción acertada en ese ejercicio, bajo sus condiciones."
+          },
+          {
+            "id": "b",
+            "text": "La nota garantizada del examen externo."
+          },
+          {
+            "id": "c",
+            "text": "Que ya no necesitas practicar."
+          }
+        ],
+        "correct": "a",
+        "explanation": "El porcentaje describe ese conjunto; no acredita equivalencia ni predice por sí solo un examen distinto."
+      },
+      "mistakes": [
+        {
+          "myth": "Todo acierto demuestra dominio.",
+          "correction": "Puede ser azar o memoria; pide una justificación y un caso de transferencia."
+        }
+      ],
+      "recap": [
+        "El simulacro mide un intento bajo condiciones definidas.",
+        "Clasifica causas además de contar fallos.",
+        "Una puntuación interna no equivale a la escala externa."
+      ],
+      "glossary": [
+        {
+          "term": "Línea base",
+          "definition": "Medición inicial usada para comparar progreso."
+        },
+        {
+          "term": "Error de lectura",
+          "definition": "Fallo por interpretar mal una condición o lo solicitado."
+        }
+      ]
+    },
+    {
+      "dayId": "w35d2",
+      "title": "Corregir conceptos",
+      "lead": "Explica la causa de tu elección inicial.",
+      "sections": [
+        {
+          "topic": "Causa de cada fallo",
+          "explanation": [
+            "Corregir un concepto no consiste en copiar la respuesta correcta debajo de la incorrecta. Reconstruye qué pensaste, qué dato ignoraste y qué principio debía guiarte. Si elegiste cifrado para resolver una alteración no autorizada, pregunta qué propiedad querías proteger y qué aporta cada control. La explicación debe mostrar por qué una opción sirve y por qué otra, aunque sea una medida de seguridad real, no responde a la necesidad concreta. Ese contraste reduce errores por palabras familiares.",
+            "Después cambia el contexto manteniendo el principio. Si aprendiste autenticación frente a autorización con facturas, aplícalo a expedientes. Si solo reconoces la respuesta cuando se repite el ejemplo, todavía falta transferencia. Escribe una regla breve con su límite: una firma puede ayudar a verificar integridad y origen bajo condiciones adecuadas, pero no oculta el mensaje. Evita reglas absolutas que fallen al cambiar supuestos. La corrección termina con una tarea nueva sin consultar la explicación anterior."
+          ],
+          "analogy": "Reparar un cálculo exige encontrar el paso equivocado; escribir el resultado al final no corrige el método.",
+          "keyPoints": [
+            "Explica la causa de tu elección inicial.",
+            "Contrasta la respuesta correcta con distractores plausibles.",
+            "Cambia el contexto para comprobar transferencia."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Corrección profunda",
+            "items": [
+              {
+                "label": "Error",
+                "detail": "Elegir por una palabra familiar"
+              },
+              {
+                "label": "Principio",
+                "detail": "Identificar propiedad y necesidad"
+              },
+              {
+                "label": "Contraste",
+                "detail": "Explicar por qué otra opción no sirve"
+              },
+              {
+                "label": "Transferencia",
+                "detail": "Resolver un caso diferente"
+              }
+            ],
+            "caption": "Una corrección válida modifica el razonamiento, no solo la letra elegida."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Cifrar o firmar",
+        "scenario": "El caso exige verificar si un documento cambió, no mantenerlo secreto.",
+        "steps": [
+          {
+            "action": "Leer necesidad",
+            "reason": "Se busca detectar cambios de contenido.",
+            "result": "La propiedad principal es integridad."
+          },
+          {
+            "action": "Comparar controles",
+            "reason": "El cifrado no expresa por sí solo esa verificación del documento.",
+            "result": "Se estudian hash o firma según origen y confianza requeridos."
+          },
+          {
+            "action": "Probar límite",
+            "reason": "Una firma tampoco cifra automáticamente.",
+            "result": "El contenido podría seguir siendo legible."
+          }
+        ],
+        "result": "La elección depende de integridad, autenticidad y confianza, no de una palabra genérica como proteger.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Cifrar o firmar",
+          "items": [
+            {
+              "label": "Leer necesidad",
+              "detail": "La propiedad principal es integridad."
+            },
+            {
+              "label": "Comparar controles",
+              "detail": "Se estudian hash o firma según origen y confianza requeridos."
+            },
+            {
+              "label": "Probar límite",
+              "detail": "El contenido podría seguir siendo legible."
+            }
+          ],
+          "caption": "La elección depende de integridad, autenticidad y confianza, no de una palabra genérica como proteger."
+        }
+      },
+      "practice": {
+        "task": "Corrige un error propio con dos opciones plausibles.",
+        "steps": [
+          "Escribe el razonamiento equivocado.",
+          "Explica el principio correcto y su límite.",
+          "Crea un nuevo caso que use ese principio."
+        ],
+        "expected": "Una corrección que puedas defender sin mirar la respuesta."
+      },
+      "check": {
+        "question": "¿Cuándo está corregido un error conceptual?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Cuando memorizas la letra."
+          },
+          {
+            "id": "b",
+            "text": "Cuando puedes explicar el principio y aplicarlo en un caso nuevo."
+          },
+          {
+            "id": "c",
+            "text": "Cuando eliminas el intento fallido."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La explicación y transferencia muestran un cambio de comprensión, más allá de recordar una opción."
+      },
+      "mistakes": [
+        {
+          "myth": "El control más fuerte siempre responde mejor.",
+          "correction": "Debe responder a la propiedad y condición que el escenario necesita."
+        }
+      ],
+      "recap": [
+        "Explica la causa de tu elección inicial.",
+        "Contrasta la respuesta correcta con distractores plausibles.",
+        "Cambia el contexto para comprobar transferencia."
+      ],
+      "glossary": [
+        {
+          "term": "Distractor",
+          "definition": "Opción plausible que no resuelve la necesidad del caso."
+        },
+        {
+          "term": "Principio",
+          "definition": "Relación conceptual que guía decisiones en varios contextos."
+        }
+      ]
+    },
+    {
+      "dayId": "w35d3",
+      "title": "Ejercicios prácticos",
+      "lead": "Define entradas, objetivo y restricciones.",
+      "sections": [
+        {
+          "topic": "Reglas, registros y permisos",
+          "explanation": [
+            "Un ejercicio de desempeño pide producir o interpretar un resultado, no solo reconocer una definición. Puede ser una tabla de reglas, una cronología o una revisión de permisos. Empieza definiendo entradas, objetivo y restricciones. En una regla de firewall necesitas origen, destino, servicio y acción; en permisos necesitas identidad, recurso y operación. No ejecutes cambios reales para demostrar un concepto si puedes resolverlo con datos de laboratorio. La precisión de la explicación importa tanto como el formato final.",
+            "Valida tu resultado con casos positivos y negativos. Una regla que permite al usuario necesario pero también a toda internet no cumple el requisito de acceso limitado. Un filtro de logs puede devolver un resultado correcto por casualidad si el rango temporal está mal. Conserva una tabla pequeña de pruebas y resultados esperados. Si la herramienta utiliza una sintaxis concreta, comprueba su documentación: un filtro de visualización de una captura no es necesariamente un filtro de captura. Practica primero el razonamiento y después su traducción a la herramienta."
+          ],
+          "analogy": "Un plano de una puerta debe demostrar quién puede entrar y quién queda fuera, no solo que existe una cerradura.",
+          "keyPoints": [
+            "Define entradas, objetivo y restricciones.",
+            "Prueba permitidos y denegados.",
+            "La sintaxis depende de la herramienta concreta."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Regla de acceso",
+            "items": [
+              {
+                "label": "Necesario",
+                "detail": "Equipo10.0.0.8 al servidor10.0.1.5 por HTTPS"
+              },
+              {
+                "label": "No necesario",
+                "detail": "Cualquier equipo a cualquier puerto"
+              },
+              {
+                "label": "Validación",
+                "detail": "Caso permitido y caso bloqueado"
+              }
+            ],
+            "caption": "Las direcciones son de laboratorio y no una regla para aplicar a tu red real."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Acceso del analista",
+        "scenario": "Solo LAB-A debe consultar el portal de informes porHTTPS en el escenario ficticio.",
+        "steps": [
+          {
+            "action": "Especificar flujo",
+            "reason": "Una regla amplia excedería la necesidad.",
+            "result": "Origen LAB-A, destino portal, servicio HTTPS."
+          },
+          {
+            "action": "Probar permitido",
+            "reason": "Debe funcionar la tarea acordada.",
+            "result": "LAB-A puede consultar el portal."
+          },
+          {
+            "action": "Probar denegado",
+            "reason": "La restricción necesita comprobarse.",
+            "result": "LAB-B no obtiene ese acceso."
+          }
+        ],
+        "result": "La solución demuestra función y límite con dos pruebas.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Acceso del analista",
+          "items": [
+            {
+              "label": "Especificar flujo",
+              "detail": "Origen LAB-A, destino portal, servicio HTTPS."
+            },
+            {
+              "label": "Probar permitido",
+              "detail": "LAB-A puede consultar el portal."
+            },
+            {
+              "label": "Probar denegado",
+              "detail": "LAB-B no obtiene ese acceso."
+            }
+          ],
+          "caption": "La solución demuestra función y límite con dos pruebas."
+        }
+      },
+      "practice": {
+        "task": "Resuelve una tabla de permisos para dos usuarios y dos carpetas.",
+        "steps": [
+          "Define necesidades de lectura y escritura.",
+          "Asigna permisos mínimos.",
+          "Prueba una acción permitida y otra denegada por usuario."
+        ],
+        "expected": "Una tabla y cuatro pruebas coherentes."
+      },
+      "check": {
+        "question": "¿Qué prueba adicional necesita una regla que permite el acceso necesario?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ninguna."
+          },
+          {
+            "id": "b",
+            "text": "Que el nombre sea bonito."
+          },
+          {
+            "id": "c",
+            "text": "Que los accesos no permitidos queden bloqueados según el requisito."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La funcionalidad positiva no demuestra que el alcance se haya limitado correctamente."
+      },
+      "mistakes": [
+        {
+          "myth": "Si funciona para el usuario correcto, la regla ya es segura.",
+          "correction": "Comprueba también qué otros usuarios, destinos o servicios permite."
+        }
+      ],
+      "recap": [
+        "Define entradas, objetivo y restricciones.",
+        "Prueba permitidos y denegados.",
+        "La sintaxis depende de la herramienta concreta."
+      ],
+      "glossary": [
+        {
+          "term": "Prueba positiva",
+          "definition": "Caso que debe funcionar conforme al requisito."
+        },
+        {
+          "term": "Prueba negativa",
+          "definition": "Caso que debe ser rechazado conforme al requisito."
+        }
+      ]
+    },
+    {
+      "dayId": "w35d4",
+      "title": "Segundo simulacro",
+      "lead": "Usa tareas nuevas y condiciones registradas.",
+      "sections": [
+        {
+          "topic": "Transferencia y gestión del tiempo",
+          "explanation": [
+            "El segundo simulacro debe comprobar mejora y transferencia, no familiaridad con las mismas preguntas. Usa un conjunto distinto que cubra los objetivos revisados y registra condiciones comparables. Si cambias duración, nivel o ayudas, anótalo antes de comparar porcentajes. Una mejora aparente puede deberse a preguntas más fáciles o respuestas memorizadas. Examina también explicaciones, autonomía y distribución de errores. El progreso real puede incluir responder menos preguntas por azar y reconocer mejor la incertidumbre.",
+            "Gestionar tiempo significa evitar que un punto difícil absorba todo el intento de práctica. Define un límite personal por bloque y una forma de marcar dudas para volver, si el formato de tu ejercicio lo permite. No asumas que un examen externo permite los mismos movimientos: consulta sus reglas. Al terminar revisa dónde se fue el tiempo: lectura repetida, cálculo, desconocimiento o problema de interfaz. La acción de mejora debe corresponder a esa causa y verificarse con una nueva tarea."
+          ],
+          "analogy": "Volver a correr la misma ruta enseña, pero una ruta distinta comprueba si mejoró tu orientación y resistencia.",
+          "keyPoints": [
+            "Usa tareas nuevas y condiciones registradas.",
+            "Compara causas y autonomía además de porcentajes.",
+            "Adapta la gestión del tiempo a reglas verificadas."
+          ],
+          "visual": {
+            "type": "timeline",
+            "title": "Segundo intento",
+            "items": [
+              {
+                "label": "Antes",
+                "detail": "Definir condiciones comparables"
+              },
+              {
+                "label": "Durante",
+                "detail": "Registrar dudas y tiempos"
+              },
+              {
+                "label": "Después",
+                "detail": "Comparar distribución de errores"
+              },
+              {
+                "label": "Refuerzo",
+                "detail": "Atacar la causa que persiste"
+              }
+            ],
+            "caption": "La comparación no equivale a una predicción acreditada de aprobación."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Mejor nota, misma brecha",
+        "scenario": "El segundo bloque mejora de75 % a85 %, pero vuelve a fallar autorización por objeto.",
+        "steps": [
+          {
+            "action": "Mirar distribución",
+            "reason": "La media puede ocultar un patrón.",
+            "result": "Persiste la misma competencia débil."
+          },
+          {
+            "action": "Revisar razonamiento",
+            "reason": "Puede haber aprendizaje parcial.",
+            "result": "Se confunde identidad con permiso de recurso."
+          },
+          {
+            "action": "Diseñar nueva prueba",
+            "reason": "Repetir la misma pregunta no basta.",
+            "result": "Se usa un caso de expedientes con datos distintos."
+          }
+        ],
+        "result": "La mejora general no oculta la brecha que todavía necesita práctica.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Mejor nota, misma brecha",
+          "items": [
+            {
+              "label": "Mirar distribución",
+              "detail": "Persiste la misma competencia débil."
+            },
+            {
+              "label": "Revisar razonamiento",
+              "detail": "Se confunde identidad con permiso de recurso."
+            },
+            {
+              "label": "Diseñar nueva prueba",
+              "detail": "Se usa un caso de expedientes con datos distintos."
+            }
+          ],
+          "caption": "La mejora general no oculta la brecha que todavía necesita práctica."
+        }
+      },
+      "practice": {
+        "task": "Compara dos intentos tuyos con condiciones documentadas.",
+        "steps": [
+          "Anota cambios de ayuda y dificultad.",
+          "Agrupa errores por competencia.",
+          "Elige una brecha persistente para un caso nuevo."
+        ],
+        "expected": "Una comparación que explique diferencias sin exagerar conclusiones."
+      },
+      "check": {
+        "question": "¿Por qué no basta comparar dos porcentajes?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Porque los conjuntos y condiciones pueden ser distintos."
+          },
+          {
+            "id": "b",
+            "text": "Porque los porcentajes nunca sirven."
+          },
+          {
+            "id": "c",
+            "text": "Porque la nota mayor siempre es casualidad."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La comparación necesita contexto de dificultad, cobertura, ayudas y tipo de tarea."
+      },
+      "mistakes": [
+        {
+          "myth": "Una nota mayor elimina todas las brechas anteriores.",
+          "correction": "Revisa si los errores recurrentes continúan aunque suba el promedio."
+        }
+      ],
+      "recap": [
+        "Usa tareas nuevas y condiciones registradas.",
+        "Compara causas y autonomía además de porcentajes.",
+        "Adapta la gestión del tiempo a reglas verificadas."
+      ],
+      "glossary": [
+        {
+          "term": "Condiciones comparables",
+          "definition": "Factores de un ejercicio que permiten interpretar diferencias."
+        },
+        {
+          "term": "Brecha persistente",
+          "definition": "Competencia que sigue fallando en intentos distintos."
+        }
+      ]
+    },
+    {
+      "dayId": "w35d5",
+      "title": "Refuerzo específico",
+      "lead": "Define una competencia pequeña y observable.",
+      "sections": [
+        {
+          "topic": "Dominio más débil",
+          "explanation": [
+            "Un refuerzo específico empieza por una competencia concreta, no por un dominio demasiado amplio como redes. Si fallas reglas de acceso por no entender prefijos, practica pertenencia a subred; si confundes evento e incidente, clasifica evidencias y decisiones. Reduce la tarea hasta poder explicar el paso que falla. Después amplía gradualmente el contexto. Esta secuencia evita dedicar horas a repetir contenido que ya dominas mientras la dependencia básica permanece sin resolver.",
+            "Combina explicación breve, ejemplo resuelto y tarea independiente. En el ejemplo identifica el dato discriminante; en la práctica cambia ese dato y justifica si la respuesta varía. Registra ayuda utilizada y resultado. No marques dominio porque el primer caso salió bien: añade otro contexto para comprobar que no memorizaste una forma. El objetivo del bloque es una mejora observable en una tarea delimitada. La amplitud del examen se controla con la matriz de cobertura, no intentando resolver todas las brechas simultáneamente."
+          ],
+          "analogy": "Para reparar una bicicleta no desmontas toda la ciudad: localizas la pieza que causa el problema y pruebas la reparación.",
+          "keyPoints": [
+            "Define una competencia pequeña y observable.",
+            "Corrige dependencias antes de ampliar contexto.",
+            "Comprueba aprendizaje con una tarea sin guía."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Refuerzo dirigido",
+            "items": [
+              {
+                "label": "Error",
+                "detail": "IP fuera de la subred permitida"
+              },
+              {
+                "label": "Base",
+                "detail": "Comprender prefijo y rango"
+              },
+              {
+                "label": "Ejemplo",
+                "detail": "Calcular una red pequeña"
+              },
+              {
+                "label": "Transferencia",
+                "detail": "Aplicar otra dirección a la regla"
+              }
+            ],
+            "caption": "El refuerzo se centra en la causa y no repite un curso entero por defecto."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Regla10.0.0.0/24",
+        "scenario": "El estudiante cree que10.0.1.8 pertenece a la misma subred del ejemplo.",
+        "steps": [
+          {
+            "action": "Leer prefijo",
+            "reason": "/24 fija los primeros24 bits de red en este caso.",
+            "result": "La red es10.0.0.0/24."
+          },
+          {
+            "action": "Comparar dirección",
+            "reason": "El tercer octeto difiere.",
+            "result": "10.0.1.8 no pertenece a esa red."
+          },
+          {
+            "action": "Cambiar caso",
+            "reason": "Se verifica el principio sin repetir números.",
+            "result": "Se compara10.0.0.200 y sí pertenece."
+          }
+        ],
+        "result": "El fallo de firewall se trata reforzando pertenencia de subred.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Regla10.0.0.0/24",
+          "items": [
+            {
+              "label": "Leer prefijo",
+              "detail": "La red es10.0.0.0/24."
+            },
+            {
+              "label": "Comparar dirección",
+              "detail": "10.0.1.8 no pertenece a esa red."
+            },
+            {
+              "label": "Cambiar caso",
+              "detail": "Se compara10.0.0.200 y sí pertenece."
+            }
+          ],
+          "caption": "El fallo de firewall se trata reforzando pertenencia de subred."
+        }
+      },
+      "practice": {
+        "task": "Elige un error recurrente y diseña un bloque de veinte minutos de práctica personal.",
+        "steps": [
+          "Nombra el paso que falla.",
+          "Resuelve un ejemplo explicándolo.",
+          "Comprueba dos casos nuevos sin consultar."
+        ],
+        "expected": "Una mejora observable con sus límites anotados."
+      },
+      "check": {
+        "question": "¿Qué refuerzo es más preciso ante un error de pertenencia a subred?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ver cualquier video largo de redes."
+          },
+          {
+            "id": "b",
+            "text": "Practicar prefijos y comparar direcciones con casos nuevos."
+          },
+          {
+            "id": "c",
+            "text": "Memorizar únicamente la respuesta fallida."
+          }
+        ],
+        "correct": "b",
+        "explanation": "El refuerzo debe actuar sobre la dependencia concreta que produce el error observado."
+      },
+      "mistakes": [
+        {
+          "myth": "Más tiempo sobre cualquier tema corrige la brecha.",
+          "correction": "La pertinencia de la tarea y la comprobación del resultado importan además del tiempo."
+        }
+      ],
+      "recap": [
+        "Define una competencia pequeña y observable.",
+        "Corrige dependencias antes de ampliar contexto.",
+        "Comprueba aprendizaje con una tarea sin guía."
+      ],
+      "glossary": [
+        {
+          "term": "Dependencia de aprendizaje",
+          "definition": "Conocimiento previo necesario para una tarea posterior."
+        },
+        {
+          "term": "Práctica dirigida",
+          "definition": "Ejercicio elegido para corregir una competencia concreta."
+        }
+      ]
+    },
+    {
+      "dayId": "w35d6",
+      "title": "Tercer simulacro",
+      "lead": "La consistencia se prueba con contextos nuevos.",
+      "sections": [
+        {
+          "topic": "Consistencia y confianza",
+          "explanation": [
+            "Un tercer intento aporta información sobre consistencia cuando utiliza tareas nuevas y mantiene condiciones claras. Una sola buena nota puede depender de aciertos fáciles o azar. Busca si el razonamiento se mantiene entre contextos y si disminuyen los errores repetidos. La confianza útil coincide con evidencia: puedes explicar por qué una respuesta es adecuada y qué dato la cambiaría. La seguridad subjetiva, por sí sola, no demuestra competencia ni predice un resultado externo.",
+            "Antes de revisar soluciones, marca tu nivel de certeza por pregunta. Después compara certeza y resultado. Los errores con mucha confianza merecen atención porque pueden indicar conceptos mal asentados; los aciertos con mucha duda también necesitan consolidación. Evita convertir esa escala personal en una métrica científica de aprobación. Úsala para elegir tareas. En desempeño, revisa si puedes terminar con evidencia ordenada y límites claros, no solo si llegaste a una palabra clave dentro del tiempo."
+          ],
+          "analogy": "Una brújula bien calibrada no solo señala una dirección: su indicación coincide con referencias comprobables.",
+          "keyPoints": [
+            "La consistencia se prueba con contextos nuevos.",
+            "Confianza y precisión deben compararse.",
+            "Un error seguro puede revelar un concepto equivocado."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Certeza frente a resultado",
+            "items": [
+              {
+                "label": "Acierto seguro",
+                "detail": "Explicación comprobada"
+              },
+              {
+                "label": "Acierto dudoso",
+                "detail": "Consolidación pendiente"
+              },
+              {
+                "label": "Error seguro",
+                "detail": "Revisar supuesto conceptual"
+              },
+              {
+                "label": "Error dudoso",
+                "detail": "Falta de conocimiento o método"
+              }
+            ],
+            "caption": "La escala es una herramienta personal de diagnóstico, no una predicción oficial."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Error con certeza alta",
+        "scenario": "El estudiante está seguro de que un hash cifra un archivo y falla de nuevo.",
+        "steps": [
+          {
+            "action": "Identificar supuesto",
+            "reason": "No es solo un olvido de palabra.",
+            "result": "Confunde transformación con secreto."
+          },
+          {
+            "action": "Contrastar propiedades",
+            "reason": "Un hash no permite recuperar el original como un cifrado.",
+            "result": "Se separan integridad y confidencialidad."
+          },
+          {
+            "action": "Probar transferencia",
+            "reason": "Cambiar archivo evita memorizar el caso.",
+            "result": "Explica qué usaría para comparar bytes y qué para ocultar contenido."
+          }
+        ],
+        "result": "Se trata una creencia equivocada que una nota global podía ocultar.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Error con certeza alta",
+          "items": [
+            {
+              "label": "Identificar supuesto",
+              "detail": "Confunde transformación con secreto."
+            },
+            {
+              "label": "Contrastar propiedades",
+              "detail": "Se separan integridad y confidencialidad."
+            },
+            {
+              "label": "Probar transferencia",
+              "detail": "Explica qué usaría para comparar bytes y qué para ocultar contenido."
+            }
+          ],
+          "caption": "Se trata una creencia equivocada que una nota global podía ocultar."
+        }
+      },
+      "practice": {
+        "task": "Marca certeza antes de corregir cinco respuestas originales.",
+        "steps": [
+          "Usa una escala personal simple.",
+          "Compara certeza y resultado.",
+          "Explica un error seguro con un caso nuevo."
+        ],
+        "expected": "Una lista de refuerzos basada en razonamiento, no en sensación."
+      },
+      "check": {
+        "question": "¿Qué merece revisar un error repetido con certeza alta?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo la velocidad de escritura."
+          },
+          {
+            "id": "b",
+            "text": "Nada, la confianza es suficiente."
+          },
+          {
+            "id": "c",
+            "text": "El supuesto conceptual que produce la respuesta."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La confianza alta puede acompañar una idea equivocada; contrastar propiedades ayuda a corregirla."
+      },
+      "mistakes": [
+        {
+          "myth": "Sentirse preparado prueba que no quedan brechas.",
+          "correction": "La confianza debe apoyarse en tareas pertinentes y resultados consistentes."
+        }
+      ],
+      "recap": [
+        "La consistencia se prueba con contextos nuevos.",
+        "Confianza y precisión deben compararse.",
+        "Un error seguro puede revelar un concepto equivocado."
+      ],
+      "glossary": [
+        {
+          "term": "Calibración",
+          "definition": "Correspondencia entre confianza y resultados observados."
+        },
+        {
+          "term": "Consistencia",
+          "definition": "Desempeño que se mantiene en tareas diferentes bajo condiciones claras."
+        }
+      ]
+    },
+    {
+      "dayId": "w35d7",
+      "title": "Control de preparación",
+      "lead": "Decide con cobertura, autonomía y consistencia.",
+      "sections": [
+        {
+          "topic": "Cobertura, prácticas y puntuaciones",
+          "explanation": [
+            "El control de preparación reúne cobertura, desempeño, autonomía y condiciones del examen elegido. No existe una cifra interna que garantice aprobar una evaluación externa diferente. Revisa la matriz de objetivos, los casos prácticos y la causa de errores recientes. Si un dominio importante no tiene evidencia, una media alta en otros temas no lo reemplaza. Una decisión responsable puede ser continuar reforzando, cambiar fecha o presentar el examen cuando se cumplan criterios personales sustentados y condiciones oficiales verificadas.",
+            "Define esos criterios antes de mirar el último resultado para evitar mover la meta a conveniencia. Por ejemplo, explicar objetivos pendientes y resolver dos casos nuevos sin guía son comprobaciones más útiles que repetir preguntas hasta memorizar todas las letras. Considera logística, accesibilidad, descanso y herramientas permitidas según la modalidad real. Los recursos del curso son material de estudio; no deben usarse durante una evaluación si las reglas no lo autorizan. Documenta tu decisión con evidencia y las brechas que todavía aceptas reforzar."
+          ],
+          "analogy": "Preparar una salida al mar requiere revisar barco, ruta y condiciones; una buena maniobra aislada no sustituye el conjunto.",
+          "keyPoints": [
+            "Decide con cobertura, autonomía y consistencia.",
+            "No conviertas una nota interna en garantía externa.",
+            "Verifica reglas y logística de la modalidad elegida."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Decisión de preparación",
+            "items": [
+              {
+                "label": "Cobertura",
+                "detail": "Objetivos con evidencia pertinente"
+              },
+              {
+                "label": "Desempeño",
+                "detail": "Casos nuevos y errores revisados"
+              },
+              {
+                "label": "Autonomía",
+                "detail": "Ayuda registrada y limitada"
+              },
+              {
+                "label": "Decisión",
+                "detail": "Presentar o reforzar con razones"
+              }
+            ],
+            "caption": "La decisión es personal y sustentada; no certifica una probabilidad de aprobación."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Media alta con brecha",
+        "scenario": "El estudiante obtiene buenas notas, pero no puede interpretar permisos en un caso nuevo.",
+        "steps": [
+          {
+            "action": "Consultar matriz",
+            "reason": "La media oculta una competencia relevante.",
+            "result": "Existe brecha de autorización."
+          },
+          {
+            "action": "Pedir evidencia",
+            "reason": "Reconocer respuestas no demuestra autonomía.",
+            "result": "Se propone otro caso resuelto sin guía."
+          },
+          {
+            "action": "Decidir plan",
+            "reason": "La fecha no debe imponer una conclusión falsa.",
+            "result": "Se refuerza antes de confirmar la reserva."
+          }
+        ],
+        "result": "La decisión se apoya en una brecha observable, no solo en el último porcentaje.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Media alta con brecha",
+          "items": [
+            {
+              "label": "Consultar matriz",
+              "detail": "Existe brecha de autorización."
+            },
+            {
+              "label": "Pedir evidencia",
+              "detail": "Se propone otro caso resuelto sin guía."
+            },
+            {
+              "label": "Decidir plan",
+              "detail": "Se refuerza antes de confirmar la reserva."
+            }
+          ],
+          "caption": "La decisión se apoya en una brecha observable, no solo en el último porcentaje."
+        }
+      },
+      "practice": {
+        "task": "Escribe tus criterios personales de preparación.",
+        "steps": [
+          "Incluye cobertura oficial de la versión elegida.",
+          "Define evidencia práctica y autonomía.",
+          "Añade logística y una condición para seguir reforzando."
+        ],
+        "expected": "Una decisión razonada sin prometer un resultado externo."
+      },
+      "check": {
+        "question": "¿Qué permite concluir una nota interna alta?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que ese intento tuvo buen resultado bajo sus condiciones."
+          },
+          {
+            "id": "b",
+            "text": "Que cualquier examen externo está aprobado."
+          },
+          {
+            "id": "c",
+            "text": "Que no quedan temas débiles."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La nota pertenece a un conjunto y condiciones concretos; cobertura y transferencia requieren otras evidencias."
+      },
+      "mistakes": [
+        {
+          "myth": "La fecha de reserva demuestra preparación.",
+          "correction": "La reserva es una decisión logística, separada de la competencia demostrada."
+        }
+      ],
+      "recap": [
+        "Decide con cobertura, autonomía y consistencia.",
+        "No conviertas una nota interna en garantía externa.",
+        "Verifica reglas y logística de la modalidad elegida."
+      ],
+      "glossary": [
+        {
+          "term": "Criterio de preparación",
+          "definition": "Evidencia personal definida para decidir el siguiente paso."
+        },
+        {
+          "term": "Autonomía de desempeño",
+          "definition": "Capacidad de completar y defender una tarea sin ayuda necesaria."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,951 @@
+{
+  "version": "2.0.0",
+  "week": 16,
+  "title": "Diagnóstico y recuperación de redes",
+  "overview": "Esta semana reúne lo aprendido sobre redes para resolver fallos de manera ordenada. Trabajarás con configuraciones IP, respuestas DNS, servicios y capturas, buscando pruebas que distingan causas posibles. El énfasis está en explicar por qué haces cada comprobación y qué demuestra su resultado. También construirás un registro de tus brechas y una evaluación de etapa que combine conceptos con casos nuevos, sin confundir la nota interna con una garantía de certificación.",
+  "objectives": [
+    "Diagnosticar por capas con pruebas acotadas.",
+    "Interpretar configuraciones, DNS y conversaciones.",
+    "Evaluar brechas y resolver variantes sin ayuda."
+  ],
+  "sources": [
+    {
+      "id": "wireshark",
+      "title": "Wireshark: guía de usuario",
+      "url": "https://www.wireshark.org/docs/wsug_html/"
+    },
+    {
+      "id": "firewall",
+      "title": "Microsoft: Windows Firewall",
+      "url": "https://learn.microsoft.com/en-us/windows/security/operating-system-security/network-security/windows-firewall/"
+    },
+    {
+      "id": "tls",
+      "title": "IETF: especificación y estado de TLS",
+      "url": "https://www.rfc-editor.org/info/rfc8446"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w16d1",
+      "title": "Repaso por capas",
+      "lead": "Aísla la capa que falla antes de cambiar configuraciones.",
+      "sections": [
+        {
+          "topic": "Equipo, enlace, IP, DNS y aplicación",
+          "explanation": [
+            "Un diagnóstico por capas organiza pruebas desde el equipo hasta la aplicación. Primero verifica que el adaptador exista y tenga enlace; después revisa dirección, máscara y ruta. Luego comprueba resolución de nombres y, finalmente, el servicio concreto. El orden evita cambiar DNS cuando el cable está desconectado o reinstalar una aplicación cuando no existe un gateway válido.",
+            "Las pruebas deben modificar una sola hipótesis cada vez. Si un nombre falla pero su dirección conocida funciona para una prueba autorizada, DNS merece atención; no es todavía una prueba universal de que toda la red está sana. Algunas aplicaciones dependen del nombre para certificados o selección del sitio. Registra también qué significa cada resultado negativo: un ping sin respuesta puede deberse a que ICMP no está permitido, aunque otro servicio funcione."
+          ],
+          "analogy": "Diagnosticar una lámpara comienza por alimentación y conexión antes de reemplazar todas sus piezas.",
+          "keyPoints": [
+            "Formula una hipótesis por prueba.",
+            "Comprueba dependencias en un orden razonable.",
+            "Una prueba solo demuestra su alcance."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Dependencias de una conexión",
+            "items": [
+              {
+                "label": "Equipo y enlace",
+                "detail": "Adaptador disponible y conectado"
+              },
+              {
+                "label": "IP y ruta",
+                "detail": "Dirección válida y siguiente salto"
+              },
+              {
+                "label": "DNS",
+                "detail": "Nombre resuelto según lo esperado"
+              },
+              {
+                "label": "Aplicación",
+                "detail": "Servicio accesible y autorizado"
+              }
+            ],
+            "caption": "Cada capa utiliza servicios de las anteriores, pero puede fallar de forma independiente."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "El portal no abre",
+        "scenario": "Un equipo no puede usar ninguna aplicación de red.",
+        "steps": [
+          {
+            "action": "Inspeccionar enlace",
+            "reason": "Sin enlace no hay comunicación local.",
+            "result": "Adaptador desconectado"
+          },
+          {
+            "action": "Corregir la conexión propia",
+            "reason": "La causa observada precede a DNS.",
+            "result": "Enlace restablecido"
+          },
+          {
+            "action": "Repetir la prueba original",
+            "reason": "No basta con observar una luz.",
+            "result": "Portal accesible tras comprobar IP y DNS"
+          }
+        ],
+        "result": "La solución queda vinculada al síntoma y a una verificación completa.",
+        "visual": {
+          "type": "flow",
+          "title": "El portal no abre",
+          "items": [
+            {
+              "label": "Inspeccionar enlace",
+              "detail": "Adaptador desconectado"
+            },
+            {
+              "label": "Corregir la conexión propia",
+              "detail": "Enlace restablecido"
+            },
+            {
+              "label": "Repetir la prueba original",
+              "detail": "Portal accesible tras comprobar IP y DNS"
+            }
+          ],
+          "caption": "La solución queda vinculada al síntoma y a una verificación completa."
+        }
+      },
+      "practice": {
+        "task": "Diseña un árbol de diagnóstico de cuatro pasos.",
+        "steps": [
+          "Empieza por equipo y enlace.",
+          "Añade dirección, ruta y DNS.",
+          "Termina con el servicio original y un límite de cada prueba."
+        ],
+        "expected": "Un recorrido que evita saltar directamente a cambios invasivos."
+      },
+      "check": {
+        "question": "¿Qué implica que un ping no responda?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que no existe ningún servicio"
+          },
+          {
+            "id": "b",
+            "text": "Que esa prueba no recibió respuesta"
+          },
+          {
+            "id": "c",
+            "text": "Que DNS está averiado"
+          }
+        ],
+        "correct": "b",
+        "explanation": "ICMP puede estar filtrado; otras comunicaciones requieren sus propias comprobaciones."
+      },
+      "mistakes": [
+        {
+          "myth": "Una prueba exitosa certifica toda la red.",
+          "correction": "Cada prueba valida únicamente el flujo y las condiciones evaluados."
+        }
+      ],
+      "recap": [
+        "Formula una hipótesis por prueba.",
+        "Comprueba dependencias en un orden razonable.",
+        "Una prueba solo demuestra su alcance."
+      ],
+      "glossary": [
+        {
+          "term": "Dependencia",
+          "definition": "Servicio necesario para que otro funcione."
+        },
+        {
+          "term": "Hipótesis de diagnóstico",
+          "definition": "Causa posible que una prueba concreta intenta comprobar."
+        }
+      ]
+    },
+    {
+      "dayId": "w16d2",
+      "title": "Caso de IP",
+      "lead": "Lee dirección, máscara y gateway como un conjunto coherente.",
+      "sections": [
+        {
+          "topic": "Máscara, gateway y rutas",
+          "explanation": [
+            "Una dirección IPv4 no describe por sí sola la red local. La máscara o prefijo determina qué parte identifica la red, y la tabla de rutas decide cómo alcanzar otros destinos. Si un cliente 192.0.2.10/26 intenta llegar a 192.0.2.70, considera ese destino remoto porque pertenece a otra subred. Para comunicarse necesita una ruta adecuada y un siguiente salto alcanzable.",
+            "Una máscara equivocada puede hacer que el equipo busque por enlace local un destino que debería enviar al router. Un gateway fuera de la subred local también exige revisar el diseño antes de darlo por correcto. Compara la configuración observada con la asignación autorizada y con un equipo de referencia. No copies direcciones al azar: puedes crear un conflicto y ocultar el problema inicial. La corrección termina al repetir la conexión que motivó el diagnóstico."
+          ],
+          "analogy": "La máscara delimita tu barrio; la ruta indica por qué salida viajar cuando la dirección está fuera de él.",
+          "keyPoints": [
+            "Interpreta IP y prefijo juntos.",
+            "El siguiente salto debe ser alcanzable.",
+            "Evita crear conflictos al corregir una dirección."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Decisión de un cliente /26",
+            "items": [
+              {
+                "label": "Origen",
+                "detail": "192.0.2.10/26"
+              },
+              {
+                "label": "Destino",
+                "detail": "192.0.2.70: otra subred"
+              },
+              {
+                "label": "Ruta",
+                "detail": "Enviar al gateway local autorizado"
+              }
+            ],
+            "caption": "Los rangos /26 dividen el último octeto en bloques de 64 direcciones."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Máscara diferente al diseño",
+        "scenario": "El diseño usa /26, pero un cliente tiene /24.",
+        "steps": [
+          {
+            "action": "Comparar configuración",
+            "reason": "El prefijo observado cambia la decisión local.",
+            "result": "Cliente trata .70 como local"
+          },
+          {
+            "action": "Identificar ruta correcta",
+            "reason": "El destino está fuera de 192.0.2.0/26.",
+            "result": "Debe utilizar el gateway"
+          },
+          {
+            "action": "Corregir y validar",
+            "reason": "La nueva configuración debe coincidir con el diseño.",
+            "result": "Conexión de referencia y servicio verificados"
+          }
+        ],
+        "result": "La causa se explica por una decisión de encaminamiento distinta, no por una dirección «mala» aislada.",
+        "visual": {
+          "type": "flow",
+          "title": "Máscara diferente al diseño",
+          "items": [
+            {
+              "label": "Comparar configuración",
+              "detail": "Cliente trata .70 como local"
+            },
+            {
+              "label": "Identificar ruta correcta",
+              "detail": "Debe utilizar el gateway"
+            },
+            {
+              "label": "Corregir y validar",
+              "detail": "Conexión de referencia y servicio verificados"
+            }
+          ],
+          "caption": "La causa se explica por una decisión de encaminamiento distinta, no por una dirección «mala» aislada."
+        }
+      },
+      "practice": {
+        "task": "Analiza la comunicación desde 192.0.2.20/26 hacia el destino 192.0.2.80.",
+        "steps": [
+          "Calcula ambas subredes.",
+          "Indica si el destino es local.",
+          "Describe qué información necesitas sobre gateway y rutas."
+        ],
+        "expected": "Origen en .0/26, destino en .64/26 y necesidad de enrutamiento."
+      },
+      "check": {
+        "question": "Para 192.0.2.20/26, ¿192.0.2.80 es local?",
+        "options": [
+          {
+            "id": "a",
+            "text": "No, pertenece a otra subred"
+          },
+          {
+            "id": "b",
+            "text": "Sí, porque comparte los tres primeros octetos"
+          },
+          {
+            "id": "c",
+            "text": "Solo si usa HTTPS"
+          }
+        ],
+        "correct": "a",
+        "explanation": "El prefijo /26, no la apariencia de los octetos, determina la subred."
+      },
+      "mistakes": [
+        {
+          "myth": "Compartir 192.0.2 significa estar en la misma subred.",
+          "correction": "La máscara completa decide la pertenencia a la red."
+        }
+      ],
+      "recap": [
+        "Interpreta IP y prefijo juntos.",
+        "El siguiente salto debe ser alcanzable.",
+        "Evita crear conflictos al corregir una dirección."
+      ],
+      "glossary": [
+        {
+          "term": "Prefijo",
+          "definition": "Cantidad de bits que identifica la red."
+        },
+        {
+          "term": "Siguiente salto",
+          "definition": "Equipo al que se entrega un paquete para continuar su recorrido."
+        }
+      ]
+    },
+    {
+      "dayId": "w16d3",
+      "title": "Caso de DNS",
+      "lead": "Distingue un nombre incorrecto de un servidor DNS inaccesible.",
+      "sections": [
+        {
+          "topic": "Resolución y servidor",
+          "explanation": [
+            "DNS traduce nombres mediante consultas y respuestas que pueden pasar por cachés y servidores diferentes. Una aplicación que no resuelve un nombre puede tener un error de escritura, una respuesta negativa válida, un servidor inaccesible o una configuración incorrecta. No todas estas situaciones se corrigen cambiando el servidor DNS, y hacerlo sin autorización puede romper la resolución de nombres internos.",
+            "Investiga qué nombre exacto se consultó, qué servidor respondió y qué respuesta devolvió. Compara el resultado con la referencia esperada y observa el tiempo de respuesta. Una caché puede conservar datos anteriores durante su vigencia; borrar cachés indiscriminadamente elimina evidencia útil. Primero registra la situación. Si necesitas una consulta de diagnóstico, utiliza tu equipo o un entorno autorizado y evita publicar nombres internos o datos de infraestructura que no deban compartirse."
+          ],
+          "analogy": "Un directorio puede fallar porque el nombre está mal escrito, porque no existe una entrada o porque nadie contesta el teléfono.",
+          "keyPoints": [
+            "Registra nombre, servidor y respuesta.",
+            "No cambies DNS antes de identificar la causa.",
+            "La caché puede explicar diferencias temporales."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Preguntas para un fallo DNS",
+            "items": [
+              {
+                "label": "Consulta",
+                "detail": "Nombre exacto solicitado"
+              },
+              {
+                "label": "Servidor",
+                "detail": "Resolvedor utilizado por el cliente"
+              },
+              {
+                "label": "Respuesta",
+                "detail": "Dirección, respuesta negativa o tiempo agotado"
+              }
+            ],
+            "caption": "Cada resultado dirige la siguiente prueba hacia una causa diferente."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Nombre interno escrito con error",
+        "scenario": "El usuario escribe inventraio.example.org en vez de inventario.example.org.",
+        "steps": [
+          {
+            "action": "Comparar el texto",
+            "reason": "Una letra cambia el nombre consultado.",
+            "result": "Error tipográfico identificado"
+          },
+          {
+            "action": "Leer la respuesta",
+            "reason": "Una respuesta negativa puede ser correcta.",
+            "result": "El nombre erróneo no existe"
+          },
+          {
+            "action": "Repetir con referencia",
+            "reason": "No es necesario sustituir el resolvedor.",
+            "result": "El nombre esperado obtiene respuesta"
+          }
+        ],
+        "result": "El servicio DNS funcionaba; la consulta solicitaba otro nombre.",
+        "visual": {
+          "type": "flow",
+          "title": "Nombre interno escrito con error",
+          "items": [
+            {
+              "label": "Comparar el texto",
+              "detail": "Error tipográfico identificado"
+            },
+            {
+              "label": "Leer la respuesta",
+              "detail": "El nombre erróneo no existe"
+            },
+            {
+              "label": "Repetir con referencia",
+              "detail": "El nombre esperado obtiene respuesta"
+            }
+          ],
+          "caption": "El servicio DNS funcionaba; la consulta solicitaba otro nombre."
+        }
+      },
+      "practice": {
+        "task": "Describe tres causas distintas de fallo de nombres.",
+        "steps": [
+          "Incluye nombre inexistente.",
+          "Incluye servidor sin respuesta.",
+          "Incluye una respuesta almacenada diferente de la esperada."
+        ],
+        "expected": "Tres hipótesis con pruebas que no dependen de cambiar servidores al azar.",
+        "console": {
+          "language": "powershell",
+          "code": "Resolve-DnsName example.org",
+          "output": "Resultado variable según el resolvedor y el momento de la consulta.",
+          "explanation": "Consulta un dominio de documentación; registra el servidor y no supongas una dirección fija."
+        }
+      },
+      "check": {
+        "question": "¿Qué debes registrar antes de modificar DNS?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo la marca del router"
+          },
+          {
+            "id": "b",
+            "text": "La contraseña del usuario"
+          },
+          {
+            "id": "c",
+            "text": "Nombre consultado, servidor y respuesta"
+          }
+        ],
+        "correct": "c",
+        "explanation": "Estos datos permiten distinguir un error de consulta de uno de infraestructura."
+      },
+      "mistakes": [
+        {
+          "myth": "Una respuesta negativa significa que DNS está caído.",
+          "correction": "Puede ser una respuesta correcta para un nombre que no existe."
+        }
+      ],
+      "recap": [
+        "Registra nombre, servidor y respuesta.",
+        "No cambies DNS antes de identificar la causa.",
+        "La caché puede explicar diferencias temporales."
+      ],
+      "glossary": [
+        {
+          "term": "Resolvedor",
+          "definition": "Servicio que obtiene respuestas DNS para un cliente."
+        },
+        {
+          "term": "Caché DNS",
+          "definition": "Respuestas almacenadas temporalmente para reutilizarlas."
+        }
+      ]
+    },
+    {
+      "dayId": "w16d4",
+      "title": "Caso de servicio",
+      "lead": "Una red disponible no garantiza que el servicio esté escuchando ni que permita tu operación.",
+      "sections": [
+        {
+          "topic": "Puerto, proceso, firewall y permisos",
+          "explanation": [
+            "Para que una aplicación responda deben coincidir varias condiciones: un proceso escucha en una dirección y puerto, existe recorrido de red, los controles permiten el flujo y la aplicación autoriza la solicitud. Un error de conexión y un error de permisos son síntomas distintos. Si el servidor responde con un código de acceso denegado, ya has observado comunicación con alguna capa del servicio.",
+            "Acota primero el destino y protocolo correctos. Después compara estado del proceso, escucha, reglas y registros con una referencia válida. Un servicio puede escuchar solo en loopback y no aceptar conexiones remotas; otro puede estar activo pero depender de una base de datos caída. Evita desactivar todo el firewall como primera prueba. Una excepción temporal, si está autorizada, debe ser específica, registrada y reversible, y la validación final debe usar la operación original."
+          ],
+          "analogy": "Llegar al edificio no demuestra que la oficina esté abierta ni que tengas permiso para retirar un expediente.",
+          "keyPoints": [
+            "Distingue conexión, escucha y autorización.",
+            "Revisa la dirección donde escucha el proceso.",
+            "Comprueba dependencias y la operación original."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Condiciones para prestar un servicio",
+            "items": [
+              {
+                "label": "Proceso",
+                "detail": "Aplicación activa y escuchando"
+              },
+              {
+                "label": "Red",
+                "detail": "Ruta y control de tráfico correctos"
+              },
+              {
+                "label": "Identidad",
+                "detail": "Solicitud autenticada cuando corresponde"
+              },
+              {
+                "label": "Permiso",
+                "detail": "Operación autorizada por la aplicación"
+              }
+            ],
+            "caption": "El diagnóstico debe identificar qué condición no se cumple."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Aplicación accesible solo desde el servidor",
+        "scenario": "El servicio funciona localmente, pero no desde el cliente.",
+        "steps": [
+          {
+            "action": "Verificar escucha",
+            "reason": "La prueba local utiliza otra dirección.",
+            "result": "Proceso enlazado a loopback"
+          },
+          {
+            "action": "Comparar diseño",
+            "reason": "El servicio debe admitir clientes de laboratorio.",
+            "result": "Dirección de escucha no coincide"
+          },
+          {
+            "action": "Validar ajuste autorizado",
+            "reason": "No hace falta abrir todos los puertos.",
+            "result": "Escucha y regla específicas comprobadas"
+          }
+        ],
+        "result": "El problema se ubica en el alcance de escucha, sin asumir un bloqueo general.",
+        "visual": {
+          "type": "flow",
+          "title": "Aplicación accesible solo desde el servidor",
+          "items": [
+            {
+              "label": "Verificar escucha",
+              "detail": "Proceso enlazado a loopback"
+            },
+            {
+              "label": "Comparar diseño",
+              "detail": "Dirección de escucha no coincide"
+            },
+            {
+              "label": "Validar ajuste autorizado",
+              "detail": "Escucha y regla específicas comprobadas"
+            }
+          ],
+          "caption": "El problema se ubica en el alcance de escucha, sin asumir un bloqueo general."
+        }
+      },
+      "practice": {
+        "task": "Diferencia tres síntomas de servicio.",
+        "steps": [
+          "Describe conexión rechazada.",
+          "Describe tiempo de espera.",
+          "Describe respuesta de acceso denegado y su siguiente prueba."
+        ],
+        "expected": "Tres rutas de diagnóstico con varias causas posibles y evidencia requerida."
+      },
+      "check": {
+        "question": "Una respuesta HTTP 403 sugiere que…",
+        "options": [
+          {
+            "id": "a",
+            "text": "No hay enlace físico"
+          },
+          {
+            "id": "b",
+            "text": "Algún componente respondió y denegó el acceso"
+          },
+          {
+            "id": "c",
+            "text": "El puerto no existe"
+          }
+        ],
+        "correct": "b",
+        "explanation": "La respuesta demuestra comunicación HTTP, aunque todavía debas identificar qué componente tomó la decisión."
+      },
+      "mistakes": [
+        {
+          "myth": "Si un proceso está activo, su servicio funciona para todos.",
+          "correction": "Puede escuchar solo localmente, carecer de una dependencia o denegar operaciones."
+        }
+      ],
+      "recap": [
+        "Distingue conexión, escucha y autorización.",
+        "Revisa la dirección donde escucha el proceso.",
+        "Comprueba dependencias y la operación original."
+      ],
+      "glossary": [
+        {
+          "term": "Escucha",
+          "definition": "Estado de un proceso que acepta tráfico en un extremo local."
+        },
+        {
+          "term": "Dependencia de servicio",
+          "definition": "Componente que la aplicación necesita para completar su función."
+        }
+      ]
+    },
+    {
+      "dayId": "w16d5",
+      "title": "Caso de captura",
+      "lead": "Revisa tus filtros antes de afirmar que una conversación no aparece.",
+      "sections": [
+        {
+          "topic": "Filtros, conversaciones y tiempo",
+          "explanation": [
+            "Una captura es una observación parcial tomada desde una interfaz durante un intervalo. Su ausencia de paquetes puede deberse al lugar de captura, al momento elegido, a pérdidas durante la recolección o a filtros. Por eso, un diagnóstico responsable empieza documentando qué podía observar el sensor. Una captura desde el cliente y otra desde el servidor pueden mostrar conjuntos de paquetes diferentes.",
+            "Utiliza primero una vista general para identificar equipos y duración; luego acota la conversación que responde a tu pregunta. Cuando combines filtros, comprueba operadores y campos: ip.addr incluye ambos extremos IPv4, mientras ip.src solo selecciona origen. Retira temporalmente el filtro para comprobar que no ocultaste la respuesta. Anota el intervalo y usa tiempos coherentes con otras fuentes. No interpretes tráfico cifrado como si pudieras leer su contenido completo."
+          ],
+          "analogy": "Buscar con un filtro equivocado es como revisar un expediente de otro día y concluir que nadie visitó la oficina.",
+          "keyPoints": [
+            "Documenta alcance, interfaz e intervalo.",
+            "Comprueba campos y operadores del filtro.",
+            "Ausencia en una vista no demuestra ausencia global."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Revisión de una captura",
+            "items": [
+              {
+                "label": "Alcance",
+                "detail": "Interfaz e intervalo observados"
+              },
+              {
+                "label": "Selección",
+                "detail": "Filtro y conversación elegidos"
+              },
+              {
+                "label": "Contraste",
+                "detail": "Vista sin filtro y otra fuente"
+              }
+            ],
+            "caption": "La conclusión debe limitarse al tráfico que realmente pudo observarse."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Una respuesta aparentemente desaparecida",
+        "scenario": "El filtro solo muestra paquetes cuyo origen es el cliente.",
+        "steps": [
+          {
+            "action": "Leer el filtro",
+            "reason": "ip.src selecciona una sola dirección.",
+            "result": "Solo se ven solicitudes del cliente"
+          },
+          {
+            "action": "Ampliar selección",
+            "reason": "La respuesta tiene origen distinto.",
+            "result": "ip.addr permite observar ambos sentidos"
+          },
+          {
+            "action": "Correlacionar conversación",
+            "reason": "No basta encontrar cualquier respuesta.",
+            "result": "Extremos, puertos y tiempo coinciden"
+          }
+        ],
+        "result": "La respuesta estaba en el archivo, pero había quedado fuera de la vista seleccionada.",
+        "visual": {
+          "type": "flow",
+          "title": "Una respuesta aparentemente desaparecida",
+          "items": [
+            {
+              "label": "Leer el filtro",
+              "detail": "Solo se ven solicitudes del cliente"
+            },
+            {
+              "label": "Ampliar selección",
+              "detail": "ip.addr permite observar ambos sentidos"
+            },
+            {
+              "label": "Correlacionar conversación",
+              "detail": "Extremos, puertos y tiempo coinciden"
+            }
+          ],
+          "caption": "La respuesta estaba en el archivo, pero había quedado fuera de la vista seleccionada."
+        }
+      },
+      "practice": {
+        "task": "Revisa un filtro ficticio que oculta respuestas.",
+        "steps": [
+          "Explica la diferencia entre origen y cualquiera de los extremos.",
+          "Propón una selección de ambos sentidos.",
+          "Indica cómo verificarías que pertenecen a la misma conversación."
+        ],
+        "expected": "Una corrección de filtro con justificación y límites."
+      },
+      "check": {
+        "question": "¿Qué selecciona ip.src == 192.0.2.10?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo paquetes con ese origen IPv4"
+          },
+          {
+            "id": "b",
+            "text": "Todos los paquetes de la red"
+          },
+          {
+            "id": "c",
+            "text": "También cualquier paquete que tenga ese destino"
+          }
+        ],
+        "correct": "a",
+        "explanation": "El campo src filtra origen; ip.addr permite buscar la dirección en cualquiera de los dos extremos."
+      },
+      "mistakes": [
+        {
+          "myth": "El filtro es solo una comodidad y no afecta mis conclusiones.",
+          "correction": "La selección define qué evidencia observas y puede ocultar respuestas importantes."
+        }
+      ],
+      "recap": [
+        "Documenta alcance, interfaz e intervalo.",
+        "Comprueba campos y operadores del filtro.",
+        "Ausencia en una vista no demuestra ausencia global."
+      ],
+      "glossary": [
+        {
+          "term": "Punto de captura",
+          "definition": "Lugar e interfaz desde donde se observa tráfico."
+        },
+        {
+          "term": "Campo de filtro",
+          "definition": "Propiedad concreta evaluada por una expresión de selección."
+        }
+      ]
+    },
+    {
+      "dayId": "w16d6",
+      "title": "Refuerzo personal",
+      "lead": "Convierte tres errores propios en pruebas que puedas volver a resolver sin ayuda.",
+      "sections": [
+        {
+          "topic": "Tres lagunas de semanas 9 a 15",
+          "explanation": [
+            "El refuerzo eficaz comienza identificando una brecha específica, no repitiendo toda una semana. Un error conceptual significa que no puedes explicar una distinción, como VLAN frente a subred. Un error de herramienta aparece cuando entiendes la pregunta pero aplicas un filtro equivocado. Un error de interpretación ocurre cuando observas datos correctos y extraes una conclusión que no está sustentada.",
+            "Elige tres brechas de categorías diferentes y construye para cada una un caso pequeño con resultado comprobable. Resuélvelo primero con apoyo y después con datos distintos sin consultar la solución. Registrar únicamente que viste un video no demuestra transferencia. Anota qué cambió en tu razonamiento y qué dato te haría corregirlo. Si todavía dependes de pistas, conserva esa brecha abierta y vuelve a practicarla más adelante."
+          ],
+          "analogy": "Un entrenador corrige el movimiento que falla y luego cambia el ejercicio para comprobar que la mejora se mantiene.",
+          "keyPoints": [
+            "Clasifica la causa del error.",
+            "Usa una variante nueva para comprobar transferencia.",
+            "Mantén abiertas las brechas que dependen de pistas."
+          ],
+          "visual": {
+            "type": "cycle",
+            "title": "Un ciclo de refuerzo verificable",
+            "items": [
+              {
+                "label": "Error",
+                "detail": "Confundir subred y VLAN"
+              },
+              {
+                "label": "Explicación",
+                "detail": "Separar enlace y direccionamiento"
+              },
+              {
+                "label": "Variante",
+                "detail": "Resolver un diseño diferente"
+              },
+              {
+                "label": "Evidencia",
+                "detail": "Justificar rutas y permisos sin ayuda"
+              }
+            ],
+            "caption": "La mejora se comprueba al aplicar el concepto en condiciones nuevas."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Tres fallos de una evaluación",
+        "scenario": "Una persona calcula mal un prefijo, filtra solo un sentido y confunde HTTPS con legitimidad.",
+        "steps": [
+          {
+            "action": "Clasificar fallos",
+            "reason": "No requieren exactamente el mismo refuerzo.",
+            "result": "Cálculo, herramienta e interpretación"
+          },
+          {
+            "action": "Diseñar microcasos",
+            "reason": "Cada caso debe aislar una dificultad.",
+            "result": "Tres tareas breves con resultado definido"
+          },
+          {
+            "action": "Cambiar los datos",
+            "reason": "Evita memorizar la respuesta anterior.",
+            "result": "Soluciones nuevas justificadas sin pistas"
+          }
+        ],
+        "result": "La preparación se mide por autonomía explicada, no por repetir una nota alta conocida.",
+        "visual": {
+          "type": "flow",
+          "title": "Tres fallos de una evaluación",
+          "items": [
+            {
+              "label": "Clasificar fallos",
+              "detail": "Cálculo, herramienta e interpretación"
+            },
+            {
+              "label": "Diseñar microcasos",
+              "detail": "Tres tareas breves con resultado definido"
+            },
+            {
+              "label": "Cambiar los datos",
+              "detail": "Soluciones nuevas justificadas sin pistas"
+            }
+          ],
+          "caption": "La preparación se mide por autonomía explicada, no por repetir una nota alta conocida."
+        }
+      },
+      "practice": {
+        "task": "Crea tu registro de tres brechas.",
+        "steps": [
+          "Describe el error original con evidencia.",
+          "Diseña una tarea pequeña para cada causa.",
+          "Resuelve otra variante y registra la ayuda que necesitaste."
+        ],
+        "expected": "Tres brechas con criterio de cierre y resultado real."
+      },
+      "check": {
+        "question": "¿Qué demuestra mejor transferencia?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Repetir el mismo cuestionario de memoria"
+          },
+          {
+            "id": "b",
+            "text": "Aplicar el concepto a datos nuevos y justificarlo"
+          },
+          {
+            "id": "c",
+            "text": "Marcar todos los videos como vistos"
+          }
+        ],
+        "correct": "b",
+        "explanation": "Resolver una variante exige comprender la relación y no solo reconocer una respuesta."
+      },
+      "mistakes": [
+        {
+          "myth": "Estudiar más horas siempre corrige cualquier error.",
+          "correction": "El refuerzo debe atacar la causa concreta y comprobarse con una tarea nueva."
+        }
+      ],
+      "recap": [
+        "Clasifica la causa del error.",
+        "Usa una variante nueva para comprobar transferencia.",
+        "Mantén abiertas las brechas que dependen de pistas."
+      ],
+      "glossary": [
+        {
+          "term": "Brecha",
+          "definition": "Competencia concreta que todavía no puedes demostrar."
+        },
+        {
+          "term": "Transferencia",
+          "definition": "Aplicación de un conocimiento a una situación diferente."
+        }
+      ]
+    },
+    {
+      "dayId": "w16d7",
+      "title": "Examen de redes",
+      "lead": "Evalúa redes combinando preguntas de concepto con tres diagnósticos explicados.",
+      "sections": [
+        {
+          "topic": "Treinta preguntas y tres casos",
+          "explanation": [
+            "Un examen de redes útil no se limita a recordar puertos y definiciones. También exige interpretar una configuración, seguir un flujo y decidir qué prueba distingue dos causas posibles. Treinta preguntas pueden revelar patrones de error, pero su número no garantiza cobertura. Organízalas por equipos, direccionamiento, nombres, transporte, segmentación y web, y revisa qué competencias prácticas quedaron fuera.",
+            "Los tres casos deberían aportar evidencias distintas: una configuración IP, una consulta DNS y una captura o registro de servicio. En cada respuesta separa hecho, hipótesis, prueba y criterio de solución. Una respuesta parcialmente correcta merece un análisis de causa, no un cambio de letra sin explicación. La nota de una prueba interna ayuda a planificar el refuerzo, pero no equivale a un resultado garantizado en un examen externo."
+          ],
+          "analogy": "Una licencia de conducir combina conocimientos y situaciones reales; memorizar señales no demuestra cómo resolver un cruce.",
+          "keyPoints": [
+            "Distribuye preguntas por competencias.",
+            "Resuelve casos con hechos y pruebas.",
+            "Usa resultados para decidir el siguiente refuerzo."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Tres casos de cierre",
+            "items": [
+              {
+                "label": "Caso IP",
+                "detail": "Dirección, prefijo y siguiente salto"
+              },
+              {
+                "label": "Caso DNS",
+                "detail": "Nombre, resolvedor y respuesta"
+              },
+              {
+                "label": "Caso servicio",
+                "detail": "Conversación, escucha y permiso"
+              }
+            ],
+            "caption": "Cada caso requiere una conclusión sustentada y una limitación reconocida."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Tres síntomas con causas distintas",
+        "scenario": "Un cliente tiene máscara errónea, otro escribe mal un nombre y un tercero recibe 403.",
+        "steps": [
+          {
+            "action": "Separar evidencias",
+            "reason": "Los síntomas no pertenecen a una sola capa.",
+            "result": "IP, DNS y autorización identificados"
+          },
+          {
+            "action": "Proponer pruebas",
+            "reason": "Cada hipótesis necesita un contraste concreto.",
+            "result": "Configuración, consulta y política comparadas"
+          },
+          {
+            "action": "Verificar resultado",
+            "reason": "Una corrección solo vale si resuelve el síntoma.",
+            "result": "Servicio original y límites documentados"
+          }
+        ],
+        "result": "El cierre demuestra un método de diagnóstico además de conocimiento de términos.",
+        "visual": {
+          "type": "flow",
+          "title": "Tres síntomas con causas distintas",
+          "items": [
+            {
+              "label": "Separar evidencias",
+              "detail": "IP, DNS y autorización identificados"
+            },
+            {
+              "label": "Proponer pruebas",
+              "detail": "Configuración, consulta y política comparadas"
+            },
+            {
+              "label": "Verificar resultado",
+              "detail": "Servicio original y límites documentados"
+            }
+          ],
+          "caption": "El cierre demuestra un método de diagnóstico además de conocimiento de términos."
+        }
+      },
+      "practice": {
+        "task": "Prepara tu evaluación de etapa sin copiar preguntas oficiales.",
+        "steps": [
+          "Distribuye treinta preguntas originales entre seis competencias.",
+          "Resuelve tres casos con datos ficticios diferentes.",
+          "Clasifica errores y fija un criterio de refuerzo."
+        ],
+        "expected": "Un registro de cobertura, razonamiento y competencias que aún necesitan práctica."
+      },
+      "check": {
+        "question": "¿Qué debe acompañar una hipótesis de fallo de red?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Una prueba que pueda confirmarla o refutarla"
+          },
+          {
+            "id": "b",
+            "text": "Una reinstalación inmediata"
+          },
+          {
+            "id": "c",
+            "text": "Una afirmación de certeza absoluta"
+          }
+        ],
+        "correct": "a",
+        "explanation": "Una hipótesis sirve para guiar una prueba, no para sustituir evidencia."
+      },
+      "mistakes": [
+        {
+          "myth": "Una nota alta en preguntas conocidas demuestra dominio completo.",
+          "correction": "Comprueba también tareas nuevas y explica las limitaciones de la evaluación."
+        }
+      ],
+      "recap": [
+        "Distribuye preguntas por competencias.",
+        "Resuelve casos con hechos y pruebas.",
+        "Usa resultados para decidir el siguiente refuerzo."
+      ],
+      "glossary": [
+        {
+          "term": "Cobertura",
+          "definition": "Conjunto de competencias realmente evaluadas."
+        },
+        {
+          "term": "Criterio de solución",
+          "definition": "Resultado observable que indica que el problema original quedó resuelto."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,949 @@
+{
+  "version": "2.0.0",
+  "week": 14,
+  "title": "Segmentación y acceso de red",
+  "overview": "Esta semana transforma el concepto de red en decisiones de acceso. Aprenderás a separar visitantes, usuarios y servidores, relacionar VLAN con subredes y redactar reglas que respondan a una necesidad concreta. El objetivo no es bloquear todo, sino conservar los servicios útiles y limitar los movimientos innecesarios. Cada diseño se acompaña de pruebas positivas, pruebas negativas y evidencia que permite distinguir un bloqueo real de una avería ajena al control.",
+  "objectives": [
+    "Diseñar zonas y justificar sus flujos.",
+    "Interpretar reglas según el producto y el contexto.",
+    "Validar segmentación, Wi-Fi y acceso remoto con evidencia."
+  ],
+  "sources": [
+    {
+      "id": "firewall",
+      "title": "Microsoft: Windows Firewall",
+      "url": "https://learn.microsoft.com/en-us/windows/security/operating-system-security/network-security/windows-firewall/"
+    },
+    {
+      "id": "zt",
+      "title": "NIST SP 800-207: arquitectura de confianza cero",
+      "url": "https://csrc.nist.gov/pubs/sp/800/207/final"
+    },
+    {
+      "id": "wireshark",
+      "title": "Wireshark: guía de usuario",
+      "url": "https://www.wireshark.org/docs/wsug_html/"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w14d1",
+      "title": "Zonas de confianza",
+      "lead": "Separa los equipos según lo que necesitan alcanzar, no según su cercanía física.",
+      "sections": [
+        {
+          "topic": "Usuarios, invitados y servidores",
+          "explanation": [
+            "Una zona de confianza agrupa activos con necesidades y riesgos parecidos. Usuarios, visitantes y servidores no deberían compartir automáticamente todos los accesos. Un portátil de invitados necesita Internet, pero no el servidor de nómina. El límite entre zonas permite decidir qué comunicaciones tienen una justificación y observarlas. La confianza es una decisión de acceso concreta: estar conectado a la oficina no convierte un equipo en seguro.",
+            "Para diseñar zonas, identifica primero datos, propietarios y procesos. Después describe flujos con origen, destino y servicio. Un usuario puede consultar una aplicación por HTTPS sin poder administrar su base de datos. Coloca la aplicación y la base en zonas diferentes y autoriza únicamente su conexión necesaria. Finalmente comprueba tanto un acceso permitido como uno prohibido; el dibujo, por sí solo, no aplica ninguna restricción."
+          ],
+          "analogy": "Es como un edificio: recibir una credencial de visitante permite entrar al vestíbulo, no abrir el archivo de contabilidad.",
+          "keyPoints": [
+            "Una zona agrupa requisitos de acceso.",
+            "Cada flujo necesita una razón de negocio.",
+            "La separación debe verificarse técnicamente."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Tres zonas, tres necesidades",
+            "items": [
+              {
+                "label": "Invitados",
+                "detail": "Internet, sin acceso a datos internos"
+              },
+              {
+                "label": "Usuarios",
+                "detail": "HTTPS hacia la aplicación"
+              },
+              {
+                "label": "Servidores",
+                "detail": "Base accesible solo desde la aplicación"
+              }
+            ],
+            "caption": "Las flechas permitidas se definen explícitamente; no se supone comunicación entre todas las zonas."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Invitado frente al servidor de archivos",
+        "scenario": "Una empresa recibe visitantes con dispositivos personales.",
+        "steps": [
+          {
+            "action": "Definir necesidad",
+            "reason": "El visitante solo requiere conectividad pública.",
+            "result": "Invitados → Internet"
+          },
+          {
+            "action": "Restringir destino",
+            "reason": "El servidor contiene documentos internos.",
+            "result": "Invitados → servidor: denegado"
+          },
+          {
+            "action": "Validar desde ambos lados",
+            "reason": "Una política sin prueba puede estar mal aplicada.",
+            "result": "Navegación funciona; acceso interno falla"
+          }
+        ],
+        "result": "El visitante conserva su servicio sin recibir acceso a documentos corporativos.",
+        "visual": {
+          "type": "flow",
+          "title": "Invitado frente al servidor de archivos",
+          "items": [
+            {
+              "label": "Definir necesidad",
+              "detail": "Invitados → Internet"
+            },
+            {
+              "label": "Restringir destino",
+              "detail": "Invitados → servidor: denegado"
+            },
+            {
+              "label": "Validar desde ambos lados",
+              "detail": "Navegación funciona; acceso interno falla"
+            }
+          ],
+          "caption": "El visitante conserva su servicio sin recibir acceso a documentos corporativos."
+        }
+      },
+      "practice": {
+        "task": "Dibuja tres zonas para una pequeña biblioteca.",
+        "steps": [
+          "Enumera visitantes, personal y catálogo.",
+          "Escribe dos flujos permitidos con servicio.",
+          "Escribe un flujo prohibido y cómo lo comprobarías."
+        ],
+        "expected": "Un mapa con justificación para cada conexión y una prueba negativa."
+      },
+      "check": {
+        "question": "¿Qué flujo necesita un invitado que solo navega por Internet?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Acceso administrativo a los servidores"
+          },
+          {
+            "id": "b",
+            "text": "Acceso a Internet según la política"
+          },
+          {
+            "id": "c",
+            "text": "Acceso a todas las zonas"
+          }
+        ],
+        "correct": "b",
+        "explanation": "El permiso corresponde al servicio solicitado; no se extiende a servidores internos."
+      },
+      "mistakes": [
+        {
+          "myth": "Una red interna ya es una zona segura.",
+          "correction": "Un equipo interno puede estar comprometido; controla también los flujos internos."
+        }
+      ],
+      "recap": [
+        "Una zona agrupa requisitos de acceso.",
+        "Cada flujo necesita una razón de negocio.",
+        "La separación debe verificarse técnicamente."
+      ],
+      "glossary": [
+        {
+          "term": "Zona",
+          "definition": "Conjunto de activos sujetos a una política de comunicación."
+        },
+        {
+          "term": "Flujo",
+          "definition": "Comunicación identificada por origen, destino y servicio."
+        }
+      ]
+    },
+    {
+      "dayId": "w14d2",
+      "title": "VLAN y subred",
+      "lead": "Relaciona VLAN, subred y control de acceso sin confundir sus funciones.",
+      "sections": [
+        {
+          "topic": "Separación lógica y enrutamiento",
+          "explanation": [
+            "Una VLAN divide lógicamente un dominio de difusión de Ethernet. Una subred organiza direcciones IP y permite decidir si un destino es local o requiere un router. Frecuentemente se asigna una subred a cada VLAN, pero son conceptos de capas diferentes. Cambiar la etiqueta de VLAN no configura automáticamente las direcciones, el servidor DHCP ni una política de firewall.",
+            "Si el equipo A está en 192.0.2.0/26 y B en 192.0.2.64/26, la comunicación requiere enrutamiento entre esas redes. Un router o switch de capa tres puede realizarlo; las reglas deciden si se permite. Dos VLAN conectadas por un router que acepta cualquier tráfico quedan separadas en difusión, pero no aisladas frente al acceso. El diseño necesita coherencia entre puertos, etiquetas, direccionamiento, rutas y controles."
+          ],
+          "analogy": "Las VLAN son pisos distintos; el router es la escalera y la política decide qué puertas pueden cruzarse.",
+          "keyPoints": [
+            "VLAN pertenece al enlace y subred al direccionamiento.",
+            "Enrutar no equivale a autorizar.",
+            "DHCP, puertos y reglas deben coincidir."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Separación y comunicación",
+            "items": [
+              {
+                "label": "VLAN 10",
+                "detail": "Personal: 192.0.2.0/26"
+              },
+              {
+                "label": "Router",
+                "detail": "Enruta y aplica la política"
+              },
+              {
+                "label": "VLAN 20",
+                "detail": "Invitados: 192.0.2.64/26"
+              }
+            ],
+            "caption": "Se usan direcciones reservadas para documentación, no una red pública real."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Dos VLAN con acceso limitado",
+        "scenario": "El personal consulta una impresora, pero los invitados no deben alcanzarla.",
+        "steps": [
+          {
+            "action": "Ubicar activos",
+            "reason": "La impresora presta un servicio interno.",
+            "result": "Impresora en zona de personal"
+          },
+          {
+            "action": "Enrutar con reglas",
+            "reason": "La separación de enlace no basta.",
+            "result": "Invitados sin flujo hacia la impresora"
+          },
+          {
+            "action": "Comprobar direccionamiento",
+            "reason": "Una máscara errónea altera la decisión local.",
+            "result": "Cada cliente obtiene su subred y gateway correctos"
+          }
+        ],
+        "result": "La impresora sigue disponible para personal sin abrir un acceso general entre VLAN.",
+        "visual": {
+          "type": "flow",
+          "title": "Dos VLAN con acceso limitado",
+          "items": [
+            {
+              "label": "Ubicar activos",
+              "detail": "Impresora en zona de personal"
+            },
+            {
+              "label": "Enrutar con reglas",
+              "detail": "Invitados sin flujo hacia la impresora"
+            },
+            {
+              "label": "Comprobar direccionamiento",
+              "detail": "Cada cliente obtiene su subred y gateway correctos"
+            }
+          ],
+          "caption": "La impresora sigue disponible para personal sin abrir un acceso general entre VLAN."
+        }
+      },
+      "practice": {
+        "task": "Explica una conexión entre dos subredes en papel.",
+        "steps": [
+          "Asigna 192.0.2.0/26 a personal.",
+          "Asigna 192.0.2.64/26 a invitados.",
+          "Identifica el equipo que enruta y la regla que limita acceso."
+        ],
+        "expected": "Un recorrido con enlace, IP, salto de enrutamiento y decisión de acceso."
+      },
+      "check": {
+        "question": "¿Qué falta si dos VLAN pueden comunicarse libremente mediante un router?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Una política que limite los flujos"
+          },
+          {
+            "id": "b",
+            "text": "Otro nombre para cada VLAN"
+          },
+          {
+            "id": "c",
+            "text": "Una dirección MAC pública"
+          }
+        ],
+        "correct": "a",
+        "explanation": "La segmentación lógica necesita controles para limitar comunicaciones entre zonas."
+      },
+      "mistakes": [
+        {
+          "myth": "Dos VLAN siempre están aisladas.",
+          "correction": "Un equipo de capa tres puede conectarlas; revisa y prueba la política."
+        }
+      ],
+      "recap": [
+        "VLAN pertenece al enlace y subred al direccionamiento.",
+        "Enrutar no equivale a autorizar.",
+        "DHCP, puertos y reglas deben coincidir."
+      ],
+      "glossary": [
+        {
+          "term": "VLAN",
+          "definition": "Separación lógica de un dominio de difusión de Ethernet."
+        },
+        {
+          "term": "Enrutamiento",
+          "definition": "Selección del siguiente salto hacia otra red."
+        }
+      ]
+    },
+    {
+      "dayId": "w14d3",
+      "title": "Reglas de firewall",
+      "lead": "Lee una regla como una decisión completa, no como un número de puerto aislado.",
+      "sections": [
+        {
+          "topic": "Origen, destino, servicio, acción y orden",
+          "explanation": [
+            "Una regla de firewall describe tráfico y una acción. Debes leer origen, destino, protocolo, puerto o servicio, dirección de conexión y contexto. Permitir TCP 443 desde usuarios hacia una aplicación no significa permitir cualquier puerto desde cualquier equipo. También importa dónde se aplica la regla: perímetro, router interno, servidor o perfil del dispositivo pueden producir resultados diferentes.",
+            "El orden y la resolución de conflictos dependen del producto. Algunos firewalls evalúan listas ordenadas con primera coincidencia; otros combinan reglas con prioridades distintas. Nunca transfieras esa suposición a todos los sistemas, incluido Windows Firewall. Documenta el modelo de tu herramienta, el comportamiento por defecto y cómo trata el tráfico de respuesta. Una excepción amplia puede anular el objetivo de varias reglas más específicas."
+          ],
+          "analogy": "Una regla se parece a una autorización de entrega: quién envía, a qué puerta, qué paquete y en qué condiciones.",
+          "keyPoints": [
+            "Especifica origen, destino, servicio y acción.",
+            "Comprueba el modelo de evaluación del producto.",
+            "Distingue conexión iniciada y tráfico de respuesta."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Interpretación de una regla",
+            "items": [
+              {
+                "label": "Origen",
+                "detail": "Usuarios autorizados"
+              },
+              {
+                "label": "Destino",
+                "detail": "Aplicación de inventario"
+              },
+              {
+                "label": "Servicio",
+                "detail": "TCP 443"
+              },
+              {
+                "label": "Acción",
+                "detail": "Permitir y registrar según necesidad"
+              }
+            ],
+            "caption": "La política predeterminada y las excepciones determinan qué ocurre con los demás flujos."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Una excepción demasiado amplia",
+        "scenario": "Se propone permitir cualquier tráfico desde invitados para arreglar una página web.",
+        "steps": [
+          {
+            "action": "Precisar el síntoma",
+            "reason": "Solo falla el portal de visitantes.",
+            "result": "Destino y servicio identificados"
+          },
+          {
+            "action": "Reducir la excepción",
+            "reason": "No hacen falta recursos internos.",
+            "result": "Permiso al portal por HTTPS"
+          },
+          {
+            "action": "Revisar evaluación",
+            "reason": "Una regla previa puede cambiar el resultado.",
+            "result": "Pruebas positiva y negativa documentadas"
+          }
+        ],
+        "result": "La regla responde a la necesidad real sin abrir toda la zona.",
+        "visual": {
+          "type": "flow",
+          "title": "Una excepción demasiado amplia",
+          "items": [
+            {
+              "label": "Precisar el síntoma",
+              "detail": "Destino y servicio identificados"
+            },
+            {
+              "label": "Reducir la excepción",
+              "detail": "Permiso al portal por HTTPS"
+            },
+            {
+              "label": "Revisar evaluación",
+              "detail": "Pruebas positiva y negativa documentadas"
+            }
+          ],
+          "caption": "La regla responde a la necesidad real sin abrir toda la zona."
+        }
+      },
+      "practice": {
+        "task": "Redacta una regla para consultar una aplicación interna.",
+        "steps": [
+          "Nombra un grupo de origen concreto.",
+          "Indica destino y servicio necesarios.",
+          "Describe qué queda denegado y qué registro esperarías."
+        ],
+        "expected": "Una política verificable sin expresiones ambiguas como «abrir Internet»."
+      },
+      "check": {
+        "question": "¿Qué dato es necesario además de TCP 443?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El color del servidor"
+          },
+          {
+            "id": "b",
+            "text": "El nombre del navegador"
+          },
+          {
+            "id": "c",
+            "text": "El origen y destino autorizados"
+          }
+        ],
+        "correct": "c",
+        "explanation": "El puerto no identifica por sí solo quién puede comunicarse con quién."
+      },
+      "mistakes": [
+        {
+          "myth": "Todos los firewalls usan primera coincidencia.",
+          "correction": "El modelo de prioridad y conflictos depende del producto y debe consultarse."
+        }
+      ],
+      "recap": [
+        "Especifica origen, destino, servicio y acción.",
+        "Comprueba el modelo de evaluación del producto.",
+        "Distingue conexión iniciada y tráfico de respuesta."
+      ],
+      "glossary": [
+        {
+          "term": "Regla",
+          "definition": "Condición de tráfico asociada a una acción."
+        },
+        {
+          "term": "Política predeterminada",
+          "definition": "Decisión aplicada cuando no existe un permiso o una regla pertinente."
+        }
+      ]
+    },
+    {
+      "dayId": "w14d4",
+      "title": "Prueba de reglas",
+      "lead": "Una prueba negativa demuestra un límite que una prueba exitosa no puede demostrar.",
+      "sections": [
+        {
+          "topic": "Permitir, bloquear y registrar",
+          "explanation": [
+            "Validar una regla exige diseñar casos antes del cambio. Una prueba positiva comprueba que el servicio permitido funciona desde el origen correcto. Una negativa comprueba que un flujo prohibido no funciona. Un fallo, sin embargo, no demuestra automáticamente que el firewall lo bloqueó: el servicio podría estar apagado, la ruta podría faltar o el cliente podría usar otro destino.",
+            "Relaciona el resultado observado con registros de la herramienta y con el estado del servicio. Anota hora, origen, destino, protocolo y acción esperada. Repite una prueba de referencia para confirmar que la aplicación está sana. En producción, las pruebas y los cambios requieren autorización, ventana y reversión; en el laboratorio usa servicios propios. Conserva evidencia suficiente para que otra persona reproduzca la conclusión sin adivinar lo que hiciste."
+          ],
+          "analogy": "Comprobar una cerradura implica verificar que la llave autorizada abre y que otra no abre, con la puerta en buen estado.",
+          "keyPoints": [
+            "Prueba permisos y prohibiciones.",
+            "Un fallo puede tener varias causas.",
+            "Correlaciona observación, estado y registro."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Dos pruebas complementarias",
+            "items": [
+              {
+                "label": "Positiva",
+                "detail": "Personal → aplicación: éxito"
+              },
+              {
+                "label": "Negativa",
+                "detail": "Invitado → aplicación: bloqueo"
+              },
+              {
+                "label": "Correlación",
+                "detail": "Registro coincide con origen y hora"
+              }
+            ],
+            "caption": "El control se confirma por evidencia concordante, no únicamente por un mensaje de error."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Validación de la zona de invitados",
+        "scenario": "Una regla debe bloquear a visitantes sin afectar al personal.",
+        "steps": [
+          {
+            "action": "Verificar servicio",
+            "reason": "Descarta una aplicación apagada.",
+            "result": "Personal obtiene respuesta normal"
+          },
+          {
+            "action": "Probar visitante",
+            "reason": "Evalúa el flujo expresamente prohibido.",
+            "result": "El acceso no se establece"
+          },
+          {
+            "action": "Correlacionar registro",
+            "reason": "Distingue bloqueo de otros fallos.",
+            "result": "Entrada de denegación con la misma hora y origen"
+          }
+        ],
+        "result": "Las tres observaciones sustentan que la regla funciona en ese alcance.",
+        "visual": {
+          "type": "flow",
+          "title": "Validación de la zona de invitados",
+          "items": [
+            {
+              "label": "Verificar servicio",
+              "detail": "Personal obtiene respuesta normal"
+            },
+            {
+              "label": "Probar visitante",
+              "detail": "El acceso no se establece"
+            },
+            {
+              "label": "Correlacionar registro",
+              "detail": "Entrada de denegación con la misma hora y origen"
+            }
+          ],
+          "caption": "Las tres observaciones sustentan que la regla funciona en ese alcance."
+        }
+      },
+      "practice": {
+        "task": "Crea una matriz de pruebas de una regla imaginaria.",
+        "steps": [
+          "Escribe dos casos permitidos y dos prohibidos.",
+          "Asigna un resultado y un registro esperados.",
+          "Añade una causa alternativa para cada fallo."
+        ],
+        "expected": "Cuatro casos con evidencia verificable y una estrategia para descartar falsas conclusiones."
+      },
+      "check": {
+        "question": "Una conexión falla. ¿Qué puedes concluir de inmediato?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que el firewall funciona"
+          },
+          {
+            "id": "b",
+            "text": "Que falló la conexión, pero falta determinar la causa"
+          },
+          {
+            "id": "c",
+            "text": "Que el servidor fue atacado"
+          }
+        ],
+        "correct": "b",
+        "explanation": "El síntoma no identifica la capa responsable; necesitas pruebas adicionales."
+      },
+      "mistakes": [
+        {
+          "myth": "Si el acceso prohibido falla, la política quedó demostrada.",
+          "correction": "Comprueba que el destino estaba disponible y que el control registró ese flujo."
+        }
+      ],
+      "recap": [
+        "Prueba permisos y prohibiciones.",
+        "Un fallo puede tener varias causas.",
+        "Correlaciona observación, estado y registro."
+      ],
+      "glossary": [
+        {
+          "term": "Prueba positiva",
+          "definition": "Caso que debe estar permitido."
+        },
+        {
+          "term": "Prueba negativa",
+          "definition": "Caso que debe estar impedido por la política."
+        }
+      ]
+    },
+    {
+      "dayId": "w14d5",
+      "title": "Wi-Fi",
+      "lead": "Protege la conexión inalámbrica y también los permisos que existen después de conectarse.",
+      "sections": [
+        {
+          "topic": "Cifrado, autenticación y red de invitados",
+          "explanation": [
+            "Una red Wi-Fi combina radio, autenticación y protección del enlace. El nombre de red, o SSID, ayuda a elegir una red, pero no prueba su legitimidad. El método de seguridad determina cómo se establece el acceso y se protege el tráfico inalámbrico. Utiliza configuraciones admitidas por equipos actuales y sigue las recomendaciones del fabricante; ocultar el nombre o filtrar direcciones MAC no sustituye una autenticación sólida.",
+            "La red de invitados debe limitar su acceso a los servicios necesarios y estar separada de recursos internos. Cambia credenciales iniciales del dispositivo y protege su administración. La seguridad del enlace no garantiza que un sitio web sea confiable ni sustituye HTTPS. Considera cobertura, actualizaciones y convivencia de equipos antiguos: una opción de compatibilidad puede introducir riesgos que deben conocerse, no activarse automáticamente para resolver cualquier conexión."
+          ],
+          "analogy": "La clave de Wi-Fi abre la entrada del recinto; no debería abrir cada oficina dentro del edificio.",
+          "keyPoints": [
+            "SSID no es prueba de identidad.",
+            "Cifrado del enlace y HTTPS protegen tramos distintos.",
+            "Invitados necesitan aislamiento y administración protegida."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Protecciones inalámbricas",
+            "items": [
+              {
+                "label": "Acceso",
+                "detail": "Autenticar al dispositivo o usuario"
+              },
+              {
+                "label": "Enlace",
+                "detail": "Proteger el tramo de radio"
+              },
+              {
+                "label": "Zonas",
+                "detail": "Restringir recursos internos"
+              },
+              {
+                "label": "Aplicación",
+                "detail": "Usar HTTPS y verificar el servicio"
+              }
+            ],
+            "caption": "Ninguna capa elimina la necesidad de las demás."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Una cafetería con oficina interna",
+        "scenario": "La cafetería comparte conexión con clientes y empleados.",
+        "steps": [
+          {
+            "action": "Separar usos",
+            "reason": "Los clientes no necesitan caja ni archivos.",
+            "result": "SSID de invitados con zona independiente"
+          },
+          {
+            "action": "Proteger administración",
+            "reason": "El panel no debe exponerse a visitantes.",
+            "result": "Acceso administrativo restringido"
+          },
+          {
+            "action": "Verificar aislamiento",
+            "reason": "Un nombre diferente no garantiza separación.",
+            "result": "Cliente navega pero no alcanza los recursos internos"
+          }
+        ],
+        "result": "El servicio público conserva utilidad mientras reduce exposición del negocio.",
+        "visual": {
+          "type": "flow",
+          "title": "Una cafetería con oficina interna",
+          "items": [
+            {
+              "label": "Separar usos",
+              "detail": "SSID de invitados con zona independiente"
+            },
+            {
+              "label": "Proteger administración",
+              "detail": "Acceso administrativo restringido"
+            },
+            {
+              "label": "Verificar aislamiento",
+              "detail": "Cliente navega pero no alcanza los recursos internos"
+            }
+          ],
+          "caption": "El servicio público conserva utilidad mientras reduce exposición del negocio."
+        }
+      },
+      "practice": {
+        "task": "Inspecciona únicamente la configuración de tu propio router.",
+        "steps": [
+          "Anota método de seguridad y versión de firmware.",
+          "Identifica si existe red de invitados y qué aísla.",
+          "Propón una mejora sin cambiar la configuración todavía."
+        ],
+        "expected": "Una revisión documentada con límites y una mejora justificada."
+      },
+      "check": {
+        "question": "¿Qué demuestra que una red tiene el nombre correcto?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo que anuncia ese nombre"
+          },
+          {
+            "id": "b",
+            "text": "Que pertenece necesariamente a la empresa"
+          },
+          {
+            "id": "c",
+            "text": "Que todos sus sitios son seguros"
+          }
+        ],
+        "correct": "a",
+        "explanation": "El SSID puede ser imitado; el nombre por sí solo no autentica al operador."
+      },
+      "mistakes": [
+        {
+          "myth": "Una contraseña de Wi-Fi fuerte vuelve confiable cualquier página.",
+          "correction": "La seguridad del enlace no certifica la aplicación ni su contenido."
+        }
+      ],
+      "recap": [
+        "SSID no es prueba de identidad.",
+        "Cifrado del enlace y HTTPS protegen tramos distintos.",
+        "Invitados necesitan aislamiento y administración protegida."
+      ],
+      "glossary": [
+        {
+          "term": "SSID",
+          "definition": "Nombre anunciado para identificar una red inalámbrica."
+        },
+        {
+          "term": "Red de invitados",
+          "definition": "Acceso separado con permisos limitados para visitantes."
+        }
+      ]
+    },
+    {
+      "dayId": "w14d6",
+      "title": "VPN y acceso remoto",
+      "lead": "Un túnel cifra un recorrido; la identidad y los permisos deciden qué se puede hacer al terminarlo.",
+      "sections": [
+        {
+          "topic": "Túnel, identidad y límites",
+          "explanation": [
+            "Una VPN establece un túnel protegido entre extremos definidos. Puede conectar un equipo remoto a una organización o unir redes. Debes saber qué tráfico entra al túnel y dónde termina la protección. En túnel dividido, una parte del tráfico sigue otra ruta; en túnel completo, se envía hacia la infraestructura indicada. Ninguno de los dos modelos garantiza que el dispositivo remoto esté sano.",
+            "El acceso remoto requiere autenticación, autorización, actualizaciones y registros además del cifrado. Un usuario de soporte no necesita acceso ilimitado a toda la red. Un punto de salto administrado puede concentrar la entrada y registrar sesiones, pero también necesita endurecimiento y control. No expongas interfaces de administración innecesariamente. Al cerrar o revocar una cuenta, comprueba también sesiones activas y credenciales persistentes para que el acceso termine realmente."
+          ],
+          "analogy": "Una VPN es un pasillo protegido: llegar al final no concede una llave maestra para todas las habitaciones.",
+          "keyPoints": [
+            "Identifica extremos y rutas del túnel.",
+            "El cifrado no sustituye autorización.",
+            "Revocar acceso incluye sesiones activas."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Acceso remoto controlado",
+            "items": [
+              {
+                "label": "Usuario",
+                "detail": "Identidad y dispositivo verificados"
+              },
+              {
+                "label": "VPN",
+                "detail": "Túnel hacia un extremo autorizado"
+              },
+              {
+                "label": "Control",
+                "detail": "Permisos mínimos por servicio"
+              },
+              {
+                "label": "Registro",
+                "detail": "Sesión y acciones observables"
+              }
+            ],
+            "caption": "El túnel reduce exposición en tránsito; los permisos limitan el destino alcanzable."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Soporte remoto a una aplicación",
+        "scenario": "Una persona externa debe mantener un único servidor durante una ventana acordada.",
+        "steps": [
+          {
+            "action": "Acotar acceso",
+            "reason": "La tarea no requiere toda la red.",
+            "result": "Cuenta y destino específicos"
+          },
+          {
+            "action": "Establecer protección",
+            "reason": "El acceso debe protegerse y observarse.",
+            "result": "MFA, túnel y punto de salto autorizado"
+          },
+          {
+            "action": "Cerrar la ventana",
+            "reason": "Una excepción permanente amplía exposición.",
+            "result": "Sesión finalizada y acceso retirado"
+          }
+        ],
+        "result": "La persona completa el mantenimiento con un acceso limitado y trazable.",
+        "visual": {
+          "type": "flow",
+          "title": "Soporte remoto a una aplicación",
+          "items": [
+            {
+              "label": "Acotar acceso",
+              "detail": "Cuenta y destino específicos"
+            },
+            {
+              "label": "Establecer protección",
+              "detail": "MFA, túnel y punto de salto autorizado"
+            },
+            {
+              "label": "Cerrar la ventana",
+              "detail": "Sesión finalizada y acceso retirado"
+            }
+          ],
+          "caption": "La persona completa el mantenimiento con un acceso limitado y trazable."
+        }
+      },
+      "practice": {
+        "task": "Diseña un acceso remoto temporal en papel.",
+        "steps": [
+          "Define quién, cuándo y a qué servicio.",
+          "Indica dónde termina el túnel.",
+          "Describe la verificación de cierre y revocación."
+        ],
+        "expected": "Un flujo con identidad, permisos, protección y evidencia de finalización."
+      },
+      "check": {
+        "question": "¿Qué garantiza por sí sola una VPN?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que el dispositivo no tiene malware"
+          },
+          {
+            "id": "b",
+            "text": "Que su usuario es administrador legítimo"
+          },
+          {
+            "id": "c",
+            "text": "Protección del túnel según su configuración"
+          }
+        ],
+        "correct": "c",
+        "explanation": "La seguridad del túnel no implica salud del equipo ni autorización universal."
+      },
+      "mistakes": [
+        {
+          "myth": "Si entró por VPN puede confiarse en todo su tráfico.",
+          "correction": "Verifica identidad, dispositivo y permisos por recurso."
+        }
+      ],
+      "recap": [
+        "Identifica extremos y rutas del túnel.",
+        "El cifrado no sustituye autorización.",
+        "Revocar acceso incluye sesiones activas."
+      ],
+      "glossary": [
+        {
+          "term": "Túnel dividido",
+          "definition": "Solo determinados destinos utilizan la VPN."
+        },
+        {
+          "term": "Punto de salto",
+          "definition": "Sistema intermedio controlado para acceder a otros equipos."
+        }
+      ]
+    },
+    {
+      "dayId": "w14d7",
+      "title": "Evaluación de segmentación",
+      "lead": "Integra diseño, reglas y pruebas con un caso que obligue a justificar cada permiso.",
+      "sections": [
+        {
+          "topic": "Reglas y validación",
+          "explanation": [
+            "Segmentación correcta significa que las comunicaciones necesarias siguen funcionando y las innecesarias quedan limitadas. Para evaluarla, comienza por el proceso de negocio: quién consulta la aplicación, qué servicio necesita la aplicación y quién administra el sistema. Después traduce esas relaciones a zonas, subredes y controles. Una lista extensa de bloqueos sin conocer la necesidad real puede interrumpir el servicio sin resolver el riesgo.",
+            "En una revisión, separa el diseño esperado de la implementación observada. Una VLAN equivocada, una excepción demasiado amplia o un perfil de firewall distinto pueden explicar una desviación. Usa al menos una prueba positiva y una negativa por frontera importante, con tiempos y registros. Si falta evidencia, describe lo que permanece sin verificar. La evaluación técnica es más sólida cuando permite reproducir el resultado y también reconocer sus límites."
+          ],
+          "analogy": "Un plano de evacuación y una inspección del edificio responden a preguntas distintas: cómo debería funcionar y cómo funciona realmente.",
+          "keyPoints": [
+            "Deriva reglas de los flujos necesarios.",
+            "Compara diseño e implementación.",
+            "Declara lo probado y lo pendiente."
+          ],
+          "visual": {
+            "type": "cycle",
+            "title": "Ciclo de validación",
+            "items": [
+              {
+                "label": "Necesidad",
+                "detail": "Aplicación disponible para personal"
+              },
+              {
+                "label": "Diseño",
+                "detail": "Zonas y servicios precisos"
+              },
+              {
+                "label": "Prueba",
+                "detail": "Accesos permitidos y prohibidos"
+              },
+              {
+                "label": "Evidencia",
+                "detail": "Resultados y desviaciones"
+              }
+            ],
+            "caption": "La revisión vuelve al diseño si una prueba contradice la necesidad inicial."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Portal para personal y visitantes",
+        "scenario": "El portal tiene una página pública y un panel administrativo interno.",
+        "steps": [
+          {
+            "action": "Separar destinos",
+            "reason": "La página pública y la administración no comparten permisos.",
+            "result": "Dos flujos documentados"
+          },
+          {
+            "action": "Definir reglas",
+            "reason": "Solo el grupo de administración requiere el panel.",
+            "result": "Invitados sin acceso administrativo"
+          },
+          {
+            "action": "Evaluar resultados",
+            "reason": "No basta una captura del diagrama.",
+            "result": "Éxito público, denegación administrativa y registros coincidentes"
+          }
+        ],
+        "result": "La conclusión describe controles comprobados sin afirmar aislamiento absoluto.",
+        "visual": {
+          "type": "flow",
+          "title": "Portal para personal y visitantes",
+          "items": [
+            {
+              "label": "Separar destinos",
+              "detail": "Dos flujos documentados"
+            },
+            {
+              "label": "Definir reglas",
+              "detail": "Invitados sin acceso administrativo"
+            },
+            {
+              "label": "Evaluar resultados",
+              "detail": "Éxito público, denegación administrativa y registros coincidentes"
+            }
+          ],
+          "caption": "La conclusión describe controles comprobados sin afirmar aislamiento absoluto."
+        }
+      },
+      "practice": {
+        "task": "Resuelve un caso de biblioteca con usuarios, invitados y catálogo.",
+        "steps": [
+          "Dibuja tres zonas y cuatro flujos.",
+          "Redacta reglas sin permisos generales innecesarios.",
+          "Diseña pruebas y explica una limitación de tu evaluación."
+        ],
+        "expected": "Un informe breve que otra persona pueda ejecutar en un laboratorio autorizado."
+      },
+      "check": {
+        "question": "¿Qué evidencia respalda mejor una regla?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo el nombre de la regla"
+          },
+          {
+            "id": "b",
+            "text": "Prueba positiva, negativa y registro correlacionado"
+          },
+          {
+            "id": "c",
+            "text": "Únicamente una conexión fallida"
+          }
+        ],
+        "correct": "b",
+        "explanation": "La combinación descarta varias causas alternativas y demuestra el alcance de la validación."
+      },
+      "mistakes": [
+        {
+          "myth": "La segmentación está terminada cuando el diagrama se ve ordenado.",
+          "correction": "También requiere controles aplicados, pruebas y revisión de cambios."
+        }
+      ],
+      "recap": [
+        "Deriva reglas de los flujos necesarios.",
+        "Compara diseño e implementación.",
+        "Declara lo probado y lo pendiente."
+      ],
+      "glossary": [
+        {
+          "term": "Desviación",
+          "definition": "Diferencia entre política esperada y comportamiento observado."
+        },
+        {
+          "term": "Riesgo residual",
+          "definition": "Exposición que permanece después de aplicar controles."
+        }
+      ]
+    }
+  ]
+}

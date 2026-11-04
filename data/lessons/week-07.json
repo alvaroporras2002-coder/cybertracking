@@ -1,0 +1,1006 @@
+{
+  "version": "2.0.0",
+  "week": 7,
+  "title": "Linux y laboratorio seguro",
+  "overview": "Linux puede estudiarse sin reemplazar tu sistema principal. Esta semana entenderás qué reúne una distribución y cómo un laboratorio virtual comparte recursos con el equipo anfitrión. Antes de instalar, estudiarás los modos de red, el alcance del aislamiento y una estrategia de recuperación. También distinguirás una instantánea de una copia independiente. El resultado esperado es un entorno descrito y reproducible, o una alternativa alojada documentada si tu equipo no dispone de los recursos o permisos necesarios.",
+  "objectives": [
+    "Distinguir kernel, distribución y paquetes.",
+    "Elegir red y recursos según un laboratorio autorizado.",
+    "Probar recuperación sin confundir instantánea y respaldo."
+  ],
+  "sources": [
+    {
+      "id": "w07s1",
+      "title": "Terminal Linux para principiantes",
+      "url": "https://ubuntu.com/tutorials/command-line-for-beginners"
+    },
+    {
+      "id": "w07s2",
+      "title": "Redes virtuales de Oracle VirtualBox",
+      "url": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/networkingdetails.html"
+    },
+    {
+      "id": "w07s3",
+      "title": "Máquinas virtuales e instantáneas de VirtualBox",
+      "url": "https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/working-with-vms.html"
+    },
+    {
+      "id": "w07s4",
+      "title": "Gestión de paquetes de Ubuntu",
+      "url": "https://ubuntu.com/server/docs/how-to/software/package-management/"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w07d1",
+      "title": "Distribuciones",
+      "lead": "Linux es un kernel que participa en la administración del hardware y los recursos.",
+      "sections": [
+        {
+          "explanation": [
+            "Linux es un kernel que participa en la administración del hardware y los recursos. Una distribución combina ese núcleo con herramientas, bibliotecas, repositorios, configuración y mecanismos de instalación. Ubuntu es un ejemplo; otras distribuciones toman decisiones distintas sobre paquetes, calendarios y herramientas. Por eso dos equipos con Linux pueden ofrecer experiencias diferentes sin dejar de compartir fundamentos como procesos, archivos y permisos.",
+            "Un paquete reúne software e información para que su gestor lo instale y mantenga. Los repositorios proporcionan catálogos y paquetes según la distribución. Elegir una distribución para aprender no exige buscar la que tenga más herramientas de seguridad preinstaladas: conviene que sea compatible con la práctica y tenga documentación clara. Registra su versión y fuente de descarga. Un nombre orientado a seguridad no convierte cualquier acción que realices en autorizada ni protege automáticamente el equipo anfitrión."
+          ],
+          "analogy": "El kernel es una parte esencial del motor; la distribución reúne el vehículo completo y su sistema de mantenimiento.",
+          "keyPoints": [
+            "Kernel: Interacción con hardware y recursos.",
+            "Herramientas: Utilidades, bibliotecas y shell.",
+            "Paquetes: Unidades de software gestionadas."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Componentes de una distribución",
+            "items": [
+              {
+                "label": "Kernel",
+                "detail": "Interacción con hardware y recursos."
+              },
+              {
+                "label": "Herramientas",
+                "detail": "Utilidades, bibliotecas y shell."
+              },
+              {
+                "label": "Paquetes",
+                "detail": "Unidades de software gestionadas."
+              },
+              {
+                "label": "Distribución",
+                "detail": "Selección integrada y mantenida de esos componentes."
+              }
+            ],
+            "caption": "Un nombre orientado a seguridad no convierte cualquier acción que realices en autorizada ni protege automáticamente el equipo anfitrión."
+          },
+          "topic": "Kernel, distribución y paquetes"
+        }
+      ],
+      "workedExample": {
+        "title": "Dos guías con comandos de paquetes distintos",
+        "scenario": "Una guía usa apt y otra utiliza un gestor diferente.",
+        "steps": [
+          {
+            "action": "Identificar la distribución",
+            "reason": "Los mecanismos dependen del entorno.",
+            "result": "Se registra nombre y versión."
+          },
+          {
+            "action": "Consultar su documentación",
+            "reason": "No se trasladan todas las instrucciones literalmente.",
+            "result": "Se identifica el gestor correspondiente."
+          },
+          {
+            "action": "Mantener el objetivo",
+            "reason": "La tarea sigue siendo consultar o instalar un paquete.",
+            "result": "Se adapta la instrucción con una fuente oficial."
+          }
+        ],
+        "result": "Compartir kernel no significa que toda herramienta de administración sea idéntica.",
+        "visual": {
+          "type": "flow",
+          "title": "Dos guías con comandos de paquetes distintos · secuencia",
+          "items": [
+            {
+              "label": "Identificar la distribución",
+              "detail": "Se registra nombre y versión."
+            },
+            {
+              "label": "Consultar su documentación",
+              "detail": "Se identifica el gestor correspondiente."
+            },
+            {
+              "label": "Mantener el objetivo",
+              "detail": "Se adapta la instrucción con una fuente oficial."
+            }
+          ],
+          "caption": "Compartir kernel no significa que toda herramienta de administración sea idéntica."
+        }
+      },
+      "practice": {
+        "task": "Compara dos distribuciones mediante sus sitios oficiales.",
+        "steps": [
+          "Identifica gestor de paquetes y documentación.",
+          "Anota versiones disponibles sin instalar.",
+          "Explica cuál encaja con un laboratorio de principiantes."
+        ],
+        "expected": "Una selección basada en compatibilidad y soporte documental."
+      },
+      "check": {
+        "question": "¿Qué incluye una distribución además del kernel?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Herramientas, paquetes, configuración y mecanismos de mantenimiento."
+          },
+          {
+            "id": "b",
+            "text": "Solo una imagen de fondo."
+          },
+          {
+            "id": "c",
+            "text": "Únicamente documentos personales."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La distribución integra componentes para ofrecer un sistema utilizable y mantenible."
+      },
+      "mistakes": [
+        {
+          "myth": "La distribución con más herramientas siempre es la más adecuada.",
+          "correction": "La elección depende de requisitos, recursos y facilidad para reproducir la práctica."
+        }
+      ],
+      "recap": [
+        "Kernel: Interacción con hardware y recursos.",
+        "Herramientas: Utilidades, bibliotecas y shell.",
+        "Paquetes: Unidades de software gestionadas."
+      ],
+      "glossary": [
+        {
+          "term": "Kernel",
+          "definition": "Núcleo que administra funciones esenciales del sistema."
+        },
+        {
+          "term": "Distribución",
+          "definition": "Conjunto integrado de kernel y componentes de usuario."
+        },
+        {
+          "term": "Paquete",
+          "definition": "Unidad de software gestionada por herramientas del sistema."
+        }
+      ]
+    },
+    {
+      "dayId": "w07d2",
+      "title": "Virtualización",
+      "lead": "Una máquina virtual ejecuta un sistema invitado mediante software de virtualización sobre un equipo anfitrión.",
+      "sections": [
+        {
+          "explanation": [
+            "Una máquina virtual ejecuta un sistema invitado mediante software de virtualización sobre un equipo anfitrión. El invitado recibe recursos virtuales, pero utiliza capacidad real de CPU, memoria y almacenamiento del anfitrión. Asignarle toda la memoria disponible puede perjudicar ambos entornos. La virtualización permite crear un laboratorio separado, aunque no elimina todos los riesgos de compartir recursos o habilitar integraciones.",
+            "Antes de crear una máquina, compara requisitos del hipervisor, del invitado y de la práctica. Conserva margen para el sistema principal y documenta el espacio que ocuparán discos e instantáneas. Las carpetas compartidas, portapapeles y dispositivos conectados pueden ampliar el intercambio entre entornos; habilita solo lo necesario. Si no tienes recursos o permisos, un entorno alojado autorizado o una actividad de lectura puede cumplir el objetivo inicial. No hace falta reemplazar tu equipo principal para aprender los conceptos."
+          ],
+          "analogy": "El anfitrión es un edificio y cada invitado una oficina; separar oficinas no crea energía ni espacio infinitos.",
+          "keyPoints": [
+            "Anfitrión: Equipo y sistema que sostienen la virtualización.",
+            "Invitado: Sistema operativo dentro de la máquina virtual.",
+            "Hipervisor: Software que presenta y coordina recursos virtuales."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Recursos reales y entornos virtuales",
+            "items": [
+              {
+                "label": "Anfitrión",
+                "detail": "Equipo y sistema que sostienen la virtualización."
+              },
+              {
+                "label": "Invitado",
+                "detail": "Sistema operativo dentro de la máquina virtual."
+              },
+              {
+                "label": "Hipervisor",
+                "detail": "Software que presenta y coordina recursos virtuales."
+              },
+              {
+                "label": "Margen",
+                "detail": "Capacidad reservada para mantener estable el anfitrión."
+              }
+            ],
+            "caption": "No hace falta reemplazar tu equipo principal para aprender los conceptos."
+          },
+          "topic": "Anfitrión, invitado, recursos y alternativas"
+        }
+      ],
+      "workedExample": {
+        "title": "Asignación excesiva de memoria",
+        "scenario": "Un anfitrión ficticio tiene 8 GB de RAM y se propone asignar los 8 al invitado.",
+        "steps": [
+          {
+            "action": "Reconocer el recurso compartido",
+            "reason": "El anfitrión no deja de funcionar.",
+            "result": "La propuesta no reserva memoria para él."
+          },
+          {
+            "action": "Consultar requisitos",
+            "reason": "La asignación necesita un objetivo real.",
+            "result": "Se comparan necesidades de ambos sistemas."
+          },
+          {
+            "action": "Elegir una alternativa viable",
+            "reason": "Forzar recursos no garantiza aprender mejor.",
+            "result": "Se reduce alcance o se utiliza un entorno alojado."
+          }
+        ],
+        "result": "Los recursos se planifican para ambos entornos y la tarea concreta.",
+        "visual": {
+          "type": "flow",
+          "title": "Asignación excesiva de memoria · secuencia",
+          "items": [
+            {
+              "label": "Reconocer el recurso compartido",
+              "detail": "La propuesta no reserva memoria para él."
+            },
+            {
+              "label": "Consultar requisitos",
+              "detail": "Se comparan necesidades de ambos sistemas."
+            },
+            {
+              "label": "Elegir una alternativa viable",
+              "detail": "Se reduce alcance o se utiliza un entorno alojado."
+            }
+          ],
+          "caption": "Los recursos se planifican para ambos entornos y la tarea concreta."
+        }
+      },
+      "practice": {
+        "task": "Diseña un laboratorio sin instalarlo.",
+        "steps": [
+          "Anota anfitrión, invitado y requisitos.",
+          "Reserva margen de recursos.",
+          "Describe una alternativa si no cumple."
+        ],
+        "expected": "Una propuesta viable con limitaciones explícitas."
+      },
+      "check": {
+        "question": "¿De dónde obtiene RAM una máquina virtual local?",
+        "options": [
+          {
+            "id": "a",
+            "text": "De un recurso ilimitado de internet."
+          },
+          {
+            "id": "b",
+            "text": "De la memoria real administrada en el anfitrión."
+          },
+          {
+            "id": "c",
+            "text": "Del nombre de la distribución."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La RAM virtual utiliza recursos reales y debe planificarse junto con el sistema principal."
+      },
+      "mistakes": [
+        {
+          "myth": "Una máquina virtual está completamente aislada por definición.",
+          "correction": "Redes, carpetas compartidas y otros canales pueden permitir interacción; revisa cada integración."
+        }
+      ],
+      "recap": [
+        "Anfitrión: Equipo y sistema que sostienen la virtualización.",
+        "Invitado: Sistema operativo dentro de la máquina virtual.",
+        "Hipervisor: Software que presenta y coordina recursos virtuales."
+      ],
+      "glossary": [
+        {
+          "term": "Anfitrión",
+          "definition": "Sistema que ejecuta la plataforma de virtualización."
+        },
+        {
+          "term": "Invitado",
+          "definition": "Sistema que funciona dentro de una máquina virtual."
+        }
+      ]
+    },
+    {
+      "dayId": "w07d3",
+      "title": "Red del laboratorio",
+      "lead": "El modo de red determina con quién puede comunicarse una máquina virtual.",
+      "sections": [
+        {
+          "explanation": [
+            "El modo de red determina con quién puede comunicarse una máquina virtual. NAT suele permitir conexiones salientes a través del anfitrión y no expone de forma equivalente al invitado como otro equipo de la LAN. Puente conecta al invitado a la red física con un comportamiento más parecido al de un equipo adicional. Una red interna de VirtualBox comunica las máquinas seleccionadas en esa red sin conexión directa al anfitrión o al exterior.",
+            "NAT no es sinónimo de aislamiento absoluto: el invitado puede iniciar conexiones y ciertas configuraciones, como reenvío de puertos, cambian la exposición. Red interna tampoco elimina canales como carpetas compartidas. Elige según el objetivo y verifica la configuración, no solo una etiqueta. Para prácticas iniciales usa entornos propios y evita conectar servicios de laboratorio a una red de trabajo sin autorización. Dibuja explícitamente qué comunicación se permite y qué enlace falta antes de iniciar las máquinas."
+          ],
+          "analogy": "Elegir una red es decidir qué puertas comunican habitaciones y cuáles salen a la calle.",
+          "keyPoints": [
+            "NAT: Salida mediada; exposición entrante depende de configuración.",
+            "Puente: El invitado participa en la red física.",
+            "Interna: Comunicación entre invitados de la red interna seleccionada."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Alcance de tres modos de red",
+            "items": [
+              {
+                "label": "NAT",
+                "detail": "Salida mediada; exposición entrante depende de configuración."
+              },
+              {
+                "label": "Puente",
+                "detail": "El invitado participa en la red física."
+              },
+              {
+                "label": "Interna",
+                "detail": "Comunicación entre invitados de la red interna seleccionada."
+              }
+            ],
+            "caption": "Dibuja explícitamente qué comunicación se permite y qué enlace falta antes de iniciar las máquinas."
+          },
+          "topic": "NAT, puente y red interna"
+        }
+      ],
+      "workedExample": {
+        "title": "Dos invitados que deben hablar sin internet",
+        "scenario": "Un ejercicio ficticio requiere comunicar dos máquinas y no necesita salir a la LAN.",
+        "steps": [
+          {
+            "action": "Definir el flujo",
+            "reason": "El objetivo no requiere conexión externa.",
+            "result": "Solo se necesitan invitado A e invitado B."
+          },
+          {
+            "action": "Elegir red interna",
+            "reason": "El modo debe reflejar ese alcance.",
+            "result": "Ambos usan el mismo nombre de red interna."
+          },
+          {
+            "action": "Revisar otros canales",
+            "reason": "La red no es el único intercambio posible.",
+            "result": "Se comprueban adaptadores adicionales y carpetas compartidas."
+          }
+        ],
+        "result": "El diseño limita los flujos previstos y documenta los canales restantes.",
+        "visual": {
+          "type": "flow",
+          "title": "Dos invitados que deben hablar sin internet · secuencia",
+          "items": [
+            {
+              "label": "Definir el flujo",
+              "detail": "Solo se necesitan invitado A e invitado B."
+            },
+            {
+              "label": "Elegir red interna",
+              "detail": "Ambos usan el mismo nombre de red interna."
+            },
+            {
+              "label": "Revisar otros canales",
+              "detail": "Se comprueban adaptadores adicionales y carpetas compartidas."
+            }
+          ],
+          "caption": "El diseño limita los flujos previstos y documenta los canales restantes."
+        }
+      },
+      "practice": {
+        "task": "Dibuja un invitado en NAT, otro en puente y dos en red interna.",
+        "steps": [
+          "Marca quién puede iniciar conexiones.",
+          "Señala el anfitrión y la LAN.",
+          "Anota una configuración que cambiaría la exposición."
+        ],
+        "expected": "Tres diagramas con alcance y límites, no solo nombres de modos."
+      },
+      "check": {
+        "question": "¿Qué modo integra al invitado de forma más directa en la LAN física?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Red interna."
+          },
+          {
+            "id": "b",
+            "text": "Puente."
+          },
+          {
+            "id": "c",
+            "text": "Una instantánea."
+          }
+        ],
+        "correct": "b",
+        "explanation": "El modo puente presenta al invitado en la red física; requiere revisar su exposición y autorización."
+      },
+      "mistakes": [
+        {
+          "myth": "NAT hace imposible toda comunicación peligrosa.",
+          "correction": "Puede permitir salida y su comportamiento cambia con configuraciones adicionales; no sustituye todos los controles."
+        }
+      ],
+      "recap": [
+        "NAT: Salida mediada; exposición entrante depende de configuración.",
+        "Puente: El invitado participa en la red física.",
+        "Interna: Comunicación entre invitados de la red interna seleccionada."
+      ],
+      "glossary": [
+        {
+          "term": "NAT",
+          "definition": "Traducción que media determinadas comunicaciones de red."
+        },
+        {
+          "term": "Puente",
+          "definition": "Modo que conecta el invitado con la red física."
+        },
+        {
+          "term": "Red interna",
+          "definition": "Red virtual limitada a los invitados seleccionados."
+        }
+      ]
+    },
+    {
+      "dayId": "w07d4",
+      "title": "Preparar el entorno",
+      "lead": "Preparar un entorno comienza por elegir una fuente oficial y comprobar requisitos.",
+      "sections": [
+        {
+          "explanation": [
+            "Preparar un entorno comienza por elegir una fuente oficial y comprobar requisitos. Para una máquina virtual identifica la imagen, la arquitectura y la documentación del proveedor. Si se publica un hash de descarga, compararlo ayuda a comprobar integridad frente al valor obtenido por un canal confiable; no demuestra por sí solo que el software sea seguro. Elige credenciales de práctica diferentes de tus cuentas reales.",
+            "Instala únicamente en un entorno autorizado y comprende qué disco virtual o ubicación se utilizará. Una pantalla de instalación puede ofrecer borrar o particionar almacenamiento; no sigas opciones cuyo alcance no entiendas. Si utilizas un laboratorio alojado, revisa permisos, duración y forma de conservar notas antes de que termine. Documenta versión, recursos y red. La preparación es correcta cuando sabes dónde estás trabajando y cómo evitar que una acción del laboratorio afecte información importante."
+          ],
+          "analogy": "Antes de montar una mesa de trabajo, eliges espacio, herramientas y materiales que puedes utilizar sin dañar otras áreas.",
+          "keyPoints": [
+            "Fuente: Imagen y documentación oficiales.",
+            "Requisitos: Arquitectura, memoria y espacio.",
+            "Destino: Disco virtual o entorno alojado autorizado."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Preparación del entorno",
+            "items": [
+              {
+                "label": "Fuente",
+                "detail": "Imagen y documentación oficiales."
+              },
+              {
+                "label": "Requisitos",
+                "detail": "Arquitectura, memoria y espacio."
+              },
+              {
+                "label": "Destino",
+                "detail": "Disco virtual o entorno alojado autorizado."
+              },
+              {
+                "label": "Registro",
+                "detail": "Versión, red y credenciales de práctica protegidas."
+              }
+            ],
+            "caption": "La preparación es correcta cuando sabes dónde estás trabajando y cómo evitar que una acción del laboratorio afecte información importante."
+          },
+          "topic": "Instalación o entorno alojado"
+        },
+        {
+          "explanation": [
+            "La recuperación debe planificarse antes de introducir cambios. Define qué estado inicial necesitas conservar, qué archivos de trabajo guardarás fuera del invitado y cómo comprobarás que puedes volver a empezar. Una instantánea puede facilitar el retorno dentro de una máquina virtual, mientras una copia independiente ayuda frente a otros fallos. Ninguna opción debe asumirse correcta sin entender sus dependencias y su alcance.",
+            "Elabora un ensayo con una nota ficticia: crea el estado inicial, realiza un cambio pequeño y vuelve al estado previsto siguiendo la documentación. Comprueba qué ocurrió con los archivos posteriores, porque restaurar puede descartarlos. En un entorno alojado, la recuperación puede consistir en reiniciar una instancia limpia y volver a cargar datos permitidos. La evidencia útil describe la secuencia y sus límites; decir «puedo reinstalar» no demuestra que hayas conservado el trabajo que necesitas."
+          ],
+          "analogy": "Preparar una ruta de regreso antes de salir evita descubrir demasiado tarde que faltaba guardar un mapa.",
+          "keyPoints": [
+            "Estado inicial: Configuración y archivos que deben conservarse.",
+            "Cambio pequeño: Prueba sobre datos ficticios.",
+            "Retorno: Procedimiento documentado de recuperación."
+          ],
+          "visual": {
+            "type": "cycle",
+            "title": "Plan de regreso verificable",
+            "items": [
+              {
+                "label": "Estado inicial",
+                "detail": "Configuración y archivos que deben conservarse."
+              },
+              {
+                "label": "Cambio pequeño",
+                "detail": "Prueba sobre datos ficticios."
+              },
+              {
+                "label": "Retorno",
+                "detail": "Procedimiento documentado de recuperación."
+              },
+              {
+                "label": "Verificación",
+                "detail": "Comprobar estado y archivos recuperados."
+              }
+            ],
+            "caption": "La evidencia útil describe la secuencia y sus límites; decir «puedo reinstalar» no demuestra que hayas conservado el trabajo que necesitas."
+          },
+          "topic": "recuperación"
+        }
+      ],
+      "workedExample": {
+        "title": "Laboratorio alojado que vence",
+        "scenario": "Una instancia de práctica se elimina al terminar la sesión.",
+        "steps": [
+          {
+            "action": "Identificar la permanencia",
+            "reason": "El entorno puede ser temporal.",
+            "result": "Se comprueba la política de conservación."
+          },
+          {
+            "action": "Guardar notas permitidas",
+            "reason": "Los resultados útiles deben salir antes del cierre.",
+            "result": "Se exportan solo datos de práctica autorizados."
+          },
+          {
+            "action": "Probar el reinicio",
+            "reason": "El procedimiento debe ser reproducible.",
+            "result": "Se inicia otro entorno y se reconstruye la tarea."
+          }
+        ],
+        "result": "Se puede continuar estudiando sin asumir que la instancia temporal guardará el trabajo.",
+        "visual": {
+          "type": "flow",
+          "title": "Laboratorio alojado que vence · secuencia",
+          "items": [
+            {
+              "label": "Identificar la permanencia",
+              "detail": "Se comprueba la política de conservación."
+            },
+            {
+              "label": "Guardar notas permitidas",
+              "detail": "Se exportan solo datos de práctica autorizados."
+            },
+            {
+              "label": "Probar el reinicio",
+              "detail": "Se inicia otro entorno y se reconstruye la tarea."
+            }
+          ],
+          "caption": "Se puede continuar estudiando sin asumir que la instancia temporal guardará el trabajo."
+        }
+      },
+      "practice": {
+        "task": "Documenta un plan de instalación o entorno alojado.",
+        "steps": [
+          "Identifica fuente y destino.",
+          "Define cómo recuperarías el estado inicial.",
+          "Comprueba qué archivos necesitas conservar aparte."
+        ],
+        "expected": "Un plan que incluye preparación y recuperación, aunque no instales ahora."
+      },
+      "check": {
+        "question": "¿Cuándo debe pensarse en recuperación?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo después de perder datos."
+          },
+          {
+            "id": "b",
+            "text": "Únicamente cuando falla internet."
+          },
+          {
+            "id": "c",
+            "text": "Antes de introducir cambios en el laboratorio."
+          }
+        ],
+        "correct": "c",
+        "explanation": "Planificar y ensayar el regreso permite reconocer dependencias antes de poner en riesgo el trabajo."
+      },
+      "mistakes": [
+        {
+          "myth": "Una instalación correcta significa que todo el trabajo futuro está respaldado.",
+          "correction": "La instalación crea el entorno; la conservación y recuperación de los datos requieren decisiones separadas."
+        }
+      ],
+      "recap": [
+        "Fuente: Imagen y documentación oficiales.",
+        "Requisitos: Arquitectura, memoria y espacio.",
+        "Destino: Disco virtual o entorno alojado autorizado."
+      ],
+      "glossary": [
+        {
+          "term": "Imagen",
+          "definition": "Representación preparada de un medio o sistema para instalación o uso."
+        },
+        {
+          "term": "Estado inicial",
+          "definition": "Punto de referencia desde el que comienza una práctica."
+        }
+      ]
+    },
+    {
+      "dayId": "w07d5",
+      "title": "Interfaz y paquetes",
+      "lead": "El escritorio y la terminal son interfaces para solicitar acciones al sistema.",
+      "sections": [
+        {
+          "explanation": [
+            "El escritorio y la terminal son interfaces para solicitar acciones al sistema. Algunas tareas se realizan por ambas vías, pero sus pasos y detalles visibles pueden diferir. Un gestor de paquetes administra software y dependencias mediante repositorios configurados. En Ubuntu, actualizar el índice de paquetes consulta información disponible; no equivale por sí solo a instalar todas las versiones nuevas de los programas.",
+            "Distingue consultar, instalar y actualizar paquetes. Cada acción tiene efectos y permisos distintos. Antes de seguir una guía identifica distribución, versión y repositorios. Una instrucción encontrada para otra familia puede ser incorrecta en tu entorno. No añadas fuentes desconocidas solo para que un comando funcione. Para comenzar usa búsquedas de información y ayuda local; si una práctica requiere instalar, verifica la fuente, entiende la operación y conserva una forma de volver al estado anterior del laboratorio."
+          ],
+          "analogy": "Un catálogo muestra productos disponibles; consultar el catálogo no equivale a comprarlos e instalarlos.",
+          "keyPoints": [
+            "Repositorio: Fuente configurada de paquetes y metadatos.",
+            "Índice: Información local sobre paquetes disponibles.",
+            "Gestor: Consulta o aplica operaciones solicitadas."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Catálogo y software instalado",
+            "items": [
+              {
+                "label": "Repositorio",
+                "detail": "Fuente configurada de paquetes y metadatos."
+              },
+              {
+                "label": "Índice",
+                "detail": "Información local sobre paquetes disponibles."
+              },
+              {
+                "label": "Gestor",
+                "detail": "Consulta o aplica operaciones solicitadas."
+              },
+              {
+                "label": "Sistema",
+                "detail": "Paquetes realmente instalados y sus dependencias."
+              }
+            ],
+            "caption": "Para comenzar usa búsquedas de información y ayuda local; si una práctica requiere instalar, verifica la fuente, entiende la operación y conserva una forma de volver al estado anterior del laboratorio."
+          },
+          "topic": "Escritorio, terminal y gestor de paquetes"
+        }
+      ],
+      "workedExample": {
+        "title": "Confundir actualización del índice con instalación",
+        "scenario": "Una guía ejecuta apt update y el estudiante cree que todos sus programas cambiaron.",
+        "steps": [
+          {
+            "action": "Leer el significado",
+            "reason": "El nombre corto puede inducir a error.",
+            "result": "Se consulta la documentación de APT."
+          },
+          {
+            "action": "Distinguir operaciones",
+            "reason": "Actualizar metadatos no instala todas las versiones.",
+            "result": "Se separa índice de paquetes instalados."
+          },
+          {
+            "action": "Comprobar el estado",
+            "reason": "La conclusión necesita datos del gestor.",
+            "result": "Se revisan versiones y operaciones pendientes sin forzarlas."
+          }
+        ],
+        "result": "La actualización del catálogo no demuestra que el software instalado haya sido actualizado.",
+        "visual": {
+          "type": "flow",
+          "title": "Confundir actualización del índice con instalación · secuencia",
+          "items": [
+            {
+              "label": "Leer el significado",
+              "detail": "Se consulta la documentación de APT."
+            },
+            {
+              "label": "Distinguir operaciones",
+              "detail": "Se separa índice de paquetes instalados."
+            },
+            {
+              "label": "Comprobar el estado",
+              "detail": "Se revisan versiones y operaciones pendientes sin forzarlas."
+            }
+          ],
+          "caption": "La actualización del catálogo no demuestra que el software instalado haya sido actualizado."
+        }
+      },
+      "practice": {
+        "task": "Compara una tarea por escritorio y terminal mediante documentación.",
+        "steps": [
+          "Identifica la acción equivalente.",
+          "Separa consulta de modificación.",
+          "Anota permisos y requisitos del gestor correspondiente."
+        ],
+        "expected": "Una comparación de interfaces y efectos, no de apariencia."
+      },
+      "check": {
+        "question": "¿Qué cambia apt update principalmente?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El índice local de paquetes disponibles."
+          },
+          {
+            "id": "b",
+            "text": "Todos los documentos del usuario."
+          },
+          {
+            "id": "c",
+            "text": "Necesariamente todos los programas instalados."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La actualización del índice recoge metadatos; instalar nuevas versiones es otra operación."
+      },
+      "mistakes": [
+        {
+          "myth": "Cualquier repositorio adicional es igual de confiable.",
+          "correction": "Las fuentes afectan qué software recibes; verifica su procedencia y política antes de configurarlas."
+        }
+      ],
+      "recap": [
+        "Repositorio: Fuente configurada de paquetes y metadatos.",
+        "Índice: Información local sobre paquetes disponibles.",
+        "Gestor: Consulta o aplica operaciones solicitadas."
+      ],
+      "glossary": [
+        {
+          "term": "Repositorio",
+          "definition": "Fuente de paquetes y metadatos de software."
+        },
+        {
+          "term": "Gestor de paquetes",
+          "definition": "Herramienta que administra instalación y dependencias."
+        }
+      ]
+    },
+    {
+      "dayId": "w07d6",
+      "title": "Instantáneas y recuperación",
+      "lead": "Una instantánea registra un punto del estado de una máquina virtual según la plataforma y su configuración.",
+      "sections": [
+        {
+          "explanation": [
+            "Una instantánea registra un punto del estado de una máquina virtual según la plataforma y su configuración. Puede incluir discos virtuales y, en ciertos casos, memoria y ajustes. Restaurarla puede descartar cambios posteriores. No debe confundirse con un archivo de respaldo independiente: muchas instantáneas dependen de archivos base y cadenas de diferencias que permanecen en el mismo almacenamiento del anfitrión.",
+            "Antes de restaurar identifica qué contenido nuevo perderías y si debes conservarlo aparte. Eliminar una instantánea tampoco significa necesariamente volver al estado anterior; el producto puede fusionar datos para mantener el estado actual. Consulta la documentación específica. En una prueba segura crea una nota ficticia, toma el estado de referencia y modifica la nota. El retorno debe comprobarse leyendo su contenido. Una cadena de instantáneas guardada en un disco no resiste automáticamente la pérdida de ese mismo disco."
+          ],
+          "analogy": "Un marcador permite volver a una página del mismo libro; no sustituye una copia independiente si se pierde el libro.",
+          "keyPoints": [
+            "Punto A: Nota de práctica con contenido inicial.",
+            "Instantánea: Referencia del estado según la plataforma.",
+            "Cambio B: Edición realizada después del punto A."
+          ],
+          "visual": {
+            "type": "timeline",
+            "title": "Estado inicial y cambios posteriores",
+            "items": [
+              {
+                "label": "Punto A",
+                "detail": "Nota de práctica con contenido inicial."
+              },
+              {
+                "label": "Instantánea",
+                "detail": "Referencia del estado según la plataforma."
+              },
+              {
+                "label": "Cambio B",
+                "detail": "Edición realizada después del punto A."
+              },
+              {
+                "label": "Restauración",
+                "detail": "Puede descartar B y recuperar el estado A."
+              }
+            ],
+            "caption": "Una cadena de instantáneas guardada en un disco no resiste automáticamente la pérdida de ese mismo disco."
+          },
+          "topic": "Estado, copia y límites"
+        }
+      ],
+      "workedExample": {
+        "title": "Una nota posterior desaparece",
+        "scenario": "Después de restaurar una instantánea, falta un archivo creado más tarde.",
+        "steps": [
+          {
+            "action": "Comparar la secuencia",
+            "reason": "El archivo pertenece a un estado posterior.",
+            "result": "Se identifica que fue creado después de la instantánea."
+          },
+          {
+            "action": "Revisar el alcance",
+            "reason": "Restaurar puede revertir el disco virtual.",
+            "result": "La ausencia es compatible con el retorno."
+          },
+          {
+            "action": "Corregir el procedimiento",
+            "reason": "El trabajo que deba conservarse necesita otra copia.",
+            "result": "Se guarda información autorizada antes de futuros retornos."
+          }
+        ],
+        "result": "La instantánea cumplió un retorno de estado, no la conservación de todo cambio posterior.",
+        "visual": {
+          "type": "flow",
+          "title": "Una nota posterior desaparece · secuencia",
+          "items": [
+            {
+              "label": "Comparar la secuencia",
+              "detail": "Se identifica que fue creado después de la instantánea."
+            },
+            {
+              "label": "Revisar el alcance",
+              "detail": "La ausencia es compatible con el retorno."
+            },
+            {
+              "label": "Corregir el procedimiento",
+              "detail": "Se guarda información autorizada antes de futuros retornos."
+            }
+          ],
+          "caption": "La instantánea cumplió un retorno de estado, no la conservación de todo cambio posterior."
+        }
+      },
+      "practice": {
+        "task": "Diseña un ensayo con dos versiones de una nota ficticia.",
+        "steps": [
+          "Indica cuándo tomarías la instantánea.",
+          "Predice qué versión verías al restaurar.",
+          "Explica qué fallo necesita una copia independiente."
+        ],
+        "expected": "Una predicción correcta y un límite de protección declarado."
+      },
+      "check": {
+        "question": "¿Qué puede ocurrir al restaurar una instantánea?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Se garantiza conservar todos los archivos posteriores."
+          },
+          {
+            "id": "b",
+            "text": "Se descartan cambios posteriores dentro de su alcance."
+          },
+          {
+            "id": "c",
+            "text": "Se crea siempre una copia independiente en otro disco."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La restauración retorna al estado definido y puede retirar modificaciones que ocurrieron después."
+      },
+      "mistakes": [
+        {
+          "myth": "Instantánea y respaldo independiente son equivalentes.",
+          "correction": "Las instantáneas pueden depender del disco base y compartir el fallo del almacenamiento anfitrión."
+        }
+      ],
+      "recap": [
+        "Punto A: Nota de práctica con contenido inicial.",
+        "Instantánea: Referencia del estado según la plataforma.",
+        "Cambio B: Edición realizada después del punto A."
+      ],
+      "glossary": [
+        {
+          "term": "Instantánea",
+          "definition": "Referencia a un estado de una máquina virtual."
+        },
+        {
+          "term": "Disco diferencial",
+          "definition": "Archivo que conserva cambios respecto de un estado base."
+        }
+      ]
+    },
+    {
+      "dayId": "w07d7",
+      "title": "Evaluación del laboratorio",
+      "lead": "Un laboratorio reproducible registra versión, recursos, red, cuentas de práctica y datos de entrada.",
+      "sections": [
+        {
+          "explanation": [
+            "Un laboratorio reproducible registra versión, recursos, red, cuentas de práctica y datos de entrada. El aislamiento describe qué comunicaciones y recursos compartidos están permitidos, no una propiedad absoluta que aparece al instalar un hipervisor. Para evaluar el entorno dibuja las conexiones reales y revisa adaptadores adicionales, carpetas compartidas y otras integraciones. Cada canal puede cambiar el alcance de una acción dentro del invitado.",
+            "Reproducir significa que otra persona autorizada puede reconstruir las condiciones y repetir la tarea. No necesita conocer tus contraseñas reales ni copiar datos privados. Incluye también cómo empezar desde un estado limpio y cómo conservar resultados permitidos antes de reiniciar. Si utilizas un entorno alojado, documenta sus límites y duración. Un buen informe reconoce qué no puede aislar o comprobar todavía, en lugar de afirmar que la práctica es completamente segura solo porque funcionó una vez."
+          ],
+          "analogy": "Un experimento necesita materiales y condiciones documentadas; una fotografía de la mesa no permite repetirlo por sí sola.",
+          "keyPoints": [
+            "Configuración: Versiones, recursos y modos de red.",
+            "Datos: Entradas ficticias identificables.",
+            "Procedimiento: Pasos y resultado esperado."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Laboratorio que otra persona puede repetir",
+            "items": [
+              {
+                "label": "Configuración",
+                "detail": "Versiones, recursos y modos de red."
+              },
+              {
+                "label": "Datos",
+                "detail": "Entradas ficticias identificables."
+              },
+              {
+                "label": "Procedimiento",
+                "detail": "Pasos y resultado esperado."
+              },
+              {
+                "label": "Recuperación",
+                "detail": "Forma documentada de volver a empezar."
+              }
+            ],
+            "caption": "Un buen informe reconoce qué no puede aislar o comprobar todavía, en lugar de afirmar que la práctica es completamente segura solo porque funcionó una vez."
+          },
+          "topic": "Aislamiento y reproducibilidad"
+        }
+      ],
+      "workedExample": {
+        "title": "Dos alumnos obtienen resultados distintos",
+        "scenario": "Una práctica funciona con NAT, pero otro estudiante usa una red interna sin salida.",
+        "steps": [
+          {
+            "action": "Comparar condiciones",
+            "reason": "El mismo comando puede depender de conectividad.",
+            "result": "Se detecta diferencia de modo de red."
+          },
+          {
+            "action": "Relacionar con la tarea",
+            "reason": "Una descarga requiere acceso a su fuente.",
+            "result": "La red interna no ofrece ese flujo por sí sola."
+          },
+          {
+            "action": "Ajustar el diseño autorizado",
+            "reason": "No se elimina aislamiento sin revisar el objetivo.",
+            "result": "Se prepara la dependencia o un entorno con salida controlada."
+          }
+        ],
+        "result": "La discrepancia se explica por condiciones del laboratorio, no necesariamente por un error del estudiante.",
+        "visual": {
+          "type": "flow",
+          "title": "Dos alumnos obtienen resultados distintos · secuencia",
+          "items": [
+            {
+              "label": "Comparar condiciones",
+              "detail": "Se detecta diferencia de modo de red."
+            },
+            {
+              "label": "Relacionar con la tarea",
+              "detail": "La red interna no ofrece ese flujo por sí sola."
+            },
+            {
+              "label": "Ajustar el diseño autorizado",
+              "detail": "Se prepara la dependencia o un entorno con salida controlada."
+            }
+          ],
+          "caption": "La discrepancia se explica por condiciones del laboratorio, no necesariamente por un error del estudiante."
+        }
+      },
+      "practice": {
+        "task": "Entrega una ficha reproducible de tu entorno o propuesta.",
+        "steps": [
+          "Incluye red y canales compartidos.",
+          "Usa datos de ejemplo y sin secretos.",
+          "Describe recuperación y una limitación."
+        ],
+        "expected": "Una ficha suficiente para repetir una tarea autorizada."
+      },
+      "check": {
+        "question": "¿Qué hace reproducible una práctica?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Usar el mismo fondo de pantalla."
+          },
+          {
+            "id": "b",
+            "text": "Guardar una contraseña real en el informe."
+          },
+          {
+            "id": "c",
+            "text": "Documentar condiciones, entradas, pasos y resultado esperado."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La repetición requiere contexto operativo y criterios de comprobación, no elementos estéticos ni secretos."
+      },
+      "mistakes": [
+        {
+          "myth": "Si se ejecutó una vez, ya es reproducible.",
+          "correction": "Debes registrar las condiciones que hicieron posible ese resultado y comprobar un nuevo inicio."
+        }
+      ],
+      "recap": [
+        "Configuración: Versiones, recursos y modos de red.",
+        "Datos: Entradas ficticias identificables.",
+        "Procedimiento: Pasos y resultado esperado."
+      ],
+      "glossary": [
+        {
+          "term": "Aislamiento",
+          "definition": "Limitación explícita de interacción entre entornos."
+        },
+        {
+          "term": "Reproducibilidad",
+          "definition": "Capacidad de repetir una tarea bajo condiciones documentadas."
+        }
+      ]
+    }
+  ]
+}

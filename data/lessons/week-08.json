@@ -1,0 +1,995 @@
+{
+  "version": "2.0.0",
+  "week": 8,
+  "title": "Linux básico y consolidación",
+  "overview": "La práctica básica de Linux une rutas, archivos, permisos y procesos. Esta semana aprenderás a leer una ubicación antes de operar, a buscar contenido sin editarlo y a interpretar permisos sin recurrir siempre a sudo. Los comandos se limitan a consultas o archivos ficticios dentro de tu directorio personal. El cierre de etapa combina diferencias entre Windows y Linux y un caso de recuperación. La habilidad importante es explicar el efecto de una instrucción y conservar evidencia de lo que realmente ocurrió.",
+  "objectives": [
+    "Interpretar rutas Linux y seleccionar un alcance pequeño.",
+    "Distinguir permisos de archivos y directorios.",
+    "Usar documentación y consultas para investigar un caso sencillo."
+  ],
+  "sources": [
+    {
+      "id": "w08s1",
+      "title": "Terminal Linux para principiantes",
+      "url": "https://ubuntu.com/tutorials/command-line-for-beginners"
+    },
+    {
+      "id": "w08s2",
+      "title": "Permisos de archivos en Ubuntu",
+      "url": "https://help.ubuntu.com/community/FilePermissions"
+    },
+    {
+      "id": "w08s3",
+      "title": "Comandos habituales de Ubuntu",
+      "url": "https://ubuntu.com/server/docs/reference/cli-cheatsheet/"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w08d1",
+      "title": "Rutas Linux",
+      "lead": "En Linux, la barra inicial representa la raíz del sistema de archivos.",
+      "sections": [
+        {
+          "explanation": [
+            "En Linux, la barra inicial representa la raíz del sistema de archivos. El directorio personal de una cuenta suele encontrarse bajo /home, aunque la ubicación exacta depende de su configuración. /etc contiene configuraciones, /var datos variables como ciertos registros y /tmp contenido temporal según las políticas del sistema. Estos nombres orientan, pero no debes asumir que todos los archivos de una categoría están siempre en una única carpeta.",
+            "Una ruta absoluta comienza desde /; una relativa depende de la ubicación actual. El símbolo ~ suele expandirse al directorio personal de la cuenta en la shell. No confundas / con la cuenta root: una es una ubicación y la otra una identidad privilegiada. Consulta pwd antes de operar y evita modificar directorios del sistema en esta etapa. Para aprender basta recorrer y leer documentación; una ruta que existe no concede automáticamente permiso para leer todo su contenido."
+          ],
+          "analogy": "La raíz es el comienzo del mapa de ubicaciones, mientras root es una identidad con capacidades especiales.",
+          "keyPoints": [
+            "/: Raíz de la jerarquía.",
+            "/home: Directorios personales habituales.",
+            "/etc: Configuraciones del sistema."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Orientación del sistema de archivos",
+            "items": [
+              {
+                "label": "Raíz /",
+                "detail": "Raíz de la jerarquía."
+              },
+              {
+                "label": "/home",
+                "detail": "Directorios personales habituales."
+              },
+              {
+                "label": "/etc",
+                "detail": "Configuraciones del sistema."
+              },
+              {
+                "label": "/var y /tmp",
+                "detail": "Datos variables y temporales con reglas distintas."
+              }
+            ],
+            "caption": "Para aprender basta recorrer y leer documentación; una ruta que existe no concede automáticamente permiso para leer todo su contenido."
+          },
+          "topic": "Directorio personal, raíz, etc, var y tmp"
+        }
+      ],
+      "workedExample": {
+        "title": "Confundir raíz y usuario privilegiado",
+        "scenario": "Un estudiante cree que estar en / lo convierte en administrador.",
+        "steps": [
+          {
+            "action": "Separar ubicación e identidad",
+            "reason": "La carpeta no determina la cuenta activa.",
+            "result": "Se identifica / como ruta."
+          },
+          {
+            "action": "Consultar el usuario",
+            "reason": "Los permisos dependen del contexto de identidad.",
+            "result": "Se revisa la cuenta sin elevar."
+          },
+          {
+            "action": "Elegir una carpeta de práctica",
+            "reason": "No hace falta modificar la raíz.",
+            "result": "Se trabaja dentro del directorio personal."
+          }
+        ],
+        "result": "Ubicación e identidad son dimensiones diferentes del entorno.",
+        "visual": {
+          "type": "flow",
+          "title": "Confundir raíz y usuario privilegiado · secuencia",
+          "items": [
+            {
+              "label": "Separar ubicación e identidad",
+              "detail": "Se identifica / como ruta."
+            },
+            {
+              "label": "Consultar el usuario",
+              "detail": "Se revisa la cuenta sin elevar."
+            },
+            {
+              "label": "Elegir una carpeta de práctica",
+              "detail": "Se trabaja dentro del directorio personal."
+            }
+          ],
+          "caption": "Ubicación e identidad son dimensiones diferentes del entorno."
+        }
+      },
+      "practice": {
+        "task": "Dibuja una ruta absoluta hacia una nota ficticia en tu directorio personal.",
+        "steps": [
+          "Identifica la raíz y las carpetas.",
+          "Escribe una ruta relativa desde su carpeta padre.",
+          "Explica qué representa ~ en tu shell."
+        ],
+        "expected": "Un mapa que diferencia rutas y usuarios.",
+        "console": {
+          "language": "bash",
+          "code": "pwd\nls -ld ~",
+          "output": "Ubicación actual y datos del directorio personal.",
+          "explanation": "Son consultas; la ruta real depende de la configuración de la cuenta."
+        }
+      },
+      "check": {
+        "question": "Un usuario estándar ejecuta cd / en Linux: ¿qué representa esa barra?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La raíz del sistema de archivos."
+          },
+          {
+            "id": "b",
+            "text": "Siempre la cuenta root."
+          },
+          {
+            "id": "c",
+            "text": "Un archivo comprimido."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La barra inicial sitúa una ruta absoluta en la raíz; no indica la identidad con la que operas."
+      },
+      "mistakes": [
+        {
+          "myth": "Estar en la raíz concede privilegios administrativos.",
+          "correction": "Los permisos dependen de la cuenta y las reglas aplicables, no de la carpeta actual."
+        }
+      ],
+      "recap": [
+        "/: Raíz de la jerarquía.",
+        "/home: Directorios personales habituales.",
+        "/etc: Configuraciones del sistema."
+      ],
+      "glossary": [
+        {
+          "term": "Raíz",
+          "definition": "Inicio de la jerarquía de rutas."
+        },
+        {
+          "term": "Directorio personal",
+          "definition": "Ubicación de trabajo propia de una cuenta."
+        }
+      ]
+    },
+    {
+      "dayId": "w08d2",
+      "title": "Archivos desde terminal",
+      "lead": "ls consulta elementos, cd cambia la ubicación de la shell, mkdir crea directorios, cp copia y mv mueve o renombra.",
+      "sections": [
+        {
+          "explanation": [
+            "ls consulta elementos, cd cambia la ubicación de la shell, mkdir crea directorios, cp copia y mv mueve o renombra. Cada nombre representa una acción distinta y sus opciones pueden ampliar mucho el alcance. Antes de ejecutar, identifica origen, destino y qué debería existir después. Trabaja en una carpeta propia creada para la práctica y utiliza archivos que puedas reemplazar sin afectar información importante.",
+            "Los nombres distinguen mayúsculas y minúsculas en los sistemas de archivos habituales de Linux: Nota.txt y nota.txt pueden ser elementos diferentes. Las rutas con espacios requieren comillas u otro mecanismo de escape de la shell. Una copia sobre un destino existente puede sustituir contenido. Consulta --help o man para verificar opciones y evita añadir operaciones recursivas por costumbre. La comprobación final debe abrir o inspeccionar el archivo correcto, no limitarse a que el comando no mostró un error."
+          ],
+          "analogy": "Las instrucciones de organización de una biblioteca deben especificar qué libro se copia, a qué estante y qué versión permanece.",
+          "keyPoints": [
+            "ls y cd: Consultar elementos o cambiar de contexto.",
+            "mkdir: Crear una carpeta.",
+            "cp: Crear una copia en el destino."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Efectos de comandos básicos",
+            "items": [
+              {
+                "label": "ls y cd",
+                "detail": "Consultar elementos o cambiar de contexto."
+              },
+              {
+                "label": "mkdir",
+                "detail": "Crear una carpeta."
+              },
+              {
+                "label": "cp",
+                "detail": "Crear una copia en el destino."
+              },
+              {
+                "label": "mv",
+                "detail": "Mover o renombrar una entrada."
+              }
+            ],
+            "caption": "La comprobación final debe abrir o inspeccionar el archivo correcto, no limitarse a que el comando no mostró un error."
+          },
+          "topic": "ls, cd, mkdir, cp y mv"
+        }
+      ],
+      "workedExample": {
+        "title": "Mayúsculas que cambian el destino",
+        "scenario": "Una carpeta de práctica contiene Nota.txt, pero la instrucción busca nota.txt.",
+        "steps": [
+          {
+            "action": "Leer el nombre exacto",
+            "reason": "La coincidencia puede distinguir mayúsculas.",
+            "result": "ls muestra Nota.txt."
+          },
+          {
+            "action": "Corregir la referencia",
+            "reason": "No hace falta copiar otra versión para ocultar el problema.",
+            "result": "Se usa el nombre tal como aparece."
+          },
+          {
+            "action": "Comprobar el contenido",
+            "reason": "La ruta correcta necesita validación.",
+            "result": "Se lee la nota esperada sin modificarla."
+          }
+        ],
+        "result": "Una diferencia de nombre explica el fallo sin atribuirlo inmediatamente a permisos.",
+        "visual": {
+          "type": "flow",
+          "title": "Mayúsculas que cambian el destino · secuencia",
+          "items": [
+            {
+              "label": "Leer el nombre exacto",
+              "detail": "ls muestra Nota.txt."
+            },
+            {
+              "label": "Corregir la referencia",
+              "detail": "Se usa el nombre tal como aparece."
+            },
+            {
+              "label": "Comprobar el contenido",
+              "detail": "Se lee la nota esperada sin modificarla."
+            }
+          ],
+          "caption": "Una diferencia de nombre explica el fallo sin atribuirlo inmediatamente a permisos."
+        }
+      },
+      "practice": {
+        "task": "Predice el estado final de copiar y luego renombrar una nota ficticia.",
+        "steps": [
+          "Dibuja origen y destino.",
+          "Distingue cd de mv.",
+          "Indica qué comprobarías para evitar sobrescritura."
+        ],
+        "expected": "Una tabla antes/después con nombres exactos.",
+        "console": {
+          "language": "bash",
+          "code": "ls -l .\npwd",
+          "output": "Listado de la carpeta actual y su ruta.",
+          "explanation": "Estas consultas permiten comprobar el contexto antes de copiar o mover datos."
+        }
+      },
+      "check": {
+        "question": "¿Qué diferencia cd y mv?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ambos mueven todos los archivos."
+          },
+          {
+            "id": "b",
+            "text": "cd cambia el contexto; mv mueve o renombra elementos."
+          },
+          {
+            "id": "c",
+            "text": "mv solo muestra ayuda."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Navegar modifica la ubicación de la shell, mientras mv actúa sobre entradas del sistema de archivos."
+      },
+      "mistakes": [
+        {
+          "myth": "Una instrucción sin error garantiza que elegí el destino correcto.",
+          "correction": "Debes verificar la ruta y el contenido resultante frente a tu intención."
+        }
+      ],
+      "recap": [
+        "ls y cd: Consultar elementos o cambiar de contexto.",
+        "mkdir: Crear una carpeta.",
+        "cp: Crear una copia en el destino."
+      ],
+      "glossary": [
+        {
+          "term": "Sobrescritura",
+          "definition": "Sustitución de contenido existente por una escritura nueva."
+        },
+        {
+          "term": "Ruta sensible a mayúsculas",
+          "definition": "Ubicación donde letras con distinta capitalización pueden identificar nombres diferentes."
+        }
+      ]
+    },
+    {
+      "dayId": "w08d3",
+      "title": "Lectura y búsqueda",
+      "lead": "cat presenta contenido de archivos; less permite recorrerlo por páginas; find busca elementos según rutas y criterios; grep selecciona líneas que coinciden con un patrón.",
+      "sections": [
+        {
+          "explanation": [
+            "cat presenta contenido de archivos; less permite recorrerlo por páginas; find busca elementos según rutas y criterios; grep selecciona líneas que coinciden con un patrón. Buscar un archivo y buscar texto dentro de él son tareas diferentes. Empieza con una carpeta pequeña de práctica para que el alcance y el resultado sean comprensibles. Un patrón también tiene reglas que conviene conocer antes de interpretarlo como texto literal.",
+            "Si una búsqueda no muestra nada, puede no haber coincidencias, faltar permiso o haberse elegido una ruta incorrecta. Los mensajes de error ayudan a distinguir esas situaciones. No busques todo el sistema ni eleves permisos como respuesta automática. En una investigación real, leer registros puede exponer datos privados; utiliza muestras ficticias. Conserva la consulta y una línea de contexto para explicar por qué una coincidencia es relevante, porque encontrar una palabra no demuestra por sí solo un incidente."
+          ],
+          "analogy": "Un catálogo ayuda a localizar un libro; buscar una palabra dentro del libro es otra operación.",
+          "keyPoints": [
+            "Ruta: Carpeta de práctica delimitada.",
+            "Archivo: find identifica un nombre o tipo.",
+            "Contenido: grep selecciona líneas pertinentes."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Localizar y después interpretar",
+            "items": [
+              {
+                "label": "Ruta",
+                "detail": "Carpeta de práctica delimitada."
+              },
+              {
+                "label": "Archivo",
+                "detail": "find identifica un nombre o tipo."
+              },
+              {
+                "label": "Contenido",
+                "detail": "grep selecciona líneas pertinentes."
+              },
+              {
+                "label": "Contexto",
+                "detail": "Leer alrededor para interpretar la coincidencia."
+              }
+            ],
+            "caption": "Conserva la consulta y una línea de contexto para explicar por qué una coincidencia es relevante, porque encontrar una palabra no demuestra por sí solo un incidente."
+          },
+          "topic": "cat, less, find y grep"
+        }
+      ],
+      "workedExample": {
+        "title": "Buscar ERROR en un registro ficticio",
+        "scenario": "Una nota contiene líneas INFO, ERROR y una frase que menciona un error ya resuelto.",
+        "steps": [
+          {
+            "action": "Definir el criterio",
+            "reason": "La coincidencia textual debe ser exacta para la tarea.",
+            "result": "Se busca ERROR como texto literal."
+          },
+          {
+            "action": "Conservar el contexto",
+            "reason": "La palabra sola no explica el estado.",
+            "result": "Se leen fecha y mensaje de la línea."
+          },
+          {
+            "action": "Limitar la conclusión",
+            "reason": "Un registro de error no implica actividad maliciosa.",
+            "result": "Se informa el evento descrito y lo que falta comprobar."
+          }
+        ],
+        "result": "La búsqueda selecciona candidatos que todavía requieren interpretación.",
+        "visual": {
+          "type": "flow",
+          "title": "Buscar ERROR en un registro ficticio · secuencia",
+          "items": [
+            {
+              "label": "Definir el criterio",
+              "detail": "Se busca ERROR como texto literal."
+            },
+            {
+              "label": "Conservar el contexto",
+              "detail": "Se leen fecha y mensaje de la línea."
+            },
+            {
+              "label": "Limitar la conclusión",
+              "detail": "Se informa el evento descrito y lo que falta comprobar."
+            }
+          ],
+          "caption": "La búsqueda selecciona candidatos que todavía requieren interpretación."
+        }
+      },
+      "practice": {
+        "task": "Crea o utiliza un registro ficticio de cuatro líneas.",
+        "steps": [
+          "Diferencia buscar el nombre y buscar contenido.",
+          "Selecciona una palabra conocida.",
+          "Explica una coincidencia y una ausencia."
+        ],
+        "expected": "Consulta, alcance y significado documentados.",
+        "console": {
+          "language": "bash",
+          "code": "grep -n -F 'ERROR' ./registro-practica.txt",
+          "output": "Números de línea y líneas que contienen el texto ERROR, si el archivo existe.",
+          "explanation": "-F trata el patrón como texto fijo; la consulta no modifica el registro."
+        }
+      },
+      "check": {
+        "question": "¿Qué responde grep principalmente?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Qué líneas coinciden con un patrón."
+          },
+          {
+            "id": "b",
+            "text": "Cuánta RAM física hay instalada."
+          },
+          {
+            "id": "c",
+            "text": "Qué usuario debe ser administrador."
+          }
+        ],
+        "correct": "a",
+        "explanation": "grep selecciona texto según un criterio; interpretar su relevancia requiere contexto adicional."
+      },
+      "mistakes": [
+        {
+          "myth": "Encontrar ERROR demuestra un ataque.",
+          "correction": "Muchos errores son operativos; correlaciona fuente, momento y comportamiento antes de concluir."
+        }
+      ],
+      "recap": [
+        "Ruta: Carpeta de práctica delimitada.",
+        "Archivo: find identifica un nombre o tipo.",
+        "Contenido: grep selecciona líneas pertinentes."
+      ],
+      "glossary": [
+        {
+          "term": "Patrón",
+          "definition": "Criterio usado para seleccionar coincidencias."
+        },
+        {
+          "term": "Contexto",
+          "definition": "Información alrededor de un resultado necesaria para interpretarlo."
+        }
+      ]
+    },
+    {
+      "dayId": "w08d4",
+      "title": "Usuarios y permisos Linux",
+      "lead": "Los permisos básicos de Linux se organizan por propietario, grupo y otros, con capacidades de lectura, escritura y ejecución.",
+      "sections": [
+        {
+          "explanation": [
+            "Los permisos básicos de Linux se organizan por propietario, grupo y otros, con capacidades de lectura, escritura y ejecución. En un archivo, leer permite acceder al contenido, escribir modificarlo y ejecutar tratarlo como programa cuando el formato y entorno lo permiten. En un directorio, los significados cambian: lectura permite listar nombres y ejecución permite atravesarlo o acceder a entradas conocidas, junto con las demás condiciones necesarias.",
+            "La escritura en un directorio puede permitir crear o eliminar entradas, aunque no tengas escritura sobre el contenido de un archivo concreto; existen reglas adicionales como el sticky bit y controles del sistema. Por eso no traduzcas rwx como una lista idéntica para cualquier objeto. sudo ejecuta una acción con otra identidad según la política, frecuentemente root, pero no debe ser la respuesta inicial a todo rechazo. Consulta propietario, grupo y ruta antes de proponer un cambio sobre datos de práctica."
+          ],
+          "analogy": "Abrir un archivador, leer una hoja y retirar una carpeta del estante son permisos sobre objetos distintos.",
+          "keyPoints": [
+            "Archivo: r: Leer contenido.",
+            "Archivo: w: Modificar contenido.",
+            "Directorio: x: Atravesar y acceder a entradas conocidas."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Permisos según el objeto",
+            "items": [
+              {
+                "label": "Archivo: r",
+                "detail": "Leer contenido."
+              },
+              {
+                "label": "Archivo: w",
+                "detail": "Modificar contenido."
+              },
+              {
+                "label": "Directorio: x",
+                "detail": "Atravesar y acceder a entradas conocidas."
+              },
+              {
+                "label": "Directorio: w",
+                "detail": "Crear o retirar entradas, sujeto a otras reglas."
+              }
+            ],
+            "caption": "Consulta propietario, grupo y ruta antes de proponer un cambio sobre datos de práctica."
+          },
+          "topic": "Propietario, grupo, rwx y sudo"
+        }
+      ],
+      "workedExample": {
+        "title": "Archivo sin escritura, carpeta modificable",
+        "scenario": "En un caso de laboratorio, una cuenta no edita una nota pero puede eliminar su entrada.",
+        "steps": [
+          {
+            "action": "Distinguir objetos",
+            "reason": "Editar contenido y retirar un nombre son acciones distintas.",
+            "result": "Se separan permisos del archivo y de la carpeta."
+          },
+          {
+            "action": "Examinar la carpeta",
+            "reason": "El control de entradas depende del directorio y reglas adicionales.",
+            "result": "Se consulta su escritura y ejecución."
+          },
+          {
+            "action": "Diseñar una corrección mínima",
+            "reason": "No se amplían permisos globalmente.",
+            "result": "Se ajusta el diseño sobre un recurso ficticio y se valida."
+          }
+        ],
+        "result": "Los permisos efectivos dependen de la acción, el objeto y todas las reglas aplicables.",
+        "visual": {
+          "type": "flow",
+          "title": "Archivo sin escritura, carpeta modificable · secuencia",
+          "items": [
+            {
+              "label": "Distinguir objetos",
+              "detail": "Se separan permisos del archivo y de la carpeta."
+            },
+            {
+              "label": "Examinar la carpeta",
+              "detail": "Se consulta su escritura y ejecución."
+            },
+            {
+              "label": "Diseñar una corrección mínima",
+              "detail": "Se ajusta el diseño sobre un recurso ficticio y se valida."
+            }
+          ],
+          "caption": "Los permisos efectivos dependen de la acción, el objeto y todas las reglas aplicables."
+        }
+      },
+      "practice": {
+        "task": "Interpreta rw-r----- en un archivo de práctica.",
+        "steps": [
+          "Identifica propietario, grupo y otros.",
+          "Enumera acciones permitidas por cada grupo básico.",
+          "Explica por qué eliminarlo requiere revisar también la carpeta."
+        ],
+        "expected": "Propietario lee/escribe, grupo lee y otros sin esos permisos básicos.",
+        "console": {
+          "language": "bash",
+          "code": "ls -ld .\nls -l ./nota.txt",
+          "output": "Permisos y propietarios del directorio y del archivo si existe.",
+          "explanation": "Comparar ambos objetos permite razonar sobre acciones distintas sin cambiar permisos."
+        }
+      },
+      "check": {
+        "question": "¿Qué permite x en un directorio?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ejecutar todos sus documentos automáticamente."
+          },
+          {
+            "id": "b",
+            "text": "Atravesarlo para acceder a entradas según las demás reglas."
+          },
+          {
+            "id": "c",
+            "text": "Cambiar todas las contraseñas."
+          }
+        ],
+        "correct": "b",
+        "explanation": "En directorios, ejecución es búsqueda o recorrido; no significa ejecutar su contenido automáticamente."
+      },
+      "mistakes": [
+        {
+          "myth": "chmod 777 es la solución normal para aprender.",
+          "correction": "Concede acceso excesivo; entiende la necesidad y modifica solo una carpeta ficticia cuando esté autorizado."
+        }
+      ],
+      "recap": [
+        "Archivo: r: Leer contenido.",
+        "Archivo: w: Modificar contenido.",
+        "Directorio: x: Atravesar y acceder a entradas conocidas."
+      ],
+      "glossary": [
+        {
+          "term": "Propietario",
+          "definition": "Identidad dueña de un objeto."
+        },
+        {
+          "term": "rwx",
+          "definition": "Permisos básicos de lectura, escritura y ejecución con significado según el objeto."
+        },
+        {
+          "term": "sudo",
+          "definition": "Ejecución autorizada bajo otra identidad según una política."
+        }
+      ]
+    },
+    {
+      "dayId": "w08d5",
+      "title": "Procesos y ayuda",
+      "lead": "ps consulta procesos y man abre documentación de manual instalada.",
+      "sections": [
+        {
+          "explanation": [
+            "ps consulta procesos y man abre documentación de manual instalada. La lista de procesos es una muestra temporal, no un inventario permanente de todo lo que ocurrió. Un servicio puede estar activo sin una ventana, y su administración depende del sistema de inicio utilizado. En muchos entornos se usa systemd, pero no debes asumir que todas las distribuciones, contenedores o laboratorios lo ejecutan de la misma forma.",
+            "Empieza por consultar tu propio contexto y leer la ayuda antes de detener algo. Identifica PID, usuario y comando, teniendo en cuenta que los permisos y opciones influyen en lo visible. Un nombre parecido al de un componente conocido no demuestra autenticidad, y un PID puede reutilizarse. Si una guía usa systemctl y el entorno no dispone de systemd activo, investiga el entorno en lugar de forzarlo. La documentación debe corresponder al comando, versión y sistema realmente utilizados."
+          ],
+          "analogy": "Una fotografía del personal presente no muestra quién estuvo antes ni explica la función completa de cada trabajador.",
+          "keyPoints": [
+            "Muestra: ps recoge procesos según sus opciones.",
+            "Campos: PID, usuario y comando aportan contexto.",
+            "Manual: man explica sintaxis y alcance."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Consulta interpretada de procesos",
+            "items": [
+              {
+                "label": "Muestra",
+                "detail": "ps recoge procesos según sus opciones."
+              },
+              {
+                "label": "Campos",
+                "detail": "PID, usuario y comando aportan contexto."
+              },
+              {
+                "label": "Manual",
+                "detail": "man explica sintaxis y alcance."
+              },
+              {
+                "label": "Conclusión",
+                "detail": "Describir lo visible sin afirmar historial completo."
+              }
+            ],
+            "caption": "La documentación debe corresponder al comando, versión y sistema realmente utilizados."
+          },
+          "topic": "ps, man, documentación y servicios"
+        }
+      ],
+      "workedExample": {
+        "title": "systemctl no funciona en un entorno alojado",
+        "scenario": "Una terminal de práctica indica que no se inició con systemd.",
+        "steps": [
+          {
+            "action": "Leer el mensaje",
+            "reason": "La causa puede ser el entorno, no la cuenta.",
+            "result": "Se identifica la ausencia del sistema de inicio esperado."
+          },
+          {
+            "action": "Consultar la plataforma",
+            "reason": "Un contenedor puede tener otra organización de procesos.",
+            "result": "Se revisan sus instrucciones oficiales."
+          },
+          {
+            "action": "Adaptar la práctica",
+            "reason": "No se instala infraestructura sin necesidad.",
+            "result": "Se realizan consultas de procesos compatibles con el laboratorio."
+          }
+        ],
+        "result": "La herramienta debe adaptarse al entorno documentado, no al revés.",
+        "visual": {
+          "type": "flow",
+          "title": "systemctl no funciona en un entorno alojado · secuencia",
+          "items": [
+            {
+              "label": "Leer el mensaje",
+              "detail": "Se identifica la ausencia del sistema de inicio esperado."
+            },
+            {
+              "label": "Consultar la plataforma",
+              "detail": "Se revisan sus instrucciones oficiales."
+            },
+            {
+              "label": "Adaptar la práctica",
+              "detail": "Se realizan consultas de procesos compatibles con el laboratorio."
+            }
+          ],
+          "caption": "La herramienta debe adaptarse al entorno documentado, no al revés."
+        }
+      },
+      "practice": {
+        "task": "Consulta la ayuda de ps y el significado de tres columnas.",
+        "steps": [
+          "Identifica qué procesos muestra tu opción.",
+          "Explica PID y usuario.",
+          "Indica qué actividad pasada no puede demostrar la muestra."
+        ],
+        "expected": "Una interpretación temporal con alcance declarado.",
+        "console": {
+          "language": "bash",
+          "code": "ps -ef\nman ps",
+          "output": "Listado de procesos visibles y manual instalado, si está disponible.",
+          "explanation": "Las columnas y el alcance se interpretan con la documentación del sistema utilizado."
+        }
+      },
+      "check": {
+        "question": "¿Qué demuestra una consulta de procesos?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Todo el historial del equipo."
+          },
+          {
+            "id": "b",
+            "text": "Una muestra de procesos según momento, opciones y visibilidad."
+          },
+          {
+            "id": "c",
+            "text": "Que ningún programa malicioso pudo ejecutarse antes."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La consulta describe el estado visible en ese contexto, no todos los eventos pasados."
+      },
+      "mistakes": [
+        {
+          "myth": "Todo Linux usa exactamente el mismo gestor de servicios.",
+          "correction": "Comprueba el sistema de inicio y las condiciones del laboratorio antes de aplicar instrucciones."
+        }
+      ],
+      "recap": [
+        "Muestra: ps recoge procesos según sus opciones.",
+        "Campos: PID, usuario y comando aportan contexto.",
+        "Manual: man explica sintaxis y alcance."
+      ],
+      "glossary": [
+        {
+          "term": "PID",
+          "definition": "Identificador temporal de un proceso."
+        },
+        {
+          "term": "Manual",
+          "definition": "Documentación de propósito, sintaxis y opciones de una herramienta."
+        }
+      ]
+    },
+    {
+      "dayId": "w08d6",
+      "title": "Recuperación de bases",
+      "lead": "Consolidar Windows y Linux significa reconocer conceptos compartidos sin confundir sus detalles.",
+      "sections": [
+        {
+          "explanation": [
+            "Consolidar Windows y Linux significa reconocer conceptos compartidos sin confundir sus detalles. Ambos utilizan archivos, procesos e identidades, pero sus rutas, herramientas y reglas pueden diferir. Un permiso de lectura sigue respondiendo a una acción, aunque la interfaz para consultarlo no sea la misma. La tarea se traduce por su objetivo: localizar una nota, identificar una ejecución o comprobar acceso, no copiando literalmente todos los comandos.",
+            "Cuando una práctica falla, separa concepto de sintaxis. Si sabes que necesitas conocer el directorio actual pero escribes un comando de otra shell, la brecha es de herramienta. Si confundes cambiar de carpeta con mover archivos, la brecha es conceptual. Registra una predicción y comprueba el resultado con datos ficticios. Este método ayuda a elegir un refuerzo concreto y evita repetir actividades enteras sin identificar qué parte todavía no puedes explicar o realizar con autonomía."
+          ],
+          "analogy": "Aprender a conducir otro vehículo conserva principios de orientación, aunque cambien los controles y sus posiciones.",
+          "keyPoints": [
+            "Ubicación: Get-Location o pwd muestran contexto.",
+            "Elementos: Get-ChildItem o ls consultan carpetas.",
+            "Procesos: Get-Process o ps presentan ejecuciones."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Concepto compartido y herramienta distinta",
+            "items": [
+              {
+                "label": "Ubicación",
+                "detail": "Get-Location o pwd muestran contexto."
+              },
+              {
+                "label": "Elementos",
+                "detail": "Get-ChildItem o ls consultan carpetas."
+              },
+              {
+                "label": "Procesos",
+                "detail": "Get-Process o ps presentan ejecuciones."
+              },
+              {
+                "label": "Permisos",
+                "detail": "La acción y el objeto importan en ambos entornos."
+              }
+            ],
+            "caption": "Este método ayuda a elegir un refuerzo concreto y evita repetir actividades enteras sin identificar qué parte todavía no puedes explicar o realizar con autonomía."
+          },
+          "topic": "Windows, archivos y terminal"
+        }
+      ],
+      "workedExample": {
+        "title": "El comando era de otra shell",
+        "scenario": "Un estudiante entiende la ruta relativa, pero introduce Get-Location en Bash.",
+        "steps": [
+          {
+            "action": "Reconocer el concepto",
+            "reason": "La pregunta sobre ubicación es correcta.",
+            "result": "La brecha no está en entender la ruta."
+          },
+          {
+            "action": "Identificar la herramienta",
+            "reason": "El comando pertenece a otro intérprete.",
+            "result": "Se consulta pwd en Bash."
+          },
+          {
+            "action": "Repetir una prueba pequeña",
+            "reason": "La corrección debe confirmar comprensión.",
+            "result": "Se resuelve una ruta relativa desde el contexto obtenido."
+          }
+        ],
+        "result": "Se corrige una brecha de sintaxis sin confundirla con desconocimiento del concepto.",
+        "visual": {
+          "type": "flow",
+          "title": "El comando era de otra shell · secuencia",
+          "items": [
+            {
+              "label": "Reconocer el concepto",
+              "detail": "La brecha no está en entender la ruta."
+            },
+            {
+              "label": "Identificar la herramienta",
+              "detail": "Se consulta pwd en Bash."
+            },
+            {
+              "label": "Repetir una prueba pequeña",
+              "detail": "Se resuelve una ruta relativa desde el contexto obtenido."
+            }
+          ],
+          "caption": "Se corrige una brecha de sintaxis sin confundirla con desconocimiento del concepto."
+        }
+      },
+      "practice": {
+        "task": "Selecciona una tarea equivalente en Windows y Linux.",
+        "steps": [
+          "Escribe el objetivo sin comandos.",
+          "Añade una consulta apropiada por entorno.",
+          "Explica una diferencia de sintaxis y una idea compartida."
+        ],
+        "expected": "Una equivalencia funcional con diferencias explícitas."
+      },
+      "check": {
+        "question": "Entiendes la ubicación actual, pero usas un comando de otra shell. ¿Qué refuerzas primero?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La sintaxis y la identificación del intérprete."
+          },
+          {
+            "id": "b",
+            "text": "La capacidad del SSD."
+          },
+          {
+            "id": "c",
+            "text": "Todas las contraseñas del sistema."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La comprensión del objetivo puede ser correcta mientras la instrucción pertenece a otro entorno."
+      },
+      "mistakes": [
+        {
+          "myth": "Aprender Linux exige olvidar todo lo aprendido en Windows.",
+          "correction": "Muchos conceptos se transfieren; verifica sus diferencias operativas y de sintaxis."
+        }
+      ],
+      "recap": [
+        "Ubicación: Get-Location o pwd muestran contexto.",
+        "Elementos: Get-ChildItem o ls consultan carpetas.",
+        "Procesos: Get-Process o ps presentan ejecuciones."
+      ],
+      "glossary": [
+        {
+          "term": "Transferencia",
+          "definition": "Aplicación de un concepto conocido en otro contexto."
+        },
+        {
+          "term": "Brecha conceptual",
+          "definition": "Confusión sobre el significado, no solo sobre la escritura de un comando."
+        }
+      ]
+    },
+    {
+      "dayId": "w08d7",
+      "title": "Examen de etapa",
+      "lead": "La evaluación de bases combina un flujo completo: identificar el entorno, localizar un archivo, leerlo, explicar permisos y conservar una copia verificable.",
+      "sections": [
+        {
+          "explanation": [
+            "La evaluación de bases combina un flujo completo: identificar el entorno, localizar un archivo, leerlo, explicar permisos y conservar una copia verificable. Cada paso necesita una predicción antes de ejecutarse. Un resultado visible no garantiza persistencia, una extensión no demuestra formato y una cuenta autenticada no tiene necesariamente acceso a todo. Estas diferencias son esenciales antes de comenzar a investigar redes o alertas de seguridad.",
+            "Imagina una nota de laboratorio que no aparece donde esperabas. Revisa primero la ruta y el contexto, después la operación realizada y finalmente las versiones disponibles. Si hay un rechazo de acceso, distingue identidad, acción y objeto. No recurras automáticamente a privilegios elevados ni modifiques la única copia. La evaluación debe producir un relato reproducible con herramientas pertinentes, resultado observado y una limitación honesta, incluso si no logras recuperar todo el contenido esperado."
+          ],
+          "analogy": "Un examen práctico comprueba si puedes unir decisiones pequeñas en un recorrido coherente, no solo recordar nombres aislados.",
+          "keyPoints": [
+            "Identificar: Sistema, shell y cuenta de práctica.",
+            "Localizar: Ruta y nombre exactos.",
+            "Interpretar: Contenido, permisos y versión."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Caso completo de fundamentos",
+            "items": [
+              {
+                "label": "Identificar",
+                "detail": "Sistema, shell y cuenta de práctica."
+              },
+              {
+                "label": "Localizar",
+                "detail": "Ruta y nombre exactos."
+              },
+              {
+                "label": "Interpretar",
+                "detail": "Contenido, permisos y versión."
+              },
+              {
+                "label": "Conservar",
+                "detail": "Copia y recuperación comprobadas."
+              }
+            ],
+            "caption": "La evaluación debe producir un relato reproducible con herramientas pertinentes, resultado observado y una limitación honesta, incluso si no logras recuperar todo el contenido esperado."
+          },
+          "topic": "Informática y sistemas"
+        }
+      ],
+      "workedExample": {
+        "title": "Nota no localizada y acceso restringido",
+        "scenario": "Una nota ficticia se movió y la cuenta de consulta no puede modificar su nueva carpeta.",
+        "steps": [
+          {
+            "action": "Reconstruir la ubicación",
+            "reason": "Mover cambia dónde buscar.",
+            "result": "Se encuentra la ruta de destino."
+          },
+          {
+            "action": "Separar lectura y escritura",
+            "reason": "El rechazo no invalida el hallazgo.",
+            "result": "La cuenta puede leer, pero no modificar."
+          },
+          {
+            "action": "Conservar evidencia",
+            "reason": "No se amplían permisos para ocultar el síntoma.",
+            "result": "Se guarda un informe redactado y la versión autorizada."
+          }
+        ],
+        "result": "El caso reúne rutas, operaciones y permisos sin confundirlos con una única avería.",
+        "visual": {
+          "type": "flow",
+          "title": "Nota no localizada y acceso restringido · secuencia",
+          "items": [
+            {
+              "label": "Reconstruir la ubicación",
+              "detail": "Se encuentra la ruta de destino."
+            },
+            {
+              "label": "Separar lectura y escritura",
+              "detail": "La cuenta puede leer, pero no modificar."
+            },
+            {
+              "label": "Conservar evidencia",
+              "detail": "Se guarda un informe redactado y la versión autorizada."
+            }
+          ],
+          "caption": "El caso reúne rutas, operaciones y permisos sin confundirlos con una única avería."
+        }
+      },
+      "practice": {
+        "task": "Resuelve un caso escrito de archivo movido con respaldo anterior.",
+        "steps": [
+          "Dibuja las rutas y versiones.",
+          "Indica permisos por acción.",
+          "Describe una recuperación y cómo la validarías."
+        ],
+        "expected": "Un informe defendible que conecta los conceptos de la etapa."
+      },
+      "check": {
+        "question": "¿Qué debes hacer antes de modificar la única copia de un archivo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Conservarla y definir una prueba sobre datos o copias de práctica."
+          },
+          {
+            "id": "b",
+            "text": "Cambiar su extensión varias veces."
+          },
+          {
+            "id": "c",
+            "text": "Desactivar todos los permisos."
+          }
+        ],
+        "correct": "a",
+        "explanation": "Conservar una referencia evita que la propia investigación destruya la información que necesita comprobar."
+      },
+      "mistakes": [
+        {
+          "myth": "Una conclusión incompleta no sirve para estudiar.",
+          "correction": "Una conclusión limitada y bien documentada identifica con precisión la siguiente comprobación necesaria."
+        }
+      ],
+      "recap": [
+        "Identificar: Sistema, shell y cuenta de práctica.",
+        "Localizar: Ruta y nombre exactos.",
+        "Interpretar: Contenido, permisos y versión."
+      ],
+      "glossary": [
+        {
+          "term": "Fundamento",
+          "definition": "Concepto base que permite interpretar tareas más complejas."
+        },
+        {
+          "term": "Referencia conservada",
+          "definition": "Estado o copia que permite comparar y recuperar el trabajo."
+        }
+      ]
+    }
+  ]
+}

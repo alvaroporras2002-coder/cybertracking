@@ -1,0 +1,949 @@
+{
+  "version": "2.0.0",
+  "week": 31,
+  "title": "Respuesta e investigación",
+  "overview": "Responder a un incidente consiste en tomar decisiones con evidencia incompleta y consecuencias reales. La preparación, la detección, la contención y la recuperación se apoyan mutuamente y pueden repetirse; no son casillas que se cierran para siempre. Practicarás con una cuenta ficticia y registros preparados, distinguiendo hechos, hipótesis y acciones autorizadas. El objetivo es reducir daño, preservar información relevante y recuperar el servicio con criterios claros, sin convertir una alerta aislada en una conclusión precipitada.",
+  "objectives": [
+    "Definir roles y decisiones antes de una emergencia.",
+    "Separar contención, erradicación y recuperación.",
+    "Construir una cronología con hechos e incertidumbres."
+  ],
+  "sources": [
+    {
+      "id": "ir",
+      "title": "NIST SP 800-61r3 — Incident Response",
+      "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+    },
+    {
+      "id": "csf",
+      "title": "NIST — Cybersecurity Framework",
+      "url": "https://www.nist.gov/cyberframework"
+    },
+    {
+      "id": "controls",
+      "title": "NIST SP 800-53 — Security and Privacy Controls",
+      "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w31d1",
+      "title": "Preparación",
+      "lead": "El procedimiento define decisiones y responsables.",
+      "sections": [
+        {
+          "topic": "Roles, procedimientos y comunicación",
+          "explanation": [
+            "La preparación organiza personas, procedimientos y recursos para que una señal no provoque improvisación. Define quién recibe alertas, quién decide aislamientos, quién comunica y quién autoriza recuperación. Un procedimiento debe indicar condiciones, acciones, contactos y criterios de escalamiento. No basta con tener un archivo guardado: los responsables deben encontrarlo y conocer su papel. La respuesta se integra en la gestión continua del riesgo; aprender de un caso puede cambiar controles y preparación antes del siguiente.",
+            "Una lista de contactos necesita vías alternativas y actualización. Si el correo corporativo falla, depender únicamente de ese correo para coordinar resulta frágil. Los ejercicios de mesa permiten practicar decisiones sin afectar sistemas: se presenta una situación y cada rol explica qué haría y con qué autorización. Anota dependencias, datos ausentes y tiempos de decisión. La preparación también incluye acceso controlado a evidencias, capacidad de registro y recuperación, y límites para compartir información sensible."
+          ],
+          "analogy": "Los equipos de emergencia practican rutas y responsabilidades antes de escuchar la sirena.",
+          "keyPoints": [
+            "El procedimiento define decisiones y responsables.",
+            "Los contactos necesitan una vía alternativa.",
+            "Un ejercicio de mesa prueba coordinación sin afectar producción."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Preparación operativa",
+            "items": [
+              {
+                "label": "Señal",
+                "detail": "Canal de recepción conocido"
+              },
+              {
+                "label": "Decisión",
+                "detail": "Responsable y autorización"
+              },
+              {
+                "label": "Comunicación",
+                "detail": "Destinatarios y medio alternativo"
+              },
+              {
+                "label": "Revisión",
+                "detail": "Lecciones y actualización"
+              }
+            ],
+            "caption": "Las responsabilidades se prueban; no se presumen por el cargo."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Correo no disponible",
+        "scenario": "Durante un incidente ficticio, el sistema de correo deja de funcionar.",
+        "steps": [
+          {
+            "action": "Consultar plan",
+            "reason": "El canal principal puede fallar.",
+            "result": "Se usa el contacto alternativo aprobado."
+          },
+          {
+            "action": "Asignar decisiones",
+            "reason": "Evita órdenes contradictorias.",
+            "result": "Un responsable coordina la respuesta."
+          },
+          {
+            "action": "Registrar acuerdos",
+            "reason": "La memoria no sustituye la trazabilidad.",
+            "result": "Se anotan hora, decisión y persona autorizante."
+          }
+        ],
+        "result": "La coordinación continúa sin compartir datos por canales improvisados.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Correo no disponible",
+          "items": [
+            {
+              "label": "Consultar plan",
+              "detail": "Se usa el contacto alternativo aprobado."
+            },
+            {
+              "label": "Asignar decisiones",
+              "detail": "Un responsable coordina la respuesta."
+            },
+            {
+              "label": "Registrar acuerdos",
+              "detail": "Se anotan hora, decisión y persona autorizante."
+            }
+          ],
+          "caption": "La coordinación continúa sin compartir datos por canales improvisados."
+        }
+      },
+      "practice": {
+        "task": "Diseña un procedimiento de una página para una alerta de cuenta comprometida.",
+        "steps": [
+          "Define recepción y responsable.",
+          "Indica qué acción requiere autorización.",
+          "Añade canal alternativo y criterio de escalamiento."
+        ],
+        "expected": "Un flujo que otra persona pueda seguir sin adivinar responsabilidades."
+      },
+      "check": {
+        "question": "¿Qué prueba un ejercicio de mesa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que nunca habrá incidentes."
+          },
+          {
+            "id": "b",
+            "text": "Solo la velocidad del procesador."
+          },
+          {
+            "id": "c",
+            "text": "Que roles y decisiones pueden coordinarse ante un escenario."
+          }
+        ],
+        "correct": "c",
+        "explanation": "Permite encontrar problemas de coordinación sin prometer ausencia de incidentes ni probar todos los controles técnicos."
+      },
+      "mistakes": [
+        {
+          "myth": "Tener un documento equivale a estar preparado.",
+          "correction": "La preparación requiere acceso, responsables y pruebas de uso del procedimiento."
+        }
+      ],
+      "recap": [
+        "El procedimiento define decisiones y responsables.",
+        "Los contactos necesitan una vía alternativa.",
+        "Un ejercicio de mesa prueba coordinación sin afectar producción."
+      ],
+      "glossary": [
+        {
+          "term": "Playbook",
+          "definition": "Guía de decisiones y acciones para un escenario."
+        },
+        {
+          "term": "Escalamiento",
+          "definition": "Transferencia a quien tiene la autoridad o capacidad necesaria."
+        }
+      ]
+    },
+    {
+      "dayId": "w31d2",
+      "title": "Detección y análisis",
+      "lead": "Comprueba fuente, entidad y tiempo.",
+      "sections": [
+        {
+          "topic": "Alerta, alcance e hipótesis",
+          "explanation": [
+            "Detectar y analizar significa convertir señales en una comprensión provisional del problema. Verifica primero que los datos pertenecen al activo y período correctos. Después formula preguntas sobre qué ocurrió, a quién afectó y qué evidencia lo sustenta. Una autenticación desde un origen nuevo puede ser un viaje legítimo, una VPN o un uso no autorizado. No asumas intención a partir de una sola característica. La clasificación inicial puede cambiar cuando aparezcan registros adicionales o se descarte una hipótesis.",
+            "El alcance se construye con entidades y relaciones: cuentas, equipos, aplicaciones, sesiones y datos. Distingue confirmado de potencialmente afectado. Una cuenta comprometida no demuestra que todos los equipos donde alguna vez inició sesión estén comprometidos. Busca evidencia que discrimine alternativas y registra límites de visibilidad. Prioriza preguntas que puedan cambiar una decisión urgente, como si la sesión sigue activa o si existen acciones privilegiadas. No necesitas resolver toda la historia para aplicar una contención proporcional autorizada."
+          ],
+          "analogy": "Un médico de urgencias reúne señales y prueba hipótesis; no convierte un síntoma aislado en diagnóstico definitivo.",
+          "keyPoints": [
+            "Comprueba fuente, entidad y tiempo.",
+            "Separa alcance confirmado y potencial.",
+            "Busca datos que cambien decisiones urgentes."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Análisis inicial",
+            "items": [
+              {
+                "label": "Señal",
+                "detail": "Inicio de sesión no habitual"
+              },
+              {
+                "label": "Contexto",
+                "detail": "Cuenta, origen y autorización"
+              },
+              {
+                "label": "Contraste",
+                "detail": "Sesión y operaciones posteriores"
+              },
+              {
+                "label": "Clasificación",
+                "detail": "Hechos e hipótesis actuales"
+              }
+            ],
+            "caption": "La clasificación puede revisarse con nueva evidencia."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Inicio desde un país nuevo",
+        "scenario": "La alerta coincide con una sesión en una VPN corporativa documentada.",
+        "steps": [
+          {
+            "action": "Validar origen",
+            "reason": "La geolocalización puede describir la salida de una VPN.",
+            "result": "Se identifica la dirección de salida aprobada."
+          },
+          {
+            "action": "Contrastar usuario",
+            "reason": "La explicación requiere evidencia independiente.",
+            "result": "El registro de VPN vincula la sesión."
+          },
+          {
+            "action": "Revisar operaciones",
+            "reason": "Un origen legítimo no valida todas las acciones.",
+            "result": "Se comprueban actividad y permisos posteriores."
+          }
+        ],
+        "result": "Se reduce la sospecha por geografía, sin cerrar otras preguntas automáticamente.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Inicio desde un país nuevo",
+          "items": [
+            {
+              "label": "Validar origen",
+              "detail": "Se identifica la dirección de salida aprobada."
+            },
+            {
+              "label": "Contrastar usuario",
+              "detail": "El registro de VPN vincula la sesión."
+            },
+            {
+              "label": "Revisar operaciones",
+              "detail": "Se comprueban actividad y permisos posteriores."
+            }
+          ],
+          "caption": "Se reduce la sospecha por geografía, sin cerrar otras preguntas automáticamente."
+        }
+      },
+      "practice": {
+        "task": "Escribe dos hipótesis para cinco fallos seguidos de un éxito.",
+        "steps": [
+          "Propón una causa legítima y otra no autorizada.",
+          "Indica qué dato distinguiría ambas.",
+          "Define qué parte del alcance permanece desconocida."
+        ],
+        "expected": "Dos hipótesis comprobables y una solicitud de evidencia."
+      },
+      "check": {
+        "question": "¿Una alerta determina el alcance completo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "No; el alcance se confirma con evidencia adicional."
+          },
+          {
+            "id": "b",
+            "text": "Sí, incluye todos los equipos de la organización."
+          },
+          {
+            "id": "c",
+            "text": "Sí, si el título dice crítico."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La alerta tiene cobertura y lógica limitadas; el análisis relaciona entidades y confirma afectación."
+      },
+      "mistakes": [
+        {
+          "myth": "La primera explicación plausible debe aceptarse.",
+          "correction": "Compárala con alternativas y busca evidencia que pueda refutarla."
+        }
+      ],
+      "recap": [
+        "Comprueba fuente, entidad y tiempo.",
+        "Separa alcance confirmado y potencial.",
+        "Busca datos que cambien decisiones urgentes."
+      ],
+      "glossary": [
+        {
+          "term": "Alcance confirmado",
+          "definition": "Entidades cuya afectación está sustentada."
+        },
+        {
+          "term": "Hipótesis alternativa",
+          "definition": "Explicación distinta compatible con los datos disponibles."
+        }
+      ]
+    },
+    {
+      "dayId": "w31d3",
+      "title": "Contención",
+      "lead": "La contención limita actividad, no elimina necesariamente la causa.",
+      "sections": [
+        {
+          "topic": "Aislar, bloquear y preservar",
+          "explanation": [
+            "Contener busca limitar el daño o impedir que continúe una actividad. Puede implicar aislar un endpoint, revocar sesiones, bloquear un indicador o restringir una cuenta. La elección depende del caso: aislar un equipo no revoca necesariamente un token usado desde otro dispositivo, y bloquear una IP compartida puede afectar usuarios legítimos. Antes de actuar, considera consecuencias operativas, evidencia que podría perderse y autoridad para ejecutar la medida. La urgencia no elimina la necesidad de registrar la decisión.",
+            "La contención no equivale a erradicación. Un equipo aislado puede seguir teniendo el mecanismo que permitió el acceso; solo disminuyó una vía de propagación o comunicación. Cuando sea posible, preserva información relevante de acuerdo con el procedimiento y evita acciones destructivas improvisadas. Comprueba que la medida se aplicó y que cubre la entidad correcta. Si quedan otras rutas de acceso o sesiones activas, documenta el riesgo restante y adapta la respuesta en lugar de declarar finalizado el incidente."
+          ],
+          "analogy": "Contener una fuga es cerrar una válvula; después todavía debes reparar la avería y comprobar el sistema.",
+          "keyPoints": [
+            "La contención limita actividad, no elimina necesariamente la causa.",
+            "Cada medida tiene consecuencias y límites.",
+            "Verifica que afecte a la entidad correcta."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Medidas y límites",
+            "items": [
+              {
+                "label": "Aislar equipo",
+                "detail": "Reduce comunicaciones del endpoint cubierto"
+              },
+              {
+                "label": "Revocar sesión",
+                "detail": "Interrumpe acceso de la sesión según la plataforma"
+              },
+              {
+                "label": "Bloquear indicador",
+                "detail": "Limita un destino u origen, con posible impacto compartido"
+              }
+            ],
+            "caption": "Las capacidades exactas deben confirmarse en la herramienta y el procedimiento."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Cuenta usada en dos sesiones",
+        "scenario": "Se confirma una sesión no autorizada y otra aún pendiente de análisis.",
+        "steps": [
+          {
+            "action": "Identificar entidades",
+            "reason": "Actuar sobre un nombre ambiguo puede afectar a otra cuenta.",
+            "result": "Se usan ID y sesiones concretas."
+          },
+          {
+            "action": "Aplicar medida",
+            "reason": "La autoridad elige la acción proporcional.",
+            "result": "Se revocan accesos según procedimiento."
+          },
+          {
+            "action": "Comprobar efecto",
+            "reason": "Una orden enviada puede fallar.",
+            "result": "Se verifica estado y se buscan accesos posteriores."
+          }
+        ],
+        "result": "La contención queda documentada con evidencia de aplicación y límites.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Cuenta usada en dos sesiones",
+          "items": [
+            {
+              "label": "Identificar entidades",
+              "detail": "Se usan ID y sesiones concretas."
+            },
+            {
+              "label": "Aplicar medida",
+              "detail": "Se revocan accesos según procedimiento."
+            },
+            {
+              "label": "Comprobar efecto",
+              "detail": "Se verifica estado y se buscan accesos posteriores."
+            }
+          ],
+          "caption": "La contención queda documentada con evidencia de aplicación y límites."
+        }
+      },
+      "practice": {
+        "task": "Compara aislar un equipo y revocar sesiones de cuenta.",
+        "steps": [
+          "Indica qué limita cada medida.",
+          "Describe una ruta que podría quedar abierta.",
+          "Anota una prueba posterior."
+        ],
+        "expected": "Dos medidas con sus límites y criterios de validación."
+      },
+      "check": {
+        "question": "¿Qué demuestra aislar un endpoint?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que se eliminó toda persistencia."
+          },
+          {
+            "id": "b",
+            "text": "Que se aplicó una limitación de comunicaciones, si se validó."
+          },
+          {
+            "id": "c",
+            "text": "Que todos los tokens expiraron."
+          }
+        ],
+        "correct": "b",
+        "explanation": "El aislamiento es una medida de contención; no prueba eliminación de causa ni de sesiones externas."
+      },
+      "mistakes": [
+        {
+          "myth": "Contener significa cerrar definitivamente el caso.",
+          "correction": "Después deben investigarse causa, erradicación y recuperación según el incidente."
+        }
+      ],
+      "recap": [
+        "La contención limita actividad, no elimina necesariamente la causa.",
+        "Cada medida tiene consecuencias y límites.",
+        "Verifica que afecte a la entidad correcta."
+      ],
+      "glossary": [
+        {
+          "term": "Contención",
+          "definition": "Medida para limitar daño o actividad en curso."
+        },
+        {
+          "term": "Preservación",
+          "definition": "Protección de información relevante frente a alteración o pérdida."
+        }
+      ]
+    },
+    {
+      "dayId": "w31d4",
+      "title": "Erradicación y recuperación",
+      "lead": "Trata la causa, no solo el síntoma visible.",
+      "sections": [
+        {
+          "topic": "Causa, restauración y verificación",
+          "explanation": [
+            "Erradicar significa tratar la causa y las condiciones que permiten que el incidente continúe o reaparezca. Puede requerir corregir una configuración, retirar un mecanismo de persistencia, reemplazar credenciales o reconstruir un sistema desde una fuente confiable. Elegir una acción exige conocer el alcance y las dependencias. Eliminar un archivo señalado por una alerta puede dejar intacta la vía de acceso inicial. No ejecutes limpieza destructiva en un sistema real sin el procedimiento y la autoridad adecuados.",
+            "Recuperar consiste en devolver funciones a un estado aceptable y comprobarlas. Define criterios antes de reconectar: integridad, configuración, identidad, disponibilidad y supervisión. Una copia puede estar sana, incompleta o contener la misma causa del incidente. Comprueba su punto de restauración y prueba el servicio con usuarios autorizados. Después observa un período acordado y conserva la posibilidad de volver a contener. La ausencia momentánea de alertas no prueba por sí sola que el problema haya desaparecido para siempre."
+          ],
+          "analogy": "Reparar la cerradura y volver a abrir la tienda son decisiones relacionadas, pero tienen pruebas diferentes.",
+          "keyPoints": [
+            "Trata la causa, no solo el síntoma visible.",
+            "Recupera con criterios definidos de aceptación.",
+            "Una copia necesita validación antes de confiar en ella."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Volver a operar",
+            "items": [
+              {
+                "label": "Causa",
+                "detail": "Vía de acceso y condiciones"
+              },
+              {
+                "label": "Corrección",
+                "detail": "Tratamiento autorizado"
+              },
+              {
+                "label": "Restauración",
+                "detail": "Estado confiable y pruebas"
+              },
+              {
+                "label": "Vigilancia",
+                "detail": "Comprobar operación y recurrencia"
+              }
+            ],
+            "caption": "El proceso puede volver a análisis o contención si aparecen nuevos datos."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Servidor restaurado",
+        "scenario": "La copia funciona, pero conserva la configuración que permitió el acceso indebido.",
+        "steps": [
+          {
+            "action": "Revisar causa",
+            "reason": "Restaurar no cambia automáticamente la configuración.",
+            "result": "Se identifica el mismo permiso excesivo."
+          },
+          {
+            "action": "Corregir antes",
+            "reason": "Reconectar conservaría la exposición.",
+            "result": "Se aplica y valida la corrección autorizada."
+          },
+          {
+            "action": "Probar operación",
+            "reason": "La seguridad no basta si el servicio falla.",
+            "result": "Usuarios de prueba completan tareas y la supervisión está activa."
+          }
+        ],
+        "result": "La recuperación trata tanto funcionamiento como condición de riesgo.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Servidor restaurado",
+          "items": [
+            {
+              "label": "Revisar causa",
+              "detail": "Se identifica el mismo permiso excesivo."
+            },
+            {
+              "label": "Corregir antes",
+              "detail": "Se aplica y valida la corrección autorizada."
+            },
+            {
+              "label": "Probar operación",
+              "detail": "Usuarios de prueba completan tareas y la supervisión está activa."
+            }
+          ],
+          "caption": "La recuperación trata tanto funcionamiento como condición de riesgo."
+        }
+      },
+      "practice": {
+        "task": "Define cuatro criterios para recuperar una aplicación ficticia.",
+        "steps": [
+          "Incluye una prueba de acceso permitido.",
+          "Añade una prueba de acceso denegado.",
+          "Indica qué señal haría volver a contener."
+        ],
+        "expected": "Una lista de aceptación comprobable."
+      },
+      "check": {
+        "question": "¿Por qué una restauración exitosa puede ser insuficiente?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Porque podría recuperar también la configuración vulnerable."
+          },
+          {
+            "id": "b",
+            "text": "Porque los respaldos nunca sirven."
+          },
+          {
+            "id": "c",
+            "text": "Porque toda restauración elimina registros externos."
+          }
+        ],
+        "correct": "a",
+        "explanation": "Hay que comprobar el estado recuperado y corregir las condiciones que originaron el incidente."
+      },
+      "mistakes": [
+        {
+          "myth": "Si el servicio abre su página principal, la recuperación terminó.",
+          "correction": "Verifica datos, permisos, funciones necesarias y monitoreo antes de aceptar el estado."
+        }
+      ],
+      "recap": [
+        "Trata la causa, no solo el síntoma visible.",
+        "Recupera con criterios definidos de aceptación.",
+        "Una copia necesita validación antes de confiar en ella."
+      ],
+      "glossary": [
+        {
+          "term": "Erradicación",
+          "definition": "Tratamiento de causas y mecanismos que sostienen un incidente."
+        },
+        {
+          "term": "Criterio de aceptación",
+          "definition": "Condición comprobable para considerar válida una recuperación."
+        }
+      ]
+    },
+    {
+      "dayId": "w31d5",
+      "title": "Evidencia",
+      "lead": "Hash comprueba bytes, no autoría ni veracidad.",
+      "sections": [
+        {
+          "topic": "Integridad, custodia y tiempos",
+          "explanation": [
+            "Una evidencia digital necesita contexto, integridad y trazabilidad. Conserva qué se obtuvo, de dónde, cuándo, quién lo recogió y qué método utilizó. Un hash permite comparar el contenido de dos archivos: si cambia, los bytes no son idénticos; si coincide bajo un algoritmo adecuado, apoya la comprobación de integridad. No demuestra por sí solo quién creó el archivo, cuándo se originó ni que sus afirmaciones sean verdaderas. Evita convertir una herramienta de comparación en una prueba universal.",
+            "La custodia registra manejo y transferencias para que otras personas entiendan la historia del material. Trabaja sobre copias cuando corresponda y protege originales, permisos y datos sensibles. Distingue tiempo del evento, adquisición y revisión. Las zonas horarias y relojes desajustados pueden alterar la interpretación de una secuencia. En un entorno laboral aplica los procedimientos y requisitos relevantes al caso; en la práctica utiliza archivos inventados y documenta límites sin afirmar validez jurídica automática por calcular un hash."
+          ],
+          "analogy": "Un sello ayuda a detectar cambios de un paquete, pero no identifica por sí solo a quien fabricó su contenido.",
+          "keyPoints": [
+            "Hash comprueba bytes, no autoría ni veracidad.",
+            "Registra origen, método y manejo.",
+            "Distingue tiempos del evento y de adquisición."
+          ],
+          "visual": {
+            "type": "timeline",
+            "title": "Historia de una copia",
+            "items": [
+              {
+                "label": "10:00Z",
+                "detail": "Evento registrado por el sistema"
+              },
+              {
+                "label": "10:20Z",
+                "detail": "Adquisición autorizada del archivo"
+              },
+              {
+                "label": "10:25Z",
+                "detail": "Hash y copia de trabajo"
+              },
+              {
+                "label": "11:00Z",
+                "detail": "Revisión documentada"
+              }
+            ],
+            "caption": "Cada momento tiene un significado distinto."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Archivo de registro copiado",
+        "scenario": "La copia de trabajo conserva el mismo hash que el archivo adquirido del caso ficticio.",
+        "steps": [
+          {
+            "action": "Registrar origen",
+            "reason": "Un archivo sin contexto pierde significado.",
+            "result": "Se anota sistema, ruta y método."
+          },
+          {
+            "action": "Comparar integridad",
+            "reason": "Se quiere saber si los bytes cambiaron.",
+            "result": "Los hashes coinciden."
+          },
+          {
+            "action": "Limitar conclusión",
+            "reason": "La coincidencia no acredita la verdad del evento.",
+            "result": "Solo se afirma equivalencia del contenido comparado."
+          }
+        ],
+        "result": "Se conserva integridad y contexto sin prometer autenticidad absoluta.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Archivo de registro copiado",
+          "items": [
+            {
+              "label": "Registrar origen",
+              "detail": "Se anota sistema, ruta y método."
+            },
+            {
+              "label": "Comparar integridad",
+              "detail": "Los hashes coinciden."
+            },
+            {
+              "label": "Limitar conclusión",
+              "detail": "Solo se afirma equivalencia del contenido comparado."
+            }
+          ],
+          "caption": "Se conserva integridad y contexto sin prometer autenticidad absoluta."
+        }
+      },
+      "practice": {
+        "task": "Prepara una ficha de evidencia para un archivo de texto propio.",
+        "steps": [
+          "Anota origen y hora de adquisición.",
+          "Calcula o registra un hash de prueba.",
+          "Describe quién revisó la copia y qué no demuestra el hash."
+        ],
+        "expected": "Una ficha sin información privada real."
+      },
+      "check": {
+        "question": "¿Qué prueba directamente un hash coincidente?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La intención del usuario."
+          },
+          {
+            "id": "b",
+            "text": "La identidad legal del autor."
+          },
+          {
+            "id": "c",
+            "text": "La igualdad del contenido comparado, con las limitaciones del algoritmo."
+          }
+        ],
+        "correct": "c",
+        "explanation": "El hash compara contenido; autoría, contexto y veracidad requieren otros elementos de evidencia."
+      },
+      "mistakes": [
+        {
+          "myth": "Un hash convierte cualquier archivo en evidencia concluyente.",
+          "correction": "También hacen falta origen, método, contexto y trazabilidad."
+        }
+      ],
+      "recap": [
+        "Hash comprueba bytes, no autoría ni veracidad.",
+        "Registra origen, método y manejo.",
+        "Distingue tiempos del evento y de adquisición."
+      ],
+      "glossary": [
+        {
+          "term": "Integridad",
+          "definition": "Conservación del contenido frente a cambios no previstos."
+        },
+        {
+          "term": "Custodia",
+          "definition": "Registro del manejo y transferencias de un material."
+        }
+      ]
+    },
+    {
+      "dayId": "w31d6",
+      "title": "Caso integrador",
+      "lead": "Cada fila necesita fuente y tiempo interpretable.",
+      "sections": [
+        {
+          "topic": "Registros y cronología",
+          "explanation": [
+            "Una cronología organiza hechos observados y conserva su fuente. Ordena por un criterio temporal explícito, convierte zonas cuando sea necesario y mantiene la hora original para revisión. No rellenes huecos con acciones imaginadas. Un evento de autenticación a las 09:00 y una creación de archivo a las 09:05 no prueban por sí solos que la misma persona causó ambos. Usa sesión, cuenta, equipo u otros identificadores para contrastar la relación y anota diferencias de reloj conocidas.",
+            "El caso integrado debe separar hechos, inferencias e interrogantes. Un hecho es un registro comprobado; una inferencia conecta datos mediante un razonamiento; una pregunta señala información ausente. Las acciones de respuesta también se añaden a la cronología, para no confundir cambios del analista con actividad previa. Explica qué conclusión cambiaría si un reloj estuviera retrasado o faltara una fuente. Una cronología útil puede ser breve: su valor está en las relaciones sustentadas y en la transparencia de sus límites."
+          ],
+          "analogy": "Es una reconstrucción de un viaje con recibos: puedes ordenar paradas conocidas, pero no inventar las que faltan.",
+          "keyPoints": [
+            "Cada fila necesita fuente y tiempo interpretable.",
+            "No rellenes huecos con suposiciones.",
+            "Registra también las acciones del equipo de respuesta."
+          ],
+          "visual": {
+            "type": "timeline",
+            "title": "Secuencia del caso",
+            "items": [
+              {
+                "label": "09:00Z",
+                "detail": "Sesión S-9 iniciada"
+              },
+              {
+                "label": "09:04Z",
+                "detail": "Cambio de permiso ligado a S-9"
+              },
+              {
+                "label": "09:10Z",
+                "detail": "Sesión revocada por respuesta"
+              }
+            ],
+            "caption": "Las dos primeras filas describen actividad; la tercera es una acción del analista."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Cambio tras una sesión",
+        "scenario": "Tres registros preparados comparten ID de sesión y usan UTC.",
+        "steps": [
+          {
+            "action": "Normalizar tiempo",
+            "reason": "La secuencia exige relojes comparables.",
+            "result": "Las marcas ya están en UTC."
+          },
+          {
+            "action": "Relacionar fuente",
+            "reason": "La cuenta sola puede ser ambigua.",
+            "result": "S-9 conecta sesión y cambio."
+          },
+          {
+            "action": "Etiquetar respuesta",
+            "reason": "Las acciones defensivas cambian el sistema.",
+            "result": "La revocación se marca como intervención autorizada."
+          }
+        ],
+        "result": "Se confirma la secuencia ligada a una sesión, con la intención pendiente de contexto.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Cambio tras una sesión",
+          "items": [
+            {
+              "label": "Normalizar tiempo",
+              "detail": "Las marcas ya están en UTC."
+            },
+            {
+              "label": "Relacionar fuente",
+              "detail": "S-9 conecta sesión y cambio."
+            },
+            {
+              "label": "Etiquetar respuesta",
+              "detail": "La revocación se marca como intervención autorizada."
+            }
+          ],
+          "caption": "Se confirma la secuencia ligada a una sesión, con la intención pendiente de contexto."
+        }
+      },
+      "practice": {
+        "task": "Construye una cronología de cuatro registros ficticios.",
+        "steps": [
+          "Incluye dos fuentes y una acción defensiva.",
+          "Mantén hora original y UTC.",
+          "Etiqueta hecho, inferencia y pregunta."
+        ],
+        "expected": "Una tabla temporal que diferencie observación de interpretación."
+      },
+      "check": {
+        "question": "¿Cómo debes registrar una acción del analista?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Como si la hubiera realizado el atacante."
+          },
+          {
+            "id": "b",
+            "text": "Como intervención identificada con hora y responsable."
+          },
+          {
+            "id": "c",
+            "text": "Omitirla para simplificar."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Las intervenciones pueden explicar cambios posteriores y deben distinguirse de la actividad investigada."
+      },
+      "mistakes": [
+        {
+          "myth": "Una cronología completa no debe mostrar incertidumbre.",
+          "correction": "Los huecos y límites deben quedar visibles para no aparentar certeza inexistente."
+        }
+      ],
+      "recap": [
+        "Cada fila necesita fuente y tiempo interpretable.",
+        "No rellenes huecos con suposiciones.",
+        "Registra también las acciones del equipo de respuesta."
+      ],
+      "glossary": [
+        {
+          "term": "Cronología",
+          "definition": "Ordenación contextual de observaciones y acciones."
+        },
+        {
+          "term": "Inferencia",
+          "definition": "Conclusión razonada que conecta evidencias sin ser una observación directa."
+        }
+      ]
+    },
+    {
+      "dayId": "w31d7",
+      "title": "Evaluación de respuesta",
+      "lead": "Describe el hecho antes de asignar una causa.",
+      "sections": [
+        {
+          "topic": "Hechos frente a hipótesis",
+          "explanation": [
+            "La evaluación de respuesta exige defender conclusiones con evidencia y reconocer incertidumbre. Una buena respuesta no es la que declara más incidentes, sino la que distingue lo demostrado de lo posible y elige acciones proporcionales. Si una cuenta falla diez veces y luego inicia sesión, hay una secuencia observable. Para afirmar compromiso necesitas contexto adicional: origen, aprobación, método de autenticación, operaciones y otras fuentes. Describe primero lo que sucedió sin introducir la causa dentro de la frase.",
+            "Comprueba que cada acción propuesta trate un riesgo identificado y que su efecto pueda validarse. Revocar una sesión limita un acceso, pero no prueba eliminación de persistencia; restaurar un equipo recupera estado, pero puede conservar la causa. Al cerrar el ejercicio incluye alcance, decisiones, resultados y preguntas pendientes. No conviertas la falta de datos en ausencia de daño. Una conclusión provisional bien delimitada es más útil que una certeza falsa que obligue a otros a deshacer decisiones basadas en suposiciones."
+          ],
+          "analogy": "Un buen investigador puede señalar exactamente qué sabe, cómo lo sabe y qué falta por comprobar.",
+          "keyPoints": [
+            "Describe el hecho antes de asignar una causa.",
+            "Relaciona cada acción con riesgo y prueba.",
+            "La incertidumbre documentada guía el siguiente paso."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Tres niveles de afirmación",
+            "items": [
+              {
+                "label": "Hecho",
+                "detail": "Diez fallos y un éxito registrados"
+              },
+              {
+                "label": "Hipótesis",
+                "detail": "Posible uso de credenciales ajenas"
+              },
+              {
+                "label": "Verificación",
+                "detail": "Contexto de sesión y operaciones"
+              }
+            ],
+            "caption": "La hipótesis no sustituye el hecho ni se presenta como confirmada."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Informe demasiado categórico",
+        "scenario": "El borrador dice atacante robó datos, pero solo muestra una sesión exitosa.",
+        "steps": [
+          {
+            "action": "Examinar evidencia",
+            "reason": "Una sesión no equivale a una exportación.",
+            "result": "Se identifica el salto de razonamiento."
+          },
+          {
+            "action": "Acción: Reescribir",
+            "reason": "La afirmación debe ajustarse a los datos.",
+            "result": "Se confirma sesión y se investiga su autorización."
+          },
+          {
+            "action": "Pedir fuente",
+            "reason": "La pregunta de datos requiere otra visibilidad.",
+            "result": "Se solicitan operaciones de la aplicación y su cobertura."
+          }
+        ],
+        "result": "El informe conserva el hecho y convierte la acusación no probada en una pregunta investigable.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Informe demasiado categórico",
+          "items": [
+            {
+              "label": "Examinar evidencia",
+              "detail": "Se identifica el salto de razonamiento."
+            },
+            {
+              "label": "Reescribir",
+              "detail": "Se confirma sesión y se investiga su autorización."
+            },
+            {
+              "label": "Pedir fuente",
+              "detail": "Se solicitan operaciones de la aplicación y su cobertura."
+            }
+          ],
+          "caption": "El informe conserva el hecho y convierte la acusación no probada en una pregunta investigable."
+        }
+      },
+      "practice": {
+        "task": "Corrige tres conclusiones exageradas de un caso ficticio.",
+        "steps": [
+          "Subraya el dato observado.",
+          "Separa la hipótesis añadida.",
+          "Indica una evidencia necesaria para confirmarla."
+        ],
+        "expected": "Tres frases proporcionales al alcance disponible."
+      },
+      "check": {
+        "question": "¿Qué conclusión permite un inicio de sesión exitoso?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que hubo una sesión aceptada por esa fuente, sin probar toda actividad posterior."
+          },
+          {
+            "id": "b",
+            "text": "Que se robaron todos los archivos."
+          },
+          {
+            "id": "c",
+            "text": "Que el dispositivo está libre de malware."
+          }
+        ],
+        "correct": "a",
+        "explanation": "El registro acredita su evento concreto; autorización y operaciones posteriores requieren contexto adicional."
+      },
+      "mistakes": [
+        {
+          "myth": "Reconocer incertidumbre reduce la calidad del informe.",
+          "correction": "Expresar límites evita decisiones equivocadas y orienta la investigación."
+        }
+      ],
+      "recap": [
+        "Describe el hecho antes de asignar una causa.",
+        "Relaciona cada acción con riesgo y prueba.",
+        "La incertidumbre documentada guía el siguiente paso."
+      ],
+      "glossary": [
+        {
+          "term": "Hecho",
+          "definition": "Observación sustentada por una fuente identificada."
+        },
+        {
+          "term": "Conclusión provisional",
+          "definition": "Interpretación limitada a la evidencia actual y revisable."
+        }
+      ]
+    }
+  ]
+}

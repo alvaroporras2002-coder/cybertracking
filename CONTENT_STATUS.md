@@ -2,9 +2,14 @@
 
 La versión 1.5 incorpora evaluaciones formativas en las 52 semanas y mantiene los IDs de las 364 sesiones. El estado distingue material consultable, evaluación disponible y requisitos superados por el alumno.
 
+La versión 2.0 añade clases originales para las 364 sesiones y sus 369 temas. Cada tema dispone de explicación y esquema; cada día incorpora un caso resuelto con otro esquema, una práctica, una pregunta explicada, errores frecuentes y glosario. Las referencias de consulta se listan dentro de cada semana. Los esquemas son relaciones y secuencias didácticas, mientras que las fotografías nuevas son escenas ilustrativas, no capturas de herramientas.
+
 | Parte | Alcance |
 | --- | --- |
 | Temario y recursos | 52 semanas, 364 sesiones |
+| Clases originales | 52 archivos semanales, 364 sesiones y 369 temas explicados |
+| Esquemas didácticos | 369 de conceptos y 364 de casos resueltos |
+| Comprobaciones de lectura | 364 preguntas adicionales con solución explicada; separadas de los bancos de evaluación |
 | Bancos diarios | Ocho preguntas por día ordinario; la aplicación selecciona seis por intento |
 | Revisión semanal | Veinte preguntas en el banco; la aplicación selecciona quince por intento |
 | Retos | Un escenario de interpretación por sesión: 364 en total |
@@ -36,3 +41,5 @@ Los recursos pueden remitir a cursos o listas completas; no hay una afirmación 
 5. Ejecutar `python3 tools/validate-content.py`, `python3 tools/build-assessments.py --check` y las pruebas de JavaScript.
 
 La validación estructural y los casos de regresión se complementan con revisión pedagógica y pruebas en un navegador real.
+
+Para modificar una clase, conserva su `dayId`, los títulos y el orden de los temas del temario. Ejecuta `python3 tools/validate-lessons.py` y las pruebas de JavaScript. El validador comprueba cobertura y estructura; no demuestra la exactitud de cada frase ni una equivalencia completa con un examen externo.

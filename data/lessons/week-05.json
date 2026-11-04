@@ -1,0 +1,957 @@
+{
+  "version": "2.0.0",
+  "week": 5,
+  "title": "Cuentas y permisos",
+  "overview": "Una identidad permite distinguir quién solicita una acción; los permisos determinan si puede realizarla. Esta semana separarás cuenta, credencial y sesión mediante situaciones de trabajo habituales. Aprenderás por qué una cuenta estándar no equivale a una cuenta inútil, cómo los grupos simplifican la gestión y qué comprobar al dar de baja a una persona. Los ejemplos utilizan identidades ficticias. No necesitas cambiar permisos reales: primero debes ser capaz de predecir un resultado y diseñar una prueba que lo confirme.",
+  "objectives": [
+    "Diferenciar autenticación, autorización y sesión.",
+    "Asignar acceso mínimo mediante grupos y roles.",
+    "Validar una baja sin confundir cuenta y sesiones activas."
+  ],
+  "sources": [
+    {
+      "id": "w05s1",
+      "title": "Control de acceso de Windows",
+      "url": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control"
+    },
+    {
+      "id": "w05s2",
+      "title": "Conceptos de autenticación de Windows",
+      "url": "https://learn.microsoft.com/en-us/windows-server/security/windows-authentication/windows-authentication-concepts"
+    },
+    {
+      "id": "w05s3",
+      "title": "Cuentas locales de Windows",
+      "url": "https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/local-accounts"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w05d1",
+      "title": "Identidad",
+      "lead": "Una cuenta representa una identidad dentro de un sistema.",
+      "sections": [
+        {
+          "explanation": [
+            "Una cuenta representa una identidad dentro de un sistema. La credencial es un medio utilizado para demostrarla, como una contraseña o una clave. Tras autenticarse, el sistema puede establecer una sesión que permite continuar trabajando sin repetir toda la verificación en cada acción. La persona, la cuenta y la sesión no son lo mismo: una persona puede tener varias cuentas y una cuenta puede mantener varias sesiones simultáneas.",
+            "Esta distinción importa al investigar accesos. Cambiar una contraseña no permite asumir que todas las sesiones anteriores quedaron revocadas; depende del servicio y de sus mecanismos. Tampoco un nombre visible prueba quién estaba físicamente usando el equipo. Para documentar, identifica el sistema, la cuenta, el momento y la acción observada, evitando publicar credenciales. En los ejemplos usa cuentas ficticias y describe cómo comprobarías la sesión activa sin mostrar secretos ni datos de otras personas."
+          ],
+          "analogy": "Una membresía identifica a la persona, una credencial permite verificarla y una entrada de visita mantiene una autorización temporal.",
+          "keyPoints": [
+            "Cuenta: Identidad registrada en el sistema.",
+            "Credencial: Medio para verificar una afirmación de identidad.",
+            "Sesión: Contexto activo después de la autenticación."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "De la identidad al trabajo activo",
+            "items": [
+              {
+                "label": "Cuenta",
+                "detail": "Identidad registrada en el sistema."
+              },
+              {
+                "label": "Credencial",
+                "detail": "Medio para verificar una afirmación de identidad."
+              },
+              {
+                "label": "Sesión",
+                "detail": "Contexto activo después de la autenticación."
+              }
+            ],
+            "caption": "En los ejemplos usa cuentas ficticias y describe cómo comprobarías la sesión activa sin mostrar secretos ni datos de otras personas."
+          },
+          "topic": "Cuenta, credencial, sesión y usuario"
+        }
+      ],
+      "workedExample": {
+        "title": "Dos dispositivos con la misma cuenta",
+        "scenario": "Una cuenta ficticia inicia sesión en un portátil y en un teléfono.",
+        "steps": [
+          {
+            "action": "Identificar las sesiones",
+            "reason": "Un inicio no reemplaza necesariamente al otro.",
+            "result": "Hay dos contextos de acceso posibles."
+          },
+          {
+            "action": "Cerrar una sesión",
+            "reason": "El alcance del cierre debe comprobarse.",
+            "result": "Salir del teléfono no demuestra cerrar el portátil."
+          },
+          {
+            "action": "Verificar la administración del servicio",
+            "reason": "Cada producto ofrece controles distintos.",
+            "result": "Se consulta cómo revisar y revocar sesiones."
+          }
+        ],
+        "result": "Cuenta única no significa sesión única ni cierre global automático.",
+        "visual": {
+          "type": "flow",
+          "title": "Dos dispositivos con la misma cuenta · secuencia",
+          "items": [
+            {
+              "label": "Identificar las sesiones",
+              "detail": "Hay dos contextos de acceso posibles."
+            },
+            {
+              "label": "Cerrar una sesión",
+              "detail": "Salir del teléfono no demuestra cerrar el portátil."
+            },
+            {
+              "label": "Verificar la administración del servicio",
+              "detail": "Se consulta cómo revisar y revocar sesiones."
+            }
+          ],
+          "caption": "Cuenta única no significa sesión única ni cierre global automático."
+        }
+      },
+      "practice": {
+        "task": "Dibuja una persona con dos cuentas y tres sesiones ficticias.",
+        "steps": [
+          "Etiqueta cada identidad.",
+          "Asocia una credencial sin escribir su secreto.",
+          "Explica qué sesión termina al cerrar un dispositivo."
+        ],
+        "expected": "Un mapa donde persona, cuenta, credencial y sesión permanecen diferenciadas."
+      },
+      "check": {
+        "question": "¿Qué describe una sesión?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El secreto de una contraseña."
+          },
+          {
+            "id": "b",
+            "text": "Un contexto de trabajo activo tras autenticarse."
+          },
+          {
+            "id": "c",
+            "text": "Una pieza de hardware."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La sesión mantiene contexto de acceso; no es la cuenta ni la credencial utilizada inicialmente."
+      },
+      "mistakes": [
+        {
+          "myth": "Cambiar la contraseña siempre cierra todas las sesiones.",
+          "correction": "El comportamiento depende del servicio; verifica el mecanismo de revocación y sus efectos."
+        }
+      ],
+      "recap": [
+        "Cuenta: Identidad registrada en el sistema.",
+        "Credencial: Medio para verificar una afirmación de identidad.",
+        "Sesión: Contexto activo después de la autenticación."
+      ],
+      "glossary": [
+        {
+          "term": "Cuenta",
+          "definition": "Identidad registrada dentro de un sistema."
+        },
+        {
+          "term": "Credencial",
+          "definition": "Medio de prueba de identidad."
+        },
+        {
+          "term": "Sesión",
+          "definition": "Contexto activo de interacción autenticada."
+        }
+      ]
+    },
+    {
+      "dayId": "w05d2",
+      "title": "Privilegios",
+      "lead": "Una cuenta estándar realiza actividades normales con permisos limitados.",
+      "sections": [
+        {
+          "explanation": [
+            "Una cuenta estándar realiza actividades normales con permisos limitados. Una cuenta administrativa puede efectuar cambios de mayor alcance, pero no debería utilizar esa capacidad para cada tarea cotidiana. La elevación solicita o concede un contexto con privilegios superiores para una operación concreta. Leer un documento no requiere normalmente la misma capacidad que instalar un controlador o modificar una configuración protegida del equipo.",
+            "El mínimo privilegio reduce el daño posible si una aplicación se equivoca o una cuenta se compromete. No significa impedir trabajar, sino conceder lo necesario durante el alcance adecuado. Cuando aparece una solicitud de elevación, comprueba qué programa la inicia, quién lo publica y por qué necesita ese permiso. En equipos de trabajo sigue el procedimiento autorizado. Una advertencia de permisos no es un obstáculo que siempre debas desactivar; puede estar señalando que la operación excede el acceso previsto."
+          ],
+          "analogy": "Un empleado puede usar una sala sin tener la llave maestra de todo el edificio.",
+          "keyPoints": [
+            "Estándar: Actividades habituales dentro del acceso concedido.",
+            "Administración: Cambios que afectan al sistema u otros usuarios.",
+            "Elevación: Permiso superior para una operación justificada."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Capacidad según la tarea",
+            "items": [
+              {
+                "label": "Estándar",
+                "detail": "Actividades habituales dentro del acceso concedido."
+              },
+              {
+                "label": "Administración",
+                "detail": "Cambios que afectan al sistema u otros usuarios."
+              },
+              {
+                "label": "Elevación",
+                "detail": "Permiso superior para una operación justificada."
+              }
+            ],
+            "caption": "Una advertencia de permisos no es un obstáculo que siempre debas desactivar; puede estar señalando que la operación excede el acceso previsto."
+          },
+          "topic": "Usuario estándar, administrador y elevación"
+        }
+      ],
+      "workedExample": {
+        "title": "Un editor solicita privilegios al abrir una nota",
+        "scenario": "Una herramienta desconocida pide administrador para una tarea simple.",
+        "steps": [
+          {
+            "action": "Identificar el ejecutable",
+            "reason": "El nombre visible puede ser insuficiente.",
+            "result": "Se comprueba origen y proveedor."
+          },
+          {
+            "action": "Relacionar permiso y función",
+            "reason": "La tarea define el acceso necesario.",
+            "result": "Abrir una nota no justifica automáticamente acceso amplio."
+          },
+          {
+            "action": "Detener una elevación no explicada",
+            "reason": "Aceptar no es una comprobación de seguridad.",
+            "result": "Se consulta documentación o soporte autorizado."
+          }
+        ],
+        "result": "La solicitud requiere explicación antes de conceder privilegios adicionales.",
+        "visual": {
+          "type": "flow",
+          "title": "Un editor solicita privilegios al abrir una nota · secuencia",
+          "items": [
+            {
+              "label": "Identificar el ejecutable",
+              "detail": "Se comprueba origen y proveedor."
+            },
+            {
+              "label": "Relacionar permiso y función",
+              "detail": "Abrir una nota no justifica automáticamente acceso amplio."
+            },
+            {
+              "label": "Detener una elevación no explicada",
+              "detail": "Se consulta documentación o soporte autorizado."
+            }
+          ],
+          "caption": "La solicitud requiere explicación antes de conceder privilegios adicionales."
+        }
+      },
+      "practice": {
+        "task": "Clasifica leer un archivo, instalar un controlador y cambiar tu fondo.",
+        "steps": [
+          "Indica el alcance de cada acción.",
+          "Explica cuál podría requerir elevación.",
+          "Describe qué verificarías antes de aceptarla."
+        ],
+        "expected": "Una justificación basada en la tarea, no en pulsar siempre aceptar."
+      },
+      "check": {
+        "question": "¿Qué busca el mínimo privilegio?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que nadie pueda trabajar."
+          },
+          {
+            "id": "b",
+            "text": "Que todas las cuentas sean administradoras."
+          },
+          {
+            "id": "c",
+            "text": "Conceder solo las capacidades necesarias para la función."
+          }
+        ],
+        "correct": "c",
+        "explanation": "El permiso debe corresponder a una necesidad concreta y a su alcance."
+      },
+      "mistakes": [
+        {
+          "myth": "Una cuenta administrativa es siempre mejor para aprender.",
+          "correction": "Aumenta las consecuencias de errores; utiliza permisos reducidos y eleva únicamente cuando exista una necesidad autorizada."
+        }
+      ],
+      "recap": [
+        "Estándar: Actividades habituales dentro del acceso concedido.",
+        "Administración: Cambios que afectan al sistema u otros usuarios.",
+        "Elevación: Permiso superior para una operación justificada."
+      ],
+      "glossary": [
+        {
+          "term": "Privilegio",
+          "definition": "Capacidad especial para ejecutar ciertas operaciones."
+        },
+        {
+          "term": "Elevación",
+          "definition": "Uso de un contexto con mayores permisos."
+        }
+      ]
+    },
+    {
+      "dayId": "w05d3",
+      "title": "Grupos y roles",
+      "lead": "Un grupo reúne identidades para asignar permisos de manera consistente.",
+      "sections": [
+        {
+          "explanation": [
+            "Un grupo reúne identidades para asignar permisos de manera consistente. Un rol describe una función y las capacidades necesarias para desempeñarla. En vez de conceder acceso individual a cada persona sobre cada carpeta, puedes asociar permisos a grupos y gestionar quién pertenece a ellos. Esto simplifica altas, cambios y revisiones, pero exige que las membresías correspondan al trabajo actual y no se acumulen indefinidamente.",
+            "Imagina los roles de lectura y edición en una carpeta de informes. Una persona que solo consulta necesita lectura; quien redacta puede requerir modificación. Si cambia de puesto, revisa sus grupos anteriores además de añadir los nuevos. La pertenencia indirecta mediante otros grupos también puede influir en el acceso efectivo. Documenta dueño del recurso, razón del acceso y revisión prevista. Un nombre de grupo convincente no demuestra que sus permisos reales sean los adecuados."
+          ],
+          "analogy": "Dar una llave por función facilita administrar accesos, siempre que retires las llaves del puesto anterior.",
+          "keyPoints": [
+            "Persona: Identidad que realiza el trabajo.",
+            "Grupo o rol: Conjunto que representa la necesidad.",
+            "Permiso: Acción concedida sobre un recurso."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Acceso mediante una función",
+            "items": [
+              {
+                "label": "Persona",
+                "detail": "Identidad que realiza el trabajo."
+              },
+              {
+                "label": "Grupo o rol",
+                "detail": "Conjunto que representa la necesidad."
+              },
+              {
+                "label": "Permiso",
+                "detail": "Acción concedida sobre un recurso."
+              },
+              {
+                "label": "Revisión",
+                "detail": "Confirmar que la necesidad continúa."
+              }
+            ],
+            "caption": "Un nombre de grupo convincente no demuestra que sus permisos reales sean los adecuados."
+          },
+          "topic": "Asignación por puesto y mínimo privilegio"
+        }
+      ],
+      "workedExample": {
+        "title": "Cambio de redacción a consulta",
+        "scenario": "Una cuenta ficticia deja de editar informes y pasa a consultarlos.",
+        "steps": [
+          {
+            "action": "Identificar la nueva función",
+            "reason": "El acceso debe seguir la necesidad actual.",
+            "result": "Solo requiere lectura."
+          },
+          {
+            "action": "Revisar membresías previas",
+            "reason": "Añadir un grupo no retira permisos anteriores.",
+            "result": "Se detecta el grupo de editores."
+          },
+          {
+            "action": "Validar el resultado",
+            "reason": "La configuración debe comprobarse con una cuenta de prueba.",
+            "result": "Puede leer, pero no modificar el archivo de práctica."
+          }
+        ],
+        "result": "El cambio correcto incluye retirar capacidades que ya no se necesitan.",
+        "visual": {
+          "type": "flow",
+          "title": "Cambio de redacción a consulta · secuencia",
+          "items": [
+            {
+              "label": "Identificar la nueva función",
+              "detail": "Solo requiere lectura."
+            },
+            {
+              "label": "Revisar membresías previas",
+              "detail": "Se detecta el grupo de editores."
+            },
+            {
+              "label": "Validar el resultado",
+              "detail": "Puede leer, pero no modificar el archivo de práctica."
+            }
+          ],
+          "caption": "El cambio correcto incluye retirar capacidades que ya no se necesitan."
+        }
+      },
+      "practice": {
+        "task": "Diseña grupos para lectores, editores y responsables de una carpeta ficticia.",
+        "steps": [
+          "Define acciones por función.",
+          "Asigna tres cuentas de ejemplo.",
+          "Describe cómo revisarías un cambio de puesto."
+        ],
+        "expected": "Una matriz de roles con acciones concretas y justificación."
+      },
+      "check": {
+        "question": "¿Qué error puede ocurrir al cambiar de puesto?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Conservar permisos del rol anterior sin necesidad."
+          },
+          {
+            "id": "b",
+            "text": "Que una carpeta tenga nombre."
+          },
+          {
+            "id": "c",
+            "text": "Que exista una cuenta estándar."
+          }
+        ],
+        "correct": "a",
+        "explanation": "Los accesos anteriores pueden permanecer aunque se añadan correctamente los nuevos."
+      },
+      "mistakes": [
+        {
+          "myth": "El nombre del grupo demuestra sus permisos.",
+          "correction": "Comprueba las reglas efectivas y las membresías, incluidas las indirectas."
+        }
+      ],
+      "recap": [
+        "Persona: Identidad que realiza el trabajo.",
+        "Grupo o rol: Conjunto que representa la necesidad.",
+        "Permiso: Acción concedida sobre un recurso."
+      ],
+      "glossary": [
+        {
+          "term": "Grupo",
+          "definition": "Conjunto de identidades usado para gestionar acceso."
+        },
+        {
+          "term": "Rol",
+          "definition": "Función con un conjunto de capacidades necesarias."
+        }
+      ]
+    },
+    {
+      "dayId": "w05d4",
+      "title": "Permisos de archivos",
+      "lead": "Los permisos describen acciones sobre objetos, como leer, escribir o ejecutar.",
+      "sections": [
+        {
+          "explanation": [
+            "Los permisos describen acciones sobre objetos, como leer, escribir o ejecutar. En una carpeta también importan las acciones sobre sus elementos y la posibilidad de recorrerla. La herencia permite que permisos de una carpeta se propaguen a objetos subordinados según la configuración del sistema. No basta con mirar una casilla aislada: el acceso puede depender de grupos, reglas heredadas y permisos de varios niveles.",
+            "Leer un archivo no implica poder modificarlo, y modificar su contenido no siempre equivale a administrar sus permisos. Algunas plataformas distinguen además permisos de recurso compartido y del sistema de archivos. Por eso debes formular una pregunta exacta: «¿esta cuenta puede escribir este archivo a través de esta ruta?». Practica con objetos ficticios y una cuenta de prueba autorizada; registra la configuración antes de cambiarla y evita abrir acceso general para resolver un error sin investigar su causa."
+          ],
+          "analogy": "Entrar a una biblioteca, leer un libro y modificar su catálogo son acciones distintas que requieren permisos diferentes.",
+          "keyPoints": [
+            "Carpeta superior: Puede transmitir reglas a sus elementos.",
+            "Archivo: Tiene permisos aplicables al objeto.",
+            "Identidad: Recibe capacidades directas o mediante grupos."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Objeto, acción y herencia",
+            "items": [
+              {
+                "label": "Carpeta superior",
+                "detail": "Puede transmitir reglas a sus elementos."
+              },
+              {
+                "label": "Archivo",
+                "detail": "Tiene permisos aplicables al objeto."
+              },
+              {
+                "label": "Identidad",
+                "detail": "Recibe capacidades directas o mediante grupos."
+              },
+              {
+                "label": "Acción",
+                "detail": "Lectura, escritura o ejecución concreta."
+              }
+            ],
+            "caption": "Practica con objetos ficticios y una cuenta de prueba autorizada; registra la configuración antes de cambiarla y evita abrir acceso general para resolver un error sin investigar su causa."
+          },
+          "topic": "Lectura, escritura, ejecución e herencia"
+        }
+      ],
+      "workedExample": {
+        "title": "Leer sí, editar no",
+        "scenario": "Una cuenta abre un informe de práctica, pero no puede guardar cambios.",
+        "steps": [
+          {
+            "action": "Separar las acciones",
+            "reason": "Abrir no demuestra permiso de escritura.",
+            "result": "La lectura está permitida."
+          },
+          {
+            "action": "Examinar la regla pertinente",
+            "reason": "El acceso puede venir de grupos o herencia.",
+            "result": "Se consulta la configuración sin ampliarla."
+          },
+          {
+            "action": "Probar con datos ficticios",
+            "reason": "No se debe dañar el informe original.",
+            "result": "Se confirma la restricción en una copia de práctica."
+          }
+        ],
+        "result": "El comportamiento puede corresponder al acceso previsto de solo lectura.",
+        "visual": {
+          "type": "flow",
+          "title": "Leer sí, editar no · secuencia",
+          "items": [
+            {
+              "label": "Separar las acciones",
+              "detail": "La lectura está permitida."
+            },
+            {
+              "label": "Examinar la regla pertinente",
+              "detail": "Se consulta la configuración sin ampliarla."
+            },
+            {
+              "label": "Probar con datos ficticios",
+              "detail": "Se confirma la restricción en una copia de práctica."
+            }
+          ],
+          "caption": "El comportamiento puede corresponder al acceso previsto de solo lectura."
+        }
+      },
+      "practice": {
+        "task": "Construye una matriz de lectura y escritura para dos cuentas ficticias.",
+        "steps": [
+          "Define el recurso exacto.",
+          "Marca acceso esperado por acción.",
+          "Diseña una prueba que no modifique datos reales."
+        ],
+        "expected": "Una matriz donde leer y escribir son capacidades independientes."
+      },
+      "check": {
+        "question": "Poder abrir un archivo demuestra que también puedes editarlo.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Siempre."
+          },
+          {
+            "id": "b",
+            "text": "No; lectura y escritura son permisos distintos."
+          },
+          {
+            "id": "c",
+            "text": "Solo cuando tiene extensión .txt."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La acción observada permite concluir sobre lectura, no sobre todas las capacidades del objeto."
+      },
+      "mistakes": [
+        {
+          "myth": "Para arreglar un permiso, doy acceso a todos.",
+          "correction": "Amplía el riesgo y puede ocultar la causa; identifica la regla necesaria y valida con alcance reducido."
+        }
+      ],
+      "recap": [
+        "Carpeta superior: Puede transmitir reglas a sus elementos.",
+        "Archivo: Tiene permisos aplicables al objeto.",
+        "Identidad: Recibe capacidades directas o mediante grupos."
+      ],
+      "glossary": [
+        {
+          "term": "Herencia",
+          "definition": "Propagación de reglas desde un objeto superior."
+        },
+        {
+          "term": "Permiso efectivo",
+          "definition": "Acceso resultante de las reglas aplicables."
+        }
+      ]
+    },
+    {
+      "dayId": "w05d5",
+      "title": "Validación de acceso",
+      "lead": "El permiso esperado es lo que debería permitir la función de una persona.",
+      "sections": [
+        {
+          "explanation": [
+            "El permiso esperado es lo que debería permitir la función de una persona. El efectivo es lo que el sistema realmente permite después de aplicar sus reglas. Ambos pueden diferir por membresías antiguas, reglas heredadas, una ruta alternativa o sesiones cuyo contexto no se ha actualizado. La validación compara una predicción concreta con una acción observada, usando una identidad y un recurso definidos.",
+            "No pruebes únicamente con tu cuenta administrativa: sus capacidades pueden ocultar errores que afectan a un usuario estándar. En un entorno autorizado emplea una cuenta de prueba equivalente y datos ficticios. Incluye un caso permitido y uno que deba rechazarse. Si ambos funcionan, quizá el acceso sea demasiado amplio; si ambos fallan, puede faltar una condición común. Registra también cómo se accedió al recurso. Una prueba local no acredita automáticamente el comportamiento a través de una ruta compartida distinta."
+          ],
+          "analogy": "Diseñar una cerradura y comprobar con la llave de la persona correcta son pasos diferentes.",
+          "keyPoints": [
+            "Esperado: El lector consulta, pero no modifica.",
+            "Prueba positiva: Abrir la nota de práctica.",
+            "Prueba negativa: Intentar editar una copia autorizada."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Comparar intención y resultado",
+            "items": [
+              {
+                "label": "Esperado",
+                "detail": "El lector consulta, pero no modifica."
+              },
+              {
+                "label": "Prueba positiva",
+                "detail": "Abrir la nota de práctica."
+              },
+              {
+                "label": "Prueba negativa",
+                "detail": "Intentar editar una copia autorizada."
+              },
+              {
+                "label": "Resultado",
+                "detail": "Comparar acciones observadas con la matriz."
+              }
+            ],
+            "caption": "Una prueba local no acredita automáticamente el comportamiento a través de una ruta compartida distinta."
+          },
+          "topic": "Permiso esperado frente a efectivo"
+        }
+      ],
+      "workedExample": {
+        "title": "Una cuenta de lectura puede borrar",
+        "scenario": "En un laboratorio, una cuenta supuestamente lectora consigue eliminar un archivo ficticio.",
+        "steps": [
+          {
+            "action": "Registrar la desviación",
+            "reason": "El resultado contradice la intención.",
+            "result": "La prueba negativa fue permitida."
+          },
+          {
+            "action": "Revisar todas las reglas",
+            "reason": "El nombre del grupo no muestra toda la autorización.",
+            "result": "Se investigan membresías y permisos de carpeta."
+          },
+          {
+            "action": "Corregir y repetir",
+            "reason": "Una configuración cambiada necesita validación.",
+            "result": "Se repiten lectura permitida y borrado rechazado."
+          }
+        ],
+        "result": "La evidencia demuestra exceso de acceso en ese recurso y contexto concretos.",
+        "visual": {
+          "type": "flow",
+          "title": "Una cuenta de lectura puede borrar · secuencia",
+          "items": [
+            {
+              "label": "Registrar la desviación",
+              "detail": "La prueba negativa fue permitida."
+            },
+            {
+              "label": "Revisar todas las reglas",
+              "detail": "Se investigan membresías y permisos de carpeta."
+            },
+            {
+              "label": "Corregir y repetir",
+              "detail": "Se repiten lectura permitida y borrado rechazado."
+            }
+          ],
+          "caption": "La evidencia demuestra exceso de acceso en ese recurso y contexto concretos."
+        }
+      },
+      "practice": {
+        "task": "Valida sobre papel un rol de lector y otro de editor.",
+        "steps": [
+          "Define un éxito y un rechazo esperados.",
+          "Usa cuentas ficticias distintas del administrador.",
+          "Explica cómo interpretarías una desviación."
+        ],
+        "expected": "Una tabla de esperado, observado y siguiente comprobación."
+      },
+      "check": {
+        "question": "¿Por qué incluir una prueba que deba fallar?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Para confirmar que el acceso no es más amplio de lo previsto."
+          },
+          {
+            "id": "b",
+            "text": "Para romper el sistema."
+          },
+          {
+            "id": "c",
+            "text": "Porque los éxitos no aportan información."
+          }
+        ],
+        "correct": "a",
+        "explanation": "Una restricción también necesita demostrarse mediante una acción controlada y autorizada."
+      },
+      "mistakes": [
+        {
+          "myth": "Si funciona para el administrador, funciona correctamente para todos.",
+          "correction": "Los privilegios del administrador pueden ocultar permisos faltantes o diferencias entre identidades."
+        }
+      ],
+      "recap": [
+        "Esperado: El lector consulta, pero no modifica.",
+        "Prueba positiva: Abrir la nota de práctica.",
+        "Prueba negativa: Intentar editar una copia autorizada."
+      ],
+      "glossary": [
+        {
+          "term": "Prueba positiva",
+          "definition": "Acción que debe estar permitida."
+        },
+        {
+          "term": "Prueba negativa",
+          "definition": "Acción que debe ser rechazada según el diseño."
+        }
+      ]
+    },
+    {
+      "dayId": "w05d6",
+      "title": "Caso de baja",
+      "lead": "Una baja retira la capacidad de una identidad para continuar accediendo a recursos que ya no necesita.",
+      "sections": [
+        {
+          "explanation": [
+            "Una baja retira la capacidad de una identidad para continuar accediendo a recursos que ya no necesita. Incluye revisar cuentas, grupos, sesiones activas, credenciales, dispositivos y accesos en servicios externos. Deshabilitar una cuenta en un sistema no demuestra que todas las aplicaciones hayan revocado automáticamente sus sesiones. La secuencia depende del entorno y debe seguir un procedimiento autorizado para preservar continuidad y registros.",
+            "Antes de borrar información, identifica qué debe conservarse y quién asumirá su responsabilidad. Una cuenta puede ejecutar tareas programadas o poseer archivos compartidos; eliminarla sin revisar dependencias puede interrumpir servicios. En el caso ficticio, registra cada sistema y el resultado de la comprobación. No realices bajas sobre cuentas reales para practicar. Una lista de verificación útil distingue acción solicitada, responsable, hora, evidencia y elementos pendientes, en lugar de usar una sola casilla que diga «usuario eliminado»."
+          ],
+          "analogy": "Retirar una credencial de entrada no garantiza recoger todas las llaves, sesiones y responsabilidades que la persona mantenía.",
+          "keyPoints": [
+            "Inventariar: Sistemas, roles, sesiones y dependencias.",
+            "Revocar: Aplicar acciones autorizadas por sistema.",
+            "Conservar: Transferir datos según el procedimiento."
+          ],
+          "visual": {
+            "type": "timeline",
+            "title": "Baja con comprobación",
+            "items": [
+              {
+                "label": "Inventariar",
+                "detail": "Sistemas, roles, sesiones y dependencias."
+              },
+              {
+                "label": "Revocar",
+                "detail": "Aplicar acciones autorizadas por sistema."
+              },
+              {
+                "label": "Conservar",
+                "detail": "Transferir datos según el procedimiento."
+              },
+              {
+                "label": "Verificar",
+                "detail": "Probar acceso y registrar pendientes."
+              }
+            ],
+            "caption": "Una lista de verificación útil distingue acción solicitada, responsable, hora, evidencia y elementos pendientes, en lugar de usar una sola casilla que diga «usuario eliminado»."
+          },
+          "topic": "Revocar sesiones, cuentas y permisos"
+        }
+      ],
+      "workedExample": {
+        "title": "Cuenta deshabilitada con sesión abierta",
+        "scenario": "Una identidad ficticia está bloqueada en el directorio, pero una aplicación conserva una sesión.",
+        "steps": [
+          {
+            "action": "Evitar una conclusión global",
+            "reason": "Los controles pertenecen a sistemas diferentes.",
+            "result": "El bloqueo del directorio es solo una parte."
+          },
+          {
+            "action": "Consultar revocación de sesiones",
+            "reason": "La aplicación puede requerir una acción específica.",
+            "result": "Se identifica el mecanismo autorizado."
+          },
+          {
+            "action": "Validar acceso y dependencias",
+            "reason": "La baja debe retirar acceso sin perder datos requeridos.",
+            "result": "Se comprueban sesión y transferencia de responsabilidad."
+          }
+        ],
+        "result": "La baja no se cierra hasta verificar sus sistemas y excepciones relevantes.",
+        "visual": {
+          "type": "flow",
+          "title": "Cuenta deshabilitada con sesión abierta · secuencia",
+          "items": [
+            {
+              "label": "Evitar una conclusión global",
+              "detail": "El bloqueo del directorio es solo una parte."
+            },
+            {
+              "label": "Consultar revocación de sesiones",
+              "detail": "Se identifica el mecanismo autorizado."
+            },
+            {
+              "label": "Validar acceso y dependencias",
+              "detail": "Se comprueban sesión y transferencia de responsabilidad."
+            }
+          ],
+          "caption": "La baja no se cierra hasta verificar sus sistemas y excepciones relevantes."
+        }
+      },
+      "practice": {
+        "task": "Diseña una baja ficticia para tres servicios.",
+        "steps": [
+          "Lista cuentas y sesiones.",
+          "Identifica datos y tareas que deben conservarse.",
+          "Define evidencia de revocación por servicio."
+        ],
+        "expected": "Una lista con responsables, comprobaciones y pendientes."
+      },
+      "check": {
+        "question": "¿Qué falta tras deshabilitar una cuenta central?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Nada en ningún sistema."
+          },
+          {
+            "id": "b",
+            "text": "Cambiar el fondo del equipo."
+          },
+          {
+            "id": "c",
+            "text": "Verificar sesiones, servicios externos y dependencias pertinentes."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La identidad central no demuestra por sí sola el estado de todos los accesos asociados."
+      },
+      "mistakes": [
+        {
+          "myth": "Borrar la cuenta de inmediato resuelve toda baja.",
+          "correction": "Puede dejar sesiones activas o romper dependencias; sigue una secuencia autorizada y verificada."
+        }
+      ],
+      "recap": [
+        "Inventariar: Sistemas, roles, sesiones y dependencias.",
+        "Revocar: Aplicar acciones autorizadas por sistema.",
+        "Conservar: Transferir datos según el procedimiento."
+      ],
+      "glossary": [
+        {
+          "term": "Revocación",
+          "definition": "Retirada de una capacidad o autorización."
+        },
+        {
+          "term": "Dependencia operativa",
+          "definition": "Función que necesita una identidad o recurso para continuar."
+        }
+      ]
+    },
+    {
+      "dayId": "w05d7",
+      "title": "Evaluación de acceso",
+      "lead": "Autenticar responde a una afirmación de identidad; autorizar decide qué acciones permite el sistema a esa identidad.",
+      "sections": [
+        {
+          "explanation": [
+            "Autenticar responde a una afirmación de identidad; autorizar decide qué acciones permite el sistema a esa identidad. Un inicio de sesión correcto no concede automáticamente acceso a todas las carpetas. Un mensaje de acceso denegado después de iniciar sesión puede ser una restricción prevista, una membresía incorrecta o una diferencia de contexto. Primero distingue la fase en la que ocurre el problema para elegir una comprobación pertinente.",
+            "En un caso de evaluación identifica cuenta, credencial, sesión, recurso y acción. Después escribe qué debería ocurrir y qué se observó. Si la contraseña fue aceptada pero no se puede modificar un informe, no recomiendes restablecerla como primera solución sin una hipótesis. Revisa la autorización relevante mediante consulta y una prueba controlada. También protege los secretos: una captura de una contraseña nunca es evidencia necesaria para demostrar que una cuenta pudo autenticarse correctamente."
+          ],
+          "analogy": "Mostrar una identificación permite verificar quién eres; la entrada a una sala depende además de los permisos de esa visita.",
+          "keyPoints": [
+            "Identificación: La cuenta afirma una identidad.",
+            "Autenticación: Se comprueba la prueba presentada.",
+            "Autorización: Se evalúa la acción sobre el recurso."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Dos decisiones diferentes",
+            "items": [
+              {
+                "label": "Identificación",
+                "detail": "La cuenta afirma una identidad."
+              },
+              {
+                "label": "Autenticación",
+                "detail": "Se comprueba la prueba presentada."
+              },
+              {
+                "label": "Autorización",
+                "detail": "Se evalúa la acción sobre el recurso."
+              },
+              {
+                "label": "Registro",
+                "detail": "Se documenta el resultado con contexto."
+              }
+            ],
+            "caption": "También protege los secretos: una captura de una contraseña nunca es evidencia necesaria para demostrar que una cuenta pudo autenticarse correctamente."
+          },
+          "topic": "Autenticación frente a autorización"
+        }
+      ],
+      "workedExample": {
+        "title": "Inicio correcto y edición rechazada",
+        "scenario": "Una cuenta ficticia entra al sistema y consulta un informe, pero no lo modifica.",
+        "steps": [
+          {
+            "action": "Localizar la fase",
+            "reason": "El inicio de sesión ya fue aceptado.",
+            "result": "El problema de edición ocurre después."
+          },
+          {
+            "action": "Comparar con el rol",
+            "reason": "La restricción puede ser intencionada.",
+            "result": "El rol documentado es lector."
+          },
+          {
+            "action": "Concluir con precisión",
+            "reason": "No todo rechazo significa fallo.",
+            "result": "La edición denegada coincide con el acceso previsto."
+          }
+        ],
+        "result": "La autenticación funcionó y la autorización aplicó una restricción correcta para ese rol.",
+        "visual": {
+          "type": "flow",
+          "title": "Inicio correcto y edición rechazada · secuencia",
+          "items": [
+            {
+              "label": "Localizar la fase",
+              "detail": "El problema de edición ocurre después."
+            },
+            {
+              "label": "Comparar con el rol",
+              "detail": "El rol documentado es lector."
+            },
+            {
+              "label": "Concluir con precisión",
+              "detail": "La edición denegada coincide con el acceso previsto."
+            }
+          ],
+          "caption": "La autenticación funcionó y la autorización aplicó una restricción correcta para ese rol."
+        }
+      },
+      "practice": {
+        "task": "Explica dos escenarios: contraseña rechazada y escritura denegada.",
+        "steps": [
+          "Identifica la fase afectada.",
+          "Propón una comprobación distinta para cada caso.",
+          "Indica qué secreto no necesitas recopilar."
+        ],
+        "expected": "Dos investigaciones diferenciadas con respeto a la privacidad."
+      },
+      "check": {
+        "question": "Una contraseña aceptada demuestra autorización para borrar cualquier archivo.",
+        "options": [
+          {
+            "id": "a",
+            "text": "No; la acción depende de permisos adicionales."
+          },
+          {
+            "id": "b",
+            "text": "Sí, siempre."
+          },
+          {
+            "id": "c",
+            "text": "Solo si se usa un navegador."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La autenticación comprueba identidad, mientras la autorización evalúa acciones sobre recursos concretos."
+      },
+      "mistakes": [
+        {
+          "myth": "Todo acceso denegado es una avería.",
+          "correction": "Puede demostrar que una restricción prevista está funcionando correctamente."
+        }
+      ],
+      "recap": [
+        "Identificación: La cuenta afirma una identidad.",
+        "Autenticación: Se comprueba la prueba presentada.",
+        "Autorización: Se evalúa la acción sobre el recurso."
+      ],
+      "glossary": [
+        {
+          "term": "Autenticación",
+          "definition": "Verificación de una afirmación de identidad."
+        },
+        {
+          "term": "Autorización",
+          "definition": "Decisión sobre acciones permitidas a una identidad."
+        }
+      ]
+    }
+  ]
+}

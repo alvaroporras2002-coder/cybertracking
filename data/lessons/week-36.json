@@ -1,0 +1,949 @@
+{
+  "version": "2.0.0",
+  "week": 36,
+  "title": "Refuerzo y posible Security+",
+  "overview": "Esta semana transforma los resultados de práctica en una decisión razonada sobre Security+ o refuerzo adicional. Trabajarás con errores concretos de redes, criptografía y autorización, además de una revisión de objetivos y logística. El programa no fija aquí versiones, precios, fechas ni reglas que puedan cambiar; debes consultarlos en la fuente oficial de tu examen y modalidad. La meta es conservar una base técnica defendible y un plan de continuidad, independientemente de cuándo presentes una certificación.",
+  "objectives": [
+    "Priorizar errores recurrentes por causa y dependencia.",
+    "Demostrar mejoras con casos diferentes.",
+    "Tomar una decisión de examen o refuerzo con evidencia y reglas verificadas."
+  ],
+  "sources": [
+    {
+      "id": "controls",
+      "title": "NIST SP 800-53 — Security and Privacy Controls",
+      "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+    },
+    {
+      "id": "risk",
+      "title": "NIST SP 800-30r1 — Risk Assessment",
+      "url": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+    },
+    {
+      "id": "ir",
+      "title": "NIST SP 800-61r3 — Incident Response",
+      "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w36d1",
+      "title": "Mapa de errores",
+      "lead": "Agrupa por causa y no solo por tema.",
+      "sections": [
+        {
+          "topic": "Tres problemas recurrentes",
+          "explanation": [
+            "Un mapa de errores agrupa fallos por causa para evitar un repaso indiscriminado. Tres respuestas equivocadas pueden proceder de una misma confusión, como pensar que autenticarse autoriza cualquier recurso. También un solo caso puede contener errores distintos: rango temporal incorrecto, consulta mal escrita y conclusión exagerada. Escribe para cada fallo el paso que debería haberse realizado, el dato que faltó y la evidencia que permitiría comprobar la mejora. Así el mapa describe acciones de aprendizaje y no etiquetas vagas.",
+            "Prioriza dependencias y recurrencia. Si no interpretas prefijos IP, muchos ejercicios de firewall y captura se vuelven difíciles; corregir esa base puede aportar más que memorizar diez reglas. Conserva también errores que ya mejoraron para verificar que el aprendizaje se mantiene después de unos días. No uses el mapa para castigarte ni para borrar intentos incómodos. Su utilidad está en hacer visible una causa, elegir una tarea y comparar el siguiente resultado con un criterio definido antes del intento."
+          ],
+          "analogy": "El mapa de errores es un diagnóstico de taller: agrupa síntomas para encontrar la pieza que realmente necesita atención.",
+          "keyPoints": [
+            "Agrupa por causa y no solo por tema.",
+            "Prioriza dependencias que afectan varias tareas.",
+            "La mejora necesita una prueba posterior definida."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Mapa de un error recurrente",
+            "items": [
+              {
+                "label": "Síntoma",
+                "detail": "Fallos en reglas de firewall"
+              },
+              {
+                "label": "Causa",
+                "detail": "No interpretar pertenencia a subred"
+              },
+              {
+                "label": "Refuerzo",
+                "detail": "Prefijos y comparación de direcciones"
+              },
+              {
+                "label": "Prueba",
+                "detail": "Dos flujos nuevos explicados"
+              }
+            ],
+            "caption": "El mapa convierte un resultado pasado en una tarea comprobable."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Tres fallos de redes",
+        "scenario": "Tres preguntas diferentes fallan por confundir red local con destino remoto.",
+        "steps": [
+          {
+            "action": "Comparar razonamientos",
+            "reason": "Los enunciados distintos pueden compartir causa.",
+            "result": "Se identifica el error de pertenencia."
+          },
+          {
+            "action": "Elegir dependencia",
+            "reason": "Repasar todo no es necesario.",
+            "result": "Se practica máscara y siguiente salto."
+          },
+          {
+            "action": "Definir comprobación",
+            "reason": "Repetir el mismo caso favorece memoria.",
+            "result": "Se usan direcciones y prefijos nuevos."
+          }
+        ],
+        "result": "Una causa concreta reemplaza la etiqueta amplia no sé redes.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Tres fallos de redes",
+          "items": [
+            {
+              "label": "Comparar razonamientos",
+              "detail": "Se identifica el error de pertenencia."
+            },
+            {
+              "label": "Elegir dependencia",
+              "detail": "Se practica máscara y siguiente salto."
+            },
+            {
+              "label": "Definir comprobación",
+              "detail": "Se usan direcciones y prefijos nuevos."
+            }
+          ],
+          "caption": "Una causa concreta reemplaza la etiqueta amplia no sé redes."
+        }
+      },
+      "practice": {
+        "task": "Construye un mapa con tres errores reales de tus prácticas.",
+        "steps": [
+          "Escribe síntoma y causa probable.",
+          "Relaciona una dependencia.",
+          "Define una prueba nueva para cada causa."
+        ],
+        "expected": "Tres acciones pequeñas con resultados esperados."
+      },
+      "check": {
+        "question": "¿Qué fila es más útil en un mapa de errores?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Soy malo en seguridad."
+          },
+          {
+            "id": "b",
+            "text": "Confundo red local y remota; practicaré dos prefijos nuevos."
+          },
+          {
+            "id": "c",
+            "text": "Necesito estudiar todo otra vez."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La fila específica identifica causa, tarea y posibilidad de comprobar mejora sin generalizaciones."
+      },
+      "mistakes": [
+        {
+          "myth": "Todos los errores requieren repetir el curso completo.",
+          "correction": "Primero localiza qué paso o dependencia produjo cada fallo."
+        }
+      ],
+      "recap": [
+        "Agrupa por causa y no solo por tema.",
+        "Prioriza dependencias que afectan varias tareas.",
+        "La mejora necesita una prueba posterior definida."
+      ],
+      "glossary": [
+        {
+          "term": "Recurrencia",
+          "definition": "Reaparición de un mismo tipo de error."
+        },
+        {
+          "term": "Causa de aprendizaje",
+          "definition": "Confusión o paso omitido que explica un fallo de desempeño."
+        }
+      ]
+    },
+    {
+      "dayId": "w36d2",
+      "title": "Práctica débil uno",
+      "lead": "Identidad, recurso y operación son preguntas separadas.",
+      "sections": [
+        {
+          "topic": "Competencia con menor autonomía",
+          "explanation": [
+            "La práctica de la competencia más débil debe empezar con un ejemplo que puedas descomponer. Tomemos autorización: una persona inicia sesión correctamente, pero intenta leer un registro de otra. Separa identidad, recurso y operación. La autenticación responde quién presenta la sesión; la autorización responde si esa identidad puede realizar esa acción sobre ese recurso. Cuando mezclas esas preguntas, controles como MFA parecen resolver problemas que en realidad requieren comprobaciones en la aplicación o en el sistema de permisos.",
+            "Diseña una tarea mínima con dos identidades y dos recursos. Escribe una matriz de permitido y denegado antes de aplicar controles. Después resuelve cada combinación y explica de dónde viene el permiso. Cambia una pertenencia de grupo o propietario para comprobar si actualizas la decisión correctamente. La práctica no requiere datos privados ni un servicio expuesto: una tabla ficticia basta para demostrar el razonamiento. Si necesitas ayuda, registra dónde; ese punto define el siguiente refuerzo, no un fracaso global."
+          ],
+          "analogy": "Que un recepcionista reconozca tu identidad no significa que todas las oficinas del edificio te pertenezcan.",
+          "keyPoints": [
+            "Identidad, recurso y operación son preguntas separadas.",
+            "Define permisos esperados antes de probar.",
+            "Cambia una condición para comprobar autonomía."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Matriz de autorización",
+            "items": [
+              {
+                "label": "Ana → A",
+                "detail": "Leer su expediente: permitido"
+              },
+              {
+                "label": "Ana → B",
+                "detail": "Leer expediente de Bea: denegado"
+              },
+              {
+                "label": "Administrador",
+                "detail": "Solo las operaciones aprobadas para su función"
+              }
+            ],
+            "caption": "Los permisos del ejercicio son explícitos y no se extrapolan a una organización real."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Dos expedientes",
+        "scenario": "Ana posee A y Bea posee B; ambas se autentican con MFA.",
+        "steps": [
+          {
+            "action": "Definir criterio",
+            "reason": "MFA no cambia la propiedad.",
+            "result": "Cada una lee su expediente."
+          },
+          {
+            "action": "Aplicar prueba",
+            "reason": "Se evalúa recurso por recurso.",
+            "result": "Ana no obtiene B."
+          },
+          {
+            "action": "Cambiar contexto",
+            "reason": "La transferencia necesita variación.",
+            "result": "Una delegación aprobada cambiaría una fila concreta."
+          }
+        ],
+        "result": "La decisión se fundamenta en autorización y contexto, no en fuerza de autenticación.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Dos expedientes",
+          "items": [
+            {
+              "label": "Definir criterio",
+              "detail": "Cada una lee su expediente."
+            },
+            {
+              "label": "Aplicar prueba",
+              "detail": "Ana no obtiene B."
+            },
+            {
+              "label": "Cambiar contexto",
+              "detail": "Una delegación aprobada cambiaría una fila concreta."
+            }
+          ],
+          "caption": "La decisión se fundamenta en autorización y contexto, no en fuerza de autenticación."
+        }
+      },
+      "practice": {
+        "task": "Crea una matriz con lectura y escritura para dos usuarios.",
+        "steps": [
+          "Define dueños de recursos.",
+          "Añade un permiso temporal de lectura.",
+          "Explica qué cambia al vencerlo."
+        ],
+        "expected": "Una matriz con al menos una acción permitida y una denegada."
+      },
+      "check": {
+        "question": "¿Qué dato decide si Ana puede leer B?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que MFA funcionó."
+          },
+          {
+            "id": "b",
+            "text": "La marca del navegador."
+          },
+          {
+            "id": "c",
+            "text": "La autorización de Ana para ese recurso y operación."
+          }
+        ],
+        "correct": "c",
+        "explanation": "MFA verifica la autenticación; el permiso específico decide el acceso al recurso."
+      },
+      "mistakes": [
+        {
+          "myth": "Autenticación fuerte corrige permisos excesivos.",
+          "correction": "Son controles relacionados pero distintos y deben probarse por separado."
+        }
+      ],
+      "recap": [
+        "Identidad, recurso y operación son preguntas separadas.",
+        "Define permisos esperados antes de probar.",
+        "Cambia una condición para comprobar autonomía."
+      ],
+      "glossary": [
+        {
+          "term": "Recurso",
+          "definition": "Objeto sobre el que se solicita una operación."
+        },
+        {
+          "term": "Delegación",
+          "definition": "Concesión autorizada de una capacidad dentro de límites definidos."
+        }
+      ]
+    },
+    {
+      "dayId": "w36d3",
+      "title": "Práctica débil dos",
+      "lead": "Representación, integridad y secreto son necesidades distintas.",
+      "sections": [
+        {
+          "topic": "Segundo dominio débil",
+          "explanation": [
+            "La segunda práctica débil debe abordar una causa distinta para evitar confundir mejora general con dominio total. En criptografía, separa codificación, hash y cifrado. Codificar cambia una representación para transporte o formato; un hash produce un resumen para comparaciones y otras construcciones; el cifrado protege contenido bajo claves y un esquema adecuado. Que un texto no sea legible a simple vista no demuestra confidencialidad. Base64 puede revertirse sin una clave secreta porque no fue diseñado como cifrado.",
+            "Para demostrar comprensión, asigna una necesidad y explica la propiedad requerida. Si quieres comparar una descarga con un valor confiable, un hash puede ayudar a detectar cambios; si quieres ocultar un archivo, necesitas un mecanismo de cifrado y gestión de claves. Si quieres verificar origen, una firma requiere validar claves y confianza además del cálculo. Los controles pueden combinarse. Practica con cadenas inventadas y archivos propios de prueba, sin subir información sensible a herramientas en línea."
+          ],
+          "analogy": "Cambiar el idioma de una etiqueta no cierra la caja; una huella del paquete tampoco oculta lo que contiene.",
+          "keyPoints": [
+            "Representación, integridad y secreto son necesidades distintas.",
+            "Base64 no requiere una clave secreta.",
+            "El origen necesita contexto de confianza."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Tres transformaciones",
+            "items": [
+              {
+                "label": "Codificación",
+                "detail": "Representación reversible sin secreto"
+              },
+              {
+                "label": "Hash",
+                "detail": "Resumen que permite comparar contenido"
+              },
+              {
+                "label": "Cifrado",
+                "detail": "Protección del contenido mediante claves"
+              }
+            ],
+            "caption": "Las propiedades concretas dependen del algoritmo y de su uso correcto."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Archivo que debe permanecer privado",
+        "scenario": "Una propuesta convierte el documento a Base64 y lo publica como protección.",
+        "steps": [
+          {
+            "action": "Identificar necesidad",
+            "reason": "La finalidad es confidencialidad.",
+            "result": "Ocultar apariencia no es suficiente."
+          },
+          {
+            "action": "Evaluar transformación",
+            "reason": "Base64 es reversible sin secreto.",
+            "result": "No resuelve la necesidad."
+          },
+          {
+            "action": "Elegir control",
+            "reason": "El secreto requiere protección y gestión de claves.",
+            "result": "Se propone cifrado adecuado y acceso limitado."
+          }
+        ],
+        "result": "La corrección cambia el mecanismo, no solo el formato de salida.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Archivo que debe permanecer privado",
+          "items": [
+            {
+              "label": "Identificar necesidad",
+              "detail": "Ocultar apariencia no es suficiente."
+            },
+            {
+              "label": "Evaluar transformación",
+              "detail": "No resuelve la necesidad."
+            },
+            {
+              "label": "Elegir control",
+              "detail": "Se propone cifrado adecuado y acceso limitado."
+            }
+          ],
+          "caption": "La corrección cambia el mecanismo, no solo el formato de salida."
+        }
+      },
+      "practice": {
+        "task": "Relaciona tres necesidades con transformación apropiada.",
+        "steps": [
+          "Compara bytes de una descarga.",
+          "Protege contenido privado.",
+          "Transporta datos binarios en un formato textual."
+        ],
+        "expected": "Tres decisiones justificadas con límites claros."
+      },
+      "check": {
+        "question": "¿Qué afirmación sobre Base64 es correcta?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Es una codificación reversible sin clave secreta."
+          },
+          {
+            "id": "b",
+            "text": "Es una firma digital."
+          },
+          {
+            "id": "c",
+            "text": "Garantiza confidencialidad por ser ilegible a simple vista."
+          }
+        ],
+        "correct": "a",
+        "explanation": "Base64 representa datos; cualquiera que conozca el formato puede decodificarlos sin una clave secreta."
+      },
+      "mistakes": [
+        {
+          "myth": "Cualquier texto extraño está cifrado.",
+          "correction": "La apariencia no demuestra propiedades criptográficas ni protección real."
+        }
+      ],
+      "recap": [
+        "Representación, integridad y secreto son necesidades distintas.",
+        "Base64 no requiere una clave secreta.",
+        "El origen necesita contexto de confianza."
+      ],
+      "glossary": [
+        {
+          "term": "Codificación",
+          "definition": "Conversión entre representaciones de datos."
+        },
+        {
+          "term": "Confidencialidad",
+          "definition": "Protección frente a divulgación no autorizada."
+        }
+      ]
+    },
+    {
+      "dayId": "w36d4",
+      "title": "Verificación de objetivos",
+      "lead": "Confirma código, idioma y modalidad específicos.",
+      "sections": [
+        {
+          "topic": "Versión, idioma y reglas",
+          "explanation": [
+            "Verificar objetivos antes de una evaluación consiste en confirmar la referencia exacta y las condiciones de participación. Registra proveedor, código, idioma, modalidad y fecha de consulta de la información oficial. Después contrasta la matriz de estudio con los objetivos de ese código. No supongas que un curso con el mismo nombre está actualizado ni que un recurso publicado años atrás cubre nuevas competencias. Los cambios de versión se analizan mediante documentos, no mediante rumores o una fecha recordada.",
+            "Las reglas de identificación, entorno, materiales permitidos y reprogramación pueden variar y deben leerse para la modalidad elegida. Esta aplicación no sustituye esas instrucciones. Si una condición es ambigua, solicita aclaración al canal oficial antes de depender de ella. Conserva la referencia consultada y revisa cambios cercanos a la reserva. No copies contenido protegido de exámenes ni interpretes las prácticas de esta web como permiso para usar ayuda durante una prueba externa. Separar aprendizaje y evaluación protege la validez del proceso."
+          ],
+          "analogy": "Antes de viajar compruebas destino, documento y condiciones vigentes; un billete antiguo no confirma las reglas actuales.",
+          "keyPoints": [
+            "Confirma código, idioma y modalidad específicos.",
+            "Usa fuentes oficiales para reglas cambiantes.",
+            "Las prácticas de estudio no autorizan ayudas en un examen."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Verificación previa",
+            "items": [
+              {
+                "label": "Referencia",
+                "detail": "Código y objetivos oficiales"
+              },
+              {
+                "label": "Modalidad",
+                "detail": "Idioma, entorno y requisitos"
+              },
+              {
+                "label": "Condiciones",
+                "detail": "Materiales y reglas vigentes"
+              },
+              {
+                "label": "Registro",
+                "detail": "Fecha y fuente consultada"
+              }
+            ],
+            "caption": "No se fijan aquí fechas, precios ni reglas que pueden cambiar."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Dos cursos con el mismo nombre",
+        "scenario": "Un curso usa un código anterior y otro no declara código ni fecha.",
+        "steps": [
+          {
+            "action": "Identificar referencia",
+            "reason": "El nombre comercial es insuficiente.",
+            "result": "Se consulta el código elegido en la fuente oficial."
+          },
+          {
+            "action": "Comparar cobertura",
+            "reason": "Las coincidencias no se presumen.",
+            "result": "Se señalan objetivos nuevos o ausentes."
+          },
+          {
+            "action": "Resolver duda",
+            "reason": "Las reglas no se inventan para completar el plan.",
+            "result": "Se consulta el canal oficial si falta información."
+          }
+        ],
+        "result": "La preparación se alinea con una referencia concreta y verificable.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Dos cursos con el mismo nombre",
+          "items": [
+            {
+              "label": "Identificar referencia",
+              "detail": "Se consulta el código elegido en la fuente oficial."
+            },
+            {
+              "label": "Comparar cobertura",
+              "detail": "Se señalan objetivos nuevos o ausentes."
+            },
+            {
+              "label": "Resolver duda",
+              "detail": "Se consulta el canal oficial si falta información."
+            }
+          ],
+          "caption": "La preparación se alinea con una referencia concreta y verificable."
+        }
+      },
+      "practice": {
+        "task": "Crea tu ficha de verificación sin reservar todavía.",
+        "steps": [
+          "Anota código, idioma y modalidad.",
+          "Guarda enlace oficial y fecha de consulta.",
+          "Marca cualquier condición que necesite aclaración."
+        ],
+        "expected": "Una ficha con fuentes y dudas explícitas."
+      },
+      "check": {
+        "question": "¿Qué referencia prevalece para las reglas del examen elegido?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Un comentario antiguo de un foro."
+          },
+          {
+            "id": "b",
+            "text": "La información oficial vigente de ese código y modalidad."
+          },
+          {
+            "id": "c",
+            "text": "La configuración de esta web."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Las reglas aplicables deben comprobarse en el proveedor oficial para el examen concreto."
+      },
+      "mistakes": [
+        {
+          "myth": "Todos los idiomas y modalidades tienen las mismas condiciones.",
+          "correction": "Verifica las condiciones específicas en lugar de extrapolarlas."
+        }
+      ],
+      "recap": [
+        "Confirma código, idioma y modalidad específicos.",
+        "Usa fuentes oficiales para reglas cambiantes.",
+        "Las prácticas de estudio no autorizan ayudas en un examen."
+      ],
+      "glossary": [
+        {
+          "term": "Código de examen",
+          "definition": "Identificador de una versión concreta de evaluación."
+        },
+        {
+          "term": "Modalidad",
+          "definition": "Forma de realizar una evaluación con requisitos propios."
+        }
+      ]
+    },
+    {
+      "dayId": "w36d5",
+      "title": "Ensayo breve",
+      "lead": "Lee objetivo, restricciones y acción solicitada.",
+      "sections": [
+        {
+          "topic": "Tiempo y lectura",
+          "explanation": [
+            "Un ensayo breve comprueba preparación operativa sin agotar todo el tiempo de estudio. Elige pocas tareas nuevas y relevantes, define un límite personal y practica la lectura del objetivo, las condiciones y la acción solicitada. No se trata de correr para responder cualquier cosa. Identifica palabras como primero, mejor o dentro del alcance cuando formen parte del caso: cambian la decisión. Anota la evidencia mínima que necesitarías para justificar tu elección en vez de buscar una palabra familiar.",
+            "En una tarea técnica, dedica un momento a comprobar unidades, tiempos y entidades. Cinco minutos no son cinco horas; hora del evento y recepción son diferentes; usuario y equipo no son intercambiables. Después resuelve y revisa si tu respuesta satisface todas las restricciones. Al terminar clasifica dudas sin abrir un repaso interminable. El ensayo sirve para detectar fallos de rutina y confianza, no para predecir una nota externa. Si aparece una brecha importante, conviértela en una próxima tarea concreta."
+          ],
+          "analogy": "Una lista de verificación antes de despegar detecta errores de rutina aunque el piloto ya conozca el avión.",
+          "keyPoints": [
+            "Lee objetivo, restricciones y acción solicitada.",
+            "Comprueba unidades, tiempo y entidad.",
+            "Un ensayo breve detecta rutina, no garantiza resultado."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Lectura estructurada",
+            "items": [
+              {
+                "label": "Objetivo",
+                "detail": "Qué problema debe resolverse"
+              },
+              {
+                "label": "Condiciones",
+                "detail": "Alcance y restricciones"
+              },
+              {
+                "label": "Decisión",
+                "detail": "Acción que responde al caso"
+              },
+              {
+                "label": "Comprobación",
+                "detail": "Unidades y evidencia"
+              }
+            ],
+            "caption": "La duración del ensayo es personal y no representa el formato oficial de una certificación."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Registro retrasado",
+        "scenario": "El caso pregunta cuándo ocurrió una actividad, pero muestra evento10:00Z y recepción10:08Z.",
+        "steps": [
+          {
+            "action": "Leer pregunta",
+            "reason": "Se pide actividad, no disponibilidad del log.",
+            "result": "Importa el campo de evento."
+          },
+          {
+            "action": "Separar tiempos",
+            "reason": "Los campos no son equivalentes.",
+            "result": "Recepción ocurrió ocho minutos después."
+          },
+          {
+            "action": "Responder preciso",
+            "reason": "La explicación debe indicar el criterio.",
+            "result": "Actividad a10:00Z según la fuente."
+          }
+        ],
+        "result": "La lectura del objetivo evita elegir una hora familiar pero incorrecta.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Registro retrasado",
+          "items": [
+            {
+              "label": "Leer pregunta",
+              "detail": "Importa el campo de evento."
+            },
+            {
+              "label": "Separar tiempos",
+              "detail": "Recepción ocurrió ocho minutos después."
+            },
+            {
+              "label": "Responder preciso",
+              "detail": "Actividad a10:00Z según la fuente."
+            }
+          ],
+          "caption": "La lectura del objetivo evita elegir una hora familiar pero incorrecta."
+        }
+      },
+      "practice": {
+        "task": "Resuelve tres minicasos propios con un límite personal.",
+        "steps": [
+          "Subraya acción y restricciones.",
+          "Anota unidades y campos decisivos.",
+          "Revisa un fallo de rutina antes de terminar."
+        ],
+        "expected": "Tres respuestas justificadas sin convertir el ensayo en maratón."
+      },
+      "check": {
+        "question": "¿Qué hora responde a cuándo ocurrió la actividad?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Siempre la hora de ingesta."
+          },
+          {
+            "id": "b",
+            "text": "La del reloj de tu teléfono sin comparar."
+          },
+          {
+            "id": "c",
+            "text": "El campo de evento validado y su zona, con límites de precisión."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La recepción puede retrasarse; la actividad se interpreta con el tiempo y contexto de la fuente."
+      },
+      "mistakes": [
+        {
+          "myth": "Responder rápido demuestra comprender.",
+          "correction": "Comprender exige satisfacer el objetivo y las restricciones, además del tiempo."
+        }
+      ],
+      "recap": [
+        "Lee objetivo, restricciones y acción solicitada.",
+        "Comprueba unidades, tiempo y entidad.",
+        "Un ensayo breve detecta rutina, no garantiza resultado."
+      ],
+      "glossary": [
+        {
+          "term": "Campo decisivo",
+          "definition": "Dato que discrimina entre interpretaciones del caso."
+        },
+        {
+          "term": "Ensayo breve",
+          "definition": "Práctica acotada para comprobar rutinas y brechas."
+        }
+      ]
+    },
+    {
+      "dayId": "w36d6",
+      "title": "Examen o refuerzo",
+      "lead": "La fecha no sustituye evidencia de competencia.",
+      "sections": [
+        {
+          "topic": "Preparación y logística",
+          "explanation": [
+            "La decisión entre examen y refuerzo no debería depender de cumplir una fecha arbitraria. Reúne cobertura, casos nuevos, autonomía, errores recurrentes y condiciones personales. Si la evidencia muestra una brecha significativa, seguir practicando es una decisión válida. Si decides presentar, confirma logística y reglas sin asumir que la aplicación reproduce la evaluación externa. Las puntuaciones internas son indicadores de estudio con alcance limitado, no certificados de preparación ni equivalencias automáticas con la escala del proveedor.",
+            "Un plan de refuerzo necesita foco y revisión. En lugar de estudiar más indefinidamente, elige dos competencias y define una prueba posterior. Un plan de examen necesita margen para identificación, conexión o desplazamiento según la modalidad, además de descanso y condiciones de accesibilidad pertinentes. No fijes detalles técnicos cambiantes sin consultar al proveedor. Sea cual sea la decisión, conserva lo aprendido y evita tomar un resultado aislado como definición de tu capacidad profesional. La mejora continua se apoya en evidencia y práctica, no en una única fecha."
+          ],
+          "analogy": "Cambiar una fecha de entrenamiento para corregir una técnica es una decisión de preparación, no un abandono del objetivo.",
+          "keyPoints": [
+            "La fecha no sustituye evidencia de competencia.",
+            "Refuerza con objetivos y una revisión definida.",
+            "La logística se confirma según modalidad y proveedor."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Dos planes válidos",
+            "items": [
+              {
+                "label": "Presentar",
+                "detail": "Cobertura y condiciones verificadas"
+              },
+              {
+                "label": "Reforzar",
+                "detail": "Brechas concretas y nueva prueba"
+              },
+              {
+                "label": "Continuar",
+                "detail": "Conservar evidencia y ajustar el plan"
+              }
+            ],
+            "caption": "Ninguna opción promete un resultado externo determinado."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Brecha antes de reservar",
+        "scenario": "El estudiante resuelve consultas, pero no puede explicar permisos ni recuperación.",
+        "steps": [
+          {
+            "action": "Reunir evidencia",
+            "reason": "La sensación general es insuficiente.",
+            "result": "Se confirman dos brechas concretas."
+          },
+          {
+            "action": "Definir refuerzo",
+            "reason": "No es necesario repetir todo el programa.",
+            "result": "Se diseñan casos de permisos y restauración."
+          },
+          {
+            "action": "Fijar revisión",
+            "reason": "El plan necesita un punto de decisión nuevo.",
+            "result": "Se reevaluará tras resolver dos casos distintos sin guía."
+          }
+        ],
+        "result": "La decisión de continuar estudiando tiene tareas y criterios, no una demora indefinida.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Brecha antes de reservar",
+          "items": [
+            {
+              "label": "Reunir evidencia",
+              "detail": "Se confirman dos brechas concretas."
+            },
+            {
+              "label": "Definir refuerzo",
+              "detail": "Se diseñan casos de permisos y restauración."
+            },
+            {
+              "label": "Fijar revisión",
+              "detail": "Se reevaluará tras resolver dos casos distintos sin guía."
+            }
+          ],
+          "caption": "La decisión de continuar estudiando tiene tareas y criterios, no una demora indefinida."
+        }
+      },
+      "practice": {
+        "task": "Escribe dos planes: presentar y reforzar.",
+        "steps": [
+          "Define evidencia necesaria para cada uno.",
+          "Indica logística pendiente de confirmar.",
+          "Establece un próximo punto de revisión."
+        ],
+        "expected": "Una decisión sustentada y revisable."
+      },
+      "check": {
+        "question": "¿Qué justifica mejor continuar reforzando?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Una brecha relevante demostrada por tareas, con plan para corregirla."
+          },
+          {
+            "id": "b",
+            "text": "Que estudiar nunca puede terminar."
+          },
+          {
+            "id": "c",
+            "text": "Un miedo sin revisar datos."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La brecha observable permite elegir acciones concretas y una nueva evaluación de preparación."
+      },
+      "mistakes": [
+        {
+          "myth": "Reservar primero obliga a declarar que ya estás preparado.",
+          "correction": "La decisión logística debe adaptarse a la evidencia y condiciones vigentes."
+        }
+      ],
+      "recap": [
+        "La fecha no sustituye evidencia de competencia.",
+        "Refuerza con objetivos y una revisión definida.",
+        "La logística se confirma según modalidad y proveedor."
+      ],
+      "glossary": [
+        {
+          "term": "Punto de revisión",
+          "definition": "Momento definido para reconsiderar un plan con nueva evidencia."
+        },
+        {
+          "term": "Refuerzo acotado",
+          "definition": "Trabajo sobre competencias concretas con criterio de comprobación."
+        }
+      ]
+    },
+    {
+      "dayId": "w36d7",
+      "title": "Revisión de etapa",
+      "lead": "Interpreta resultados sin divulgar contenido protegido.",
+      "sections": [
+        {
+          "topic": "Resultados y próximos pasos",
+          "explanation": [
+            "Revisar una etapa significa transformar resultados en continuidad. Si hubo examen externo, interpreta el informe permitido por el proveedor sin revelar preguntas protegidas. Si no lo hubo, revisa tus propias evidencias de prácticas y cobertura. Distingue conocimientos que puedes explicar, tareas que resuelves con guía y tareas autónomas. Un resultado global no describe todas esas dimensiones. La siguiente etapa defensiva necesitará fundamentos de redes, identidad, registros y método, por lo que conviene mantener visibles las brechas relacionadas.",
+            "El plan posterior debe conectar una competencia con una aplicación. Si todavía confundes hora del evento e ingesta, practica cronologías antes de investigar casos complejos. Si interpretas bien datos pero escribes conclusiones excesivas, refuerza comunicación y límites. Conserva artefactos y preguntas abiertas en el cuaderno. Evita prometer que una certificación por sí sola garantiza empleo o dominio operativo. Un progreso defendible combina estudio, práctica, evidencia, comunicación y revisión, y puede continuar aunque el calendario del examen cambie."
+          ],
+          "analogy": "Cerrar una etapa es guardar herramientas, revisar lo aprendido y preparar el siguiente trabajo, no olvidar lo anterior.",
+          "keyPoints": [
+            "Interpreta resultados sin divulgar contenido protegido.",
+            "Conecta brechas con tareas de la siguiente etapa.",
+            "Certificación y desempeño profesional no son equivalentes."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Cierre útil de etapa",
+            "items": [
+              {
+                "label": "Resultados",
+                "detail": "Evidencia permitida y prácticas propias"
+              },
+              {
+                "label": "Brechas",
+                "detail": "Concepto, herramienta o comunicación"
+              },
+              {
+                "label": "Puente",
+                "detail": "Tarea defensiva que requiere la base"
+              },
+              {
+                "label": "Plan",
+                "detail": "Refuerzo y seguimiento"
+              }
+            ],
+            "caption": "El informe describe competencias y límites, no promesas de empleo."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Buena consulta, mala conclusión",
+        "scenario": "El estudiante cuenta eventos correctamente, pero afirma robo sin evidencia de datos.",
+        "steps": [
+          {
+            "action": "Separar dimensiones",
+            "reason": "La herramienta funciona y el razonamiento final falla.",
+            "result": "Se identifica brecha de inferencia."
+          },
+          {
+            "action": "Definir puente",
+            "reason": "La siguiente etapa necesita informes fiables.",
+            "result": "Se practica hecho, hipótesis y limitación."
+          },
+          {
+            "action": "Conservar evidencia",
+            "reason": "El cambio debe poder comprobarse.",
+            "result": "Se reescribe el caso con afirmaciones proporcionales."
+          }
+        ],
+        "result": "La revisión produce una tarea concreta de comunicación defensiva.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Buena consulta, mala conclusión",
+          "items": [
+            {
+              "label": "Separar dimensiones",
+              "detail": "Se identifica brecha de inferencia."
+            },
+            {
+              "label": "Definir puente",
+              "detail": "Se practica hecho, hipótesis y limitación."
+            },
+            {
+              "label": "Conservar evidencia",
+              "detail": "Se reescribe el caso con afirmaciones proporcionales."
+            }
+          ],
+          "caption": "La revisión produce una tarea concreta de comunicación defensiva."
+        }
+      },
+      "practice": {
+        "task": "Redacta tu cierre de etapa en cuatro apartados.",
+        "steps": [
+          "Enumera competencias demostradas.",
+          "Añade dos brechas con evidencia.",
+          "Relaciona cada una con el próximo caso y su prueba."
+        ],
+        "expected": "Un plan de continuidad sin promesas ni contenido de examen protegido."
+      },
+      "check": {
+        "question": "¿Qué conviene conservar después de una etapa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo la nota más alta."
+          },
+          {
+            "id": "b",
+            "text": "Evidencias propias, brechas y próximos pasos."
+          },
+          {
+            "id": "c",
+            "text": "Preguntas protegidas para compartirlas."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Las evidencias propias y brechas permiten continuar aprendiendo sin vulnerar reglas de evaluación."
+      },
+      "mistakes": [
+        {
+          "myth": "Aprobar una certificación demuestra dominio de todas las herramientas.",
+          "correction": "Es una evaluación con alcance definido; la competencia operativa requiere práctica continua."
+        }
+      ],
+      "recap": [
+        "Interpreta resultados sin divulgar contenido protegido.",
+        "Conecta brechas con tareas de la siguiente etapa.",
+        "Certificación y desempeño profesional no son equivalentes."
+      ],
+      "glossary": [
+        {
+          "term": "Cierre de etapa",
+          "definition": "Revisión de resultados y preparación del siguiente aprendizaje."
+        },
+        {
+          "term": "Evidencia propia",
+          "definition": "Trabajo original que puedes conservar y explicar dentro de los permisos aplicables."
+        }
+      ]
+    }
+  ]
+}

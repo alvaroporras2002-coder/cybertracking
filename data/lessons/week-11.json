@@ -1,0 +1,957 @@
+{
+  "version": "2.0.0",
+  "week": 11,
+  "title": "Subredes y CIDR",
+  "overview": "El cálculo de subredes sirve para interpretar pertenencia y planificar capacidad, no para decorar un diagrama con barras. Empezarás representando octetos en binario y relacionarás máscara y prefijo. Después calcularás bloques, rangos y divisiones de un /24 con ejemplos resueltos. Aprenderás dónde se aplica el recuento habitual de direcciones utilizables y por qué /31 y /32 requieren otra interpretación. Todos los ejercicios se realizan sobre papel o en un simulador autorizado, sin cambiar redes reales.",
+  "objectives": [
+    "Convertir octetos y reconocer bits de red y host.",
+    "Calcular rangos /26 y /27 con sus límites.",
+    "Dimensionar una red contando infraestructura, margen y excepciones."
+  ],
+  "sources": [
+    {
+      "id": "w11s1",
+      "title": "RFC 4632: direccionamiento CIDR",
+      "url": "https://www.rfc-editor.org/info/rfc4632/"
+    },
+    {
+      "id": "w11s2",
+      "title": "RFC 3021: prefijos /31 en enlaces punto a punto",
+      "url": "https://www.rfc-editor.org/info/rfc3021/"
+    },
+    {
+      "id": "w11s3",
+      "title": "RFC 5737: direcciones para documentación",
+      "url": "https://www.rfc-editor.org/info/rfc5737/"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w11d1",
+      "title": "Binario necesario",
+      "lead": "Un octeto contiene ocho bits.",
+      "sections": [
+        {
+          "explanation": [
+            "Un octeto contiene ocho bits. Sus posiciones, de izquierda a derecha, valen 128, 64, 32, 16, 8, 4, 2 y 1. Un bit uno aporta su valor; un cero no lo aporta. Por ejemplo, 11000000 equivale a 128 más 64, es decir, 192. El mismo patrón se utiliza para representar cada uno de los cuatro octetos de una dirección IPv4.",
+            "Para convertir un número decimal, selecciona valores que sumen exactamente el objetivo sin repetir posiciones. El 26 se representa como 00011010 porque suma 16, 8 y 2. Mantener ocho posiciones evita perder contexto en cálculos de máscara. No necesitas hacer operaciones enormes mentalmente: escribe los pesos y verifica la suma. Comprender esta representación explica por qué los tamaños de bloque aparecen como potencias de dos y por qué una máscara no es cualquier secuencia decimal elegida al azar."
+          ],
+          "analogy": "Cada interruptor activa un peso fijo; la combinación encendida determina la suma final.",
+          "keyPoints": [
+            "Bit alto: 128 y 64 ocupan las primeras posiciones.",
+            "Bits medios: 32, 16 y 8 añaden sus valores.",
+            "Bits bajos: 4, 2 y 1 completan la representación."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Pesos de un octeto",
+            "items": [
+              {
+                "label": "Bit alto",
+                "detail": "128 y 64 ocupan las primeras posiciones."
+              },
+              {
+                "label": "Bits medios",
+                "detail": "32, 16 y 8 añaden sus valores."
+              },
+              {
+                "label": "Bits bajos",
+                "detail": "4, 2 y 1 completan la representación."
+              },
+              {
+                "label": "Ejemplo 26",
+                "detail": "00011010 = 16 + 8 + 2."
+              }
+            ],
+            "caption": "Comprender esta representación explica por qué los tamaños de bloque aparecen como potencias de dos y por qué una máscara no es cualquier secuencia decimal elegida al azar."
+          },
+          "topic": "Bits y representación de octetos"
+        }
+      ],
+      "workedExample": {
+        "title": "Convertir 172 a binario",
+        "scenario": "Se quiere representar el primer octeto de 172.16.0.1.",
+        "steps": [
+          {
+            "action": "Seleccionar 128",
+            "reason": "Es el mayor peso que cabe en 172.",
+            "result": "Quedan 44 por representar."
+          },
+          {
+            "action": "Seleccionar 32 y 8",
+            "reason": "44 se descompone sin repetir posiciones.",
+            "result": "Quedan 4."
+          },
+          {
+            "action": "Seleccionar 4 y verificar",
+            "reason": "La suma debe volver al decimal original.",
+            "result": "10101100 = 128 + 32 + 8 + 4 = 172."
+          }
+        ],
+        "result": "El octeto completo es 10101100, con ocho posiciones y suma comprobada.",
+        "visual": {
+          "type": "flow",
+          "title": "Convertir 172 a binario · secuencia",
+          "items": [
+            {
+              "label": "Seleccionar 128",
+              "detail": "Quedan 44 por representar."
+            },
+            {
+              "label": "Seleccionar 32 y 8",
+              "detail": "Quedan 4."
+            },
+            {
+              "label": "Seleccionar 4 y verificar",
+              "detail": "10101100 = 128 + 32 + 8 + 4 = 172."
+            }
+          ],
+          "caption": "El octeto completo es 10101100, con ocho posiciones y suma comprobada."
+        }
+      },
+      "practice": {
+        "task": "Convierte 200 a un octeto binario.",
+        "steps": [
+          "Escribe los ocho pesos.",
+          "Selecciona los que suman 200.",
+          "Comprueba el resultado volviendo a decimal."
+        ],
+        "expected": "11001000, porque 128 + 64 + 8 = 200."
+      },
+      "check": {
+        "question": "¿Qué decimal representa 00010010?",
+        "options": [
+          {
+            "id": "a",
+            "text": "18"
+          },
+          {
+            "id": "b",
+            "text": "12"
+          },
+          {
+            "id": "c",
+            "text": "34"
+          }
+        ],
+        "correct": "a",
+        "explanation": "Las posiciones activas valen 16 y 2; su suma da 18 en decimal."
+      },
+      "mistakes": [
+        {
+          "myth": "Los ceros iniciales no ayudan a entender un octeto.",
+          "correction": "Aunque no cambien el valor numérico, escribir ocho bits conserva el contexto necesario para máscaras y prefijos."
+        }
+      ],
+      "recap": [
+        "Bit alto: 128 y 64 ocupan las primeras posiciones.",
+        "Bits medios: 32, 16 y 8 añaden sus valores.",
+        "Bits bajos: 4, 2 y 1 completan la representación."
+      ],
+      "glossary": [
+        {
+          "term": "Binario",
+          "definition": "Representación numérica que utiliza cero y uno."
+        },
+        {
+          "term": "Potencia de dos",
+          "definition": "Valor correspondiente a una posición de un número binario."
+        }
+      ]
+    },
+    {
+      "dayId": "w11d2",
+      "title": "Máscara y prefijo",
+      "lead": "Un prefijo CIDR indica cuántos bits iniciales de una dirección pertenecen a la red.",
+      "sections": [
+        {
+          "explanation": [
+            "Un prefijo CIDR indica cuántos bits iniciales de una dirección pertenecen a la red. En IPv4, /24 significa veinticuatro bits de red y ocho restantes para la parte host. La máscara equivalente tiene esos veinticuatro unos seguidos de ceros: 255.255.255.0. Un /26 deja seis bits de host y corresponde a 255.255.255.192, porque el último octeto empieza con dos unos.",
+            "El prefijo no describe directamente cuántos equipos están conectados; delimita un bloque de direcciones. Más bits de red producen bloques más pequeños. Para obtener la dirección de red se conserva la parte de red y se ponen a cero los bits host, equivalente a una operación AND con la máscara. Aprende la relación, no una tabla aislada: /26 deja 32 menos 26, es decir seis bits, y por tanto 2 elevado a 6, o 64 direcciones totales."
+          ],
+          "analogy": "Una división del mapa fija qué parte identifica el barrio y qué parte identifica una posición dentro de él.",
+          "keyPoints": [
+            "Prefijo /24: 255.255.255.0: ocho bits host, 256 direcciones.",
+            "Prefijo /26: 255.255.255.192: seis bits host, 64 direcciones.",
+            "Prefijo /27: 255.255.255.224: cinco bits host, 32 direcciones."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Prefijo, máscara y tamaño",
+            "items": [
+              {
+                "label": "Prefijo /24",
+                "detail": "255.255.255.0: ocho bits host, 256 direcciones."
+              },
+              {
+                "label": "Prefijo /26",
+                "detail": "255.255.255.192: seis bits host, 64 direcciones."
+              },
+              {
+                "label": "Prefijo /27",
+                "detail": "255.255.255.224: cinco bits host, 32 direcciones."
+              }
+            ],
+            "caption": "Aprende la relación, no una tabla aislada: /26 deja 32 menos 26, es decir seis bits, y por tanto 2 elevado a 6, o 64 direcciones totales."
+          },
+          "topic": "CIDR y división red-host"
+        }
+      ],
+      "workedExample": {
+        "title": "Interpretar 192.168.10.70/26",
+        "scenario": "Se necesita conocer la máscara y el bloque que contiene la dirección.",
+        "steps": [
+          {
+            "action": "Contar bits host",
+            "reason": "IPv4 tiene 32 bits.",
+            "result": "32 - 26 = 6 bits host."
+          },
+          {
+            "action": "Calcular tamaño",
+            "reason": "Cada combinación host representa una dirección.",
+            "result": "2^6 = 64 direcciones por bloque."
+          },
+          {
+            "action": "Encontrar el bloque",
+            "reason": "Los límites del último octeto avanzan de 64 en 64.",
+            "result": "70 pertenece al bloque 64–127."
+          }
+        ],
+        "result": "La red es 192.168.10.64/26 y la máscara 255.255.255.192.",
+        "visual": {
+          "type": "flow",
+          "title": "Interpretar 192.168.10.70/26 · secuencia",
+          "items": [
+            {
+              "label": "Contar bits host",
+              "detail": "32 - 26 = 6 bits host."
+            },
+            {
+              "label": "Calcular tamaño",
+              "detail": "2^6 = 64 direcciones por bloque."
+            },
+            {
+              "label": "Encontrar el bloque",
+              "detail": "70 pertenece al bloque 64–127."
+            }
+          ],
+          "caption": "La red es 192.168.10.64/26 y la máscara 255.255.255.192."
+        }
+      },
+      "practice": {
+        "task": "Interpreta un prefijo /27.",
+        "steps": [
+          "Calcula bits host.",
+          "Escribe su máscara decimal.",
+          "Calcula direcciones totales antes de hablar de hosts utilizables."
+        ],
+        "expected": "Cinco bits host, máscara 255.255.255.224 y 32 direcciones totales."
+      },
+      "check": {
+        "question": "¿Cuántos bits host deja un /26 IPv4?",
+        "options": [
+          {
+            "id": "a",
+            "text": "26"
+          },
+          {
+            "id": "b",
+            "text": "6"
+          },
+          {
+            "id": "c",
+            "text": "8"
+          }
+        ],
+        "correct": "b",
+        "explanation": "La dirección tiene 32 bits; al reservar 26 para red quedan seis para host."
+      },
+      "mistakes": [
+        {
+          "myth": "Un prefijo /26 significa veintiséis equipos.",
+          "correction": "Indica bits de red; el tamaño se calcula con los bits restantes y el uso del bloque."
+        }
+      ],
+      "recap": [
+        "Prefijo /24: 255.255.255.0: ocho bits host, 256 direcciones.",
+        "Prefijo /26: 255.255.255.192: seis bits host, 64 direcciones.",
+        "Prefijo /27: 255.255.255.224: cinco bits host, 32 direcciones."
+      ],
+      "glossary": [
+        {
+          "term": "CIDR",
+          "definition": "Notación de dirección y longitud de prefijo."
+        },
+        {
+          "term": "Máscara",
+          "definition": "Patrón que selecciona los bits de red."
+        }
+      ]
+    },
+    {
+      "dayId": "w11d3",
+      "title": "Rangos IPv4",
+      "lead": "En una subred IPv4 convencional con broadcast, la primera dirección identifica la red y la última es el broadcast dirigido de ese bloque.",
+      "sections": [
+        {
+          "explanation": [
+            "En una subred IPv4 convencional con broadcast, la primera dirección identifica la red y la última es el broadcast dirigido de ese bloque. Las intermedias suelen poder asignarse a interfaces según el diseño. Para 192.168.10.64/26 hay 64 direcciones: desde .64 hasta .127. La red es .64, el broadcast .127 y el rango convencional de hosts va de .65 a .126, con 62 posiciones.",
+            "La fórmula 2^h menos dos se utiliza en ese contexto, no como regla universal para todo prefijo. Un /31 puede utilizar sus dos direcciones en un enlace punto a punto conforme a RFC 3021. Un /32 representa una dirección individual y se usa, por ejemplo, como ruta a un host. Antes de calcular disponibilidad identifica el tipo de enlace y cuenta también gateway e infraestructura. «Utilizable» no significa «libre»: una dirección válida puede estar ya asignada a otro dispositivo."
+          ],
+          "analogy": "El borde inicial y final de un bloque cumplen funciones especiales en el caso convencional; otros diseños cambian esas reglas.",
+          "keyPoints": [
+            "Red: 192.168.10.64 identifica el bloque.",
+            "Hosts: 192.168.10.65 a .126: 62 posiciones convencionales.",
+            "Broadcast: 192.168.10.127 es la última dirección del bloque."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Rango convencional /26",
+            "items": [
+              {
+                "label": "Red",
+                "detail": "192.168.10.64 identifica el bloque."
+              },
+              {
+                "label": "Hosts",
+                "detail": "192.168.10.65 a .126: 62 posiciones convencionales."
+              },
+              {
+                "label": "Broadcast",
+                "detail": "192.168.10.127 es la última dirección del bloque."
+              },
+              {
+                "label": "Excepciones",
+                "detail": "/31 punto a punto y /32 no usan sin más la resta habitual."
+              }
+            ],
+            "caption": "«Utilizable» no significa «libre»: una dirección válida puede estar ya asignada a otro dispositivo."
+          },
+          "topic": "Red, broadcast y direcciones utilizables"
+        }
+      ],
+      "workedExample": {
+        "title": "Comprobar un rango /27",
+        "scenario": "Se estudia 192.168.20.32/27 en una red convencional.",
+        "steps": [
+          {
+            "action": "Calcular tamaño",
+            "reason": "Quedan cinco bits host.",
+            "result": "2^5 = 32 direcciones."
+          },
+          {
+            "action": "Encontrar los extremos",
+            "reason": "El bloque comienza en 32.",
+            "result": "Red .32 y última dirección .63."
+          },
+          {
+            "action": "Separar funciones",
+            "reason": "La primera y última tienen papeles reservados en este contexto.",
+            "result": "Hosts .33–.62: 30 posiciones."
+          }
+        ],
+        "result": "El rango convencional es .33 a .62, sin afirmar que todas estén actualmente libres.",
+        "visual": {
+          "type": "flow",
+          "title": "Comprobar un rango /27 · secuencia",
+          "items": [
+            {
+              "label": "Calcular tamaño",
+              "detail": "2^5 = 32 direcciones."
+            },
+            {
+              "label": "Encontrar los extremos",
+              "detail": "Red .32 y última dirección .63."
+            },
+            {
+              "label": "Separar funciones",
+              "detail": "Hosts .33–.62: 30 posiciones."
+            }
+          ],
+          "caption": "El rango convencional es .33 a .62, sin afirmar que todas estén actualmente libres."
+        }
+      },
+      "practice": {
+        "task": "Calcula el rango de 192.168.20.96/27.",
+        "steps": [
+          "Identifica tamaño y extremos.",
+          "Separa red, broadcast y hosts.",
+          "Explica por qué no aplicarías la misma regla ciegamente a /31."
+        ],
+        "expected": "Red .96, broadcast .127, hosts .97–.126 y 30 posiciones convencionales."
+      },
+      "check": {
+        "question": "¿Qué significa que una dirección sea utilizable en el rango convencional?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que necesariamente está libre."
+          },
+          {
+            "id": "b",
+            "text": "Que nunca necesita autorización."
+          },
+          {
+            "id": "c",
+            "text": "Que no es red ni broadcast en ese contexto; aún debes revisar su asignación."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La validez del rango y la disponibilidad real de una dirección son comprobaciones diferentes."
+      },
+      "mistakes": [
+        {
+          "myth": "Siempre hay que restar dos, incluso en /31 y /32.",
+          "correction": "El tipo de enlace y el uso del prefijo determinan cómo se interpretan sus direcciones."
+        }
+      ],
+      "recap": [
+        "Red: 192.168.10.64 identifica el bloque.",
+        "Hosts: 192.168.10.65 a .126: 62 posiciones convencionales.",
+        "Broadcast: 192.168.10.127 es la última dirección del bloque."
+      ],
+      "glossary": [
+        {
+          "term": "Broadcast dirigido",
+          "definition": "Dirección final de una subred IPv4 convencional usada para difusión al bloque."
+        },
+        {
+          "term": "Host route",
+          "definition": "Ruta específica hacia una única dirección, como un /32 IPv4."
+        }
+      ]
+    },
+    {
+      "dayId": "w11d4",
+      "title": "Subdivisión",
+      "lead": "Subdividir un /24 en /26 añade dos bits de red y produce cuatro bloques iguales de 64 direcciones.",
+      "sections": [
+        {
+          "explanation": [
+            "Subdividir un /24 en /26 añade dos bits de red y produce cuatro bloques iguales de 64 direcciones. Sus inicios en el último octeto son 0, 64, 128 y 192. Si se subdivide en /27, se añaden tres bits y aparecen ocho bloques de 32 direcciones, con inicios 0, 32, 64, 96, 128, 160, 192 y 224. Cada bloque debe respetar su alineación.",
+            "No puedes elegir .50 como inicio de una red /26 simplemente porque esté libre: el bloque debe comenzar en uno de sus límites válidos. Tampoco se deben superponer asignaciones que pretenden representar redes separadas. Dibuja el /24 como una franja y marca los límites antes de asignar equipos. En redes convencionales calcula después sus posiciones de host y reserva direcciones para infraestructura. Dividir direcciones organiza el plan IP; la separación de seguridad requiere además diseño de enlaces, rutas y políticas."
+          ],
+          "analogy": "Dividir una regla en segmentos iguales exige respetar marcas de inicio; no basta con escoger números vacíos.",
+          "keyPoints": [
+            "Bloque 1: Último octeto 0–63.",
+            "Bloque 2: Último octeto 64–127.",
+            "Bloque 3: Último octeto 128–191."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Partición de un /24",
+            "items": [
+              {
+                "label": "Bloque 1",
+                "detail": "Último octeto 0–63."
+              },
+              {
+                "label": "Bloque 2",
+                "detail": "Último octeto 64–127."
+              },
+              {
+                "label": "Bloque 3",
+                "detail": "Último octeto 128–191."
+              },
+              {
+                "label": "Bloque 4",
+                "detail": "Último octeto 192–255."
+              }
+            ],
+            "caption": "Dividir direcciones organiza el plan IP; la separación de seguridad requiere además diseño de enlaces, rutas y políticas."
+          },
+          "topic": "Redes /26 y /27"
+        }
+      ],
+      "workedExample": {
+        "title": "Crear dos /27 consecutivos",
+        "scenario": "Dentro de 192.168.30.0/24 se necesitan dos bloques /27 sin superposición.",
+        "steps": [
+          {
+            "action": "Calcular el salto",
+            "reason": "Cinco bits host producen 32 direcciones.",
+            "result": "Los inicios avanzan de 32 en 32."
+          },
+          {
+            "action": "Elegir límites alineados",
+            "reason": "Se utilizan los dos primeros bloques.",
+            "result": "192.168.30.0/27 y 192.168.30.32/27."
+          },
+          {
+            "action": "Verificar extremos",
+            "reason": "Los bloques no deben solaparse.",
+            "result": "El primero acaba en .31 y el segundo en .63."
+          }
+        ],
+        "result": "Los bloques .0–.31 y .32–.63 son consecutivos y no se superponen.",
+        "visual": {
+          "type": "flow",
+          "title": "Crear dos /27 consecutivos · secuencia",
+          "items": [
+            {
+              "label": "Calcular el salto",
+              "detail": "Los inicios avanzan de 32 en 32."
+            },
+            {
+              "label": "Elegir límites alineados",
+              "detail": "192.168.30.0/27 y 192.168.30.32/27."
+            },
+            {
+              "label": "Verificar extremos",
+              "detail": "El primero acaba en .31 y el segundo en .63."
+            }
+          ],
+          "caption": "Los bloques .0–.31 y .32–.63 son consecutivos y no se superponen."
+        }
+      },
+      "practice": {
+        "task": "Divide 192.168.40.0/24 en cuatro /26.",
+        "steps": [
+          "Escribe los cuatro inicios.",
+          "Calcula el último valor de cada bloque.",
+          "Indica hosts convencionales del tercer bloque."
+        ],
+        "expected": "Inicios .0, .64, .128 y .192; el tercero permite .129–.190 en el caso convencional."
+      },
+      "check": {
+        "question": "¿Cuál es un inicio válido de /26 dentro de un /24?",
+        "options": [
+          {
+            "id": "a",
+            "text": ".50"
+          },
+          {
+            "id": "b",
+            "text": ".64"
+          },
+          {
+            "id": "c",
+            "text": ".100"
+          }
+        ],
+        "correct": "b",
+        "explanation": "Los bloques de 64 direcciones empiezan en múltiplos de 64 dentro del último octeto."
+      },
+      "mistakes": [
+        {
+          "myth": "Crear subredes garantiza por sí solo aislamiento de seguridad.",
+          "correction": "El plan IP debe acompañarse de enlaces, rutas y políticas que hagan efectiva la separación."
+        }
+      ],
+      "recap": [
+        "Bloque 1: Último octeto 0–63.",
+        "Bloque 2: Último octeto 64–127.",
+        "Bloque 3: Último octeto 128–191."
+      ],
+      "glossary": [
+        {
+          "term": "Alineación",
+          "definition": "Respeto a los límites válidos de un bloque."
+        },
+        {
+          "term": "Superposición",
+          "definition": "Intersección de rangos que puede introducir ambigüedad en un diseño."
+        }
+      ]
+    },
+    {
+      "dayId": "w11d5",
+      "title": "Pertenencia a subred",
+      "lead": "La pertenencia a una subred se comprueba aplicando el prefijo correspondiente, no por parecido visual.",
+      "sections": [
+        {
+          "explanation": [
+            "La pertenencia a una subred se comprueba aplicando el prefijo correspondiente, no por parecido visual. Dos direcciones con tres primeros octetos iguales pueden pertenecer a redes distintas si usan /26 o /27. Para 192.168.10.70/26, el bloque del último octeto es 64–127; .100 pertenece a ese bloque y .130 queda en el siguiente. La comparación debe usar el mismo criterio y contexto de red.",
+            "Puedes verificar mediante rangos alineados o mediante AND binario con la máscara. Si los resultados de red coinciden bajo el prefijo estudiado, pertenecen al mismo bloque. Después debes comprobar si alguna dirección cumple un papel especial o está ya asignada. En equipos reales la tabla de rutas puede añadir decisiones más específicas; esta lección trabaja un caso sencillo de pertenencia. Escribe siempre la dirección con su prefijo para evitar conclusiones basadas en una IP suelta que no aporta toda la información."
+          ],
+          "analogy": "Dos edificios pueden compartir calle y quedar en distritos distintos según el límite del mapa utilizado.",
+          "keyPoints": [
+            "Referencia: 192.168.10.70/26.",
+            "Bloque: Último octeto entre 64 y 127.",
+            "Comparación: 100 está dentro; 130 está fuera."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Prueba de pertenencia a /26",
+            "items": [
+              {
+                "label": "Referencia",
+                "detail": "192.168.10.70/26."
+              },
+              {
+                "label": "Bloque",
+                "detail": "Último octeto entre 64 y 127."
+              },
+              {
+                "label": "Comparación",
+                "detail": "100 está dentro; 130 está fuera."
+              },
+              {
+                "label": "Conclusión",
+                "detail": "Mismo bloque solo para la primera dirección."
+              }
+            ],
+            "caption": "Escribe siempre la dirección con su prefijo para evitar conclusiones basadas en una IP suelta que no aporta toda la información."
+          },
+          "topic": "Comparación de direcciones"
+        }
+      ],
+      "workedExample": {
+        "title": "Comparar .62 y .65 con /26",
+        "scenario": "Se comparan 192.168.50.62 y 192.168.50.65 utilizando /26.",
+        "steps": [
+          {
+            "action": "Obtener los bloques",
+            "reason": "El tamaño es 64 direcciones.",
+            "result": ".62 pertenece a .0–.63."
+          },
+          {
+            "action": "Ubicar la segunda",
+            "reason": "Los límites no dependen de proximidad numérica.",
+            "result": ".65 pertenece a .64–.127."
+          },
+          {
+            "action": "Comparar direcciones de red",
+            "reason": "La pertenencia necesita el mismo resultado.",
+            "result": "Las redes .0/26 y .64/26 son diferentes."
+          }
+        ],
+        "result": "Estar a tres números de distancia no significa pertenecer a la misma subred.",
+        "visual": {
+          "type": "flow",
+          "title": "Comparar .62 y .65 con /26 · secuencia",
+          "items": [
+            {
+              "label": "Obtener los bloques",
+              "detail": ".62 pertenece a .0–.63."
+            },
+            {
+              "label": "Ubicar la segunda",
+              "detail": ".65 pertenece a .64–.127."
+            },
+            {
+              "label": "Comparar direcciones de red",
+              "detail": "Las redes .0/26 y .64/26 son diferentes."
+            }
+          ],
+          "caption": "Estar a tres números de distancia no significa pertenecer a la misma subred."
+        }
+      },
+      "practice": {
+        "task": "Compara 192.168.60.100 y 192.168.60.120 con /27.",
+        "steps": [
+          "Marca límites de 32.",
+          "Calcula la red de cada dirección.",
+          "Explica si compartir prefijo garantiza permiso de acceso."
+        ],
+        "expected": "Ambas pertenecen a .96/27; conectividad y autorización se comprueban por separado."
+      },
+      "check": {
+        "question": "¿192.168.50.62 y .65 pertenecen al mismo /26?",
+        "options": [
+          {
+            "id": "a",
+            "text": "No; caen a lados distintos del límite .64."
+          },
+          {
+            "id": "b",
+            "text": "Sí, porque solo cambia el último octeto."
+          },
+          {
+            "id": "c",
+            "text": "Sí, porque están cerca."
+          }
+        ],
+        "correct": "a",
+        "explanation": "Los bloques /26 tienen 64 direcciones; .62 está en el primero y .65 en el segundo."
+      },
+      "mistakes": [
+        {
+          "myth": "Comparar solo los tres primeros octetos siempre basta.",
+          "correction": "El prefijo puede colocar el límite dentro del último octeto o en otra posición."
+        }
+      ],
+      "recap": [
+        "Referencia: 192.168.10.70/26.",
+        "Bloque: Último octeto entre 64 y 127.",
+        "Comparación: 100 está dentro; 130 está fuera."
+      ],
+      "glossary": [
+        {
+          "term": "Pertenencia",
+          "definition": "Inclusión de una dirección dentro de un bloque definido."
+        },
+        {
+          "term": "AND",
+          "definition": "Operación binaria que selecciona bits mediante una máscara."
+        }
+      ]
+    },
+    {
+      "dayId": "w11d6",
+      "title": "Diseño pequeño",
+      "lead": "Dimensionar una subred empieza por contar interfaces que requieren dirección, no solo personas.",
+      "sections": [
+        {
+          "explanation": [
+            "Dimensionar una subred empieza por contar interfaces que requieren dirección, no solo personas. Incluye equipos, impresoras, gateway y servicios de infraestructura, además de un margen justificado. Después elige un bloque que ofrezca suficientes posiciones en el contexto utilizado. En una red IPv4 convencional, /27 tiene 32 direcciones totales y 30 posiciones de host; /26 tiene 64 totales y 62 posiciones convencionales.",
+            "Si necesitas veinte computadoras, dos impresoras y un gateway, ya tienes veintitrés direcciones antes de reservar crecimiento. Añadir cinco posiciones de margen lleva la necesidad a veintiocho, que cabe en un /27 convencional. Si necesitaras treinta computadoras más un gateway, las treinta posiciones de /27 no bastarían. Documenta también asignaciones estáticas, reservas y exclusiones. El cálculo demuestra capacidad del plan, no que la red tenga controles correctos o que todas las direcciones estén actualmente disponibles."
+          ],
+          "analogy": "Contar asientos requiere incluir ocupantes previstos y espacio reservado; contar solo personas puede olvidar infraestructura.",
+          "keyPoints": [
+            "Equipos: 20 computadoras y 2 impresoras.",
+            "Gateway: Una dirección adicional: total 23.",
+            "Margen: Cinco posiciones: necesidad 28."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Dimensionamiento con infraestructura",
+            "items": [
+              {
+                "label": "Equipos",
+                "detail": "20 computadoras y 2 impresoras."
+              },
+              {
+                "label": "Gateway",
+                "detail": "Una dirección adicional: total 23."
+              },
+              {
+                "label": "Margen",
+                "detail": "Cinco posiciones: necesidad 28."
+              },
+              {
+                "label": "Bloque",
+                "detail": "/27 ofrece 30 hosts convencionales."
+              }
+            ],
+            "caption": "El cálculo demuestra capacidad del plan, no que la red tenga controles correctos o que todas las direcciones estén actualmente disponibles."
+          },
+          "topic": "Hosts necesarios y margen"
+        }
+      ],
+      "workedExample": {
+        "title": "Treinta equipos y un gateway",
+        "scenario": "Un diseño ficticio propone /27 para treinta computadoras y la puerta de enlace.",
+        "steps": [
+          {
+            "action": "Contar interfaces",
+            "reason": "La infraestructura también utiliza una posición.",
+            "result": "La necesidad mínima es 31."
+          },
+          {
+            "action": "Comparar capacidad convencional",
+            "reason": "Un /27 ofrece treinta hosts en ese contexto.",
+            "result": "Falta al menos una posición antes de añadir margen."
+          },
+          {
+            "action": "Elegir un bloque suficiente",
+            "reason": "El diseño debe justificar crecimiento.",
+            "result": "Se considera /26 y se documentan reservas."
+          }
+        ],
+        "result": "Treinta computadoras más gateway no caben en las treinta posiciones convencionales de /27.",
+        "visual": {
+          "type": "flow",
+          "title": "Treinta equipos y un gateway · secuencia",
+          "items": [
+            {
+              "label": "Contar interfaces",
+              "detail": "La necesidad mínima es 31."
+            },
+            {
+              "label": "Comparar capacidad convencional",
+              "detail": "Falta al menos una posición antes de añadir margen."
+            },
+            {
+              "label": "Elegir un bloque suficiente",
+              "detail": "Se considera /26 y se documentan reservas."
+            }
+          ],
+          "caption": "Treinta computadoras más gateway no caben en las treinta posiciones convencionales de /27."
+        }
+      },
+      "practice": {
+        "task": "Dimensiona 12 equipos, una impresora, un gateway y cuatro posiciones de margen.",
+        "steps": [
+          "Suma las necesidades.",
+          "Compara /28 y /27 convencionales.",
+          "Justifica el bloque y sus límites."
+        ],
+        "expected": "18 posiciones: /28 ofrece 14 y no basta; /27 ofrece 30 y sí cubre el conteo."
+      },
+      "check": {
+        "question": "¿Qué debes incluir al calcular hosts necesarios?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo personas."
+          },
+          {
+            "id": "b",
+            "text": "Interfaces de equipos, infraestructura y margen justificado."
+          },
+          {
+            "id": "c",
+            "text": "Únicamente el nombre de la empresa."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Cada interfaz que deba recibir una dirección cuenta, incluida la infraestructura del diseño."
+      },
+      "mistakes": [
+        {
+          "myth": "Treinta hosts sirven para treinta equipos más cualquier infraestructura.",
+          "correction": "Gateway, impresoras y otros servicios también consumen posiciones del rango."
+        }
+      ],
+      "recap": [
+        "Equipos: 20 computadoras y 2 impresoras.",
+        "Gateway: Una dirección adicional: total 23.",
+        "Margen: Cinco posiciones: necesidad 28."
+      ],
+      "glossary": [
+        {
+          "term": "Dimensionamiento",
+          "definition": "Elección de capacidad según necesidades documentadas."
+        },
+        {
+          "term": "Reserva",
+          "definition": "Dirección o conjunto apartado para una finalidad prevista."
+        }
+      ]
+    },
+    {
+      "dayId": "w11d7",
+      "title": "Evaluación de subredes",
+      "lead": "Un cálculo defendible muestra el prefijo, los bits host, el tamaño del bloque y sus límites.",
+      "sections": [
+        {
+          "explanation": [
+            "Un cálculo defendible muestra el prefijo, los bits host, el tamaño del bloque y sus límites. Después distingue red, broadcast y hosts cuando corresponde al caso convencional. Escribir solamente «62 hosts» no permite comprobar si elegiste el bloque correcto. La evaluación también debe reconocer las excepciones de /31 punto a punto y /32, y separar capacidad válida de disponibilidad y autorización reales.",
+            "Resuelve primero a mano y utiliza una segunda técnica para comprobar. Puedes comparar rangos alineados con una representación binaria o una calculadora confiable, sin sustituir la explicación. Si la herramienta da otro resultado, revisa IP y prefijo introducidos antes de cambiar la regla. Para diseñar, cuenta infraestructura y margen. Para diagnosticar, compara direcciones de red y rutas. Son preguntas relacionadas, pero una respuesta de pertenencia no determina por sí sola que un servicio de aplicación sea accesible."
+          ],
+          "analogy": "Una operación matemática necesita mostrar unidades y supuestos; el número final sin contexto puede responder otra pregunta.",
+          "keyPoints": [
+            "Entrada: Dirección y prefijo exactos.",
+            "Bloque: Bits host, tamaño y alineación.",
+            "Funciones: Red, rango y broadcast cuando corresponda."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Explicación completa del cálculo",
+            "items": [
+              {
+                "label": "Entrada",
+                "detail": "Dirección y prefijo exactos."
+              },
+              {
+                "label": "Bloque",
+                "detail": "Bits host, tamaño y alineación."
+              },
+              {
+                "label": "Funciones",
+                "detail": "Red, rango y broadcast cuando corresponda."
+              },
+              {
+                "label": "Interpretación",
+                "detail": "Capacidad, excepciones y límites de la conclusión."
+              }
+            ],
+            "caption": "Son preguntas relacionadas, pero una respuesta de pertenencia no determina por sí sola que un servicio de aplicación sea accesible."
+          },
+          "topic": "Cálculo e interpretación"
+        }
+      ],
+      "workedExample": {
+        "title": "Resolver 192.168.70.142/27",
+        "scenario": "Se pide red, broadcast y rango convencional de la dirección de práctica.",
+        "steps": [
+          {
+            "action": "Calcular el tamaño",
+            "reason": "32 - 27 deja cinco bits host.",
+            "result": "El bloque contiene 32 direcciones."
+          },
+          {
+            "action": "Encontrar el inicio",
+            "reason": "Los inicios son múltiplos de 32.",
+            "result": "142 cae entre 128 y 159."
+          },
+          {
+            "action": "Separar funciones",
+            "reason": "Primera y última tienen roles convencionales.",
+            "result": "Red .128, broadcast .159, hosts .129–.158."
+          }
+        ],
+        "result": "La dirección pertenece a 192.168.70.128/27 y su rango convencional tiene 30 posiciones.",
+        "visual": {
+          "type": "flow",
+          "title": "Resolver 192.168.70.142/27 · secuencia",
+          "items": [
+            {
+              "label": "Calcular el tamaño",
+              "detail": "El bloque contiene 32 direcciones."
+            },
+            {
+              "label": "Encontrar el inicio",
+              "detail": "142 cae entre 128 y 159."
+            },
+            {
+              "label": "Separar funciones",
+              "detail": "Red .128, broadcast .159, hosts .129–.158."
+            }
+          ],
+          "caption": "La dirección pertenece a 192.168.70.128/27 y su rango convencional tiene 30 posiciones."
+        }
+      },
+      "practice": {
+        "task": "Resuelve 192.168.80.201/26 y verifica por dos métodos.",
+        "steps": [
+          "Calcula bits host y bloque.",
+          "Escribe red, broadcast y hosts.",
+          "Añade una limitación de usar únicamente ese cálculo."
+        ],
+        "expected": "Red .192, broadcast .255, hosts .193–.254 y 62 posiciones convencionales."
+      },
+      "check": {
+        "question": "En 192.168.70.142/27, ¿cuál es la red?",
+        "options": [
+          {
+            "id": "a",
+            "text": "192.168.70.128"
+          },
+          {
+            "id": "b",
+            "text": "192.168.70.142"
+          },
+          {
+            "id": "c",
+            "text": "192.168.70.0"
+          }
+        ],
+        "correct": "a",
+        "explanation": "Los bloques de 32 sitúan 142 dentro del intervalo 128–159; el inicio es .128."
+      },
+      "mistakes": [
+        {
+          "myth": "Una calculadora elimina la necesidad de comprender el prefijo.",
+          "correction": "Valida entradas, supuestos y significado para reconocer un resultado aplicado al caso equivocado."
+        }
+      ],
+      "recap": [
+        "Entrada: Dirección y prefijo exactos.",
+        "Bloque: Bits host, tamaño y alineación.",
+        "Funciones: Red, rango y broadcast cuando corresponda."
+      ],
+      "glossary": [
+        {
+          "term": "Supuesto",
+          "definition": "Condición aceptada para interpretar un cálculo."
+        },
+        {
+          "term": "Comprobación independiente",
+          "definition": "Verificación mediante otra técnica o recorrido de razonamiento."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,961 @@
+{
+  "version": "2.0.0",
+  "week": 39,
+  "title": "URL adjuntos e indicadores",
+  "overview": "Los indicadores son datos que requieren interpretación, no etiquetas infalibles de malicia. Esta semana descompondrás URL sin visitarlas, evaluarás reputación con fecha y procedencia, y distinguirás nombre, tipo y hash de archivo. Practicarás transformaciones inocuas en CyberChef y un caso integrado de correo con artefactos sintéticos. El objetivo es documentar observaciones estáticas y límites sin ejecutar muestras, publicar información privada ni atribuir comportamientos que nunca se observaron.",
+  "objectives": [
+    "Identificar host real y codificaciones de una URL como texto.",
+    "Valorar reputación y hashes con contexto y límites.",
+    "Construir un caso que conecte mensaje, enlace y artefacto sin ejecutar contenido."
+  ],
+  "sources": [
+    {
+      "id": "chef",
+      "title": "GCHQ — CyberChef",
+      "url": "https://gchq.github.io/CyberChef/"
+    },
+    {
+      "id": "btl1",
+      "title": "Security Blue Team — Blue Team Level 1",
+      "url": "https://www.securityblue.team/certifications/blue-team-level-1"
+    },
+    {
+      "id": "ir",
+      "title": "NIST SP 800-61r3 — Incident Response",
+      "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w39d1",
+      "title": "URL y dominios",
+      "lead": "Identifica host con un analizador, no por apariencia.",
+      "sections": [
+        {
+          "topic": "Host, ruta, subdominio y codificación",
+          "explanation": [
+            "Una URL contiene esquema, autoridad, ruta, consulta y, en ocasiones, fragmento. Para saber a qué host declara dirigirse, usa un analizador de URL o separa cuidadosamente la autoridad; no te guíes por palabras familiares en la ruta. En https://acceso.test/empresa.example, el host es acceso.test, no empresa.example. La parte anterior a una arroba en la autoridad puede ser información de usuario, no el destino. Una URL visualmente larga puede diseñarse para que el dato importante quede fuera de vista.",
+            "Los subdominios y sufijos necesitan contexto. No siempre basta con tomar las dos últimas etiquetas para identificar un dominio registrable, porque existen sufijos de varios niveles. La codificación porcentual representa bytes y puede ocultar caracteres a simple vista; decodificar es observar otra representación, no navegar ni verificar comportamiento. Conserva la URL original y la transformación aplicada. No abras enlaces sospechosos desde tu navegador principal para comprobarlos: el análisis estático puede identificar estructura sin hacer solicitudes de red."
+          ],
+          "analogy": "En una dirección postal, el nombre de una empresa escrito en una nota no cambia la calle y edificio de destino.",
+          "keyPoints": [
+            "Identifica host con un analizador, no por apariencia.",
+            "Ruta y nombre visible no sustituyen el destino.",
+            "Decodificar no equivale a visitar."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Partes de una URL",
+            "items": [
+              {
+                "label": "Esquema",
+                "detail": "Esquema utilizado: https"
+              },
+              {
+                "label": "Host",
+                "detail": "acceso.test"
+              },
+              {
+                "label": "Ruta",
+                "detail": "/empresa.example"
+              },
+              {
+                "label": "Consulta",
+                "detail": "id=7"
+              }
+            ],
+            "caption": "El ejemplo utiliza nombres reservados de laboratorio y no requiere navegación."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Marca dentro de la ruta",
+        "scenario": "La cadena ficticia es https://acceso.test/empresa.example?id=7.",
+        "steps": [
+          {
+            "action": "Separar autoridad",
+            "reason": "El destino no se deduce de una marca conocida.",
+            "result": "Host: acceso.test."
+          },
+          {
+            "action": "Leer ruta",
+            "reason": "La marca aparece después del host.",
+            "result": "/empresa.example es ruta."
+          },
+          {
+            "action": "Conservar método",
+            "reason": "Se inspecciona la cadena sin conectarse.",
+            "result": "No se afirma qué contenido sirve el destino."
+          }
+        ],
+        "result": "La observación identifica el destino declarado y deja comportamiento remoto sin comprobar.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Marca dentro de la ruta",
+          "items": [
+            {
+              "label": "Separar autoridad",
+              "detail": "Host: acceso.test."
+            },
+            {
+              "label": "Leer ruta",
+              "detail": "/empresa.example es ruta."
+            },
+            {
+              "label": "Conservar método",
+              "detail": "No se afirma qué contenido sirve el destino."
+            }
+          ],
+          "caption": "La observación identifica el destino declarado y deja comportamiento remoto sin comprobar."
+        }
+      },
+      "practice": {
+        "task": "Descompón una URL ficticia sin abrirla.",
+        "steps": [
+          "Anota esquema y host.",
+          "Separa ruta, consulta y fragmento si existen.",
+          "Explica qué no demuestra ese análisis."
+        ],
+        "expected": "Una descomposición estática con el original conservado.",
+        "console": {
+          "language": "Python",
+          "code": "from urllib.parse import urlsplit\nu = urlsplit('https://acceso.test/empresa.example?id=7')\nprint(u.hostname)\nprint(u.path)",
+          "output": "acceso.test\n/empresa.example",
+          "explanation": "Solo analiza una cadena local; no abre conexiones ni visita el destino."
+        }
+      },
+      "check": {
+        "question": "¿Cuál es el host de https://acceso.test/empresa.example?",
+        "options": [
+          {
+            "id": "a",
+            "text": "empresa.example."
+          },
+          {
+            "id": "b",
+            "text": "acceso.test."
+          },
+          {
+            "id": "c",
+            "text": "https."
+          }
+        ],
+        "correct": "b",
+        "explanation": "El host está en la autoridad antes de la ruta; una marca en la ruta no cambia el destino."
+      },
+      "mistakes": [
+        {
+          "myth": "Las dos últimas etiquetas siempre identifican al propietario.",
+          "correction": "Los sufijos y relaciones de dominio requieren contexto; evita esa regla universal."
+        }
+      ],
+      "recap": [
+        "Identifica host con un analizador, no por apariencia.",
+        "Ruta y nombre visible no sustituyen el destino.",
+        "Decodificar no equivale a visitar."
+      ],
+      "glossary": [
+        {
+          "term": "Host",
+          "definition": "Nombre de destino declarado en la autoridad de una URL."
+        },
+        {
+          "term": "Codificación porcentual",
+          "definition": "Representación de bytes mediante secuencias como %20."
+        }
+      ]
+    },
+    {
+      "dayId": "w39d2",
+      "title": "Reputación",
+      "lead": "Reputación necesita fuente y fecha.",
+      "sections": [
+        {
+          "topic": "Fuentes, fecha y confianza",
+          "explanation": [
+            "La reputación resume observaciones y clasificaciones de una fuente bajo una fecha y cobertura determinadas. Un dominio sin detecciones puede ser nuevo, poco observado o legítimo; la ausencia de señales no prueba seguridad. Un indicador con mala reputación puede cambiar de dueño, compartir infraestructura o estar asociado a un período distinto. Registra proveedor de la información, momento de consulta y qué afirma exactamente. No conviertas una votación de motores en una probabilidad matemática acreditada de malicia.",
+            "Contrasta varias evidencias pertinentes, no solo cantidad de coincidencias. Un resultado técnico puede apoyar una hipótesis, pero necesitas relacionarlo con el mensaje y la operación investigados. Antes de consultar servicios externos, verifica autorización y tratamiento de datos. Subir un archivo puede divulgar contenido privado; consultar un hash también comunica interés sobre ese indicador. Para practicar utiliza datos sintéticos o resultados ya preparados. En el informe diferencia reputación observada de comportamiento demostrado en tu entorno y conserva límites de antigüedad o cobertura."
+          ],
+          "analogy": "Una reseña de un restaurante describe experiencias previas; no demuestra exactamente qué ocurrirá hoy en tu visita.",
+          "keyPoints": [
+            "Reputación necesita fuente y fecha.",
+            "Sin detecciones no significa seguro.",
+            "Reputación y comportamiento local son evidencias diferentes."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Lectura de reputación",
+            "items": [
+              {
+                "label": "Sin datos",
+                "detail": "Cobertura insuficiente o indicador nuevo"
+              },
+              {
+                "label": "Señal histórica",
+                "detail": "Actividad observada en otro momento"
+              },
+              {
+                "label": "Contexto local",
+                "detail": "Relación comprobada con el caso"
+              }
+            ],
+            "caption": "Los resultados de terceros no sustituyen el contexto ni autorizan subir datos privados."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Dominio sin detecciones",
+        "scenario": "La ficha preparada muestra cero detecciones y primera observación reciente.",
+        "steps": [
+          {
+            "action": "Leer cobertura",
+            "reason": "El cero puede reflejar falta de tiempo o visibilidad.",
+            "result": "La reputación es insuficiente."
+          },
+          {
+            "action": "Contrastar caso",
+            "reason": "El mensaje pide credenciales fuera del proceso.",
+            "result": "La solicitud sigue siendo sospechosa."
+          },
+          {
+            "action": "Expresar límite",
+            "reason": "No se conoce comportamiento remoto.",
+            "result": "Se recomienda no interactuar y continuar verificación autorizada."
+          }
+        ],
+        "result": "El dato cero no neutraliza una solicitud de riesgo sustentada.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Dominio sin detecciones",
+          "items": [
+            {
+              "label": "Leer cobertura",
+              "detail": "La reputación es insuficiente."
+            },
+            {
+              "label": "Contrastar caso",
+              "detail": "La solicitud sigue siendo sospechosa."
+            },
+            {
+              "label": "Expresar límite",
+              "detail": "Se recomienda no interactuar y continuar verificación autorizada."
+            }
+          ],
+          "caption": "El dato cero no neutraliza una solicitud de riesgo sustentada."
+        }
+      },
+      "practice": {
+        "task": "Interpreta dos resultados de reputación preparados.",
+        "steps": [
+          "Anota fuente y fecha.",
+          "Separa sin datos de benigno.",
+          "Relaciona cada resultado con una observación local."
+        ],
+        "expected": "Una interpretación que no trate reputación como certeza."
+      },
+      "check": {
+        "question": "¿Qué demuestra cero detecciones?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que ningún riesgo es posible."
+          },
+          {
+            "id": "b",
+            "text": "Que el dominio pertenece a la empresa imitada."
+          },
+          {
+            "id": "c",
+            "text": "Que esa fuente no mostró detecciones en esas condiciones."
+          }
+        ],
+        "correct": "c",
+        "explanation": "El resultado depende de cobertura y tiempo; no certifica seguridad ni identidad de una marca."
+      },
+      "mistakes": [
+        {
+          "myth": "Más motores equivalen automáticamente a una probabilidad exacta.",
+          "correction": "Las fuentes pueden compartir datos y criterios; interpreta evidencia, no una probabilidad inventada."
+        }
+      ],
+      "recap": [
+        "Reputación necesita fuente y fecha.",
+        "Sin detecciones no significa seguro.",
+        "Reputación y comportamiento local son evidencias diferentes."
+      ],
+      "glossary": [
+        {
+          "term": "Reputación",
+          "definition": "Valoración de un indicador según observaciones de una fuente."
+        },
+        {
+          "term": "Cobertura de fuente",
+          "definition": "Parte de la actividad que una fuente puede conocer u observar."
+        }
+      ]
+    },
+    {
+      "dayId": "w39d3",
+      "title": "Archivos y hashes",
+      "lead": "Nombre, extensión y formato no son idénticos.",
+      "sections": [
+        {
+          "topic": "Extensión, tipo e integridad",
+          "explanation": [
+            "El nombre de un archivo, su extensión y su formato real son datos diferentes. Un archivo llamado factura.pdf.exe puede aprovechar que un explorador oculte extensiones, pero el nombre no demuestra por sí solo qué código ejecutaría. El tipo declarado por el correo también puede ser incorrecto. La inspección estática compara metadatos y estructura con herramientas autorizadas sin abrir contenido activo. Conserva el original y trabaja sobre una copia cuando el procedimiento lo requiera; no ejecutes un adjunto para averiguar qué es.",
+            "Un hash resume bytes para identificarlos y compararlos. Dos nombres distintos pueden corresponder al mismo contenido y un cambio mínimo puede producir otro hash. Una coincidencia con un valor de una fuente confiable apoya que se trata del mismo contenido observado por esa fuente, pero no explica automáticamente cómo llegó al equipo ni qué hizo allí. La integridad no equivale a benignidad. Registra algoritmo, archivo, momento y procedencia del valor de comparación, y evita divulgar archivos privados para obtener una clasificación externa."
+          ],
+          "analogy": "El nombre de una caja puede decir libros; su forma y su contenido requieren comprobación, y su huella no decide si es segura.",
+          "keyPoints": [
+            "Nombre, extensión y formato no son idénticos.",
+            "Hash identifica contenido bajo un algoritmo.",
+            "Integridad y benignidad son propiedades diferentes."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Tres observaciones del archivo",
+            "items": [
+              {
+                "label": "Nombre",
+                "detail": "factura.pdf.exe"
+              },
+              {
+                "label": "Tipo observado",
+                "detail": "Formato según inspección autorizada"
+              },
+              {
+                "label": "Hash",
+                "detail": "Resumen de los bytes adquiridos"
+              }
+            ],
+            "caption": "Ningún dato aislado describe todo el comportamiento del archivo."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Archivo renombrado",
+        "scenario": "Dos artefactos de prueba tienen nombres distintos, pero el mismo hash SHA-256.",
+        "steps": [
+          {
+            "action": "Comparar bytes",
+            "reason": "El nombre no determina identidad de contenido.",
+            "result": "Los hashes coinciden."
+          },
+          {
+            "action": "Registrar procedencia",
+            "reason": "La comparación necesita saber qué se midió.",
+            "result": "Se anotan archivos y algoritmo."
+          },
+          {
+            "action": "Limitar conclusión",
+            "reason": "Igualdad no demuestra inocuidad.",
+            "result": "Se afirma mismo contenido comparado, no comportamiento benigno."
+          }
+        ],
+        "result": "El informe identifica equivalencia de contenido sin atribuir ejecución.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Archivo renombrado",
+          "items": [
+            {
+              "label": "Comparar bytes",
+              "detail": "Los hashes coinciden."
+            },
+            {
+              "label": "Registrar procedencia",
+              "detail": "Se anotan archivos y algoritmo."
+            },
+            {
+              "label": "Limitar conclusión",
+              "detail": "Se afirma mismo contenido comparado, no comportamiento benigno."
+            }
+          ],
+          "caption": "El informe identifica equivalencia de contenido sin atribuir ejecución."
+        }
+      },
+      "practice": {
+        "task": "Crea dos copias de un texto propio con nombres diferentes.",
+        "steps": [
+          "Calcula sus hashes con una herramienta local.",
+          "Modifica una copia y repite.",
+          "Explica nombre, integridad y comportamiento por separado."
+        ],
+        "expected": "Una comparación que use únicamente archivos de práctica."
+      },
+      "check": {
+        "question": "¿Qué puede cambiar sin alterar el hash del contenido?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El nombre del archivo, si los bytes permanecen iguales."
+          },
+          {
+            "id": "b",
+            "text": "Cualquier byte del contenido sin limitación."
+          },
+          {
+            "id": "c",
+            "text": "El algoritmo y conservar necesariamente el mismo valor."
+          }
+        ],
+        "correct": "a",
+        "explanation": "El hash del contenido no incorpora por defecto el nombre del archivo; los bytes comparados son lo relevante."
+      },
+      "mistakes": [
+        {
+          "myth": "Un hash conocido como limpio garantiza cualquier contexto.",
+          "correction": "El contexto de uso, procedencia y cobertura de la fuente sigue siendo necesario."
+        }
+      ],
+      "recap": [
+        "Nombre, extensión y formato no son idénticos.",
+        "Hash identifica contenido bajo un algoritmo.",
+        "Integridad y benignidad son propiedades diferentes."
+      ],
+      "glossary": [
+        {
+          "term": "Formato",
+          "definition": "Estructura real de los datos de un archivo."
+        },
+        {
+          "term": "Hash de contenido",
+          "definition": "Resumen calculado a partir de los bytes mediante un algoritmo."
+        }
+      ]
+    },
+    {
+      "dayId": "w39d4",
+      "title": "CyberChef",
+      "lead": "Formula una hipótesis antes de transformar.",
+      "sections": [
+        {
+          "topic": "Codificación, decodificación y recetas",
+          "explanation": [
+            "CyberChef permite encadenar transformaciones sobre datos mediante una receta. Una operación recibe una entrada y produce una salida que puede alimentar la siguiente. Para aprender usa cadenas inocuas, como un texto codificado en Base64. Antes de aplicar operaciones, formula qué representación esperas y cómo comprobarás el resultado. La función automática o una receta sugerida puede ayudar a explorar, pero no sustituye explicar cada paso. Una salida legible puede ser una coincidencia si elegiste una transformación sin hipótesis.",
+            "Conserva entrada original, receta, opciones y salida. Distingue decodificar, descomprimir, calcular un hash y descifrar: requieren supuestos diferentes y no son intercambiables. Nunca ejecutes código obtenido como salida para ver qué hace. Comprueba también privacidad y condiciones del entorno; aunque una herramienta procese localmente una operación, compartir una URL o captura puede exponer la entrada. Los ejemplos de esta lección contienen texto sintético y no necesitan descargar archivos ni conectarse a destinos sospechosos."
+          ],
+          "analogy": "Una receta de cocina transforma ingredientes en un orden concreto; conocer el plato final no explica cómo se produjo.",
+          "keyPoints": [
+            "Formula una hipótesis antes de transformar.",
+            "Conserva entrada, receta y salida.",
+            "Decodificar no implica ejecutar el resultado."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Receta inocua",
+            "items": [
+              {
+                "label": "Entrada",
+                "detail": "Texto: SG9sYQ=="
+              },
+              {
+                "label": "Operación",
+                "detail": "From Base64"
+              },
+              {
+                "label": "Salida",
+                "detail": "Texto: Hola"
+              },
+              {
+                "label": "Validación",
+                "detail": "El texto esperado coincide"
+              }
+            ],
+            "caption": "La operación transforma una cadena de práctica y no protege ni ejecuta contenido."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Saludo codificado",
+        "scenario": "La entrada sintética SG9sYQ== representa un saludo en Base64.",
+        "steps": [
+          {
+            "action": "Elegir hipótesis",
+            "reason": "La práctica declara el formato conocido.",
+            "result": "Se selecciona From Base64."
+          },
+          {
+            "action": "Aplicar operación",
+            "reason": "La transformación usa la entrada completa.",
+            "result": "La salida es Hola."
+          },
+          {
+            "action": "Validar y registrar",
+            "reason": "El resultado debe coincidir con el esperado.",
+            "result": "Se guarda receta y se explica que no era cifrado."
+          }
+        ],
+        "result": "La transformación queda comprendida y repetible sin ejecutar nada.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Saludo codificado",
+          "items": [
+            {
+              "label": "Elegir hipótesis",
+              "detail": "Se selecciona From Base64."
+            },
+            {
+              "label": "Aplicar operación",
+              "detail": "La salida es Hola."
+            },
+            {
+              "label": "Validar y registrar",
+              "detail": "Se guarda receta y se explica que no era cifrado."
+            }
+          ],
+          "caption": "La transformación queda comprendida y repetible sin ejecutar nada."
+        }
+      },
+      "practice": {
+        "task": "Repite la receta con una frase propia no sensible.",
+        "steps": [
+          "Codifica un texto de práctica.",
+          "Decodifica y compara con el original.",
+          "Anota receta y diferencia respecto al cifrado."
+        ],
+        "expected": "Una ida y vuelta explicada con entrada sintética.",
+        "console": {
+          "language": "CyberChef",
+          "code": "Input: SG9sYQ==\nRecipe: From Base64",
+          "output": "Hola",
+          "explanation": "Usa una cadena inocua conocida y compara la salida esperada, sin ejecutar contenido."
+        }
+      },
+      "check": {
+        "question": "¿Qué demuestra obtener Hola desde SG9sYQ==?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que se descifró una clave robada."
+          },
+          {
+            "id": "b",
+            "text": "Que se decodificó una representación Base64 conocida."
+          },
+          {
+            "id": "c",
+            "text": "Que el texto es malicioso."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La operación revierte una representación; no prueba secreto, intención ni comportamiento del contenido."
+      },
+      "mistakes": [
+        {
+          "myth": "Cualquier salida de CyberChef debe ejecutarse para validarla.",
+          "correction": "Valida propiedades y contenido de forma segura; no ejecutes muestras ni código desconocido."
+        }
+      ],
+      "recap": [
+        "Formula una hipótesis antes de transformar.",
+        "Conserva entrada, receta y salida.",
+        "Decodificar no implica ejecutar el resultado."
+      ],
+      "glossary": [
+        {
+          "term": "Receta",
+          "definition": "Secuencia ordenada de operaciones y opciones de transformación."
+        },
+        {
+          "term": "Decodificación",
+          "definition": "Conversión desde una representación a sus datos correspondientes."
+        }
+      ]
+    },
+    {
+      "dayId": "w39d5",
+      "title": "Análisis de adjuntos",
+      "lead": "Los metadatos tienen límites de confianza.",
+      "sections": [
+        {
+          "topic": "Metadatos y evidencia estática",
+          "explanation": [
+            "El análisis estático de un adjunto examina propiedades sin ejecutar su contenido. Empieza por procedencia, nombre, tamaño, tipo declarado y estructura observada mediante herramientas autorizadas. Los metadatos pueden indicar software o fechas, pero pueden ser alterados y no identifican por sí solos a una persona. Si se trata de un archivo compuesto o comprimido, inventaría su estructura según un procedimiento seguro; no extraigas ni abras material desconocido en tu equipo principal solo por curiosidad.",
+            "Escribe qué observaste y con qué método. Encontrar una URL dentro de un documento no demuestra que se haya visitado; ver una cadena parecida a un comando no prueba que se ejecutara. Una fecha de creación puede reflejar una copia o manipulación. Contrasta con otras fuentes para relacionar artefacto y actividad. Cuando se necesite análisis dinámico, debe realizarse en un entorno y alcance autorizados con las protecciones correspondientes; esta práctica se limita a artefactos sintéticos y resultados de inspección preparados."
+          ],
+          "analogy": "Examinar las páginas de un manual no equivale a encender la máquina que describe; las acciones necesitan otra evidencia.",
+          "keyPoints": [
+            "Los metadatos tienen límites de confianza.",
+            "Una cadena encontrada no demuestra ejecución.",
+            "Declara herramientas y método de inspección."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Inspección estática",
+            "items": [
+              {
+                "label": "Procedencia",
+                "detail": "Mensaje y adquisición"
+              },
+              {
+                "label": "Metadatos",
+                "detail": "Nombre, tamaño y tipo"
+              },
+              {
+                "label": "Contenido observado",
+                "detail": "Cadenas y estructura"
+              },
+              {
+                "label": "Conclusión",
+                "detail": "Hechos sin comportamiento inventado"
+              }
+            ],
+            "caption": "La práctica no ejecuta adjuntos ni requiere muestras reales."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "URL dentro de un documento",
+        "scenario": "Un informe preparado identifica una dirección en un adjunto sintético, sin eventos de navegación.",
+        "steps": [
+          {
+            "action": "Registrar hallazgo",
+            "reason": "Se conoce presencia de una cadena.",
+            "result": "El documento contiene esa URL."
+          },
+          {
+            "action": "Separar inferencia",
+            "reason": "La presencia no acredita una visita.",
+            "result": "No hay evidencia de conexión."
+          },
+          {
+            "action": "Pedir contexto",
+            "reason": "La actividad requiere otra fuente.",
+            "result": "Se buscarían registros autorizados de navegador o red si el caso lo permite."
+          }
+        ],
+        "result": "El informe evita transformar contenido del archivo en una acción del usuario.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: URL dentro de un documento",
+          "items": [
+            {
+              "label": "Registrar hallazgo",
+              "detail": "El documento contiene esa URL."
+            },
+            {
+              "label": "Separar inferencia",
+              "detail": "No hay evidencia de conexión."
+            },
+            {
+              "label": "Pedir contexto",
+              "detail": "Se buscarían registros autorizados de navegador o red si el caso lo permite."
+            }
+          ],
+          "caption": "El informe evita transformar contenido del archivo en una acción del usuario."
+        }
+      },
+      "practice": {
+        "task": "Analiza una ficha de metadatos ficticia.",
+        "steps": [
+          "Separa datos declarados y observados.",
+          "Escribe dos conclusiones permitidas.",
+          "Añade dos afirmaciones que necesitarían otra fuente."
+        ],
+        "expected": "Una ficha estática con límites explícitos."
+      },
+      "check": {
+        "question": "¿Qué prueba encontrar un comando como texto dentro de un archivo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que el comando se ejecutó con éxito."
+          },
+          {
+            "id": "b",
+            "text": "Que el usuario es su autor."
+          },
+          {
+            "id": "c",
+            "text": "Que esa cadena está presente en el material inspeccionado."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La ejecución y autoría necesitan evidencia adicional; la inspección solo acredita presencia de contenido."
+      },
+      "mistakes": [
+        {
+          "myth": "Los metadatos son siempre una historia exacta del archivo.",
+          "correction": "Pueden cambiar o ser manipulados y deben contrastarse con contexto."
+        }
+      ],
+      "recap": [
+        "Los metadatos tienen límites de confianza.",
+        "Una cadena encontrada no demuestra ejecución.",
+        "Declara herramientas y método de inspección."
+      ],
+      "glossary": [
+        {
+          "term": "Metadato",
+          "definition": "Dato que describe propiedades de un objeto o su manejo."
+        },
+        {
+          "term": "Comportamiento observado",
+          "definition": "Acción sustentada por evidencia de ejecución o actividad, no solo por cadenas."
+        }
+      ]
+    },
+    {
+      "dayId": "w39d6",
+      "title": "Caso integral de phishing",
+      "lead": "Relaciona indicadores mediante una procedencia documentada y comprobable.",
+      "sections": [
+        {
+          "topic": "Mensaje, URL y artefactos",
+          "explanation": [
+            "Un caso integral de phishing relaciona mensaje, URL y archivo mediante procedencia y contexto. No basta con reunir indicadores sin explicar de dónde salieron. Cada artefacto necesita vínculo con el mensaje o con una fuente independiente, y cada transformación debe conservar el original. Una URL en el cuerpo, otra dentro del adjunto y una dirección en un informe externo pueden ser diferentes; mezclar sus identidades produce conclusiones erróneas. Usa una tabla de relaciones con tipo de vínculo y confianza.",
+            "El veredicto debe responder la pregunta del caso: solicitud no autorizada, suplantación probable, exposición o comportamiento observado. No declares infección por encontrar un enlace sospechoso si no existe evidencia de ejecución. Tampoco una reputación sin detecciones neutraliza un pedido de contraseña contrario al proceso. Combina estructura del correo, autenticación confiable, host declarado, metadatos y solicitud. En una práctica segura puedes resolver el caso con material sintético y tablas preparadas, sin visitar destinos ni cargar archivos privados en plataformas públicas."
+          ],
+          "analogy": "Un expediente une documentos por su procedencia; meter papeles en la misma carpeta no demuestra que todos describan el mismo hecho.",
+          "keyPoints": [
+            "Relaciona indicadores mediante procedencia.",
+            "Conserva originales y transformaciones.",
+            "No conviertas sospecha de phishing en infección confirmada."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Relaciones del caso",
+            "items": [
+              {
+                "label": "Mensaje M-1",
+                "detail": "Solicita cambio de contraseña"
+              },
+              {
+                "label": "URL U-1",
+                "detail": "Extraída del cuerpo sin visitar"
+              },
+              {
+                "label": "Adjunto A-1",
+                "detail": "Metadatos y cadena vinculada"
+              },
+              {
+                "label": "Conclusión",
+                "detail": "Solicitud sospechosa con límites de análisis"
+              }
+            ],
+            "caption": "El vínculo se documenta y no se supone por semejanza visual."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Mensaje y adjunto de práctica",
+        "scenario": "M-1 imita soporte, U-1 usa un host distinto y A-1 contiene instrucciones para enviar credenciales.",
+        "steps": [
+          {
+            "action": "Vincular artefactos",
+            "reason": "Cada elemento debe tener origen.",
+            "result": "U-1 proviene del cuerpo y A-1 del mismo mensaje."
+          },
+          {
+            "action": "Contrastar solicitud",
+            "reason": "El proceso legítimo no pide contraseñas.",
+            "result": "La solicitud es incompatible con el proceso."
+          },
+          {
+            "action": "Cerrar con límites",
+            "reason": "No hubo ejecución ni navegación.",
+            "result": "Se recomienda reportar y verificar, sin afirmar infección."
+          }
+        ],
+        "result": "El caso sustenta una solicitud sospechosa y conserva lo desconocido.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Mensaje y adjunto de práctica",
+          "items": [
+            {
+              "label": "Vincular artefactos",
+              "detail": "U-1 proviene del cuerpo y A-1 del mismo mensaje."
+            },
+            {
+              "label": "Contrastar solicitud",
+              "detail": "La solicitud es incompatible con el proceso."
+            },
+            {
+              "label": "Cerrar con límites",
+              "detail": "Se recomienda reportar y verificar, sin afirmar infección."
+            }
+          ],
+          "caption": "El caso sustenta una solicitud sospechosa y conserva lo desconocido."
+        }
+      },
+      "practice": {
+        "task": "Construye una tabla de tres artefactos sintéticos relacionados.",
+        "steps": [
+          "Asigna identificadores.",
+          "Anota origen y tipo de relación.",
+          "Escribe veredicto, acción y limitación."
+        ],
+        "expected": "Un caso coherente que no mezcle indicadores sin procedencia."
+      },
+      "check": {
+        "question": "¿Qué hace sólida una relación entre URL y mensaje?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La extracción documentada desde una parte concreta del mensaje."
+          },
+          {
+            "id": "b",
+            "text": "Que ambas aparezcan en la misma pantalla."
+          },
+          {
+            "id": "c",
+            "text": "Que tengan la misma longitud."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La procedencia documentada permite sostener el vínculo y revisar cómo se obtuvo el indicador."
+      },
+      "mistakes": [
+        {
+          "myth": "Acumular indicadores demuestra una cadena de ataque completa.",
+          "correction": "Cada relación y comportamiento necesita evidencia específica y límites."
+        }
+      ],
+      "recap": [
+        "Relaciona indicadores mediante procedencia.",
+        "Conserva originales y transformaciones.",
+        "No conviertas sospecha de phishing en infección confirmada."
+      ],
+      "glossary": [
+        {
+          "term": "Procedencia",
+          "definition": "Origen y método por el que se obtuvo un dato."
+        },
+        {
+          "term": "Relación de artefactos",
+          "definition": "Vínculo documentado entre elementos de una investigación."
+        }
+      ]
+    },
+    {
+      "dayId": "w39d7",
+      "title": "Evaluación de indicadores",
+      "lead": "Distingue presencia de contenido y actividad ejecutada.",
+      "sections": [
+        {
+          "topic": "Observación frente a inferencia",
+          "explanation": [
+            "Evaluar indicadores exige distinguir observación de inferencia. Observación: una cadena aparece en un archivo, una fuente reporta una detección o una URL declara un host. Inferencia: ese archivo se ejecutó, el usuario visitó el host o el actor controla toda la infraestructura relacionada. Algunas inferencias pueden ser razonables, pero necesitan pasos y evidencias adicionales. Escribe siempre qué dato sostiene la conclusión y qué alternativa permanece posible. Esta disciplina evita que una visualización de relaciones parezca probar más de lo que realmente contiene.",
+            "La confianza depende de calidad, independencia, fecha y cobertura de las fuentes. Dos informes que copian el mismo resultado no son necesariamente dos confirmaciones independientes. Un indicador puede ser compartido por servicios legítimos y maliciosos, o cambiar con el tiempo. El cierre de la semana debe conectar hechos, hipótesis, pruebas y acción proporcional. No necesitas una acusación categórica para recomendar que se preserve un mensaje y no se ejecute su solicitud. Una conclusión limitada pero bien sustentada es una base más fiable para continuar investigando."
+          ],
+          "analogy": "Ver huellas junto a una puerta orienta preguntas; no identifica automáticamente a quién entró, cuándo ni con qué intención.",
+          "keyPoints": [
+            "Distingue presencia de contenido y actividad ejecutada.",
+            "Comprueba independencia y fecha de fuentes.",
+            "La acción puede ser segura aunque el veredicto sea provisional."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Observación e inferencia",
+            "items": [
+              {
+                "label": "Observado",
+                "detail": "URL presente en el correo"
+              },
+              {
+                "label": "No demostrado",
+                "detail": "Visita o ejecución en un equipo"
+              },
+              {
+                "label": "Siguiente prueba",
+                "detail": "Registros pertinentes y autorizados"
+              }
+            ],
+            "caption": "La conclusión conserva la distancia entre lo encontrado y lo ocurrido."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Dos informes iguales",
+        "scenario": "Dos portales repiten la misma clasificación del mismo proveedor original.",
+        "steps": [
+          {
+            "action": "Revisar procedencia",
+            "reason": "La cantidad de páginas puede engañar.",
+            "result": "Ambos dependen de una fuente."
+          },
+          {
+            "action": "Evaluar confianza",
+            "reason": "No son dos observaciones independientes.",
+            "result": "La evidencia tiene una sola procedencia técnica."
+          },
+          {
+            "action": "Buscar contraste",
+            "reason": "Se necesita una fuente con otra visibilidad.",
+            "result": "Se solicita contexto local o análisis autorizado adicional."
+          }
+        ],
+        "result": "La confianza no se infla contando repeticiones como confirmaciones nuevas.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Dos informes iguales",
+          "items": [
+            {
+              "label": "Revisar procedencia",
+              "detail": "Ambos dependen de una fuente."
+            },
+            {
+              "label": "Evaluar confianza",
+              "detail": "La evidencia tiene una sola procedencia técnica."
+            },
+            {
+              "label": "Buscar contraste",
+              "detail": "Se solicita contexto local o análisis autorizado adicional."
+            }
+          ],
+          "caption": "La confianza no se infla contando repeticiones como confirmaciones nuevas."
+        }
+      },
+      "practice": {
+        "task": "Clasifica seis frases como observación o inferencia.",
+        "steps": [
+          "Indica fuente para cada observación.",
+          "Añade evidencia necesaria para cada inferencia.",
+          "Cierra con una acción proporcional al riesgo."
+        ],
+        "expected": "Un informe que muestre hechos y preguntas sin certeza artificial."
+      },
+      "check": {
+        "question": "¿Qué implican dos páginas que copian el mismo resultado?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Dos confirmaciones independientes garantizadas."
+          },
+          {
+            "id": "b",
+            "text": "Posiblemente una sola fuente repetida, que debe reconocerse."
+          },
+          {
+            "id": "c",
+            "text": "Que el resultado es necesariamente falso."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La independencia se determina por procedencia, no por la cantidad de pantallas que repiten una afirmación."
+      },
+      "mistakes": [
+        {
+          "myth": "Una conclusión provisional impide recomendar medidas seguras.",
+          "correction": "Puedes preservar, reportar y detener una solicitud mientras se reduce la incertidumbre."
+        }
+      ],
+      "recap": [
+        "Distingue presencia de contenido y actividad ejecutada.",
+        "Comprueba independencia y fecha de fuentes.",
+        "La acción puede ser segura aunque el veredicto sea provisional."
+      ],
+      "glossary": [
+        {
+          "term": "Independencia de fuente",
+          "definition": "Observación que no depende simplemente de otra fuente ya contada."
+        },
+        {
+          "term": "Inferencia analítica",
+          "definition": "Conclusión que conecta datos mediante supuestos y razonamiento explícitos."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,962 @@
+{
+  "version": "2.0.0",
+  "week": 26,
+  "title": "Nube datos y resiliencia",
+  "overview": "La nube cambia la distribución de tareas, pero no elimina la necesidad de proteger identidades, datos y continuidad. Esta semana compara modelos de servicio, virtualización y contenedores, sigue la información por sus estados y revisa retención y eliminación. Los casos distinguen respaldo, réplica y disponibilidad, y culminan en un ejercicio de continuidad. La evaluación final exige responsabilidades y pruebas concretas, dejando explícita cualquier función del servicio que todavía no se haya podido verificar.",
+  "objectives": [
+    "Distinguir modelos y responsabilidades por servicio.",
+    "Evaluar datos, aislamiento y ciclo de vida.",
+    "Diseñar y comprobar recuperación y continuidad."
+  ],
+  "sources": [
+    {
+      "id": "aws",
+      "title": "AWS: modelo de responsabilidad compartida",
+      "url": "https://aws.amazon.com/compliance/shared-responsibility-model/"
+    },
+    {
+      "id": "crypto",
+      "title": "OWASP: almacenamiento criptográfico",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html"
+    },
+    {
+      "id": "continuity",
+      "title": "NIST: guía de contingencia, revisión 1",
+      "url": "https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-34r1.pdf"
+    },
+    {
+      "id": "zt",
+      "title": "NIST SP 800-207: arquitectura de confianza cero",
+      "url": "https://csrc.nist.gov/pubs/sp/800/207/final"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w26d1",
+      "title": "Modelos de nube",
+      "lead": "Identifica qué capas administra cada parte en el servicio de nube elegido.",
+      "sections": [
+        {
+          "topic": "IaaS, PaaS, SaaS y despliegues",
+          "explanation": [
+            "IaaS ofrece recursos de infraestructura sobre los que el cliente administra sistemas y aplicaciones según el servicio. PaaS añade una plataforma gestionada y reduce algunas tareas de administración de la infraestructura y ejecución. SaaS ofrece una aplicación como servicio. Los nombres ayudan a comparar, pero la distribución exacta de responsabilidades debe comprobarse en el producto, contrato y configuración concretos.",
+            "El cliente sigue tomando decisiones sobre datos, usuarios y permisos aunque el proveedor mantenga capas inferiores. En una máquina virtual suele administrar el sistema invitado; en una aplicación SaaS puede gestionar compartición, cuentas y retención. Los modelos de despliegue, como público, privado o híbrido, describen organización y uso de recursos, no un nivel de seguridad garantizado. Dibuja una matriz de responsabilidades para no dejar tareas sin dueño ni asumir que contratar nube elimina mantenimiento y recuperación."
+          ],
+          "analogy": "Alquilar un terreno, una cocina equipada o un servicio de comida deja responsabilidades diferentes al cliente, pero no elimina todas sus decisiones.",
+          "keyPoints": [
+            "El modelo distribuye tareas, no elimina responsabilidad.",
+            "Confirma el alcance en el servicio concreto.",
+            "Datos y permisos del cliente requieren gestión."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Responsabilidades según servicio",
+            "items": [
+              {
+                "label": "IaaS",
+                "detail": "Cliente suele administrar sistema invitado y aplicación"
+              },
+              {
+                "label": "PaaS",
+                "detail": "Proveedor gestiona más capas de plataforma"
+              },
+              {
+                "label": "SaaS",
+                "detail": "Cliente configura uso, identidades y datos de la aplicación"
+              }
+            ],
+            "caption": "La distribución precisa cambia por producto y debe verificarse con documentación oficial."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Archivo público en una aplicación SaaS",
+        "scenario": "Una persona configura un documento para compartirlo con cualquiera que tenga el enlace.",
+        "steps": [
+          {
+            "action": "Identificar decisión",
+            "reason": "La disponibilidad del proveedor no decidió la compartición.",
+            "result": "Configuración del cliente"
+          },
+          {
+            "action": "Evaluar sensibilidad",
+            "reason": "El archivo contiene datos internos.",
+            "result": "Exposición incompatible con su clasificación"
+          },
+          {
+            "action": "Corregir y comprobar",
+            "reason": "La responsabilidad incluye permisos efectivos.",
+            "result": "Enlace restringido y acceso externo probado"
+          }
+        ],
+        "result": "El caso muestra una tarea del cliente dentro de un servicio administrado.",
+        "visual": {
+          "type": "flow",
+          "title": "Archivo público en una aplicación SaaS",
+          "items": [
+            {
+              "label": "Identificar decisión",
+              "detail": "Configuración del cliente"
+            },
+            {
+              "label": "Evaluar sensibilidad",
+              "detail": "Exposición incompatible con su clasificación"
+            },
+            {
+              "label": "Corregir y comprobar",
+              "detail": "Enlace restringido y acceso externo probado"
+            }
+          ],
+          "caption": "El caso muestra una tarea del cliente dentro de un servicio administrado."
+        }
+      },
+      "practice": {
+        "task": "Compara una máquina virtual y una aplicación SaaS ficticias.",
+        "steps": [
+          "Asigna sistema, aplicación, cuentas y datos a responsables.",
+          "Marca una tarea que dependa del producto.",
+          "Define cómo comprobarías permisos y recuperación."
+        ],
+        "expected": "Una matriz con decisiones explícitas y sin celdas asumidas por intuición."
+      },
+      "check": {
+        "question": "En una aplicación SaaS, ¿qué suele seguir requiriendo gestión del cliente?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La fabricación de discos del centro de datos"
+          },
+          {
+            "id": "b",
+            "text": "Los permisos y la compartición de sus datos"
+          },
+          {
+            "id": "c",
+            "text": "La temperatura física de todos los servidores"
+          }
+        ],
+        "correct": "b",
+        "explanation": "El proveedor administra capas del servicio, pero el cliente conserva decisiones de acceso y uso de su información."
+      },
+      "mistakes": [
+        {
+          "myth": "Público significa inseguro y privado significa seguro por definición.",
+          "correction": "La seguridad depende del diseño, configuración, operación y responsabilidades concretas."
+        }
+      ],
+      "recap": [
+        "El modelo distribuye tareas, no elimina responsabilidad.",
+        "Confirma el alcance en el servicio concreto.",
+        "Datos y permisos del cliente requieren gestión."
+      ],
+      "glossary": [
+        {
+          "term": "IaaS",
+          "definition": "Servicio de recursos de infraestructura con tareas del cliente sobre capas superiores."
+        },
+        {
+          "term": "Responsabilidad compartida",
+          "definition": "Distribución explícita de tareas de protección entre proveedor y cliente."
+        }
+      ]
+    },
+    {
+      "dayId": "w26d2",
+      "title": "Virtualización y contenedores",
+      "lead": "Distingue aislamiento de máquina virtual, contenedor y aplicación.",
+      "sections": [
+        {
+          "topic": "Aislamiento, imágenes y dependencias",
+          "explanation": [
+            "Una máquina virtual presenta hardware virtualizado a un sistema invitado, mientras un contenedor empaqueta procesos y dependencias con aislamiento proporcionado por el sistema anfitrión y su configuración. En muchos diseños los contenedores comparten kernel, aunque también pueden ejecutarse sobre máquinas virtuales u otras capas. No debes tratar una imagen de contenedor como si incluyera necesariamente un sistema completo e independiente.",
+            "La imagen necesita origen, versión y mantenimiento; una dependencia vulnerable puede propagarse a muchos despliegues. También importan usuario de ejecución, permisos, secretos, almacenamiento y conexiones. Ejecutar con privilegios amplios o montar recursos sensibles del anfitrión reduce barreras esperadas. La virtualización tampoco elimina por sí sola riesgo de configuración o compromiso del invitado. Para estudiar, inspecciona diseños e inventarios ficticios; cualquier laboratorio real debe usar imágenes confiables y un alcance que no exponga datos personales."
+          ],
+          "analogy": "Una máquina virtual se parece a una vivienda separada dentro de un edificio; un contenedor delimita espacios de proceso con servicios compartidos que deben controlarse.",
+          "keyPoints": [
+            "Contenedor no equivale siempre a máquina virtual completa.",
+            "Imagen y dependencias necesitan trazabilidad.",
+            "Permisos y recursos compartidos afectan aislamiento."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Capas de un despliegue",
+            "items": [
+              {
+                "label": "Anfitrión",
+                "detail": "Sistema y recursos que soportan ejecución"
+              },
+              {
+                "label": "Aislamiento",
+                "detail": "Virtualización o controles del contenedor"
+              },
+              {
+                "label": "Imagen",
+                "detail": "Aplicación y dependencias versionadas"
+              },
+              {
+                "label": "Ejecución",
+                "detail": "Identidad, permisos, red y secretos"
+              }
+            ],
+            "caption": "La seguridad requiere revisar todas las capas y sus relaciones."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Imagen antigua en varios servicios",
+        "scenario": "Tres aplicaciones se construyen con la misma base sin actualizar.",
+        "steps": [
+          {
+            "action": "Trazar dependencia",
+            "reason": "El componente se repite en varios despliegues.",
+            "result": "Servicios afectados identificados"
+          },
+          {
+            "action": "Revisar exposición",
+            "reason": "La prioridad depende de uso y permisos.",
+            "result": "Contexto de cada ejecución documentado"
+          },
+          {
+            "action": "Actualizar y probar",
+            "reason": "Cambiar la base puede alterar compatibilidad.",
+            "result": "Nueva imagen verificada y despliegue trazable"
+          }
+        ],
+        "result": "La gestión de imágenes evita corregir un único contenedor dejando el resto con la misma dependencia.",
+        "visual": {
+          "type": "flow",
+          "title": "Imagen antigua en varios servicios",
+          "items": [
+            {
+              "label": "Trazar dependencia",
+              "detail": "Servicios afectados identificados"
+            },
+            {
+              "label": "Revisar exposición",
+              "detail": "Contexto de cada ejecución documentado"
+            },
+            {
+              "label": "Actualizar y probar",
+              "detail": "Nueva imagen verificada y despliegue trazable"
+            }
+          ],
+          "caption": "La gestión de imágenes evita corregir un único contenedor dejando el resto con la misma dependencia."
+        }
+      },
+      "practice": {
+        "task": "Dibuja un despliegue de dos contenedores ficticios.",
+        "steps": [
+          "Marca anfitrión y recursos compartidos.",
+          "Asigna origen y versión a las imágenes.",
+          "Indica dos permisos que revisarías y una prueba de aislamiento."
+        ],
+        "expected": "Un mapa que no asume aislamiento perfecto por utilizar contenedores."
+      },
+      "check": {
+        "question": "¿Qué puede debilitar el aislamiento de un contenedor?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Limitar permisos de ejecución"
+          },
+          {
+            "id": "b",
+            "text": "Usar versiones trazables"
+          },
+          {
+            "id": "c",
+            "text": "Conceder privilegios amplios y recursos sensibles del anfitrión"
+          }
+        ],
+        "correct": "c",
+        "explanation": "Los permisos y montajes pueden ampliar acceso a recursos compartidos y reducir las barreras esperadas."
+      },
+      "mistakes": [
+        {
+          "myth": "Una imagen confiable nunca necesita actualización.",
+          "correction": "Sus dependencias y condiciones de seguridad cambian y deben mantenerse."
+        }
+      ],
+      "recap": [
+        "Contenedor no equivale siempre a máquina virtual completa.",
+        "Imagen y dependencias necesitan trazabilidad.",
+        "Permisos y recursos compartidos afectan aislamiento."
+      ],
+      "glossary": [
+        {
+          "term": "Imagen de contenedor",
+          "definition": "Paquete versionado que define aplicación y dependencias para ejecución."
+        },
+        {
+          "term": "Anfitrión",
+          "definition": "Sistema que proporciona recursos y aislamiento a otros entornos de ejecución."
+        }
+      ]
+    },
+    {
+      "dayId": "w26d3",
+      "title": "Datos",
+      "lead": "Relaciona sensibilidad, estado y ubicación con el tratamiento necesario del dato.",
+      "sections": [
+        {
+          "topic": "Clasificación, estados y residencia",
+          "explanation": [
+            "Un dato puede estar almacenado, en tránsito o en uso por un proceso. Cada estado presenta exposiciones diferentes: una copia en disco, una transmisión y la memoria de una aplicación no se protegen exactamente igual. La clasificación define necesidades y restricciones que deben acompañarlo durante esos cambios. Cifrar almacenamiento no significa que el dato siga cifrado mientras una aplicación lo utiliza legítimamente.",
+            "La residencia describe ubicaciones donde se almacenan o procesan datos según el servicio y su configuración. No basta elegir una región en una pantalla sin revisar copias, registros, soporte y dependencias. Las obligaciones aplicables deben verificarse con responsables adecuados y fuentes vigentes; no se deducen de una etiqueta de nube. Documenta flujos y ubicaciones conocidas, marca incertidumbres y limita recopilación innecesaria. Esta trazabilidad permite revisar privacidad y continuidad sin afirmar una garantía jurídica basada solo en geografía."
+          ],
+          "analogy": "Un documento cambia de exposición cuando está guardado, viajando en una carpeta o abierto sobre una mesa.",
+          "keyPoints": [
+            "Almacenado, tránsito y uso tienen riesgos distintos.",
+            "La clasificación acompaña copias y movimientos.",
+            "La residencia necesita trazabilidad del servicio completo."
+          ],
+          "visual": {
+            "type": "cycle",
+            "title": "Estados y recorrido del dato",
+            "items": [
+              {
+                "label": "Almacenado",
+                "detail": "Base, archivos y copias"
+              },
+              {
+                "label": "En tránsito",
+                "detail": "Conexiones entre componentes"
+              },
+              {
+                "label": "En uso",
+                "detail": "Procesamiento por una aplicación"
+              },
+              {
+                "label": "Retirada",
+                "detail": "Eliminación según política y dependencias"
+              }
+            ],
+            "caption": "Cada transición requiere permisos y tratamiento compatibles con la sensibilidad."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Dato interno exportado a una hoja",
+        "scenario": "Una aplicación protegida permite descargar información a un dispositivo personal.",
+        "steps": [
+          {
+            "action": "Identificar transición",
+            "reason": "La protección de la aplicación no acompaña automáticamente la copia.",
+            "result": "Dato pasa a otro almacenamiento"
+          },
+          {
+            "action": "Revisar clasificación",
+            "reason": "La sensibilidad no cambia por exportar.",
+            "result": "Requisitos internos siguen vigentes"
+          },
+          {
+            "action": "Definir tratamiento",
+            "reason": "Necesitas destino y permisos aprobados.",
+            "result": "Exportación limitada o dispositivo autorizado"
+          }
+        ],
+        "result": "La revisión sigue al dato y no termina en el límite de la aplicación.",
+        "visual": {
+          "type": "flow",
+          "title": "Dato interno exportado a una hoja",
+          "items": [
+            {
+              "label": "Identificar transición",
+              "detail": "Dato pasa a otro almacenamiento"
+            },
+            {
+              "label": "Revisar clasificación",
+              "detail": "Requisitos internos siguen vigentes"
+            },
+            {
+              "label": "Definir tratamiento",
+              "detail": "Exportación limitada o dispositivo autorizado"
+            }
+          ],
+          "caption": "La revisión sigue al dato y no termina en el límite de la aplicación."
+        }
+      },
+      "practice": {
+        "task": "Traza el recorrido de un documento ficticio.",
+        "steps": [
+          "Incluye almacenamiento, transmisión y uso.",
+          "Marca copias y ubicación conocida.",
+          "Añade una incertidumbre sobre residencia y quién debe verificarla."
+        ],
+        "expected": "Un flujo de datos con clasificación y responsabilidades sin inventar obligaciones."
+      },
+      "check": {
+        "question": "Cifrar un disco demuestra que los datos…",
+        "options": [
+          {
+            "id": "a",
+            "text": "No pueden ser leídos por la aplicación mientras funciona"
+          },
+          {
+            "id": "b",
+            "text": "También están protegidos en cualquier exportación"
+          },
+          {
+            "id": "c",
+            "text": "Tienen una protección de almacenamiento bajo condiciones definidas"
+          }
+        ],
+        "correct": "c",
+        "explanation": "El cifrado de disco protege un estado y no determina todo el tratamiento durante uso, transmisión o copia."
+      },
+      "mistakes": [
+        {
+          "myth": "Elegir una región basta para conocer todas las ubicaciones del dato.",
+          "correction": "Revisa copias, registros, soporte e integraciones del servicio específico."
+        }
+      ],
+      "recap": [
+        "Almacenado, tránsito y uso tienen riesgos distintos.",
+        "La clasificación acompaña copias y movimientos.",
+        "La residencia necesita trazabilidad del servicio completo."
+      ],
+      "glossary": [
+        {
+          "term": "Residencia de datos",
+          "definition": "Ubicación de almacenamiento o procesamiento que corresponde al servicio y configuración."
+        },
+        {
+          "term": "Dato en uso",
+          "definition": "Información que un proceso está utilizando durante su ejecución."
+        }
+      ]
+    },
+    {
+      "dayId": "w26d4",
+      "title": "Protección",
+      "lead": "Combina protección criptográfica y control del ciclo de vida de los datos.",
+      "sections": [
+        {
+          "topic": "Cifrado, acceso, retención y eliminación",
+          "explanation": [
+            "Proteger datos requiere más que activar cifrado. Debes decidir quién puede leerlos, modificarlos, compartirlos y eliminarlos; cómo se gestionan las claves; cuánto tiempo se conservan; y qué ocurre con copias y versiones. Una política de retención puede ayudar a recuperar errores, pero también mantiene información que necesita protección durante todo ese periodo.",
+            "La eliminación debe considerar el servicio concreto y sus dependencias. Borrar un archivo visible puede dejar versiones, respaldos o registros sujetos a políticas diferentes. No afirmes borrado definitivo sin evidencia del mecanismo y de su alcance. Define responsables y comprueba comportamiento con datos ficticios antes de una retirada importante. La minimización reduce exposición al evitar almacenar información que el proceso no necesita. El diseño también debe impedir que una cuenta con acceso operativo pueda eliminar todas las copias sin un control adecuado."
+          ],
+          "analogy": "Proteger un archivo es administrar su vida completa: quién lo usa, cuántas copias existen y cuándo deja de ser necesario.",
+          "keyPoints": [
+            "Cifrado y permisos son controles complementarios.",
+            "Retención conserva datos que siguen necesitando protección.",
+            "La eliminación necesita alcance y evidencia verificables."
+          ],
+          "visual": {
+            "type": "cycle",
+            "title": "Ciclo de protección de datos",
+            "items": [
+              {
+                "label": "Crear",
+                "detail": "Recoger solo información necesaria"
+              },
+              {
+                "label": "Usar",
+                "detail": "Permisos y cifrado apropiados"
+              },
+              {
+                "label": "Conservar",
+                "detail": "Retención y copias protegidas"
+              },
+              {
+                "label": "Eliminar",
+                "detail": "Procedimiento y alcance comprobados"
+              }
+            ],
+            "caption": "Las versiones y respaldos pueden seguir ciclos diferentes que deben conocerse."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Borrado de un documento compartido",
+        "scenario": "La vista principal ya no muestra el archivo, pero existe una versión retenida.",
+        "steps": [
+          {
+            "action": "Identificar alcance",
+            "reason": "La desaparición visual no demuestra eliminación de todas las copias.",
+            "result": "Versión retenida localizada"
+          },
+          {
+            "action": "Consultar política",
+            "reason": "La retención puede ser intencional y necesaria.",
+            "result": "Dueño confirma plazo y acceso"
+          },
+          {
+            "action": "Verificar tratamiento",
+            "reason": "La copia restante sigue siendo sensible.",
+            "result": "Permisos y retirada futura documentados"
+          }
+        ],
+        "result": "La eliminación se describe según su alcance real y no como una garantía absoluta.",
+        "visual": {
+          "type": "flow",
+          "title": "Borrado de un documento compartido",
+          "items": [
+            {
+              "label": "Identificar alcance",
+              "detail": "Versión retenida localizada"
+            },
+            {
+              "label": "Consultar política",
+              "detail": "Dueño confirma plazo y acceso"
+            },
+            {
+              "label": "Verificar tratamiento",
+              "detail": "Permisos y retirada futura documentados"
+            }
+          ],
+          "caption": "La eliminación se describe según su alcance real y no como una garantía absoluta."
+        }
+      },
+      "practice": {
+        "task": "Diseña el ciclo de un dato ficticio sensible.",
+        "steps": [
+          "Asigna permisos y protección de claves.",
+          "Define retención de original y copia.",
+          "Describe una prueba de eliminación y sus límites."
+        ],
+        "expected": "Un plan que conecta uso, recuperación, privacidad y retirada."
+      },
+      "check": {
+        "question": "¿Qué debes comprobar al borrar información de un servicio?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo que desaparezca su icono"
+          },
+          {
+            "id": "b",
+            "text": "Versiones, copias, retención y alcance de eliminación"
+          },
+          {
+            "id": "c",
+            "text": "El color de la papelera"
+          }
+        ],
+        "correct": "b",
+        "explanation": "La vista principal puede no mostrar datos que todavía existen bajo políticas de versiones o respaldo."
+      },
+      "mistakes": [
+        {
+          "myth": "El cifrado vuelve innecesario controlar quién puede eliminar archivos.",
+          "correction": "La disponibilidad y recuperación también requieren permisos y protección de copias."
+        }
+      ],
+      "recap": [
+        "Cifrado y permisos son controles complementarios.",
+        "Retención conserva datos que siguen necesitando protección.",
+        "La eliminación necesita alcance y evidencia verificables."
+      ],
+      "glossary": [
+        {
+          "term": "Minimización de datos",
+          "definition": "Reducción de recopilación y conservación a lo necesario."
+        },
+        {
+          "term": "Eliminación verificable",
+          "definition": "Retirada cuyo mecanismo, alcance y evidencia están definidos."
+        }
+      ]
+    },
+    {
+      "dayId": "w26d5",
+      "title": "Recuperación",
+      "lead": "Elige recuperación según el fallo que necesitas soportar, no por el nombre de una función.",
+      "sections": [
+        {
+          "topic": "Respaldo, réplica, disponibilidad y pruebas",
+          "explanation": [
+            "Un respaldo conserva estados recuperables; una réplica mantiene otra instancia de datos; un diseño de disponibilidad busca continuar el servicio ante fallos contemplados. Estas funciones se complementan. Una réplica puede propagar corrupción y un respaldo puede tardar en restaurarse. Ninguna opción debe llamarse resiliente sin relacionarla con escenarios, objetivos RTO y RPO y dependencias necesarias para la recuperación.",
+            "En nube, la responsabilidad se distribuye por servicio: confirma quién configura copias, retención, recuperación y pruebas. Considera identidad, claves, conectividad y regiones o zonas involucradas, sin asumir independencia solo por nombres distintos. Una restauración de entrenamiento debe usar destino separado y datos ficticios para evitar afectar producción. Mide tiempo, punto de datos y funcionamiento de la aplicación, y registra si la capacidad demostrada cumple o no los objetivos del proceso."
+          ],
+          "analogy": "Una rueda de repuesto, un segundo vehículo y un taller resuelven situaciones distintas; elegir requiere saber qué fallo esperas afrontar.",
+          "keyPoints": [
+            "Respaldo, réplica y disponibilidad no son equivalentes.",
+            "Relaciona mecanismos con RTO y RPO.",
+            "Prueba dependencias y utilidad de la recuperación."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Mecanismos ante fallos distintos",
+            "items": [
+              {
+                "label": "Réplica",
+                "detail": "Continuidad de datos según su configuración"
+              },
+              {
+                "label": "Respaldo",
+                "detail": "Recuperación de un estado anterior conservado"
+              },
+              {
+                "label": "Disponibilidad",
+                "detail": "Servicio utilizable ante fallos previstos"
+              },
+              {
+                "label": "Prueba",
+                "detail": "Medir tiempo, datos y función recuperada"
+              }
+            ],
+            "caption": "La estrategia se elige por escenarios y capacidades demostradas."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Error que se replica a otra instancia",
+        "scenario": "Una eliminación accidental aparece en ambas copias operativas.",
+        "steps": [
+          {
+            "action": "Reconocer propagación",
+            "reason": "La réplica mantiene el mismo cambio lógico.",
+            "result": "Error presente en ambas instancias"
+          },
+          {
+            "action": "Buscar estado anterior",
+            "reason": "El escenario necesita historia recuperable.",
+            "result": "Respaldo previo identificado"
+          },
+          {
+            "action": "Restaurar y medir",
+            "reason": "La copia debe convertirse en servicio útil.",
+            "result": "Datos, tiempo y operación comprobados"
+          }
+        ],
+        "result": "El respaldo histórico cubre un fallo que la réplica por sí sola no resuelve.",
+        "visual": {
+          "type": "flow",
+          "title": "Error que se replica a otra instancia",
+          "items": [
+            {
+              "label": "Reconocer propagación",
+              "detail": "Error presente en ambas instancias"
+            },
+            {
+              "label": "Buscar estado anterior",
+              "detail": "Respaldo previo identificado"
+            },
+            {
+              "label": "Restaurar y medir",
+              "detail": "Datos, tiempo y operación comprobados"
+            }
+          ],
+          "caption": "El respaldo histórico cubre un fallo que la réplica por sí sola no resuelve."
+        }
+      },
+      "practice": {
+        "task": "Diseña recuperación de una aplicación ficticia alojada.",
+        "steps": [
+          "Define un fallo de infraestructura y otro de corrupción.",
+          "Asigna mecanismo y objetivo a cada uno.",
+          "Describe una prueba separada que mida RTO y RPO."
+        ],
+        "expected": "Dos escenarios con recuperación distinta y responsabilidades verificadas."
+      },
+      "check": {
+        "question": "¿Qué situación puede propagarse mediante una réplica?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Una eliminación lógica que el sistema replica"
+          },
+          {
+            "id": "b",
+            "text": "La pérdida de cualquier historial por definición inevitable"
+          },
+          {
+            "id": "c",
+            "text": "La autenticación de todos los usuarios"
+          }
+        ],
+        "correct": "a",
+        "explanation": "La réplica puede reproducir cambios erróneos; recuperar un estado anterior exige una estrategia adecuada."
+      },
+      "mistakes": [
+        {
+          "myth": "Si hay alta disponibilidad, nunca se necesita restaurar.",
+          "correction": "Hay fallos lógicos y pérdidas de datos que requieren versiones o respaldos recuperables."
+        }
+      ],
+      "recap": [
+        "Respaldo, réplica y disponibilidad no son equivalentes.",
+        "Relaciona mecanismos con RTO y RPO.",
+        "Prueba dependencias y utilidad de la recuperación."
+      ],
+      "glossary": [
+        {
+          "term": "Réplica",
+          "definition": "Copia que recibe cambios para mantener un estado relacionado con el origen."
+        },
+        {
+          "term": "Prueba de recuperación",
+          "definition": "Ejercicio que valida datos, tiempos, dependencias y funcionamiento restaurado."
+        }
+      ]
+    },
+    {
+      "dayId": "w26d6",
+      "title": "Ejercicio de continuidad",
+      "lead": "Dirige un ejercicio de continuidad con decisiones, criterios y comunicación.",
+      "sections": [
+        {
+          "topic": "Caída de un servicio de nube",
+          "explanation": [
+            "Un ejercicio de continuidad representa una interrupción y permite comprobar si el plan resulta ejecutable. No necesitas provocar una caída real para aprender: una mesa de discusión con hechos sucesivos puede revelar dependencias olvidadas. Define alcance, objetivos, participantes, información inicial y condiciones de éxito. Cada decisión debe indicar responsable, evidencia requerida y efectos sobre usuarios y datos.",
+            "Ante la caída de un servicio de nube, distingue proveedor, configuración del cliente y dependencia externa. Consulta fuentes oficiales de estado sin asumir que explican todo el comportamiento de tu aplicación. Decide si esperar, utilizar una alternativa o recuperar según impacto y objetivos aprobados. Comunica hechos y estimaciones como tales, evitando prometer una hora sin sustento. Al finalizar, registra diferencias entre el plan y la capacidad demostrada y asigna acciones verificables de mejora."
+          ],
+          "analogy": "Un simulacro de evacuación permite descubrir puertas bloqueadas sin esperar a un incendio real.",
+          "keyPoints": [
+            "Define objetivos y decisiones antes del ejercicio.",
+            "Distingue causa del proveedor y dependencias propias.",
+            "Comunica hechos, estimaciones y límites por separado."
+          ],
+          "visual": {
+            "type": "timeline",
+            "title": "Ejercicio de caída ficticia",
+            "items": [
+              {
+                "label": "Inicio",
+                "detail": "Aplicación no responde a usuarios"
+              },
+              {
+                "label": "Triaje",
+                "detail": "Estado del proveedor y dependencias revisados"
+              },
+              {
+                "label": "Decisión",
+                "detail": "Alternativa o recuperación autorizada"
+              },
+              {
+                "label": "Cierre",
+                "detail": "Función validada y mejoras asignadas"
+              }
+            ],
+            "caption": "El ejercicio mide capacidad y coordinación; no promete tiempos universales."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Interrupción de una plataforma de documentos",
+        "scenario": "El equipo dispone de un procedimiento alternativo de consulta, pero no de edición.",
+        "steps": [
+          {
+            "action": "Priorizar función",
+            "reason": "No todas las operaciones tienen la misma urgencia.",
+            "result": "Consulta crítica identificada"
+          },
+          {
+            "action": "Activar alternativa",
+            "reason": "La alternativa tiene un alcance limitado.",
+            "result": "Lectura habilitada y edición pendiente comunicada"
+          },
+          {
+            "action": "Validar retorno",
+            "reason": "Volver al servicio requiere reconciliar cambios.",
+            "result": "Operación normal y seguimiento comprobados"
+          }
+        ],
+        "result": "La continuidad sostiene una función prioritaria sin presentar la alternativa como equivalente completa.",
+        "visual": {
+          "type": "flow",
+          "title": "Interrupción de una plataforma de documentos",
+          "items": [
+            {
+              "label": "Priorizar función",
+              "detail": "Consulta crítica identificada"
+            },
+            {
+              "label": "Activar alternativa",
+              "detail": "Lectura habilitada y edición pendiente comunicada"
+            },
+            {
+              "label": "Validar retorno",
+              "detail": "Operación normal y seguimiento comprobados"
+            }
+          ],
+          "caption": "La continuidad sostiene una función prioritaria sin presentar la alternativa como equivalente completa."
+        }
+      },
+      "practice": {
+        "task": "Organiza un ejercicio de mesa para un servicio ficticio.",
+        "steps": [
+          "Escribe tres hechos que aparezcan sucesivamente.",
+          "Asigna decisiones y responsables.",
+          "Define cómo validarías recuperación y registrarías mejoras."
+        ],
+        "expected": "Una cronología de decisiones con resultados y dependencias pendientes."
+      },
+      "check": {
+        "question": "¿Qué debe decir una comunicación de interrupción responsable?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Una hora garantizada aunque no haya evidencia"
+          },
+          {
+            "id": "b",
+            "text": "Solo palabras técnicas sin efecto para usuarios"
+          },
+          {
+            "id": "c",
+            "text": "Qué está afectado, qué se sabe y cuál es el siguiente punto de actualización"
+          }
+        ],
+        "correct": "c",
+        "explanation": "La comunicación útil distingue hechos de estimaciones y mantiene un próximo paso verificable."
+      },
+      "mistakes": [
+        {
+          "myth": "Un ejercicio solo sirve si se interrumpe producción de verdad.",
+          "correction": "Una simulación de mesa también permite evaluar decisiones y dependencias sin crear una caída real."
+        }
+      ],
+      "recap": [
+        "Define objetivos y decisiones antes del ejercicio.",
+        "Distingue causa del proveedor y dependencias propias.",
+        "Comunica hechos, estimaciones y límites por separado."
+      ],
+      "glossary": [
+        {
+          "term": "Ejercicio de mesa",
+          "definition": "Simulación guiada de decisiones sobre un escenario sin ejecutar necesariamente cambios reales."
+        },
+        {
+          "term": "Función prioritaria",
+          "definition": "Capacidad del proceso que debe sostenerse o recuperarse antes según impacto."
+        }
+      ]
+    },
+    {
+      "dayId": "w26d7",
+      "title": "Evaluación de nube",
+      "lead": "Evalúa arquitectura de nube mediante responsabilidades, flujos y recuperación demostrable.",
+      "sections": [
+        {
+          "topic": "Arquitectura y responsabilidades",
+          "explanation": [
+            "Una evaluación de nube necesita relacionar modelo de servicio, identidades, datos y continuidad. Empieza identificando qué administra el proveedor y qué debe configurar el cliente. Después sigue una operación desde el usuario hasta los datos, incluyendo permisos, protección del tránsito, almacenamiento y registros. La palabra administrado no permite omitir responsabilidades que el servicio deja expresamente al cliente.",
+            "Incluye al menos dos escenarios: una exposición por configuración y una pérdida de capacidad o datos. Para cada uno, explica evidencia, control y recuperación. Revisa también dependencias comunes, como una cuenta que administra producción y elimina respaldos. Si no pudiste verificar una función del servicio, déjala como pendiente en vez de atribuirle una garantía. El resultado es una evaluación acotada y revisable que puede actualizarse cuando cambien el producto, la configuración o las necesidades."
+          ],
+          "analogy": "Evaluar un edificio alquilado requiere conocer qué mantiene el dueño y qué debe controlar quien lo utiliza, además de probar rutas de emergencia.",
+          "keyPoints": [
+            "Distribuye responsabilidades del servicio concreto.",
+            "Sigue datos e identidad por el flujo completo.",
+            "Evalúa exposición y recuperación con límites explícitos."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Cuatro preguntas de revisión",
+            "items": [
+              {
+                "label": "Responsabilidad",
+                "detail": "Quién administra cada capa"
+              },
+              {
+                "label": "Acceso",
+                "detail": "Quién puede hacer qué con los datos"
+              },
+              {
+                "label": "Exposición",
+                "detail": "Dónde existen copias y conexiones"
+              },
+              {
+                "label": "Recuperación",
+                "detail": "Qué estado puede restaurarse y en cuánto tiempo"
+              }
+            ],
+            "caption": "La revisión se apoya en documentación y pruebas, no en etiquetas generales de nube."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Aplicación SaaS con compartición y respaldo",
+        "scenario": "Una organización necesita limitar documentos y recuperar un borrado accidental.",
+        "steps": [
+          {
+            "action": "Confirmar tareas",
+            "reason": "El cliente decide usuarios y compartición según el servicio.",
+            "result": "Responsabilidades documentadas"
+          },
+          {
+            "action": "Probar límite",
+            "reason": "La configuración visible debe coincidir con el acceso real.",
+            "result": "Usuario externo sin acceso a datos internos"
+          },
+          {
+            "action": "Probar recuperación",
+            "reason": "La retención no demuestra utilidad por sí sola.",
+            "result": "Documento restaurado y contenido validado"
+          }
+        ],
+        "result": "La evaluación combina permisos y recuperación sin atribuir al proveedor todas las decisiones.",
+        "visual": {
+          "type": "flow",
+          "title": "Aplicación SaaS con compartición y respaldo",
+          "items": [
+            {
+              "label": "Confirmar tareas",
+              "detail": "Responsabilidades documentadas"
+            },
+            {
+              "label": "Probar límite",
+              "detail": "Usuario externo sin acceso a datos internos"
+            },
+            {
+              "label": "Probar recuperación",
+              "detail": "Documento restaurado y contenido validado"
+            }
+          ],
+          "caption": "La evaluación combina permisos y recuperación sin atribuir al proveedor todas las decisiones."
+        }
+      },
+      "practice": {
+        "task": "Resuelve un caso de nube con datos ficticios.",
+        "steps": [
+          "Construye matriz de responsabilidades y flujo de datos.",
+          "Identifica una exposición y un fallo de recuperación.",
+          "Propón controles, pruebas y una pregunta pendiente al proveedor."
+        ],
+        "expected": "Un informe con decisiones sustentadas y alcance de verificación claramente definido."
+      },
+      "check": {
+        "question": "¿Qué combinación ofrece una evaluación más completa de un servicio de nube?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Nombre del proveedor y logotipo"
+          },
+          {
+            "id": "b",
+            "text": "Responsabilidades, permisos efectivos y prueba de recuperación"
+          },
+          {
+            "id": "c",
+            "text": "Cantidad de regiones anunciadas únicamente"
+          }
+        ],
+        "correct": "b",
+        "explanation": "La evaluación debe conectar tareas, acceso y capacidad demostrada con necesidades del proceso."
+      },
+      "mistakes": [
+        {
+          "myth": "Una certificación del proveedor certifica automáticamente la configuración de cada cliente.",
+          "correction": "La configuración y el uso del cliente necesitan evaluación dentro de su responsabilidad."
+        }
+      ],
+      "recap": [
+        "Distribuye responsabilidades del servicio concreto.",
+        "Sigue datos e identidad por el flujo completo.",
+        "Evalúa exposición y recuperación con límites explícitos."
+      ],
+      "glossary": [
+        {
+          "term": "Evaluación acotada",
+          "definition": "Revisión cuyas conclusiones respetan activos, condiciones y pruebas realizadas."
+        },
+        {
+          "term": "Permiso de compartición",
+          "definition": "Regla que determina quién puede obtener o usar información mediante una aplicación."
+        }
+      ]
+    }
+  ]
+}

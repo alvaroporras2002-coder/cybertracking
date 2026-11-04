@@ -1,0 +1,933 @@
+{
+  "version": "2.0.0",
+  "week": 41,
+  "title": "Preservación y forense inicial",
+  "overview": "La preservación aporta una base fiable para cualquier investigación posterior. Trabajarás con material propio o didáctico para distinguir fuentes persistentes y volátiles, verificar copias y documentar transferencias. Aprenderás a describir adquisiciones sin prometer una cobertura que no tienen y a interpretar metadatos con cautela. La semana termina construyendo cronologías comparables y un paquete de análisis que otra persona pueda repetir, con sus errores y límites expresados claramente.",
+  "objectives": [
+    "Registrar procedencia, integridad y custodia de un elemento.",
+    "Distinguir adquisición, copia de trabajo y examen.",
+    "Normalizar tiempos y defender conclusiones reproducibles."
+  ],
+  "sources": [
+    {
+      "id": "nist86",
+      "title": "NIST SP 800-86: técnicas forenses en respuesta a incidentes",
+      "url": "https://csrc.nist.gov/pubs/sp/800/86/final"
+    },
+    {
+      "id": "nist61",
+      "title": "NIST SP 800-61r3: respuesta y gestión del riesgo",
+      "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+    },
+    {
+      "id": "registry",
+      "title": "Microsoft: Registry Hives",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/sysinfo/registry-hives"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w41d1",
+      "title": "Evidencia digital",
+      "lead": "Preservar comienza por reconocer qué datos pueden desaparecer y qué estás autorizado a recoger.",
+      "sections": [
+        {
+          "topic": "Fuentes, volatilidad y alcance",
+          "explanation": [
+            "La evidencia digital puede estar en un archivo, un registro central, un servicio remoto o la memoria de un equipo encendido. Estas fuentes no cambian a la misma velocidad. Un archivo guardado puede permanecer después de apagar el sistema; una conexión activa o el contenido de RAM puede perderse. Antes de actuar identifica la pregunta, el alcance autorizado y el efecto que tendrá tu herramienta sobre el estado del equipo.",
+            "La volatilidad ayuda a priorizar, pero no reemplaza una decisión de seguridad y negocio. Mantener encendido un equipo podría conservar memoria y permitir que continúe un daño; apagarlo podría detener actividad y eliminar datos útiles. En una investigación real esa decisión corresponde al procedimiento y a las personas autorizadas. En este laboratorio usarás únicamente archivos de prueba o capturas ya proporcionadas, anotando lo que cada fuente permite observar y lo que nunca estuvo disponible."
+          ],
+          "analogy": "Es como documentar una escena con hielo derritiéndose: primero identificas qué cambia, pero no pones en riesgo a las personas para conservarlo.",
+          "keyPoints": [
+            "Fuente: Archivo, registro, red y RAM muestran perspectivas diferentes.",
+            "Volatilidad: Algunos datos desaparecen al cerrar un proceso o apagar.",
+            "Alcance: La autorización define qué puede recogerse y por quién."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Evidencia digital",
+            "items": [
+              {
+                "label": "Fuente",
+                "detail": "Archivo, registro, red y RAM muestran perspectivas diferentes."
+              },
+              {
+                "label": "Volatilidad",
+                "detail": "Algunos datos desaparecen al cerrar un proceso o apagar."
+              },
+              {
+                "label": "Alcance",
+                "detail": "La autorización define qué puede recogerse y por quién."
+              }
+            ],
+            "caption": "Preservar comienza por reconocer qué datos pueden desaparecer y qué estás autorizado a recoger."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "El equipo encendido",
+        "scenario": "Un caso ficticio ofrece registros exportados y una captura de RAM, sin autorización para tocar el equipo original.",
+        "steps": [
+          {
+            "action": "Definir pregunta",
+            "reason": "Evita recopilar datos sin finalidad.",
+            "result": "Se investiga qué procesos existían a las 12:00 UTC."
+          },
+          {
+            "action": "Elegir fuente",
+            "reason": "Los registros de acceso no enumeran toda la memoria.",
+            "result": "Se usa la captura de RAM entregada."
+          },
+          {
+            "action": "Anotar límites",
+            "reason": "La imagen representa un solo momento.",
+            "result": "No se afirma que el proceso existiera antes o después."
+          }
+        ],
+        "result": "La respuesta se limita al instante capturado.",
+        "visual": {
+          "type": "timeline",
+          "title": "El equipo encendido",
+          "items": [
+            {
+              "label": "Definir pregunta",
+              "detail": "Se investiga qué procesos existían a las 12:00 UTC."
+            },
+            {
+              "label": "Elegir fuente",
+              "detail": "Se usa la captura de RAM entregada."
+            },
+            {
+              "label": "Anotar límites",
+              "detail": "No se afirma que el proceso existiera antes o después."
+            }
+          ],
+          "caption": "La respuesta se limita al instante capturado."
+        }
+      },
+      "practice": {
+        "task": "Clasifica cuatro fuentes ficticias por lo que podrían perder al apagar.",
+        "steps": [
+          "Incluye RAM, archivo guardado, conexión y registro central.",
+          "Explica una diferencia de persistencia.",
+          "Escribe quién debería autorizar la adquisición."
+        ],
+        "expected": "Un inventario de fuentes con pregunta, volatilidad y límites."
+      },
+      "check": {
+        "question": "¿Qué dato suele perderse al apagar un equipo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Un archivo ya guardado en disco."
+          },
+          {
+            "id": "b",
+            "text": "El contenido de la memoria RAM."
+          },
+          {
+            "id": "c",
+            "text": "Una copia exportada en otro equipo."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La RAM es volátil; las copias persistentes tienen otras condiciones de conservación."
+      },
+      "mistakes": [
+        {
+          "myth": "Lo más volátil siempre debe recogerse sin considerar nada más.",
+          "correction": "Seguridad, autorización y efectos sobre el sistema condicionan el orden de actuación."
+        }
+      ],
+      "recap": [
+        "Fuente: Archivo, registro, red y RAM muestran perspectivas diferentes.",
+        "Volatilidad: Algunos datos desaparecen al cerrar un proceso o apagar.",
+        "Alcance: La autorización define qué puede recogerse y por quién."
+      ],
+      "glossary": [
+        {
+          "term": "Volatilidad",
+          "definition": "Facilidad con la que un dato desaparece o cambia."
+        },
+        {
+          "term": "Adquisición",
+          "definition": "Obtención documentada de datos de una fuente."
+        }
+      ]
+    },
+    {
+      "dayId": "w41d2",
+      "title": "Integridad",
+      "lead": "Un hash compara bytes; la procedencia explica de dónde salieron esos bytes.",
+      "sections": [
+        {
+          "topic": "Hashes y copias de trabajo",
+          "explanation": [
+            "Un hash criptográfico calcula una huella a partir del contenido. Si dos copias producen el mismo valor con el mismo algoritmo, tienes una comprobación fuerte de que sus bytes coinciden en ese momento. La comparación no demuestra quién creó el archivo, si la fuente decía la verdad o si hubo alteraciones antes de calcular la primera huella. Por eso el hash acompaña a un registro de adquisición y no sustituye la documentación de procedencia.",
+            "La práctica habitual del laboratorio será conservar un original controlado y analizar una copia de trabajo. Calcula la huella al recibir el material, anota algoritmo y momento, crea la copia y compara otra vez. Si una herramienta genera un informe distinto, conserva también la configuración utilizada. Un cambio de nombre del archivo normalmente no cambia su contenido, mientras que una modificación de un solo carácter sí puede cambiar la huella. Repite la comprobación al transferir datos entre ubicaciones."
+          ],
+          "analogy": "Una huella del paquete detecta cambios en su contenido, pero no explica quién lo preparó antes de sellarlo.",
+          "keyPoints": [
+            "Recepción: Registra identificador y SHA-256 inicial.",
+            "Copia: Trabaja sobre una copia identificada.",
+            "Comparación: Mismo algoritmo y mismo contenido deben producir igual huella."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Integridad",
+            "items": [
+              {
+                "label": "Recepción",
+                "detail": "Registra identificador y SHA-256 inicial."
+              },
+              {
+                "label": "Copia",
+                "detail": "Trabaja sobre una copia identificada."
+              },
+              {
+                "label": "Comparación",
+                "detail": "Mismo algoritmo y mismo contenido deben producir igual huella."
+              }
+            ],
+            "caption": "Un hash compara bytes; la procedencia explica de dónde salieron esos bytes."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Original y copia de lectura",
+        "scenario": "El archivo ficticio caso.txt contiene tres líneas; se crea una copia para analizarlo.",
+        "steps": [
+          {
+            "action": "Calcular referencia",
+            "reason": "Necesitas un valor previo a la manipulación.",
+            "result": "Se registra SHA-256 del original."
+          },
+          {
+            "action": "Comprobar copia",
+            "reason": "Confirma que la transferencia no cambió los bytes.",
+            "result": "La copia produce la misma huella."
+          },
+          {
+            "action": "Modificar la copia",
+            "reason": "Demuestra el límite de la integridad.",
+            "result": "Al añadir una línea cambia su hash; el original conserva el inicial."
+          }
+        ],
+        "result": "La diferencia se explica por una modificación documentada de la copia.",
+        "visual": {
+          "type": "timeline",
+          "title": "Original y copia de lectura",
+          "items": [
+            {
+              "label": "Calcular referencia",
+              "detail": "Se registra SHA-256 del original."
+            },
+            {
+              "label": "Comprobar copia",
+              "detail": "La copia produce la misma huella."
+            },
+            {
+              "label": "Modificar la copia",
+              "detail": "Al añadir una línea cambia su hash; el original conserva el inicial."
+            }
+          ],
+          "caption": "La diferencia se explica por una modificación documentada de la copia."
+        }
+      },
+      "practice": {
+        "task": "Compara hashes de dos archivos de texto propios idénticos y después cambia uno.",
+        "steps": [
+          "Crea archivos sin datos privados.",
+          "Calcula SHA-256 de ambos y guarda los valores.",
+          "Modifica un carácter en la copia y repite la comparación."
+        ],
+        "expected": "Un registro de dos comparaciones con explicación del cambio."
+      },
+      "check": {
+        "question": "¿Qué demuestra directamente un hash coincidente?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La identidad del autor."
+          },
+          {
+            "id": "b",
+            "text": "La ausencia histórica de alteraciones."
+          },
+          {
+            "id": "c",
+            "text": "La coincidencia del contenido comparado con el mismo algoritmo."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La huella compara bytes; autenticidad histórica y autoría requieren otras evidencias."
+      },
+      "mistakes": [
+        {
+          "myth": "Calcular un hash convierte cualquier archivo en evidencia auténtica.",
+          "correction": "La autenticidad depende también de adquisición, procedencia y control del material."
+        }
+      ],
+      "recap": [
+        "Recepción: Registra identificador y SHA-256 inicial.",
+        "Copia: Trabaja sobre una copia identificada.",
+        "Comparación: Mismo algoritmo y mismo contenido deben producir igual huella."
+      ],
+      "glossary": [
+        {
+          "term": "Hash",
+          "definition": "Resultado de una función aplicada al contenido."
+        },
+        {
+          "term": "Copia de trabajo",
+          "definition": "Duplicado destinado al análisis sin alterar el original."
+        }
+      ]
+    },
+    {
+      "dayId": "w41d3",
+      "title": "Custodia",
+      "lead": "La custodia documenta cada transferencia y cada responsabilidad sobre el material.",
+      "sections": [
+        {
+          "topic": "Responsable, transferencia y registro",
+          "explanation": [
+            "Una cadena de custodia es un registro de quién recibió, conservó, transfirió o examinó un elemento y en qué condiciones. En el laboratorio cada archivo tendrá un identificador estable, una descripción, la fuente, el momento de recepción y su huella. Cuando lo entregues a otra persona o ubicación, documenta el motivo y la verificación de integridad. El objetivo técnico es poder reconstruir el recorrido sin depender de recuerdos ni de nombres de archivo ambiguos.",
+            "No necesitas inventar firmas ni procedimientos legales para practicar el método. Una tabla con fecha normalizada, responsable, acción, ubicación y resultado de comprobación permite detectar vacíos. Si aparece un intervalo sin registro, descríbelo como una limitación; rellenarlo con una suposición empeora la trazabilidad. Mantén separado el inventario de originales, copias y resultados derivados. Dos archivos llamados evidencia.zip pueden ser versiones diferentes, de modo que el identificador y la huella deben acompañar a las transferencias."
+          ],
+          "analogy": "El registro de un préstamo bibliotecario indica quién tuvo el libro y cuándo; el nombre del libro por sí solo no cuenta ese recorrido.",
+          "keyPoints": [
+            "Identificar: EV-01 distingue el elemento de otros archivos.",
+            "Transferir: Registra persona, momento, finalidad y ubicación.",
+            "Verificar: Compara la huella recibida y registra el resultado."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Custodia",
+            "items": [
+              {
+                "label": "Identificar",
+                "detail": "EV-01 distingue el elemento de otros archivos."
+              },
+              {
+                "label": "Transferir",
+                "detail": "Registra persona, momento, finalidad y ubicación."
+              },
+              {
+                "label": "Verificar",
+                "detail": "Compara la huella recibida y registra el resultado."
+              }
+            ],
+            "caption": "La custodia documenta cada transferencia y cada responsabilidad sobre el material."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Entrega entre dos analistas",
+        "scenario": "EV-01 se copia de un almacén de laboratorio al espacio de lectura de otra analista.",
+        "steps": [
+          {
+            "action": "Registrar salida",
+            "reason": "Define qué se entrega.",
+            "result": "EV-01 sale a las 13:00 UTC con su SHA-256."
+          },
+          {
+            "action": "Confirmar recepción",
+            "reason": "Evita una transferencia sin responsable.",
+            "result": "La receptora identifica EV-01 y su ubicación de copia."
+          },
+          {
+            "action": "Comprobar integridad",
+            "reason": "Valida el material transferido.",
+            "result": "La huella coincide y ambas acciones quedan anotadas."
+          }
+        ],
+        "result": "El recorrido y la comprobación pueden reconstruirse desde la tabla.",
+        "visual": {
+          "type": "timeline",
+          "title": "Entrega entre dos analistas",
+          "items": [
+            {
+              "label": "Registrar salida",
+              "detail": "EV-01 sale a las 13:00 UTC con su SHA-256."
+            },
+            {
+              "label": "Confirmar recepción",
+              "detail": "La receptora identifica EV-01 y su ubicación de copia."
+            },
+            {
+              "label": "Comprobar integridad",
+              "detail": "La huella coincide y ambas acciones quedan anotadas."
+            }
+          ],
+          "caption": "El recorrido y la comprobación pueden reconstruirse desde la tabla."
+        }
+      },
+      "practice": {
+        "task": "Crea tres entradas de custodia para un archivo ficticio.",
+        "steps": [
+          "Asigna un identificador único.",
+          "Incluye recepción, copia y entrega con momentos distintos.",
+          "Añade la huella y una observación por entrada."
+        ],
+        "expected": "Una tabla sin transferencias anónimas ni intervalos inventados."
+      },
+      "check": {
+        "question": "¿Qué debe hacerse ante una transferencia no documentada?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Declarar el vacío y buscar registros verificables."
+          },
+          {
+            "id": "b",
+            "text": "Inventar un horario aproximado como si fuera exacto."
+          },
+          {
+            "id": "c",
+            "text": "Cambiar el nombre del archivo."
+          }
+        ],
+        "correct": "a",
+        "explanation": "Un vacío se investiga y se declara; no debe ocultarse con datos fabricados."
+      },
+      "mistakes": [
+        {
+          "myth": "La cadena de custodia es simplemente una lista de hashes.",
+          "correction": "Las huellas comprueban contenido; las responsabilidades y transferencias requieren un registro adicional."
+        }
+      ],
+      "recap": [
+        "Identificar: EV-01 distingue el elemento de otros archivos.",
+        "Transferir: Registra persona, momento, finalidad y ubicación.",
+        "Verificar: Compara la huella recibida y registra el resultado."
+      ],
+      "glossary": [
+        {
+          "term": "Custodia",
+          "definition": "Control documentado sobre la conservación y transferencia de un elemento."
+        },
+        {
+          "term": "Trazabilidad",
+          "definition": "Capacidad de reconstruir el recorrido a partir de registros."
+        }
+      ]
+    },
+    {
+      "dayId": "w41d4",
+      "title": "Adquisición",
+      "lead": "Una adquisición reproducible conserva el método además del archivo obtenido.",
+      "sections": [
+        {
+          "topic": "Imagen, montaje y herramientas",
+          "explanation": [
+            "Una imagen de almacenamiento busca representar datos de una fuente mediante un proceso definido; copiar unas carpetas no equivale necesariamente a adquirir todo el dispositivo. La técnica elegida depende de la pregunta y del alcance permitido. En una copia lógica seleccionas archivos o estructuras accesibles; una imagen más amplia puede incluir otras áreas. Ninguna modalidad debe describirse como completa sin explicar qué sectores, archivos, errores y restricciones cubrió realmente el procedimiento.",
+            "El montaje presenta una imagen a una herramienta para examinarla. Trabajar en modo de solo lectura reduce modificaciones accidentales, pero necesitas verificar que el programa y la configuración utilizados lo respeten. Registra herramienta, versión, parámetros, comienzo, final y errores. En esta práctica usa una imagen didáctica proporcionada o un archivo de prueba, nunca un disco de otra persona. Si una adquisición informa sectores ilegibles, conserva ese dato porque podría afectar justamente a la zona donde esperabas encontrar información."
+          ],
+          "analogy": "Fotografiar una habitación y copiar una lista de objetos responden preguntas diferentes; ambas representaciones necesitan describir lo que dejaron fuera.",
+          "keyPoints": [
+            "Seleccionar: La pregunta determina adquisición lógica o imagen autorizada.",
+            "Documentar: Herramienta, configuración, tiempos y errores forman parte del resultado.",
+            "Examinar: Analiza una copia y conserva el original bajo control."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Adquisición",
+            "items": [
+              {
+                "label": "Seleccionar",
+                "detail": "La pregunta determina adquisición lógica o imagen autorizada."
+              },
+              {
+                "label": "Documentar",
+                "detail": "Herramienta, configuración, tiempos y errores forman parte del resultado."
+              },
+              {
+                "label": "Examinar",
+                "detail": "Analiza una copia y conserva el original bajo control."
+              }
+            ],
+            "caption": "Una adquisición reproducible conserva el método además del archivo obtenido."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Una imagen con un error",
+        "scenario": "Una adquisición ficticia termina con dos bloques ilegibles y un archivo de registro.",
+        "steps": [
+          {
+            "action": "Leer el registro",
+            "reason": "El resultado no es solo el archivo de imagen.",
+            "result": "Se localizan los bloques y la fase con errores."
+          },
+          {
+            "action": "Delimitar cobertura",
+            "reason": "Evita prometer integridad total del origen.",
+            "result": "El informe explica que esas áreas no fueron recuperadas."
+          },
+          {
+            "action": "Examinar copia",
+            "reason": "Protege el material recibido.",
+            "result": "El análisis se realiza sobre una copia de lectura identificada."
+          }
+        ],
+        "result": "El análisis conserva valor al comunicar exactamente su cobertura y sus errores.",
+        "visual": {
+          "type": "timeline",
+          "title": "Una imagen con un error",
+          "items": [
+            {
+              "label": "Leer el registro",
+              "detail": "Se localizan los bloques y la fase con errores."
+            },
+            {
+              "label": "Delimitar cobertura",
+              "detail": "El informe explica que esas áreas no fueron recuperadas."
+            },
+            {
+              "label": "Examinar copia",
+              "detail": "El análisis se realiza sobre una copia de lectura identificada."
+            }
+          ],
+          "caption": "El análisis conserva valor al comunicar exactamente su cobertura y sus errores."
+        }
+      },
+      "practice": {
+        "task": "Diseña una ficha de adquisición para una imagen didáctica.",
+        "steps": [
+          "Anota fuente, alcance autorizado y herramienta.",
+          "Reserva campos para parámetros y errores.",
+          "Define cómo verificarás original y copia."
+        ],
+        "expected": "Una ficha que otra persona podría usar para repetir y auditar el procedimiento."
+      },
+      "check": {
+        "question": "¿Una copia de carpetas equivale siempre a una imagen del disco?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Sí, siempre contiene todos los sectores."
+          },
+          {
+            "id": "b",
+            "text": "No; su cobertura depende del método y de lo seleccionado."
+          },
+          {
+            "id": "c",
+            "text": "Solo si el nombre termina en ZIP."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Una copia lógica puede omitir estructuras y áreas que una imagen de dispositivo sí busca representar."
+      },
+      "mistakes": [
+        {
+          "myth": "Si la herramienta terminó, la adquisición fue perfecta.",
+          "correction": "Los registros de errores y los límites del método deben revisarse antes de describir el resultado."
+        }
+      ],
+      "recap": [
+        "Seleccionar: La pregunta determina adquisición lógica o imagen autorizada.",
+        "Documentar: Herramienta, configuración, tiempos y errores forman parte del resultado.",
+        "Examinar: Analiza una copia y conserva el original bajo control."
+      ],
+      "glossary": [
+        {
+          "term": "Imagen",
+          "definition": "Representación adquirida de una fuente de almacenamiento."
+        },
+        {
+          "term": "Solo lectura",
+          "definition": "Modo que impide escrituras por la vía controlada, según herramienta y configuración."
+        }
+      ]
+    },
+    {
+      "dayId": "w41d5",
+      "title": "Examen de artefactos",
+      "lead": "Un artefacto necesita estructura, significado y contexto antes de convertirse en una afirmación.",
+      "sections": [
+        {
+          "topic": "Sistema de archivos y contexto",
+          "explanation": [
+            "Un sistema de archivos organiza contenido y metadatos, como nombres, rutas, tamaños y marcas temporales. Un artefacto es un dato que puede aportar información sobre una actividad: una entrada de directorio, un enlace reciente o un registro de aplicación. Al examinarlo distingue los bytes observados de su interpretación. Una marca de modificación puede referirse a una operación sobre el archivo y no a la última vez que una persona leyó su contenido.",
+            "El contexto incluye versión del sistema, herramienta que interpreta el formato, usuario relacionado y forma de adquisición. Copiar un archivo entre sistemas puede cambiar algunas marcas; una restauración puede conservar otras. Por eso construyes afirmaciones pequeñas y verificables antes de agruparlas: el archivo estaba en cierta ruta dentro de la imagen, su tamaño era determinado y la herramienta interpretó una marca concreta. Para afirmar ejecución, lectura o autoría necesitas artefactos apropiados y, cuando sea posible, corroboración independiente."
+          ],
+          "analogy": "Una entrada en un catálogo demuestra que existe una referencia; no prueba que alguien haya leído el libro.",
+          "keyPoints": [
+            "Dato: Ruta, tamaño y marcas interpretadas del archivo.",
+            "Semántica: Define qué operación representa cada campo.",
+            "Contexto: Relaciona formato, sistema, adquisición y otras fuentes."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Examen de artefactos",
+            "items": [
+              {
+                "label": "Dato",
+                "detail": "Ruta, tamaño y marcas interpretadas del archivo."
+              },
+              {
+                "label": "Semántica",
+                "detail": "Define qué operación representa cada campo."
+              },
+              {
+                "label": "Contexto",
+                "detail": "Relaciona formato, sistema, adquisición y otras fuentes."
+              }
+            ],
+            "caption": "Un artefacto necesita estructura, significado y contexto antes de convertirse en una afirmación."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Un archivo con fecha antigua",
+        "scenario": "Una imagen ficticia contiene informe.txt con modificación anterior a la fecha de creación visible en la copia.",
+        "steps": [
+          {
+            "action": "Anotar campos",
+            "reason": "Evita mezclar marcas diferentes.",
+            "result": "Se registran creación y modificación por separado."
+          },
+          {
+            "action": "Comparar operaciones",
+            "reason": "La copia puede explicar el orden aparente.",
+            "result": "El escenario documenta una transferencia entre volúmenes."
+          },
+          {
+            "action": "Limitar conclusión",
+            "reason": "No se deduce manipulación sin más datos.",
+            "result": "La diferencia temporal se presenta como compatible con la copia."
+          }
+        ],
+        "result": "Fechas distintas pueden ser coherentes con operaciones legítimas.",
+        "visual": {
+          "type": "timeline",
+          "title": "Un archivo con fecha antigua",
+          "items": [
+            {
+              "label": "Anotar campos",
+              "detail": "Se registran creación y modificación por separado."
+            },
+            {
+              "label": "Comparar operaciones",
+              "detail": "El escenario documenta una transferencia entre volúmenes."
+            },
+            {
+              "label": "Limitar conclusión",
+              "detail": "La diferencia temporal se presenta como compatible con la copia."
+            }
+          ],
+          "caption": "Fechas distintas pueden ser coherentes con operaciones legítimas."
+        }
+      },
+      "practice": {
+        "task": "Analiza metadatos de un archivo propio y de una copia.",
+        "steps": [
+          "Registra la plataforma y los campos disponibles.",
+          "Compara las marcas sin asumir que significan lo mismo.",
+          "Escribe una conclusión y una pregunta pendiente."
+        ],
+        "expected": "Una comparación que describe campos antes de atribuir actividades."
+      },
+      "check": {
+        "question": "¿Qué debe conocerse antes de interpretar una marca temporal?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El color del icono."
+          },
+          {
+            "id": "b",
+            "text": "Solo el nombre del archivo."
+          },
+          {
+            "id": "c",
+            "text": "Qué campo es y cómo lo produce el sistema."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La semántica del campo es necesaria para relacionarlo con una actividad."
+      },
+      "mistakes": [
+        {
+          "myth": "Todas las fechas de un archivo significan última apertura.",
+          "correction": "Creación, modificación, acceso y otros metadatos tienen significados y condiciones distintos."
+        }
+      ],
+      "recap": [
+        "Dato: Ruta, tamaño y marcas interpretadas del archivo.",
+        "Semántica: Define qué operación representa cada campo.",
+        "Contexto: Relaciona formato, sistema, adquisición y otras fuentes."
+      ],
+      "glossary": [
+        {
+          "term": "Metadato",
+          "definition": "Dato que describe estructura o características de otro dato."
+        },
+        {
+          "term": "Artefacto",
+          "definition": "Elemento observable que puede contribuir a reconstruir una actividad."
+        }
+      ]
+    },
+    {
+      "dayId": "w41d6",
+      "title": "Cronología inicial",
+      "lead": "Una cronología comparable utiliza una referencia común y conserva los tiempos originales.",
+      "sections": [
+        {
+          "topic": "Tiempo y zonas",
+          "explanation": [
+            "Una cronología ordena observaciones por tiempo para contrastar secuencias. Antes de ordenar, determina cómo representa cada fuente el momento: UTC, hora local con zona o un valor sin zona explícita. Convertir todo a una referencia común permite comparar, pero debes conservar el original y la regla de conversión. Si un registro indica 08:00 con desplazamiento UTC−06:00, corresponde a 14:00 UTC; restar seis horas otra vez produciría una secuencia equivocada.",
+            "La precisión y la exactitud son diferentes. Una herramienta puede mostrar milisegundos y el reloj del equipo estar desajustado dos minutos. Añade a la cronología el desfase conocido o una incertidumbre, en lugar de presentar una hora ajustada como si fuera exacta. Tampoco fuerces un orden entre eventos cuya resolución no permite distinguirlos. Cada fila debe conservar fuente, identificador, momento original, normalizado y observación, para que otra persona pueda revisar cómo llegaste a la secuencia final."
+          ],
+          "analogy": "Comparar relojes antes de reconstruir una carrera evita declarar ganador a quien usaba el reloj adelantado.",
+          "keyPoints": [
+            "Original: 08:00:00−06:00 en el registro de ejemplo.",
+            "Normalizado: 14:00:00Z para comparar con otras fuentes.",
+            "Incertidumbre: Un posible desfase de reloj limita el orden fino."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Cronología inicial",
+            "items": [
+              {
+                "label": "Original",
+                "detail": "08:00:00−06:00 en el registro de ejemplo."
+              },
+              {
+                "label": "Normalizado",
+                "detail": "14:00:00Z para comparar con otras fuentes."
+              },
+              {
+                "label": "Incertidumbre",
+                "detail": "Un posible desfase de reloj limita el orden fino."
+              }
+            ],
+            "caption": "Una cronología comparable utiliza una referencia común y conserva los tiempos originales."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Dos registros, un mismo instante",
+        "scenario": "Una fuente ficticia usa 08:15−06:00 y otra 14:15Z.",
+        "steps": [
+          {
+            "action": "Identificar zonas",
+            "reason": "Los números visibles no bastan.",
+            "result": "La primera fuente declara UTC−06:00."
+          },
+          {
+            "action": "Convertir las horas",
+            "reason": "Permite comparar instantes.",
+            "result": "08:15 más seis horas equivale a 14:15Z."
+          },
+          {
+            "action": "Conservar originales",
+            "reason": "Hace auditable el ajuste.",
+            "result": "La tabla muestra ambos valores y los considera simultáneos dentro de su resolución."
+          }
+        ],
+        "result": "Las filas no describen seis horas de diferencia, sino el mismo momento.",
+        "visual": {
+          "type": "timeline",
+          "title": "Dos registros, un mismo instante",
+          "items": [
+            {
+              "label": "Identificar zonas",
+              "detail": "La primera fuente declara UTC−06:00."
+            },
+            {
+              "label": "Convertir las horas",
+              "detail": "08:15 más seis horas equivale a 14:15Z."
+            },
+            {
+              "label": "Conservar originales",
+              "detail": "La tabla muestra ambos valores y los considera simultáneos dentro de su resolución."
+            }
+          ],
+          "caption": "Las filas no describen seis horas de diferencia, sino el mismo momento."
+        }
+      },
+      "practice": {
+        "task": "Normaliza tres eventos inventados con desplazamientos explícitos.",
+        "steps": [
+          "Incluye uno en UTC y otro en UTC−06:00.",
+          "Conserva cada valor original junto al convertido.",
+          "Añade una nota de posible desfase del reloj."
+        ],
+        "expected": "Una cronología que distingue conversión de zona y corrección de reloj."
+      },
+      "check": {
+        "question": "¿Qué instante corresponde a 09:00−06:00?",
+        "options": [
+          {
+            "id": "a",
+            "text": "15:00Z."
+          },
+          {
+            "id": "b",
+            "text": "03:00Z."
+          },
+          {
+            "id": "c",
+            "text": "09:00Z siempre."
+          }
+        ],
+        "correct": "a",
+        "explanation": "Un desplazamiento negativo de seis horas significa que la hora local va seis horas detrás de UTC."
+      },
+      "mistakes": [
+        {
+          "myth": "Mostrar más decimales garantiza un reloj exacto.",
+          "correction": "La resolución de la marca temporal no corrige un reloj desajustado."
+        }
+      ],
+      "recap": [
+        "Original: 08:00:00−06:00 en el registro de ejemplo.",
+        "Normalizado: 14:00:00Z para comparar con otras fuentes.",
+        "Incertidumbre: Un posible desfase de reloj limita el orden fino."
+      ],
+      "glossary": [
+        {
+          "term": "UTC",
+          "definition": "Referencia temporal utilizada para comparar instantes."
+        },
+        {
+          "term": "Desfase",
+          "definition": "Diferencia entre un reloj observado y la referencia."
+        }
+      ]
+    },
+    {
+      "dayId": "w41d7",
+      "title": "Evaluación forense",
+      "lead": "Un informe forense reproducible explica cómo se obtuvo cada resultado y qué no puede probar.",
+      "sections": [
+        {
+          "topic": "Reproducibilidad y límites",
+          "explanation": [
+            "Reproducir un análisis significa que otra persona puede usar el mismo material, método y parámetros para comprobar el resultado. No basta con guardar una captura de pantalla: conserva identificadores, huellas, versión de herramienta, filtros y referencias a los registros relevantes. Si cambiaste de copia o convertiste una fecha, documenta esa transformación. El lector debe poder seguir una conclusión hasta el elemento que la respalda sin adivinar qué archivo o búsqueda utilizaste.",
+            "La evaluación final revisa además proporcionalidad de afirmaciones. Una imagen parcial permite describir sus archivos, pero no todo el historial del equipo. Un hash coincidente respalda igualdad de contenido, pero no autoría. Una fecha normalizada ayuda a comparar, pero no arregla un reloj desconocido. Presenta resultados, limitaciones y alternativas en secciones separadas. Este hábito evita que un detalle técnico correcto se convierta en una conclusión demasiado amplia al resumir el caso para otras personas."
+          ],
+          "analogy": "Una receta reproducible incluye ingredientes y cantidades; mostrar únicamente la fotografía del plato no permite repetirla.",
+          "keyPoints": [
+            "Material: Identificadores y huellas permiten seleccionar la copia correcta.",
+            "Método: Parámetros y transformaciones permiten repetir el análisis.",
+            "Límite: La conclusión se restringe a la cobertura disponible."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Evaluación forense",
+            "items": [
+              {
+                "label": "Material",
+                "detail": "Identificadores y huellas permiten seleccionar la copia correcta."
+              },
+              {
+                "label": "Método",
+                "detail": "Parámetros y transformaciones permiten repetir el análisis."
+              },
+              {
+                "label": "Límite",
+                "detail": "La conclusión se restringe a la cobertura disponible."
+              }
+            ],
+            "caption": "Un informe forense reproducible explica cómo se obtuvo cada resultado y qué no puede probar."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "La captura que no bastaba",
+        "scenario": "Un informe ficticio muestra una pantalla con un archivo, pero omite de qué imagen salió.",
+        "steps": [
+          {
+            "action": "Vincular material",
+            "reason": "Evita resultados sin procedencia.",
+            "result": "Se añade ID de imagen y SHA-256."
+          },
+          {
+            "action": "Registrar método",
+            "reason": "Permite repetir la selección.",
+            "result": "Se incorpora ruta, filtro y versión de herramienta."
+          },
+          {
+            "action": "Revisar afirmación",
+            "reason": "La presencia no equivale a apertura.",
+            "result": "Se cambia «el usuario leyó» por «el archivo está presente en la imagen»."
+          }
+        ],
+        "result": "El informe gana reproducibilidad y precisión sin añadir datos inventados.",
+        "visual": {
+          "type": "timeline",
+          "title": "La captura que no bastaba",
+          "items": [
+            {
+              "label": "Vincular material",
+              "detail": "Se añade ID de imagen y SHA-256."
+            },
+            {
+              "label": "Registrar método",
+              "detail": "Se incorpora ruta, filtro y versión de herramienta."
+            },
+            {
+              "label": "Revisar afirmación",
+              "detail": "Se cambia «el usuario leyó» por «el archivo está presente en la imagen»."
+            }
+          ],
+          "caption": "El informe gana reproducibilidad y precisión sin añadir datos inventados."
+        }
+      },
+      "practice": {
+        "task": "Revisa una conclusión de tu práctica y prepara un paquete de reproducción.",
+        "steps": [
+          "Incluye material, herramienta y pasos.",
+          "Separa resultado observado de interpretación.",
+          "Escribe dos límites que afecten a la conclusión."
+        ],
+        "expected": "Un paquete que otra persona pueda revisar sin acceder a datos personales reales."
+      },
+      "check": {
+        "question": "¿Qué vuelve más reproducible un resultado?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Una conclusión más categórica."
+          },
+          {
+            "id": "b",
+            "text": "Material identificado y parámetros de análisis documentados."
+          },
+          {
+            "id": "c",
+            "text": "Una captura recortada sin contexto."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La identificación del material y del método permite verificar el mismo resultado."
+      },
+      "mistakes": [
+        {
+          "myth": "Un informe largo siempre es más riguroso.",
+          "correction": "La trazabilidad y la precisión de las afirmaciones importan más que la extensión."
+        }
+      ],
+      "recap": [
+        "Material: Identificadores y huellas permiten seleccionar la copia correcta.",
+        "Método: Parámetros y transformaciones permiten repetir el análisis.",
+        "Límite: La conclusión se restringe a la cobertura disponible."
+      ],
+      "glossary": [
+        {
+          "term": "Reproducibilidad",
+          "definition": "Posibilidad de repetir un análisis con material y método identificados."
+        },
+        {
+          "term": "Limitación",
+          "definition": "Condición que restringe lo que el resultado permite afirmar."
+        }
+      ]
+    }
+  ]
+}

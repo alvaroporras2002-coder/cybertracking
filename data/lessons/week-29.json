@@ -1,0 +1,953 @@
+{
+  "version": "2.0.0",
+  "week": 29,
+  "title": "Supervisión y herramientas",
+  "overview": "Supervisar consiste en formular preguntas que las fuentes disponibles puedan responder. Aprenderás qué cuentan los registros de un sistema, una aplicación, una red y un endpoint, y cómo unirlos sin confundir ausencia de datos con ausencia de actividad. Los ejercicios usan eventos ficticios para calcular conteos, ajustar umbrales y contrastar hipótesis. Al final podrás explicar qué observaste, qué conclusión permite la evidencia y qué parte del caso permanece fuera de tu visibilidad.",
+  "objectives": [
+    "Relacionar preguntas con fuentes y campos.",
+    "Construir búsquedas acotadas y conteos interpretables.",
+    "Correlacionar dos fuentes sin afirmar más de lo observable."
+  ],
+  "sources": [
+    {
+      "id": "hunting",
+      "title": "Microsoft — Advanced hunting overview",
+      "url": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-overview"
+    },
+    {
+      "id": "controls",
+      "title": "NIST SP 800-53 — Security and Privacy Controls",
+      "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+    },
+    {
+      "id": "ir",
+      "title": "NIST SP 800-61r3 — Incident Response",
+      "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w29d1",
+      "title": "Fuentes de eventos",
+      "lead": "Relaciona cada hecho con su fuente.",
+      "sections": [
+        {
+          "topic": "Sistema, aplicación, red y endpoint",
+          "explanation": [
+            "Un evento es un registro de algo que una fuente observó. El sistema operativo puede registrar una autenticación; la aplicación, la operación realizada; el firewall, una conexión permitida; el agente de endpoint, la creación de un proceso. Ninguna fuente describe por sí sola toda la historia. Que el firewall permita una conexión no demuestra que la aplicación haya aceptado la contraseña ni que el usuario descargara un archivo. Empieza por preguntar qué hecho puede acreditar cada registro.",
+            "Los campos dan contexto: fecha, equipo, usuario, proceso, resultado e identificador de evento. Su significado depende de la fuente y configuración. Una cuenta técnica no siempre representa una persona concreta, y una IP puede cambiar o ser compartida. Revisa si la fuente estaba activa durante el intervalo investigado y qué acciones registra. Si no existe auditoría de lectura de archivos, no puedes concluir que nadie los leyó solo porque no encuentras eventos de lectura."
+          ],
+          "analogy": "Cada fuente es una cámara con un encuadre distinto; varias cámaras ayudan, pero ninguna ve lo que quedó fuera.",
+          "keyPoints": [
+            "Relaciona cada hecho con su fuente.",
+            "Una conexión no demuestra una operación completada.",
+            "La cobertura debe incluir configuración y tiempo."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Qué observa cada fuente",
+            "items": [
+              {
+                "label": "Sistema",
+                "detail": "Inicio de sesión y resultado"
+              },
+              {
+                "label": "Aplicación",
+                "detail": "Operación y recurso solicitado"
+              },
+              {
+                "label": "Red",
+                "detail": "Origen, destino y conexión"
+              },
+              {
+                "label": "Endpoint",
+                "detail": "Proceso, usuario y actividad del equipo"
+              }
+            ],
+            "caption": "Los campos concretos dependen de la herramienta y la auditoría configurada."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Acceso a una carpeta",
+        "scenario": "La red registra una conexión al servidor y la aplicación registra permiso denegado.",
+        "steps": [
+          {
+            "action": "Leer red",
+            "reason": "Permitir transporte no acredita autorización.",
+            "result": "La conexión llegó al servidor."
+          },
+          {
+            "action": "Leer aplicación",
+            "reason": "El resultado añade contexto de negocio.",
+            "result": "La operación fue denegada."
+          },
+          {
+            "action": "Concluir alcance",
+            "reason": "Las dos fuentes responden preguntas distintas.",
+            "result": "No hay evidencia de lectura exitosa en esos registros."
+          }
+        ],
+        "result": "Se confirma un intento de acceso, no una descarga.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Acceso a una carpeta",
+          "items": [
+            {
+              "label": "Leer red",
+              "detail": "La conexión llegó al servidor."
+            },
+            {
+              "label": "Leer aplicación",
+              "detail": "La operación fue denegada."
+            },
+            {
+              "label": "Concluir alcance",
+              "detail": "No hay evidencia de lectura exitosa en esos registros."
+            }
+          ],
+          "caption": "Se confirma un intento de acceso, no una descarga."
+        }
+      },
+      "practice": {
+        "task": "Asigna una fuente a autenticación, proceso y operación web.",
+        "steps": [
+          "Escribe una pregunta por hecho.",
+          "Elige los campos mínimos.",
+          "Anota qué no demostraría esa fuente."
+        ],
+        "expected": "Tres preguntas con su evidencia y su límite."
+      },
+      "check": {
+        "question": "¿Un firewall permite saber qué archivo leyó una cuenta?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Siempre, por el puerto."
+          },
+          {
+            "id": "b",
+            "text": "No necesariamente; se necesita una fuente con ese detalle."
+          },
+          {
+            "id": "c",
+            "text": "Sí, si la IP es privada."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Un registro de conexión puede carecer del contenido y del resultado de la operación."
+      },
+      "mistakes": [
+        {
+          "myth": "Un log central contiene todos los hechos.",
+          "correction": "Contiene lo que sus fuentes configuradas pudieron registrar y entregar."
+        }
+      ],
+      "recap": [
+        "Relaciona cada hecho con su fuente.",
+        "Una conexión no demuestra una operación completada.",
+        "La cobertura debe incluir configuración y tiempo."
+      ],
+      "glossary": [
+        {
+          "term": "Fuente",
+          "definition": "Sistema que origina un registro."
+        },
+        {
+          "term": "Evento",
+          "definition": "Observación registrada con un contexto y un momento."
+        }
+      ]
+    },
+    {
+      "dayId": "w29d2",
+      "title": "Centralización",
+      "lead": "Separa hora del evento y de recepción.",
+      "sections": [
+        {
+          "topic": "Recolección, campos, tiempo y normalización",
+          "explanation": [
+            "Centralizar es reunir eventos para consultarlos de manera coherente. El recorrido incluye generación, transporte, recepción, interpretación y almacenamiento. Un corte puede ocurrir en cualquiera de esos puntos: un servidor que funciona quizá no genere el evento esperado, o el colector puede rechazarlo. Distingue hora del evento de hora de recepción; un lote retrasado puede llegar hoy y describir actividad de ayer. Confundirlas altera una cronología y puede parecer una actividad reciente que no ocurrió ahora.",
+            "Normalizar significa convertir campos equivalentes a un formato común sin perder el original. Por ejemplo, usuario, account y principal podrían mapearse a una identidad normalizada, pero hay que conservar su significado y dominio. Las zonas horarias se convierten con el desfase correspondiente a la fecha, no con una suposición fija. Comprueba retrasos, recuentos y errores de interpretación. Una búsqueda vacía puede ser un problema de recolección, de rango temporal o de nombres de campos, además de una ausencia real."
+          ],
+          "analogy": "Es como reunir recibos de varias tiendas: necesitas fecha y moneda correctas, no solo guardarlos en la misma caja.",
+          "keyPoints": [
+            "Separa hora del evento y de recepción.",
+            "Normaliza sin perder el registro original.",
+            "Comprueba la salud de la recolección."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Viaje del evento",
+            "items": [
+              {
+                "label": "Origen",
+                "detail": "Genera el registro"
+              },
+              {
+                "label": "Transporte",
+                "detail": "Envía o acumula"
+              },
+              {
+                "label": "Colector",
+                "detail": "Recibe e interpreta"
+              },
+              {
+                "label": "Consulta",
+                "detail": "Filtra con tiempo y campos correctos"
+              }
+            ],
+            "caption": "Un fallo en una etapa puede ocultar actividad de las anteriores."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Lote retrasado",
+        "scenario": "Un evento de 10:00 UTC llega al colector a las 10:12 UTC.",
+        "steps": [
+          {
+            "action": "Identificar relojes",
+            "reason": "Dos campos describen momentos diferentes.",
+            "result": "Actividad a las 10:00; recepción a las 10:12."
+          },
+          {
+            "action": "Calcular demora",
+            "reason": "La tardanza afecta alertas y consultas.",
+            "result": "Hay doce minutos de retraso."
+          },
+          {
+            "action": "Ajustar investigación",
+            "reason": "Buscar solo por recepción cambia el conjunto.",
+            "result": "Se documentan ambos tiempos y el criterio usado."
+          }
+        ],
+        "result": "La cronología usa el tiempo de actividad y declara la demora conocida.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Lote retrasado",
+          "items": [
+            {
+              "label": "Identificar relojes",
+              "detail": "Actividad a las 10:00; recepción a las 10:12."
+            },
+            {
+              "label": "Calcular demora",
+              "detail": "Hay doce minutos de retraso."
+            },
+            {
+              "label": "Ajustar investigación",
+              "detail": "Se documentan ambos tiempos y el criterio usado."
+            }
+          ],
+          "caption": "La cronología usa el tiempo de actividad y declara la demora conocida."
+        }
+      },
+      "practice": {
+        "task": "Analiza un evento 09:00-06:00 recibido 15:03Z.",
+        "steps": [
+          "Convierte el evento a UTC.",
+          "Calcula la demora de recepción.",
+          "Indica qué campo usarías para ordenar actividad."
+        ],
+        "expected": "Evento a las15:00Z y demora de tres minutos."
+      },
+      "check": {
+        "question": "¿Qué representa received_at?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El momento de recepción, no necesariamente el de actividad."
+          },
+          {
+            "id": "b",
+            "text": "Siempre la creación del archivo."
+          },
+          {
+            "id": "c",
+            "text": "La zona horaria del usuario."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La recepción puede retrasarse; debe distinguirse del tiempo registrado por la fuente."
+      },
+      "mistakes": [
+        {
+          "myth": "Normalizar permite descartar el original.",
+          "correction": "El original conserva contexto útil para revisar interpretaciones y errores."
+        }
+      ],
+      "recap": [
+        "Separa hora del evento y de recepción.",
+        "Normaliza sin perder el registro original.",
+        "Comprueba la salud de la recolección."
+      ],
+      "glossary": [
+        {
+          "term": "Normalización",
+          "definition": "Conversión de campos a una representación coherente."
+        },
+        {
+          "term": "Latencia de ingesta",
+          "definition": "Demora entre actividad y disponibilidad del registro."
+        }
+      ]
+    },
+    {
+      "dayId": "w29d3",
+      "title": "Alertas",
+      "lead": "Una regla necesita ventana y agrupación claras.",
+      "sections": [
+        {
+          "topic": "Regla, umbral, contexto y falso positivo",
+          "explanation": [
+            "Una alerta es el resultado de aplicar una lógica de detección a datos. La regla debe expresar condición, ventana, agrupación y umbral cuando corresponda. Por ejemplo, diez fallos de autenticación en cinco minutos para la misma cuenta no es lo mismo que diez fallos repartidos entre toda una empresa. La agrupación cambia el significado. El umbral no es una frontera mágica entre actividad buena y mala; es una elección que necesita contexto, pruebas y revisión.",
+            "Una alerta puede ser correcta y describir actividad autorizada, como una prueba de seguridad o una tarea programada. También puede ser un falso positivo causado por una regla que interpretó mal datos. No cierres únicamente porque el usuario diga que todo está bien: busca contexto independiente y documenta el motivo. Ajustar una regla implica medir qué casos legítimos reduce y qué comportamiento relevante podría dejar de detectar. Silenciar toda una cuenta para eliminar ruido puede crear una laguna mayor."
+          ],
+          "analogy": "Una alarma de humo detecta una condición; todavía debes comprobar si hay incendio, vapor o un sensor defectuoso.",
+          "keyPoints": [
+            "Una regla necesita ventana y agrupación claras.",
+            "El umbral no demuestra intención maliciosa.",
+            "Ajustar ruido exige revisar la cobertura perdida."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "De eventos a alerta",
+            "items": [
+              {
+                "label": "Condición",
+                "detail": "Fallo de autenticación"
+              },
+              {
+                "label": "Agrupación",
+                "detail": "Misma cuenta en cinco minutos"
+              },
+              {
+                "label": "Umbral",
+                "detail": "Diez eventos del ejemplo"
+              },
+              {
+                "label": "Triaje",
+                "detail": "Contexto y evidencia adicional"
+              }
+            ],
+            "caption": "El número es una regla de laboratorio, no una recomendación universal."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Contraseña antigua guardada",
+        "scenario": "Una aplicación genera doce fallos para una cuenta técnica tras un cambio autorizado de contraseña.",
+        "steps": [
+          {
+            "action": "Confirmar patrón",
+            "reason": "El volumen aislado admite varias causas.",
+            "result": "Los fallos proceden de un único servicio conocido."
+          },
+          {
+            "action": "Contrastar cambio",
+            "reason": "Una explicación necesita evidencia.",
+            "result": "El ticket confirma la rotación previa."
+          },
+          {
+            "action": "Corregir y vigilar",
+            "reason": "Cerrar sin resolver conserva el problema.",
+            "result": "El dueño actualiza la credencial según procedimiento y los fallos cesan."
+          }
+        ],
+        "result": "Se documenta una causa operativa confirmada, conservando la regla para otros casos.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Contraseña antigua guardada",
+          "items": [
+            {
+              "label": "Confirmar patrón",
+              "detail": "Los fallos proceden de un único servicio conocido."
+            },
+            {
+              "label": "Contrastar cambio",
+              "detail": "El ticket confirma la rotación previa."
+            },
+            {
+              "label": "Corregir y vigilar",
+              "detail": "El dueño actualiza la credencial según procedimiento y los fallos cesan."
+            }
+          ],
+          "caption": "Se documenta una causa operativa confirmada, conservando la regla para otros casos."
+        }
+      },
+      "practice": {
+        "task": "Define una alerta sobre cambios de privilegios.",
+        "steps": [
+          "Especifica evento y campos.",
+          "Define agrupación o condición.",
+          "Escribe una causa legítima y cómo comprobarla."
+        ],
+        "expected": "Una regla interpretable con un plan de triaje."
+      },
+      "check": {
+        "question": "¿Qué cambia al agrupar fallos por cuenta?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Nada, todos los conteos son iguales."
+          },
+          {
+            "id": "b",
+            "text": "Permite conocer la contraseña."
+          },
+          {
+            "id": "c",
+            "text": "La unidad sobre la que se evalúa el umbral."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La misma cantidad puede representar muchos usuarios o una sola cuenta atacada."
+      },
+      "mistakes": [
+        {
+          "myth": "Una alerta es un incidente confirmado.",
+          "correction": "Es una señal que requiere análisis y clasificación según el contexto."
+        }
+      ],
+      "recap": [
+        "Una regla necesita ventana y agrupación claras.",
+        "El umbral no demuestra intención maliciosa.",
+        "Ajustar ruido exige revisar la cobertura perdida."
+      ],
+      "glossary": [
+        {
+          "term": "Umbral",
+          "definition": "Valor que activa una condición de detección."
+        },
+        {
+          "term": "Falso positivo",
+          "definition": "Señal que afirma una condición de riesgo no presente."
+        }
+      ]
+    },
+    {
+      "dayId": "w29d4",
+      "title": "Herramientas",
+      "lead": "La pregunta determina la herramienta.",
+      "sections": [
+        {
+          "topic": "SIEM, EDR, DLP y monitoreo de integridad",
+          "explanation": [
+            "SIEM, EDR, DLP y monitoreo de integridad resuelven preguntas diferentes. Un SIEM reúne y consulta eventos de varias fuentes. Un EDR aporta visibilidad y capacidades de respuesta sobre endpoints compatibles. DLP aplica reglas relacionadas con datos sensibles y sus movimientos. El monitoreo de integridad detecta cambios respecto de una referencia. Los nombres comerciales no garantizan cobertura: importa qué funciones están habilitadas, qué equipos reportan y quién revisa sus resultados diariamente.",
+            "Elige la herramienta según el hecho que necesitas comprobar. Para un proceso sospechoso, consulta telemetría del endpoint; para una secuencia de accesos en varios servicios, correlaciona registros centrales. Un cambio de archivo puede ser legítimo y una alerta DLP puede deberse a una clasificación incorrecta. Comprueba contexto antes de responder. Las funciones de aislamiento o bloqueo pueden interrumpir servicios, por lo que deben ejecutarse con el alcance, privilegios y procedimiento aprobados, no como reacción automática a cualquier señal."
+          ],
+          "analogy": "Una caja de herramientas contiene destornillador, multímetro y cinta métrica: ninguno reemplaza a todos los demás.",
+          "keyPoints": [
+            "La pregunta determina la herramienta.",
+            "Cobertura activa importa más que el nombre del producto.",
+            "Las acciones de respuesta requieren control operativo."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Herramienta y pregunta",
+            "items": [
+              {
+                "label": "SIEM",
+                "detail": "¿Qué ocurrió entre varias fuentes?"
+              },
+              {
+                "label": "EDR",
+                "detail": "¿Qué proceso y equipo participaron?"
+              },
+              {
+                "label": "DLP",
+                "detail": "¿Qué política de datos se activó?"
+              },
+              {
+                "label": "Integridad",
+                "detail": "¿Qué cambió respecto a la referencia?"
+              }
+            ],
+            "caption": "Las capacidades varían por producto, licencia y configuración."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Archivo de configuración modificado",
+        "scenario": "Una alerta de integridad coincide con una instalación autorizada en LAB-04.",
+        "steps": [
+          {
+            "action": "Examinar cambio",
+            "reason": "Un cambio no implica ataque.",
+            "result": "Se identifica archivo, hora y valor anterior."
+          },
+          {
+            "action": "Consultar contexto",
+            "reason": "La explicación necesita un registro independiente.",
+            "result": "El ticket y el instalador coinciden en tiempo."
+          },
+          {
+            "action": "Actualizar referencia",
+            "reason": "La nueva configuración debe estar aprobada.",
+            "result": "Se documenta la modificación antes de aceptar la nueva referencia."
+          }
+        ],
+        "result": "Se explica la alerta sin desactivar toda la supervisión.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Archivo de configuración modificado",
+          "items": [
+            {
+              "label": "Examinar cambio",
+              "detail": "Se identifica archivo, hora y valor anterior."
+            },
+            {
+              "label": "Consultar contexto",
+              "detail": "El ticket y el instalador coinciden en tiempo."
+            },
+            {
+              "label": "Actualizar referencia",
+              "detail": "Se documenta la modificación antes de aceptar la nueva referencia."
+            }
+          ],
+          "caption": "Se explica la alerta sin desactivar toda la supervisión."
+        }
+      },
+      "practice": {
+        "task": "Elige dos herramientas para investigar una subida de datos.",
+        "steps": [
+          "Indica qué observaría cada una.",
+          "Describe un dato que no aportaría.",
+          "Define quién puede autorizar un bloqueo."
+        ],
+        "expected": "Una combinación de fuentes con límites claros."
+      },
+      "check": {
+        "question": "¿Qué herramienta se orienta a procesos de un endpoint?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Un inventario de precios."
+          },
+          {
+            "id": "b",
+            "text": "EDR, si ese equipo tiene cobertura activa."
+          },
+          {
+            "id": "c",
+            "text": "Solo un calendario de cambios."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La telemetría de endpoint puede relacionar proceso, usuario y actividad del equipo cubierto."
+      },
+      "mistakes": [
+        {
+          "myth": "Comprar un SIEM produce visibilidad completa.",
+          "correction": "La visibilidad depende de fuentes, retención, configuración y operación."
+        }
+      ],
+      "recap": [
+        "La pregunta determina la herramienta.",
+        "Cobertura activa importa más que el nombre del producto.",
+        "Las acciones de respuesta requieren control operativo."
+      ],
+      "glossary": [
+        {
+          "term": "EDR",
+          "definition": "Detección y respuesta centradas en endpoints."
+        },
+        {
+          "term": "DLP",
+          "definition": "Controles orientados a prevenir usos o movimientos de datos no permitidos."
+        }
+      ]
+    },
+    {
+      "dayId": "w29d5",
+      "title": "Consultas iniciales",
+      "lead": "Acota fuente y tiempo antes de contar.",
+      "sections": [
+        {
+          "topic": "Tiempo, filtros y conteos",
+          "explanation": [
+            "Una consulta inicial debe ser pequeña y comprobable. Empieza por fuente y rango temporal, inspecciona algunos registros y verifica nombres de campos antes de agrupar. Filtrar usuario igual a ana no es lo mismo que buscar la cadena ana en todo el texto: la segunda opción también podría encontrar nombres de archivos o palabras no relacionadas. Las comparaciones de mayúsculas, nulos y fechas dependen del lenguaje de consulta. No copies una expresión sin entender esas reglas.",
+            "Después filtra resultado y contexto, y calcula conteos con una unidad explícita: eventos, cuentas distintas o equipos distintos. Si una fuente duplica entregas, contar filas puede inflar actividad; usa identificadores cuando sean fiables. Conserva la consulta, intervalo y zona horaria con el resultado. Un total de quince fallos no explica por sí solo su distribución: cinco cuentas con tres fallos cada una representan otro patrón que quince fallos de una sola cuenta desde un origen nuevo."
+          ],
+          "analogy": "Buscar eventos se parece a filtrar una hoja de cálculo: primero eliges filas correctas, después sumas la columna adecuada.",
+          "keyPoints": [
+            "Acota fuente y tiempo antes de contar.",
+            "Un campo exacto no equivale a texto libre.",
+            "Define si cuentas eventos o entidades distintas."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Consulta verificable",
+            "items": [
+              {
+                "label": "Seleccionar",
+                "detail": "Fuente y ventana"
+              },
+              {
+                "label": "Filtrar",
+                "detail": "Usuario y resultado"
+              },
+              {
+                "label": "Agrupar",
+                "detail": "Cuenta u origen"
+              },
+              {
+                "label": "Interpretar",
+                "detail": "Conteo y contexto"
+              }
+            ],
+            "caption": "La sintaxis debe adaptarse al motor utilizado."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Seis filas de acceso",
+        "scenario": "La tabla preparada contiene cuatro fallos y dos éxitos para dos cuentas.",
+        "steps": [
+          {
+            "action": "Filtrar resultado",
+            "reason": "Mezclar éxitos y fallos cambia la pregunta.",
+            "result": "Quedan cuatro filas fallidas."
+          },
+          {
+            "action": "Agrupar cuenta",
+            "reason": "El total no muestra concentración.",
+            "result": "Ana tiene tres; Luis tiene una."
+          },
+          {
+            "action": "Conservar consulta",
+            "reason": "El resultado debe poder repetirse.",
+            "result": "Se guardan campos, intervalo y cuatro filas de origen."
+          }
+        ],
+        "result": "El conteo expresa fallos por cuenta, sin atribuir intención.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Seis filas de acceso",
+          "items": [
+            {
+              "label": "Filtrar resultado",
+              "detail": "Quedan cuatro filas fallidas."
+            },
+            {
+              "label": "Agrupar cuenta",
+              "detail": "Ana tiene tres; Luis tiene una."
+            },
+            {
+              "label": "Conservar consulta",
+              "detail": "Se guardan campos, intervalo y cuatro filas de origen."
+            }
+          ],
+          "caption": "El conteo expresa fallos por cuenta, sin atribuir intención."
+        }
+      },
+      "practice": {
+        "task": "Cuenta fallos en una tabla manual con dos cuentas.",
+        "steps": [
+          "Añade fecha y resultado a seis filas.",
+          "Filtra solo fallos del mismo intervalo.",
+          "Agrupa por cuenta y comprueba la suma."
+        ],
+        "expected": "Una tabla donde la suma por cuenta coincide con el total filtrado."
+      },
+      "check": {
+        "question": "¿Qué diferencia COUNT de un conteo de usuarios distintos?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Siempre producen lo mismo."
+          },
+          {
+            "id": "b",
+            "text": "El primero cifra los registros."
+          },
+          {
+            "id": "c",
+            "text": "Uno cuenta filas; el otro entidades únicas según el campo."
+          }
+        ],
+        "correct": "c",
+        "explanation": "Una cuenta puede aparecer muchas veces; contar filas y cuentas responde preguntas diferentes."
+      },
+      "mistakes": [
+        {
+          "myth": "Un número grande explica la causa del evento.",
+          "correction": "El conteo describe un patrón; la causa exige contexto y evidencia."
+        }
+      ],
+      "recap": [
+        "Acota fuente y tiempo antes de contar.",
+        "Un campo exacto no equivale a texto libre.",
+        "Define si cuentas eventos o entidades distintas."
+      ],
+      "glossary": [
+        {
+          "term": "Filtro",
+          "definition": "Condición que selecciona registros."
+        },
+        {
+          "term": "Agregación",
+          "definition": "Resumen de registros mediante conteos u otras operaciones."
+        }
+      ]
+    },
+    {
+      "dayId": "w29d6",
+      "title": "Caso de supervisión",
+      "lead": "Correlaciona con campos además de tiempo.",
+      "sections": [
+        {
+          "topic": "Usar dos fuentes",
+          "explanation": [
+            "Correlacionar significa relacionar observaciones mediante atributos y tiempo para contrastar una hipótesis. No basta con que dos eventos ocurran cerca: un inicio de sesión y una descarga pueden pertenecer a usuarios distintos. Usa identificadores de sesión, equipo, cuenta y solicitud cuando existan, y anota su fiabilidad. Una IP compartida detrás de NAT puede representar muchos dispositivos. La coincidencia temporal por sí sola permite formular una pregunta, pero no siempre responder quién hizo qué.",
+            "En un caso de supervisión conviene escribir primero la hipótesis y la evidencia que la apoyaría o debilitaría. Si sospechas que un acceso remoto precedió a una lectura de datos, busca sesiones y operaciones correspondientes. Comprueba relojes y retrasos antes de ordenar. Conserva alternativas, como una tarea programada o una sesión compartida. La conclusión debe distinguir relación confirmada, relación probable y datos insuficientes. La incertidumbre explícita mejora el informe porque orienta el siguiente paso de investigación."
+          ],
+          "analogy": "Dos tickets con la misma hora no prueban que sean del mismo cliente; necesitas un identificador que los conecte.",
+          "keyPoints": [
+            "Correlaciona con campos además de tiempo.",
+            "Una IP puede representar varios equipos.",
+            "Escribe hipótesis y alternativas antes de concluir."
+          ],
+          "visual": {
+            "type": "timeline",
+            "title": "Dos fuentes, una hipótesis",
+            "items": [
+              {
+                "label": "09:00",
+                "detail": "VPN: sesión S-17 de Ana"
+              },
+              {
+                "label": "09:02",
+                "detail": "Aplicación: lectura asociada a S-17"
+              },
+              {
+                "label": "09:03",
+                "detail": "Revisión: identidad y reloj coinciden"
+              }
+            ],
+            "caption": "El identificador común fortalece la relación, pero aún hay que validar su significado."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Lectura tras VPN",
+        "scenario": "La tabla VPN y la aplicación comparten la sesión S-17 y tiempos UTC coherentes.",
+        "steps": [
+          {
+            "action": "Validar clave",
+            "reason": "Los campos deben representar la misma sesión.",
+            "result": "Se confirma el mapeo de S-17."
+          },
+          {
+            "action": "Ordenar hechos",
+            "reason": "Los relojes pueden distorsionar secuencias.",
+            "result": "La lectura sigue al acceso por dos minutos."
+          },
+          {
+            "action": "Limitar conclusión",
+            "reason": "Identificar sesión no demuestra intención.",
+            "result": "Se atribuye la operación a esa sesión, pendiente de contexto autorizado."
+          }
+        ],
+        "result": "Se confirma una secuencia técnica sin declarar automáticamente una intrusión.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Lectura tras VPN",
+          "items": [
+            {
+              "label": "Validar clave",
+              "detail": "Se confirma el mapeo de S-17."
+            },
+            {
+              "label": "Ordenar hechos",
+              "detail": "La lectura sigue al acceso por dos minutos."
+            },
+            {
+              "label": "Limitar conclusión",
+              "detail": "Se atribuye la operación a esa sesión, pendiente de contexto autorizado."
+            }
+          ],
+          "caption": "Se confirma una secuencia técnica sin declarar automáticamente una intrusión."
+        }
+      },
+      "practice": {
+        "task": "Relaciona dos tablas ficticias con sesión y usuario.",
+        "steps": [
+          "Marca claves fiables y campos ambiguos.",
+          "Ordena eventos en UTC.",
+          "Escribe una conclusión y una limitación."
+        ],
+        "expected": "Una cronología sustentada por un identificador compartido."
+      },
+      "check": {
+        "question": "¿Qué relación suele ser más fuerte?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Misma hora aproximada únicamente."
+          },
+          {
+            "id": "b",
+            "text": "Mismo identificador de sesión validado y tiempos coherentes."
+          },
+          {
+            "id": "c",
+            "text": "Mismo color de pantalla."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La clave validada conecta entidades; la proximidad temporal sola puede ser accidental."
+      },
+      "mistakes": [
+        {
+          "myth": "Dos eventos cercanos tienen la misma causa.",
+          "correction": "Pueden coincidir; contrasta identificadores y explicaciones alternativas."
+        }
+      ],
+      "recap": [
+        "Correlaciona con campos además de tiempo.",
+        "Una IP puede representar varios equipos.",
+        "Escribe hipótesis y alternativas antes de concluir."
+      ],
+      "glossary": [
+        {
+          "term": "Correlación",
+          "definition": "Relación de observaciones mediante atributos y contexto."
+        },
+        {
+          "term": "Hipótesis",
+          "definition": "Explicación provisional que se puede contrastar."
+        }
+      ]
+    },
+    {
+      "dayId": "w29d7",
+      "title": "Evaluación de monitoreo",
+      "lead": "Volumen y cobertura no son sinónimos.",
+      "sections": [
+        {
+          "topic": "Evidencia y visibilidad",
+          "explanation": [
+            "Evaluar monitoreo requiere preguntar si la evidencia permite responder la necesidad planteada. Una empresa puede almacenar millones de eventos y aun así carecer de visibilidad sobre una aplicación crítica. Separa cobertura de volumen. Comprueba fuentes, períodos, campos, retención y fallos de recolección. Para cada conclusión identifica el registro que la sostiene. Si la pregunta es quién exportó datos, una lista de conexiones sin identidad u operación puede ser insuficiente aunque tenga muchos detalles de red.",
+            "En la revisión final, explica también qué no sabes y cómo reducirías esa incertidumbre. No uses términos como nunca o todo cuando solo revisaste una ventana pequeña. Un informe puede decir que no encontró exportaciones en una fuente concreta durante treinta minutos, pero no que jamás existieron. Define mejoras que respondan a la brecha: activar el registro de operación necesario, corregir un reloj o conservar un identificador útil. Recoger más datos indiscriminadamente puede añadir coste y exposición sin resolver la pregunta."
+          ],
+          "analogy": "Una biblioteca grande no responde una pregunta si falta el libro pertinente o su índice.",
+          "keyPoints": [
+            "Volumen y cobertura no son sinónimos.",
+            "Toda conclusión debe delimitar fuente y tiempo.",
+            "La mejora debe responder a una pregunta concreta."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Necesidad y visibilidad",
+            "items": [
+              {
+                "label": "Pregunta",
+                "detail": "¿Quién exportó el informe?"
+              },
+              {
+                "label": "Disponible",
+                "detail": "Conexiones sin identidad de aplicación"
+              },
+              {
+                "label": "Brecha",
+                "detail": "Falta auditoría de la operación"
+              }
+            ],
+            "caption": "La brecha se documenta en lugar de inventar una respuesta."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "No hay eventos de descarga",
+        "scenario": "El sistema solo registra inicios de sesión, no operaciones de exportación.",
+        "steps": [
+          {
+            "action": "Leer configuración",
+            "reason": "Un log ausente puede no estar habilitado.",
+            "result": "La auditoría no incluye exportaciones."
+          },
+          {
+            "action": "Reformular conclusión",
+            "reason": "No se puede probar lo que no se observa.",
+            "result": "No hay datos para confirmar o descartar descargas."
+          },
+          {
+            "action": "Proponer mejora",
+            "reason": "Más volumen general no cubre esa función.",
+            "result": "Se solicita registrar operación, identidad y resultado con retención acordada."
+          }
+        ],
+        "result": "El informe identifica la limitación y una mejora verificable.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: No hay eventos de descarga",
+          "items": [
+            {
+              "label": "Leer configuración",
+              "detail": "La auditoría no incluye exportaciones."
+            },
+            {
+              "label": "Reformular conclusión",
+              "detail": "No hay datos para confirmar o descartar descargas."
+            },
+            {
+              "label": "Proponer mejora",
+              "detail": "Se solicita registrar operación, identidad y resultado con retención acordada."
+            }
+          ],
+          "caption": "El informe identifica la limitación y una mejora verificable."
+        }
+      },
+      "practice": {
+        "task": "Audita la evidencia de un caso de acceso a datos.",
+        "steps": [
+          "Enumera fuentes y período.",
+          "Relaciona cada afirmación con un registro.",
+          "Propón una sola mejora para un dato ausente."
+        ],
+        "expected": "Una conclusión proporcional a la cobertura real."
+      },
+      "check": {
+        "question": "¿Qué significa no ver exportaciones en una fuente que no las registra?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que no ocurrieron."
+          },
+          {
+            "id": "b",
+            "text": "Que todas son legítimas."
+          },
+          {
+            "id": "c",
+            "text": "Que esa fuente no permite responder la pregunta."
+          }
+        ],
+        "correct": "c",
+        "explanation": "No observar una actividad no registrada no prueba su ausencia ni su legitimidad."
+      },
+      "mistakes": [
+        {
+          "myth": "Guardar más eventos siempre resuelve la investigación.",
+          "correction": "La pertinencia, calidad y disponibilidad de los campos importan más que el volumen."
+        }
+      ],
+      "recap": [
+        "Volumen y cobertura no son sinónimos.",
+        "Toda conclusión debe delimitar fuente y tiempo.",
+        "La mejora debe responder a una pregunta concreta."
+      ],
+      "glossary": [
+        {
+          "term": "Visibilidad",
+          "definition": "Capacidad de observar hechos relevantes."
+        },
+        {
+          "term": "Retención",
+          "definition": "Tiempo durante el que se conservan los datos según una política."
+        }
+      ]
+    }
+  ]
+}

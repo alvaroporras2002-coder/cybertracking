@@ -1,0 +1,951 @@
+{
+  "version": "2.0.0",
+  "week": 15,
+  "title": "Web y Wireshark inicial",
+  "overview": "La web parece una sola pantalla, pero detrás hay direcciones, mensajes, sesiones y un canal protegido. Aprenderás a descomponer estos elementos y a observarlos con Wireshark sin confundir una evidencia con una suposición. Los ejemplos enseñan qué puede revelar una captura y qué permanece desconocido cuando hay cifrado. Al terminar podrás describir una conversación con sus límites, construir una cronología breve y proponer la siguiente comprobación razonable.",
+  "objectives": [
+    "Interpretar URL, solicitudes HTTP y sesiones.",
+    "Explicar protección y límites de visibilidad de TLS.",
+    "Usar filtros y cronologías sobre capturas autorizadas."
+  ],
+  "sources": [
+    {
+      "id": "wireshark",
+      "title": "Wireshark: guía de usuario",
+      "url": "https://www.wireshark.org/docs/wsug_html/"
+    },
+    {
+      "id": "session",
+      "title": "OWASP: gestión de sesiones",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html"
+    },
+    {
+      "id": "tls",
+      "title": "IETF: especificación y estado de TLS",
+      "url": "https://www.rfc-editor.org/info/rfc8446"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w15d1",
+      "title": "Anatomía web",
+      "lead": "Descompón una dirección web antes de decidir a qué sitio conduce.",
+      "sections": [
+        {
+          "topic": "URL, dominio, ruta y parámetros",
+          "explanation": [
+            "Una URL describe cómo localizar un recurso. En https://portal.example.org/cursos?tema=redes, https es el esquema, portal.example.org es el host, /cursos es la ruta y tema=redes es un parámetro. El dominio se interpreta dentro del host; una palabra conocida en la ruta no cambia quién controla el servidor. Los subdominios tampoco deben confundirse con dominios independientes que solo se parecen visualmente.",
+            "El navegador puede enviar algunos elementos al servidor y usar otros localmente. El fragmento que comienza con # normalmente identifica una sección o estado del cliente y no forma parte de la solicitud HTTP. Los parámetros pueden contener identificadores sensibles y quedar en historiales o registros. Para revisar un enlace sospechoso, trabaja con texto desactivado y datos ficticios; no hace falta abrirlo para identificar esquema, host, ruta y parámetros."
+          ],
+          "analogy": "El host es el edificio; la ruta es el despacho. Escribir el nombre de un banco en el despacho no cambia de edificio.",
+          "keyPoints": [
+            "Localiza primero el host real.",
+            "Ruta y parámetros no prueban legitimidad.",
+            "Un fragmento no se envía como parte de la solicitud HTTP."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Partes de una URL",
+            "items": [
+              {
+                "label": "https://",
+                "detail": "Esquema de comunicación"
+              },
+              {
+                "label": "portal.example.org",
+                "detail": "Host del recurso"
+              },
+              {
+                "label": "/cursos",
+                "detail": "Ruta solicitada"
+              },
+              {
+                "label": "?tema=redes",
+                "detail": "Parámetros de consulta"
+              }
+            ],
+            "caption": "example.org es un dominio de documentación para ejemplos."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Un nombre conocido en una ruta",
+        "scenario": "El texto recibido muestra https://ejemplo.invalid/banco/inicio.",
+        "steps": [
+          {
+            "action": "Separar componentes",
+            "reason": "El primer tramo tras el esquema identifica el host.",
+            "result": "Host: ejemplo.invalid"
+          },
+          {
+            "action": "Leer la ruta",
+            "reason": "La palabra banco pertenece al recurso solicitado.",
+            "result": "Ruta: /banco/inicio"
+          },
+          {
+            "action": "Evitar inferencias",
+            "reason": "El nombre de una marca no certifica al servidor.",
+            "result": "No abrir; verificar por un canal conocido"
+          }
+        ],
+        "result": "La dirección no se considera legítima solo porque su ruta nombra una organización.",
+        "visual": {
+          "type": "flow",
+          "title": "Un nombre conocido en una ruta",
+          "items": [
+            {
+              "label": "Separar componentes",
+              "detail": "Host: ejemplo.invalid"
+            },
+            {
+              "label": "Leer la ruta",
+              "detail": "Ruta: /banco/inicio"
+            },
+            {
+              "label": "Evitar inferencias",
+              "detail": "No abrir; verificar por un canal conocido"
+            }
+          ],
+          "caption": "La dirección no se considera legítima solo porque su ruta nombra una organización."
+        }
+      },
+      "practice": {
+        "task": "Analiza tres URL ficticias como texto.",
+        "steps": [
+          "Subraya esquema y host.",
+          "Separa ruta, parámetros y fragmento.",
+          "Explica qué datos podrían aparecer en un registro."
+        ],
+        "expected": "Tres descomposiciones correctas sin visitar destinos desconocidos."
+      },
+      "check": {
+        "question": "¿Qué identifica el servidor en una URL?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El host"
+          },
+          {
+            "id": "b",
+            "text": "La última palabra de la ruta"
+          },
+          {
+            "id": "c",
+            "text": "El texto después de #"
+          }
+        ],
+        "correct": "a",
+        "explanation": "El host dirige la solicitud; ruta y fragmento describen otros componentes."
+      },
+      "mistakes": [
+        {
+          "myth": "Si la URL contiene una marca, pertenece a esa marca.",
+          "correction": "Comprueba el host y el dominio registrable, no palabras sueltas."
+        }
+      ],
+      "recap": [
+        "Localiza primero el host real.",
+        "Ruta y parámetros no prueban legitimidad.",
+        "Un fragmento no se envía como parte de la solicitud HTTP."
+      ],
+      "glossary": [
+        {
+          "term": "Host",
+          "definition": "Nombre o dirección del servidor al que se dirige la URL."
+        },
+        {
+          "term": "Parámetro",
+          "definition": "Dato adicional de una consulta que puede influir en la respuesta."
+        }
+      ]
+    },
+    {
+      "dayId": "w15d2",
+      "title": "HTTP",
+      "lead": "Interpreta una solicitud y una respuesta sin atribuirles más información de la que contienen.",
+      "sections": [
+        {
+          "topic": "Métodos, respuestas y códigos",
+          "explanation": [
+            "HTTP organiza mensajes entre cliente y servidor. Una solicitud contiene un método, un destino y cabeceras; puede incluir un cuerpo. GET solicita una representación y POST envía datos para que el servidor los procese según la aplicación. El método expresa una intención de protocolo, pero la seguridad real depende de cómo está implementado el servicio y de qué autorización exige.",
+            "La respuesta incluye un código de estado, cabeceras y, cuando corresponde, contenido. Un 200 indica éxito de esa operación HTTP; un 404 señala que el recurso no se encontró o no se expone, y un 500 señala un fallo del servidor. Un 401 se relaciona con autenticación y un 403 con acceso denegado en ese contexto. Estos códigos orientan el diagnóstico, pero no demuestran por sí solos un ataque ni explican toda la causa."
+          ],
+          "analogy": "Es una conversación de ventanilla: la petición expresa lo solicitado y el recibo informa cómo se atendió.",
+          "keyPoints": [
+            "Método y código cumplen funciones diferentes.",
+            "200 no significa que el contenido sea seguro.",
+            "Un código orienta, pero necesita contexto."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Intercambio HTTP",
+            "items": [
+              {
+                "label": "Cliente",
+                "detail": "GET /manual"
+              },
+              {
+                "label": "Servidor",
+                "detail": "Evalúa ruta y permisos"
+              },
+              {
+                "label": "Respuesta",
+                "detail": "200 y representación del manual"
+              }
+            ],
+            "caption": "La aplicación decide el significado de los datos y debe validar cada operación."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Un archivo que no abre",
+        "scenario": "Una página muestra 403 al solicitar un documento interno.",
+        "steps": [
+          {
+            "action": "Registrar respuesta",
+            "reason": "El código indica una decisión concreta.",
+            "result": "Respuesta HTTP 403"
+          },
+          {
+            "action": "Comprobar identidad",
+            "reason": "Un usuario equivocado puede explicar el acceso.",
+            "result": "Sesión válida de un visitante"
+          },
+          {
+            "action": "Comparar política",
+            "reason": "El documento está reservado al personal.",
+            "result": "Denegación coherente con los permisos"
+          }
+        ],
+        "result": "El 403 puede ser un control correcto y no una avería del sitio.",
+        "visual": {
+          "type": "flow",
+          "title": "Un archivo que no abre",
+          "items": [
+            {
+              "label": "Registrar respuesta",
+              "detail": "Respuesta HTTP 403"
+            },
+            {
+              "label": "Comprobar identidad",
+              "detail": "Sesión válida de un visitante"
+            },
+            {
+              "label": "Comparar política",
+              "detail": "Denegación coherente con los permisos"
+            }
+          ],
+          "caption": "El 403 puede ser un control correcto y no una avería del sitio."
+        }
+      },
+      "practice": {
+        "task": "Clasifica cuatro respuestas HTTP de un servicio ficticio.",
+        "steps": [
+          "Asigna 200, 401, 404 o 500 a escenarios adecuados.",
+          "Distingue fallo de autenticación y recurso inexistente.",
+          "Escribe una pregunta adicional para investigar cada caso."
+        ],
+        "expected": "Una tabla con interpretación y límites de cada código."
+      },
+      "check": {
+        "question": "Un sitio responde 200. ¿Qué sabes?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que no contiene malware"
+          },
+          {
+            "id": "b",
+            "text": "Que el propietario es confiable"
+          },
+          {
+            "id": "c",
+            "text": "Que esa operación HTTP fue atendida con éxito"
+          }
+        ],
+        "correct": "c",
+        "explanation": "El éxito del protocolo no certifica legitimidad ni inocuidad del contenido."
+      },
+      "mistakes": [
+        {
+          "myth": "POST siempre es secreto y GET siempre es público.",
+          "correction": "El cifrado depende del transporte y el acceso depende de la aplicación."
+        }
+      ],
+      "recap": [
+        "Método y código cumplen funciones diferentes.",
+        "200 no significa que el contenido sea seguro.",
+        "Un código orienta, pero necesita contexto."
+      ],
+      "glossary": [
+        {
+          "term": "Método HTTP",
+          "definition": "Operación solicitada al servidor."
+        },
+        {
+          "term": "Código de estado",
+          "definition": "Resultado general que el servidor asigna a una respuesta."
+        }
+      ]
+    },
+    {
+      "dayId": "w15d3",
+      "title": "Sesiones",
+      "lead": "Distingue la contraseña usada para entrar del identificador que mantiene la sesión.",
+      "sections": [
+        {
+          "topic": "Cookies, autenticación y cierre",
+          "explanation": [
+            "HTTP no recuerda automáticamente quién eres entre solicitudes. Una aplicación puede crear una sesión después de autenticarte y entregar al navegador una cookie que transporta un identificador. En solicitudes posteriores, el servidor usa ese dato para relacionar la petición con el estado autorizado. Por eso una cookie de sesión robada puede ser sensible aunque no contenga la contraseña ni un nombre legible.",
+            "Los atributos Secure, HttpOnly y SameSite reducen riesgos diferentes: envío sin HTTPS, lectura desde scripts y ciertos envíos entre sitios. Ninguno reemplaza autorización del servidor. Cerrar la sesión requiere invalidar o limitar la credencial correspondiente, no únicamente ocultar la pantalla. También importan caducidad, renovación y revocación. En un laboratorio observa solo tu propia sesión ficticia y nunca publiques cookies, tokens ni capturas que permitan acceder a cuentas reales."
+          ],
+          "analogy": "La contraseña permite retirar una pulsera de acceso; la pulsera sigue siendo una credencial mientras sea válida.",
+          "keyPoints": [
+            "Una cookie puede transportar una credencial.",
+            "Los atributos protegen frente a riesgos diferentes.",
+            "Cerrar sesión debe afectar la validez del acceso."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Vida de una sesión",
+            "items": [
+              {
+                "label": "Autenticar",
+                "detail": "Comprobar la credencial inicial"
+              },
+              {
+                "label": "Emitir sesión",
+                "detail": "Entregar un identificador protegido"
+              },
+              {
+                "label": "Autorizar",
+                "detail": "Evaluar permisos en cada solicitud"
+              },
+              {
+                "label": "Cerrar",
+                "detail": "Revocar o finalizar la credencial"
+              }
+            ],
+            "caption": "La sesión no convierte cualquier petición del navegador en una operación autorizada."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Botón de salir incompleto",
+        "scenario": "La interfaz vuelve al inicio, pero una cookie sigue permitiendo consultar datos.",
+        "steps": [
+          {
+            "action": "Identificar credencial",
+            "reason": "La pantalla no es el control de acceso.",
+            "result": "Cookie de sesión todavía válida"
+          },
+          {
+            "action": "Comprobar servidor",
+            "reason": "La autorización debe depender del estado real.",
+            "result": "Una solicitud autorizada sigue funcionando"
+          },
+          {
+            "action": "Definir corrección",
+            "reason": "Salir debe impedir reutilización conforme al diseño.",
+            "result": "Invalidación y prueba posterior documentadas"
+          }
+        ],
+        "result": "El problema es de cierre efectivo de la sesión, no únicamente de diseño visual.",
+        "visual": {
+          "type": "flow",
+          "title": "Botón de salir incompleto",
+          "items": [
+            {
+              "label": "Identificar credencial",
+              "detail": "Cookie de sesión todavía válida"
+            },
+            {
+              "label": "Comprobar servidor",
+              "detail": "Una solicitud autorizada sigue funcionando"
+            },
+            {
+              "label": "Definir corrección",
+              "detail": "Invalidación y prueba posterior documentadas"
+            }
+          ],
+          "caption": "El problema es de cierre efectivo de la sesión, no únicamente de diseño visual."
+        }
+      },
+      "practice": {
+        "task": "Dibuja una sesión de una aplicación ficticia.",
+        "steps": [
+          "Incluye autenticación, emisión y uso.",
+          "Anota dos protecciones de la cookie.",
+          "Explica cómo comprobarías el cierre sin compartir secretos."
+        ],
+        "expected": "Un flujo que diferencia contraseña, sesión y permiso."
+      },
+      "check": {
+        "question": "¿Por qué es sensible una cookie de sesión?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Porque siempre contiene la contraseña"
+          },
+          {
+            "id": "b",
+            "text": "Porque puede permitir actuar como el usuario"
+          },
+          {
+            "id": "c",
+            "text": "Porque cambia la dirección MAC"
+          }
+        ],
+        "correct": "b",
+        "explanation": "El servidor puede aceptar ese identificador como credencial de una sesión activa."
+      },
+      "mistakes": [
+        {
+          "myth": "Borrar el nombre del usuario de la pantalla cierra su sesión.",
+          "correction": "La credencial debe perder validez o dejar de aceptarse según el diseño."
+        }
+      ],
+      "recap": [
+        "Una cookie puede transportar una credencial.",
+        "Los atributos protegen frente a riesgos diferentes.",
+        "Cerrar sesión debe afectar la validez del acceso."
+      ],
+      "glossary": [
+        {
+          "term": "Cookie",
+          "definition": "Dato que el navegador almacena y envía bajo reglas determinadas."
+        },
+        {
+          "term": "Revocación",
+          "definition": "Retirada de la validez de una credencial o permiso."
+        }
+      ]
+    },
+    {
+      "dayId": "w15d4",
+      "title": "HTTPS y TLS",
+      "lead": "Comprende qué protege HTTPS y qué puede seguir observando un analista de red.",
+      "sections": [
+        {
+          "topic": "Certificados y metadatos",
+          "explanation": [
+            "HTTPS utiliza HTTP sobre una conexión protegida con TLS. El establecimiento de la conexión negocia parámetros y claves; la autenticación habitual del servidor utiliza certificados y validación de su identidad. Después, el contenido HTTP viaja cifrado entre los extremos TLS. Un certificado válido ayuda a comprobar el nombre del servidor dentro del modelo de confianza, pero no garantiza que su negocio o cada archivo descargado sean honestos.",
+            "Una captura puede seguir mostrando direcciones IP, tamaños, tiempos y parte de los metadatos según el protocolo y la configuración. No debes asumir que verás rutas, cookies o contraseñas de una sesión HTTPS. Tampoco debes asumir que el nombre del sitio siempre será visible: mecanismos de privacidad y la resolución de nombres pueden cambiar esa observación. Analizar TLS exige describir exactamente qué está presente en la captura y qué información no puedes recuperar con ella."
+          ],
+          "analogy": "Un sobre cerrado protege la carta, aunque un observador todavía vea parte del recorrido y el tamaño del envío.",
+          "keyPoints": [
+            "TLS protege el contenido entre sus extremos.",
+            "Certificado válido no equivale a sitio inocuo.",
+            "Los metadatos visibles dependen de la configuración."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Visibilidad de una conexión",
+            "items": [
+              {
+                "label": "Red",
+                "detail": "IP, tiempo y tamaño de paquetes"
+              },
+              {
+                "label": "TLS",
+                "detail": "Negociación y campos observables"
+              },
+              {
+                "label": "HTTP cifrado",
+                "detail": "Contenido no legible sin material autorizado"
+              }
+            ],
+            "caption": "Este modelo muestra límites de observación; no promete que todos los metadatos sean visibles."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Un tráfico HTTPS de gran volumen",
+        "scenario": "Se observa una conexión prolongada con muchos bytes hacia una IP externa.",
+        "steps": [
+          {
+            "action": "Describir el hecho",
+            "reason": "El volumen es una medición, no un veredicto.",
+            "result": "Muchos bytes en una conversación"
+          },
+          {
+            "action": "Reconocer el cifrado",
+            "reason": "La carga útil HTTP no es legible.",
+            "result": "No se conoce el archivo transferido"
+          },
+          {
+            "action": "Buscar contexto autorizado",
+            "reason": "Se necesita correlación con otras fuentes.",
+            "result": "Registros de aplicación o endpoint solicitados"
+          }
+        ],
+        "result": "La hipótesis de transferencia requiere evidencia adicional para afirmar qué datos salieron.",
+        "visual": {
+          "type": "flow",
+          "title": "Un tráfico HTTPS de gran volumen",
+          "items": [
+            {
+              "label": "Describir el hecho",
+              "detail": "Muchos bytes en una conversación"
+            },
+            {
+              "label": "Reconocer el cifrado",
+              "detail": "No se conoce el archivo transferido"
+            },
+            {
+              "label": "Buscar contexto autorizado",
+              "detail": "Registros de aplicación o endpoint solicitados"
+            }
+          ],
+          "caption": "La hipótesis de transferencia requiere evidencia adicional para afirmar qué datos salieron."
+        }
+      },
+      "practice": {
+        "task": "Clasifica datos de una captura ficticia HTTPS.",
+        "steps": [
+          "Marca IP y tiempo como observables en el ejemplo.",
+          "Marca contenido del documento como desconocido.",
+          "Propón una fuente legítima para completar el análisis."
+        ],
+        "expected": "Una conclusión que no inventa contenido oculto por TLS."
+      },
+      "check": {
+        "question": "¿Qué prueba un certificado válido?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que el contenido no puede ser malicioso"
+          },
+          {
+            "id": "b",
+            "text": "Que el usuario tiene permiso para todo"
+          },
+          {
+            "id": "c",
+            "text": "Una vinculación de identidad validada dentro del modelo de confianza"
+          }
+        ],
+        "correct": "c",
+        "explanation": "La autenticación del servidor y la confianza en el contenido son decisiones distintas."
+      },
+      "mistakes": [
+        {
+          "myth": "Wireshark siempre muestra las contraseñas de una conexión.",
+          "correction": "En tráfico cifrado, el contenido no es legible sin condiciones y claves autorizadas."
+        }
+      ],
+      "recap": [
+        "TLS protege el contenido entre sus extremos.",
+        "Certificado válido no equivale a sitio inocuo.",
+        "Los metadatos visibles dependen de la configuración."
+      ],
+      "glossary": [
+        {
+          "term": "TLS",
+          "definition": "Protocolo que protege comunicaciones entre extremos."
+        },
+        {
+          "term": "Metadato",
+          "definition": "Información sobre la comunicación distinta de su contenido principal."
+        }
+      ]
+    },
+    {
+      "dayId": "w15d5",
+      "title": "Wireshark",
+      "lead": "Aprende a mirar una captura con una pregunta y un filtro de visualización reproducible.",
+      "sections": [
+        {
+          "topic": "Interfaz, filtros y columnas",
+          "explanation": [
+            "Wireshark presenta una lista de paquetes, un árbol de campos decodificados y los bytes correspondientes. Seleccionar una fila permite relacionar el resumen con campos concretos de red o transporte. Antes de filtrar, identifica interfaz, intervalo temporal y equipos presentes; una captura puede mostrar solo una parte del recorrido. No todas las conversaciones de una red serán visibles desde cualquier punto.",
+            "Un filtro de visualización limita lo que ves sin borrar los paquetes del archivo. Por ejemplo, dns selecciona mensajes reconocidos como DNS e ip.addr == 192.0.2.10 selecciona tráfico IPv4 relacionado con esa dirección. Un filtro de captura actúa al recoger tráfico y usa otra sintaxis. Conserva una copia original y anota el filtro aplicado para evitar interpretar una ausencia causada por tu selección como ausencia real de actividad."
+          ],
+          "analogy": "Un filtro de visualización es una lupa sobre un archivo; un filtro de captura decide qué entra en el archivo.",
+          "keyPoints": [
+            "Relaciona resumen, campos y bytes.",
+            "Filtro de visualización no elimina paquetes.",
+            "Documenta punto de captura y selección."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Tres paneles de inspección",
+            "items": [
+              {
+                "label": "Lista",
+                "detail": "Tiempo, origen, destino y protocolo"
+              },
+              {
+                "label": "Detalle",
+                "detail": "Campos decodificados del paquete elegido"
+              },
+              {
+                "label": "Bytes",
+                "detail": "Representación de los datos capturados"
+              }
+            ],
+            "caption": "Los paneles describen la misma selección con niveles de detalle distintos."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Encontrar una consulta DNS",
+        "scenario": "Una captura de entrenamiento contiene consultas de varios equipos.",
+        "steps": [
+          {
+            "action": "Acotar equipo",
+            "reason": "La pregunta se refiere a un solo cliente.",
+            "result": "ip.addr == 192.0.2.10"
+          },
+          {
+            "action": "Acotar protocolo",
+            "reason": "Interesa la resolución de nombres.",
+            "result": "dns && ip.addr == 192.0.2.10"
+          },
+          {
+            "action": "Inspeccionar respuesta",
+            "reason": "Una consulta sola no demuestra resolución exitosa.",
+            "result": "Nombre, respuesta y tiempo anotados"
+          }
+        ],
+        "result": "La búsqueda puede reproducirse usando el mismo archivo, intervalo y filtro.",
+        "visual": {
+          "type": "flow",
+          "title": "Encontrar una consulta DNS",
+          "items": [
+            {
+              "label": "Acotar equipo",
+              "detail": "ip.addr == 192.0.2.10"
+            },
+            {
+              "label": "Acotar protocolo",
+              "detail": "dns && ip.addr == 192.0.2.10"
+            },
+            {
+              "label": "Inspeccionar respuesta",
+              "detail": "Nombre, respuesta y tiempo anotados"
+            }
+          ],
+          "caption": "La búsqueda puede reproducirse usando el mismo archivo, intervalo y filtro."
+        }
+      },
+      "practice": {
+        "task": "Usa una captura de muestra autorizada.",
+        "steps": [
+          "Anota duración y equipos observados.",
+          "Aplica un filtro de visualización sencillo.",
+          "Retíralo y explica qué vuelve a aparecer."
+        ],
+        "expected": "Una nota que identifica archivo, filtro y límites del punto de captura.",
+        "console": {
+          "language": "wireshark",
+          "code": "dns && ip.addr == 192.0.2.10",
+          "output": "Solo se muestran paquetes DNS relacionados con 192.0.2.10.",
+          "explanation": "Es un filtro de visualización, no un comando para enviar tráfico."
+        }
+      },
+      "check": {
+        "question": "¿Qué hace un filtro de visualización?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Oculta temporalmente filas que no coinciden"
+          },
+          {
+            "id": "b",
+            "text": "Elimina permanentemente paquetes del archivo"
+          },
+          {
+            "id": "c",
+            "text": "Cambia la configuración del router"
+          }
+        ],
+        "correct": "a",
+        "explanation": "La selección visual cambia las filas mostradas, pero no altera los paquetes originales."
+      },
+      "mistakes": [
+        {
+          "myth": "No aparece en mi filtro, por lo tanto no ocurrió.",
+          "correction": "Comprueba selección, alcance y punto de captura antes de concluir ausencia."
+        }
+      ],
+      "recap": [
+        "Relaciona resumen, campos y bytes.",
+        "Filtro de visualización no elimina paquetes.",
+        "Documenta punto de captura y selección."
+      ],
+      "glossary": [
+        {
+          "term": "Captura",
+          "definition": "Archivo o proceso que recoge paquetes observables."
+        },
+        {
+          "term": "Filtro de visualización",
+          "definition": "Expresión que selecciona paquetes ya capturados."
+        }
+      ]
+    },
+    {
+      "dayId": "w15d6",
+      "title": "Primera investigación de red",
+      "lead": "Construye una cronología corta a partir de una conversación, no de paquetes aislados.",
+      "sections": [
+        {
+          "topic": "Tiempo y conversaciones",
+          "explanation": [
+            "Investigar una captura comienza con una pregunta acotada: qué equipo se comunicó, con quién, cuándo y mediante qué servicio. Una conversación reúne paquetes relacionados y permite observar dirección, volumen y duración. Un paquete individual puede parecer llamativo sin representar una anomalía; por ejemplo, retransmisiones pueden aparecer durante problemas normales de conectividad y necesitan contexto antes de atribuirlas a una amenaza.",
+            "Fija el formato de tiempo y revisa si se muestra hora absoluta o tiempo relativo desde el inicio. Conserva la zona horaria de la fuente cuando combines registros. Sigue una secuencia plausible, como resolución de nombre seguida de conexión y transferencia, distinguiendo lo observado de lo inferido. Si el contenido está cifrado, utiliza metadatos y busca corroboración autorizada; no rellenes los huecos con una historia que la captura no demuestra."
+          ],
+          "analogy": "Es como reconstruir una llamada con su agenda y duración: esos datos no revelan todas las palabras pronunciadas.",
+          "keyPoints": [
+            "Empieza con una pregunta y un intervalo.",
+            "Agrupa paquetes en conversaciones.",
+            "Distingue secuencia observada e interpretación."
+          ],
+          "visual": {
+            "type": "timeline",
+            "title": "Cronología de una consulta",
+            "items": [
+              {
+                "label": "10:00:00",
+                "detail": "Consulta de nombre observada"
+              },
+              {
+                "label": "10:00:01",
+                "detail": "Respuesta con una dirección"
+              },
+              {
+                "label": "10:00:02",
+                "detail": "Conexión hacia esa dirección"
+              },
+              {
+                "label": "10:00:03",
+                "detail": "Intercambio de datos cifrados"
+              }
+            ],
+            "caption": "La secuencia es ficticia y muestra relaciones temporales, no el contenido de los datos."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Una página tarda en cargar",
+        "scenario": "La captura muestra consulta DNS, respuesta y varios intentos de conexión.",
+        "steps": [
+          {
+            "action": "Medir resolución",
+            "reason": "Descarta culpar a DNS sin comparar tiempos.",
+            "result": "DNS responde rápidamente"
+          },
+          {
+            "action": "Examinar transporte",
+            "reason": "La demora ocurre después de resolver.",
+            "result": "Intentos de conexión sin respuesta visible"
+          },
+          {
+            "action": "Acotar conclusión",
+            "reason": "El punto de captura no muestra todo el recorrido.",
+            "result": "Investigar destino, ruta y control de acceso"
+          }
+        ],
+        "result": "La evidencia ubica el problema después de DNS, sin identificar aún su causa exacta.",
+        "visual": {
+          "type": "flow",
+          "title": "Una página tarda en cargar",
+          "items": [
+            {
+              "label": "Medir resolución",
+              "detail": "DNS responde rápidamente"
+            },
+            {
+              "label": "Examinar transporte",
+              "detail": "Intentos de conexión sin respuesta visible"
+            },
+            {
+              "label": "Acotar conclusión",
+              "detail": "Investigar destino, ruta y control de acceso"
+            }
+          ],
+          "caption": "La evidencia ubica el problema después de DNS, sin identificar aún su causa exacta."
+        }
+      },
+      "practice": {
+        "task": "Crea una cronología de cinco eventos ficticios.",
+        "steps": [
+          "Usa un solo formato de hora.",
+          "Asocia cada evento con una fuente o paquete.",
+          "Escribe una hipótesis y una limitación."
+        ],
+        "expected": "Una secuencia verificable sin afirmar contenido que no has observado."
+      },
+      "check": {
+        "question": "¿Qué mejora una cronología?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Añadir una causa inventada a cada paquete"
+          },
+          {
+            "id": "b",
+            "text": "Relacionar eventos con tiempo y fuente"
+          },
+          {
+            "id": "c",
+            "text": "Ordenar los equipos por color"
+          }
+        ],
+        "correct": "b",
+        "explanation": "La relación temporal y la procedencia permiten reconstruir y revisar el análisis."
+      },
+      "mistakes": [
+        {
+          "myth": "Una retransmisión demuestra un ataque.",
+          "correction": "También puede reflejar pérdida o congestión; necesita contexto."
+        }
+      ],
+      "recap": [
+        "Empieza con una pregunta y un intervalo.",
+        "Agrupa paquetes en conversaciones.",
+        "Distingue secuencia observada e interpretación."
+      ],
+      "glossary": [
+        {
+          "term": "Conversación",
+          "definition": "Conjunto de paquetes relacionados entre extremos."
+        },
+        {
+          "term": "Cronología",
+          "definition": "Secuencia de hechos ordenados con tiempo y procedencia."
+        }
+      ]
+    },
+    {
+      "dayId": "w15d7",
+      "title": "Evaluación web",
+      "lead": "Resuelve un caso web distinguiendo identidad del sitio, contenido y metadatos.",
+      "sections": [
+        {
+          "topic": "Contenido frente a metadatos",
+          "explanation": [
+            "Una evaluación web combina capas que responden a preguntas diferentes. La URL identifica el destino solicitado; HTTP describe solicitudes y respuestas; la sesión mantiene contexto de acceso; TLS protege el canal. Confundir estas capas produce conclusiones incorrectas, como afirmar que un sitio es legítimo porque usa HTTPS o que un código 200 demuestra que el usuario estaba autorizado.",
+            "Considera una alerta por conexión a un dominio desconocido. Una captura puede mostrar el destino y la duración, mientras un registro del navegador aporta la URL y el endpoint informa del proceso. Debes verificar si las fuentes corresponden al mismo equipo y momento. Si únicamente tienes metadatos, el resultado debe reconocerlo. Una buena respuesta explica qué sabes, qué sospechas, qué necesitas comprobar y cuál es el siguiente paso menos invasivo."
+          ],
+          "analogy": "Varias cámaras de un edificio muestran ángulos distintos; unirlas requiere comprobar que miran el mismo momento y lugar.",
+          "keyPoints": [
+            "Cada capa aporta evidencia distinta.",
+            "Correlaciona equipo y tiempo antes de unir fuentes.",
+            "La incertidumbre debe quedar explícita."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Preguntas por capa",
+            "items": [
+              {
+                "label": "URL",
+                "detail": "¿Qué host y recurso se solicitaron?"
+              },
+              {
+                "label": "HTTP y sesión",
+                "detail": "¿Qué operación y acceso registró la aplicación?"
+              },
+              {
+                "label": "TLS y red",
+                "detail": "¿Qué recorrido y metadatos son observables?"
+              }
+            ],
+            "caption": "Ninguna de estas preguntas sustituye automáticamente a las demás."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Descarga desconocida por HTTPS",
+        "scenario": "Solo se conserva una captura con tráfico TLS hacia una IP externa.",
+        "steps": [
+          {
+            "action": "Enumerar hechos",
+            "reason": "La captura aporta extremos y tiempos.",
+            "result": "Conexión cifrada observada"
+          },
+          {
+            "action": "Marcar desconocidos",
+            "reason": "No hay visibilidad del archivo descargado.",
+            "result": "Contenido y legitimidad sin demostrar"
+          },
+          {
+            "action": "Pedir corroboración",
+            "reason": "El navegador o endpoint pueden aportar contexto.",
+            "result": "Solicitud de registros del mismo intervalo"
+          }
+        ],
+        "result": "El informe evita afirmar una descarga maliciosa que la evidencia no permite verificar.",
+        "visual": {
+          "type": "flow",
+          "title": "Descarga desconocida por HTTPS",
+          "items": [
+            {
+              "label": "Enumerar hechos",
+              "detail": "Conexión cifrada observada"
+            },
+            {
+              "label": "Marcar desconocidos",
+              "detail": "Contenido y legitimidad sin demostrar"
+            },
+            {
+              "label": "Pedir corroboración",
+              "detail": "Solicitud de registros del mismo intervalo"
+            }
+          ],
+          "caption": "El informe evita afirmar una descarga maliciosa que la evidencia no permite verificar."
+        }
+      },
+      "practice": {
+        "task": "Redacta un análisis de un caso web ficticio.",
+        "steps": [
+          "Incluye dos hechos observados.",
+          "Distingue una hipótesis de una conclusión.",
+          "Propón una fuente adicional y un criterio de validación."
+        ],
+        "expected": "Un párrafo técnico que reconoce exactamente el alcance de cada fuente."
+      },
+      "check": {
+        "question": "¿Cuál es una conclusión válida con solo metadatos TLS?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Se observó una conexión cifrada con esos extremos"
+          },
+          {
+            "id": "b",
+            "text": "Se conoce el texto completo transmitido"
+          },
+          {
+            "id": "c",
+            "text": "El servidor carece de malware"
+          }
+        ],
+        "correct": "a",
+        "explanation": "Los metadatos permiten describir la comunicación, no reconstruir por sí solos su contenido."
+      },
+      "mistakes": [
+        {
+          "myth": "Una conexión cifrada nunca necesita investigación.",
+          "correction": "El cifrado protege el transporte, pero también puede transportar actividad no autorizada."
+        }
+      ],
+      "recap": [
+        "Cada capa aporta evidencia distinta.",
+        "Correlaciona equipo y tiempo antes de unir fuentes.",
+        "La incertidumbre debe quedar explícita."
+      ],
+      "glossary": [
+        {
+          "term": "Correlación",
+          "definition": "Relación sustentada entre eventos de varias fuentes."
+        },
+        {
+          "term": "Hipótesis",
+          "definition": "Explicación provisional que requiere una prueba."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,933 @@
+{
+  "version": "2.0.0",
+  "week": 44,
+  "title": "Investigación con registros",
+  "overview": "Esta semana interpretarás registros de autenticación, procesos y servicios sin confundir una alerta con una intrusión confirmada. Practicarás con cuentas y equipos ficticios, revisando tipos de acceso, relaciones padre-hijo y diferencias entre sistemas. Los ejemplos enseñan a correlacionar con claves y tiempos adecuados, probar reglas de detección y documentar falsos positivos o límites de visibilidad. La evaluación final separa hechos, inferencias y preguntas pendientes para comunicar decisiones que otra persona pueda revisar.",
+  "objectives": [
+    "Interpretar accesos y procesos con sus campos y contexto.",
+    "Construir correlaciones y reglas de detección comprobables.",
+    "Entregar conclusiones con evidencia y limitaciones accionables."
+  ],
+  "sources": [
+    {
+      "id": "logon",
+      "title": "Microsoft: evento 4625 y tipos de inicio de sesión",
+      "url": "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4625"
+    },
+    {
+      "id": "nist61",
+      "title": "NIST SP 800-61r3: respuesta y gestión del riesgo",
+      "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+    },
+    {
+      "id": "splunk",
+      "title": "Splunk: búsqueda y procesamiento de resultados",
+      "url": "https://www.splunk.com/en_us/blog/tips-and-tricks/search-commands-stats-chart-and-timechart.html"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w44d1",
+      "title": "Autenticación Windows",
+      "lead": "Un acceso exitoso es un hecho técnico; decidir si era esperado requiere contexto.",
+      "sections": [
+        {
+          "topic": "Éxitos, fallos, tipos y causas",
+          "explanation": [
+            "En registros de seguridad de Windows, el evento 4624 informa un inicio de sesión exitoso y el 4625 un intento fallido, cuando la auditoría y la cobertura correspondientes lo registran. Revisa equipo que generó el evento, cuenta de destino, origen y tipo de inicio. El tipo 3 describe acceso de red y el 10 acceso remoto interactivo en los contextos documentados. Un éxito no demuestra que la persona autorizada estuviera detrás de la cuenta.",
+            "Los fallos tampoco prueban por sí solos un ataque. Una contraseña antigua en un servicio, un error de escritura o una cuenta bloqueada pueden producirlos. Lee códigos de estado y campos disponibles, sin inventar una causa cuando faltan. Busca secuencias comparables por cuenta, equipo e intervalo, y contrástalas con cambios o tickets autorizados. Si una fuente no registra éxitos, no interpretes su ausencia como certeza de que todos los intentos fallaron. La política de auditoría define parte de lo visible."
+          ],
+          "analogy": "El torno registra que una tarjeta abrió la puerta; no confirma quién llevaba la tarjeta.",
+          "keyPoints": [
+            "Resultado: 4624 y 4625 describen éxito o fallo registrado.",
+            "Tipo: El tipo de inicio ayuda a interpretar cómo ocurrió.",
+            "Contexto: Cuenta, equipo, origen y causa requieren revisión conjunta."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Autenticación Windows",
+            "items": [
+              {
+                "label": "Resultado",
+                "detail": "4624 y 4625 describen éxito o fallo registrado."
+              },
+              {
+                "label": "Tipo",
+                "detail": "El tipo de inicio ayuda a interpretar cómo ocurrió."
+              },
+              {
+                "label": "Contexto",
+                "detail": "Cuenta, equipo, origen y causa requieren revisión conjunta."
+              }
+            ],
+            "caption": "Un acceso exitoso es un hecho técnico; decidir si era esperado requiere contexto."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Fallos seguidos de un éxito",
+        "scenario": "Una muestra ficticia muestra cuatro 4625 y un 4624 de red para usuario-lab.",
+        "steps": [
+          {
+            "action": "Alinear identidad",
+            "reason": "Evita unir cuentas o equipos distintos.",
+            "result": "Cuenta y servidor coinciden."
+          },
+          {
+            "action": "Leer campos",
+            "reason": "La secuencia necesita causa y origen.",
+            "result": "El escenario identifica contraseña antigua y renovación autorizada."
+          },
+          {
+            "action": "Revisar contexto",
+            "reason": "Un éxito aislado no decide intención.",
+            "result": "El ticket explica el cambio; se documenta la secuencia sin declarar compromiso."
+          }
+        ],
+        "result": "La explicación se apoya en eventos y contexto autorizado.",
+        "visual": {
+          "type": "timeline",
+          "title": "Fallos seguidos de un éxito",
+          "items": [
+            {
+              "label": "Alinear identidad",
+              "detail": "Cuenta y servidor coinciden."
+            },
+            {
+              "label": "Leer campos",
+              "detail": "El escenario identifica contraseña antigua y renovación autorizada."
+            },
+            {
+              "label": "Revisar contexto",
+              "detail": "El ticket explica el cambio; se documenta la secuencia sin declarar compromiso."
+            }
+          ],
+          "caption": "La explicación se apoya en eventos y contexto autorizado."
+        }
+      },
+      "practice": {
+        "task": "Interpreta tres eventos ficticios con resultado y tipo distintos.",
+        "steps": [
+          "Separa cuenta de destino y equipo generador.",
+          "Describe lo observado sin atribuir persona.",
+          "Añade una pregunta para comprobar si era esperado."
+        ],
+        "expected": "Tres fichas con hecho, contexto y dato pendiente."
+      },
+      "check": {
+        "question": "¿Qué demuestra directamente un 4624?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que la cuenta nunca estuvo comprometida."
+          },
+          {
+            "id": "b",
+            "text": "Un inicio de sesión exitoso registrado en su contexto."
+          },
+          {
+            "id": "c",
+            "text": "Que todos los archivos fueron leídos."
+          }
+        ],
+        "correct": "b",
+        "explanation": "El evento informa autenticación exitosa, no identidad humana ni todas las acciones posteriores."
+      },
+      "mistakes": [
+        {
+          "myth": "Cada 4625 corresponde a un ataque de fuerza bruta.",
+          "correction": "Los fallos tienen varias causas; los códigos y la secuencia ayudan a investigarlas."
+        }
+      ],
+      "recap": [
+        "Resultado: 4624 y 4625 describen éxito o fallo registrado.",
+        "Tipo: El tipo de inicio ayuda a interpretar cómo ocurrió.",
+        "Contexto: Cuenta, equipo, origen y causa requieren revisión conjunta."
+      ],
+      "glossary": [
+        {
+          "term": "Tipo de inicio",
+          "definition": "Categoría que describe la modalidad del acceso registrado."
+        },
+        {
+          "term": "Cuenta de destino",
+          "definition": "Identidad para la que se intentó iniciar sesión."
+        }
+      ]
+    },
+    {
+      "dayId": "w44d2",
+      "title": "Procesos",
+      "lead": "Un árbol de procesos aporta relaciones, pero cada vínculo necesita tiempo y campos completos.",
+      "sections": [
+        {
+          "topic": "Padre, hijo, usuario y contexto",
+          "explanation": [
+            "Los registros de creación de procesos permiten examinar qué programa inició otro, bajo qué cuenta y con qué argumentos cuando la fuente los conserva. Un árbol padre-hijo ayuda a formular preguntas: una aplicación de documentos que inicia un intérprete merece contexto distinto de una terminal administrativa autorizada. La relación no convierte automáticamente al hijo en malicioso. Revisa ruta, línea de comandos, identidad y momento, y comprueba si la política de registro incluía todos esos campos.",
+            "Los identificadores de proceso pueden reutilizarse. Para unir eventos, combina equipo, PID y tiempos compatibles o un identificador más estable si la fuente lo ofrece. No interpretes una ausencia de padre como prueba de evasión sin revisar cobertura y duración de la captura. Un proceso puede haber empezado antes de que comenzara el registro. En el informe conserva los argumentos relevantes y minimiza secretos que puedan aparecer en ellos, como tokens o rutas con información privada."
+          ],
+          "analogy": "Un árbol familiar con nombres repetidos necesita fechas y relaciones verificadas para no unir personas diferentes.",
+          "keyPoints": [
+            "Padre-hijo: Relación de creación observada por la fuente.",
+            "Contexto: Ruta, argumentos, usuario y momento explican la acción.",
+            "Correlación: Equipo y tiempo evitan confusiones por PID reutilizado."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Procesos",
+            "items": [
+              {
+                "label": "Padre-hijo",
+                "detail": "Relación de creación observada por la fuente."
+              },
+              {
+                "label": "Contexto",
+                "detail": "Ruta, argumentos, usuario y momento explican la acción."
+              },
+              {
+                "label": "Correlación",
+                "detail": "Equipo y tiempo evitan confusiones por PID reutilizado."
+              }
+            ],
+            "caption": "Un árbol de procesos aporta relaciones, pero cada vínculo necesita tiempo y campos completos."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Un intérprete desde una aplicación",
+        "scenario": "Un caso ficticio muestra editor-lab iniciando una consola con un comando de inventario.",
+        "steps": [
+          {
+            "action": "Leer argumentos",
+            "reason": "El nombre del hijo no cuenta su finalidad.",
+            "result": "El comando consulta información local sin cambios."
+          },
+          {
+            "action": "Contrastar autorización",
+            "reason": "Una tarea legítima puede usar la misma herramienta.",
+            "result": "Existe una prueba de automatización aprobada."
+          },
+          {
+            "action": "Conservar relación",
+            "reason": "La conclusión necesita evidencias concretas.",
+            "result": "Se registra árbol, momento y ticket de laboratorio."
+          }
+        ],
+        "result": "La relación queda documentada sin usar el nombre del intérprete como veredicto.",
+        "visual": {
+          "type": "timeline",
+          "title": "Un intérprete desde una aplicación",
+          "items": [
+            {
+              "label": "Leer argumentos",
+              "detail": "El comando consulta información local sin cambios."
+            },
+            {
+              "label": "Contrastar autorización",
+              "detail": "Existe una prueba de automatización aprobada."
+            },
+            {
+              "label": "Conservar relación",
+              "detail": "Se registra árbol, momento y ticket de laboratorio."
+            }
+          ],
+          "caption": "La relación queda documentada sin usar el nombre del intérprete como veredicto."
+        }
+      },
+      "practice": {
+        "task": "Dibuja un árbol de cuatro procesos ficticios con momentos de inicio.",
+        "steps": [
+          "Añade ruta y usuario a cada nodo.",
+          "Marca un vínculo que necesite más datos.",
+          "Explica una alternativa legítima para una relación inusual."
+        ],
+        "expected": "Un árbol con contexto y límites, no una lista de nombres sospechosos."
+      },
+      "check": {
+        "question": "¿Qué ayuda a evitar una unión errónea por PID?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Usar equipo y tiempos compatibles."
+          },
+          {
+            "id": "b",
+            "text": "Ignorar la ruta."
+          },
+          {
+            "id": "c",
+            "text": "Ordenar solo por nombre."
+          }
+        ],
+        "correct": "a",
+        "explanation": "El PID no es una identidad permanente; su significado depende del sistema y del intervalo."
+      },
+      "mistakes": [
+        {
+          "myth": "Un intérprete de comandos siempre indica intrusión.",
+          "correction": "También se utiliza para administración y automatización autorizadas."
+        }
+      ],
+      "recap": [
+        "Padre-hijo: Relación de creación observada por la fuente.",
+        "Contexto: Ruta, argumentos, usuario y momento explican la acción.",
+        "Correlación: Equipo y tiempo evitan confusiones por PID reutilizado."
+      ],
+      "glossary": [
+        {
+          "term": "Línea de comandos",
+          "definition": "Argumentos registrados con una ejecución."
+        },
+        {
+          "term": "Árbol de procesos",
+          "definition": "Representación de relaciones de creación entre procesos."
+        }
+      ]
+    },
+    {
+      "dayId": "w44d3",
+      "title": "Linux",
+      "lead": "Los registros de Linux se interpretan según servicio, distribución y configuración de registro.",
+      "sections": [
+        {
+          "topic": "Acceso remoto, sudo y servicios",
+          "explanation": [
+            "En Linux puedes encontrar información de acceso remoto, uso de privilegios y actividad de servicios en fuentes distintas. La ubicación y el formato varían entre distribuciones y configuraciones: no asumas que un nombre de archivo es universal. Un mensaje de sshd puede informar un intento de acceso y otro de sudo una elevación solicitada o ejecutada, con campos diferentes. Antes de correlacionarlos identifica sistema, servicio, momento y semántica exacta del mensaje disponible.",
+            "Una autenticación remota y una acción privilegiada posterior no se unen solo por proximidad temporal. Comprueba cuenta, sesión o terminal y equipo, conservando la posibilidad de actividad concurrente. Una tarea automática puede usar cuentas de servicio sin sesión interactiva. En un laboratorio de lectura, examina registros sintéticos o un conjunto autorizado y evita modificar políticas de auditoría de un sistema que no administras. Si faltan registros, informa la cobertura en lugar de afirmar que no hubo accesos ni uso de privilegios."
+          ],
+          "analogy": "Dos apuntes cercanos en un cuaderno pueden pertenecer a personas distintas si no conservan su firma.",
+          "keyPoints": [
+            "Servicio: Identifica si el mensaje procede de SSH, sudo u otro componente.",
+            "Identidad: Cuenta y sesión ayudan a relacionar acciones.",
+            "Cobertura: Distribución y configuración condicionan ubicación y detalle."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Linux",
+            "items": [
+              {
+                "label": "Servicio",
+                "detail": "Identifica si el mensaje procede de SSH, sudo u otro componente."
+              },
+              {
+                "label": "Identidad",
+                "detail": "Cuenta y sesión ayudan a relacionar acciones."
+              },
+              {
+                "label": "Cobertura",
+                "detail": "Distribución y configuración condicionan ubicación y detalle."
+              }
+            ],
+            "caption": "Los registros de Linux se interpretan según servicio, distribución y configuración de registro."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Acceso y elevación",
+        "scenario": "Una muestra ficticia contiene acceso SSH de ana-lab y una orden sudo de respaldo-lab.",
+        "steps": [
+          {
+            "action": "Leer cuentas",
+            "reason": "La cercanía no equivale a identidad.",
+            "result": "Las cuentas son diferentes."
+          },
+          {
+            "action": "Comparar sesiones",
+            "reason": "Busca una relación explícita.",
+            "result": "No hay identificador que las una."
+          },
+          {
+            "action": "Redactar hallazgo",
+            "reason": "Evita una secuencia inventada.",
+            "result": "Se presentan como acciones distintas hasta obtener más contexto."
+          }
+        ],
+        "result": "No se atribuye la elevación de una cuenta al acceso de otra.",
+        "visual": {
+          "type": "timeline",
+          "title": "Acceso y elevación",
+          "items": [
+            {
+              "label": "Leer cuentas",
+              "detail": "Las cuentas son diferentes."
+            },
+            {
+              "label": "Comparar sesiones",
+              "detail": "No hay identificador que las una."
+            },
+            {
+              "label": "Redactar hallazgo",
+              "detail": "Se presentan como acciones distintas hasta obtener más contexto."
+            }
+          ],
+          "caption": "No se atribuye la elevación de una cuenta al acceso de otra."
+        }
+      },
+      "practice": {
+        "task": "Anota cinco campos de dos mensajes Linux ficticios.",
+        "steps": [
+          "Identifica servicio y cuenta.",
+          "Normaliza sus momentos con zona conocida.",
+          "Decide qué vínculo está demostrado y cuál no."
+        ],
+        "expected": "Una tabla de mensajes con relaciones justificadas."
+      },
+      "check": {
+        "question": "¿Qué conviene comprobar antes de buscar un archivo de autenticación concreto?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que el equipo tenga un icono de Linux."
+          },
+          {
+            "id": "b",
+            "text": "La distribución y configuración de registro."
+          },
+          {
+            "id": "c",
+            "text": "Que todas las líneas usen el mismo color."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La ubicación y el contenido de registros varían según distribución y configuración."
+      },
+      "mistakes": [
+        {
+          "myth": "Todo uso de sudo es una acción maliciosa.",
+          "correction": "La elevación puede ser legítima; deben revisarse identidad, comando, autorización y resultado."
+        }
+      ],
+      "recap": [
+        "Servicio: Identifica si el mensaje procede de SSH, sudo u otro componente.",
+        "Identidad: Cuenta y sesión ayudan a relacionar acciones.",
+        "Cobertura: Distribución y configuración condicionan ubicación y detalle."
+      ],
+      "glossary": [
+        {
+          "term": "sshd",
+          "definition": "Servicio de acceso remoto SSH."
+        },
+        {
+          "term": "Elevación",
+          "definition": "Obtención o uso de privilegios superiores para una acción."
+        }
+      ]
+    },
+    {
+      "dayId": "w44d4",
+      "title": "Correlación",
+      "lead": "Correlacionar es demostrar una relación mediante campos y tiempos compatibles.",
+      "sections": [
+        {
+          "topic": "Usuario, equipo y tiempo",
+          "explanation": [
+            "Una correlación combina observaciones que podrían describir una misma actividad. Los campos de unión pueden ser cuenta, equipo, dirección, identificador de sesión o proceso y momento. Ninguno es perfecto por sí solo: una IP puede representar varios equipos tras NAT, una cuenta puede usarse desde varios dispositivos y un PID reutilizarse. Elige los campos según la pregunta y explica por qué su coincidencia es significativa dentro del intervalo analizado.",
+            "Primero normaliza la representación temporal y después revisa los desfases de reloj. Dos eventos separados por veinte segundos podrían corresponder a una sola secuencia o ser acciones independientes; la ventana de correlación necesita justificación. No elimines contradicciones para mantener una historia atractiva. Si un equipo aparece con dos nombres, documenta cómo comprobaste la equivalencia. Una tabla de relaciones debe conservar evento de origen, criterio de unión y grado de certeza para que el lector pueda revisar cada enlace."
+          ],
+          "analogy": "Unir piezas de un rompecabezas requiere forma y dibujo compatibles; compartir color no basta.",
+          "keyPoints": [
+            "Claves: Cuenta, equipo y sesión reducen ambigüedad.",
+            "Tiempo: Zona y desfase condicionan el orden.",
+            "Justificación: Cada enlace conserva criterio y evidencia de origen."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Correlación",
+            "items": [
+              {
+                "label": "Claves",
+                "detail": "Cuenta, equipo y sesión reducen ambigüedad."
+              },
+              {
+                "label": "Tiempo",
+                "detail": "Zona y desfase condicionan el orden."
+              },
+              {
+                "label": "Justificación",
+                "detail": "Cada enlace conserva criterio y evidencia de origen."
+              }
+            ],
+            "caption": "Correlacionar es demostrar una relación mediante campos y tiempos compatibles."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Una IP compartida",
+        "scenario": "Dos equipos ficticios salen a internet por la misma IP pública del laboratorio.",
+        "steps": [
+          {
+            "action": "Detectar traducción",
+            "reason": "La IP pública puede agrupar equipos.",
+            "result": "El router aplica NAT."
+          },
+          {
+            "action": "Buscar detalle",
+            "reason": "Hace falta una clave más específica.",
+            "result": "Los registros internos distinguen equipo y puerto de origen."
+          },
+          {
+            "action": "Delimitar relación",
+            "reason": "Evita atribuir toda actividad al mismo endpoint.",
+            "result": "La conexión se asocia solo al equipo respaldado por esos registros."
+          }
+        ],
+        "result": "Una dirección común no convierte dos equipos en uno.",
+        "visual": {
+          "type": "timeline",
+          "title": "Una IP compartida",
+          "items": [
+            {
+              "label": "Detectar traducción",
+              "detail": "El router aplica NAT."
+            },
+            {
+              "label": "Buscar detalle",
+              "detail": "Los registros internos distinguen equipo y puerto de origen."
+            },
+            {
+              "label": "Delimitar relación",
+              "detail": "La conexión se asocia solo al equipo respaldado por esos registros."
+            }
+          ],
+          "caption": "Una dirección común no convierte dos equipos en uno."
+        }
+      },
+      "practice": {
+        "task": "Une cuatro eventos ficticios usando más de un campo.",
+        "steps": [
+          "Define claves y ventana temporal.",
+          "Marca una coincidencia ambigua.",
+          "Explica qué registro resolvería la ambigüedad."
+        ],
+        "expected": "Una tabla de vínculos con criterio explícito y límites."
+      },
+      "check": {
+        "question": "¿Qué problema introduce NAT en una correlación?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Impide que existan registros."
+          },
+          {
+            "id": "b",
+            "text": "Garantiza que todas las conexiones sean de una persona."
+          },
+          {
+            "id": "c",
+            "text": "Una IP pública puede representar varios equipos."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La traducción de direcciones puede ocultar identidades internas; hacen falta otros campos o registros."
+      },
+      "mistakes": [
+        {
+          "myth": "Eventos cercanos pertenecen necesariamente a la misma sesión.",
+          "correction": "La concurrencia y los desfases de reloj pueden producir proximidad sin relación causal."
+        }
+      ],
+      "recap": [
+        "Claves: Cuenta, equipo y sesión reducen ambigüedad.",
+        "Tiempo: Zona y desfase condicionan el orden.",
+        "Justificación: Cada enlace conserva criterio y evidencia de origen."
+      ],
+      "glossary": [
+        {
+          "term": "Clave de unión",
+          "definition": "Campo utilizado para relacionar observaciones."
+        },
+        {
+          "term": "Ventana de correlación",
+          "definition": "Intervalo elegido para considerar una posible relación."
+        }
+      ]
+    },
+    {
+      "dayId": "w44d5",
+      "title": "Detección",
+      "lead": "Una regla de detección propone qué revisar; debe probarse con ejemplos positivos y negativos.",
+      "sections": [
+        {
+          "topic": "Umbrales, regla y falsos positivos",
+          "explanation": [
+            "Una detección aplica condiciones a eventos para señalar un comportamiento de interés. Un umbral como cinco fallos en diez minutos es una decisión de diseño del laboratorio, no una definición universal de ataque. Explica qué entidad se agrupa, qué campos se usan y qué ocurre con duplicados o valores ausentes. Una regla que mezcla todas las cuentas podría alertar por actividad normal de muchos usuarios, mientras que una demasiado específica puede ignorar variaciones importantes.",
+            "Los falsos positivos son alertas que no corresponden al comportamiento que se pretendía detectar según el criterio establecido. Para investigarlos necesitas contexto y una definición del objetivo, no solo una etiqueta posterior. Prueba casos que deberían activar la regla y otros que no. Documenta también falsos negativos conocidos: situaciones de interés que la regla no observa por falta de fuente, umbral o campo. Ajustar una detección exige medir estos efectos y revisar el impacto de cada exclusión."
+          ],
+          "analogy": "Un detector de humo necesita sensibilidad suficiente, pero también distinguir sus pruebas de una alarma causada por vapor.",
+          "keyPoints": [
+            "Objetivo: Describe el comportamiento y la entidad que se vigila.",
+            "Prueba: Incluye escenarios que deben activar y no activar.",
+            "Revisión: Evalúa ruido, omisiones y efectos de exclusiones."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Detección",
+            "items": [
+              {
+                "label": "Objetivo",
+                "detail": "Describe el comportamiento y la entidad que se vigila."
+              },
+              {
+                "label": "Prueba",
+                "detail": "Incluye escenarios que deben activar y no activar."
+              },
+              {
+                "label": "Revisión",
+                "detail": "Evalúa ruido, omisiones y efectos de exclusiones."
+              }
+            ],
+            "caption": "Una regla de detección propone qué revisar; debe probarse con ejemplos positivos y negativos."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Un umbral mal agrupado",
+        "scenario": "Una regla ficticia cuenta cinco fallos globales aunque proceden de cinco cuentas distintas.",
+        "steps": [
+          {
+            "action": "Leer intención",
+            "reason": "La regla pretendía repetición contra una cuenta.",
+            "result": "El objetivo es concentración por identidad."
+          },
+          {
+            "action": "Revisar agrupación",
+            "reason": "El conteo global cambia la pregunta.",
+            "result": "Se agrupa por cuenta y servidor."
+          },
+          {
+            "action": "Probar controles",
+            "reason": "Evita corregir un error creando otro.",
+            "result": "Se ensayan cuenta repetida y cuentas distintas con los mismos totales."
+          }
+        ],
+        "result": "La regla responde ahora al comportamiento definido, con límites documentados.",
+        "visual": {
+          "type": "timeline",
+          "title": "Un umbral mal agrupado",
+          "items": [
+            {
+              "label": "Leer intención",
+              "detail": "El objetivo es concentración por identidad."
+            },
+            {
+              "label": "Revisar agrupación",
+              "detail": "Se agrupa por cuenta y servidor."
+            },
+            {
+              "label": "Probar controles",
+              "detail": "Se ensayan cuenta repetida y cuentas distintas con los mismos totales."
+            }
+          ],
+          "caption": "La regla responde ahora al comportamiento definido, con límites documentados."
+        }
+      },
+      "practice": {
+        "task": "Diseña una detección de laboratorio con tres casos de prueba.",
+        "steps": [
+          "Define entidad, condición y ventana.",
+          "Crea un positivo y dos negativos justificados.",
+          "Anota una actividad que la fuente no permitiría detectar."
+        ],
+        "expected": "Una especificación con pruebas y un límite de visibilidad."
+      },
+      "check": {
+        "question": "¿Qué mejora una regla después de escribir su condición?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Probar positivos y negativos conocidos."
+          },
+          {
+            "id": "b",
+            "text": "Ocultar todas las alertas incómodas."
+          },
+          {
+            "id": "c",
+            "text": "Aumentar el umbral hasta que nunca se active."
+          }
+        ],
+        "correct": "a",
+        "explanation": "Las pruebas comprueban si la regla cumple su objetivo y ayudan a entender omisiones y ruido."
+      },
+      "mistakes": [
+        {
+          "myth": "Eliminar alertas equivale a mejorar precisión.",
+          "correction": "Una exclusión puede ocultar actividad relevante; debe justificarse y probarse."
+        }
+      ],
+      "recap": [
+        "Objetivo: Describe el comportamiento y la entidad que se vigila.",
+        "Prueba: Incluye escenarios que deben activar y no activar.",
+        "Revisión: Evalúa ruido, omisiones y efectos de exclusiones."
+      ],
+      "glossary": [
+        {
+          "term": "Umbral",
+          "definition": "Cantidad o condición de activación elegida para una regla."
+        },
+        {
+          "term": "Falso negativo",
+          "definition": "Actividad de interés que la detección no señala."
+        }
+      ]
+    },
+    {
+      "dayId": "w44d6",
+      "title": "Caso SIEM",
+      "lead": "Investigar un acceso sospechoso requiere seguir la secuencia más allá de la alerta inicial.",
+      "sections": [
+        {
+          "topic": "Acceso sospechoso",
+          "explanation": [
+            "Una alerta de acceso es el punto de partida, no el resumen del incidente. Identifica la cuenta, el equipo de origen, el destino y el intervalo, y comprueba el evento original. Después busca contexto anterior y posterior: fallos, éxito, cambios de privilegios y actividad relacionada, según la cobertura autorizada. Mantén separado el resultado técnico de autenticación y la expectativa de negocio. Un acceso exitoso desde una ubicación nueva puede requerir verificación sin ser automáticamente una intrusión.",
+            "Construye hipótesis competidoras: uso legítimo excepcional, credencial compartida o acceso no autorizado. Escoge comprobaciones que reduzcan incertidumbre, como confirmar un cambio aprobado o revisar sesiones relacionadas. No cierres el caso únicamente porque el usuario reconoce un nombre de equipo; compara ese dato con registros. Documenta qué acciones están autorizadas durante el triaje y cuándo escalarías. Si faltan fuentes de actividad posterior, informa que el alcance permanece indeterminado en lugar de declarar que no hubo impacto."
+          ],
+          "analogy": "Una alarma de puerta obliga a mirar la entrada y el contexto; no cuenta automáticamente lo que pasó dentro del edificio.",
+          "keyPoints": [
+            "Confirmar: Comprueba alerta y evento original.",
+            "Correlacionar: Examina identidad, tiempos y acciones relacionadas.",
+            "Decidir: Contrasta hipótesis y comunica alcance pendiente."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Caso SIEM",
+            "items": [
+              {
+                "label": "Confirmar",
+                "detail": "Comprueba alerta y evento original."
+              },
+              {
+                "label": "Correlacionar",
+                "detail": "Examina identidad, tiempos y acciones relacionadas."
+              },
+              {
+                "label": "Decidir",
+                "detail": "Contrasta hipótesis y comunica alcance pendiente."
+              }
+            ],
+            "caption": "Investigar un acceso sospechoso requiere seguir la secuencia más allá de la alerta inicial."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Acceso desde un equipo nuevo",
+        "scenario": "Un caso ficticio muestra éxito de cuenta-lab desde PC-NUEVO durante una ventana de mantenimiento.",
+        "steps": [
+          {
+            "action": "Verificar contexto",
+            "reason": "La novedad merece contraste.",
+            "result": "Existe un cambio aprobado para sustituir el equipo."
+          },
+          {
+            "action": "Relacionar actividad",
+            "reason": "Comprueba que los datos encajen.",
+            "result": "Cuenta, hora y tareas posteriores coinciden con el cambio."
+          },
+          {
+            "action": "Cerrar con soporte",
+            "reason": "La decisión debe ser revisable.",
+            "result": "Se registra actividad esperada y las evidencias que lo sustentan."
+          }
+        ],
+        "result": "El cierre se basa en coincidencias verificadas, no solo en una explicación verbal.",
+        "visual": {
+          "type": "timeline",
+          "title": "Acceso desde un equipo nuevo",
+          "items": [
+            {
+              "label": "Verificar contexto",
+              "detail": "Existe un cambio aprobado para sustituir el equipo."
+            },
+            {
+              "label": "Relacionar actividad",
+              "detail": "Cuenta, hora y tareas posteriores coinciden con el cambio."
+            },
+            {
+              "label": "Cerrar con soporte",
+              "detail": "Se registra actividad esperada y las evidencias que lo sustentan."
+            }
+          ],
+          "caption": "El cierre se basa en coincidencias verificadas, no solo en una explicación verbal."
+        }
+      },
+      "practice": {
+        "task": "Resuelve un acceso ficticio sin confirmación del usuario.",
+        "steps": [
+          "Formula dos hipótesis.",
+          "Elige dos fuentes que las distingan.",
+          "Escribe un criterio de escalamiento si falta información."
+        ],
+        "expected": "Un plan de triaje con evidencia requerida y decisión condicionada."
+      },
+      "check": {
+        "question": "¿Qué es una alerta de acceso para el analista?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Una prueba de exfiltración completa."
+          },
+          {
+            "id": "b",
+            "text": "Un punto de partida que requiere comprobación."
+          },
+          {
+            "id": "c",
+            "text": "Un motivo para borrar todos los registros."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La alerta señala una condición; investigar confirma significado, alcance y respuesta apropiada."
+      },
+      "mistakes": [
+        {
+          "myth": "Un usuario que dice reconocer la actividad elimina la necesidad de revisar registros.",
+          "correction": "Su contexto ayuda, pero debe contrastarse con los datos y el alcance del caso."
+        }
+      ],
+      "recap": [
+        "Confirmar: Comprueba alerta y evento original.",
+        "Correlacionar: Examina identidad, tiempos y acciones relacionadas.",
+        "Decidir: Contrasta hipótesis y comunica alcance pendiente."
+      ],
+      "glossary": [
+        {
+          "term": "Triaje",
+          "definition": "Revisión inicial para determinar prioridad y siguientes acciones."
+        },
+        {
+          "term": "Escalamiento",
+          "definition": "Transferencia del caso a quien tiene capacidad o autoridad adecuada."
+        }
+      ]
+    },
+    {
+      "dayId": "w44d7",
+      "title": "Evaluación de registros",
+      "lead": "Un informe de registros debe permitir distinguir lo confirmado, lo inferido y lo desconocido.",
+      "sections": [
+        {
+          "topic": "Hechos e incertidumbres",
+          "explanation": [
+            "La evaluación de registros comprueba si puedes responder una pregunta con fuentes concretas y sin ampliar indebidamente el alcance. Revisa que cada afirmación tenga evento de respaldo, identidad y referencia temporal. Distingue conteos de filas, cuentas y sesiones. Si una conclusión combina varias fuentes, explica el criterio de unión y qué contradicciones examinaste. Una tabla ordenada ayuda, pero la presentación por sí sola no valida la interpretación ni la calidad de los campos extraídos.",
+            "Termina con un registro de incertidumbres accionables. No escribas simplemente «faltan datos»: especifica qué fuente, intervalo o campo sería necesario y qué decisión cambiaría. Por ejemplo, la falta de telemetría de procesos limita afirmar actividad posterior al acceso, pero no invalida el evento de autenticación observado. Incluye una comprobación independiente de los filtros y una alternativa plausible. El lector debe entender qué puede decidir ahora y qué necesita verificar antes de autorizar acciones de mayor impacto."
+          ],
+          "analogy": "Un parte meteorológico fiable distingue la lluvia observada de la previsión y del área donde no hay sensores.",
+          "keyPoints": [
+            "Confirmado: Hecho respaldado por un registro identificado.",
+            "Inferido: Interpretación con razones y alternativas.",
+            "Desconocido: Laguna concreta vinculada a una próxima comprobación."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Evaluación de registros",
+            "items": [
+              {
+                "label": "Confirmado",
+                "detail": "Hecho respaldado por un registro identificado."
+              },
+              {
+                "label": "Inferido",
+                "detail": "Interpretación con razones y alternativas."
+              },
+              {
+                "label": "Desconocido",
+                "detail": "Laguna concreta vinculada a una próxima comprobación."
+              }
+            ],
+            "caption": "Un informe de registros debe permitir distinguir lo confirmado, lo inferido y lo desconocido."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "El servidor sin telemetría posterior",
+        "scenario": "Una muestra ficticia confirma un acceso, pero no registra procesos posteriores.",
+        "steps": [
+          {
+            "action": "Fijar hecho",
+            "reason": "Evita perder lo que sí está observado.",
+            "result": "El acceso está documentado en el servidor."
+          },
+          {
+            "action": "Declarar límite",
+            "reason": "La cobertura no permite todas las preguntas.",
+            "result": "No se puede determinar ejecución posterior."
+          },
+          {
+            "action": "Proponer seguimiento",
+            "reason": "La laguna debe orientar una acción.",
+            "result": "Se solicita fuente de endpoint o registros de aplicación del mismo intervalo."
+          }
+        ],
+        "result": "El informe conserva el hecho confirmado y limita su alcance posterior.",
+        "visual": {
+          "type": "timeline",
+          "title": "El servidor sin telemetría posterior",
+          "items": [
+            {
+              "label": "Fijar hecho",
+              "detail": "El acceso está documentado en el servidor."
+            },
+            {
+              "label": "Declarar límite",
+              "detail": "No se puede determinar ejecución posterior."
+            },
+            {
+              "label": "Proponer seguimiento",
+              "detail": "Se solicita fuente de endpoint o registros de aplicación del mismo intervalo."
+            }
+          ],
+          "caption": "El informe conserva el hecho confirmado y limita su alcance posterior."
+        }
+      },
+      "practice": {
+        "task": "Clasifica seis frases de un caso propio en confirmado, inferido o desconocido.",
+        "steps": [
+          "Asocia cada hecho a un evento.",
+          "Añade una alternativa a cada inferencia.",
+          "Convierte cada desconocido en una pregunta concreta."
+        ],
+        "expected": "Una matriz de afirmaciones y evidencias lista para revisión."
+      },
+      "check": {
+        "question": "¿Qué hace útil una incertidumbre en el informe?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Omitirla para simplificar."
+          },
+          {
+            "id": "b",
+            "text": "Expresarla como certeza."
+          },
+          {
+            "id": "c",
+            "text": "Vincularla a la fuente que falta y a la decisión afectada."
+          }
+        ],
+        "correct": "c",
+        "explanation": "Una incertidumbre concreta permite elegir el siguiente paso y evita conclusiones que la cobertura no sostiene."
+      },
+      "mistakes": [
+        {
+          "myth": "Si faltan procesos, no puede afirmarse nada sobre el acceso.",
+          "correction": "Cada fuente sostiene hechos distintos; una limitación no elimina los datos válidos de otra."
+        }
+      ],
+      "recap": [
+        "Confirmado: Hecho respaldado por un registro identificado.",
+        "Inferido: Interpretación con razones y alternativas.",
+        "Desconocido: Laguna concreta vinculada a una próxima comprobación."
+      ],
+      "glossary": [
+        {
+          "term": "Hecho",
+          "definition": "Observación respaldada por una fuente identificada."
+        },
+        {
+          "term": "Incertidumbre accionable",
+          "definition": "Laguna formulada de manera que orienta una comprobación."
+        }
+      ]
+    }
+  ]
+}

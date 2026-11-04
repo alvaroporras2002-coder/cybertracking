@@ -1,0 +1,957 @@
+{
+  "version": "2.0.0",
+  "week": 34,
+  "title": "Cobertura completa del examen elegido",
+  "overview": "Una auditoría de cobertura comprueba si puedes explicar, aplicar y defender cada objetivo de la versión de examen que hayas elegido. El temario de esta aplicación es una base de estudio, no una declaración de equivalencia exacta con todos los exámenes futuros. Esta semana construirás una matriz con evidencias y brechas, practicarás casos de varios dominios y aprenderás a tratar cambios de versión sin perder lo aprendido. Usa el documento oficial vigente como referencia y registra su código y fecha.",
+  "objectives": [
+    "Distinguir exposición a un tema de competencia demostrada.",
+    "Relacionar objetivos con ejemplos y evidencias propias.",
+    "Gestionar brechas y cambios de versión con trazabilidad."
+  ],
+  "sources": [
+    {
+      "id": "controls",
+      "title": "NIST SP 800-53 — Security and Privacy Controls",
+      "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+    },
+    {
+      "id": "ir",
+      "title": "NIST SP 800-61r3 — Incident Response",
+      "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+    },
+    {
+      "id": "owasp",
+      "title": "OWASP — Web Security Testing Guide",
+      "url": "https://owasp.org/www-project-web-security-testing-guide/"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w34d1",
+      "title": "Auditar conceptos",
+      "lead": "Definición, aplicación y autonomía son evidencias distintas.",
+      "sections": [
+        {
+          "topic": "Todos los subobjetivos de conceptos generales",
+          "explanation": [
+            "Auditar conceptos generales significa comprobar relaciones, no recitar definiciones aisladas. Debes distinguir confidencialidad, integridad y disponibilidad en una situación; separar autenticación de autorización; y elegir un control por la necesidad que trata. Una tarjeta que recuerda tres palabras no demuestra que puedas aplicarlas. Usa un objetivo del documento oficial elegido y escribe una pregunta de transferencia: cambia el contexto del ejemplo y observa si tu razonamiento continúa siendo válido sin depender de frases memorizadas.",
+            "Para cada subobjetivo registra tres evidencias: explicación con tus palabras, caso resuelto y tarea sin guía. Si una evidencia falta, marca brecha en lugar de compensarla con más enlaces vistos. Un control puede contribuir a varias propiedades, pero debes explicar su efecto concreto. Por ejemplo, una firma ayuda a verificar integridad y origen bajo condiciones de confianza; no oculta el contenido. No asignes una etiqueta de dominio hasta entender qué pide la acción del escenario y qué dato discrimina la respuesta."
+          ],
+          "analogy": "Conocer las piezas de ajedrez no demuestra que puedas elegir una jugada; necesitas explicar la posición.",
+          "keyPoints": [
+            "Definición, aplicación y autonomía son evidencias distintas.",
+            "El verbo del objetivo define qué demostrar.",
+            "Un control se elige por su efecto concreto."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Tres evidencias de concepto",
+            "items": [
+              {
+                "label": "Explicar",
+                "detail": "Distinguir autenticación y autorización"
+              },
+              {
+                "label": "Aplicar",
+                "detail": "Elegir control para una factura"
+              },
+              {
+                "label": "Resolver",
+                "detail": "Justificarlo en un caso nuevo"
+              }
+            ],
+            "caption": "La matriz indica brechas reales en vez de contar únicamente recursos vistos."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Factura visible a otro usuario",
+        "scenario": "El acceso utiliza MFA, pero una persona puede consultar la factura de otra.",
+        "steps": [
+          {
+            "action": "Nombrar propiedad",
+            "reason": "MFA confirma identidad, no dueño del recurso.",
+            "result": "La brecha es de autorización."
+          },
+          {
+            "action": "Elegir control",
+            "reason": "La aplicación debe verificar el objeto solicitado.",
+            "result": "Se exige comprobación de propietario."
+          },
+          {
+            "action": "Probar transferencia",
+            "reason": "El contexto cambia sin cambiar el principio.",
+            "result": "La misma distinción sirve para expedientes y pedidos."
+          }
+        ],
+        "result": "El objetivo queda demostrado mediante un caso, no por recordar la sigla MFA.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Factura visible a otro usuario",
+          "items": [
+            {
+              "label": "Nombrar propiedad",
+              "detail": "La brecha es de autorización."
+            },
+            {
+              "label": "Elegir control",
+              "detail": "Se exige comprobación de propietario."
+            },
+            {
+              "label": "Probar transferencia",
+              "detail": "La misma distinción sirve para expedientes y pedidos."
+            }
+          ],
+          "caption": "El objetivo queda demostrado mediante un caso, no por recordar la sigla MFA."
+        }
+      },
+      "practice": {
+        "task": "Selecciona tres conceptos y crea un caso distinto para cada uno.",
+        "steps": [
+          "Escribe definición breve.",
+          "Resuelve un ejemplo.",
+          "Cambia un dato y explica si cambia la respuesta."
+        ],
+        "expected": "Una matriz con explicación, aplicación y brecha pendiente."
+      },
+      "check": {
+        "question": "¿Qué evidencia muestra mejor transferencia de un concepto?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Repetir la misma definición."
+          },
+          {
+            "id": "b",
+            "text": "Resolver un escenario nuevo y justificar el control."
+          },
+          {
+            "id": "c",
+            "text": "Abrir otro video sin realizar la tarea."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La transferencia exige aplicar el principio cuando cambian detalles del contexto y no solo recordar palabras."
+      },
+      "mistakes": [
+        {
+          "myth": "Ver un recurso significa dominar el objetivo.",
+          "correction": "El estudio se completa con aplicación, explicación y una tarea autónoma."
+        }
+      ],
+      "recap": [
+        "Definición, aplicación y autonomía son evidencias distintas.",
+        "El verbo del objetivo define qué demostrar.",
+        "Un control se elige por su efecto concreto."
+      ],
+      "glossary": [
+        {
+          "term": "Transferencia",
+          "definition": "Aplicación de un aprendizaje a una situación diferente."
+        },
+        {
+          "term": "Subobjetivo",
+          "definition": "Competencia concreta que forma parte de un objetivo mayor."
+        }
+      ]
+    },
+    {
+      "dayId": "w34d2",
+      "title": "Auditar amenazas",
+      "lead": "Separa actor, vector, condición e indicador.",
+      "sections": [
+        {
+          "topic": "Vectores, vulnerabilidades y mitigaciones",
+          "explanation": [
+            "Auditar amenazas exige relacionar actor, vector, vulnerabilidad, actividad observada y mitigación. No son sinónimos: un correo puede ser el vector, una configuración débil facilitar acceso y un proceso inesperado ser un indicador. El actor y su intención pueden permanecer desconocidos. Una buena respuesta evita atribuciones espectaculares basadas en una IP o una herramienta común. Describe qué evidencia se necesitaría para conectar las piezas y qué control reduce la condición relevante del escenario.",
+            "Organiza una matriz que muestre para cada amenaza una condición, una observación y una defensa verificable. Cambia una variable: si eliminas la exposición pública, algunos riesgos disminuyen, pero un acceso interno comprometido puede conservar una ruta. Comprueba límites de cada mitigación. La formación ayuda frente a ingeniería social, pero no reemplaza controles de identidad o verificación de operaciones. La auditoría de cobertura debe señalar qué técnicas puedes explicar y cuáles todavía confundes, sin copiar preguntas protegidas de un examen."
+          ],
+          "analogy": "No confundas al ladrón, la ventana abierta, la huella y la cerradura que instalarás: son partes diferentes del caso.",
+          "keyPoints": [
+            "Separa actor, vector, condición e indicador.",
+            "La atribución necesita evidencia específica.",
+            "Una mitigación tiene alcance y límites."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Cadena de amenaza",
+            "items": [
+              {
+                "label": "Vector",
+                "detail": "Correo con solicitud sospechosa"
+              },
+              {
+                "label": "Condición",
+                "detail": "Proceso de aprobación débil"
+              },
+              {
+                "label": "Observación",
+                "detail": "Intento de cambio no autorizado"
+              },
+              {
+                "label": "Control",
+                "detail": "Verificación independiente del cambio"
+              }
+            ],
+            "caption": "La secuencia es ficticia y no identifica a un actor real."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Cambio de cuenta bancaria",
+        "scenario": "Un mensaje urgente solicita modificar la cuenta de pago de un proveedor ficticio.",
+        "steps": [
+          {
+            "action": "Identificar vector",
+            "reason": "La solicitud llega por correo.",
+            "result": "Correo es el canal, no la identidad del actor."
+          },
+          {
+            "action": "Localizar condición",
+            "reason": "Una aprobación basada solo en el mensaje es débil.",
+            "result": "Falta verificación por canal conocido."
+          },
+          {
+            "action": "Proponer defensa",
+            "reason": "El control debe proteger la operación.",
+            "result": "Se verifica con contacto previo y autorización documentada."
+          }
+        ],
+        "result": "La mitigación protege la decisión aunque el mensaje parezca auténtico.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Cambio de cuenta bancaria",
+          "items": [
+            {
+              "label": "Identificar vector",
+              "detail": "Correo es el canal, no la identidad del actor."
+            },
+            {
+              "label": "Localizar condición",
+              "detail": "Falta verificación por canal conocido."
+            },
+            {
+              "label": "Proponer defensa",
+              "detail": "Se verifica con contacto previo y autorización documentada."
+            }
+          ],
+          "caption": "La mitigación protege la decisión aunque el mensaje parezca auténtico."
+        }
+      },
+      "practice": {
+        "task": "Crea una fila para ransomware sin ejecutar archivos.",
+        "steps": [
+          "Distingue vector y efecto.",
+          "Añade un indicador posible y su limitación.",
+          "Relaciona dos controles con momentos distintos del caso."
+        ],
+        "expected": "Una explicación causal sin atribución inventada."
+      },
+      "check": {
+        "question": "¿Un indicador identifica necesariamente al actor?",
+        "options": [
+          {
+            "id": "a",
+            "text": "No; puede ser compartido, ambiguo o insuficiente para atribuir."
+          },
+          {
+            "id": "b",
+            "text": "Sí, cualquier IP revela al responsable."
+          },
+          {
+            "id": "c",
+            "text": "Sí, si aparece en un blog."
+          }
+        ],
+        "correct": "a",
+        "explanation": "Los indicadores orientan investigación, pero la atribución requiere evidencia adicional y contexto."
+      },
+      "mistakes": [
+        {
+          "myth": "Una amenaza y una vulnerabilidad son lo mismo.",
+          "correction": "La amenaza puede actuar sobre una debilidad; son elementos distintos del riesgo."
+        }
+      ],
+      "recap": [
+        "Separa actor, vector, condición e indicador.",
+        "La atribución necesita evidencia específica.",
+        "Una mitigación tiene alcance y límites."
+      ],
+      "glossary": [
+        {
+          "term": "Vector",
+          "definition": "Medio o ruta por la que se intenta alcanzar un objetivo."
+        },
+        {
+          "term": "Indicador",
+          "definition": "Dato observable que puede orientar una investigación."
+        }
+      ]
+    },
+    {
+      "dayId": "w34d3",
+      "title": "Auditar arquitectura",
+      "lead": "Dibuja flujos necesarios y límites de confianza.",
+      "sections": [
+        {
+          "topic": "Infraestructura, datos y recuperación",
+          "explanation": [
+            "Auditar arquitectura significa explicar flujos y decisiones de confianza. Dibuja usuarios, servicios, datos y límites; después pregunta qué conexiones deben permitirse y cómo se verifican. Un diagrama lleno de iconos no demuestra un diseño seguro si no indica identidad, protocolos, permisos y dependencia. Distingue segmentación de cifrado: separar redes limita rutas; cifrar protege determinadas propiedades del intercambio. Ninguna de esas medidas por sí sola decide si un usuario está autorizado a una operación de negocio.",
+            "Comprueba también resiliencia y recuperación. Dos servidores que dependen de la misma alimentación pueden compartir un punto de fallo. Una réplica puede copiar un borrado incorrecto, por lo que no equivale automáticamente a respaldo con versiones. Para cada objetivo arquitectónico usa un fallo concreto y explica cómo lo trataría el diseño. Declara qué partes gestiona el proveedor y cuáles el cliente cuando incluyas nube. Las flechas del dibujo deben representar flujos necesarios, no acceso abierto entre todas las zonas."
+          ],
+          "analogy": "Una ciudad tiene calles, controles de acceso y rutas alternativas; poner muros no resuelve por sí solo todos los problemas.",
+          "keyPoints": [
+            "Dibuja flujos necesarios y límites de confianza.",
+            "Cifrado y segmentación cumplen funciones distintas.",
+            "La redundancia debe revisar fallos compartidos."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Arquitectura de una aplicación",
+            "items": [
+              {
+                "label": "Usuarios",
+                "detail": "Acceso autenticado al portal"
+              },
+              {
+                "label": "Aplicación",
+                "detail": "Permisos y reglas de negocio"
+              },
+              {
+                "label": "Datos",
+                "detail": "Acceso limitado desde servicio autorizado"
+              },
+              {
+                "label": "Recuperación",
+                "detail": "Copias y pruebas separadas"
+              }
+            ],
+            "caption": "Las conexiones se justifican por función y no por proximidad en el dibujo."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Dos servidores, una dependencia",
+        "scenario": "Dos instancias dependen del mismo almacenamiento sin recuperación alternativa.",
+        "steps": [
+          {
+            "action": "Seguir dependencias",
+            "reason": "Contar servidores puede ocultar un punto único.",
+            "result": "El almacenamiento es compartido."
+          },
+          {
+            "action": "Simular fallo",
+            "reason": "La prueba debe seguir un escenario concreto.",
+            "result": "Ambas instancias pierden acceso a datos."
+          },
+          {
+            "action": "Proponer mejora",
+            "reason": "La solución debe tratar esa dependencia.",
+            "result": "Se evalúa recuperación de datos y diversidad adecuada."
+          }
+        ],
+        "result": "La duplicación de instancias no demuestra resiliencia del servicio completo.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Dos servidores, una dependencia",
+          "items": [
+            {
+              "label": "Seguir dependencias",
+              "detail": "El almacenamiento es compartido."
+            },
+            {
+              "label": "Simular fallo",
+              "detail": "Ambas instancias pierden acceso a datos."
+            },
+            {
+              "label": "Proponer mejora",
+              "detail": "Se evalúa recuperación de datos y diversidad adecuada."
+            }
+          ],
+          "caption": "La duplicación de instancias no demuestra resiliencia del servicio completo."
+        }
+      },
+      "practice": {
+        "task": "Dibuja un portal con aplicación y base de datos.",
+        "steps": [
+          "Marca tres flujos permitidos.",
+          "Añade un flujo que debe denegarse.",
+          "Identifica una dependencia compartida y su prueba de recuperación."
+        ],
+        "expected": "Un mapa con decisiones de acceso y un escenario de fallo."
+      },
+      "check": {
+        "question": "¿Qué puede copiar una réplica?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo datos correctos."
+          },
+          {
+            "id": "b",
+            "text": "También un borrado o cambio no deseado, según su funcionamiento."
+          },
+          {
+            "id": "c",
+            "text": "Únicamente archivos cifrados."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La replicación puede reproducir errores; la recuperación necesita requisitos y pruebas independientes."
+      },
+      "mistakes": [
+        {
+          "myth": "Dos copias activas equivalen siempre a respaldo.",
+          "correction": "Comprueba versiones, aislamiento y restauración ante el fallo que quieres resolver."
+        }
+      ],
+      "recap": [
+        "Dibuja flujos necesarios y límites de confianza.",
+        "Cifrado y segmentación cumplen funciones distintas.",
+        "La redundancia debe revisar fallos compartidos."
+      ],
+      "glossary": [
+        {
+          "term": "Límite de confianza",
+          "definition": "Punto donde cambian supuestos y controles de acceso."
+        },
+        {
+          "term": "Fallo compartido",
+          "definition": "Condición capaz de afectar simultáneamente varias piezas redundantes."
+        }
+      ]
+    },
+    {
+      "dayId": "w34d4",
+      "title": "Auditar operaciones",
+      "lead": "Cada tarea operativa termina con evidencia.",
+      "sections": [
+        {
+          "topic": "Herramientas, identidad e incidentes",
+          "explanation": [
+            "Auditar operaciones exige demostrar que puedes usar fuentes y procedimientos para tomar una decisión. Saber el nombre de un SIEM no acredita que puedas delimitar un intervalo o interpretar campos. Saber que existe MFA no demuestra que revises sesiones al dar de baja una cuenta. El objetivo operativo debe terminar en una evidencia: consulta reproducible, permiso efectivo comprobado, estado validado o decisión de respuesta con responsable y criterio de seguimiento. Define la tarea antes de elegir la herramienta.",
+            "Un caso puede atravesar varios controles. Una baja requiere inventario de accesos, aprobación, revocación y comprobación; un incidente necesita preservar información y limitar actividad sin perder de vista el servicio. Si tu explicación salta directamente de alerta a borrado, probablemente falta análisis y contención proporcional. En la matriz de cobertura anota errores de concepto, de sintaxis y de método por separado. Así el refuerzo se adapta a la causa en lugar de repetir todo un curso sin una pregunta concreta."
+          ],
+          "analogy": "Aprender el nombre de una herramienta no demuestra que puedas terminar una reparación y comprobarla.",
+          "keyPoints": [
+            "Cada tarea operativa termina con evidencia.",
+            "Separa errores de concepto, herramienta y método.",
+            "Elige la herramienta después de definir la pregunta."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Baja verificable",
+            "items": [
+              {
+                "label": "Inventario",
+                "detail": "Cuentas y servicios vinculados"
+              },
+              {
+                "label": "Revocación",
+                "detail": "Accesos y sesiones según procedimiento"
+              },
+              {
+                "label": "Prueba",
+                "detail": "Intentos ya no autorizados"
+              },
+              {
+                "label": "Registro",
+                "detail": "Responsable y excepciones pendientes"
+              }
+            ],
+            "caption": "Deshabilitar una cuenta central puede no cubrir servicios independientes."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Baja incompleta",
+        "scenario": "La cuenta del directorio se deshabilita, pero queda una aplicación independiente con acceso.",
+        "steps": [
+          {
+            "action": "Revisar alcance",
+            "reason": "Una sola acción no cubre todas las identidades.",
+            "result": "Se identifica la aplicación externa."
+          },
+          {
+            "action": "Aplicar procedimiento",
+            "reason": "Cada acceso necesita su responsable.",
+            "result": "Se solicita revocación del servicio."
+          },
+          {
+            "action": "Acción: Validar",
+            "reason": "Una solicitud no demuestra ejecución.",
+            "result": "Se comprueba que el acceso fue retirado."
+          }
+        ],
+        "result": "La evidencia cubre la baja real y sus excepciones.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Baja incompleta",
+          "items": [
+            {
+              "label": "Revisar alcance",
+              "detail": "Se identifica la aplicación externa."
+            },
+            {
+              "label": "Aplicar procedimiento",
+              "detail": "Se solicita revocación del servicio."
+            },
+            {
+              "label": "Validar",
+              "detail": "Se comprueba que el acceso fue retirado."
+            }
+          ],
+          "caption": "La evidencia cubre la baja real y sus excepciones."
+        }
+      },
+      "practice": {
+        "task": "Audita tu explicación de un proceso de respuesta.",
+        "steps": [
+          "Escribe la pregunta inicial.",
+          "Relaciona una fuente y una acción autorizada.",
+          "Termina con una prueba y un límite."
+        ],
+        "expected": "Un flujo operativo sin saltar de señal a conclusión."
+      },
+      "check": {
+        "question": "¿Qué evidencia demuestra mejor una baja completa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Una petición enviada sin respuesta."
+          },
+          {
+            "id": "b",
+            "text": "Un nombre borrado de una hoja de cálculo."
+          },
+          {
+            "id": "c",
+            "text": "Revocaciones y comprobaciones de todos los accesos dentro del alcance."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La baja requiere cubrir sistemas y verificar resultados, no solo registrar una intención."
+      },
+      "mistakes": [
+        {
+          "myth": "Dominar una herramienta equivale a dominar operaciones.",
+          "correction": "Las operaciones también requieren alcance, contexto, coordinación y validación."
+        }
+      ],
+      "recap": [
+        "Cada tarea operativa termina con evidencia.",
+        "Separa errores de concepto, herramienta y método.",
+        "Elige la herramienta después de definir la pregunta."
+      ],
+      "glossary": [
+        {
+          "term": "Evidencia operativa",
+          "definition": "Resultado que demuestra ejecución y efecto de una tarea."
+        },
+        {
+          "term": "Brecha de método",
+          "definition": "Fallo en el orden, alcance o validación de una investigación."
+        }
+      ]
+    },
+    {
+      "dayId": "w34d5",
+      "title": "Auditar gobierno",
+      "lead": "Relaciona requisitos con responsables y evidencias.",
+      "sections": [
+        {
+          "topic": "Riesgo, proveedores y cumplimiento",
+          "explanation": [
+            "Auditar gobierno comprueba si puedes conectar riesgo, autoridad y seguimiento. Una política obliga dentro de su alcance; un procedimiento la ejecuta; una excepción necesita decisión y revisión. No basta con memorizar cuatro tratamientos de riesgo si no sabes cuándo una autoridad puede aceptar el residual. En un caso de proveedor, identifica datos, dependencia, control y evidencia; evita asumir que un contrato desplaza toda responsabilidad del cliente. Los requisitos jurídicos concretos se verifican con las funciones competentes.",
+            "Practica escenarios con restricciones reales de negocio. Si no hay presupuesto para una solución, todavía puedes proponer medidas acotadas y declarar sus límites. Elige criterios que permitan comparar alternativas, no únicamente etiquetas de alto o bajo. Una auditoría de cobertura añade a cada subobjetivo un documento propio: registro de riesgo, plan de cambio, evaluación de proveedor o hallazgo. Ese artefacto debe mostrar criterio, evidencia y responsable, para que otra persona pueda revisar el razonamiento sin conocerte."
+          ],
+          "analogy": "El gobierno es el marco que indica quién decide, con qué información y cuándo vuelve a comprobar la decisión.",
+          "keyPoints": [
+            "Relaciona requisitos con responsables y evidencias.",
+            "Las restricciones no eliminan el riesgo residual.",
+            "Un artefacto propio debe permitir revisar tu razonamiento."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Riesgo con responsable",
+            "items": [
+              {
+                "label": "Escenario",
+                "detail": "Servicio sin soporte"
+              },
+              {
+                "label": "Alternativas",
+                "detail": "Retirar, restringir o sustituir"
+              },
+              {
+                "label": "Decisión",
+                "detail": "Autoridad acepta un plan limitado"
+              },
+              {
+                "label": "Seguimiento",
+                "detail": "Fecha y prueba de tratamiento"
+              }
+            ],
+            "caption": "Una decisión no autorizada no se vuelve válida por estar bien redactada."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Excepción sin fecha",
+        "scenario": "Un servicio legado tiene aceptación informal, sin dueño ni vencimiento.",
+        "steps": [
+          {
+            "action": "Identificar carencia",
+            "reason": "Una frase no establece responsabilidad.",
+            "result": "Faltan autoridad y condiciones."
+          },
+          {
+            "action": "Completar análisis",
+            "reason": "La decisión necesita escenario y opciones.",
+            "result": "Se describen exposición y medidas temporales."
+          },
+          {
+            "action": "Solicitar aprobación",
+            "reason": "El analista no acepta por todos.",
+            "result": "Se asigna autoridad y revisión."
+          }
+        ],
+        "result": "El registro pasa de opinión informal a decisión revisable.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Excepción sin fecha",
+          "items": [
+            {
+              "label": "Identificar carencia",
+              "detail": "Faltan autoridad y condiciones."
+            },
+            {
+              "label": "Completar análisis",
+              "detail": "Se describen exposición y medidas temporales."
+            },
+            {
+              "label": "Solicitar aprobación",
+              "detail": "Se asigna autoridad y revisión."
+            }
+          ],
+          "caption": "El registro pasa de opinión informal a decisión revisable."
+        }
+      },
+      "practice": {
+        "task": "Construye un artefacto de gobierno de una página.",
+        "steps": [
+          "Elige riesgo, proveedor o cambio.",
+          "Incluye criterio, evidencia y decisión pendiente.",
+          "Añade responsable y fecha de revisión."
+        ],
+        "expected": "Un documento que otra persona pueda cuestionar y comprobar."
+      },
+      "check": {
+        "question": "¿Qué falta en una aceptación informal de riesgo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo un diseño más bonito."
+          },
+          {
+            "id": "b",
+            "text": "Autoridad, condiciones y revisión documentadas."
+          },
+          {
+            "id": "c",
+            "text": "Una contraseña compartida."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La aceptación requiere responsabilidad y límites explícitos, no una afirmación informal aislada."
+      },
+      "mistakes": [
+        {
+          "myth": "El analista puede aceptar cualquier riesgo por conocer el problema.",
+          "correction": "Conocer y explicar el riesgo no implica tener autoridad para asumirlo."
+        }
+      ],
+      "recap": [
+        "Relaciona requisitos con responsables y evidencias.",
+        "Las restricciones no eliminan el riesgo residual.",
+        "Un artefacto propio debe permitir revisar tu razonamiento."
+      ],
+      "glossary": [
+        {
+          "term": "Artefacto",
+          "definition": "Documento o resultado concreto producido durante una tarea."
+        },
+        {
+          "term": "Autoridad",
+          "definition": "Facultad asignada para tomar una decisión dentro de un alcance."
+        }
+      ]
+    },
+    {
+      "dayId": "w34d6",
+      "title": "Cambios de versión",
+      "lead": "Usa el código exacto del examen elegido.",
+      "sections": [
+        {
+          "topic": "Objetivos nuevos o modificados",
+          "explanation": [
+            "Un cambio de versión del examen modifica la referencia de preparación, no invalida automáticamente todo lo aprendido. Obtén el documento oficial del código elegido y registra fecha de consulta. Compara objetivos uno a uno: conservado, nuevo, modificado o retirado. Los títulos similares pueden esconder diferencias en profundidad o tipo de tarea. No uses una lista de un tercero como sustituto del documento oficial ni supongas que las fechas de retiro de un idioma son iguales a las de otro.",
+            "La matriz de migración debe conservar evidencia transferible y marcar lo que necesita nueva práctica. Si un objetivo cambia de describir a aplicar, conocer la definición ya no basta como evidencia de preparación. Las fechas, idiomas, modalidad y reglas se confirman antes de reservar mediante los canales oficiales; esta lección no fija datos que pueden cambiar. Los recursos de esta aplicación apoyan fundamentos, pero la decisión de examen debe basarse en la versión exacta, cobertura demostrada y condiciones vigentes."
+          ],
+          "analogy": "Cambiar de mapa no borra tus habilidades para conducir, pero exige revisar carreteras nuevas y señales diferentes.",
+          "keyPoints": [
+            "Usa el código exacto del examen elegido.",
+            "Compara objetivos y verbos, no solo títulos.",
+            "Conserva evidencia transferible y practica las brechas nuevas."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Matriz entre versiones",
+            "items": [
+              {
+                "label": "Conservado",
+                "detail": "Evidencia todavía pertinente"
+              },
+              {
+                "label": "Modificado",
+                "detail": "Revisar profundidad y tarea"
+              },
+              {
+                "label": "Nuevo",
+                "detail": "Estudio y práctica pendientes"
+              },
+              {
+                "label": "Retirado",
+                "detail": "Conservar conocimiento sin contarlo como cobertura actual"
+              }
+            ],
+            "caption": "Los estados se asignan comparando documentos oficiales concretos."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "De describir a aplicar",
+        "scenario": "En el ejemplo didáctico, un objetivo antes descriptivo ahora exige resolver una configuración.",
+        "steps": [
+          {
+            "action": "Leer verbo",
+            "reason": "El nivel de demostración cambió.",
+            "result": "Describir no equivale a aplicar."
+          },
+          {
+            "action": "Revisar evidencia",
+            "reason": "La definición anterior sigue siendo útil.",
+            "result": "Falta una tarea resuelta sin guía."
+          },
+          {
+            "action": "Planificar refuerzo",
+            "reason": "No hace falta repetir todo indiscriminadamente.",
+            "result": "Se añade práctica específica y una nueva verificación."
+          }
+        ],
+        "result": "La transición conserva fundamentos y trata la brecha real.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: De describir a aplicar",
+          "items": [
+            {
+              "label": "Leer verbo",
+              "detail": "Describir no equivale a aplicar."
+            },
+            {
+              "label": "Revisar evidencia",
+              "detail": "Falta una tarea resuelta sin guía."
+            },
+            {
+              "label": "Planificar refuerzo",
+              "detail": "Se añade práctica específica y una nueva verificación."
+            }
+          ],
+          "caption": "La transición conserva fundamentos y trata la brecha real."
+        }
+      },
+      "practice": {
+        "task": "Crea una matriz de comparación con dos objetivos ficticios.",
+        "steps": [
+          "Etiqueta ambos documentos como ejemplos, no exámenes reales.",
+          "Marca cambio de verbo y contenido.",
+          "Indica evidencia reutilizable y nueva."
+        ],
+        "expected": "Una matriz que no invente equivalencias oficiales."
+      },
+      "check": {
+        "question": "¿Qué debes confirmar antes de reservar un examen?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Código, idioma, modalidad y reglas oficiales vigentes."
+          },
+          {
+            "id": "b",
+            "text": "Solo el título de un video antiguo."
+          },
+          {
+            "id": "c",
+            "text": "La fecha que recuerdas de hace años."
+          }
+        ],
+        "correct": "a",
+        "explanation": "Las condiciones cambian y deben verificarse para el examen y modalidad concretos en fuentes oficiales."
+      },
+      "mistakes": [
+        {
+          "myth": "Un título idéntico garantiza el mismo alcance.",
+          "correction": "Revisa subobjetivos, ejemplos, verbos y condiciones de la versión concreta."
+        }
+      ],
+      "recap": [
+        "Usa el código exacto del examen elegido.",
+        "Compara objetivos y verbos, no solo títulos.",
+        "Conserva evidencia transferible y practica las brechas nuevas."
+      ],
+      "glossary": [
+        {
+          "term": "Matriz de migración",
+          "definition": "Comparación trazable entre dos referencias de preparación."
+        },
+        {
+          "term": "Evidencia transferible",
+          "definition": "Trabajo previo que sigue demostrando una competencia relevante."
+        }
+      ]
+    },
+    {
+      "dayId": "w34d7",
+      "title": "Control de cobertura",
+      "lead": "La evidencia debe corresponder al objetivo.",
+      "sections": [
+        {
+          "topic": "Matriz objetivo-evidencia",
+          "explanation": [
+            "Una matriz objetivo-evidencia convierte un programa amplio en decisiones de estudio concretas. Cada fila contiene identificador del objetivo oficial, competencia, evidencia propia, estado y siguiente acción. No marques completado solo por reconocer palabras. Diferencia visto, explicado, practicado con guía y resuelto de forma independiente. Estos estados describen tu proceso, no son una equivalencia oficial de puntuación. Una evidencia puede apoyar varios objetivos si explicas la relación, pero no debes usar un mismo archivo como prueba universal sin contenido pertinente.",
+            "Revisa brechas por importancia y por dependencia. Una dificultad con direcciones IP puede afectar reglas de firewall y lectura de tráfico; corregir la base mejora varias tareas. Define una acción pequeña y un criterio para volver a evaluar. La matriz debe actualizarse con resultados, no solo con planes. Si una tarea sigue necesitando ayuda, conserva ese estado aunque hayas invertido muchas horas. La honestidad del seguimiento evita una falsa sensación de preparación basada únicamente en tiempo, casillas o cantidad de enlaces abiertos."
+          ],
+          "analogy": "La matriz es un tablero de mantenimiento: cada fila enlaza una necesidad con una prueba y una próxima acción.",
+          "keyPoints": [
+            "La evidencia debe corresponder al objetivo.",
+            "El tiempo invertido no sustituye autonomía.",
+            "Una brecha necesita acción y criterio de revisión."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Fila de cobertura",
+            "items": [
+              {
+                "label": "Objetivo",
+                "detail": "Interpretar reglas de acceso"
+              },
+              {
+                "label": "Evidencia",
+                "detail": "Caso resuelto con dos flujos"
+              },
+              {
+                "label": "Estado",
+                "detail": "Falla al cambiar origen"
+              },
+              {
+                "label": "Acción",
+                "detail": "Practicar pertenencia de subred y reevaluar"
+              }
+            ],
+            "caption": "Los estados son de autoevaluación y no predicen una nota externa."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Fila marcada por video visto",
+        "scenario": "El estudiante reconoce reglas, pero no puede decidir si una IP pertenece a la subred permitida.",
+        "steps": [
+          {
+            "action": "Revisar competencia",
+            "reason": "El objetivo exige aplicar, no reconocer.",
+            "result": "La evidencia es insuficiente."
+          },
+          {
+            "action": "Encontrar dependencia",
+            "reason": "El fallo está en pertenencia a subred.",
+            "result": "Se identifica la base a reforzar."
+          },
+          {
+            "action": "Definir prueba",
+            "reason": "La acción debe terminar en una comprobación.",
+            "result": "Resolver dos direcciones nuevas justificando el resultado."
+          }
+        ],
+        "result": "La fila se actualiza con una brecha específica y un refuerzo medible.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Fila marcada por video visto",
+          "items": [
+            {
+              "label": "Revisar competencia",
+              "detail": "La evidencia es insuficiente."
+            },
+            {
+              "label": "Encontrar dependencia",
+              "detail": "Se identifica la base a reforzar."
+            },
+            {
+              "label": "Definir prueba",
+              "detail": "Resolver dos direcciones nuevas justificando el resultado."
+            }
+          ],
+          "caption": "La fila se actualiza con una brecha específica y un refuerzo medible."
+        }
+      },
+      "practice": {
+        "task": "Completa cinco filas reales de tu versión elegida.",
+        "steps": [
+          "Usa el documento oficial consultado.",
+          "Vincula un artefacto propio por fila.",
+          "Marca una brecha y su próxima prueba."
+        ],
+        "expected": "Una matriz honesta con estados diferentes, no todo completado."
+      },
+      "check": {
+        "question": "¿Qué justifica marcar una competencia autónoma?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Haber dedicado muchas horas."
+          },
+          {
+            "id": "b",
+            "text": "Resolver una tarea pertinente sin ayuda y explicar el resultado."
+          },
+          {
+            "id": "c",
+            "text": "Tener muchos marcadores en el navegador."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La autonomía requiere desempeño observable en una tarea relacionada con el objetivo evaluado."
+      },
+      "mistakes": [
+        {
+          "myth": "Una misma captura demuestra todos los objetivos.",
+          "correction": "Cada vínculo debe justificar qué parte del artefacto demuestra la competencia."
+        }
+      ],
+      "recap": [
+        "La evidencia debe corresponder al objetivo.",
+        "El tiempo invertido no sustituye autonomía.",
+        "Una brecha necesita acción y criterio de revisión."
+      ],
+      "glossary": [
+        {
+          "term": "Cobertura",
+          "definition": "Relación entre objetivos y preparación demostrada."
+        },
+        {
+          "term": "Autonomía",
+          "definition": "Capacidad de ejecutar y justificar una tarea sin guía necesaria."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,937 @@
+{
+  "version": "2.0.0",
+  "week": 28,
+  "title": "Gestión de vulnerabilidades",
+  "overview": "Esta semana aprenderás a convertir un resultado de herramienta en una decisión de corrección. El proceso empieza delimitando qué sistemas está permitido revisar y termina comprobando que el riesgo disminuyó. Una puntuación técnica no expresa por sí sola la importancia del negocio ni confirma explotación. Trabajarás con hallazgos ficticios, criterios de prioridad, excepciones y pruebas posteriores. El producto final será un informe que otra persona pueda ejecutar y revisar, sin explorar servicios ajenos ni ejecutar código de explotación.",
+  "objectives": [
+    "Distinguir hallazgo, vulnerabilidad confirmada y explotación.",
+    "Priorizar con exposición, impacto y contexto.",
+    "Cerrar correcciones mediante una verificación reproducible."
+  ],
+  "sources": [
+    {
+      "id": "kev",
+      "title": "CISA — Known Exploited Vulnerabilities Catalog",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+    },
+    {
+      "id": "controls",
+      "title": "NIST SP 800-53 — Security and Privacy Controls",
+      "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+    },
+    {
+      "id": "risk",
+      "title": "NIST SP 800-30r1 — Risk Assessment",
+      "url": "https://csrc.nist.gov/pubs/sp/800/30/r1/final"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w28d1",
+      "title": "Descubrimiento",
+      "lead": "Delimita alcance antes de revisar.",
+      "sections": [
+        {
+          "topic": "Inventario, exposición y alcance",
+          "explanation": [
+            "Descubrir activos consiste en identificar qué sistemas existen y cómo se relacionan con un alcance autorizado. Un inventario declara activos conocidos; una revisión puede revelar otros, pero la ausencia en la lista no concede permiso para examinarlos. Define rangos, cuentas, horarios, métodos permitidos y contacto de emergencia. Incluso una prueba que parece de lectura puede consumir recursos o activar alarmas. En este curso utilizamos inventarios y resultados preparados para practicar el razonamiento sin tocar redes ajenas.",
+            "La exposición describe desde dónde se alcanza un servicio, no solo si tiene una dirección pública. Una aplicación detrás de un proxy puede seguir siendo accesible desde internet; otra con dirección privada puede quedar expuesta por una VPN mal delimitada. Relaciona cada servicio con su dueño y propósito. Si encuentras un activo fuera del alcance, registra la observación mínima y solicita ampliación antes de continuar. Una lista incompleta debe marcarse como límite de cobertura."
+          ],
+          "analogy": "Un plano del edificio ayuda a inspeccionar habitaciones; no autoriza entrar a edificios vecinos.",
+          "keyPoints": [
+            "Delimita alcance antes de revisar.",
+            "Exposición y dirección pública no son equivalentes.",
+            "Un activo desconocido necesita dueño y autorización."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Descubrimiento autorizado",
+            "items": [
+              {
+                "label": "Alcance",
+                "detail": "Sistemas y métodos aprobados"
+              },
+              {
+                "label": "Inventario",
+                "detail": "Dueño, servicio y ubicación"
+              },
+              {
+                "label": "Cobertura",
+                "detail": "Activos revisados y límites"
+              }
+            ],
+            "caption": "No se presupone permiso por encontrar un nombre o dirección."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Servicio no inventariado",
+        "scenario": "El resultado preparado muestra portal de pruebas y portal de pagos; solo pruebas está autorizado.",
+        "steps": [
+          {
+            "action": "Separar activos",
+            "reason": "Los nombres similares no amplían el permiso.",
+            "result": "Pagos queda fuera."
+          },
+          {
+            "action": "Registrar límite",
+            "reason": "La cobertura debe ser honesta.",
+            "result": "Se documenta su existencia sin probarlo."
+          },
+          {
+            "action": "Solicitar decisión",
+            "reason": "Un dueño debe aprobar ampliaciones.",
+            "result": "La revisión continúa únicamente en pruebas."
+          }
+        ],
+        "result": "El informe no presenta como revisado un sistema que quedó fuera.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Servicio no inventariado",
+          "items": [
+            {
+              "label": "Separar activos",
+              "detail": "Pagos queda fuera."
+            },
+            {
+              "label": "Registrar límite",
+              "detail": "Se documenta su existencia sin probarlo."
+            },
+            {
+              "label": "Solicitar decisión",
+              "detail": "La revisión continúa únicamente en pruebas."
+            }
+          ],
+          "caption": "El informe no presenta como revisado un sistema que quedó fuera."
+        }
+      },
+      "practice": {
+        "task": "Delimita una revisión de tres equipos ficticios.",
+        "steps": [
+          "Nombra equipos y responsable.",
+          "Define método y horario.",
+          "Indica qué hacer ante un activo fuera del alcance."
+        ],
+        "expected": "Una autorización técnica comprensible con sistemas, métodos y responsables definidos."
+      },
+      "check": {
+        "question": "¿Qué haces ante un sistema ajeno al alcance?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Continuar porque parece relacionado."
+          },
+          {
+            "id": "b",
+            "text": "Pedir ampliación antes de revisarlo."
+          },
+          {
+            "id": "c",
+            "text": "Probar contraseñas para confirmar su dueño."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Encontrar un sistema no amplía la autorización: el alcance y los métodos permitidos deben aprobarse antes de revisarlo."
+      },
+      "mistakes": [
+        {
+          "myth": "Encontrar equivale a tener permiso.",
+          "correction": "El permiso tiene sistemas, métodos y límites explícitos."
+        }
+      ],
+      "recap": [
+        "Delimita alcance antes de revisar.",
+        "Exposición y dirección pública no son equivalentes.",
+        "Un activo desconocido necesita dueño y autorización."
+      ],
+      "glossary": [
+        {
+          "term": "Alcance",
+          "definition": "Límites acordados de una actividad."
+        },
+        {
+          "term": "Exposición",
+          "definition": "Posibilidad de alcanzar un servicio desde un contexto dado."
+        }
+      ]
+    },
+    {
+      "dayId": "w28d2",
+      "title": "Hallazgos",
+      "lead": "CVE identifica; no confirma afectación local.",
+      "sections": [
+        {
+          "topic": "CVE, puntuaciones y falsos positivos",
+          "explanation": [
+            "Un CVE es un identificador de una vulnerabilidad divulgada; no es una puntuación ni demuestra que un equipo concreto esté afectado. Un escáner puede asociar una versión observada con un CVE, pero esa asociación necesita comprobar producto, configuración y condiciones. Los proveedores pueden distribuir correcciones conservando números de versión aparentes. Por eso un banner antiguo, sin más evidencia, puede producir un falso positivo. Guarda el dato observado y el método que produjo la conclusión.",
+            "Las puntuaciones como CVSS describen características técnicas bajo supuestos concretos. Distingue severidad de prioridad: un fallo grave en un servicio no instalado no merece una corrección ficticia, mientras que un fallo menos puntuado puede importar mucho si está expuesto y tiene explotación conocida. Contrasta el aviso oficial del fabricante y registra incertidumbre cuando falten datos. La validación debe ser proporcional y autorizada; no necesitas ejecutar una explotación para demostrar todos los hallazgos de configuración."
+          ],
+          "analogy": "El CVE es el número de una incidencia de fabricación; primero comprueba que tu modelo y condiciones coinciden.",
+          "keyPoints": [
+            "CVE identifica; no confirma afectación local.",
+            "Un banner puede dar un falso positivo.",
+            "Severidad técnica y prioridad responden preguntas distintas."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Tres afirmaciones distintas",
+            "items": [
+              {
+                "label": "Identificador",
+                "detail": "Existe una vulnerabilidad publicada"
+              },
+              {
+                "label": "Afectación",
+                "detail": "Nuestro producto cumple sus condiciones"
+              },
+              {
+                "label": "Explotación",
+                "detail": "Hay evidencia de uso contra el sistema"
+              }
+            ],
+            "caption": "Una afirmación no demuestra automáticamente la siguiente."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Versión aparente",
+        "scenario": "El informe marca una biblioteca como vulnerable, pero el proveedor declara una corrección incorporada.",
+        "steps": [
+          {
+            "action": "Consultar aviso",
+            "reason": "El número visible no cuenta toda la historia.",
+            "result": "Se identifica la compilación corregida."
+          },
+          {
+            "action": "Comparar paquete",
+            "reason": "Hay que comprobar el activo real.",
+            "result": "El registro confirma la compilación instalada."
+          },
+          {
+            "action": "Guardar evidencia",
+            "reason": "Un falso positivo debe justificarse.",
+            "result": "Se adjuntan aviso y versión del paquete."
+          }
+        ],
+        "result": "El hallazgo se reclasifica con evidencia, sin borrar su historial.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Versión aparente",
+          "items": [
+            {
+              "label": "Consultar aviso",
+              "detail": "Se identifica la compilación corregida."
+            },
+            {
+              "label": "Comparar paquete",
+              "detail": "El registro confirma la compilación instalada."
+            },
+            {
+              "label": "Guardar evidencia",
+              "detail": "Se adjuntan aviso y versión del paquete."
+            }
+          ],
+          "caption": "El hallazgo se reclasifica con evidencia, sin borrar su historial."
+        }
+      },
+      "practice": {
+        "task": "Analiza una ficha con CVE, producto y versión desconocida.",
+        "steps": [
+          "Separa datos confirmados y ausentes.",
+          "Indica qué aviso consultarías.",
+          "Describe cómo confirmarías la versión sin explotar el sistema."
+        ],
+        "expected": "Una conclusión provisional con prueba pendiente."
+      },
+      "check": {
+        "question": "¿Un CVE en un informe demuestra explotación?",
+        "options": [
+          {
+            "id": "a",
+            "text": "No, se necesita evidencia adicional de actividad."
+          },
+          {
+            "id": "b",
+            "text": "Sí, siempre."
+          },
+          {
+            "id": "c",
+            "text": "Solo si la puntuación es alta."
+          }
+        ],
+        "correct": "a",
+        "explanation": "El identificador y la severidad describen una vulnerabilidad, no la actividad observada."
+      },
+      "mistakes": [
+        {
+          "myth": "Una puntuación alta confirma que ocurrió un ataque.",
+          "correction": "La ocurrencia se investiga con eventos y artefactos."
+        }
+      ],
+      "recap": [
+        "CVE identifica; no confirma afectación local.",
+        "Un banner puede dar un falso positivo.",
+        "Severidad técnica y prioridad responden preguntas distintas."
+      ],
+      "glossary": [
+        {
+          "term": "CVE",
+          "definition": "Identificador de una vulnerabilidad divulgada."
+        },
+        {
+          "term": "Falso positivo",
+          "definition": "Resultado que afirma una condición no presente."
+        }
+      ]
+    },
+    {
+      "dayId": "w28d3",
+      "title": "Priorización",
+      "lead": "Prioriza escenarios, no solo puntuaciones.",
+      "sections": [
+        {
+          "topic": "Explotación, criticidad y controles",
+          "explanation": [
+            "Priorizar es decidir qué riesgo tratar primero con recursos limitados. Considera afectación confirmada, exposición, explotación conocida, importancia del activo y controles presentes. Una suma inventada de números puede ocultar el razonamiento: explica qué factores cambian la decisión. El catálogo KEV de CISA aporta contexto sobre vulnerabilidades con explotación conocida, pero su ausencia no demuestra seguridad ni obliga a ignorar otros fallos relevantes. Los plazos de tu organización se definen por su política y obligaciones aplicables.",
+            "Compara situaciones concretas. Un portal de clientes expuesto puede requerir atención antes que una máquina de laboratorio desconectada con una puntuación técnica mayor. Sin embargo, el aislamiento declarado debe comprobarse y el activo crítico puede tener dependencias que condicionen la corrección. Priorizar no significa olvidar el resto: asigna responsables, plazos y revisión. Si faltan datos decisivos, formula una acción de descubrimiento urgente en lugar de presentar una clasificación con precisión falsa."
+          ],
+          "analogy": "Una sala de emergencias considera gravedad y situación real; no atiende exclusivamente por orden alfabético.",
+          "keyPoints": [
+            "Prioriza escenarios, no solo puntuaciones.",
+            "KEV aporta evidencia contextual de explotación conocida.",
+            "Lo aplazado conserva dueño y revisión."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Dos hallazgos ficticios",
+            "items": [
+              {
+                "label": "Portal público",
+                "detail": "Afectado, crítico y alcanzable"
+              },
+              {
+                "label": "Laboratorio aislado",
+                "detail": "Afectado, sin acceso externo comprobado"
+              },
+              {
+                "label": "Decisión",
+                "detail": "Tratar primero el riesgo con mayor exposición e impacto"
+              }
+            ],
+            "caption": "La comparación supone que el aislamiento del laboratorio fue validado."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Dos correcciones posibles",
+        "scenario": "Solo hay una ventana de cambio: portal público afectado y equipo aislado de ensayo.",
+        "steps": [
+          {
+            "action": "Comprobar exposición",
+            "reason": "La prioridad depende de accesos reales.",
+            "result": "El portal recibe tráfico externo."
+          },
+          {
+            "action": "Valorar impacto",
+            "reason": "No todos los activos sostienen el mismo servicio.",
+            "result": "El portal procesa operaciones esenciales."
+          },
+          {
+            "action": "Asignar plan",
+            "reason": "Aplazar no es descartar.",
+            "result": "Portal primero; laboratorio con fecha y responsable."
+          }
+        ],
+        "result": "La prioridad queda explicada y revisable cuando cambien las condiciones.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Dos correcciones posibles",
+          "items": [
+            {
+              "label": "Comprobar exposición",
+              "detail": "El portal recibe tráfico externo."
+            },
+            {
+              "label": "Valorar impacto",
+              "detail": "El portal procesa operaciones esenciales."
+            },
+            {
+              "label": "Asignar plan",
+              "detail": "Portal primero; laboratorio con fecha y responsable."
+            }
+          ],
+          "caption": "La prioridad queda explicada y revisable cuando cambien las condiciones."
+        }
+      },
+      "practice": {
+        "task": "Compara tres hallazgos con severidad, exposición y función.",
+        "steps": [
+          "Confirma qué datos son fiables.",
+          "Elige el primero y explica dos factores.",
+          "Define qué cambio haría variar el orden."
+        ],
+        "expected": "Un orden razonado, no una suma sin contexto."
+      },
+      "check": {
+        "question": "¿Qué implica no aparecer en KEV?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que nunca se explotó."
+          },
+          {
+            "id": "b",
+            "text": "Que se puede ignorar."
+          },
+          {
+            "id": "c",
+            "text": "Que esa fuente no confirma su inclusión; hacen falta otros datos."
+          }
+        ],
+        "correct": "c",
+        "explanation": "Ningún catálogo cubre toda actividad posible; la ausencia de inclusión no demuestra seguridad ni elimina la necesidad de analizar el contexto."
+      },
+      "mistakes": [
+        {
+          "myth": "El mayor CVSS siempre va primero.",
+          "correction": "La prioridad incorpora exposición, criticidad y explotación, además de severidad."
+        }
+      ],
+      "recap": [
+        "Prioriza escenarios, no solo puntuaciones.",
+        "KEV aporta evidencia contextual de explotación conocida.",
+        "Lo aplazado conserva dueño y revisión."
+      ],
+      "glossary": [
+        {
+          "term": "Prioridad",
+          "definition": "Orden de tratamiento según contexto y riesgo."
+        },
+        {
+          "term": "Criticidad",
+          "definition": "Importancia de un activo para los objetivos del negocio."
+        }
+      ]
+    },
+    {
+      "dayId": "w28d4",
+      "title": "Remediación",
+      "lead": "Una compensación no elimina necesariamente la vulnerabilidad.",
+      "sections": [
+        {
+          "topic": "Parches, configuración y compensación",
+          "explanation": [
+            "Remediar significa eliminar o reducir la condición que permite el riesgo. Puede requerir instalar una corrección, cambiar configuración, retirar un servicio o sustituir un producto sin soporte. Una acción compensatoria limita la exposición cuando la solución principal no puede aplicarse todavía; no debes describirla como si hubiera eliminado la vulnerabilidad. Por ejemplo, restringir acceso a una interfaz vulnerable reduce quién puede alcanzarla, pero el componente continúa necesitando tratamiento y revisión.",
+            "Cada medida necesita dueño, dependencias, prueba y reversión. Antes de instalar una actualización comprueba que corresponde al producto y que el procedimiento está aprobado. Después verifica el servicio y la condición detectada. Si una excepción retrasa la corrección, documenta motivo, control temporal, riesgo residual y vencimiento. Aceptar riesgo no equivale a que el analista deje de ver el hallazgo: debe decidirlo la autoridad responsable y mantenerse una fecha de seguimiento."
+          ],
+          "analogy": "Un cubo bajo una gotera limita el daño; reparar la tubería trata la causa.",
+          "keyPoints": [
+            "Una compensación no elimina necesariamente la vulnerabilidad.",
+            "Todo cambio necesita prueba y reversión.",
+            "Las excepciones tienen vencimiento y responsable."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Tratamiento de un hallazgo",
+            "items": [
+              {
+                "label": "Corrección principal",
+                "detail": "Actualizar componente afectado"
+              },
+              {
+                "label": "Control temporal",
+                "detail": "Restringir interfaz y vigilar accesos"
+              },
+              {
+                "label": "Seguimiento",
+                "detail": "Verificar y retirar excepción al corregir"
+              }
+            ],
+            "caption": "No se marca corregido un componente que solo quedó menos expuesto."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Actualización incompatible",
+        "scenario": "La corrección del servicio ficticio requiere una dependencia que todavía está en pruebas.",
+        "steps": [
+          {
+            "action": "Registrar bloqueo",
+            "reason": "La demora necesita causa concreta.",
+            "result": "Se identifica la dependencia incompatible."
+          },
+          {
+            "action": "Reducir exposición",
+            "reason": "Esperar sin protección aumenta el riesgo.",
+            "result": "Se aprueba restricción temporal de acceso."
+          },
+          {
+            "action": "Poner vencimiento",
+            "reason": "Lo temporal tiende a perpetuarse.",
+            "result": "Se asigna responsable y nueva prueba de compatibilidad."
+          }
+        ],
+        "result": "El riesgo queda mitigado temporalmente, no resuelto definitivamente.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Actualización incompatible",
+          "items": [
+            {
+              "label": "Registrar bloqueo",
+              "detail": "Se identifica la dependencia incompatible."
+            },
+            {
+              "label": "Reducir exposición",
+              "detail": "Se aprueba restricción temporal de acceso."
+            },
+            {
+              "label": "Poner vencimiento",
+              "detail": "Se asigna responsable y nueva prueba de compatibilidad."
+            }
+          ],
+          "caption": "El riesgo queda mitigado temporalmente, no resuelto definitivamente."
+        }
+      },
+      "practice": {
+        "task": "Propón una compensación para una interfaz administrativa sin parche disponible.",
+        "steps": [
+          "Delimita quién necesita entrar.",
+          "Define una restricción y un registro de acceso.",
+          "Indica cuándo revisar y retirar el control temporal."
+        ],
+        "expected": "Una mitigación que declare su límite."
+      },
+      "check": {
+        "question": "¿Cómo clasificas un componente vulnerable restringido por firewall?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Siempre corregido."
+          },
+          {
+            "id": "b",
+            "text": "Mitigado con riesgo residual pendiente."
+          },
+          {
+            "id": "c",
+            "text": "No necesita seguimiento."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La restricción cambia la exposición, pero puede persistir la condición vulnerable."
+      },
+      "mistakes": [
+        {
+          "myth": "Aplicar cualquier control permite cerrar el ticket.",
+          "correction": "El cierre debe seguir criterios que distingan mitigación y corrección."
+        }
+      ],
+      "recap": [
+        "Una compensación no elimina necesariamente la vulnerabilidad.",
+        "Todo cambio necesita prueba y reversión.",
+        "Las excepciones tienen vencimiento y responsable."
+      ],
+      "glossary": [
+        {
+          "term": "Remediación",
+          "definition": "Tratamiento de una condición de riesgo."
+        },
+        {
+          "term": "Control compensatorio",
+          "definition": "Medida alternativa que reduce un riesgo bajo restricciones."
+        }
+      ]
+    },
+    {
+      "dayId": "w28d5",
+      "title": "Validación",
+      "lead": "Repite una prueba comparable con el mismo alcance y condiciones.",
+      "sections": [
+        {
+          "topic": "Revisión posterior y excepciones",
+          "explanation": [
+            "Validar una remediación requiere repetir una comprobación relevante y revisar sus efectos. Si el hallazgo era una interfaz expuesta, consulta desde el origen autorizado que representaba el riesgo. Si era una versión afectada, confirma la compilación y la aplicabilidad del aviso. Un resultado limpio de una herramienta puede ser insuficiente cuando cambió el alcance, faltaron credenciales o el servicio estaba apagado. La ausencia de resultados no siempre significa ausencia de vulnerabilidad.",
+            "Conserva evidencia anterior y posterior con fecha, método y condiciones. Incluye pruebas funcionales para evitar que la corrección oculte una caída del servicio. Una excepción necesita revisión periódica y no debe transformarse silenciosamente en cierre. Si la prueba falla, diferencia entre corrección incompleta, prueba mal ejecutada y una condición nueva. El objetivo es que una segunda persona pueda entender por qué el estado pasó a corregido, mitigado o pendiente sin confiar únicamente en una frase del ticket."
+          ],
+          "analogy": "No basta con que deje de sonar la alarma: verifica si se corrigió la causa o se desconectó el sensor.",
+          "keyPoints": [
+            "Repite una prueba comparable.",
+            "Un escaneo vacío puede tener límites de cobertura.",
+            "Conserva evidencia antes y después."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Dos resultados aparentemente limpios",
+            "items": [
+              {
+                "label": "Prueba válida",
+                "detail": "Servicio accesible y control corregido"
+              },
+              {
+                "label": "Prueba incompleta",
+                "detail": "Servicio no revisado por falta de acceso"
+              },
+              {
+                "label": "Conclusión",
+                "detail": "Solo el primer resultado sustenta el cierre"
+              }
+            ],
+            "caption": "La cobertura forma parte de la evidencia."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Escaneo sin credenciales",
+        "scenario": "La segunda revisión no informa del fallo, pero el registro indica autenticación fallida.",
+        "steps": [
+          {
+            "action": "Revisar ejecución",
+            "reason": "No se puede comparar cobertura distinta.",
+            "result": "La prueba no accedió al componente."
+          },
+          {
+            "action": "Corregir método",
+            "reason": "Hay que recuperar el contexto aprobado.",
+            "result": "Se solicita una revisión con credenciales válidas."
+          },
+          {
+            "action": "Decidir estado",
+            "reason": "No se cierra por silencio de la herramienta.",
+            "result": "El hallazgo permanece pendiente de validación."
+          }
+        ],
+        "result": "La conclusión evita un cierre falso por falta de visibilidad.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Escaneo sin credenciales",
+          "items": [
+            {
+              "label": "Revisar ejecución",
+              "detail": "La prueba no accedió al componente."
+            },
+            {
+              "label": "Corregir método",
+              "detail": "Se solicita una revisión con credenciales válidas."
+            },
+            {
+              "label": "Decidir estado",
+              "detail": "El hallazgo permanece pendiente de validación."
+            }
+          ],
+          "caption": "La conclusión evita un cierre falso por falta de visibilidad."
+        }
+      },
+      "practice": {
+        "task": "Escribe un criterio de cierre para un permiso excesivo.",
+        "steps": [
+          "Anota permiso antes y después.",
+          "Prueba un usuario que debe entrar y otro que no.",
+          "Identifica fecha, equipo y responsable de la prueba."
+        ],
+        "expected": "Un criterio con prueba positiva y negativa."
+      },
+      "check": {
+        "question": "¿Cuál es la mejor evidencia de cierre?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ticket con palabra listo."
+          },
+          {
+            "id": "b",
+            "text": "Ausencia de alertas sin revisar cobertura."
+          },
+          {
+            "id": "c",
+            "text": "Prueba comparable que confirme corrección y servicio."
+          }
+        ],
+        "correct": "c",
+        "explanation": "El cierre necesita demostrar la condición, no solo ausencia de mensajes."
+      },
+      "mistakes": [
+        {
+          "myth": "Si no aparece en el segundo informe está corregido.",
+          "correction": "Comprueba alcance, autenticación y condiciones de la revisión."
+        }
+      ],
+      "recap": [
+        "Repite una prueba comparable.",
+        "Un escaneo vacío puede tener límites de cobertura.",
+        "Conserva evidencia antes y después."
+      ],
+      "glossary": [
+        {
+          "term": "Validación",
+          "definition": "Comprobación de que una acción logró su objetivo."
+        },
+        {
+          "term": "Excepción",
+          "definition": "Desviación aprobada y limitada en tiempo o alcance."
+        }
+      ]
+    },
+    {
+      "dayId": "w28d6",
+      "title": "Informe",
+      "lead": "El resumen relaciona condición y consecuencia.",
+      "sections": [
+        {
+          "topic": "Resumen, evidencia, prioridad y plazo",
+          "explanation": [
+            "Un informe de vulnerabilidades debe permitir decidir y actuar. El resumen explica qué servicio está en riesgo y qué consecuencia importa; la parte técnica muestra activo, condición observada, evidencia, alcance y nivel de confianza. Evita frases como todo está inseguro o severidad crítica sin contexto. Un responsable necesita saber qué hacer, quién debe hacerlo y cómo se confirmará el resultado. Los datos sensibles se minimizan y se comparte el documento solo con destinatarios autorizados.",
+            "La prioridad se justifica con factores verificables, no con dramatismo. Diferencia una recomendación de una acción ejecutada y una fecha propuesta de un compromiso aprobado. Cuando un hallazgo sea provisional, escribe qué información falta y cómo obtenerla. El informe también debe indicar sistemas que no pudieron revisarse. Un buen anexo permite reproducir el razonamiento sin incluir contraseñas, archivos privados completos o instrucciones de explotación innecesarias para el objetivo defensivo."
+          ],
+          "analogy": "El informe es una orden de reparación comprensible: síntoma, evidencia, responsable, acción y prueba final.",
+          "keyPoints": [
+            "El resumen relaciona condición y consecuencia.",
+            "La evidencia debe ser suficiente y mínima.",
+            "Cada acción necesita dueño y criterio de cierre."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "De hallazgo a acción",
+            "items": [
+              {
+                "label": "Evidencia",
+                "detail": "Configuración observada y alcance"
+              },
+              {
+                "label": "Decisión",
+                "detail": "Prioridad justificada"
+              },
+              {
+                "label": "Plan",
+                "detail": "Dueño, fecha y validación"
+              }
+            ],
+            "caption": "No se confunden fechas propuestas con compromisos aprobados."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Informe de interfaz expuesta",
+        "scenario": "Una consola de administración ficticia permite acceso desde una red no prevista.",
+        "steps": [
+          {
+            "action": "Acción: Describir",
+            "reason": "Un título vago dificulta actuar.",
+            "result": "Se nombra interfaz, origen y acceso observado."
+          },
+          {
+            "action": "Acción: Priorizar",
+            "reason": "La importancia depende del servicio.",
+            "result": "Se explica el impacto de administrar ese sistema."
+          },
+          {
+            "action": "Asignar cierre",
+            "reason": "La recomendación debe poder verificarse.",
+            "result": "El dueño debe restringir y probar ambos accesos."
+          }
+        ],
+        "result": "El destinatario puede ejecutar la corrección y demostrar su resultado.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Informe de interfaz expuesta",
+          "items": [
+            {
+              "label": "Describir",
+              "detail": "Se nombra interfaz, origen y acceso observado."
+            },
+            {
+              "label": "Priorizar",
+              "detail": "Se explica el impacto de administrar ese sistema."
+            },
+            {
+              "label": "Asignar cierre",
+              "detail": "El dueño debe restringir y probar ambos accesos."
+            }
+          ],
+          "caption": "El destinatario puede ejecutar la corrección y demostrar su resultado."
+        }
+      },
+      "practice": {
+        "task": "Redacta un hallazgo en seis líneas.",
+        "steps": [
+          "Incluye activo y condición.",
+          "Añade evidencia y límite.",
+          "Termina con dueño, acción y prueba."
+        ],
+        "expected": "Un informe sin secretos ni afirmaciones no probadas."
+      },
+      "check": {
+        "question": "¿Qué dato es imprescindible para cerrar una acción?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El color de la plantilla."
+          },
+          {
+            "id": "b",
+            "text": "Una prueba de validación definida."
+          },
+          {
+            "id": "c",
+            "text": "Un adjetivo alarmante."
+          }
+        ],
+        "correct": "b",
+        "explanation": "El criterio de validación convierte la recomendación en un resultado comprobable."
+      },
+      "mistakes": [
+        {
+          "myth": "El informe debe incluir todos los datos disponibles.",
+          "correction": "Incluye solo lo necesario y protege la información sensible."
+        }
+      ],
+      "recap": [
+        "El resumen relaciona condición y consecuencia.",
+        "La evidencia debe ser suficiente y mínima.",
+        "Cada acción necesita dueño y criterio de cierre."
+      ],
+      "glossary": [
+        {
+          "term": "Hallazgo",
+          "definition": "Condición documentada comparada con un criterio."
+        },
+        {
+          "term": "Criterio de cierre",
+          "definition": "Evidencia requerida para dar una acción por completada."
+        }
+      ]
+    },
+    {
+      "dayId": "w28d7",
+      "title": "Evaluación del ciclo",
+      "lead": "El estado de cada hallazgo debe ser explícito.",
+      "sections": [
+        {
+          "topic": "Detectar, corregir y verificar",
+          "explanation": [
+            "El ciclo de vulnerabilidades conecta descubrimiento, análisis, prioridad, tratamiento y validación. No son tareas aisladas: una corrección puede revelar un activo no inventariado o una excepción puede cambiar la prioridad. La calidad del ciclo se mide por resultados verificables y cobertura, no por la cantidad bruta de hallazgos cerrados. Cerrar muchos tickets irrelevantes mientras permanece expuesto un servicio crítico puede producir una buena cifra y una mala situación de riesgo.",
+            "Para resolver un caso integrado, sigue el hilo de una condición concreta. Identifica activo y dueño, comprueba afectación, describe exposición, decide tratamiento y define una prueba equivalente. Si un paso depende de un dato ausente, decláralo antes de avanzar. Mantén estados diferentes para corregido, mitigado, falso positivo y pendiente. Esta disciplina evita que un mismo número de cierre esconda decisiones técnicas distintas y facilita explicar a otra persona qué riesgo continúa existiendo."
+          ],
+          "analogy": "El ciclo es un circuito de mantenimiento: detectar una avería y comprar una pieza no demuestra que el equipo ya funcione.",
+          "keyPoints": [
+            "El estado de cada hallazgo debe ser explícito.",
+            "La cobertura importa además de los cierres.",
+            "La validación retroalimenta el inventario."
+          ],
+          "visual": {
+            "type": "cycle",
+            "title": "Ciclo verificable",
+            "items": [
+              {
+                "label": "Descubrir",
+                "detail": "Activo y alcance"
+              },
+              {
+                "label": "Analizar",
+                "detail": "Afectación y contexto"
+              },
+              {
+                "label": "Tratar",
+                "detail": "Corrección o mitigación"
+              },
+              {
+                "label": "Verificar",
+                "detail": "Prueba y nuevo estado"
+              }
+            ],
+            "caption": "Cada transición conserva evidencia y responsable."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Tres hallazgos, tres estados",
+        "scenario": "Una versión se corrigió, una interfaz se restringió y un banner resultó engañoso en el caso preparado.",
+        "steps": [
+          {
+            "action": "Separar evidencia",
+            "reason": "Las acciones tienen resultados diferentes.",
+            "result": "Se reúnen pruebas individuales."
+          },
+          {
+            "action": "Asignar estados",
+            "reason": "No todo debe llamarse corregido.",
+            "result": "Corregido, mitigado y falso positivo."
+          },
+          {
+            "action": "Planear seguimiento",
+            "reason": "Solo un riesgo quedó temporalmente reducido.",
+            "result": "La interfaz conserva fecha de revisión."
+          }
+        ],
+        "result": "El informe distingue resultados y mantiene seguimiento donde corresponde.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Tres hallazgos, tres estados",
+          "items": [
+            {
+              "label": "Separar evidencia",
+              "detail": "Se reúnen pruebas individuales."
+            },
+            {
+              "label": "Asignar estados",
+              "detail": "Corregido, mitigado y falso positivo."
+            },
+            {
+              "label": "Planear seguimiento",
+              "detail": "La interfaz conserva fecha de revisión."
+            }
+          ],
+          "caption": "El informe distingue resultados y mantiene seguimiento donde corresponde."
+        }
+      },
+      "practice": {
+        "task": "Clasifica un hallazgo sin revisar por fallo de acceso.",
+        "steps": [
+          "Explica por qué no es un falso positivo.",
+          "Define la prueba pendiente.",
+          "Asigna responsable y fecha de revisión."
+        ],
+        "expected": "Estado pendiente de validación con alcance claro."
+      },
+      "check": {
+        "question": "¿Qué estado corresponde a un hallazgo que no pudo verificarse?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Corregido."
+          },
+          {
+            "id": "b",
+            "text": "Falso positivo."
+          },
+          {
+            "id": "c",
+            "text": "Pendiente con la incertidumbre documentada."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La falta de evidencia no demuestra corrección ni inexistencia; conserva el hallazgo pendiente y especifica qué prueba falta."
+      },
+      "mistakes": [
+        {
+          "myth": "Todos los tickets cerrados representan el mismo riesgo reducido.",
+          "correction": "Los estados y sus pruebas deben conservar el significado de cada decisión."
+        }
+      ],
+      "recap": [
+        "El estado de cada hallazgo debe ser explícito.",
+        "La cobertura importa además de los cierres.",
+        "La validación retroalimenta el inventario."
+      ],
+      "glossary": [
+        {
+          "term": "Cobertura",
+          "definition": "Parte del alcance que realmente se revisó."
+        },
+        {
+          "term": "Estado",
+          "definition": "Situación documentada de un hallazgo dentro del ciclo."
+        }
+      ]
+    }
+  ]
+}

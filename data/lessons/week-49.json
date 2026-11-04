@@ -1,0 +1,938 @@
+{
+  "version": "2.0.0",
+  "week": 49,
+  "title": "Refuerzo y segunda simulación",
+  "overview": "El refuerzo comienza diagnosticando errores y termina comprobando transferencia en el caso Brisa. Separarás dificultades conceptuales, operacionales y de inferencia para elegir prácticas específicas. La segunda simulación introduce un cambio de privilegios de aplicación con actor y destinatario distintos, de modo que puedas confirmar lo sustentado sin inventar identidad humana ni uso posterior. Compararás ambos casos con objetivos oficiales y niveles de ayuda para decidir de forma razonada qué competencia necesita más trabajo antes de una evaluación externa.",
+  "objectives": [
+    "Clasificar errores y diseñar prácticas de transferencia.",
+    "Investigar cambios de privilegios distinguiendo actor, miembro y alcance.",
+    "Comparar casos y objetivos para una decisión de preparación honesta."
+  ],
+  "sources": [
+    {
+      "id": "nist61",
+      "title": "NIST SP 800-61r3: respuesta y gestión del riesgo",
+      "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+    },
+    {
+      "id": "nist86",
+      "title": "NIST SP 800-86: técnicas forenses en respuesta a incidentes",
+      "url": "https://csrc.nist.gov/pubs/sp/800/86/final"
+    },
+    {
+      "id": "btl",
+      "title": "Centri / Security Blue Team: Blue Team Level 1",
+      "url": "https://www.centri.org/certifications/blue-team-level-1"
+    },
+    {
+      "id": "splunk",
+      "title": "Splunk: búsqueda y procesamiento de resultados",
+      "url": "https://www.splunk.com/en_us/blog/tips-and-tricks/search-commands-stats-chart-and-timechart.html"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w49d1",
+      "title": "Diagnóstico de errores",
+      "lead": "Diagnosticar un error empieza por localizar qué parte del razonamiento falló.",
+      "sections": [
+        {
+          "topic": "Concepto, herramienta o interpretación",
+          "explanation": [
+            "Una respuesta incorrecta puede provenir de un concepto, de una operación de herramienta o de una interpretación de evidencia. Si conviertes 09:00−06:00 en 03:00Z, la dificultad es conceptual; si conoces la conversión pero seleccionas otro campo temporal, puede ser operacional. Si las horas son correctas y atribuyes causalidad solo por cercanía, el error es de inferencia. Esta clasificación ayuda a elegir una práctica que ataque la causa y no solo repita todo el tema.",
+            "Reconstruye el paso exacto con entrada, acción y resultado esperado. Conserva un ejemplo pequeño que haga visible el fallo y prueba una corrección sobre otro caso. Un error mixto puede necesitar más de una intervención: comprender el campo y después practicar la consulta. Evita usar la nota total como único diagnóstico, porque puede esconder varios problemas distintos. El objetivo del refuerzo es comprobar que el razonamiento cambió, no demostrar que ahora recuerdas la respuesta de la simulación anterior."
+          ],
+          "analogy": "Un resultado erróneo en cocina puede venir de la receta, de medir mal o de interpretar mal el punto de cocción.",
+          "keyPoints": [
+            "Concepto: No se comprende la regla o significado.",
+            "Herramienta: Se aplica incorrectamente una operación conocida.",
+            "Inferencia: La conclusión supera lo que la evidencia sostiene."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Diagnóstico de errores",
+            "items": [
+              {
+                "label": "Concepto",
+                "detail": "No se comprende la regla o significado."
+              },
+              {
+                "label": "Herramienta",
+                "detail": "Se aplica incorrectamente una operación conocida."
+              },
+              {
+                "label": "Inferencia",
+                "detail": "La conclusión supera lo que la evidencia sostiene."
+              }
+            ],
+            "caption": "Diagnosticar un error empieza por localizar qué parte del razonamiento falló."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "La hora convertida al revés",
+        "scenario": "Un informe ficticio coloca 09:00−06:00 antes de 08:00Z.",
+        "steps": [
+          {
+            "action": "Repetir cálculo",
+            "reason": "Aísla el paso defectuoso.",
+            "result": "09:00−06:00 equivale a 15:00Z."
+          },
+          {
+            "action": "Clasificar causa",
+            "reason": "El problema no era la tabla.",
+            "result": "Se identificó confusión sobre desplazamiento UTC."
+          },
+          {
+            "action": "Probar transferencia",
+            "reason": "Evita memorizar un valor.",
+            "result": "Se resuelve 11:30−06:00 como 17:30Z y se justifica."
+          }
+        ],
+        "result": "La práctica se centra en conversión temporal y no en rehacer todo el informe.",
+        "visual": {
+          "type": "timeline",
+          "title": "La hora convertida al revés",
+          "items": [
+            {
+              "label": "Repetir cálculo",
+              "detail": "09:00−06:00 equivale a 15:00Z."
+            },
+            {
+              "label": "Clasificar causa",
+              "detail": "Se identificó confusión sobre desplazamiento UTC."
+            },
+            {
+              "label": "Probar transferencia",
+              "detail": "Se resuelve 11:30−06:00 como 17:30Z y se justifica."
+            }
+          ],
+          "caption": "La práctica se centra en conversión temporal y no en rehacer todo el informe."
+        }
+      },
+      "practice": {
+        "task": "Clasifica tres errores propios o ficticios de una investigación.",
+        "steps": [
+          "Conserva entrada y resultado incorrecto.",
+          "Explica si la causa es conceptual, operacional o inferencial.",
+          "Diseña una prueba nueva para comprobar corrección."
+        ],
+        "expected": "Tres diagnósticos con una práctica pertinente por error."
+      },
+      "check": {
+        "question": "¿Qué conviene hacer antes de repetir una semana entera por un fallo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Cambiar de herramienta sin revisar."
+          },
+          {
+            "id": "b",
+            "text": "Localizar el paso y la causa del error."
+          },
+          {
+            "id": "c",
+            "text": "Memorizar la solución final."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Localizar la causa permite practicar la competencia adecuada y comprobar transferencia."
+      },
+      "mistakes": [
+        {
+          "myth": "Todos los fallos se resuelven estudiando más horas del mismo modo.",
+          "correction": "La estrategia debe corresponder a la causa específica de la dificultad."
+        }
+      ],
+      "recap": [
+        "Concepto: No se comprende la regla o significado.",
+        "Herramienta: Se aplica incorrectamente una operación conocida.",
+        "Inferencia: La conclusión supera lo que la evidencia sostiene."
+      ],
+      "glossary": [
+        {
+          "term": "Error conceptual",
+          "definition": "Fallo de comprensión de una regla o significado."
+        },
+        {
+          "term": "Error de inferencia",
+          "definition": "Conclusión que no se sigue adecuadamente de las observaciones."
+        }
+      ]
+    },
+    {
+      "dayId": "w49d2",
+      "title": "Refuerzo técnico",
+      "lead": "El refuerzo técnico debe modificar una condición del problema para comprobar comprensión.",
+      "sections": [
+        {
+          "topic": "Competencia más débil",
+          "explanation": [
+            "Escoge una competencia débil que pueda probarse con una tarea pequeña: interpretar cabeceras, validar un campo, calcular una huella o construir un filtro. Define primero criterio de éxito y material autorizado. Después crea una variación relevante del caso anterior, como cambiar el nombre del campo, la zona horaria o el resultado de autenticación. Si la solución solo funciona con el mismo ejemplo, todavía no has comprobado que puedas transferir el conocimiento a otro contexto.",
+            "Practica con retroalimentación inmediata y explica por qué cada paso es necesario. Un resultado correcto por azar o por copiar una receta no demuestra dominio. Conserva una comparación antes-después con el error corregido y una limitación que siga pendiente. Cuando necesites documentación, registra qué consultaste y cómo verificaste que corresponde a la versión y formato usados. La autonomía no exige recordar todo de memoria: exige reconocer la pregunta, encontrar una referencia adecuada y validar el resultado sin depender de una guía que decida cada paso."
+          ],
+          "analogy": "Practicar estacionamiento en otra plaza demuestra adaptación mejor que repetir siempre las mismas marcas del suelo.",
+          "keyPoints": [
+            "Competencia: Una tarea técnica delimitada y observable.",
+            "Variación: Cambio relevante que impide memorizar la respuesta.",
+            "Validación: Resultado y explicación que demuestran el aprendizaje."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Refuerzo técnico",
+            "items": [
+              {
+                "label": "Competencia",
+                "detail": "Una tarea técnica delimitada y observable."
+              },
+              {
+                "label": "Variación",
+                "detail": "Cambio relevante que impide memorizar la respuesta."
+              },
+              {
+                "label": "Validación",
+                "detail": "Resultado y explicación que demuestran el aprendizaje."
+              }
+            ],
+            "caption": "El refuerzo técnico debe modificar una condición del problema para comprobar comprensión."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "El campo cambió de nombre",
+        "scenario": "Una práctica anterior contaba fallos por user; una tabla nueva utiliza account_name.",
+        "steps": [
+          {
+            "action": "Inspeccionar formato",
+            "reason": "La adaptación empieza por entender datos.",
+            "result": "Se comprueba que account_name representa la cuenta objetivo."
+          },
+          {
+            "action": "Reescribir selección",
+            "reason": "La lógica conserva su propósito.",
+            "result": "Se filtran fallos y se agrupa por el campo validado."
+          },
+          {
+            "action": "Comprobar grupo",
+            "reason": "El resultado necesita control.",
+            "result": "Tres filas de la misma cuenta producen conteo tres."
+          }
+        ],
+        "result": "La operación se adapta sin confundir sintaxis memorizada y significado.",
+        "visual": {
+          "type": "timeline",
+          "title": "El campo cambió de nombre",
+          "items": [
+            {
+              "label": "Inspeccionar formato",
+              "detail": "Se comprueba que account_name representa la cuenta objetivo."
+            },
+            {
+              "label": "Reescribir selección",
+              "detail": "Se filtran fallos y se agrupa por el campo validado."
+            },
+            {
+              "label": "Comprobar grupo",
+              "detail": "Tres filas de la misma cuenta producen conteo tres."
+            }
+          ],
+          "caption": "La operación se adapta sin confundir sintaxis memorizada y significado."
+        }
+      },
+      "practice": {
+        "task": "Prepara dos variantes de una tarea técnica que te costó.",
+        "steps": [
+          "Cambia una condición en cada variante.",
+          "Define respuesta esperada antes de resolver.",
+          "Explica el método y revisa una fila o valor de control."
+        ],
+        "expected": "Dos resultados justificados que muestran transferencia."
+      },
+      "check": {
+        "question": "¿Consultar documentación impide demostrar autonomía?",
+        "options": [
+          {
+            "id": "a",
+            "text": "No; importa elegir la referencia y validar su aplicación sin guía decisoria completa."
+          },
+          {
+            "id": "b",
+            "text": "Sí, cualquier consulta invalida la práctica."
+          },
+          {
+            "id": "c",
+            "text": "Solo si la página está en inglés."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La autonomía incluye usar documentación de forma razonada y comprobar el resultado."
+      },
+      "mistakes": [
+        {
+          "myth": "Dominar una competencia significa recordar cada opción de la herramienta.",
+          "correction": "También requiere saber formular la pregunta y verificar cómo aplicar una referencia fiable."
+        }
+      ],
+      "recap": [
+        "Competencia: Una tarea técnica delimitada y observable.",
+        "Variación: Cambio relevante que impide memorizar la respuesta.",
+        "Validación: Resultado y explicación que demuestran el aprendizaje."
+      ],
+      "glossary": [
+        {
+          "term": "Variación controlada",
+          "definition": "Cambio deliberado de una condición para probar comprensión."
+        },
+        {
+          "term": "Retroalimentación",
+          "definition": "Información que permite identificar y corregir un fallo."
+        }
+      ]
+    },
+    {
+      "dayId": "w49d3",
+      "title": "Refuerzo de método",
+      "lead": "Un método ordenado reduce búsquedas repetidas sin sacrificar precisión.",
+      "sections": [
+        {
+          "topic": "Notas, consultas y tiempo",
+          "explanation": [
+            "Los problemas de método aparecen cuando sabes conceptos y herramientas, pero pierdes contexto entre búsquedas. Un registro mínimo puede incluir pregunta, fuente, intervalo, consulta, resultado y decisión. Escribe una fila al terminar cada prueba, incluso si no devuelve datos. Así evitas repetir búsquedas por olvido y puedes distinguir una hipótesis descartada de una tarea todavía pendiente. Conserva también los filtros que excluyeron resultados relevantes, indicando por qué se corrigieron.",
+            "Gestiona el tiempo por bloques de objetivo y no por una carrera para cerrar. Reserva una parte para validar y comunicar; de lo contrario, puedes llegar a una conclusión correcta que nadie pueda revisar. Si una búsqueda se estanca, vuelve a la pregunta y decide si falta información, una capacidad técnica o una hipótesis alternativa. En un ejercicio puedes marcar el punto de bloqueo y continuar con otra pregunta independiente, sin ocultar la laguna. El orden mejora autonomía cuando hace visible qué sabes y qué necesita la siguiente decisión."
+          ],
+          "analogy": "Un cuaderno de navegación evita dar vueltas por el mismo cruce sin recordar por qué lo descartaste.",
+          "keyPoints": [
+            "Pregunta: Cada búsqueda responde a una incertidumbre concreta.",
+            "Registro: Se conserva método y resultado, incluso negativo.",
+            "Revisión: Se reserva tiempo para comprobar y comunicar."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Refuerzo de método",
+            "items": [
+              {
+                "label": "Pregunta",
+                "detail": "Cada búsqueda responde a una incertidumbre concreta."
+              },
+              {
+                "label": "Registro",
+                "detail": "Se conserva método y resultado, incluso negativo."
+              },
+              {
+                "label": "Revisión",
+                "detail": "Se reserva tiempo para comprobar y comunicar."
+              }
+            ],
+            "caption": "Un método ordenado reduce búsquedas repetidas sin sacrificar precisión."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "La búsqueda repetida cuatro veces",
+        "scenario": "Una analista ficticia consulta el mismo intervalo porque no guardó que el servidor no estaba cubierto.",
+        "steps": [
+          {
+            "action": "Detectar repetición",
+            "reason": "El problema no era sintaxis.",
+            "result": "Las consultas eran equivalentes y sin cobertura."
+          },
+          {
+            "action": "Anotar límite",
+            "reason": "Evita volver a la misma vía.",
+            "result": "Se registra la fuente ausente y su efecto."
+          },
+          {
+            "action": "Elegir otra prueba",
+            "reason": "El método orienta avance.",
+            "result": "Se revisa la fuente de aplicación que sí existe."
+          }
+        ],
+        "result": "El registro ahorra repetición y conserva el motivo del cambio de fuente.",
+        "visual": {
+          "type": "timeline",
+          "title": "La búsqueda repetida cuatro veces",
+          "items": [
+            {
+              "label": "Detectar repetición",
+              "detail": "Las consultas eran equivalentes y sin cobertura."
+            },
+            {
+              "label": "Anotar límite",
+              "detail": "Se registra la fuente ausente y su efecto."
+            },
+            {
+              "label": "Elegir otra prueba",
+              "detail": "Se revisa la fuente de aplicación que sí existe."
+            }
+          ],
+          "caption": "El registro ahorra repetición y conserva el motivo del cambio de fuente."
+        }
+      },
+      "practice": {
+        "task": "Prepara una plantilla de seis columnas para una investigación breve.",
+        "steps": [
+          "Incluye pregunta, fuente, intervalo y consulta.",
+          "Añade resultado y decisión.",
+          "Registra un resultado negativo con su cobertura."
+        ],
+        "expected": "Una plantilla que permita continuar después de una pausa."
+      },
+      "check": {
+        "question": "¿Qué debería conservarse de una búsqueda sin resultados?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Nada, porque no sirve."
+          },
+          {
+            "id": "b",
+            "text": "Consulta, cobertura y efecto sobre la hipótesis."
+          },
+          {
+            "id": "c",
+            "text": "Solo una captura vacía."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Un resultado negativo puede orientar el caso si se entiende qué se buscó y qué era visible."
+      },
+      "mistakes": [
+        {
+          "myth": "Documentar durante la investigación siempre ralentiza el trabajo.",
+          "correction": "Un registro breve puede evitar repeticiones y facilitar validación y relevo."
+        }
+      ],
+      "recap": [
+        "Pregunta: Cada búsqueda responde a una incertidumbre concreta.",
+        "Registro: Se conserva método y resultado, incluso negativo.",
+        "Revisión: Se reserva tiempo para comprobar y comunicar."
+      ],
+      "glossary": [
+        {
+          "term": "Registro de análisis",
+          "definition": "Notas estructuradas de preguntas, pruebas y decisiones."
+        },
+        {
+          "term": "Bloqueo",
+          "definition": "Situación en la que falta información o capacidad para avanzar en una pregunta."
+        }
+      ]
+    },
+    {
+      "dayId": "w49d4",
+      "title": "Segundo caso",
+      "lead": "El caso Brisa cambia la pregunta: ahora existe un cambio de privilegios que debe verificarse.",
+      "sections": [
+        {
+          "topic": "Investigación nueva",
+          "explanation": [
+            "La segunda simulación introduce datos distintos para evitar repetir el relato de Faro. En Brisa hay cinco fallos de cuenta-lab desde PC-B a las 15:00Z, un éxito a las 15:01Z y un registro de auditoría a las 15:03Z que añade cuenta-lab al rol Administradores de una aplicación ficticia. El campo actor de ese cambio contiene operador-lab. Estos hechos no identifican automáticamente una persona ni demuestran que cuenta-lab ejecutara el cambio sobre sí misma.",
+            "A las 15:04Z el propietario del servicio, como dato del ejercicio, confirma que no existe autorización para añadir ese miembro. La investigación debe distinguir acceso, cambio y validación de negocio. Define si la pregunta es quién aparece como actor técnico, qué privilegio cambió o qué otras cuentas resultaron afectadas. Conserva fuentes y momentos y no atribuyas acciones por simple proximidad. El escenario permite confirmar una modificación no autorizada dentro de su alcance, pero todavía necesita revisar sesiones, dependencias y actividad posterior."
+          ],
+          "analogy": "Dos personas aparecen cerca de una puerta; el registro de quién cambió la cerradura es una observación distinta.",
+          "keyPoints": [
+            "Acceso: Cuenta-lab registra fallos y éxito desde PC-B.",
+            "Cambio: Auditoría registra actor operador-lab y nuevo miembro cuenta-lab.",
+            "Validación: El dueño confirma que el cambio no estaba autorizado."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Segundo caso",
+            "items": [
+              {
+                "label": "Acceso",
+                "detail": "Cuenta-lab registra fallos y éxito desde PC-B."
+              },
+              {
+                "label": "Cambio",
+                "detail": "Auditoría registra actor operador-lab y nuevo miembro cuenta-lab."
+              },
+              {
+                "label": "Validación",
+                "detail": "El dueño confirma que el cambio no estaba autorizado."
+              }
+            ],
+            "caption": "El caso Brisa cambia la pregunta: ahora existe un cambio de privilegios que debe verificarse."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "El actor no era el miembro",
+        "scenario": "Un borrador Brisa atribuye el cambio a cuenta-lab porque recibió el privilegio.",
+        "steps": [
+          {
+            "action": "Leer campos",
+            "reason": "Actor y destinatario tienen roles distintos.",
+            "result": "operador-lab figura como actor; cuenta-lab como miembro."
+          },
+          {
+            "action": "Contrastar autorización",
+            "reason": "La auditoría no describe sola el permiso de negocio.",
+            "result": "El dueño confirma ausencia de autorización."
+          },
+          {
+            "action": "Redactar hecho",
+            "reason": "Evita atribuir persona o ejecución no demostrada.",
+            "result": "Se informa cambio no autorizado registrado bajo operador-lab."
+          }
+        ],
+        "result": "El caso confirma una modificación con actor técnico, sin inventar identidad humana.",
+        "visual": {
+          "type": "timeline",
+          "title": "El actor no era el miembro",
+          "items": [
+            {
+              "label": "Leer campos",
+              "detail": "operador-lab figura como actor; cuenta-lab como miembro."
+            },
+            {
+              "label": "Contrastar autorización",
+              "detail": "El dueño confirma ausencia de autorización."
+            },
+            {
+              "label": "Redactar hecho",
+              "detail": "Se informa cambio no autorizado registrado bajo operador-lab."
+            }
+          ],
+          "caption": "El caso confirma una modificación con actor técnico, sin inventar identidad humana."
+        }
+      },
+      "practice": {
+        "task": "Construye la tabla inicial de Brisa con los cuatro momentos dados.",
+        "steps": [
+          "Separa actor, miembro y equipo.",
+          "Escribe dos preguntas todavía abiertas.",
+          "Propón una fuente para revisar sesiones relacionadas."
+        ],
+        "expected": "Una tabla que no confunde beneficiario del privilegio y actor registrado."
+      },
+      "check": {
+        "question": "¿Quién aparece como actor técnico del cambio en Brisa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La persona física que usa PC-B, sin más prueba."
+          },
+          {
+            "id": "b",
+            "text": "Cuenta-lab porque recibió el rol."
+          },
+          {
+            "id": "c",
+            "text": "Operador-lab según el campo de auditoría."
+          }
+        ],
+        "correct": "c",
+        "explanation": "El actor registrado y el miembro añadido son campos distintos; el dato no identifica por sí solo a una persona."
+      },
+      "mistakes": [
+        {
+          "myth": "Quien recibe un permiso necesariamente se lo concedió a sí mismo.",
+          "correction": "La auditoría debe revisarse para distinguir actor, destinatario y contexto."
+        }
+      ],
+      "recap": [
+        "Acceso: Cuenta-lab registra fallos y éxito desde PC-B.",
+        "Cambio: Auditoría registra actor operador-lab y nuevo miembro cuenta-lab.",
+        "Validación: El dueño confirma que el cambio no estaba autorizado."
+      ],
+      "glossary": [
+        {
+          "term": "Actor técnico",
+          "definition": "Cuenta o componente que la fuente registra realizando una acción."
+        },
+        {
+          "term": "Miembro",
+          "definition": "Identidad incorporada a un grupo o rol en el registro de cambio."
+        }
+      ]
+    },
+    {
+      "dayId": "w49d5",
+      "title": "Completar investigación",
+      "lead": "Completar Brisa exige delimitar alcance sin convertir una relación temporal en atribución personal.",
+      "sections": [
+        {
+          "topic": "Correlación y alcance",
+          "explanation": [
+            "La correlación del segundo caso debe unir registros mediante campos apropiados. Busca sesiones de operador-lab durante la ventana del cambio y revisa el identificador de la operación si existe. La sesión de cuenta-lab puede explicar uso de nuevos permisos, pero no demuestra quién realizó la concesión. También necesitas comprobar si el rol tiene alcance local de aplicación o más amplio. La palabra Administradores puede referirse a contextos diferentes y no autoriza a asumir control total de toda la infraestructura.",
+            "Formula una pregunta de alcance por dimensión: cuentas, aplicación, equipos, tiempo y acciones posteriores. Un hallazgo confirmado en una aplicación no debe ampliarse a otras sin evidencia. Si la auditoría conserva solo cambios exitosos, su ausencia de fallos no explica toda la historia. Registra qué se revisó y qué no estaba disponible. Antes de proponer restaurar permisos, identifica dependencias y autoridad, y conserva los datos necesarios para analizar el cambio. Completar investigación significa hacer explícito el estado de cada pregunta, no eliminar todas las incertidumbres imaginables."
+          ],
+          "analogy": "Un plano de una planta del edificio no permite afirmar qué ocurrió en todas las demás plantas.",
+          "keyPoints": [
+            "Actor: Revisar sesiones relacionadas con operador-lab.",
+            "Privilegio: Definir alcance del rol en esa aplicación.",
+            "Expansión: Buscar otros cambios sin asumirlos por el primer hallazgo."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Completar investigación",
+            "items": [
+              {
+                "label": "Actor",
+                "detail": "Revisar sesiones relacionadas con operador-lab."
+              },
+              {
+                "label": "Privilegio",
+                "detail": "Definir alcance del rol en esa aplicación."
+              },
+              {
+                "label": "Expansión",
+                "detail": "Buscar otros cambios sin asumirlos por el primer hallazgo."
+              }
+            ],
+            "caption": "Completar Brisa exige delimitar alcance sin convertir una relación temporal en atribución personal."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "El rol era de una aplicación",
+        "scenario": "El escenario Brisa aclara que Administradores solo gobierna la aplicación de laboratorio.",
+        "steps": [
+          {
+            "action": "Definir contexto",
+            "reason": "El nombre del rol es ambiguo fuera de su sistema.",
+            "result": "Se identifica la aplicación y sus permisos."
+          },
+          {
+            "action": "Revisar uso",
+            "reason": "Concesión y utilización son acciones distintas.",
+            "result": "No hay evidencia suficiente sobre uso posterior."
+          },
+          {
+            "action": "Limitar alcance",
+            "reason": "Evita ampliar el impacto sin soporte.",
+            "result": "Se confirma el cambio en esa aplicación y se deja pendiente la revisión de uso."
+          }
+        ],
+        "result": "El informe no transforma un rol de aplicación en dominio sobre todos los equipos.",
+        "visual": {
+          "type": "timeline",
+          "title": "El rol era de una aplicación",
+          "items": [
+            {
+              "label": "Definir contexto",
+              "detail": "Se identifica la aplicación y sus permisos."
+            },
+            {
+              "label": "Revisar uso",
+              "detail": "No hay evidencia suficiente sobre uso posterior."
+            },
+            {
+              "label": "Limitar alcance",
+              "detail": "Se confirma el cambio en esa aplicación y se deja pendiente la revisión de uso."
+            }
+          ],
+          "caption": "El informe no transforma un rol de aplicación en dominio sobre todos los equipos."
+        }
+      },
+      "practice": {
+        "task": "Prepara cinco preguntas de alcance para Brisa.",
+        "steps": [
+          "Incluye identidad, servicio y tiempo.",
+          "Marca confirmado, pendiente o fuera de cobertura por pregunta.",
+          "Define una comprobación para la laguna de mayor impacto."
+        ],
+        "expected": "Una matriz de alcance con estados y próximos pasos concretos."
+      },
+      "check": {
+        "question": "¿Qué implica que un rol se llame Administradores?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Debe revisarse en qué sistema y con qué permisos opera."
+          },
+          {
+            "id": "b",
+            "text": "Control total de toda la empresa siempre."
+          },
+          {
+            "id": "c",
+            "text": "Que no necesita autorización."
+          }
+        ],
+        "correct": "a",
+        "explanation": "Los nombres no determinan alcance universal; el sistema y los permisos concretos deben comprobarse."
+      },
+      "mistakes": [
+        {
+          "myth": "Un cambio de privilegios demuestra que esos permisos se utilizaron.",
+          "correction": "La concesión y el uso requieren evidencias diferentes."
+        }
+      ],
+      "recap": [
+        "Actor: Revisar sesiones relacionadas con operador-lab.",
+        "Privilegio: Definir alcance del rol en esa aplicación.",
+        "Expansión: Buscar otros cambios sin asumirlos por el primer hallazgo."
+      ],
+      "glossary": [
+        {
+          "term": "Alcance de privilegio",
+          "definition": "Recursos y acciones que permite un permiso concreto."
+        },
+        {
+          "term": "Matriz de alcance",
+          "definition": "Registro de dimensiones investigadas y su estado de conocimiento."
+        }
+      ]
+    },
+    {
+      "dayId": "w49d6",
+      "title": "Informe y revisión",
+      "lead": "El informe de Brisa debe comunicar un cambio confirmado sin exagerar su impacto posterior.",
+      "sections": [
+        {
+          "topic": "Conclusiones y comunicación",
+          "explanation": [
+            "El segundo informe tiene que diferenciar el hallazgo central de las preguntas abiertas. Puede confirmar que una auditoría registró la adición de cuenta-lab a un rol de aplicación bajo operador-lab y que el dueño declaró el cambio no autorizado. No puede afirmar automáticamente quién estaba físicamente detrás de esa cuenta ni qué datos se consultaron después. Redacta estas diferencias con verbos precisos y referencias a las observaciones correspondientes, conservando los momentos y el alcance del servicio.",
+            "Las recomendaciones deben responder al cambio observado y a los riesgos pendientes: revisar sesiones, verificar otros cambios y restaurar permisos mediante el proceso autorizado si se aprueba. Añade responsable y criterio de comprobación, dejando claro lo propuesto y lo aplicado. Una revisión de comunicación debe verificar que el resumen ejecutivo no convierta riesgo potencial en pérdida confirmada. Comparar este informe con Faro permite mostrar transferencia: la misma disciplina de fuentes y límites puede sostener una conclusión más firme cuando la evidencia sí la respalda."
+          ],
+          "analogy": "La fuerza de una conclusión debe aumentar cuando mejora su soporte, no cuando el informe necesita sonar más importante.",
+          "keyPoints": [
+            "Confirmado: Cambio registrado y ausencia de autorización validada.",
+            "Pendiente: Identidad humana y uso posterior no demostrados.",
+            "Respuesta: Revisión y corrección autorizadas con verificación."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Informe y revisión",
+            "items": [
+              {
+                "label": "Confirmado",
+                "detail": "Cambio registrado y ausencia de autorización validada."
+              },
+              {
+                "label": "Pendiente",
+                "detail": "Identidad humana y uso posterior no demostrados."
+              },
+              {
+                "label": "Respuesta",
+                "detail": "Revisión y corrección autorizadas con verificación."
+              }
+            ],
+            "caption": "El informe de Brisa debe comunicar un cambio confirmado sin exagerar su impacto posterior."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Una recomendación comprobable",
+        "scenario": "El borrador propone «mejorar seguridad» sin especificar qué debe cambiar en Brisa.",
+        "steps": [
+          {
+            "action": "Relacionar hallazgo",
+            "reason": "La medida debe responder a un dato concreto.",
+            "result": "El problema es una pertenencia no autorizada al rol."
+          },
+          {
+            "action": "Definir acción",
+            "reason": "Necesita autoridad y dueño.",
+            "result": "El propietario revisará y aprobará la restauración de permisos."
+          },
+          {
+            "action": "Fijar comprobación",
+            "reason": "Permite verificar cierre.",
+            "result": "La auditoría y el estado final deben confirmar la pertenencia esperada."
+          }
+        ],
+        "result": "La recomendación pasa de una intención general a un trabajo comprobable.",
+        "visual": {
+          "type": "timeline",
+          "title": "Una recomendación comprobable",
+          "items": [
+            {
+              "label": "Relacionar hallazgo",
+              "detail": "El problema es una pertenencia no autorizada al rol."
+            },
+            {
+              "label": "Definir acción",
+              "detail": "El propietario revisará y aprobará la restauración de permisos."
+            },
+            {
+              "label": "Fijar comprobación",
+              "detail": "La auditoría y el estado final deben confirmar la pertenencia esperada."
+            }
+          ],
+          "caption": "La recomendación pasa de una intención general a un trabajo comprobable."
+        }
+      },
+      "practice": {
+        "task": "Redacta un informe Brisa con tres secciones breves.",
+        "steps": [
+          "Incluye hechos y fuentes.",
+          "Separa pendientes e impacto potencial.",
+          "Añade dos recomendaciones con responsable y criterio de cierre."
+        ],
+        "expected": "Un informe proporcional al cambio confirmado y a la cobertura restante."
+      },
+      "check": {
+        "question": "¿Qué convierte «mejorar seguridad» en una recomendación operativa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Un diseño más llamativo."
+          },
+          {
+            "id": "b",
+            "text": "Acción concreta, dueño, autorización y resultado verificable."
+          },
+          {
+            "id": "c",
+            "text": "Una promesa de riesgo cero."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La especificación permite asignar, ejecutar y comprobar el trabajo."
+      },
+      "mistakes": [
+        {
+          "myth": "Para sonar profesional debo afirmar el peor impacto posible como hecho.",
+          "correction": "El impacto potencial y el observado deben permanecer separados."
+        }
+      ],
+      "recap": [
+        "Confirmado: Cambio registrado y ausencia de autorización validada.",
+        "Pendiente: Identidad humana y uso posterior no demostrados.",
+        "Respuesta: Revisión y corrección autorizadas con verificación."
+      ],
+      "glossary": [
+        {
+          "term": "Impacto potencial",
+          "definition": "Consecuencia posible que no se ha confirmado."
+        },
+        {
+          "term": "Criterio de cierre",
+          "definition": "Condición comprobable que permite dar por terminada una tarea."
+        }
+      ]
+    },
+    {
+      "dayId": "w49d7",
+      "title": "Decisión de preparación",
+      "lead": "Dos casos distintos permiten evaluar transferencia, pero no predecir automáticamente un examen.",
+      "sections": [
+        {
+          "topic": "Dos casos y objetivos oficiales",
+          "explanation": [
+            "La decisión de preparación debe comparar evidencias de capacidades con objetivos oficiales y condiciones reales de trabajo. Faro probó distinguir automatización y causalidad; Brisa añadió lectura de roles de auditoría, autorización y alcance de privilegios. Revisa qué resolviste de forma autónoma, qué errores reaparecieron y dónde faltó material. Dos informes completos aportan información útil, pero no garantizan cubrir todas las herramientas o competencias que exige un programa externo.",
+            "Construye una tabla con objetivos, evidencia de cada caso, nivel de ayuda y brecha restante. Evalúa consistencia del método y capacidad para explicar un cambio de contexto. Si una competencia sigue fallando, define un refuerzo específico antes de tomar una decisión de reserva o examen. Las reglas, acceso y condiciones vigentes deben verificarse en la fuente oficial autorizada, no en recuerdos de otra persona. Una decisión responsable puede ser avanzar o posponer, siempre que el motivo se relacione con evidencias y disponibilidad reales."
+          ],
+          "analogy": "Dos trayectos bien conducidos informan sobre tu habilidad, pero no sustituyen comprobar todos los requisitos de una prueba oficial.",
+          "keyPoints": [
+            "Transferencia: Método aplicado a dos casos diferentes.",
+            "Cobertura: Comparación de evidencias con objetivos oficiales.",
+            "Decisión: Avanzar o reforzar con razones y condiciones verificadas."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Decisión de preparación",
+            "items": [
+              {
+                "label": "Transferencia",
+                "detail": "Método aplicado a dos casos diferentes."
+              },
+              {
+                "label": "Cobertura",
+                "detail": "Comparación de evidencias con objetivos oficiales."
+              },
+              {
+                "label": "Decisión",
+                "detail": "Avanzar o reforzar con razones y condiciones verificadas."
+              }
+            ],
+            "caption": "Dos casos distintos permiten evaluar transferencia, pero no predecir automáticamente un examen."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "La brecha que quedó",
+        "scenario": "Un estudiante ficticio resolvió ambos casos, pero necesitó ayuda para normalizar horas en los dos.",
+        "steps": [
+          {
+            "action": "Comparar patrones",
+            "reason": "Un error repetido indica brecha persistente.",
+            "result": "La correlación temporal sigue guiada."
+          },
+          {
+            "action": "Definir refuerzo",
+            "reason": "La tarea debe comprobar autonomía.",
+            "result": "Se preparan dos cronologías nuevas con desplazamientos explícitos."
+          },
+          {
+            "action": "Reevaluar decisión",
+            "reason": "La preparación necesita evidencia actual.",
+            "result": "La reserva se decide después de validar esa competencia y las condiciones oficiales."
+          }
+        ],
+        "result": "La decisión no depende únicamente de haber terminado dos informes.",
+        "visual": {
+          "type": "timeline",
+          "title": "La brecha que quedó",
+          "items": [
+            {
+              "label": "Comparar patrones",
+              "detail": "La correlación temporal sigue guiada."
+            },
+            {
+              "label": "Definir refuerzo",
+              "detail": "Se preparan dos cronologías nuevas con desplazamientos explícitos."
+            },
+            {
+              "label": "Reevaluar decisión",
+              "detail": "La reserva se decide después de validar esa competencia y las condiciones oficiales."
+            }
+          ],
+          "caption": "La decisión no depende únicamente de haber terminado dos informes."
+        }
+      },
+      "practice": {
+        "task": "Compara tus casos con tres objetivos oficiales.",
+        "steps": [
+          "Vincula evidencia y nivel de ayuda.",
+          "Identifica un error recurrente.",
+          "Escribe una decisión de preparación con razón y próxima comprobación."
+        ],
+        "expected": "Una decisión defendible que no confunde avance interno con aprobación externa."
+      },
+      "check": {
+        "question": "¿Qué indica una dificultad que reaparece en dos casos?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que aprobar un examen está garantizado."
+          },
+          {
+            "id": "b",
+            "text": "Que ya no hace falta practicarla."
+          },
+          {
+            "id": "c",
+            "text": "Una brecha que necesita refuerzo y nueva comprobación."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La repetición aporta evidencia de que el aprendizaje todavía no es estable o autónomo."
+      },
+      "mistakes": [
+        {
+          "myth": "Dos simulaciones terminadas equivalen a preparación completa.",
+          "correction": "Deben compararse con todos los objetivos y con la calidad real de sus evidencias."
+        }
+      ],
+      "recap": [
+        "Transferencia: Método aplicado a dos casos diferentes.",
+        "Cobertura: Comparación de evidencias con objetivos oficiales.",
+        "Decisión: Avanzar o reforzar con razones y condiciones verificadas."
+      ],
+      "glossary": [
+        {
+          "term": "Consistencia",
+          "definition": "Capacidad de mantener un desempeño adecuado en situaciones diferentes."
+        },
+        {
+          "term": "Decisión de preparación",
+          "definition": "Elección razonada basada en cobertura, autonomía y condiciones actuales."
+        }
+      ]
+    }
+  ]
+}

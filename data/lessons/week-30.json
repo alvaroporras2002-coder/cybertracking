@@ -1,0 +1,956 @@
+{
+  "version": "2.0.0",
+  "week": 30,
+  "title": "Identidad empresarial y automatización",
+  "overview": "La identidad empresarial conecta personas, equipos y aplicaciones con decisiones de acceso. Esta semana recorrerás directorios, inicio de sesión único, cuentas privilegiadas y automatización de lectura. Los ejemplos separan autenticación, autorización y ejecución de scripts para evitar que una salida aparentemente correcta esconda datos incompletos. Trabajarás con usuarios ficticios y consultas sobre colecciones locales; no necesitas administrar un dominio real. Terminarás con una auditoría pequeña que declare alcance, excepciones y resultados comprobables.",
+  "objectives": [
+    "Distinguir directorio, proveedor de identidad y aplicación.",
+    "Revisar privilegios según función y dueño.",
+    "Interpretar un script sencillo sin confundir salida y cobertura."
+  ],
+  "sources": [
+    {
+      "id": "entra",
+      "title": "Microsoft — OAuth 2.0 and OpenID Connect",
+      "url": "https://learn.microsoft.com/en-us/entra/identity-platform/v2-protocols"
+    },
+    {
+      "id": "powershell",
+      "title": "Microsoft — about_Foreach",
+      "url": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_foreach"
+    },
+    {
+      "id": "csv",
+      "title": "Microsoft — Export-Csv",
+      "url": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/export-csv"
+    },
+    {
+      "id": "controls",
+      "title": "NIST SP 800-53 — Security and Privacy Controls",
+      "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w30d1",
+      "title": "Directorios",
+      "lead": "Los objetos tienen identificadores y atributos.",
+      "sections": [
+        {
+          "topic": "Dominio, usuarios, equipos y grupos",
+          "explanation": [
+            "Un directorio mantiene objetos y atributos usados para administrar identidades y recursos. Usuarios, equipos y grupos no son simples carpetas: representan entidades con identificadores, relaciones y políticas. Un dominio de administración puede agrupar esas entidades bajo reglas comunes, pero su significado depende de la plataforma. No confundas un dominio de identidad con un nombre DNS ni supongas que todos los productos implementan las mismas funciones. La aplicación puede consultar el directorio y aun conservar permisos propios.",
+            "Los grupos simplifican la asignación de acceso por función, pero la pertenencia debe revisarse. Un usuario puede obtener permisos por varios grupos y por asignaciones directas. Al evaluar un acceso busca todas las rutas pertinentes, incluidas relaciones anidadas cuando la plataforma las admita. Registra dueño, propósito y vigencia de cada grupo. Una cuenta deshabilitada en un directorio no garantiza que todos los servicios externos hayan invalidado de inmediato sus sesiones o credenciales independientes."
+          ],
+          "analogy": "Un directorio es el registro de personal y llaves del edificio; cada sala puede tener controles adicionales.",
+          "keyPoints": [
+            "Los objetos tienen identificadores y atributos.",
+            "Un grupo puede ser una ruta indirecta de acceso.",
+            "Deshabilitar una cuenta no siempre revoca todas sus sesiones."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Ruta de un permiso",
+            "items": [
+              {
+                "label": "Usuario Ana",
+                "detail": "Identidad del directorio"
+              },
+              {
+                "label": "Grupo Finanzas",
+                "detail": "Pertenencia aprobada"
+              },
+              {
+                "label": "Aplicación",
+                "detail": "Permiso de lectura asignado al grupo"
+              }
+            ],
+            "caption": "También deben revisarse permisos directos u otras rutas posibles."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Acceso que parece inexplicable",
+        "scenario": "Ana no tiene un permiso directo, pero pertenece al grupo Finanzas con lectura en la aplicación.",
+        "steps": [
+          {
+            "action": "Consultar identidad",
+            "reason": "El nombre visible puede repetirse.",
+            "result": "Se usa el identificador de Ana."
+          },
+          {
+            "action": "Seguir grupos",
+            "reason": "El acceso puede ser indirecto.",
+            "result": "Finanzas concede lectura."
+          },
+          {
+            "action": "Revisar necesidad",
+            "reason": "Tener permiso no demuestra que deba conservarlo.",
+            "result": "El dueño valida la función y fecha de revisión."
+          }
+        ],
+        "result": "Se identifica la ruta de acceso antes de proponer cambios.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Acceso que parece inexplicable",
+          "items": [
+            {
+              "label": "Consultar identidad",
+              "detail": "Se usa el identificador de Ana."
+            },
+            {
+              "label": "Seguir grupos",
+              "detail": "Finanzas concede lectura."
+            },
+            {
+              "label": "Revisar necesidad",
+              "detail": "El dueño valida la función y fecha de revisión."
+            }
+          ],
+          "caption": "Se identifica la ruta de acceso antes de proponer cambios."
+        }
+      },
+      "practice": {
+        "task": "Dibuja dos rutas de acceso para un usuario ficticio.",
+        "steps": [
+          "Incluye una asignación directa.",
+          "Añade otra mediante grupo.",
+          "Indica quién debe aprobar cada ruta."
+        ],
+        "expected": "Un mapa que explique de dónde proviene cada permiso."
+      },
+      "check": {
+        "question": "¿Por qué quitar un permiso directo puede no eliminar el acceso?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Porque siempre existe una contraseña oculta."
+          },
+          {
+            "id": "b",
+            "text": "Porque otra pertenencia de grupo puede concederlo."
+          },
+          {
+            "id": "c",
+            "text": "Porque DNS guarda los permisos."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Los permisos efectivos pueden resultar de varias asignaciones y relaciones de grupos."
+      },
+      "mistakes": [
+        {
+          "myth": "El nombre de un usuario identifica de forma inequívoca su objeto.",
+          "correction": "Usa identificadores adecuados y el contexto del directorio."
+        }
+      ],
+      "recap": [
+        "Los objetos tienen identificadores y atributos.",
+        "Un grupo puede ser una ruta indirecta de acceso.",
+        "Deshabilitar una cuenta no siempre revoca todas sus sesiones."
+      ],
+      "glossary": [
+        {
+          "term": "Directorio",
+          "definition": "Servicio que organiza objetos de identidad y sus atributos."
+        },
+        {
+          "term": "Pertenencia",
+          "definition": "Relación de una identidad con un grupo."
+        }
+      ]
+    },
+    {
+      "dayId": "w30d2",
+      "title": "SSO y federación",
+      "lead": "SSO y federación se relacionan, pero no son idénticos.",
+      "sections": [
+        {
+          "topic": "Proveedor de identidad, confianza y protocolos",
+          "explanation": [
+            "SSO permite usar una autenticación para acceder a varias aplicaciones integradas, mientras que federación establece una relación de confianza entre sistemas de identidad y servicios. El proveedor de identidad autentica y entrega afirmaciones o tokens; la aplicación valida lo recibido y decide el acceso. OAuth 2.0 se centra en autorización delegada y no debe tratarse por sí solo como un protocolo de autenticación. OpenID Connect añade una capa de identidad sobre OAuth; SAML es otra familia utilizada para federación.",
+            "Un token no debe aceptarse solo porque tenga un formato reconocible. El servicio comprueba emisor, destinatario, vigencia y protección criptográfica según el protocolo. La autorización de negocio sigue siendo necesaria: una identidad autenticada puede no tener permiso para ver una factura. El cierre de una sesión central y la invalidación de sesiones de aplicaciones requieren comprender la integración concreta. En el laboratorio observa flujos y campos ficticios, sin copiar tokens reales a páginas públicas ni intentar reutilizarlos."
+          ],
+          "analogy": "La recepción entrega una credencial verificada; el guardia de cada sala comprueba si esa credencial sirve allí.",
+          "keyPoints": [
+            "SSO y federación se relacionan, pero no son idénticos.",
+            "OAuth no equivale por sí solo a autenticación.",
+            "La aplicación valida tokens y permisos."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Inicio federado",
+            "items": [
+              {
+                "label": "Usuario",
+                "detail": "Solicita acceso a la aplicación"
+              },
+              {
+                "label": "Proveedor de identidad",
+                "detail": "Autentica según su política"
+              },
+              {
+                "label": "Aplicación",
+                "detail": "Valida emisor, audiencia y acceso"
+              }
+            ],
+            "caption": "El flujo real depende del protocolo y la configuración de la integración."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Token para otra aplicación",
+        "scenario": "El ejemplo de token indica audiencia Portal-A, pero se presenta a Portal-B.",
+        "steps": [
+          {
+            "action": "Leer audiencia",
+            "reason": "Un token no sirve universalmente.",
+            "result": "Su destinatario declarado es Portal-A."
+          },
+          {
+            "action": "Aplicar validación",
+            "reason": "La aplicación debe rechazar destinatarios incorrectos.",
+            "result": "Portal-B no lo acepta."
+          },
+          {
+            "action": "Separar permisos",
+            "reason": "Una autenticación válida no concede cualquier acción.",
+            "result": "Portal-A aún verifica autorización de la operación."
+          }
+        ],
+        "result": "La confianza está limitada a destinatario y condiciones, no al aspecto del token.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Token para otra aplicación",
+          "items": [
+            {
+              "label": "Leer audiencia",
+              "detail": "Su destinatario declarado es Portal-A."
+            },
+            {
+              "label": "Aplicar validación",
+              "detail": "Portal-B no lo acepta."
+            },
+            {
+              "label": "Separar permisos",
+              "detail": "Portal-A aún verifica autorización de la operación."
+            }
+          ],
+          "caption": "La confianza está limitada a destinatario y condiciones, no al aspecto del token."
+        }
+      },
+      "practice": {
+        "task": "Explica tres comprobaciones de un token ficticio.",
+        "steps": [
+          "Identifica emisor.",
+          "Comprueba audiencia y vigencia.",
+          "Añade la autorización necesaria para una operación."
+        ],
+        "expected": "Una explicación sin publicar tokens ni secretos reales."
+      },
+      "check": {
+        "question": "¿Qué añade OpenID Connect al uso de OAuth?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Una capa de identidad para autenticación."
+          },
+          {
+            "id": "b",
+            "text": "La eliminación de todos los permisos."
+          },
+          {
+            "id": "c",
+            "text": "Un respaldo automático de la aplicación."
+          }
+        ],
+        "correct": "a",
+        "explanation": "OpenID Connect define identidad sobre OAuth; la autorización de negocio sigue siendo separada."
+      },
+      "mistakes": [
+        {
+          "myth": "Cualquier token válido sirve para cualquier aplicación.",
+          "correction": "La audiencia y otras condiciones delimitan dónde y cómo puede aceptarse."
+        }
+      ],
+      "recap": [
+        "SSO y federación se relacionan, pero no son idénticos.",
+        "OAuth no equivale por sí solo a autenticación.",
+        "La aplicación valida tokens y permisos."
+      ],
+      "glossary": [
+        {
+          "term": "IdP",
+          "definition": "Proveedor que autentica y emite información de identidad."
+        },
+        {
+          "term": "Audiencia",
+          "definition": "Destinatario previsto de un token o afirmación."
+        }
+      ]
+    },
+    {
+      "dayId": "w30d3",
+      "title": "Privilegios y cuentas",
+      "lead": "Separa cuentas diarias y privilegiadas.",
+      "sections": [
+        {
+          "topic": "Servicio, administrador y revisión",
+          "explanation": [
+            "Las cuentas privilegiadas permiten acciones con consecuencias amplias, como modificar configuraciones o conceder permisos. Deben distinguirse de cuentas de uso diario. Una cuenta de servicio representa una aplicación o tarea y necesita dueño, propósito y privilegios acotados; no debe convertirse en una identidad compartida para cualquier administrador. Evita atribuir una acción humana concreta a una cuenta técnica sin evidencia adicional. La forma de gestionar credenciales depende de la plataforma y de las capacidades de identidad administrada disponibles.",
+            "Revisar acceso exige comparar permisos actuales con una necesidad vigente. Pregunta quién usa la cuenta, desde dónde, qué operaciones requiere y cuándo fue revisada. Los accesos temporales deben vencer o revisarse, y los cambios se prueban antes de aplicarlos a producción. Rotar una credencial sin conocer dependencias puede interrumpir servicios. El objetivo no es acumular restricciones arbitrarias, sino reducir privilegios y aumentar trazabilidad manteniendo el trabajo autorizado y una vía de recuperación controlada."
+          ],
+          "analogy": "La llave del electricista sirve para un trabajo definido; no debería quedar en recepción para que cualquiera la use.",
+          "keyPoints": [
+            "Separa cuentas diarias y privilegiadas.",
+            "Toda cuenta de servicio necesita dueño y dependencias.",
+            "La revisión compara acceso con necesidad vigente."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Cuentas con finalidades distintas",
+            "items": [
+              {
+                "label": "Persona",
+                "detail": "Trabajo cotidiano con permisos normales"
+              },
+              {
+                "label": "Administrador",
+                "detail": "Tarea privilegiada controlada"
+              },
+              {
+                "label": "Servicio",
+                "detail": "Operación técnica con dueño y alcance"
+              }
+            ],
+            "caption": "La misma organización puede utilizar tecnologías distintas para cada tipo."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Cuenta técnica excesiva",
+        "scenario": "Un servicio de informes tiene escritura global aunque solo necesita leer una carpeta.",
+        "steps": [
+          {
+            "action": "Confirmar función",
+            "reason": "No se reduce acceso a ciegas.",
+            "result": "El dueño confirma lectura únicamente."
+          },
+          {
+            "action": "Probar alcance menor",
+            "reason": "Pueden existir dependencias ocultas.",
+            "result": "En pruebas funciona con lectura de esa carpeta."
+          },
+          {
+            "action": "Planear cambio",
+            "reason": "Producción exige control y recuperación.",
+            "result": "Se aprueba reducción y vigilancia posterior."
+          }
+        ],
+        "result": "La reducción se basa en una función comprobada, no en una suposición.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Cuenta técnica excesiva",
+          "items": [
+            {
+              "label": "Confirmar función",
+              "detail": "El dueño confirma lectura únicamente."
+            },
+            {
+              "label": "Probar alcance menor",
+              "detail": "En pruebas funciona con lectura de esa carpeta."
+            },
+            {
+              "label": "Planear cambio",
+              "detail": "Se aprueba reducción y vigilancia posterior."
+            }
+          ],
+          "caption": "La reducción se basa en una función comprobada, no en una suposición."
+        }
+      },
+      "practice": {
+        "task": "Crea una revisión de una cuenta de copia ficticia.",
+        "steps": [
+          "Anota dueño y sistemas dependientes.",
+          "Enumera operaciones necesarias.",
+          "Propón prueba y vencimiento de una excepción."
+        ],
+        "expected": "Un registro que justifique cada privilegio."
+      },
+      "check": {
+        "question": "¿Qué dato falta en una cuenta de servicio sin responsable?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El fondo de pantalla."
+          },
+          {
+            "id": "b",
+            "text": "El nombre del navegador."
+          },
+          {
+            "id": "c",
+            "text": "Un dueño que pueda aprobar y revisar su necesidad."
+          }
+        ],
+        "correct": "c",
+        "explanation": "Sin dueño resulta difícil decidir cambios, investigar actividad y retirar accesos."
+      },
+      "mistakes": [
+        {
+          "myth": "Las cuentas de servicio deben ser administradoras para funcionar.",
+          "correction": "Concede solo operaciones necesarias y valida dependencias antes de reducir privilegios."
+        }
+      ],
+      "recap": [
+        "Separa cuentas diarias y privilegiadas.",
+        "Toda cuenta de servicio necesita dueño y dependencias.",
+        "La revisión compara acceso con necesidad vigente."
+      ],
+      "glossary": [
+        {
+          "term": "Mínimo privilegio",
+          "definition": "Acceso suficiente para una función, sin permisos innecesarios."
+        },
+        {
+          "term": "Dependencia",
+          "definition": "Sistema o tarea cuyo funcionamiento requiere otro componente."
+        }
+      ]
+    },
+    {
+      "dayId": "w30d4",
+      "title": "Scripts básicos",
+      "lead": "Asignar y comparar son operaciones diferentes.",
+      "sections": [
+        {
+          "topic": "Variables, condiciones y bucles",
+          "explanation": [
+            "Un script agrupa instrucciones que se ejecutan con reglas precisas. Una variable almacena un valor; una condición elige un camino; un bucle repite instrucciones sobre elementos. En PowerShell, asignar con el signo igual no es comparar: operadores como -eq expresan comparación. Antes de ejecutar un script entiende de dónde salen los datos, qué transforma y qué efectos produce. Un ejemplo de lectura sobre una lista ficticia permite aprender esa lógica sin tocar cuentas ni servicios del equipo.",
+            "Imagina tres objetos con nombre y estado Habilitado. Un bucle revisa cada objeto y una condición selecciona los deshabilitados. El resultado depende de los valores y sus tipos, no del nombre de la variable. Distingue escribir una salida de modificar el objeto original o el sistema remoto. En consultas reales también importan errores de acceso y páginas de resultados. Una salida vacía puede significar que ninguna fila coincide o que nunca se obtuvo una entrada válida."
+          ],
+          "analogy": "Un bucle revisa tarjetas una a una; una condición decide cuáles van a la bandeja de revisión.",
+          "keyPoints": [
+            "Asignar y comparar son operaciones diferentes.",
+            "La condición se aplica a cada elemento del bucle.",
+            "Salida vacía exige revisar también la entrada."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Filtrado de una colección",
+            "items": [
+              {
+                "label": "Entrada",
+                "detail": "Tres usuarios ficticios"
+              },
+              {
+                "label": "Bucle",
+                "detail": "Revisar cada objeto"
+              },
+              {
+                "label": "Condición",
+                "detail": "Enabled igual a falso"
+              },
+              {
+                "label": "Salida",
+                "detail": "Solo cuentas deshabilitadas"
+              }
+            ],
+            "caption": "El ejemplo usa datos locales de práctica y no modifica cuentas."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Dos cuentas activas y una inactiva",
+        "scenario": "Ana y Luis tienen Enabled=True; Bea tiene Enabled=False.",
+        "steps": [
+          {
+            "action": "Crear entrada",
+            "reason": "Los valores son parte del caso, no del sistema real.",
+            "result": "Hay tres objetos de práctica."
+          },
+          {
+            "action": "Evaluar condición",
+            "reason": "Solo coincide el valor falso.",
+            "result": "Bea satisface la condición."
+          },
+          {
+            "action": "Comprobar salida",
+            "reason": "La cantidad se contrasta con la tabla original.",
+            "result": "Se obtiene un nombre y no se modifica ninguna cuenta."
+          }
+        ],
+        "result": "El filtro selecciona Bea; no demuestra una acción de deshabilitación.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Dos cuentas activas y una inactiva",
+          "items": [
+            {
+              "label": "Crear entrada",
+              "detail": "Hay tres objetos de práctica."
+            },
+            {
+              "label": "Evaluar condición",
+              "detail": "Bea satisface la condición."
+            },
+            {
+              "label": "Comprobar salida",
+              "detail": "Se obtiene un nombre y no se modifica ninguna cuenta."
+            }
+          ],
+          "caption": "El filtro selecciona Bea; no demuestra una acción de deshabilitación."
+        }
+      },
+      "practice": {
+        "task": "Ejecuta o sigue manualmente un filtro sobre objetos ficticios.",
+        "steps": [
+          "Crea tres nombres con estados diferentes.",
+          "Predice qué nombre saldrá.",
+          "Compara la predicción con la salida."
+        ],
+        "expected": "Una predicción correcta y una explicación de por qué no cambia cuentas.",
+        "console": {
+          "language": "PowerShell",
+          "code": "$usuarios = @([pscustomobject]@{Name='Ana';Enabled=$true}, [pscustomobject]@{Name='Bea';Enabled=$false}, [pscustomobject]@{Name='Luis';Enabled=$true})\nforeach ($u in $usuarios) { if ($u.Enabled -eq $false) { $u.Name } }",
+          "output": "Bea",
+          "explanation": "Trabaja únicamente sobre tres objetos en memoria; muestra la cuenta cuyo estado ficticio es falso."
+        }
+      },
+      "check": {
+        "question": "¿Qué hace -eq en una comparación de PowerShell?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Asigna automáticamente un permiso."
+          },
+          {
+            "id": "b",
+            "text": "Compara igualdad según las reglas del operador."
+          },
+          {
+            "id": "c",
+            "text": "Reinicia el bucle siempre."
+          }
+        ],
+        "correct": "b",
+        "explanation": "El operador compara; la asignación de variables utiliza otra sintaxis y finalidad."
+      },
+      "mistakes": [
+        {
+          "myth": "Mostrar una cuenta deshabilitada significa que el script la deshabilitó.",
+          "correction": "Una consulta puede seleccionar y mostrar objetos sin modificar el sistema."
+        }
+      ],
+      "recap": [
+        "Asignar y comparar son operaciones diferentes.",
+        "La condición se aplica a cada elemento del bucle.",
+        "Salida vacía exige revisar también la entrada."
+      ],
+      "glossary": [
+        {
+          "term": "Variable",
+          "definition": "Nombre asociado a un valor durante la ejecución."
+        },
+        {
+          "term": "Bucle",
+          "definition": "Estructura que repite instrucciones sobre elementos o condiciones."
+        }
+      ]
+    },
+    {
+      "dayId": "w30d5",
+      "title": "Automatización y validación",
+      "lead": "Valida entradas y cobertura además de salida.",
+      "sections": [
+        {
+          "topic": "Errores, permisos y registro",
+          "explanation": [
+            "Automatizar una revisión no elimina la necesidad de validar. Un script puede terminar sin detenerse y haber omitido sistemas por errores de acceso. Define criterios de entrada, cantidad esperada, errores tolerables y salida. Registra cuándo se ejecutó y con qué alcance, sin guardar secretos. Si la tarea solo requiere lectura, evita usar una identidad con poder de modificación. Los permisos excesivos aumentan las consecuencias de un error y no arreglan una consulta mal diseñada.",
+            "Prueba casos pequeños: una fila que debe coincidir, otra que no y una con dato ausente. Decide cómo tratar valores nulos y errores antes de usar el resultado para una decisión. Las operaciones que cambian sistemas requieren controles adicionales, pruebas previas y recuperación. Para aprender, usa una simulación local y exporta solo campos necesarios. Un archivo CSV bien formado prueba que hubo una exportación, pero no que la lista estuviera completa ni que las conclusiones fueran correctas."
+          ],
+          "analogy": "Una calculadora precisa produce un resultado incorrecto si introduces una lista incompleta o cifras equivocadas.",
+          "keyPoints": [
+            "Valida entradas y cobertura además de salida.",
+            "Prueba coincidencias, no coincidencias y datos ausentes.",
+            "Usa permisos de lectura para tareas de lectura."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Automatización controlada",
+            "items": [
+              {
+                "label": "Entrada",
+                "detail": "Alcance y campos esperados"
+              },
+              {
+                "label": "Proceso",
+                "detail": "Filtro y manejo de errores"
+              },
+              {
+                "label": "Salida",
+                "detail": "Registros y excepciones"
+              },
+              {
+                "label": "Validación",
+                "detail": "Conteos y muestra independiente"
+              }
+            ],
+            "caption": "Completar un programa no equivale a completar la cobertura."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Consulta de cinco equipos",
+        "scenario": "El resultado devuelve cuatro fichas y un error de acceso.",
+        "steps": [
+          {
+            "action": "Contar cobertura",
+            "reason": "Un total menor puede ocultar una omisión.",
+            "result": "Cuatro revisados de cinco previstos."
+          },
+          {
+            "action": "Separar error",
+            "reason": "No equivale a equipo sin problemas.",
+            "result": "El quinto queda pendiente."
+          },
+          {
+            "action": "Reportar límite",
+            "reason": "La conclusión debe conservar la diferencia.",
+            "result": "Se publica resultado parcial y acción para recuperar acceso."
+          }
+        ],
+        "result": "La automatización ahorra trabajo sin convertir omisiones en equipos sanos.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Consulta de cinco equipos",
+          "items": [
+            {
+              "label": "Contar cobertura",
+              "detail": "Cuatro revisados de cinco previstos."
+            },
+            {
+              "label": "Separar error",
+              "detail": "El quinto queda pendiente."
+            },
+            {
+              "label": "Reportar límite",
+              "detail": "Se publica resultado parcial y acción para recuperar acceso."
+            }
+          ],
+          "caption": "La automatización ahorra trabajo sin convertir omisiones en equipos sanos."
+        }
+      },
+      "practice": {
+        "task": "Diseña pruebas para un filtro de cuentas sin dueño.",
+        "steps": [
+          "Incluye una cuenta con dueño.",
+          "Añade una sin dueño y otra con campo ausente.",
+          "Define cómo aparecerán las excepciones."
+        ],
+        "expected": "Tres entradas con salidas esperadas explícitas."
+      },
+      "check": {
+        "question": "¿Qué significa exportar correctamente un CSV?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que todos los sistemas respondieron."
+          },
+          {
+            "id": "b",
+            "text": "Que no existen errores de datos."
+          },
+          {
+            "id": "c",
+            "text": "Que se produjo un archivo; falta comprobar contenido y cobertura."
+          }
+        ],
+        "correct": "c",
+        "explanation": "El formato de salida no acredita que la consulta obtuvo todos los datos necesarios."
+      },
+      "mistakes": [
+        {
+          "myth": "Si no hubo una ventana roja, no hubo errores.",
+          "correction": "Registra fallos y compara el alcance previsto con el realmente procesado."
+        }
+      ],
+      "recap": [
+        "Valida entradas y cobertura además de salida.",
+        "Prueba coincidencias, no coincidencias y datos ausentes.",
+        "Usa permisos de lectura para tareas de lectura."
+      ],
+      "glossary": [
+        {
+          "term": "Cobertura efectiva",
+          "definition": "Elementos realmente procesados dentro del alcance."
+        },
+        {
+          "term": "Caso de prueba",
+          "definition": "Entrada y resultado esperado para comprobar una función."
+        }
+      ]
+    },
+    {
+      "dayId": "w30d6",
+      "title": "Práctica integrada",
+      "lead": "El script detecta candidatos, no aprueba bajas.",
+      "sections": [
+        {
+          "topic": "Auditoría de usuarios",
+          "explanation": [
+            "Una auditoría de usuarios compara identidades y permisos con reglas de necesidad. No debes empezar borrando cuentas que parecen antiguas. Combina estado, dueño, función, fecha de revisión y actividad disponible. Una cuenta técnica puede utilizarse poco y ser necesaria para recuperación, mientras que una cuenta activa de una persona que salió requiere revisión urgente. La actividad es una señal contextual, no una aprobación automática. Los datos utilizados deben tener fecha y fuente para evitar decisiones con exportaciones obsoletas.",
+            "Construye una tabla de hallazgos donde cada fila explique condición, evidencia y acción propuesta. Un script puede seleccionar candidatos, pero el dueño confirma necesidad y el procedimiento autoriza cambios. En una práctica local usa identidades inventadas y una regla sencilla, como dueño vacío. Contrasta manualmente una muestra y conserva excepciones. Si unes dos archivos, emplea un identificador estable: los nombres pueden repetirse o cambiar. La salida final debe diferenciar candidato a revisión de cuenta que ya fue revocada."
+          ],
+          "analogy": "El filtro prepara una bandeja de expedientes; una persona autorizada todavía decide cada caso.",
+          "keyPoints": [
+            "El script detecta candidatos, no aprueba bajas.",
+            "Une registros con identificadores estables.",
+            "Fecha y dueño importan para interpretar el acceso."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Revisión de usuarios",
+            "items": [
+              {
+                "label": "Inventario",
+                "detail": "ID, estado y dueño"
+              },
+              {
+                "label": "Filtro",
+                "detail": "Condición que merece revisión"
+              },
+              {
+                "label": "Validación",
+                "detail": "Dueño y necesidad"
+              },
+              {
+                "label": "Decisión",
+                "detail": "Acción autorizada y seguimiento"
+              }
+            ],
+            "caption": "La revisión de una cuenta no implica eliminarla automáticamente."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Cuenta sin dueño",
+        "scenario": "La tabla ficticia contiene svc_reporte sin responsable y ana con responsable confirmado.",
+        "steps": [
+          {
+            "action": "Aplicar filtro",
+            "reason": "La condición busca una brecha administrativa.",
+            "result": "Solo svc_reporte es candidato."
+          },
+          {
+            "action": "Validar función",
+            "reason": "Puede sostener un servicio necesario.",
+            "result": "Se identifica la aplicación dependiente."
+          },
+          {
+            "action": "Asignar acción",
+            "reason": "La respuesta inicial puede ser documentar un dueño.",
+            "result": "Se abre revisión sin borrar la cuenta."
+          }
+        ],
+        "result": "Se corrige la falta de responsabilidad antes de ejecutar una baja arriesgada.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Cuenta sin dueño",
+          "items": [
+            {
+              "label": "Aplicar filtro",
+              "detail": "Solo svc_reporte es candidato."
+            },
+            {
+              "label": "Validar función",
+              "detail": "Se identifica la aplicación dependiente."
+            },
+            {
+              "label": "Asignar acción",
+              "detail": "Se abre revisión sin borrar la cuenta."
+            }
+          ],
+          "caption": "Se corrige la falta de responsabilidad antes de ejecutar una baja arriesgada."
+        }
+      },
+      "practice": {
+        "task": "Audita una tabla de cinco identidades ficticias con una regla de selección explícita.",
+        "steps": [
+          "Define ID, tipo, dueño y estado.",
+          "Aplica una regla explícita.",
+          "Revisa manualmente todos los candidatos."
+        ],
+        "expected": "Una tabla con hallazgos, acción propuesta y ninguna modificación automática."
+      },
+      "check": {
+        "question": "¿Qué significa aparecer en el filtro sin dueño?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Necesita revisión; no demuestra que deba borrarse."
+          },
+          {
+            "id": "b",
+            "text": "Es una cuenta maliciosa confirmada."
+          },
+          {
+            "id": "c",
+            "text": "Está definitivamente inactiva."
+          }
+        ],
+        "correct": "a",
+        "explanation": "El filtro identifica una condición de gestión; la decisión requiere conocer función y dependencias."
+      },
+      "mistakes": [
+        {
+          "myth": "Una cuenta técnica sin dueño debe eliminarse inmediatamente.",
+          "correction": "Primero limita el riesgo y averigua la función mediante el proceso autorizado."
+        }
+      ],
+      "recap": [
+        "El script detecta candidatos, no aprueba bajas.",
+        "Une registros con identificadores estables.",
+        "Fecha y dueño importan para interpretar el acceso."
+      ],
+      "glossary": [
+        {
+          "term": "Candidato",
+          "definition": "Elemento seleccionado para una revisión posterior."
+        },
+        {
+          "term": "Identificador estable",
+          "definition": "Clave que conserva la identidad de un objeto a través de cambios de nombre."
+        }
+      ]
+    },
+    {
+      "dayId": "w30d7",
+      "title": "Evaluación IAM",
+      "lead": "Traduce necesidad de acceso a una condición verificable.",
+      "sections": [
+        {
+          "topic": "Acceso y resultados del script",
+          "explanation": [
+            "Evaluar IAM con un script exige revisar dos decisiones: quién debería tener acceso y qué datos produjo realmente el programa. Una salida técnicamente correcta puede responder una pregunta equivocada. Por ejemplo, filtrar cuentas deshabilitadas no encuentra necesariamente usuarios activos con privilegios excesivos. Escribe primero el criterio de negocio y después tradúcelo a campos y condiciones. Verifica que los datos representen ese criterio y que no falten fuentes o permisos indirectos relevantes.",
+            "Presenta el resultado con alcance, fecha, errores y muestra de validación. Si encuentras una cuenta sin dueño y otra con rol administrativo temporal, sus acciones pueden ser diferentes. La primera necesita atribución y revisión; la segunda, comprobar aprobación y vencimiento. No conviertas el informe en una ejecución masiva de cambios. Una conclusión defendible explica qué encontró el filtro, qué comprobaste manualmente y qué autorización falta para modificar accesos. Esa separación es una habilidad básica de un analista junior responsable."
+          ],
+          "analogy": "El mapa y el destino deben coincidir: un trayecto bien calculado no sirve si elegiste otra dirección.",
+          "keyPoints": [
+            "Traduce necesidad de acceso a una condición verificable.",
+            "No confundas coincidencias con decisiones finales.",
+            "Declara errores y autorizaciones pendientes."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Pregunta frente a filtro",
+            "items": [
+              {
+                "label": "Necesidad",
+                "detail": "Revisar administradores temporales vencidos"
+              },
+              {
+                "label": "Datos",
+                "detail": "Rol, aprobación y vencimiento"
+              },
+              {
+                "label": "Filtro",
+                "detail": "Selecciona vencidos para validar con el dueño"
+              }
+            ],
+            "caption": "Un campo ausente se trata como excepción, no como aprobación."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Permiso temporal vencido",
+        "scenario": "La tabla registra rol Admin hasta el día anterior, pero no aparece renovación aprobada.",
+        "steps": [
+          {
+            "action": "Confirmar fecha",
+            "reason": "La comparación usa una fecha y zona definidas.",
+            "result": "El permiso figura vencido."
+          },
+          {
+            "action": "Consultar aprobación",
+            "reason": "La tabla podría estar retrasada.",
+            "result": "No existe renovación en el caso suministrado."
+          },
+          {
+            "action": "Proponer acción",
+            "reason": "Modificar acceso requiere responsabilidad.",
+            "result": "Se solicita retirar o renovar según decisión autorizada."
+          }
+        ],
+        "result": "El hallazgo explica criterio, evidencia y paso pendiente sin ejecutar cambios.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Permiso temporal vencido",
+          "items": [
+            {
+              "label": "Confirmar fecha",
+              "detail": "El permiso figura vencido."
+            },
+            {
+              "label": "Consultar aprobación",
+              "detail": "No existe renovación en el caso suministrado."
+            },
+            {
+              "label": "Proponer acción",
+              "detail": "Se solicita retirar o renovar según decisión autorizada."
+            }
+          ],
+          "caption": "El hallazgo explica criterio, evidencia y paso pendiente sin ejecutar cambios."
+        }
+      },
+      "practice": {
+        "task": "Revisa un informe que dice cero riesgos porque el script devolvió cero filas.",
+        "steps": [
+          "Comprueba la pregunta del filtro.",
+          "Revisa errores y campos ausentes.",
+          "Escribe una conclusión proporcional."
+        ],
+        "expected": "Una explicación de por qué cero coincidencias no garantiza acceso correcto."
+      },
+      "check": {
+        "question": "¿Qué debería acompañar un resultado de auditoría automatizada?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo el archivo de salida."
+          },
+          {
+            "id": "b",
+            "text": "Alcance, criterios, errores y validación de una muestra."
+          },
+          {
+            "id": "c",
+            "text": "La contraseña usada para consultar."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Esos datos permiten interpretar y repetir el resultado sin divulgar credenciales."
+      },
+      "mistakes": [
+        {
+          "myth": "Una salida vacía demuestra que IAM está bien.",
+          "correction": "Puede deberse al filtro, datos incompletos o falta de permisos de consulta."
+        }
+      ],
+      "recap": [
+        "Traduce necesidad de acceso a una condición verificable.",
+        "No confundas coincidencias con decisiones finales.",
+        "Declara errores y autorizaciones pendientes."
+      ],
+      "glossary": [
+        {
+          "term": "IAM",
+          "definition": "Gestión de identidades y accesos."
+        },
+        {
+          "term": "Permiso efectivo",
+          "definition": "Acceso que realmente resulta de las reglas y asignaciones aplicables."
+        }
+      ]
+    }
+  ]
+}

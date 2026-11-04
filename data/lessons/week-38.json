@@ -1,0 +1,976 @@
+{
+  "version": "2.0.0",
+  "week": 38,
+  "title": "Phishing y autenticación de correo",
+  "overview": "El análisis de correo combina estructura, autenticación y contexto de la solicitud. Aprenderás a distinguir campos que parecen similares, interpretar resultados sin convertirlos en garantías y redactar un veredicto proporcional. Los mensajes de los ejercicios son ficticios: se estudian como texto, sin abrir enlaces, habilitar contenido ni ejecutar adjuntos. Las normas técnicas enlazadas explican los mecanismos; el flujo de análisis y las herramientas concretas deben ajustarse al entorno autorizado del curso o de la organización.",
+  "objectives": [
+    "Distinguir remitentes visibles, de respuesta y de transporte.",
+    "Interpretar SPF, DKIM y alineación DMARC sin asumir legitimidad.",
+    "Sustentar un veredicto con cabeceras, contenido y contexto."
+  ],
+  "sources": [
+    {
+      "id": "spf",
+      "title": "RFC 7208 — Sender Policy Framework",
+      "url": "https://www.rfc-editor.org/rfc/rfc7208"
+    },
+    {
+      "id": "dkim",
+      "title": "RFC 6376 — DomainKeys Identified Mail",
+      "url": "https://www.rfc-editor.org/rfc/rfc6376"
+    },
+    {
+      "id": "dmarc",
+      "title": "RFC 9989 — DMARC",
+      "url": "https://www.rfc-editor.org/rfc/rfc9989"
+    },
+    {
+      "id": "btl1",
+      "title": "Security Blue Team — Blue Team Level 1",
+      "url": "https://www.securityblue.team/certifications/blue-team-level-1"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w38d1",
+      "title": "Estructura del correo",
+      "lead": "La apariencia no demuestra identidad.",
+      "sections": [
+        {
+          "topic": "Cabeceras, cuerpo y adjuntos",
+          "explanation": [
+            "Un correo contiene cabeceras y cuerpo; el cuerpo puede incluir varias partes MIME, como texto, HTML y adjuntos. La apariencia que muestra el cliente no revela toda la estructura. El nombre visible del remitente puede elegirse libremente y una imagen con un logotipo no demuestra identidad. Analiza primero el mensaje como datos, no como una página interactiva. No abras enlaces ni habilites macros o contenido activo para averiguar si parece legítimo; trabaja con una muestra sintética o un entorno autorizado.",
+            "Las cabeceras describen campos y recorrido, pero tienen distintos niveles de confianza. La fecha escrita por el remitente puede ser incorrecta y parte del contenido puede ser falsificado. Conserva el mensaje original disponible y registra cómo lo obtuviste. Los adjuntos necesitan inventario de nombre, tipo declarado y tamaño, sin asumir que la extensión refleja contenido. Una parte HTML puede cargar recursos remotos si se representa; desactivar esa carga reduce exposición durante revisión. El primer objetivo es entender qué elementos existen y cuáles puedes observar sin ejecutarlos."
+          ],
+          "analogy": "El correo es un paquete con etiqueta, documentos y posibles objetos dentro; no necesitas activar el objeto para describir el paquete.",
+          "keyPoints": [
+            "La apariencia no demuestra identidad.",
+            "MIME puede contener varias partes y adjuntos.",
+            "Analiza sin activar contenido ni recursos remotos."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Estructura del mensaje",
+            "items": [
+              {
+                "label": "Cabeceras",
+                "detail": "Campos y recorrido declarado"
+              },
+              {
+                "label": "Cuerpo de texto",
+                "detail": "Solicitud y lenguaje"
+              },
+              {
+                "label": "Parte HTML",
+                "detail": "Formato y referencias remotas"
+              },
+              {
+                "label": "Adjuntos",
+                "detail": "Archivos que se inventarían sin ejecutar"
+              }
+            ],
+            "caption": "La representación visual puede ocultar detalles de las partes del mensaje."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Mensaje con dos cuerpos",
+        "scenario": "El caso preparado contiene texto simple y HTML; el HTML muestra un botón con destino diferente al texto visible.",
+        "steps": [
+          {
+            "action": "Inventariar partes",
+            "reason": "El cliente puede mostrar solo una vista.",
+            "result": "Se detectan dos versiones del cuerpo."
+          },
+          {
+            "action": "Leer como datos",
+            "reason": "No hace falta abrir el destino.",
+            "result": "Se compara etiqueta del botón con atributo de enlace."
+          },
+          {
+            "action": "Registrar diferencia",
+            "reason": "La discrepancia necesita contexto.",
+            "result": "Se anota destino declarado sin visitarlo."
+          }
+        ],
+        "result": "Se conserva una observación útil sin interactuar con un destino desconocido.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Mensaje con dos cuerpos",
+          "items": [
+            {
+              "label": "Inventariar partes",
+              "detail": "Se detectan dos versiones del cuerpo."
+            },
+            {
+              "label": "Leer como datos",
+              "detail": "Se compara etiqueta del botón con atributo de enlace."
+            },
+            {
+              "label": "Registrar diferencia",
+              "detail": "Se anota destino declarado sin visitarlo."
+            }
+          ],
+          "caption": "Se conserva una observación útil sin interactuar con un destino desconocido."
+        }
+      },
+      "practice": {
+        "task": "Describe un mensaje sintético con dos partes y un adjunto ficticio.",
+        "steps": [
+          "Separa cabeceras y cuerpo.",
+          "Enumera partes y nombre de adjunto.",
+          "Anota qué no has ejecutado ni verificado."
+        ],
+        "expected": "Un inventario seguro de estructura y límites."
+      },
+      "check": {
+        "question": "¿Qué prueba un logotipo en el cuerpo?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La autenticidad del remitente."
+          },
+          {
+            "id": "b",
+            "text": "Nada por sí solo sobre la identidad; puede copiarse."
+          },
+          {
+            "id": "c",
+            "text": "Que el adjunto está limpio."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La apariencia es reproducible y no sustituye verificación técnica ni contexto de la solicitud."
+      },
+      "mistakes": [
+        {
+          "myth": "Ver el correo como una página es siempre inocuo.",
+          "correction": "La representación puede cargar recursos remotos; usa un flujo de análisis seguro y autorizado."
+        }
+      ],
+      "recap": [
+        "La apariencia no demuestra identidad.",
+        "MIME puede contener varias partes y adjuntos.",
+        "Analiza sin activar contenido ni recursos remotos."
+      ],
+      "glossary": [
+        {
+          "term": "MIME",
+          "definition": "Estructura que permite múltiples tipos y partes dentro de un mensaje."
+        },
+        {
+          "term": "Contenido activo",
+          "definition": "Elemento que puede ejecutar acciones o cargar recursos al representarse."
+        }
+      ]
+    },
+    {
+      "dayId": "w38d2",
+      "title": "Remitentes",
+      "lead": "From, Reply-To y Return-Path tienen funciones distintas.",
+      "sections": [
+        {
+          "topic": "From, Reply-To, Return-Path y Received",
+          "explanation": [
+            "From identifica al autor declarado que normalmente ve el destinatario; Reply-To indica a dónde se dirige una respuesta; Return-Path refleja una identidad de transporte asociada al sobre según el sistema receptor. Esos campos pueden diferir legítimamente en plataformas de envío, pero la diferencia debe analizarse. El nombre visible puede imitar una persona mientras la dirección real pertenece a otro dominio. Separa nombres, direcciones y dominios antes de juzgar. La similitud visual no es una relación de confianza.",
+            "Las cabeceras Received se añaden durante el tránsito y suelen leerse del tramo más antiguo al más reciente para reconstruir el recorrido, pero no toda la cadena es confiable. Un remitente puede introducir líneas falsas antes del primer servidor que controlas o consideras fiable. Identifica el límite de confianza y contrasta con registros del sistema receptor. No atribuyas origen real a una IP solo porque aparece en una cabecera suministrada por el atacante. Conserva hora y zona, y diferencia recorrido observado de recorrido declarado."
+          ],
+          "analogy": "La dirección de retorno de un paquete puede diferir de su remitente impreso; comprueba quién puso cada etiqueta y qué confianza merece.",
+          "keyPoints": [
+            "From, Reply-To y Return-Path tienen funciones distintas.",
+            "Una diferencia puede ser legítima o sospechosa según contexto.",
+            "Received debe interpretarse con un límite de confianza."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Identidades del correo",
+            "items": [
+              {
+                "label": "From",
+                "detail": "Autor declarado visible"
+              },
+              {
+                "label": "Reply-To",
+                "detail": "Destino previsto de la respuesta"
+              },
+              {
+                "label": "Return-Path",
+                "detail": "Identidad de sobre reflejada por el receptor"
+              },
+              {
+                "label": "Received",
+                "detail": "Saltos con confianza según su origen"
+              }
+            ],
+            "caption": "Los campos se contrastan; ninguno acredita por sí solo una persona."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Respuesta a otro dominio",
+        "scenario": "From declara compras@empresa.example y Reply-To dirige a pagos@externo.example.",
+        "steps": [
+          {
+            "action": "Separar campos",
+            "reason": "El nombre visible puede distraer.",
+            "result": "Se extraen ambas direcciones y dominios."
+          },
+          {
+            "action": "Buscar contexto",
+            "reason": "La diferencia no basta para confirmar fraude.",
+            "result": "Se comprueba si existe plataforma autorizada."
+          },
+          {
+            "action": "Verificar solicitud",
+            "reason": "No se utiliza el contacto incluido en el mensaje.",
+            "result": "Se consulta un canal conocido del proceso de compras."
+          }
+        ],
+        "result": "La discrepancia es un indicio que necesita verificación independiente.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Respuesta a otro dominio",
+          "items": [
+            {
+              "label": "Separar campos",
+              "detail": "Se extraen ambas direcciones y dominios."
+            },
+            {
+              "label": "Buscar contexto",
+              "detail": "Se comprueba si existe plataforma autorizada."
+            },
+            {
+              "label": "Verificar solicitud",
+              "detail": "Se consulta un canal conocido del proceso de compras."
+            }
+          ],
+          "caption": "La discrepancia es un indicio que necesita verificación independiente."
+        }
+      },
+      "practice": {
+        "task": "Analiza tres cabeceras ficticias de remitente.",
+        "steps": [
+          "Extrae direcciones completas.",
+          "Marca diferencias de dominio.",
+          "Explica qué fuente externa al mensaje confirmaría autorización."
+        ],
+        "expected": "Una comparación que no declare fraude solo por una diferencia."
+      },
+      "check": {
+        "question": "¿Qué Received merece confianza automáticamente?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Todos porque están en cabeceras."
+          },
+          {
+            "id": "b",
+            "text": "El que aparece más abajo sin revisar origen."
+          },
+          {
+            "id": "c",
+            "text": "Solo lo que pueda sustentarse dentro del límite de confianza del receptor."
+          }
+        ],
+        "correct": "c",
+        "explanation": "Las líneas anteriores al servidor confiable pueden estar falsificadas; el recorrido requiere un límite de confianza."
+      },
+      "mistakes": [
+        {
+          "myth": "Reply-To distinto demuestra siempre phishing.",
+          "correction": "Puede ser una plataforma legítima; verifica contexto y proceso por una vía conocida."
+        }
+      ],
+      "recap": [
+        "From, Reply-To y Return-Path tienen funciones distintas.",
+        "Una diferencia puede ser legítima o sospechosa según contexto.",
+        "Received debe interpretarse con un límite de confianza."
+      ],
+      "glossary": [
+        {
+          "term": "From",
+          "definition": "Campo que declara al autor del mensaje."
+        },
+        {
+          "term": "Límite de confianza",
+          "definition": "Frontera entre información sustentada por sistemas confiables y datos no verificados."
+        }
+      ]
+    },
+    {
+      "dayId": "w38d3",
+      "title": "Autenticación",
+      "lead": "SPF, DKIM y DMARC no comprueban exactamente lo mismo.",
+      "sections": [
+        {
+          "topic": "SPF, DKIM y DMARC",
+          "explanation": [
+            "SPF evalúa si un servidor está autorizado para una identidad SMTP, como MAIL FROM y, según la comprobación, HELO. En Authentication-Results, smtp.mailfrom identifica la identidad de sobre evaluada; un pass aislado de HELO no debe tratarse como prueba del autor visible. DKIM verifica una firma cuyo dominio responsable aparece en d= de DKIM-Signature, representado habitualmente como header.d en el resultado. DMARC exige relacionar una autenticación válida con el dominio de RFC5322.From mediante alineación; Reply-To no sustituye ese dominio.",
+            "Para pasar DMARC puede bastar SPF válido y alineado o una firma DKIM válida y alineada; no es obligatorio que ambos pasen simultáneamente. Interpreta estos resultados solo si los añadió la infraestructura receptora confiable, porque una cabecera suministrada por un remitente puede ser falsa. Pass no certifica intención ni seguridad del adjunto: un atacante puede autenticar su propio dominio y una cuenta legítima puede estar comprometida. Los reenvíos y modificaciones también pueden afectar autenticación. Contrasta dominios, mecanismo y solicitud, y declara las limitaciones de los datos."
+          ],
+          "analogy": "Autenticar una matrícula no prueba que el conductor tenga una intención legítima; verifica la identidad técnica y la operación solicitada.",
+          "keyPoints": [
+            "SPF, DKIM y DMARC no comprueban exactamente lo mismo.",
+            "DMARC necesita autenticación pertinente y alineación.",
+            "Un resultado pass no garantiza una solicitud legítima."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Qué verifica cada mecanismo",
+            "items": [
+              {
+                "label": "SPF",
+                "detail": "Servidor autorizado para identidad de sobre"
+              },
+              {
+                "label": "DKIM",
+                "detail": "Firma y dominio responsable de las partes cubiertas"
+              },
+              {
+                "label": "DMARC",
+                "detail": "Relación alineada con dominio del autor"
+              }
+            ],
+            "caption": "Interpreta solo resultados de una fuente de correo confiable y considera el contexto."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "DKIM alineado y SPF fallido",
+        "scenario": "El caso ficticio tiene DKIM pass con dominio igual al From y SPF fail tras un reenvío.",
+        "steps": [
+          {
+            "action": "Identificar dominio",
+            "reason": "Se compara el dominio autenticado con el autor.",
+            "result": "La firma válida está alineada."
+          },
+          {
+            "action": "Interpretar DMARC",
+            "reason": "Un mecanismo alineado puede ser suficiente.",
+            "result": "DMARC puede pasar bajo esas condiciones."
+          },
+          {
+            "action": "Revisar solicitud",
+            "reason": "Autenticación no evalúa intención.",
+            "result": "Se analiza contexto y contenido antes del veredicto."
+          }
+        ],
+        "result": "El resultado técnico no se convierte en una garantía de seguridad del mensaje.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: DKIM alineado y SPF fallido",
+          "items": [
+            {
+              "label": "Identificar dominio",
+              "detail": "La firma válida está alineada."
+            },
+            {
+              "label": "Interpretar DMARC",
+              "detail": "DMARC puede pasar bajo esas condiciones."
+            },
+            {
+              "label": "Revisar solicitud",
+              "detail": "Se analiza contexto y contenido antes del veredicto."
+            }
+          ],
+          "caption": "El resultado técnico no se convierte en una garantía de seguridad del mensaje."
+        }
+      },
+      "practice": {
+        "task": "Clasifica un ejemplo con SPF pass no alineado y DKIM fail.",
+        "steps": [
+          "Anota dominios exactos.",
+          "Explica por qué SPF pass no basta para DMARC en el caso.",
+          "Añade una limitación sobre la legitimidad del contenido."
+        ],
+        "expected": "Una conclusión técnica con contexto y fuente de resultados.",
+        "console": {
+          "language": "Cabeceras sintéticas",
+          "code": "From: soporte@empresa.example\nAuthentication-Results: mx.receptor.example;\n spf=fail smtp.mailfrom=reenviador.example;\n dkim=pass header.d=empresa.example;\n dmarc=pass header.from=empresa.example",
+          "output": "DKIM pass con dominio alineado con From; DMARC pass aunque SPF falle.",
+          "explanation": "El caso supone que Authentication-Results proviene del receptor confiable. No es una receta de envío ni acredita que la solicitud del correo sea legítima."
+        }
+      },
+      "check": {
+        "question": "¿Un mensaje con DMARC pass es necesariamente benigno?",
+        "options": [
+          {
+            "id": "a",
+            "text": "No; puede autenticar un dominio o cuenta usados con intención maliciosa."
+          },
+          {
+            "id": "b",
+            "text": "Sí, el contenido está certificado."
+          },
+          {
+            "id": "c",
+            "text": "Sí, ningún adjunto puede ser peligroso."
+          }
+        ],
+        "correct": "a",
+        "explanation": "DMARC trata autenticación del dominio y alineación; no certifica la seguridad de solicitudes ni adjuntos."
+      },
+      "mistakes": [
+        {
+          "myth": "DMARC exige siempre SPF y DKIM pass simultáneos.",
+          "correction": "Un mecanismo pertinente válido y alineado puede satisfacer la evaluación, según sus condiciones."
+        }
+      ],
+      "recap": [
+        "SPF, DKIM y DMARC no comprueban exactamente lo mismo.",
+        "DMARC necesita autenticación pertinente y alineación.",
+        "Un resultado pass no garantiza una solicitud legítima."
+      ],
+      "glossary": [
+        {
+          "term": "Alineación",
+          "definition": "Relación exigida entre un dominio autenticado y el dominio del autor."
+        },
+        {
+          "term": "DKIM",
+          "definition": "Firma de mensaje asociada a un dominio y a contenido cubierto."
+        },
+        {
+          "term": "smtp.mailfrom",
+          "definition": "Campo del resultado que identifica el dominio de sobre evaluado por SPF."
+        },
+        {
+          "term": "header.d",
+          "definition": "Campo del resultado que representa el dominio d= de una firma DKIM evaluada."
+        }
+      ]
+    },
+    {
+      "dayId": "w38d4",
+      "title": "Contexto",
+      "lead": "Identifica la acción de riesgo solicitada.",
+      "sections": [
+        {
+          "topic": "Urgencia, solicitud y suplantación",
+          "explanation": [
+            "El contexto del correo estudia qué se solicita y si encaja con una relación o proceso legítimo. Urgencia, autoridad, secreto y cambio de canal son técnicas que pueden presionar una decisión. Ninguna palabra aislada confirma phishing: una factura real también puede ser urgente. Identifica la acción de riesgo, como entregar credenciales, cambiar datos de pago o abrir contenido activo. Después contrasta el proceso mediante un canal conocido de antemano, no mediante el teléfono o enlace que el propio mensaje te ofrece.",
+            "La suplantación puede imitar un nombre, dominio parecido o cuenta legítima comprometida. La buena ortografía y un logotipo correcto no neutralizan la necesidad de verificar. Tampoco un error gramatical demuestra por sí solo actividad maliciosa. Relaciona señales técnicas y de negocio: remitente, autenticación, historial esperado y solicitud concreta. Si la evidencia es insuficiente, clasifica como sospechoso o pendiente según criterios y explica la acción segura, como no ejecutar la solicitud hasta verificarla. No conviertas la formación en una lista de estereotipos visuales."
+          ],
+          "analogy": "Una llamada que dice ser del banco no se valida marcando el número que dicta la misma llamada.",
+          "keyPoints": [
+            "Identifica la acción de riesgo solicitada.",
+            "Verifica por un canal conocido e independiente.",
+            "Apariencia y urgencia no bastan para un veredicto."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Evaluar la solicitud",
+            "items": [
+              {
+                "label": "Mensaje",
+                "detail": "Cambio urgente de pago"
+              },
+              {
+                "label": "Proceso",
+                "detail": "Aprobación y contacto conocido"
+              },
+              {
+                "label": "Verificación",
+                "detail": "Confirmación fuera del mensaje"
+              },
+              {
+                "label": "Decisión",
+                "detail": "Ejecutar solo si está autorizado"
+              }
+            ],
+            "caption": "El canal independiente no se toma de los datos incluidos en el mensaje sospechoso."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Urgencia de dirección",
+        "scenario": "Un supuesto directivo pide enviar datos sensibles a una cuenta personal en diez minutos.",
+        "steps": [
+          {
+            "action": "Identificar riesgo",
+            "reason": "La presión busca saltarse el proceso.",
+            "result": "Se solicita transferencia de información."
+          },
+          {
+            "action": "Detener solicitud",
+            "reason": "No hace falta interactuar con el destino.",
+            "result": "Se conserva mensaje y no se envían datos."
+          },
+          {
+            "action": "Verificar identidad",
+            "reason": "La confirmación debe ser independiente.",
+            "result": "Se contacta al responsable por el canal ya registrado."
+          }
+        ],
+        "result": "La respuesta protege la operación mientras se comprueba legitimidad.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Urgencia de dirección",
+          "items": [
+            {
+              "label": "Identificar riesgo",
+              "detail": "Se solicita transferencia de información."
+            },
+            {
+              "label": "Detener solicitud",
+              "detail": "Se conserva mensaje y no se envían datos."
+            },
+            {
+              "label": "Verificar identidad",
+              "detail": "Se contacta al responsable por el canal ya registrado."
+            }
+          ],
+          "caption": "La respuesta protege la operación mientras se comprueba legitimidad."
+        }
+      },
+      "practice": {
+        "task": "Analiza una solicitud ficticia de cambiar una contraseña por correo.",
+        "steps": [
+          "Separa urgencia y acción solicitada.",
+          "Describe el proceso legítimo esperado.",
+          "Define un canal de verificación conocido."
+        ],
+        "expected": "Una recomendación segura sin abrir enlaces."
+      },
+      "check": {
+        "question": "¿Qué canal conviene usar para verificar una solicitud sospechosa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El número que incluye el mensaje."
+          },
+          {
+            "id": "b",
+            "text": "Un contacto conocido de antemano por el proceso legítimo."
+          },
+          {
+            "id": "c",
+            "text": "Responder enviando la contraseña para probar."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Un canal independiente evita depender de datos que el propio atacante podría controlar."
+      },
+      "mistakes": [
+        {
+          "myth": "La buena redacción garantiza que un correo es legítimo.",
+          "correction": "Los atacantes también pueden redactar bien; verifica identidad, contexto y solicitud."
+        }
+      ],
+      "recap": [
+        "Identifica la acción de riesgo solicitada.",
+        "Verifica por un canal conocido e independiente.",
+        "Apariencia y urgencia no bastan para un veredicto."
+      ],
+      "glossary": [
+        {
+          "term": "Ingeniería social",
+          "definition": "Influencia sobre personas para provocar una acción que beneficia al adversario."
+        },
+        {
+          "term": "Canal independiente",
+          "definition": "Medio de verificación cuya confianza no depende del mensaje investigado."
+        }
+      ]
+    },
+    {
+      "dayId": "w38d5",
+      "title": "Herramienta de análisis",
+      "lead": "Conoce significado y límites de los campos.",
+      "sections": [
+        {
+          "topic": "Flujo oficial y campos",
+          "explanation": [
+            "Una herramienta de análisis de correo organiza campos y artefactos para facilitar la revisión. Puede mostrar cabeceras, enlaces, adjuntos y resultados de autenticación, pero no sustituye comprender qué representa cada dato. Un veredicto automatizado necesita contexto de fuente, fecha y cobertura. Aprende el flujo de la herramienta oficial o autorizada del curso y verifica qué funciones requieren acceso o licencia. No supongas que un botón seguro por su nombre permite abrir cualquier enlace o muestra sin riesgo.",
+            "Antes de importar material, confirma permisos y tratamiento de datos. Algunos servicios externos almacenan o comparten muestras; no envíes correos privados o adjuntos de clientes sin autorización. Para practicar usa mensajes sintéticos. Revisa manualmente campos críticos y conserva el original o su referencia según procedimiento. Si una herramienta extrae una URL, distingue texto visible, destino declarado y destino realmente visitado: extraer no significa haber verificado comportamiento. Documenta acciones realizadas para que otro analista no confunda una observación estática con ejecución o navegación."
+          ],
+          "analogy": "Un panel de laboratorio ordena las muestras; todavía necesitas saber qué mide cada instrumento y qué no debes activar.",
+          "keyPoints": [
+            "Conoce significado y límites de los campos.",
+            "Comprueba privacidad antes de importar datos.",
+            "Extracción estática no equivale a visita del destino."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Flujo de análisis seguro",
+            "items": [
+              {
+                "label": "Entrada",
+                "detail": "Mensaje sintético o autorizado"
+              },
+              {
+                "label": "Extracción",
+                "detail": "Cabeceras, enlaces y metadatos"
+              },
+              {
+                "label": "Contraste",
+                "detail": "Revisión manual de campos decisivos"
+              },
+              {
+                "label": "Informe",
+                "detail": "Acciones y límites declarados"
+              }
+            ],
+            "caption": "La herramienta y funciones concretas dependen del entorno permitido."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "URL extraída por la herramienta",
+        "scenario": "El panel muestra un enlace, pero no se ejecutó navegación ni análisis dinámico.",
+        "steps": [
+          {
+            "action": "Leer procedencia",
+            "reason": "La herramienta encontró texto dentro del mensaje.",
+            "result": "Se conoce el destino declarado."
+          },
+          {
+            "action": "Evitar exageración",
+            "reason": "No hay observación del sitio remoto.",
+            "result": "No se afirma qué descarga o ejecuta."
+          },
+          {
+            "action": "Documentar método",
+            "reason": "El siguiente analista necesita distinguir acciones.",
+            "result": "Se registra análisis estático sin visita."
+          }
+        ],
+        "result": "El informe expresa lo observado sin inventar comportamiento del sitio.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: URL extraída por la herramienta",
+          "items": [
+            {
+              "label": "Leer procedencia",
+              "detail": "Se conoce el destino declarado."
+            },
+            {
+              "label": "Evitar exageración",
+              "detail": "No se afirma qué descarga o ejecuta."
+            },
+            {
+              "label": "Documentar método",
+              "detail": "Se registra análisis estático sin visita."
+            }
+          ],
+          "caption": "El informe expresa lo observado sin inventar comportamiento del sitio."
+        }
+      },
+      "practice": {
+        "task": "Prepara una ficha de análisis para un correo sintético.",
+        "steps": [
+          "Enumera campos extraídos.",
+          "Contrasta dos manualmente.",
+          "Indica qué acciones no realizaste y por qué."
+        ],
+        "expected": "Una ficha reproducible sin cargar datos privados en servicios públicos."
+      },
+      "check": {
+        "question": "¿Qué demuestra una URL extraída estáticamente?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que el sitio está activo ahora."
+          },
+          {
+            "id": "b",
+            "text": "Que ya se ejecutó su contenido."
+          },
+          {
+            "id": "c",
+            "text": "Que ese destino aparece declarado en el material analizado."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La extracción observa datos del mensaje; disponibilidad y comportamiento remotos requieren otras comprobaciones autorizadas."
+      },
+      "mistakes": [
+        {
+          "myth": "Un veredicto automático elimina la necesidad de revisar contexto.",
+          "correction": "La herramienta apoya el análisis y sus resultados necesitan interpretación y límites."
+        }
+      ],
+      "recap": [
+        "Conoce significado y límites de los campos.",
+        "Comprueba privacidad antes de importar datos.",
+        "Extracción estática no equivale a visita del destino."
+      ],
+      "glossary": [
+        {
+          "term": "Análisis estático",
+          "definition": "Inspección de datos sin ejecutar su comportamiento."
+        },
+        {
+          "term": "Artefacto extraído",
+          "definition": "Elemento identificado dentro de una muestra, con procedencia documentada."
+        }
+      ]
+    },
+    {
+      "dayId": "w38d6",
+      "title": "Caso sin guía",
+      "lead": "Sigue un método aunque cambie el mensaje.",
+      "sections": [
+        {
+          "topic": "Mensaje diferente",
+          "explanation": [
+            "Un caso sin guía comprueba si puedes ordenar el análisis sin que el ejercicio te indique cada respuesta. Empieza por alcance y seguridad de la muestra, inventaría estructura y extrae identidades. Después interpreta autenticación desde una fuente confiable y examina la solicitud. Mantén una lista de hechos y preguntas. No busques un veredicto antes de leer los datos: un mensaje puede autenticar un dominio parecido al legítimo y seguir intentando obtener credenciales mediante una suplantación visual.",
+            "Usa un caso diferente a los ejemplos anteriores para probar transferencia. Cambia remitente, acción y resultado técnico sin cambiar el método. Si el dominio de From pertenece al atacante, SPF, DKIM y DMARC pueden pasar para ese dominio; eso no lo convierte en la empresa imitada. Comprueba la identidad esperada y el proceso. El cierre debe explicar señales, evidencia, confianza y acción segura. Cuando falte información relevante, pide datos concretos en vez de inventar una respuesta absoluta."
+          ],
+          "analogy": "Un examen de conducción usa otra calle para comprobar si aplicas las normas, no si recuerdas el recorrido exacto.",
+          "keyPoints": [
+            "Sigue un método aunque cambie el mensaje.",
+            "Autenticar un dominio parecido no autentica la marca imitada.",
+            "El veredicto debe citar hechos y límites."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Caso nuevo de correo",
+            "items": [
+              {
+                "label": "Identidad",
+                "detail": "Dominio real frente a marca mostrada"
+              },
+              {
+                "label": "Autenticación",
+                "detail": "Resultados del dominio que envía"
+              },
+              {
+                "label": "Solicitud",
+                "detail": "Credenciales fuera del proceso"
+              },
+              {
+                "label": "Conclusión",
+                "detail": "Sospecha sustentada y acción segura"
+              }
+            ],
+            "caption": "El ejemplo es sintético; no se visita ningún sitio ni se envían credenciales."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Dominio parecido autenticado",
+        "scenario": "From usa soporte@empresa-ayuda.example; el cuerpo imita empresa.example y pide contraseña.",
+        "steps": [
+          {
+            "action": "Comparar identidad",
+            "reason": "Parecido visual no es igualdad de dominio.",
+            "result": "El dominio de envío es distinto."
+          },
+          {
+            "action": "Leer autenticación",
+            "reason": "Pass puede ser válido para el dominio del remitente.",
+            "result": "No autentica a la empresa imitada."
+          },
+          {
+            "action": "Valorar solicitud",
+            "reason": "El proceso legítimo no pide contraseñas por correo.",
+            "result": "Se recomienda reportar y no responder con datos."
+          }
+        ],
+        "result": "La sospecha se fundamenta en identidad y solicitud, no en un fallo obligatorio de autenticación.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Dominio parecido autenticado",
+          "items": [
+            {
+              "label": "Comparar identidad",
+              "detail": "El dominio de envío es distinto."
+            },
+            {
+              "label": "Leer autenticación",
+              "detail": "No autentica a la empresa imitada."
+            },
+            {
+              "label": "Valorar solicitud",
+              "detail": "Se recomienda reportar y no responder con datos."
+            }
+          ],
+          "caption": "La sospecha se fundamenta en identidad y solicitud, no en un fallo obligatorio de autenticación."
+        }
+      },
+      "practice": {
+        "task": "Crea un caso sintético con autenticación pass y solicitud sospechosa.",
+        "steps": [
+          "Escribe From y dominio esperado.",
+          "Explica qué autentica el resultado.",
+          "Cierra con acción segura y una limitación."
+        ],
+        "expected": "Un veredicto que no use pass como sinónimo de benigno."
+      },
+      "check": {
+        "question": "¿Qué autentica un pass del dominio empresa-ayuda.example?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ese dominio bajo el mecanismo pertinente, no automáticamente empresa.example."
+          },
+          {
+            "id": "b",
+            "text": "La identidad de toda marca que aparezca en el cuerpo."
+          },
+          {
+            "id": "c",
+            "text": "La inocuidad de todos los enlaces."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La autenticación se vincula a dominios y condiciones concretas; no valida una marca distinta ni la intención."
+      },
+      "mistakes": [
+        {
+          "myth": "El phishing siempre necesita fallar SPF o DKIM.",
+          "correction": "Un atacante puede autenticar su propio dominio o usar una cuenta legítima comprometida."
+        }
+      ],
+      "recap": [
+        "Sigue un método aunque cambie el mensaje.",
+        "Autenticar un dominio parecido no autentica la marca imitada.",
+        "El veredicto debe citar hechos y límites."
+      ],
+      "glossary": [
+        {
+          "term": "Dominio parecido",
+          "definition": "Nombre diseñado o percibido como similar a otro sin ser el mismo."
+        },
+        {
+          "term": "Suplantación de marca",
+          "definition": "Imitación de identidad visual o nombre para influir en la confianza."
+        }
+      ]
+    },
+    {
+      "dayId": "w38d7",
+      "title": "Evaluación de correo",
+      "lead": "Cada dato acredita una parte distinta del mensaje.",
+      "sections": [
+        {
+          "topic": "Autenticación y contexto",
+          "explanation": [
+            "La evaluación de correo integra autenticación y contexto sin reducirlos a una regla única. Define qué afirmación permite cada dato. From declara autor; Reply-To dirige respuestas; la autenticación confiable informa sobre identidades técnicas; el cuerpo solicita una acción. Un mensaje puede tener una firma válida y una petición fraudulenta, o fallar una comprobación por un problema de flujo legítimo. La clasificación necesita criterios y evidencia, no una lista de señales que se suman sin analizar su significado.",
+            "Escribe el veredicto en capas. Primero hechos observados; después interpretación y confianza; finalmente acciones recomendadas y datos pendientes. Declara si no se abrieron enlaces ni ejecutaron adjuntos para no aparentar análisis dinámico. No atribuyas autoría criminal a una persona por el nombre visible o una IP sin contexto. Un informe útil explica por qué no debe ejecutarse una solicitud mientras se verifica y qué canal seguro permite resolverla. Esa claridad es más valiosa que un porcentaje automático sin procedencia."
+          ],
+          "analogy": "El veredicto es una conclusión argumentada: cada peldaño necesita apoyarse en el anterior, sin saltar de señal a culpable.",
+          "keyPoints": [
+            "Cada dato acredita una parte distinta del mensaje.",
+            "Separa hechos, interpretación y recomendación.",
+            "Declara método y límites del análisis."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Veredicto de correo",
+            "items": [
+              {
+                "label": "Hechos",
+                "detail": "Dominio diferente y solicitud de credenciales"
+              },
+              {
+                "label": "Interpretación",
+                "detail": "Suplantación probable según el proceso"
+              },
+              {
+                "label": "Acción",
+                "detail": "Reportar y no entregar datos"
+              },
+              {
+                "label": "Límite",
+                "detail": "Sin navegación ni ejecución de adjuntos"
+              }
+            ],
+            "caption": "El veredicto no inventa autoría ni comportamiento no observado."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Informe final del mensaje",
+        "scenario": "El borrador dice malware confirmado aunque solo se leyó un correo con enlace sospechoso.",
+        "steps": [
+          {
+            "action": "Revisar método",
+            "reason": "No se ejecutó ni analizó un archivo.",
+            "result": "Falta evidencia de malware."
+          },
+          {
+            "action": "Ajustar afirmación",
+            "reason": "La conclusión debe corresponder a lo observado.",
+            "result": "Solicitud sospechosa y posible suplantación."
+          },
+          {
+            "action": "Recomendar acción",
+            "reason": "No hace falta exagerar para proteger.",
+            "result": "Reportar y verificar por canal conocido."
+          }
+        ],
+        "result": "La recomendación permanece segura y la conclusión deja de afirmar hechos no demostrados.",
+        "visual": {
+          "type": "flow",
+          "title": "Cómo se resuelve: Informe final del mensaje",
+          "items": [
+            {
+              "label": "Revisar método",
+              "detail": "Falta evidencia de malware."
+            },
+            {
+              "label": "Ajustar afirmación",
+              "detail": "Solicitud sospechosa y posible suplantación."
+            },
+            {
+              "label": "Recomendar acción",
+              "detail": "Reportar y verificar por canal conocido."
+            }
+          ],
+          "caption": "La recomendación permanece segura y la conclusión deja de afirmar hechos no demostrados."
+        }
+      },
+      "practice": {
+        "task": "Redacta un veredicto de seis líneas para un correo sintético.",
+        "steps": [
+          "Incluye dos hechos verificables.",
+          "Añade interpretación y confianza explicada.",
+          "Termina con acción y limitación del método."
+        ],
+        "expected": "Un informe defendible sin navegar ni ejecutar contenido."
+      },
+      "check": {
+        "question": "¿Qué afirmación debe evitar un análisis solo estático de un enlace?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El mensaje declara este destino."
+          },
+          {
+            "id": "b",
+            "text": "El sitio ejecutó malware en el equipo, si no se observó esa ejecución."
+          },
+          {
+            "id": "c",
+            "text": "No se visitó el enlace durante el análisis."
+          }
+        ],
+        "correct": "b",
+        "explanation": "El análisis estático no acredita comportamiento ejecutado; esa afirmación requiere evidencia adicional autorizada."
+      },
+      "mistakes": [
+        {
+          "myth": "Una recomendación segura necesita una acusación categórica.",
+          "correction": "Puedes recomendar no actuar y verificar mientras expresas incertidumbre con precisión."
+        }
+      ],
+      "recap": [
+        "Cada dato acredita una parte distinta del mensaje.",
+        "Separa hechos, interpretación y recomendación.",
+        "Declara método y límites del análisis."
+      ],
+      "glossary": [
+        {
+          "term": "Veredicto",
+          "definition": "Conclusión sustentada sobre una muestra y un alcance."
+        },
+        {
+          "term": "Confianza analítica",
+          "definition": "Grado de apoyo de una conclusión, explicado por calidad y límites de evidencia."
+        }
+      ]
+    }
+  ]
+}

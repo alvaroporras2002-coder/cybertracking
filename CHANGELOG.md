@@ -1,5 +1,15 @@
 # Registro de cambios
 
+## 2.0.0 — Aula con explicaciones propias
+
+- Clases semanales con siete sesiones, explicaciones originales de cada tema, analogías, conceptos clave y vocabulario.
+- Casos resueltos paso a paso con la razón y el resultado de cada decisión; ejercicios independientes y preguntas de comprensión con feedback explicado.
+- Esquemas visuales específicos para los temas y ejemplos, junto a nuevas escenas de apoyo didáctico.
+- Laboratorios interactivos de unidades y transferencia, subredes IPv4 y selección de reglas de firewall.
+- Acceso directo a la clase semanal y contenido integrado en la pestaña Aprender; carga de una semana cada vez y recuperación de errores de conexión.
+- Las comprobaciones de lectura son formativas y no cambian los requisitos de las pruebas ni el historial guardado.
+- Conserva los recursos, miniaturas, evaluaciones, notas, adjuntos, temporizador, respaldos y el esquema de datos anterior.
+
 ## 1.6.1 — Miniaturas de video
 
 - Los recursos enlazados a un video de YouTube muestran su miniatura antes de reproducirlo; las lecturas y listas sin un video concreto conservan su tarjeta de texto.

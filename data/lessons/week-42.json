@@ -1,0 +1,933 @@
+{
+  "version": "2.0.0",
+  "week": 42,
+  "title": "Artefactos de Windows y memoria",
+  "overview": "Los artefactos de Windows aportan pistas potentes cuando se interpretan con su significado exacto. Examinarás referencias del Registro, accesos recientes, información de procesos, navegador y memoria. En cada clase separarás presencia, configuración y ejecución para evitar saltos de razonamiento. Los casos resueltos muestran cómo una ruta, un momento o una adquisición incompleta cambian una conclusión. Terminarás relacionando fuentes y defendiendo hipótesis alternativas con comprobaciones concretas, sin manipular equipos o datos ajenos.",
+  "objectives": [
+    "Interpretar artefactos según formato, contexto y cobertura.",
+    "Correlacionar rutas, usuarios y tiempos sin identificar por nombres aislados.",
+    "Defender conclusiones y alternativas con evidencia apropiada."
+  ],
+  "sources": [
+    {
+      "id": "registry",
+      "title": "Microsoft: Registry Hives",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/sysinfo/registry-hives"
+    },
+    {
+      "id": "nist86",
+      "title": "NIST SP 800-86: técnicas forenses en respuesta a incidentes",
+      "url": "https://csrc.nist.gov/pubs/sp/800/86/final"
+    },
+    {
+      "id": "logon",
+      "title": "Microsoft: evento 4625 y tipos de inicio de sesión",
+      "url": "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4625"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w42d1",
+      "title": "Registro",
+      "lead": "El Registro organiza configuración; sus campos deben interpretarse según su ubicación y contexto.",
+      "sections": [
+        {
+          "topic": "Hives, claves y contexto",
+          "explanation": [
+            "El Registro de Windows es una base de datos jerárquica de configuración. Una clave contiene subclaves y valores; un hive es una agrupación respaldada por archivos y estructuras asociadas. Algunas partes describen el sistema y otras un perfil de usuario. Al analizar una copia registra el hive, la ruta de clave, el nombre del valor y su tipo. Decir solamente «apareció en el Registro» impide saber qué significa el dato y cómo reproducir la búsqueda.",
+            "Una marca de última escritura de una clave no equivale necesariamente a la modificación de cada valor que contiene. Tampoco la presencia de una configuración demuestra que se haya utilizado. Por ejemplo, una entrada que nombra un programa puede mostrar una configuración de inicio, pero confirmar ejecución requiere otra evidencia. Examina copias con una herramienta adecuada al formato y conserva la versión del analizador. No abras ni modifiques hives del sistema activo para practicar una investigación: utiliza muestras didácticas autorizadas."
+          ],
+          "analogy": "Es un archivo de configuración con carpetas: encontrar una dirección en una ficha no demuestra que se haya visitado.",
+          "keyPoints": [
+            "Hive: Unidad de datos del Registro relacionada con sistema o perfil.",
+            "Clave y valor: La ruta y el tipo determinan el significado.",
+            "Corroboración: Una configuración no demuestra por sí sola ejecución."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Registro",
+            "items": [
+              {
+                "label": "Hive",
+                "detail": "Unidad de datos del Registro relacionada con sistema o perfil."
+              },
+              {
+                "label": "Clave y valor",
+                "detail": "La ruta y el tipo determinan el significado."
+              },
+              {
+                "label": "Corroboración",
+                "detail": "Una configuración no demuestra por sí sola ejecución."
+              }
+            ],
+            "caption": "El Registro organiza configuración; sus campos deben interpretarse según su ubicación y contexto."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Una referencia de inicio",
+        "scenario": "Una copia didáctica contiene una referencia a programa-lab.exe en una clave de configuración.",
+        "steps": [
+          {
+            "action": "Identificar ubicación",
+            "reason": "Permite interpretar y repetir el hallazgo.",
+            "result": "Se anota hive, clave, valor y tipo."
+          },
+          {
+            "action": "Examinar significado",
+            "reason": "No toda referencia implica uso.",
+            "result": "La entrada describe una configuración de inicio."
+          },
+          {
+            "action": "Buscar ejecución",
+            "reason": "Contrasta configuración con actividad.",
+            "result": "No hay telemetría de procesos; la ejecución queda sin confirmar."
+          }
+        ],
+        "result": "Se demuestra la configuración observada, no el inicio efectivo del programa.",
+        "visual": {
+          "type": "timeline",
+          "title": "Una referencia de inicio",
+          "items": [
+            {
+              "label": "Identificar ubicación",
+              "detail": "Se anota hive, clave, valor y tipo."
+            },
+            {
+              "label": "Examinar significado",
+              "detail": "La entrada describe una configuración de inicio."
+            },
+            {
+              "label": "Buscar ejecución",
+              "detail": "No hay telemetría de procesos; la ejecución queda sin confirmar."
+            }
+          ],
+          "caption": "Se demuestra la configuración observada, no el inicio efectivo del programa."
+        }
+      },
+      "practice": {
+        "task": "Documenta una entrada de Registro de una muestra didáctica.",
+        "steps": [
+          "Anota hive, clave y valor.",
+          "Describe el significado del tipo de dato.",
+          "Indica una fuente adicional para comprobar uso."
+        ],
+        "expected": "Una ficha reproducible con una conclusión limitada."
+      },
+      "check": {
+        "question": "¿Qué falta para pasar de una entrada de inicio a ejecución confirmada?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Una referencia de actividad apropiada, como telemetría de procesos."
+          },
+          {
+            "id": "b",
+            "text": "Cambiar el nombre del hive."
+          },
+          {
+            "id": "c",
+            "text": "Abrir la clave con otro color."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La configuración y la ejecución son hechos distintos y necesitan evidencias adecuadas."
+      },
+      "mistakes": [
+        {
+          "myth": "La última escritura de una clave fecha cada valor individual.",
+          "correction": "La semántica de esa marca corresponde a la clave; deben examinarse formato y contexto."
+        }
+      ],
+      "recap": [
+        "Hive: Unidad de datos del Registro relacionada con sistema o perfil.",
+        "Clave y valor: La ruta y el tipo determinan el significado.",
+        "Corroboración: Una configuración no demuestra por sí sola ejecución."
+      ],
+      "glossary": [
+        {
+          "term": "Hive",
+          "definition": "Agrupación de claves y valores del Registro."
+        },
+        {
+          "term": "Valor",
+          "definition": "Dato con nombre y tipo almacenado bajo una clave."
+        }
+      ]
+    },
+    {
+      "dayId": "w42d2",
+      "title": "Actividad de usuario",
+      "lead": "Los accesos recientes dejan referencias útiles, pero no cuentan toda la actividad de una persona.",
+      "sections": [
+        {
+          "topic": "LNK, Jump Lists y archivos recientes",
+          "explanation": [
+            "Los archivos LNK son accesos directos que pueden conservar información sobre un destino y su contexto. Las Jump Lists agrupan referencias relacionadas con aplicaciones y elementos recientes. Estos artefactos pueden orientar sobre rutas, volúmenes o documentos, pero deben interpretarse según aplicación, formato y versión. Un acceso directo puede haberse copiado desde otra máquina; su presencia en una carpeta no prueba automáticamente que el usuario local abriera el destino en el momento que estás investigando.",
+            "Compara la referencia con el archivo objetivo y con otras fuentes del perfil. Si el destino no está en la imagen, informa esa ausencia dentro de la cobertura disponible, sin afirmar que nunca existió. Una ruta de red guardada puede señalar un recurso remoto que no fue adquirido. Para una conclusión sobre actividad, distingue creación del artefacto, uso inferido y contenido del destino. Documenta qué campo interpretó la herramienta y evita convertir una lista de recientes en un historial completo de cada apertura."
+          ],
+          "analogy": "Una tarjeta de visita guardada indica una referencia disponible, no todas las conversaciones mantenidas con su dueño.",
+          "keyPoints": [
+            "Referencia: El artefacto apunta a una ruta o elemento.",
+            "Origen: Puede proceder de otra ubicación o perfil.",
+            "Validación: Se contrasta con destino y registros independientes."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Actividad de usuario",
+            "items": [
+              {
+                "label": "Referencia",
+                "detail": "El artefacto apunta a una ruta o elemento."
+              },
+              {
+                "label": "Origen",
+                "detail": "Puede proceder de otra ubicación o perfil."
+              },
+              {
+                "label": "Validación",
+                "detail": "Se contrasta con destino y registros independientes."
+              }
+            ],
+            "caption": "Los accesos recientes dejan referencias útiles, pero no cuentan toda la actividad de una persona."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Un documento en una ruta de red",
+        "scenario": "Un LNK ficticio apunta a \\\\servidor-lab\\equipo\\plan.txt, ausente de la imagen local.",
+        "steps": [
+          {
+            "action": "Leer destino",
+            "reason": "Distingue contenido local y remoto.",
+            "result": "La ruta apunta al servidor de laboratorio."
+          },
+          {
+            "action": "Revisar cobertura",
+            "reason": "La imagen no incluye ese recurso remoto.",
+            "result": "La ausencia local no demuestra borrado del destino."
+          },
+          {
+            "action": "Limitar actividad",
+            "reason": "Una referencia no cuenta todas las aperturas.",
+            "result": "Se informa la referencia y se solicita contexto del servidor."
+          }
+        ],
+        "result": "El hallazgo demuestra una referencia, no el contenido del documento remoto.",
+        "visual": {
+          "type": "timeline",
+          "title": "Un documento en una ruta de red",
+          "items": [
+            {
+              "label": "Leer destino",
+              "detail": "La ruta apunta al servidor de laboratorio."
+            },
+            {
+              "label": "Revisar cobertura",
+              "detail": "La ausencia local no demuestra borrado del destino."
+            },
+            {
+              "label": "Limitar actividad",
+              "detail": "Se informa la referencia y se solicita contexto del servidor."
+            }
+          ],
+          "caption": "El hallazgo demuestra una referencia, no el contenido del documento remoto."
+        }
+      },
+      "practice": {
+        "task": "Examina un acceso directo propio sin abrir su destino.",
+        "steps": [
+          "Registra la ruta y el tipo de destino.",
+          "Separa campos observados de interpretaciones.",
+          "Explica una condición que limitaría una inferencia de apertura."
+        ],
+        "expected": "Una descripción de referencia con alternativa plausible."
+      },
+      "check": {
+        "question": "¿Qué demuestra directamente un LNK en una imagen?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que el usuario leyó cada byte del destino."
+          },
+          {
+            "id": "b",
+            "text": "Que existe esa referencia dentro del material examinado."
+          },
+          {
+            "id": "c",
+            "text": "Que el destino sigue disponible."
+          }
+        ],
+        "correct": "b",
+        "explanation": "La existencia de la referencia es observable; uso, disponibilidad y lectura requieren más contexto."
+      },
+      "mistakes": [
+        {
+          "myth": "Las listas de recientes registran todas las acciones.",
+          "correction": "Su cobertura depende del sistema, la aplicación, la configuración y la conservación."
+        }
+      ],
+      "recap": [
+        "Referencia: El artefacto apunta a una ruta o elemento.",
+        "Origen: Puede proceder de otra ubicación o perfil.",
+        "Validación: Se contrasta con destino y registros independientes."
+      ],
+      "glossary": [
+        {
+          "term": "LNK",
+          "definition": "Archivo de acceso directo con información sobre un destino."
+        },
+        {
+          "term": "Jump List",
+          "definition": "Conjunto de referencias de actividad asociadas a una aplicación."
+        }
+      ]
+    },
+    {
+      "dayId": "w42d3",
+      "title": "Ejecución",
+      "lead": "Los artefactos de ejecución deben contrastarse con los procesos y con la configuración del sistema.",
+      "sections": [
+        {
+          "topic": "Prefetch y procesos",
+          "explanation": [
+            "Prefetch es un mecanismo de Windows relacionado con información utilizada para optimizar el inicio de aplicaciones. Cuando existen archivos relevantes, su interpretación puede aportar indicios de ejecución y referencias a recursos, según versión y configuración. La disponibilidad varía: no todos los sistemas o escenarios conservan los mismos artefactos. Por tanto, la ausencia de un archivo Prefetch no demuestra que el programa nunca se ejecutó; puede faltar por configuración, limpieza, límites de adquisición u otras causas.",
+            "Los registros de procesos ofrecen otra perspectiva, con campos como nombre, identificador, usuario, proceso padre y, cuando está disponible, línea de comandos. Un nombre familiar no garantiza legitimidad: interesa la ruta, la firma, los argumentos y el contexto. Tampoco puedes unir procesos por un PID sin considerar tiempo y equipo, porque los identificadores se reutilizan. Una conclusión sólida explica qué fuente respalda ejecución, qué representa cada momento y qué alternativas siguen siendo compatibles con los datos."
+          ],
+          "analogy": "Una huella junto a una puerta ayuda a reconstruir un paso, pero su ausencia no demuestra que nadie pasara por otra entrada.",
+          "keyPoints": [
+            "Prefetch: Su interpretación depende de versión, configuración y conservación.",
+            "Proceso: Ruta, usuario y argumentos aportan contexto de ejecución.",
+            "Identidad temporal: Equipo y momento acompañan al PID."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Ejecución",
+            "items": [
+              {
+                "label": "Prefetch",
+                "detail": "Su interpretación depende de versión, configuración y conservación."
+              },
+              {
+                "label": "Proceso",
+                "detail": "Ruta, usuario y argumentos aportan contexto de ejecución."
+              },
+              {
+                "label": "Identidad temporal",
+                "detail": "Equipo y momento acompañan al PID."
+              }
+            ],
+            "caption": "Los artefactos de ejecución deben contrastarse con los procesos y con la configuración del sistema."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "El mismo PID en dos momentos",
+        "scenario": "Dos registros ficticios muestran PID 1800 en la mañana y en la tarde para programas distintos.",
+        "steps": [
+          {
+            "action": "Separar intervalos",
+            "reason": "Los identificadores pueden reutilizarse.",
+            "result": "Se forman dos observaciones con horas distintas."
+          },
+          {
+            "action": "Comparar contexto",
+            "reason": "La ruta y el padre distinguen actividades.",
+            "result": "Los registros describen procesos diferentes."
+          },
+          {
+            "action": "Evitar unión incorrecta",
+            "reason": "El número aislado no identifica una vida completa.",
+            "result": "No se atribuyen las conexiones de la tarde al programa de la mañana."
+          }
+        ],
+        "result": "La correlación utiliza equipo, tiempo y contexto, no solo PID.",
+        "visual": {
+          "type": "timeline",
+          "title": "El mismo PID en dos momentos",
+          "items": [
+            {
+              "label": "Separar intervalos",
+              "detail": "Se forman dos observaciones con horas distintas."
+            },
+            {
+              "label": "Comparar contexto",
+              "detail": "Los registros describen procesos diferentes."
+            },
+            {
+              "label": "Evitar unión incorrecta",
+              "detail": "No se atribuyen las conexiones de la tarde al programa de la mañana."
+            }
+          ],
+          "caption": "La correlación utiliza equipo, tiempo y contexto, no solo PID."
+        }
+      },
+      "practice": {
+        "task": "Construye dos fichas de procesos ficticios con un PID repetido.",
+        "steps": [
+          "Añade equipo y momento de inicio.",
+          "Indica ruta, usuario y padre.",
+          "Explica por qué no debes fusionarlas automáticamente."
+        ],
+        "expected": "Dos identidades de proceso delimitadas temporalmente."
+      },
+      "check": {
+        "question": "¿Qué significa que no haya Prefetch en una adquisición?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El programa jamás pudo ejecutarse."
+          },
+          {
+            "id": "b",
+            "text": "El archivo es necesariamente inocuo."
+          },
+          {
+            "id": "c",
+            "text": "No se dispone de ese indicio; deben revisarse cobertura y otras fuentes."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La ausencia de un artefacto tiene varias explicaciones y no demuestra ausencia histórica de ejecución."
+      },
+      "mistakes": [
+        {
+          "myth": "El nombre del proceso basta para decidir si es legítimo.",
+          "correction": "Ruta, argumentos, origen y relaciones ayudan a interpretar su actividad."
+        }
+      ],
+      "recap": [
+        "Prefetch: Su interpretación depende de versión, configuración y conservación.",
+        "Proceso: Ruta, usuario y argumentos aportan contexto de ejecución.",
+        "Identidad temporal: Equipo y momento acompañan al PID."
+      ],
+      "glossary": [
+        {
+          "term": "PID",
+          "definition": "Identificador de proceso cuyo valor puede reutilizarse."
+        },
+        {
+          "term": "Proceso padre",
+          "definition": "Proceso registrado como creador de otro proceso, dentro del contexto observado."
+        }
+      ]
+    },
+    {
+      "dayId": "w42d4",
+      "title": "Navegador",
+      "lead": "El historial de navegación conserva acciones y metadatos, no una grabación perfecta de lo que vio el usuario.",
+      "sections": [
+        {
+          "topic": "Historial, descargas y tiempos",
+          "explanation": [
+            "Un navegador puede conservar historial de direcciones, registros de descargas, caché y otros datos dentro de un perfil. Cada categoría responde preguntas diferentes. Una entrada de historial indica una observación almacenada por el navegador; un registro de descarga puede mostrar intención, progreso o estado, según sus campos. Para afirmar que un archivo se guardó necesitas comprobar ese estado y, si está disponible, el archivo correspondiente. Una URL registrada no demuestra que todo su contenido se leyera.",
+            "Las marcas temporales y los formatos dependen del navegador y de la versión. Mantén el valor original, la interpretación de la herramienta y la referencia temporal utilizada. También considera perfiles múltiples, sincronización y eliminación de datos: una copia local no siempre contiene toda la historia. En el laboratorio crea un perfil de prueba o utiliza una muestra proporcionada. Nunca abras direcciones sospechosas para confirmar un historial; puedes analizar el texto y contrastarlo con registros sin visitar el destino."
+          ],
+          "analogy": "Un comprobante de reserva de hotel no demuestra que la persona haya pasado allí toda la noche.",
+          "keyPoints": [
+            "Historial: Referencia de navegación registrada en un perfil.",
+            "Descarga: Su estado debe comprobarse antes de afirmar almacenamiento completo.",
+            "Cobertura: Perfil, sincronización y conservación limitan lo observable."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Navegador",
+            "items": [
+              {
+                "label": "Historial",
+                "detail": "Referencia de navegación registrada en un perfil."
+              },
+              {
+                "label": "Descarga",
+                "detail": "Su estado debe comprobarse antes de afirmar almacenamiento completo."
+              },
+              {
+                "label": "Cobertura",
+                "detail": "Perfil, sincronización y conservación limitan lo observable."
+              }
+            ],
+            "caption": "El historial de navegación conserva acciones y metadatos, no una grabación perfecta de lo que vio el usuario."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Descarga iniciada, archivo ausente",
+        "scenario": "Una tabla ficticia muestra una descarga cancelada y no se encuentra el archivo en la imagen.",
+        "steps": [
+          {
+            "action": "Leer estado",
+            "reason": "Distingue inicio de finalización.",
+            "result": "La entrada figura como cancelada."
+          },
+          {
+            "action": "Buscar archivo",
+            "reason": "Contrasta el registro con almacenamiento adquirido.",
+            "result": "No aparece el archivo dentro de la cobertura local."
+          },
+          {
+            "action": "Redactar alcance",
+            "reason": "Evita afirmar ejecución o lectura.",
+            "result": "Se documenta un intento cancelado, sin evidencia de archivo completo."
+          }
+        ],
+        "result": "El caso no demuestra descarga completa ni ejecución.",
+        "visual": {
+          "type": "timeline",
+          "title": "Descarga iniciada, archivo ausente",
+          "items": [
+            {
+              "label": "Leer estado",
+              "detail": "La entrada figura como cancelada."
+            },
+            {
+              "label": "Buscar archivo",
+              "detail": "No aparece el archivo dentro de la cobertura local."
+            },
+            {
+              "label": "Redactar alcance",
+              "detail": "Se documenta un intento cancelado, sin evidencia de archivo completo."
+            }
+          ],
+          "caption": "El caso no demuestra descarga completa ni ejecución."
+        }
+      },
+      "practice": {
+        "task": "Analiza un registro de descarga ficticio con campos URL, estado y ruta.",
+        "steps": [
+          "No visites el enlace.",
+          "Distingue dirección, destino y finalización.",
+          "Escribe qué dato adicional necesitarías para probar ejecución."
+        ],
+        "expected": "Una conclusión que separa navegación, descarga y ejecución."
+      },
+      "check": {
+        "question": "¿Qué debe comprobarse antes de afirmar una descarga completa?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El estado de la descarga y la evidencia de archivo disponible."
+          },
+          {
+            "id": "b",
+            "text": "Solo la extensión en la URL."
+          },
+          {
+            "id": "c",
+            "text": "Que la URL tenga HTTPS."
+          }
+        ],
+        "correct": "a",
+        "explanation": "HTTPS protege el transporte; no demuestra que la transferencia terminara ni que el archivo se ejecutara."
+      },
+      "mistakes": [
+        {
+          "myth": "Una entrada de historial equivale a lectura completa de la página.",
+          "correction": "El artefacto registra una actividad concreta del navegador, no atención ni comprensión del contenido."
+        }
+      ],
+      "recap": [
+        "Historial: Referencia de navegación registrada en un perfil.",
+        "Descarga: Su estado debe comprobarse antes de afirmar almacenamiento completo.",
+        "Cobertura: Perfil, sincronización y conservación limitan lo observable."
+      ],
+      "glossary": [
+        {
+          "term": "Perfil",
+          "definition": "Conjunto de datos y configuración de una instancia de usuario del navegador."
+        },
+        {
+          "term": "Caché",
+          "definition": "Contenido almacenado para reutilización, cuya presencia necesita contexto."
+        }
+      ]
+    },
+    {
+      "dayId": "w42d5",
+      "title": "Memoria",
+      "lead": "La memoria muestra un estado temporal que debe interpretarse con herramientas compatibles.",
+      "sections": [
+        {
+          "topic": "Procesos, conexiones y herramientas del curso",
+          "explanation": [
+            "Una captura de memoria representa parte del estado de un sistema durante la adquisición. Puede permitir examinar procesos, módulos y conexiones, dependiendo del formato, del sistema y de lo que consiguió recoger la herramienta. No es una película de toda la sesión. Un proceso terminado antes de capturar podría no aparecer en una lista ordinaria y una captura incompleta puede omitir información. Registra momento, sistema de origen y limitaciones antes de interpretar cualquier resultado del analizador.",
+            "Las herramientas necesitan compatibilidad con la estructura de memoria y sus metadatos. Un error de perfil o de símbolos puede producir campos vacíos o interpretaciones equivocadas; no debe convertirse en una conclusión de ausencia. Contrasta la lista de procesos con registros del endpoint y separa una conexión observada de una comunicación exitosa. En esta práctica usarás una captura didáctica ya preparada: analizar memoria real de otra persona puede exponer datos privados que exceden el alcance de un ejercicio."
+          ],
+          "analogy": "Una fotografía de una estación muestra quién estaba visible en ese instante, no a todos los pasajeros que pasaron durante el día.",
+          "keyPoints": [
+            "Captura: Estado adquirido en un intervalo documentado.",
+            "Compatibilidad: Herramienta y metadatos deben corresponder al origen.",
+            "Contraste: Otros registros ayudan a interpretar procesos y conexiones."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Memoria",
+            "items": [
+              {
+                "label": "Captura",
+                "detail": "Estado adquirido en un intervalo documentado."
+              },
+              {
+                "label": "Compatibilidad",
+                "detail": "Herramienta y metadatos deben corresponder al origen."
+              },
+              {
+                "label": "Contraste",
+                "detail": "Otros registros ayudan a interpretar procesos y conexiones."
+              }
+            ],
+            "caption": "La memoria muestra un estado temporal que debe interpretarse con herramientas compatibles."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Un proceso que ya había terminado",
+        "scenario": "El registro ficticio indica fin de un proceso a las 10:00 y la memoria se capturó a las 10:10.",
+        "steps": [
+          {
+            "action": "Comparar tiempos",
+            "reason": "Las fuentes representan momentos distintos.",
+            "result": "La captura es posterior al cierre registrado."
+          },
+          {
+            "action": "Interpretar ausencia",
+            "reason": "No aparecer después no niega existencia previa.",
+            "result": "La lista de memoria no contiene el proceso."
+          },
+          {
+            "action": "Conservar ambas fuentes",
+            "reason": "Permite explicar la secuencia.",
+            "result": "Se informa ejecución histórica registrada y ausencia en la lista de las 10:10."
+          }
+        ],
+        "result": "Las dos observaciones pueden ser compatibles.",
+        "visual": {
+          "type": "timeline",
+          "title": "Un proceso que ya había terminado",
+          "items": [
+            {
+              "label": "Comparar tiempos",
+              "detail": "La captura es posterior al cierre registrado."
+            },
+            {
+              "label": "Interpretar ausencia",
+              "detail": "La lista de memoria no contiene el proceso."
+            },
+            {
+              "label": "Conservar ambas fuentes",
+              "detail": "Se informa ejecución histórica registrada y ausencia en la lista de las 10:10."
+            }
+          ],
+          "caption": "Las dos observaciones pueden ser compatibles."
+        }
+      },
+      "practice": {
+        "task": "Interpreta dos listas ficticias: procesos a las 09:00 y memoria a las 09:30.",
+        "steps": [
+          "Identifica qué proceso terminó entre ambas.",
+          "Anota el momento de cada fuente.",
+          "Explica una ausencia sin negar el evento anterior."
+        ],
+        "expected": "Una comparación temporal que respeta el alcance de cada captura."
+      },
+      "check": {
+        "question": "¿Qué conviene revisar ante campos inexplicablemente vacíos en un análisis de memoria?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La longitud del nombre del archivo."
+          },
+          {
+            "id": "b",
+            "text": "Compatibilidad de herramienta y metadatos del sistema."
+          },
+          {
+            "id": "c",
+            "text": "Que la captura tenga un icono de memoria."
+          }
+        ],
+        "correct": "b",
+        "explanation": "Un analizador incompatible puede interpretar mal la estructura; el vacío no basta para concluir ausencia de actividad."
+      },
+      "mistakes": [
+        {
+          "myth": "La memoria capturada contiene todo el historial del equipo.",
+          "correction": "Su cobertura corresponde al estado y a las condiciones de adquisición, no a toda la vida del sistema."
+        }
+      ],
+      "recap": [
+        "Captura: Estado adquirido en un intervalo documentado.",
+        "Compatibilidad: Herramienta y metadatos deben corresponder al origen.",
+        "Contraste: Otros registros ayudan a interpretar procesos y conexiones."
+      ],
+      "glossary": [
+        {
+          "term": "Captura de memoria",
+          "definition": "Representación adquirida de datos de memoria en un momento."
+        },
+        {
+          "term": "Símbolos",
+          "definition": "Información que ayuda a interpretar estructuras del sistema, según herramienta."
+        }
+      ]
+    },
+    {
+      "dayId": "w42d6",
+      "title": "Caso de artefactos",
+      "lead": "Combinar artefactos significa contrastar sus significados, no sumar etiquetas de sospecha.",
+      "sections": [
+        {
+          "topic": "Disco, registro y memoria disponibles",
+          "explanation": [
+            "En un caso con disco, Registro y memoria, cada fuente debe responder una pregunta delimitada. El disco puede mostrar un archivo presente; una clave puede mostrar configuración relacionada y la memoria un proceso en el instante adquirido. Estos hechos no se unen automáticamente por compartir un nombre. Compara rutas, identificadores, tiempos y contexto de usuario. Un nombre genérico puede aparecer en varias aplicaciones o ubicaciones y provocar correlaciones falsas si omites esos campos.",
+            "Construye una tabla de afirmaciones con una columna de soporte y otra de límite. Si la memoria y el registro de procesos coinciden en ruta y momento, la hipótesis de ejecución recibe apoyo distinto de la mera presencia del archivo. Si los tiempos son incompatibles, revisa zona, reloj y adquisición antes de forzar el relato. Cuando falta una fuente no la sustituyas por suposiciones: conserva la parte demostrable y formula una pregunta de seguimiento que podría resolver la laguna."
+          ],
+          "analogy": "Tres testigos que hablan de objetos con el mismo apodo no necesariamente describen el mismo objeto.",
+          "keyPoints": [
+            "Disco: Archivo observado en una ruta de la imagen.",
+            "Registro: Configuración relacionada, con significado propio.",
+            "Memoria: Proceso observado en el momento capturado."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Caso de artefactos",
+            "items": [
+              {
+                "label": "Disco",
+                "detail": "Archivo observado en una ruta de la imagen."
+              },
+              {
+                "label": "Registro",
+                "detail": "Configuración relacionada, con significado propio."
+              },
+              {
+                "label": "Memoria",
+                "detail": "Proceso observado en el momento capturado."
+              }
+            ],
+            "caption": "Combinar artefactos significa contrastar sus significados, no sumar etiquetas de sospecha."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "El archivo y el proceso homónimos",
+        "scenario": "Una imagen contiene C:\\Lab\\agente.exe y la memoria muestra C:\\Programa\\agente.exe.",
+        "steps": [
+          {
+            "action": "Comparar rutas",
+            "reason": "Los nombres solos no identifican el archivo.",
+            "result": "Las ubicaciones son diferentes."
+          },
+          {
+            "action": "Buscar identidad",
+            "reason": "Una huella o información adicional podría relacionarlos.",
+            "result": "No se dispone de hash del contenido en memoria."
+          },
+          {
+            "action": "Limitar unión",
+            "reason": "Evita atribuir actividad al archivo equivocado.",
+            "result": "Se mantienen dos observaciones sin equivalencia confirmada."
+          }
+        ],
+        "result": "La coincidencia del nombre no basta para afirmar que se ejecutó el archivo del laboratorio.",
+        "visual": {
+          "type": "timeline",
+          "title": "El archivo y el proceso homónimos",
+          "items": [
+            {
+              "label": "Comparar rutas",
+              "detail": "Las ubicaciones son diferentes."
+            },
+            {
+              "label": "Buscar identidad",
+              "detail": "No se dispone de hash del contenido en memoria."
+            },
+            {
+              "label": "Limitar unión",
+              "detail": "Se mantienen dos observaciones sin equivalencia confirmada."
+            }
+          ],
+          "caption": "La coincidencia del nombre no basta para afirmar que se ejecutó el archivo del laboratorio."
+        }
+      },
+      "practice": {
+        "task": "Construye una tabla de tres artefactos ficticios y dos hipótesis.",
+        "steps": [
+          "Incluye ruta y momento en cada fila.",
+          "Marca qué relaciones están demostradas.",
+          "Propón una comprobación para el enlace más débil."
+        ],
+        "expected": "Un caso con relaciones justificadas y lagunas visibles."
+      },
+      "check": {
+        "question": "¿Qué dato diferencia primero dos programas del mismo nombre?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El orden alfabético."
+          },
+          {
+            "id": "b",
+            "text": "El color del icono."
+          },
+          {
+            "id": "c",
+            "text": "La ruta completa y su contexto."
+          }
+        ],
+        "correct": "c",
+        "explanation": "La ruta completa reduce ambigüedad; pueden necesitarse más datos para confirmar identidad."
+      },
+      "mistakes": [
+        {
+          "myth": "Cada artefacto sospechoso cuenta como prueba independiente de la misma acción.",
+          "correction": "Hay que comprobar independencia y significado; varios pueden derivar de una sola operación."
+        }
+      ],
+      "recap": [
+        "Disco: Archivo observado en una ruta de la imagen.",
+        "Registro: Configuración relacionada, con significado propio.",
+        "Memoria: Proceso observado en el momento capturado."
+      ],
+      "glossary": [
+        {
+          "term": "Correlación",
+          "definition": "Relación razonada entre observaciones por campos y contexto."
+        },
+        {
+          "term": "Hipótesis alternativa",
+          "definition": "Explicación diferente compatible con parte de la evidencia."
+        }
+      ]
+    },
+    {
+      "dayId": "w42d7",
+      "title": "Evaluación de artefactos",
+      "lead": "La mejor interpretación explica también qué otros escenarios siguen siendo posibles.",
+      "sections": [
+        {
+          "topic": "Hipótesis alternativas",
+          "explanation": [
+            "Evaluar artefactos exige revisar la relación entre observación y afirmación. Una ruta reciente puede orientar una búsqueda, una clave mostrar configuración y una lista de procesos describir un instante. Ninguna de estas fuentes, aislada, cuenta toda la intención de una persona. Toma una conclusión de tu práctica y divide sus verbos: presente, configurado, iniciado, conectado y leído requieren soportes diferentes. Así detectas cuándo una frase introduce una acción que las fuentes no registran.",
+            "Una hipótesis alternativa no se añade como adorno al final. Debe producir una comprobación capaz de distinguir escenarios. Si un archivo pudo copiarse sin abrirse, busca datos adecuados sobre apertura o ejecución; si no están disponibles, mantén la ambigüedad. Valora además errores de herramienta, cobertura parcial y cambios de reloj. El objetivo es comunicar la explicación mejor sustentada con la información actual, conservando un camino claro para revisarla cuando aparezcan datos nuevos."
+          ],
+          "analogy": "Una investigación rigurosa coloca un signo de interrogación donde falta un puente, en lugar de dibujar una carretera imaginaria.",
+          "keyPoints": [
+            "Verbo: Cada acción afirmada necesita un soporte apropiado.",
+            "Alternativa: Una explicación competidora debe poder contrastarse.",
+            "Revisión: La conclusión cambia cuando nueva evidencia lo justifica."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Evaluación de artefactos",
+            "items": [
+              {
+                "label": "Verbo",
+                "detail": "Cada acción afirmada necesita un soporte apropiado."
+              },
+              {
+                "label": "Alternativa",
+                "detail": "Una explicación competidora debe poder contrastarse."
+              },
+              {
+                "label": "Revisión",
+                "detail": "La conclusión cambia cuando nueva evidencia lo justifica."
+              }
+            ],
+            "caption": "La mejor interpretación explica también qué otros escenarios siguen siendo posibles."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Presente no significa ejecutado",
+        "scenario": "Un informe ficticio dice que un usuario ejecutó un documento porque aparece en Descargas.",
+        "steps": [
+          {
+            "action": "Descomponer frase",
+            "reason": "Separa acciones y soportes.",
+            "result": "La evidencia solo muestra presencia en una ruta."
+          },
+          {
+            "action": "Proponer alternativa",
+            "reason": "Un archivo puede llegar sin abrirse.",
+            "result": "Se considera copia o descarga sin ejecución."
+          },
+          {
+            "action": "Pedir corroboración",
+            "reason": "Una nueva fuente podría discriminar.",
+            "result": "Se solicita telemetría de procesos y contexto de la aplicación."
+          }
+        ],
+        "result": "La ejecución queda como hipótesis pendiente, no como hecho.",
+        "visual": {
+          "type": "timeline",
+          "title": "Presente no significa ejecutado",
+          "items": [
+            {
+              "label": "Descomponer frase",
+              "detail": "La evidencia solo muestra presencia en una ruta."
+            },
+            {
+              "label": "Proponer alternativa",
+              "detail": "Se considera copia o descarga sin ejecución."
+            },
+            {
+              "label": "Pedir corroboración",
+              "detail": "Se solicita telemetría de procesos y contexto de la aplicación."
+            }
+          ],
+          "caption": "La ejecución queda como hipótesis pendiente, no como hecho."
+        }
+      },
+      "practice": {
+        "task": "Reescribe tres afirmaciones exageradas de un caso didáctico.",
+        "steps": [
+          "Señala el verbo sin soporte.",
+          "Escribe una versión que describa solo el dato.",
+          "Añade una comprobación para recuperar la afirmación original si se demuestra."
+        ],
+        "expected": "Tres conclusiones precisas y tres próximos pasos verificables."
+      },
+      "check": {
+        "question": "¿Qué conclusión admite un archivo presente sin otra evidencia?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que el archivo está presente en la copia examinada."
+          },
+          {
+            "id": "b",
+            "text": "Que el usuario lo ejecutó."
+          },
+          {
+            "id": "c",
+            "text": "Que contenía información robada."
+          }
+        ],
+        "correct": "a",
+        "explanation": "La presencia es el hecho observado; uso e intención requieren evidencia adicional."
+      },
+      "mistakes": [
+        {
+          "myth": "Considerar alternativas impide cerrar cualquier caso.",
+          "correction": "Permite cerrar con un alcance defendible y criterios para reabrir si aparecen datos relevantes."
+        }
+      ],
+      "recap": [
+        "Verbo: Cada acción afirmada necesita un soporte apropiado.",
+        "Alternativa: Una explicación competidora debe poder contrastarse.",
+        "Revisión: La conclusión cambia cuando nueva evidencia lo justifica."
+      ],
+      "glossary": [
+        {
+          "term": "Inferencia",
+          "definition": "Conclusión razonada que va más allá de la observación directa."
+        },
+        {
+          "term": "Corroboración",
+          "definition": "Apoyo adicional mediante una fuente apropiada."
+        }
+      ]
+    }
+  ]
+}

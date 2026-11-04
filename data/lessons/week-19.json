@@ -1,0 +1,949 @@
+{
+  "version": "2.0.0",
+  "week": 19,
+  "title": "Operación continuidad y datos",
+  "overview": "La operación cotidiana conecta mantenimiento, manejo de datos y recuperación. Aprenderás a revisar activos, clasificar información y demostrar que un respaldo puede restaurarse. Separarás RTO de RPO y usarás el lenguaje de eventos, alertas e incidentes para tomar decisiones proporcionadas. También practicarás revisión crítica de salidas de IA y cerrarás con la pérdida de un equipo, un caso que obliga a coordinar identidad, confidencialidad y continuidad del trabajo.",
+  "objectives": [
+    "Organizar mantenimiento y tratamiento de información.",
+    "Definir y comprobar objetivos de recuperación.",
+    "Clasificar señales y responder a una pérdida de equipo."
+  ],
+  "sources": [
+    {
+      "id": "csf",
+      "title": "NIST Cybersecurity Framework",
+      "url": "https://www.nist.gov/cyberframework"
+    },
+    {
+      "id": "ir",
+      "title": "NIST SP 800-61r3: respuesta a incidentes",
+      "url": "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+    },
+    {
+      "id": "continuity",
+      "title": "NIST: guía de contingencia, revisión 1",
+      "url": "https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-34r1.pdf"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w19d1",
+      "title": "Operación segura",
+      "lead": "Relaciona mantenimiento e inventario con la capacidad de detectar y recuperarse.",
+      "sections": [
+        {
+          "topic": "Actualización, inventario y registros",
+          "explanation": [
+            "La operación segura mantiene activos y controles en un estado conocido. Un inventario identifica equipo, software, propietario y función; sin él es difícil saber qué necesita actualizarse o qué servicio depende de un componente. Las actualizaciones corrigen problemas, pero deben evaluarse junto con compatibilidad, respaldo y posibilidad de reversión. Una instalación fallida también puede afectar disponibilidad.",
+            "Los registros aportan evidencia sobre accesos, cambios y errores. Necesitan tiempo coherente, retención y responsables de revisión; almacenar mensajes sin una pregunta operativa no garantiza detección. Establece una referencia de funcionamiento normal y compara desviaciones con contexto. Si un servidor cambia fuera de una ventana autorizada, revisa quién lo hizo y por qué antes de asumir malware. Operar con seguridad significa combinar prevención, observación y una respuesta organizada a los resultados."
+          ],
+          "analogy": "Un taller necesita lista de vehículos, mantenimiento y registros de reparación; ninguna de esas piezas sustituye a las otras.",
+          "keyPoints": [
+            "El inventario conecta activos con dueños y dependencias.",
+            "Actualizar requiere prueba y recuperación.",
+            "Los registros necesitan contexto y revisión."
+          ],
+          "visual": {
+            "type": "cycle",
+            "title": "Operación de un activo",
+            "items": [
+              {
+                "label": "Inventariar",
+                "detail": "Dueño, función y versión"
+              },
+              {
+                "label": "Mantener",
+                "detail": "Cambios probados y autorizados"
+              },
+              {
+                "label": "Observar",
+                "detail": "Eventos y estado esperado"
+              },
+              {
+                "label": "Revisar",
+                "detail": "Desviaciones y acciones verificadas"
+              }
+            ],
+            "caption": "El ciclo se repite cuando cambian activos o necesidades."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Actualización de una aplicación interna",
+        "scenario": "Una corrección debe instalarse sin perder la capacidad de facturar.",
+        "steps": [
+          {
+            "action": "Identificar dependencia",
+            "reason": "La aplicación usa una base de datos concreta.",
+            "result": "Inventario y dueño confirmados"
+          },
+          {
+            "action": "Probar cambio",
+            "reason": "La corrección puede afectar compatibilidad.",
+            "result": "Prueba y reversión preparadas"
+          },
+          {
+            "action": "Verificar operación",
+            "reason": "Instalar no demuestra servicio sano.",
+            "result": "Facturación de prueba y registros normales"
+          }
+        ],
+        "result": "El cambio termina con evidencia funcional y una vía de recuperación conocida.",
+        "visual": {
+          "type": "flow",
+          "title": "Actualización de una aplicación interna",
+          "items": [
+            {
+              "label": "Identificar dependencia",
+              "detail": "Inventario y dueño confirmados"
+            },
+            {
+              "label": "Probar cambio",
+              "detail": "Prueba y reversión preparadas"
+            },
+            {
+              "label": "Verificar operación",
+              "detail": "Facturación de prueba y registros normales"
+            }
+          ],
+          "caption": "El cambio termina con evidencia funcional y una vía de recuperación conocida."
+        }
+      },
+      "practice": {
+        "task": "Crea una ficha de operación de un equipo ficticio.",
+        "steps": [
+          "Anota dueño, función y software.",
+          "Define una actualización con prueba y reversión.",
+          "Selecciona dos eventos que alguien revisará."
+        ],
+        "expected": "Una ficha que conecte mantenimiento, observación y responsabilidad."
+      },
+      "check": {
+        "question": "¿Qué falta en un inventario que solo enumera nombres de equipos?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El color de la interfaz"
+          },
+          {
+            "id": "b",
+            "text": "Propietario, función y dependencias relevantes"
+          },
+          {
+            "id": "c",
+            "text": "Un logotipo más grande"
+          }
+        ],
+        "correct": "b",
+        "explanation": "Esos datos permiten priorizar mantenimiento y relacionar fallos con procesos."
+      },
+      "mistakes": [
+        {
+          "myth": "Guardar todos los registros equivale a detectar todos los incidentes.",
+          "correction": "Necesitas cobertura, contexto, revisión y acciones sobre lo observado."
+        }
+      ],
+      "recap": [
+        "El inventario conecta activos con dueños y dependencias.",
+        "Actualizar requiere prueba y recuperación.",
+        "Los registros necesitan contexto y revisión."
+      ],
+      "glossary": [
+        {
+          "term": "Inventario",
+          "definition": "Registro de activos con función y responsabilidad."
+        },
+        {
+          "term": "Referencia operativa",
+          "definition": "Estado esperado usado para identificar desviaciones."
+        }
+      ]
+    },
+    {
+      "dayId": "w19d2",
+      "title": "Clasificación de datos",
+      "lead": "La sensibilidad orienta cómo se guarda, comparte y elimina un dato.",
+      "sections": [
+        {
+          "topic": "Sensibilidad, propietario y retención",
+          "explanation": [
+            "Clasificar datos significa asignarles un tratamiento según su sensibilidad y uso. Una organización puede distinguir públicos, internos, confidenciales y restringidos, pero debe definir esas etiquetas con criterios propios. El propietario de la información decide necesidades y restricciones; los custodios aplican medidas técnicas. No todo dato personal tiene el mismo contexto ni todo documento interno necesita el máximo nivel de restricción.",
+            "La clasificación debe acompañar al dato durante creación, almacenamiento, transmisión y retirada. Determina quién puede acceder, qué canales son aceptables y cuánto tiempo debe conservarse. La retención responde a necesidades y obligaciones verificadas, no a guardar todo para siempre. Copias, exportaciones y capturas pueden perder etiquetas o quedar en ubicaciones no previstas. Antes de publicar una evidencia de laboratorio, elimina identidades reales y usa ejemplos ficticios que demuestren la habilidad sin exponer información de otras personas."
+          ],
+          "analogy": "Una etiqueta de manejo en una caja indica quién puede abrirla y qué cuidado requiere durante todo el traslado.",
+          "keyPoints": [
+            "Define categorías y criterios de tratamiento.",
+            "Distingue propietario de custodio.",
+            "Controla también copias y exportaciones."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Tratamiento según sensibilidad",
+            "items": [
+              {
+                "label": "Público",
+                "detail": "Publicación expresamente aprobada"
+              },
+              {
+                "label": "Interno",
+                "detail": "Uso limitado a la organización"
+              },
+              {
+                "label": "Confidencial",
+                "detail": "Acceso por necesidad y protección reforzada"
+              }
+            ],
+            "caption": "Los nombres de niveles varían; lo importante es la política de manejo asociada."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Captura para un portafolio",
+        "scenario": "Una imagen muestra una consulta técnica junto con nombres de clientes.",
+        "steps": [
+          {
+            "action": "Identificar datos",
+            "reason": "La habilidad técnica no necesita identidades reales.",
+            "result": "Datos personales detectados"
+          },
+          {
+            "action": "Crear versión segura",
+            "reason": "Una exportación puede ampliar exposición.",
+            "result": "Nombres sustituidos por ejemplos ficticios"
+          },
+          {
+            "action": "Validar publicación",
+            "reason": "La autorización corresponde al dueño adecuado.",
+            "result": "Evidencia revisada antes de compartir"
+          }
+        ],
+        "result": "El portafolio demuestra el método sin revelar información de clientes.",
+        "visual": {
+          "type": "flow",
+          "title": "Captura para un portafolio",
+          "items": [
+            {
+              "label": "Identificar datos",
+              "detail": "Datos personales detectados"
+            },
+            {
+              "label": "Crear versión segura",
+              "detail": "Nombres sustituidos por ejemplos ficticios"
+            },
+            {
+              "label": "Validar publicación",
+              "detail": "Evidencia revisada antes de compartir"
+            }
+          ],
+          "caption": "El portafolio demuestra el método sin revelar información de clientes."
+        }
+      },
+      "practice": {
+        "task": "Clasifica seis documentos de una empresa ficticia.",
+        "steps": [
+          "Define tres niveles y sus criterios.",
+          "Asigna propietario y canal de intercambio.",
+          "Indica retención o una pregunta pendiente sobre ella."
+        ],
+        "expected": "Una tabla de manejo consistente sin inventar obligaciones legales."
+      },
+      "check": {
+        "question": "¿Quién define normalmente el uso y sensibilidad de la información?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El propietario de los datos según la política"
+          },
+          {
+            "id": "b",
+            "text": "Cualquier persona que encuentre una copia"
+          },
+          {
+            "id": "c",
+            "text": "El color del archivo"
+          }
+        ],
+        "correct": "a",
+        "explanation": "La responsabilidad de negocio determina el tratamiento; la implementación técnica lo hace efectivo."
+      },
+      "mistakes": [
+        {
+          "myth": "Si un archivo salió de la aplicación, ya no necesita protección.",
+          "correction": "Las copias y exportaciones conservan su sensibilidad aunque pierdan la etiqueta visible."
+        }
+      ],
+      "recap": [
+        "Define categorías y criterios de tratamiento.",
+        "Distingue propietario de custodio.",
+        "Controla también copias y exportaciones."
+      ],
+      "glossary": [
+        {
+          "term": "Propietario de datos",
+          "definition": "Responsable de decidir necesidades y tratamiento de la información."
+        },
+        {
+          "term": "Retención",
+          "definition": "Periodo y condiciones de conservación definidos para los datos."
+        }
+      ]
+    },
+    {
+      "dayId": "w19d3",
+      "title": "Respaldo",
+      "lead": "Un respaldo vale por la recuperación que permite demostrar.",
+      "sections": [
+        {
+          "topic": "Frecuencia, versiones y restauración",
+          "explanation": [
+            "Un respaldo conserva una versión recuperable de información o de un sistema. Debe diferenciarse de sincronización: si una eliminación o corrupción se propaga a todas las copias sincronizadas, puede no quedar una versión útil. Define qué se copia, con qué frecuencia, cuánto se conserva y quién puede restaurar. También protege las credenciales que permiten borrar o modificar las copias.",
+            "La restauración prueba si los archivos están completos, si pueden abrirse y si la aplicación vuelve a operar. Una tarea de copia con estado exitoso no demuestra todo eso. Combina versiones y separación adecuada frente al escenario de riesgo, como fallo del equipo o acceso indebido. Conserva una prueba controlada y mide el tiempo requerido. No sobreescribas los datos originales durante una práctica inicial: restaura hacia un lugar de prueba y documenta el resultado."
+          ],
+          "analogy": "Guardar una llave de repuesto sirve si corresponde a la cerradura actual y alguien autorizado puede recuperarla.",
+          "keyPoints": [
+            "Sincronización y respaldo no son equivalentes.",
+            "Protege copias y permisos de borrado.",
+            "Prueba restauración y utilidad de los datos."
+          ],
+          "visual": {
+            "type": "cycle",
+            "title": "Copia y recuperación",
+            "items": [
+              {
+                "label": "Definir",
+                "detail": "Datos, frecuencia y versiones"
+              },
+              {
+                "label": "Proteger",
+                "detail": "Accesos y separación de copias"
+              },
+              {
+                "label": "Restaurar",
+                "detail": "Lugar de prueba controlado"
+              },
+              {
+                "label": "Validar",
+                "detail": "Integridad y uso de la información"
+              }
+            ],
+            "caption": "La evidencia de recuperación complementa el resultado de la tarea de copia."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Archivo eliminado y sincronizado",
+        "scenario": "El borrado se replica a los dispositivos conectados.",
+        "steps": [
+          {
+            "action": "Identificar propagación",
+            "reason": "Varias copias actuales pueden compartir el mismo error.",
+            "result": "La sincronización propagó el borrado"
+          },
+          {
+            "action": "Buscar versión conservada",
+            "reason": "La recuperación necesita un estado anterior.",
+            "result": "Versión de respaldo localizada"
+          },
+          {
+            "action": "Restaurar aparte",
+            "reason": "Evita dañar los archivos que quedan.",
+            "result": "Documento abierto y contenido comprobado"
+          }
+        ],
+        "result": "La versión histórica permite recuperar lo que la sincronización ya había eliminado.",
+        "visual": {
+          "type": "flow",
+          "title": "Archivo eliminado y sincronizado",
+          "items": [
+            {
+              "label": "Identificar propagación",
+              "detail": "La sincronización propagó el borrado"
+            },
+            {
+              "label": "Buscar versión conservada",
+              "detail": "Versión de respaldo localizada"
+            },
+            {
+              "label": "Restaurar aparte",
+              "detail": "Documento abierto y contenido comprobado"
+            }
+          ],
+          "caption": "La versión histórica permite recuperar lo que la sincronización ya había eliminado."
+        }
+      },
+      "practice": {
+        "task": "Prueba recuperar un documento ficticio.",
+        "steps": [
+          "Crea una versión y una copia separada.",
+          "Modifica el original sin datos importantes.",
+          "Restaura en otra carpeta y compara contenido."
+        ],
+        "expected": "Una evidencia de recuperación que incluya versión y tiempo empleado."
+      },
+      "check": {
+        "question": "¿Qué demuestra mejor que un respaldo es útil?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Tiene un nombre que dice backup"
+          },
+          {
+            "id": "b",
+            "text": "La tarea terminó sin error"
+          },
+          {
+            "id": "c",
+            "text": "Se restauró y validó información utilizable"
+          }
+        ],
+        "correct": "c",
+        "explanation": "La recuperación comprueba condiciones que el estado exitoso de la copia no demuestra por sí solo."
+      },
+      "mistakes": [
+        {
+          "myth": "Una copia sincronizada siempre cubre borrado accidental.",
+          "correction": "Comprueba versiones y restauración: la eliminación puede propagarse."
+        }
+      ],
+      "recap": [
+        "Sincronización y respaldo no son equivalentes.",
+        "Protege copias y permisos de borrado.",
+        "Prueba restauración y utilidad de los datos."
+      ],
+      "glossary": [
+        {
+          "term": "Respaldo",
+          "definition": "Copia conservada para recuperar un estado necesario."
+        },
+        {
+          "term": "Restauración",
+          "definition": "Recuperación de datos o servicio desde una copia disponible."
+        }
+      ]
+    },
+    {
+      "dayId": "w19d4",
+      "title": "Continuidad y recuperación",
+      "lead": "Convierte la tolerancia del negocio en objetivos medibles de recuperación.",
+      "sections": [
+        {
+          "topic": "BIA, RTO y RPO",
+          "explanation": [
+            "El análisis de impacto al negocio, o BIA, identifica procesos críticos, dependencias y consecuencias de interrupción. A partir de esas necesidades se fijan objetivos. RTO expresa cuánto tiempo de indisponibilidad se pretende tolerar para recuperar el recurso; RPO expresa a qué punto temporal de datos debe poder regresarse. Uno trata duración de interrupción y el otro pérdida temporal de información.",
+            "Si un servicio requiere RTO de dos horas y RPO de quince minutos, una copia diaria restaurable en ocho horas no satisface esos objetivos. No basta comprar almacenamiento: considera personal, claves, conectividad y dependencias. Los objetivos deben ser aprobados por el proceso y comprobados mediante ejercicios. Una tecnología puede reducir el tiempo de recuperación sin proteger frente a corrupción replicada; por eso disponibilidad, copia y continuidad necesitan evaluarse por escenarios."
+          ],
+          "analogy": "RTO pregunta cuánto puedes esperar para abrir la tienda; RPO pregunta cuántas ventas recientes podrías necesitar reconstruir.",
+          "keyPoints": [
+            "BIA conecta recuperación con impacto.",
+            "RTO mide tiempo de indisponibilidad objetivo.",
+            "RPO delimita el punto de datos recuperable."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Dos relojes de recuperación",
+            "items": [
+              {
+                "label": "Incidente",
+                "detail": "Servicio deja de estar disponible"
+              },
+              {
+                "label": "RTO",
+                "detail": "Tiempo objetivo para volver a operar"
+              },
+              {
+                "label": "RPO",
+                "detail": "Antigüedad máxima objetivo del estado recuperado"
+              }
+            ],
+            "caption": "Son objetivos que requieren pruebas y dependencias suficientes para cumplirse."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Pedidos con copias cada cuatro horas",
+        "scenario": "El negocio acepta como máximo una hora de datos perdida.",
+        "steps": [
+          {
+            "action": "Leer RPO",
+            "reason": "La tolerancia se refiere al punto de datos.",
+            "result": "RPO de una hora"
+          },
+          {
+            "action": "Comparar mecanismo",
+            "reason": "La copia puede quedar cuatro horas atrás.",
+            "result": "Frecuencia insuficiente en el peor caso"
+          },
+          {
+            "action": "Ajustar y probar",
+            "reason": "La solución debe demostrarse además de planearse.",
+            "result": "Nueva estrategia y ejercicio de restauración"
+          }
+        ],
+        "result": "La diferencia entre objetivo y capacidad revela una brecha de recuperación.",
+        "visual": {
+          "type": "flow",
+          "title": "Pedidos con copias cada cuatro horas",
+          "items": [
+            {
+              "label": "Leer RPO",
+              "detail": "RPO de una hora"
+            },
+            {
+              "label": "Comparar mecanismo",
+              "detail": "Frecuencia insuficiente en el peor caso"
+            },
+            {
+              "label": "Ajustar y probar",
+              "detail": "Nueva estrategia y ejercicio de restauración"
+            }
+          ],
+          "caption": "La diferencia entre objetivo y capacidad revela una brecha de recuperación."
+        }
+      },
+      "practice": {
+        "task": "Diseña RTO y RPO para un catálogo ficticio.",
+        "steps": [
+          "Describe el impacto de una caída.",
+          "Fija objetivos justificados por esa necesidad.",
+          "Propón una prueba que mida ambos por separado."
+        ],
+        "expected": "Objetivos distintos con un método de medición y una dependencia crítica."
+      },
+      "check": {
+        "question": "¿Qué objetivo se relaciona con perder como máximo quince minutos de datos?",
+        "options": [
+          {
+            "id": "a",
+            "text": "RTO"
+          },
+          {
+            "id": "b",
+            "text": "RPO"
+          },
+          {
+            "id": "c",
+            "text": "SSID"
+          }
+        ],
+        "correct": "b",
+        "explanation": "El punto de recuperación delimita la antigüedad del estado de datos aceptable."
+      },
+      "mistakes": [
+        {
+          "myth": "RTO y RPO son dos nombres para la misma medida.",
+          "correction": "El primero trata tiempo de recuperación y el segundo el punto temporal de los datos."
+        }
+      ],
+      "recap": [
+        "BIA conecta recuperación con impacto.",
+        "RTO mide tiempo de indisponibilidad objetivo.",
+        "RPO delimita el punto de datos recuperable."
+      ],
+      "glossary": [
+        {
+          "term": "BIA",
+          "definition": "Análisis de impacto y dependencias de procesos de negocio."
+        },
+        {
+          "term": "RPO",
+          "definition": "Objetivo del punto temporal al que deben poder recuperarse los datos."
+        }
+      ]
+    },
+    {
+      "dayId": "w19d5",
+      "title": "Respuesta inicial",
+      "lead": "Escala una señal mediante evidencia y contexto, sin confundir alerta con incidente confirmado.",
+      "sections": [
+        {
+          "topic": "Evento, alerta e incidente",
+          "explanation": [
+            "Un evento es una ocurrencia observable, como un inicio de sesión o un error. Una alerta es una señal que una regla o una persona considera relevante para revisión. Un incidente implica una situación que cumple criterios organizativos de afectación o amenaza a la seguridad. No todo evento es una alerta y no toda alerta confirma por sí sola un incidente.",
+            "El triaje inicial reúne contexto para decidir prioridad y siguiente acción. Pregunta qué activo, identidad, intervalo y comportamiento están involucrados, y qué evidencia respalda la señal. Si el impacto puede continuar, sigue procedimientos de escalamiento y contención autorizados. Conserva los hechos originales y documenta decisiones; borrar archivos o reiniciar equipos sin una necesidad y una autorización puede perder evidencia. La respuesta forma parte de la gestión continua de riesgo, no de una secuencia improvisada de clics."
+          ],
+          "analogy": "Una alarma de humo pide revisión; confirmar fuego y decidir evacuación requieren contexto y un procedimiento claro.",
+          "keyPoints": [
+            "Evento, alerta e incidente no son sinónimos.",
+            "El triaje reúne contexto y prioriza.",
+            "Preserva evidencia y sigue autoridad definida."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "De señal a decisión",
+            "items": [
+              {
+                "label": "Evento",
+                "detail": "Acceso fuera del horario habitual"
+              },
+              {
+                "label": "Alerta",
+                "detail": "Regla detecta una desviación"
+              },
+              {
+                "label": "Triaje",
+                "detail": "Identidad, activo y contexto revisados"
+              },
+              {
+                "label": "Decisión",
+                "detail": "Cerrar, investigar o escalar"
+              }
+            ],
+            "caption": "La clasificación depende de evidencia y criterios, no solo del nombre de la regla."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Acceso nocturno de mantenimiento",
+        "scenario": "Una alerta coincide con una ventana de trabajo aprobada.",
+        "steps": [
+          {
+            "action": "Conservar señal",
+            "reason": "La alerta sigue siendo un hecho registrado.",
+            "result": "Acceso y hora documentados"
+          },
+          {
+            "action": "Contrastar contexto",
+            "reason": "Existe una actividad legítima prevista.",
+            "result": "Cambio aprobado y usuario coincidentes"
+          },
+          {
+            "action": "Resolver con evidencia",
+            "reason": "No toda desviación es maliciosa.",
+            "result": "Alerta explicada y cierre justificado"
+          }
+        ],
+        "result": "La revisión evita declarar un incidente sin perder trazabilidad del evento.",
+        "visual": {
+          "type": "flow",
+          "title": "Acceso nocturno de mantenimiento",
+          "items": [
+            {
+              "label": "Conservar señal",
+              "detail": "Acceso y hora documentados"
+            },
+            {
+              "label": "Contrastar contexto",
+              "detail": "Cambio aprobado y usuario coincidentes"
+            },
+            {
+              "label": "Resolver con evidencia",
+              "detail": "Alerta explicada y cierre justificado"
+            }
+          ],
+          "caption": "La revisión evita declarar un incidente sin perder trazabilidad del evento."
+        }
+      },
+      "practice": {
+        "task": "Clasifica tres señales ficticias de seguridad.",
+        "steps": [
+          "Identifica evento y regla que alerta.",
+          "Añade contexto que cambiaría la prioridad.",
+          "Define criterio de escalamiento y evidencia a conservar."
+        ],
+        "expected": "Tres decisiones justificadas, incluyendo al menos una incertidumbre abierta."
+      },
+      "check": {
+        "question": "Una alerta significa necesariamente que…",
+        "options": [
+          {
+            "id": "a",
+            "text": "Un control produjo una señal que necesita contexto"
+          },
+          {
+            "id": "b",
+            "text": "Hay una intrusión confirmada"
+          },
+          {
+            "id": "c",
+            "text": "Debe borrarse el equipo"
+          }
+        ],
+        "correct": "a",
+        "explanation": "La alerta orienta una revisión; la clasificación del incidente requiere evidencia y criterios."
+      },
+      "mistakes": [
+        {
+          "myth": "Investigar rápido exige cambiar el sistema antes de registrar nada.",
+          "correction": "Documenta y preserva según el procedimiento para evitar perder hechos relevantes."
+        }
+      ],
+      "recap": [
+        "Evento, alerta e incidente no son sinónimos.",
+        "El triaje reúne contexto y prioriza.",
+        "Preserva evidencia y sigue autoridad definida."
+      ],
+      "glossary": [
+        {
+          "term": "Triaje",
+          "definition": "Revisión inicial para clasificar y priorizar una señal."
+        },
+        {
+          "term": "Incidente",
+          "definition": "Situación que cumple los criterios definidos de afectación o amenaza de seguridad."
+        }
+      ]
+    },
+    {
+      "dayId": "w19d6",
+      "title": "IA y datos",
+      "lead": "Trata las entradas y salidas de IA como datos sujetos a permisos y verificación.",
+      "sections": [
+        {
+          "topic": "Información sensible, salidas no confiables y revisión humana",
+          "explanation": [
+            "Una herramienta de IA puede ayudar a resumir texto o proponer hipótesis, pero no convierte automáticamente su salida en evidencia. Puede producir información incorrecta, omitir contexto o seguir instrucciones incluidas en material no confiable. Antes de utilizarla, identifica qué datos puedes compartir y qué servicio los procesará. No envíes credenciales, datos personales o documentos internos sin autorización y condiciones apropiadas.",
+            "En una investigación, conserva la fuente original y distingue el análisis humano de una sugerencia generada. Comprueba comandos, fechas, enlaces y conclusiones contra documentación y evidencia disponible. Un texto recibido puede contener instrucciones engañosas que no deben reemplazar tu objetivo ni las políticas del trabajo. La revisión humana necesita un criterio verificable: preguntar si la respuesta «suena bien» no basta. Esta aplicación ofrece contenido de estudio y no requiere enviar tus notas a una API de IA."
+          ],
+          "analogy": "Un asistente puede proponer un borrador, pero la firma responsable exige leerlo, contrastarlo y corregirlo.",
+          "keyPoints": [
+            "No compartas datos sin permiso.",
+            "Una salida generada no es evidencia original.",
+            "Verifica instrucciones y conclusiones antes de actuar."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Uso controlado de una sugerencia",
+            "items": [
+              {
+                "label": "Entrada",
+                "detail": "Datos ficticios o autorizados"
+              },
+              {
+                "label": "Propuesta",
+                "detail": "Resumen o hipótesis sin autoridad propia"
+              },
+              {
+                "label": "Contraste",
+                "detail": "Fuentes originales y documentación"
+              },
+              {
+                "label": "Decisión",
+                "detail": "Persona responsable valida o descarta"
+              }
+            ],
+            "caption": "La revisión mantiene trazabilidad entre afirmación y evidencia."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Resumen de una alerta ficticia",
+        "scenario": "Una herramienta afirma que una IP desconocida demuestra exfiltración.",
+        "steps": [
+          {
+            "action": "Separar afirmación",
+            "reason": "La conclusión excede la evidencia disponible.",
+            "result": "Solo existe una conexión registrada"
+          },
+          {
+            "action": "Volver a la fuente",
+            "reason": "El resumen puede omitir datos decisivos.",
+            "result": "Registro original y contexto revisados"
+          },
+          {
+            "action": "Reescribir con límites",
+            "reason": "Una hipótesis no debe presentarse como hecho.",
+            "result": "Transferencia sospechada, contenido sin demostrar"
+          }
+        ],
+        "result": "La revisión conserva utilidad del borrador sin aceptar una acusación no sustentada.",
+        "visual": {
+          "type": "flow",
+          "title": "Resumen de una alerta ficticia",
+          "items": [
+            {
+              "label": "Separar afirmación",
+              "detail": "Solo existe una conexión registrada"
+            },
+            {
+              "label": "Volver a la fuente",
+              "detail": "Registro original y contexto revisados"
+            },
+            {
+              "label": "Reescribir con límites",
+              "detail": "Transferencia sospechada, contenido sin demostrar"
+            }
+          ],
+          "caption": "La revisión conserva utilidad del borrador sin aceptar una acusación no sustentada."
+        }
+      },
+      "practice": {
+        "task": "Revisa un resumen ficticio generado.",
+        "steps": [
+          "Marca hechos y afirmaciones sin fuente.",
+          "Elimina datos sensibles innecesarios.",
+          "Reescribe una conclusión con su incertidumbre y verificación."
+        ],
+        "expected": "Un texto trazable que no requiera compartir información privada."
+      },
+      "check": {
+        "question": "¿Qué debe hacerse con un comando propuesto por IA?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ejecutarlo siempre porque está bien escrito"
+          },
+          {
+            "id": "b",
+            "text": "Revisar finalidad, efectos y fuente antes de usarlo"
+          },
+          {
+            "id": "c",
+            "text": "Enviarle primero una contraseña real"
+          }
+        ],
+        "correct": "b",
+        "explanation": "La apariencia convincente no sustituye comprobar efectos, permisos y documentación."
+      },
+      "mistakes": [
+        {
+          "myth": "Una respuesta muy detallada debe ser correcta.",
+          "correction": "El detalle y el tono no reemplazan fuentes y pruebas."
+        }
+      ],
+      "recap": [
+        "No compartas datos sin permiso.",
+        "Una salida generada no es evidencia original.",
+        "Verifica instrucciones y conclusiones antes de actuar."
+      ],
+      "glossary": [
+        {
+          "term": "Dato no confiable",
+          "definition": "Contenido que debe evaluarse antes de influir en una decisión."
+        },
+        {
+          "term": "Revisión humana",
+          "definition": "Verificación responsable de exactitud, permiso y consecuencias."
+        }
+      ]
+    },
+    {
+      "dayId": "w19d7",
+      "title": "Evaluación operativa",
+      "lead": "Responde a una pérdida de equipo combinando datos, identidad y continuidad.",
+      "sections": [
+        {
+          "topic": "Caso de pérdida de equipo",
+          "explanation": [
+            "La pérdida de un equipo puede afectar varias propiedades a la vez. Los datos locales plantean confidencialidad; una sesión activa puede permitir acceso remoto; la falta del dispositivo puede interrumpir trabajo. El análisis inicial debe identificar propietario, información almacenada, protección del disco, credenciales presentes y servicios accesibles. No puedes concluir que no hay exposición únicamente porque el dispositivo pide una contraseña al encender.",
+            "La respuesta sigue el procedimiento de la organización: reportar, registrar tiempos, evaluar revocación y coordinar medidas autorizadas. La recuperación del trabajo necesita copias utilizables y otro medio de acceso legítimo. Las decisiones de notificación corresponden a responsables y obligaciones verificadas, no a suposiciones del analista. Documenta qué controles estaban realmente activos y qué permanece desconocido. El caso termina cuando se verifica tanto el tratamiento de la exposición como la continuidad necesaria."
+          ],
+          "analogy": "Perder un llavero exige revisar qué puertas abre y cómo seguir entrando de forma legítima, no solo comprar otro llavero.",
+          "keyPoints": [
+            "Evalúa datos, sesiones y trabajo afectado.",
+            "Comprueba controles reales y no supuestos.",
+            "Coordina respuesta y recuperación con responsables."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "Tres frentes tras una pérdida",
+            "items": [
+              {
+                "label": "Datos",
+                "detail": "Qué información estaba almacenada"
+              },
+              {
+                "label": "Identidad",
+                "detail": "Qué sesiones y credenciales seguían válidas"
+              },
+              {
+                "label": "Continuidad",
+                "detail": "Qué trabajo debe recuperarse y desde qué copia"
+              }
+            ],
+            "caption": "Las acciones deben coordinarse y quedar registradas con su autorización."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Portátil de una persona de soporte",
+        "scenario": "El equipo perdido tenía disco cifrado y una sesión de aplicación abierta.",
+        "steps": [
+          {
+            "action": "Verificar estado",
+            "reason": "El cifrado no describe por sí solo todas las sesiones.",
+            "result": "Protección de disco confirmada; sesión revisada"
+          },
+          {
+            "action": "Limitar acceso",
+            "reason": "La identidad puede seguir habilitada en servicios.",
+            "result": "Revocación autorizada y registros examinados"
+          },
+          {
+            "action": "Recuperar trabajo",
+            "reason": "El usuario necesita datos y un equipo autorizado.",
+            "result": "Copia restaurada y acceso legítimo comprobado"
+          }
+        ],
+        "result": "La respuesta combina reducción de exposición y continuidad sin declarar seguridad absoluta.",
+        "visual": {
+          "type": "flow",
+          "title": "Portátil de una persona de soporte",
+          "items": [
+            {
+              "label": "Verificar estado",
+              "detail": "Protección de disco confirmada; sesión revisada"
+            },
+            {
+              "label": "Limitar acceso",
+              "detail": "Revocación autorizada y registros examinados"
+            },
+            {
+              "label": "Recuperar trabajo",
+              "detail": "Copia restaurada y acceso legítimo comprobado"
+            }
+          ],
+          "caption": "La respuesta combina reducción de exposición y continuidad sin declarar seguridad absoluta."
+        }
+      },
+      "practice": {
+        "task": "Resuelve un caso de pérdida con datos ficticios.",
+        "steps": [
+          "Enumera hechos y controles desconocidos.",
+          "Prioriza tres acciones con su responsable.",
+          "Define evidencia de revocación y de recuperación."
+        ],
+        "expected": "Un informe breve que distingue hechos, hipótesis y decisiones pendientes."
+      },
+      "check": {
+        "question": "¿Qué control por sí solo no demuestra que todas las sesiones quedaron cerradas?",
+        "options": [
+          {
+            "id": "a",
+            "text": "La revocación comprobada en la aplicación"
+          },
+          {
+            "id": "b",
+            "text": "El registro de cierre de sesión"
+          },
+          {
+            "id": "c",
+            "text": "El cifrado del disco"
+          }
+        ],
+        "correct": "c",
+        "explanation": "El cifrado protege datos según su estado y configuración, pero no revoca automáticamente sesiones en servicios."
+      },
+      "mistakes": [
+        {
+          "myth": "Equipo cifrado significa incidente imposible.",
+          "correction": "Evalúa estado, sesiones, datos y contexto antes de determinar la exposición."
+        }
+      ],
+      "recap": [
+        "Evalúa datos, sesiones y trabajo afectado.",
+        "Comprueba controles reales y no supuestos.",
+        "Coordina respuesta y recuperación con responsables."
+      ],
+      "glossary": [
+        {
+          "term": "Exposición",
+          "definition": "Posibilidad de acceso o afectación en unas condiciones concretas."
+        },
+        {
+          "term": "Continuidad",
+          "definition": "Capacidad de sostener o recuperar funciones necesarias del proceso."
+        }
+      ]
+    }
+  ]
+}

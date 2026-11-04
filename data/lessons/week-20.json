@@ -1,0 +1,957 @@
+{
+  "version": "2.0.0",
+  "week": 20,
+  "title": "Consolidación y CC opcional",
+  "overview": "Esta semana convierte los fundamentos en una evaluación integrada y una decisión sobre CC. Usarás el esquema oficial elegido como referencia de cobertura, conectarás gobierno, identidad, redes y operaciones, y resolverás escenarios originales. El énfasis está en justificar decisiones y reconocer límites, no en memorizar preguntas de examen. Al terminar tendrás evidencia de lo aprendido, un registro de brechas y un siguiente paso: examen opcional, refuerzo dirigido o continuación de la ruta.",
+  "objectives": [
+    "Construir cobertura desde el esquema oficial vigente elegido.",
+    "Resolver escenarios integrados con justificaciones.",
+    "Decidir examen opcional o refuerzo según evidencia."
+  ],
+  "sources": [
+    {
+      "id": "cc",
+      "title": "ISC2: esquema oficial del examen CC",
+      "url": "https://www.isc2.org/certifications/cc/cc-certification-exam-outline"
+    },
+    {
+      "id": "csf",
+      "title": "NIST Cybersecurity Framework",
+      "url": "https://www.nist.gov/cyberframework"
+    },
+    {
+      "id": "ethics",
+      "title": "ISC2: código de ética",
+      "url": "https://www.isc2.org/ethics"
+    }
+  ],
+  "days": [
+    {
+      "dayId": "w20d1",
+      "title": "Esquema CC vigente",
+      "lead": "Utiliza el esquema oficial como una lista de competencias y conserva su versión.",
+      "sections": [
+        {
+          "topic": "Dominios y subobjetivos actuales",
+          "explanation": [
+            "El esquema de una certificación organiza dominios y subobjetivos que definen lo que pretende evaluar. No es una lista de videos ni una promesa de preguntas exactas. Para CC, consulta la página oficial y registra fecha de consulta y fecha de vigencia del documento elegido. El esquema publicado puede cambiar; una guía antigua puede seguir enseñando conceptos útiles y, aun así, dejar objetivos actuales sin cubrir.",
+            "El esquema oficial consultado presenta cinco ejes: principios de seguridad; gobierno de seguridad; conceptos de identidad y gestión de acceso; conceptos de redes y seguridad de nube; y operaciones de seguridad y respuesta a incidentes. Úsalos como mapa, conservando los identificadores y subobjetivos del documento elegido. Por ejemplo, autenticación necesita casos de factores y recuperación, mientras continuidad requiere interpretar RTO y RPO. Si una guía omite un eje, registra la brecha y añade una actividad. Verifica de nuevo vigencia, idioma y reglas antes de reservar."
+          ],
+          "analogy": "El esquema es el mapa de competencias del viaje; un curso es solo una de las rutas que pueden ayudarte a recorrerlo.",
+          "keyPoints": [
+            "Guarda fecha y vigencia del esquema elegido.",
+            "Convierte subobjetivos en acciones observables.",
+            "Compara la guía con el documento oficial."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "De esquema a aprendizaje",
+            "items": [
+              {
+                "label": "Fuente oficial",
+                "detail": "Documento y vigencia identificados"
+              },
+              {
+                "label": "Subobjetivo",
+                "detail": "Competencia concreta por demostrar"
+              },
+              {
+                "label": "Actividad",
+                "detail": "Caso o explicación sin ayuda"
+              },
+              {
+                "label": "Evidencia",
+                "detail": "Resultado y brecha registrada"
+              }
+            ],
+            "caption": "La cobertura se revisa cuando cambia el documento oficial."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Guía antigua y objetivo nuevo",
+        "scenario": "Una guía de estudio no desarrolla un subobjetivo que aparece en el esquema elegido.",
+        "steps": [
+          {
+            "action": "Comparar textos",
+            "reason": "La fecha de la guía no garantiza cobertura.",
+            "result": "Brecha concreta identificada"
+          },
+          {
+            "action": "Definir evidencia",
+            "reason": "Ver otro índice no demuestra aprenderlo.",
+            "result": "Caso práctico y explicación requeridos"
+          },
+          {
+            "action": "Completar y registrar",
+            "reason": "El objetivo debe quedar trazable.",
+            "result": "Recurso, actividad y resultado vinculados"
+          }
+        ],
+        "result": "La matriz registra cobertura real del esquema elegido sin afirmar que la guía cubre todo.",
+        "visual": {
+          "type": "flow",
+          "title": "Guía antigua y objetivo nuevo",
+          "items": [
+            {
+              "label": "Comparar textos",
+              "detail": "Brecha concreta identificada"
+            },
+            {
+              "label": "Definir evidencia",
+              "detail": "Caso práctico y explicación requeridos"
+            },
+            {
+              "label": "Completar y registrar",
+              "detail": "Recurso, actividad y resultado vinculados"
+            }
+          ],
+          "caption": "La matriz registra cobertura real del esquema elegido sin afirmar que la guía cubre todo."
+        }
+      },
+      "practice": {
+        "task": "Crea cinco filas de cobertura desde el esquema oficial de CC.",
+        "steps": [
+          "Registra documento y fecha consultados.",
+          "Escribe una acción demostrable por subobjetivo.",
+          "Señala evidencia existente o una brecha pendiente."
+        ],
+        "expected": "Cinco relaciones trazables entre objetivo, actividad y evidencia."
+      },
+      "check": {
+        "question": "¿Qué acredita mejor que cubriste un subobjetivo de CC?",
+        "options": [
+          {
+            "id": "a",
+            "text": "El título de una playlist"
+          },
+          {
+            "id": "b",
+            "text": "Una actividad resuelta y vinculada al objetivo elegido"
+          },
+          {
+            "id": "c",
+            "text": "La cantidad de pestañas abiertas"
+          }
+        ],
+        "correct": "b",
+        "explanation": "La evidencia debe mostrar la competencia y mantener relación con la versión estudiada."
+      },
+      "mistakes": [
+        {
+          "myth": "El esquema de un examen nunca cambia.",
+          "correction": "Verifica vigencia y compara diferencias antes de reservar y al planificar estudio."
+        }
+      ],
+      "recap": [
+        "Guarda fecha y vigencia del esquema elegido.",
+        "Convierte subobjetivos en acciones observables.",
+        "Compara la guía con el documento oficial."
+      ],
+      "glossary": [
+        {
+          "term": "Dominio",
+          "definition": "Agrupación de competencias dentro de un esquema de examen."
+        },
+        {
+          "term": "Subobjetivo",
+          "definition": "Competencia más específica que puede convertirse en una actividad demostrable."
+        }
+      ]
+    },
+    {
+      "dayId": "w20d2",
+      "title": "Principios y gobierno",
+      "lead": "Relaciona principios con decisiones de gobierno y conducta profesional.",
+      "sections": [
+        {
+          "topic": "Ética, riesgos, políticas y responsabilidades",
+          "explanation": [
+            "Los principios de seguridad se vuelven operativos mediante políticas, estándares y procedimientos. Una política expresa dirección y responsabilidades; un estándar concreta requisitos; un procedimiento describe pasos para una tarea. El gobierno define quién decide, quién ejecuta y cómo se supervisa. Confundir esos niveles puede dejar una regla técnicamente correcta sin autoridad para aplicarla o sin una persona que responda por sus excepciones.",
+            "La ética aparece en decisiones cotidianas, no solo en una declaración al final del curso. Si encuentras información ajena a la tarea, limita su manejo y reporta según el canal autorizado. Si una medida afecta disponibilidad, coordina con el responsable del proceso. La diligencia requiere buscar evidencia suficiente y reconocer competencia limitada. No conviertas una sospecha en acusación ni una buena intención en permiso para exceder el alcance acordado."
+          ],
+          "analogy": "Una organización necesita quién fija la regla, qué exige la regla y cómo se ejecuta, igual que un taller necesita dirección y manuales.",
+          "keyPoints": [
+            "Distingue política, estándar y procedimiento.",
+            "Asigna autoridad para decisiones y excepciones.",
+            "La ética guía el alcance y el manejo de hallazgos."
+          ],
+          "visual": {
+            "type": "layers",
+            "title": "De gobierno a operación",
+            "items": [
+              {
+                "label": "Política",
+                "detail": "Qué se exige y quién responde"
+              },
+              {
+                "label": "Estándar",
+                "detail": "Requisito concreto que debe cumplirse"
+              },
+              {
+                "label": "Procedimiento",
+                "detail": "Pasos para ejecutar y comprobar"
+              },
+              {
+                "label": "Evidencia",
+                "detail": "Resultado revisable de la aplicación"
+              }
+            ],
+            "caption": "Los niveles deben ser coherentes y útiles para el proceso."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Acceso a datos fuera de la tarea",
+        "scenario": "Un analista descubre una carpeta personal durante una revisión autorizada de configuración.",
+        "steps": [
+          {
+            "action": "Revisar objetivo",
+            "reason": "La tarea no necesita leer archivos personales.",
+            "result": "Contenido fuera de necesidad"
+          },
+          {
+            "action": "Limitar recolección",
+            "reason": "La curiosidad no justifica acceso adicional.",
+            "result": "Solo observación mínima registrada"
+          },
+          {
+            "action": "Escalar apropiadamente",
+            "reason": "El responsable decide si corresponde otro alcance.",
+            "result": "Consulta por canal autorizado"
+          }
+        ],
+        "result": "La actuación protege privacidad y mantiene la revisión dentro de su propósito.",
+        "visual": {
+          "type": "flow",
+          "title": "Acceso a datos fuera de la tarea",
+          "items": [
+            {
+              "label": "Revisar objetivo",
+              "detail": "Contenido fuera de necesidad"
+            },
+            {
+              "label": "Limitar recolección",
+              "detail": "Solo observación mínima registrada"
+            },
+            {
+              "label": "Escalar apropiadamente",
+              "detail": "Consulta por canal autorizado"
+            }
+          ],
+          "caption": "La actuación protege privacidad y mantiene la revisión dentro de su propósito."
+        }
+      },
+      "practice": {
+        "task": "Diseña tres niveles de una regla de acceso ficticia.",
+        "steps": [
+          "Redacta la política en una frase.",
+          "Concreta un requisito medible.",
+          "Describe pasos, responsable y evidencia de comprobación."
+        ],
+        "expected": "Una cadena coherente que permite explicar quién decide y cómo se aplica."
+      },
+      "check": {
+        "question": "¿Qué documento describe normalmente los pasos de una tarea?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Una etiqueta de clasificación"
+          },
+          {
+            "id": "b",
+            "text": "Un evento de red"
+          },
+          {
+            "id": "c",
+            "text": "Un procedimiento"
+          }
+        ],
+        "correct": "c",
+        "explanation": "El procedimiento convierte una necesidad o requisito en una secuencia ejecutable y verificable."
+      },
+      "mistakes": [
+        {
+          "myth": "Una política escrita se aplica sola.",
+          "correction": "Necesita responsables, mecanismos y evidencia de cumplimiento operativo."
+        }
+      ],
+      "recap": [
+        "Distingue política, estándar y procedimiento.",
+        "Asigna autoridad para decisiones y excepciones.",
+        "La ética guía el alcance y el manejo de hallazgos."
+      ],
+      "glossary": [
+        {
+          "term": "Gobierno",
+          "definition": "Sistema de decisiones, responsabilidades y supervisión."
+        },
+        {
+          "term": "Procedimiento",
+          "definition": "Secuencia definida para ejecutar una tarea y comprobar su resultado."
+        }
+      ]
+    },
+    {
+      "dayId": "w20d3",
+      "title": "Identidad y redes",
+      "lead": "Integra acceso y conectividad sin asumir que la ubicación concede confianza.",
+      "sections": [
+        {
+          "topic": "Acceso, nube y protección de conexiones",
+          "explanation": [
+            "Una conexión de red permite alcanzar un servicio, pero la autorización determina qué puede hacerse en él. Un diseño coherente limita flujos y permisos a la necesidad real. Un usuario remoto puede requerir consultar una aplicación sin recibir acceso administrativo a su servidor. La identidad, el estado del dispositivo y el recurso solicitado aportan contexto que una dirección IP por sí sola no describe.",
+            "En nube también debes identificar qué configura el proveedor y qué conserva el cliente bajo su responsabilidad. Contratar un servicio no decide automáticamente quién puede compartir una carpeta o cómo se revoca una cuenta. Documenta el flujo desde el usuario hasta los datos: autenticación, conexión protegida, autorización y registro. Si una sesión o un permiso permanece después de una baja, la conectividad segura no corrige esa exposición. Evalúa el resultado completo y no solo la existencia de un túnel."
+          ],
+          "analogy": "Una carretera segura permite llegar al edificio, pero la tarjeta de acceso sigue determinando qué oficina puedes utilizar.",
+          "keyPoints": [
+            "Conectividad y autorización son decisiones distintas.",
+            "La ubicación no concede confianza universal.",
+            "En nube siguen existiendo responsabilidades del cliente."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Acceso de usuario a datos",
+            "items": [
+              {
+                "label": "Identidad",
+                "detail": "Cuenta y autenticador verificados"
+              },
+              {
+                "label": "Conexión",
+                "detail": "Recorrido protegido y permitido"
+              },
+              {
+                "label": "Recurso",
+                "detail": "Permiso específico de la aplicación"
+              },
+              {
+                "label": "Registro",
+                "detail": "Actividad vinculada con el sujeto"
+              }
+            ],
+            "caption": "La validación debe recorrer todas las condiciones necesarias."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Archivo compartido en un servicio de nube",
+        "scenario": "La cuenta de una persona que cambió de proyecto conserva acceso al archivo anterior.",
+        "steps": [
+          {
+            "action": "Identificar permiso",
+            "reason": "El proveedor disponible no decide la necesidad del usuario.",
+            "result": "Asignación anterior todavía activa"
+          },
+          {
+            "action": "Revisar responsabilidad",
+            "reason": "El cliente administra esa compartición.",
+            "result": "Dueño del archivo valida retirada"
+          },
+          {
+            "action": "Probar límite",
+            "reason": "El cambio debe ser efectivo en la aplicación.",
+            "result": "Archivo anterior denegado; proyecto actual disponible"
+          }
+        ],
+        "result": "La revisión corrige acceso residual sin confundirlo con un problema de cifrado de red.",
+        "visual": {
+          "type": "flow",
+          "title": "Archivo compartido en un servicio de nube",
+          "items": [
+            {
+              "label": "Identificar permiso",
+              "detail": "Asignación anterior todavía activa"
+            },
+            {
+              "label": "Revisar responsabilidad",
+              "detail": "Dueño del archivo valida retirada"
+            },
+            {
+              "label": "Probar límite",
+              "detail": "Archivo anterior denegado; proyecto actual disponible"
+            }
+          ],
+          "caption": "La revisión corrige acceso residual sin confundirlo con un problema de cifrado de red."
+        }
+      },
+      "practice": {
+        "task": "Dibuja un acceso a una aplicación alojada.",
+        "steps": [
+          "Separa conexión, identidad y permisos.",
+          "Indica una responsabilidad del proveedor y una del cliente.",
+          "Añade una prueba de revocación de acceso."
+        ],
+        "expected": "Un flujo que puede explicarse sin asumir confianza automática por estar en la nube."
+      },
+      "check": {
+        "question": "Un túnel seguro hacia una aplicación demuestra por sí solo…",
+        "options": [
+          {
+            "id": "a",
+            "text": "Que todos los datos son públicos"
+          },
+          {
+            "id": "b",
+            "text": "Que el usuario tiene cualquier permiso"
+          },
+          {
+            "id": "c",
+            "text": "Que existe protección del recorrido configurado"
+          }
+        ],
+        "correct": "c",
+        "explanation": "La protección de la conexión no sustituye la autorización sobre cada recurso solicitado."
+      },
+      "mistakes": [
+        {
+          "myth": "En nube el proveedor decide todos los permisos de usuarios.",
+          "correction": "La responsabilidad concreta depende del servicio y de la configuración del cliente."
+        }
+      ],
+      "recap": [
+        "Conectividad y autorización son decisiones distintas.",
+        "La ubicación no concede confianza universal.",
+        "En nube siguen existiendo responsabilidades del cliente."
+      ],
+      "glossary": [
+        {
+          "term": "Contexto de acceso",
+          "definition": "Información que influye en la decisión sobre un recurso."
+        },
+        {
+          "term": "Responsabilidad compartida",
+          "definition": "Distribución de tareas de seguridad entre proveedor y cliente."
+        }
+      ]
+    },
+    {
+      "dayId": "w20d4",
+      "title": "Operaciones e incidentes",
+      "lead": "Conecta señales, respuesta y recuperación con una sola cronología.",
+      "sections": [
+        {
+          "topic": "Registros, continuidad y respuesta",
+          "explanation": [
+            "Una operación de seguridad necesita observar eventos, decidir qué requieren investigación y organizar acciones. Los registros aportan hechos, pero la prioridad depende de activos e impacto. Cuando una señal sugiere afectación, la respuesta coordina análisis, contención y recuperación con las personas autorizadas. La continuidad mantiene funciones necesarias mientras se resuelve la situación; no debe confundirse con declarar que el incidente ya terminó.",
+            "Construye una cronología con fuente y hora, distinguiendo observación, decisión y acción. Por ejemplo, un acceso inusual se registra antes de revocar una sesión, y la aplicación se verifica después de restaurar. Una recuperación incompleta puede devolver el servicio manteniendo la causa original. También debe evaluarse qué información falta y si la visibilidad cambió durante la respuesta. Un informe breve y honesto resulta más útil que una narración segura que oculta incertidumbre."
+          ],
+          "analogy": "Atender una avería combina observar el fallo, evitar daño adicional y comprobar que la reparación no deja la misma causa activa.",
+          "keyPoints": [
+            "Registra hechos, decisiones y acciones por separado.",
+            "Coordina continuidad y respuesta.",
+            "Recuperar servicio no demuestra eliminar la causa."
+          ],
+          "visual": {
+            "type": "timeline",
+            "title": "Una respuesta documentada",
+            "items": [
+              {
+                "label": "09:10",
+                "detail": "Alerta y fuentes conservadas"
+              },
+              {
+                "label": "09:20",
+                "detail": "Sesión sospechosa revocada con autorización"
+              },
+              {
+                "label": "10:00",
+                "detail": "Servicio recuperado y probado"
+              },
+              {
+                "label": "Después",
+                "detail": "Causa, alcance y seguimiento revisados"
+              }
+            ],
+            "caption": "Las horas ilustran una secuencia ficticia, no tiempos garantizados de respuesta."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Cuenta usada fuera de contexto",
+        "scenario": "Una sesión desconocida aparece mientras el servicio debe seguir disponible.",
+        "steps": [
+          {
+            "action": "Reunir hechos",
+            "reason": "La cuenta y el intervalo permiten acotar la revisión.",
+            "result": "Registros originales preservados"
+          },
+          {
+            "action": "Contener con alcance",
+            "reason": "Una acción general podría afectar a todos.",
+            "result": "Sesión específica revocada según procedimiento"
+          },
+          {
+            "action": "Verificar recuperación",
+            "reason": "El proceso debe funcionar de forma segura.",
+            "result": "Acceso legítimo probado y seguimiento abierto"
+          }
+        ],
+        "result": "La respuesta reduce exposición sin confundir una acción de contención con el cierre completo.",
+        "visual": {
+          "type": "flow",
+          "title": "Cuenta usada fuera de contexto",
+          "items": [
+            {
+              "label": "Reunir hechos",
+              "detail": "Registros originales preservados"
+            },
+            {
+              "label": "Contener con alcance",
+              "detail": "Sesión específica revocada según procedimiento"
+            },
+            {
+              "label": "Verificar recuperación",
+              "detail": "Acceso legítimo probado y seguimiento abierto"
+            }
+          ],
+          "caption": "La respuesta reduce exposición sin confundir una acción de contención con el cierre completo."
+        }
+      },
+      "practice": {
+        "task": "Escribe una cronología de cinco eventos ficticios.",
+        "steps": [
+          "Separa hecho, decisión y acción.",
+          "Incluye responsable de contención.",
+          "Añade criterio de recuperación y una pregunta pendiente."
+        ],
+        "expected": "Una secuencia que puede revisarse sin inferir hechos ausentes."
+      },
+      "check": {
+        "question": "¿Qué falta después de restaurar un servicio?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Comprobar causa, seguridad y criterios de recuperación"
+          },
+          {
+            "id": "b",
+            "text": "Eliminar todos los registros"
+          },
+          {
+            "id": "c",
+            "text": "Afirmar que nunca volverá a fallar"
+          }
+        ],
+        "correct": "a",
+        "explanation": "La disponibilidad recuperada debe acompañarse de validación y seguimiento de la causa."
+      },
+      "mistakes": [
+        {
+          "myth": "Restaurar una copia cierra automáticamente cualquier incidente.",
+          "correction": "La causa, el alcance y los criterios de recuperación todavía deben verificarse."
+        }
+      ],
+      "recap": [
+        "Registra hechos, decisiones y acciones por separado.",
+        "Coordina continuidad y respuesta.",
+        "Recuperar servicio no demuestra eliminar la causa."
+      ],
+      "glossary": [
+        {
+          "term": "Contención",
+          "definition": "Medida para limitar alcance o daño de una situación."
+        },
+        {
+          "term": "Seguimiento",
+          "definition": "Verificación de acciones, causas y riesgos que siguen abiertos."
+        }
+      ]
+    },
+    {
+      "dayId": "w20d5",
+      "title": "Simulación CC",
+      "lead": "Resuelve escenarios nuevos explicando por qué una opción es mejor en ese contexto.",
+      "sections": [
+        {
+          "topic": "Preguntas nuevas y lectura de escenarios",
+          "explanation": [
+            "Una simulación formativa necesita preguntas originales y variadas, vinculadas a objetivos. El razonamiento comienza identificando qué pide el enunciado: primera acción, control más adecuado, evidencia o recuperación. Subraya restricciones de tiempo, autorización y alcance. Una opción técnicamente posible puede no ser la mejor si actúa antes de reunir información esencial o si excede los permisos disponibles.",
+            "Después de responder, explica por qué descartas cada alternativa. Si acertaste por reconocer una frase y no puedes justificarla, conserva el objetivo como brecha. Utiliza otro escenario con datos diferentes para comprobar transferencia. No emplees preguntas filtradas de exámenes reales ni material que prometa reproducirlos. El objetivo es aprender decisiones y detectar errores de concepto, herramienta o interpretación, no memorizar una supuesta lista secreta de respuestas."
+          ],
+          "analogy": "Resolver un caso es elegir una herramienta por el trabajo que hace, no por reconocer su nombre en un escaparate.",
+          "keyPoints": [
+            "Identifica la decisión solicitada y sus restricciones.",
+            "Justifica también los descartes.",
+            "Comprueba transferencia con escenarios nuevos."
+          ],
+          "visual": {
+            "type": "flow",
+            "title": "Lectura de una pregunta de escenario",
+            "items": [
+              {
+                "label": "Necesidad",
+                "detail": "Qué decisión solicita el caso"
+              },
+              {
+                "label": "Restricciones",
+                "detail": "Alcance, tiempo y autorización"
+              },
+              {
+                "label": "Comparación",
+                "detail": "Qué opción satisface mejor la necesidad"
+              },
+              {
+                "label": "Revisión",
+                "detail": "Por qué las otras no son adecuadas"
+              }
+            ],
+            "caption": "La explicación del razonamiento aporta más información que una letra aislada."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Alerta sin contexto suficiente",
+        "scenario": "Una pregunta pide la primera acción ante un acceso inusual sin impacto confirmado.",
+        "steps": [
+          {
+            "action": "Leer la petición",
+            "reason": "Se pregunta por el primer paso, no por la solución final.",
+            "result": "Necesidad de triaje identificada"
+          },
+          {
+            "action": "Comparar opciones",
+            "reason": "Borrar un equipo excede la evidencia.",
+            "result": "Reunir contexto y seguir procedimiento"
+          },
+          {
+            "action": "Justificar límite",
+            "reason": "La señal no confirma todavía el alcance.",
+            "result": "Acciones posteriores condicionadas a resultados"
+          }
+        ],
+        "result": "La elección se apoya en la etapa del caso y en la información disponible.",
+        "visual": {
+          "type": "flow",
+          "title": "Alerta sin contexto suficiente",
+          "items": [
+            {
+              "label": "Leer la petición",
+              "detail": "Necesidad de triaje identificada"
+            },
+            {
+              "label": "Comparar opciones",
+              "detail": "Reunir contexto y seguir procedimiento"
+            },
+            {
+              "label": "Justificar límite",
+              "detail": "Acciones posteriores condicionadas a resultados"
+            }
+          ],
+          "caption": "La elección se apoya en la etapa del caso y en la información disponible."
+        }
+      },
+      "practice": {
+        "task": "Crea cinco preguntas propias de escenarios distintos.",
+        "steps": [
+          "Indica el objetivo de cada una.",
+          "Escribe una justificación de cada opción.",
+          "Cambia un dato y explica si cambia la respuesta."
+        ],
+        "expected": "Cinco ejercicios originales que evalúan razonamiento y no repetición."
+      },
+      "check": {
+        "question": "Acertaste una pregunta sin poder explicar la respuesta. ¿Qué conviene hacer?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Dar el tema por dominado"
+          },
+          {
+            "id": "b",
+            "text": "Practicar una variante y justificar las opciones"
+          },
+          {
+            "id": "c",
+            "text": "Buscar preguntas filtradas"
+          }
+        ],
+        "correct": "b",
+        "explanation": "La explicación y una variante permiten distinguir comprensión de reconocimiento o suerte."
+      },
+      "mistakes": [
+        {
+          "myth": "Una simulación es mejor cuanto más se parece a preguntas filtradas.",
+          "correction": "Las preguntas originales y la transferencia protegen integridad y calidad del aprendizaje."
+        }
+      ],
+      "recap": [
+        "Identifica la decisión solicitada y sus restricciones.",
+        "Justifica también los descartes.",
+        "Comprueba transferencia con escenarios nuevos."
+      ],
+      "glossary": [
+        {
+          "term": "Distractor",
+          "definition": "Alternativa diseñada para revelar una confusión concreta."
+        },
+        {
+          "term": "Transferencia de escenario",
+          "definition": "Aplicación del razonamiento cuando cambian datos y restricciones."
+        }
+      ]
+    },
+    {
+      "dayId": "w20d6",
+      "title": "Refuerzo y decisión",
+      "lead": "Decide preparación a partir de competencias demostradas y condiciones verificadas.",
+      "sections": [
+        {
+          "topic": "Brechas y preparación real",
+          "explanation": [
+            "Prepararse para un examen no es únicamente obtener una media alta. Revisa cobertura del esquema elegido, autonomía en casos, comprensión de errores y consistencia entre intentos distintos. Un promedio puede ocultar un dominio débil si otros temas compensan su resultado. Identifica qué objetivos no puedes explicar o aplicar sin ayuda y prioriza esos huecos antes de reservar.",
+            "La decisión también incluye logística y recursos: idioma disponible, reglas actuales, identificación, acceso al centro o requisitos de la modalidad elegida y costo confirmado. Esta ruta considera CC opcional; puedes consolidar fundamentos sin presentar inmediatamente ese examen. Define una regla personal de preparación que combine evidencia y límites, sin convertir un porcentaje interno en garantía. Si pospones, asigna tareas concretas y fecha de revisión para que la decisión no quede indefinida."
+          ],
+          "analogy": "Un ensayo permite decidir si estás listo para actuar, pero una cifra del ensayo no sustituye comprobar cada parte importante.",
+          "keyPoints": [
+            "Combina cobertura, autonomía y consistencia.",
+            "Una media puede esconder brechas.",
+            "Verifica logística directamente con la entidad."
+          ],
+          "visual": {
+            "type": "compare",
+            "title": "Tres evidencias para decidir",
+            "items": [
+              {
+                "label": "Cobertura",
+                "detail": "Objetivos con actividad y resultado"
+              },
+              {
+                "label": "Autonomía",
+                "detail": "Casos nuevos sin pistas"
+              },
+              {
+                "label": "Condiciones",
+                "detail": "Reglas, idioma y logística comprobados"
+              }
+            ],
+            "caption": "La decisión de presentarse sigue siendo personal y no garantiza un resultado externo."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Nota alta con una brecha en accesos",
+        "scenario": "Una persona acierta muchas definiciones, pero confunde revocación de sesiones y cambio de contraseña.",
+        "steps": [
+          {
+            "action": "Desagregar resultado",
+            "reason": "La media oculta una competencia importante.",
+            "result": "Brecha de ciclo de vida detectada"
+          },
+          {
+            "action": "Asignar refuerzo",
+            "reason": "Repetir todo el curso no es necesario.",
+            "result": "Dos casos nuevos de revocación"
+          },
+          {
+            "action": "Reevaluar autonomía",
+            "reason": "La decisión requiere evidencia posterior.",
+            "result": "Justificaciones correctas sin ayuda"
+          }
+        ],
+        "result": "El refuerzo aborda la causa específica antes de decidir sobre el examen.",
+        "visual": {
+          "type": "flow",
+          "title": "Nota alta con una brecha en accesos",
+          "items": [
+            {
+              "label": "Desagregar resultado",
+              "detail": "Brecha de ciclo de vida detectada"
+            },
+            {
+              "label": "Asignar refuerzo",
+              "detail": "Dos casos nuevos de revocación"
+            },
+            {
+              "label": "Reevaluar autonomía",
+              "detail": "Justificaciones correctas sin ayuda"
+            }
+          ],
+          "caption": "El refuerzo aborda la causa específica antes de decidir sobre el examen."
+        }
+      },
+      "practice": {
+        "task": "Escribe tu criterio de preparación para esta etapa.",
+        "steps": [
+          "Incluye cobertura por objetivo.",
+          "Incluye dos demostraciones sin ayuda.",
+          "Incluye logística verificada y una regla para posponer."
+        ],
+        "expected": "Una decisión argumentada con evidencias y próximas tareas concretas."
+      },
+      "check": {
+        "question": "¿Qué limita el valor de una nota promedio alta?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Puede ocultar competencias con resultados débiles"
+          },
+          {
+            "id": "b",
+            "text": "Obliga automáticamente a reservar examen"
+          },
+          {
+            "id": "c",
+            "text": "Demuestra todos los objetivos prácticos"
+          }
+        ],
+        "correct": "a",
+        "explanation": "Es necesario revisar el resultado por competencia y la autonomía para aplicar lo aprendido."
+      },
+      "mistakes": [
+        {
+          "myth": "Posponer un examen equivale a perder todo el progreso.",
+          "correction": "Puede ser una decisión razonable si se vincula con refuerzo concreto y revisión posterior."
+        }
+      ],
+      "recap": [
+        "Combina cobertura, autonomía y consistencia.",
+        "Una media puede esconder brechas.",
+        "Verifica logística directamente con la entidad."
+      ],
+      "glossary": [
+        {
+          "term": "Criterio de preparación",
+          "definition": "Condiciones observables usadas para decidir el siguiente paso."
+        },
+        {
+          "term": "Consistencia",
+          "definition": "Desempeño comparable en tareas distintas y momentos diferentes."
+        }
+      ]
+    },
+    {
+      "dayId": "w20d7",
+      "title": "Control de etapa",
+      "lead": "Cierra fundamentos con un caso acumulativo y una decisión explícita sobre el examen opcional.",
+      "sections": [
+        {
+          "topic": "Evaluación acumulativa o examen opcional",
+          "explanation": [
+            "Un control de etapa debe integrar lo aprendido en lugar de repetir bloques aislados. Un caso de una pequeña empresa puede requerir identificar activos, permisos, segmentación, respaldos y respuesta a una alerta. La respuesta correcta necesita relacionar decisiones: retirar una cuenta puede afectar un servicio, y recuperar datos exige claves y copias utilizables. Esas dependencias muestran si comprendes el sistema completo.",
+            "Organiza la evaluación en evidencia conceptual y práctica. Explica principios con palabras propias, interpreta datos de un caso nuevo y documenta límites. Después compara el resultado con los objetivos que elegiste estudiar y decide si presentar CC, reforzar o continuar la ruta manteniendo brechas registradas. El examen externo es opcional en esta planificación; la preparación real se conserva en tus actividades y evidencias. Ninguna evaluación interna sustituye las políticas o la calificación de la entidad certificadora."
+          ],
+          "analogy": "Cerrar una etapa es revisar el conjunto de una obra y sus conexiones, no solo comprobar que cada pieza tiene una etiqueta.",
+          "keyPoints": [
+            "Integra identidad, redes, datos y respuesta.",
+            "Conserva evidencia conceptual y práctica.",
+            "Decide siguiente paso con brechas explícitas."
+          ],
+          "visual": {
+            "type": "cycle",
+            "title": "Cierre de fundamentos",
+            "items": [
+              {
+                "label": "Caso nuevo",
+                "detail": "Empresa, activos y necesidades"
+              },
+              {
+                "label": "Decisiones",
+                "detail": "Permisos, controles y recuperación"
+              },
+              {
+                "label": "Evidencia",
+                "detail": "Resultados y justificaciones"
+              },
+              {
+                "label": "Plan",
+                "detail": "Examen opcional o refuerzo dirigido"
+              }
+            ],
+            "caption": "El cierre produce un plan verificable y conserva las competencias pendientes."
+          }
+        }
+      ],
+      "workedExample": {
+        "title": "Baja de un empleado y alerta posterior",
+        "scenario": "Una cuenta deshabilitada conserva una sesión en una aplicación con documentos sensibles.",
+        "steps": [
+          {
+            "action": "Integrar identidad",
+            "reason": "La baja central no demuestra revocación completa.",
+            "result": "Sesión independiente identificada"
+          },
+          {
+            "action": "Evaluar datos y actividad",
+            "reason": "El impacto depende de accesos observados.",
+            "result": "Registros y clasificación revisados"
+          },
+          {
+            "action": "Tratar y verificar",
+            "reason": "La solución incluye cierre y prevención.",
+            "result": "Sesión revocada y procedimiento de baja corregido"
+          }
+        ],
+        "result": "El caso integra varias competencias y genera una mejora concreta del proceso.",
+        "visual": {
+          "type": "flow",
+          "title": "Baja de un empleado y alerta posterior",
+          "items": [
+            {
+              "label": "Integrar identidad",
+              "detail": "Sesión independiente identificada"
+            },
+            {
+              "label": "Evaluar datos y actividad",
+              "detail": "Registros y clasificación revisados"
+            },
+            {
+              "label": "Tratar y verificar",
+              "detail": "Sesión revocada y procedimiento de baja corregido"
+            }
+          ],
+          "caption": "El caso integra varias competencias y genera una mejora concreta del proceso."
+        }
+      },
+      "practice": {
+        "task": "Resuelve un caso acumulativo de una empresa ficticia.",
+        "steps": [
+          "Incluye una cuenta, una zona y una copia de respaldo.",
+          "Justifica tres controles y sus pruebas.",
+          "Registra brechas y decide el siguiente paso de estudio."
+        ],
+        "expected": "Un informe integrado y una decisión sustentada, no solo un porcentaje."
+      },
+      "check": {
+        "question": "¿Qué muestra mejor un cierre de etapa sólido?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Solo haber terminado un calendario"
+          },
+          {
+            "id": "b",
+            "text": "Un caso nuevo resuelto con límites y próximos pasos"
+          },
+          {
+            "id": "c",
+            "text": "Una lista de videos sin resultados"
+          }
+        ],
+        "correct": "b",
+        "explanation": "La integración y la evidencia permiten comprobar comprensión y decidir qué sigue pendiente."
+      },
+      "mistakes": [
+        {
+          "myth": "Completar veinte semanas garantiza una certificación.",
+          "correction": "El tiempo invertido no sustituye cobertura, práctica ni evaluación externa."
+        }
+      ],
+      "recap": [
+        "Integra identidad, redes, datos y respuesta.",
+        "Conserva evidencia conceptual y práctica.",
+        "Decide siguiente paso con brechas explícitas."
+      ],
+      "glossary": [
+        {
+          "term": "Evaluación acumulativa",
+          "definition": "Actividad que integra competencias de varias unidades."
+        },
+        {
+          "term": "Plan de refuerzo",
+          "definition": "Tareas concretas dirigidas a brechas identificadas."
+        }
+      ]
+    }
+  ]
+}

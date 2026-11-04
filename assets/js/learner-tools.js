@@ -1,4 +1,4 @@
-import { getDayCompletion } from './progress.js?v=1.6.0';
+import { getDayCompletion } from './progress.js?v=2.0.0';
 
 const escape = value => String(value ?? '').replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
 
